@@ -60,6 +60,14 @@ export default function Home() {
           </a>
         </div>
       </main>
+      <video
+        className="w-screen"
+        src="/Mustafa%20ve%20Kediler.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+      />
     </div>
   );
 }
