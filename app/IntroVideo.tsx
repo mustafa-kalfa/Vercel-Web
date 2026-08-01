@@ -20,8 +20,7 @@ export default function IntroVideo() {
   if (visitCount >= 3) {
     return (
       <ChromaKeyVideo
-        src="/Mustafa%20and%20Cats.mp4"
-        keyColor="green"
+        src="/Mustafa%20and%20Cats.webm"
         loopSlideOffsetPercent={5}
         className="fixed bottom-0 left-0 z-10 h-auto w-full"
       />
@@ -31,8 +30,7 @@ export default function IntroVideo() {
   if (visitCount === 2) {
     return (
       <ChromaKeyVideo
-        src="/Derince%20Sunum.mp4"
-        keyColor="red"
+        src="/Derince%20Sunum.webm"
         className="fixed bottom-0 left-0 z-10 h-[180px] w-[360px] object-contain"
       />
     );
@@ -40,8 +38,7 @@ export default function IntroVideo() {
 
   return (
     <ChromaKeyVideo
-      src="/Mustafa%20Thinking%20Green.mp4"
-      keyColor="green"
+      src="/Mustafa%20Thinking%20Green.webm"
       className="fixed bottom-0 right-0 z-10 h-[180px] w-[360px] object-contain"
     />
   );
