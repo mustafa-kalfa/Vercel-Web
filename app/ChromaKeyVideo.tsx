@@ -78,6 +78,7 @@ export default function ChromaKeyVideo({
     const { hue: targetHue, core, edge, minChroma } = KEY_PROFILE[keyColor];
 
     let rafId: number;
+    let keyingDisabled = false;
 
     function resizeCanvas() {
       const vw = video!.videoWidth;
@@ -99,42 +100,57 @@ export default function ChromaKeyVideo({
         // afterward on the alpha channel only, so the visible image
         // (color) never gets blurred
         ctx!.drawImage(video!, 0, 0, canvas!.width, canvas!.height);
-        const frame = ctx!.getImageData(0, 0, canvas!.width, canvas!.height);
-        const data = frame.data;
-        for (let i = 0; i < data.length; i += 4) {
-          const r = data[i];
-          const g = data[i + 1];
-          const b = data[i + 2];
-          const max = Math.max(r, g, b);
-          const min = Math.min(r, g, b);
-          const chroma = max - min;
-          if (chroma < minChroma) continue; // neutral shadow/highlight, leave opaque
 
-          let hue: number;
-          if (max === r) hue = 60 * (((g - b) / chroma) % 6);
-          else if (max === g) hue = 60 * ((b - r) / chroma + 2);
-          else hue = 60 * ((r - g) / chroma + 4);
-          if (hue < 0) hue += 360;
+        // some browsers (privacy/anti-fingerprinting modes) block
+        // getImageData on a canvas. If that happens we can't key out the
+        // backdrop, but the plain video frame drawn above still shows —
+        // better than a blank canvas.
+        if (!keyingDisabled) {
+          try {
+            const frame = ctx!.getImageData(0, 0, canvas!.width, canvas!.height);
+            const data = frame.data;
+            for (let i = 0; i < data.length; i += 4) {
+              const r = data[i];
+              const g = data[i + 1];
+              const b = data[i + 2];
+              const max = Math.max(r, g, b);
+              const min = Math.min(r, g, b);
+              const chroma = max - min;
+              if (chroma < minChroma) continue; // neutral shadow/highlight, leave opaque
 
-          const rawDiff = Math.abs(hue - targetHue);
-          const hueDiff = Math.min(rawDiff, 360 - rawDiff);
-          if (hueDiff > edge) continue; // not backdrop-colored
+              let hue: number;
+              if (max === r) hue = 60 * (((g - b) / chroma) % 6);
+              else if (max === g) hue = 60 * ((b - r) / chroma + 2);
+              else hue = 60 * ((r - g) / chroma + 4);
+              if (hue < 0) hue += 360;
 
-          // within the core band it's fully backdrop; between core and
-          // edge it's a boundary pixel that fades out
-          const hueMatch =
-            hueDiff <= core ? 1 : 1 - (hueDiff - core) / (edge - core);
-          const satMatch = Math.min(1, (chroma - minChroma) / 40);
-          const strength = hueMatch * satMatch;
-          data[i + 3] = Math.round(data[i + 3] * (1 - strength));
-          // desaturate toward gray to suppress backdrop-color spill on edges
-          const gray = (r + g + b) / 3;
-          data[i] = Math.round(r + (gray - r) * strength);
-          data[i + 1] = Math.round(g + (gray - g) * strength);
-          data[i + 2] = Math.round(b + (gray - b) * strength);
+              const rawDiff = Math.abs(hue - targetHue);
+              const hueDiff = Math.min(rawDiff, 360 - rawDiff);
+              if (hueDiff > edge) continue; // not backdrop-colored
+
+              // within the core band it's fully backdrop; between core and
+              // edge it's a boundary pixel that fades out
+              const hueMatch =
+                hueDiff <= core ? 1 : 1 - (hueDiff - core) / (edge - core);
+              const satMatch = Math.min(1, (chroma - minChroma) / 40);
+              const strength = hueMatch * satMatch;
+              data[i + 3] = Math.round(data[i + 3] * (1 - strength));
+              // desaturate toward gray to suppress backdrop-color spill on edges
+              const gray = (r + g + b) / 3;
+              data[i] = Math.round(r + (gray - r) * strength);
+              data[i + 1] = Math.round(g + (gray - g) * strength);
+              data[i + 2] = Math.round(b + (gray - b) * strength);
+            }
+            smoothAlpha(data, canvas!.width, canvas!.height);
+            ctx!.putImageData(frame, 0, 0);
+          } catch (err) {
+            keyingDisabled = true;
+            console.warn(
+              "ChromaKeyVideo: pixel access blocked, showing raw video without background removal",
+              err
+            );
+          }
         }
-        smoothAlpha(data, canvas!.width, canvas!.height);
-        ctx!.putImageData(frame, 0, 0);
 
         // ease across the loop point instead of hard-cutting back to
         // frame 0: fade the whole canvas out just before the video ends
