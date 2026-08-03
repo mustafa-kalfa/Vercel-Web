@@ -20,7 +20,7 @@ export default function IntroVideo() {
   if (visitCount >= 3) {
     return (
       <ChromaKeyVideo
-        src="/Mustafa%20ve%20Kediler_seffaf.webm"
+        src="/Mustafa%20and%20Cats.webm"
         loopSlideOffsetPercent={5}
         className="fixed bottom-0 left-0 z-10 h-auto w-full"
       />
