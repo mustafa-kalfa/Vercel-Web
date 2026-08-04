@@ -26,13 +26,13 @@ const VIDEOS = [
     className: "fixed bottom-[-20px] left-0 z-10 h-[270px] w-[242px] object-contain",
   },
   {
-    // Mobil: tam genislik, sol-alt (degismedi). Masaustu: sabit 320x180,
+    // Mobil: tam genislik, sol-alt (degismedi). Masaustu: sabit 400x225,
     // sag-alt, sagdan -15px tasarak. `left-auto` mobildeki left-0'i
     // masaustunde iptal ediyor, yoksa left ve right ayni anda sabit
     // genislikle celisip left kazanirdi.
     src: "/Mustafa%20ve%20Kediler_seffaf.webm",
     className:
-      "fixed bottom-0 left-0 z-10 h-auto w-full md:left-auto md:right-[-15px] md:h-[180px] md:w-[320px] md:object-contain",
+      "fixed bottom-0 left-0 z-10 h-auto w-full md:left-auto md:right-[-15px] md:h-[225px] md:w-[400px] md:object-contain",
   },
 ];
 
