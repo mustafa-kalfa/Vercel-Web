@@ -7,11 +7,7 @@ const VISIT_KEY = "introVideoVisitCount";
 
 // Ziyaret sirasina gore donen videolar: her ziyaret siradakini gosterir,
 // liste bitince bastan baslar (asagida mod alinarak).
-const VIDEOS: {
-  src: string;
-  className: string;
-  wrapperClassName?: string;
-}[] = [
+const VIDEOS = [
   {
     // Karakterin sagindaki seffaf bosluk (video karesinin %7.7'si) ve
     // object-contain'in biraktigi bosluk yuzunden goruntu kenardan iceride
@@ -35,18 +31,17 @@ const VIDEOS: {
     // genislikle celisip left kazanirdi.
     src: "/Mustafa%20ve%20Kediler_seffaf.webm",
     className:
-      "fixed bottom-[-20px] left-0 z-10 h-auto w-full md:left-auto md:right-[-15px] md:h-[225px] md:w-[400px] md:object-contain",
+      "fixed bottom-[-10px] left-0 z-10 h-auto w-full md:left-auto md:right-[-15px] md:h-[225px] md:w-[400px] md:object-contain",
   },
   {
-    // Bu klip seffaf degil, kendi arka plani var; ust ve sag kenari
-    // dalgali maskeyle sayfa zeminine karisiyor (bkz. globals.css).
-    // Iki dalga kesismek zorunda oldugu icin biri sarmalayicida, digeri
-    // videoda. `object-contain` sart: mobil kutu 270x135 (2:1) klibin
-    // 16:9 oraniyla ayni degil, contain olmadan goruntu ezilirdi.
-    src: "/Mustafa%20Rain.mp4",
-    wrapperClassName:
-      "wave-top fixed bottom-0 left-0 z-10 h-[135px] w-[270px] md:h-[180px] md:w-[320px]",
-    className: "wave-right h-full w-full max-w-none object-contain",
+    // Gokyuzu yesil cekilip seffaflastirildi, artik digerleri gibi kendi
+    // kenari yok; kenar maskesine gerek kalmadi. `object-contain` sart:
+    // mobil kutu 270x135 (2:1) klibin 16:9 oraniyla ayni degil, contain
+    // olmadan goruntu ezilirdi. `max-w-none` de sart: Tailwind temel
+    // stilleri video'ya max-width:100% verip dar ekranda kirpiyor.
+    src: "/Mustafa%20Yagmur_seffaf.webm",
+    className:
+      "fixed bottom-0 left-0 z-10 h-[135px] w-[270px] max-w-none object-contain md:h-[180px] md:w-[320px]",
   },
 ];
 
@@ -64,11 +59,5 @@ export default function IntroVideo() {
 
   const video = VIDEOS[(visitCount - 1) % VIDEOS.length];
 
-  return (
-    <ChromaKeyVideo
-      src={video.src}
-      className={video.className}
-      wrapperClassName={video.wrapperClassName}
-    />
-  );
+  return <ChromaKeyVideo src={video.src} className={video.className} />;
 }
