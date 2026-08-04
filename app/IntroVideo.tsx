@@ -10,9 +10,12 @@ const VISIT_KEY = "introVideoVisitCount";
 // (Onceden 3 ve sonrasi hep ucuncu videoda takili kaliyordu.)
 const VIDEOS = [
   {
+    // Karakterin sagindaki seffaf bosluk (video karesinin %7.7'si) ve
+    // object-contain'in biraktigi bosluk yuzunden goruntu kenardan iceride
+    // kaliyordu; negatif right ile o boslugu kapatiyoruz.
     src: "/Mustafa%20Thinking%20Green_seffaf.webm",
     className:
-      "fixed bottom-0 right-0 z-10 h-[180px] w-[360px] object-contain",
+      "fixed bottom-0 right-[-32px] z-10 h-[135px] w-[240px] object-contain md:right-[-68px] md:h-[180px] md:w-[360px]",
   },
   {
     src: "/Derince%20Sunum.webm",
