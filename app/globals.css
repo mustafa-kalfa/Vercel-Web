@@ -17,3 +17,77 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Dalgali kenar maskeleri (css-tricks.com/how-to-create-wavy-shapes-
+   patterns-in-css). Iki radial-gradient birbirini tamamlayarak yinelenen
+   bir dalga olusturuyor: ilki dolu daireler, ikincisi onlarin negatifi.
+   --wave-size dalganin buyuklugu, 1.28 katsayisi ise egriligi belirler.
+
+   Ust ve sag dalganin KESISMESI gerekiyor; tek bir mask katman listesi
+   gruplama yapamadigi icin (bkz. ChromaKeyVideo) biri sarmalayiciya
+   digeri videoya uygulaniyor, tarayici ic ice maskeleri kesistiriyor. */
+.wave-top {
+  --wave-size: 14px;
+  --wave-r: calc(var(--wave-size) * 1.28);
+  -webkit-mask:
+    radial-gradient(
+        var(--wave-r) at 50% calc(1.8 * var(--wave-size)),
+        #000 99%,
+        #0000 101%
+      )
+      calc(50% - 2 * var(--wave-size)) 0 / calc(4 * var(--wave-size)) 100%,
+    radial-gradient(
+        var(--wave-r) at 50% calc(-0.8 * var(--wave-size)),
+        #0000 99%,
+        #000 101%
+      )
+      50% var(--wave-size) / calc(4 * var(--wave-size)) 100% repeat-x;
+  mask:
+    radial-gradient(
+        var(--wave-r) at 50% calc(1.8 * var(--wave-size)),
+        #000 99%,
+        #0000 101%
+      )
+      calc(50% - 2 * var(--wave-size)) 0 / calc(4 * var(--wave-size)) 100%,
+    radial-gradient(
+        var(--wave-r) at 50% calc(-0.8 * var(--wave-size)),
+        #0000 99%,
+        #000 101%
+      )
+      50% var(--wave-size) / calc(4 * var(--wave-size)) 100% repeat-x;
+}
+
+/* Ayni formulun 90 derece dondurulmus hali: dalga sag kenarda, dikey
+   yonde yineleniyor. */
+.wave-right {
+  --wave-size: 14px;
+  --wave-r: calc(var(--wave-size) * 1.28);
+  -webkit-mask:
+    radial-gradient(
+        var(--wave-r) at calc(100% - 1.8 * var(--wave-size)) 50%,
+        #000 99%,
+        #0000 101%
+      )
+      100% calc(50% - 2 * var(--wave-size)) / 100% calc(4 * var(--wave-size)),
+    radial-gradient(
+        var(--wave-r) at calc(100% + 0.8 * var(--wave-size)) 50%,
+        #0000 99%,
+        #000 101%
+      )
+      calc(100% - var(--wave-size)) 50% / 100% calc(4 * var(--wave-size))
+      repeat-y;
+  mask:
+    radial-gradient(
+        var(--wave-r) at calc(100% - 1.8 * var(--wave-size)) 50%,
+        #000 99%,
+        #0000 101%
+      )
+      100% calc(50% - 2 * var(--wave-size)) / 100% calc(4 * var(--wave-size)),
+    radial-gradient(
+        var(--wave-r) at calc(100% + 0.8 * var(--wave-size)) 50%,
+        #0000 99%,
+        #000 101%
+      )
+      calc(100% - var(--wave-size)) 50% / 100% calc(4 * var(--wave-size))
+      repeat-y;
+}
