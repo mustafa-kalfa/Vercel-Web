@@ -23,7 +23,7 @@ const VIDEOS = [
     // yanlarda olu bosluk birakip goruntuyu saga kaydiriyor. (270x242,
     // onceki 180x161'in %50 buyutulmus hali.)
     src: "/Derince%20Sunum.webm",
-    className: "fixed bottom-0 left-0 z-10 h-[270px] w-[242px] object-contain",
+    className: "fixed bottom-[-8px] left-0 z-10 h-[270px] w-[242px] object-contain",
   },
   {
     src: "/Mustafa%20ve%20Kediler_seffaf.webm",
