@@ -19,10 +19,11 @@ const VIDEOS = [
   },
   {
     // Klip soldan %10, sagdan %20 kirpildigi icin 644x720 oldu; kutu
-    // genisligi bu orana gore (180 * 644/720) ayarli, yoksa object-contain
-    // yanlarda olu bosluk birakip goruntuyu saga kaydiriyor.
+    // genisligi bu orana gore (270 * 644/720) ayarli, yoksa object-contain
+    // yanlarda olu bosluk birakip goruntuyu saga kaydiriyor. (270x242,
+    // onceki 180x161'in %50 buyutulmus hali.)
     src: "/Derince%20Sunum.webm",
-    className: "fixed bottom-0 left-0 z-10 h-[180px] w-[161px] object-contain",
+    className: "fixed bottom-0 left-0 z-10 h-[270px] w-[242px] object-contain",
   },
   {
     src: "/Mustafa%20ve%20Kediler_seffaf.webm",
