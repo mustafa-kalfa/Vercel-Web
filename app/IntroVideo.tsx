@@ -14,7 +14,7 @@ const VIDEOS = [
     // kaliyordu; negatif right ile o boslugu kapatiyoruz.
     src: "/Mustafa%20Thinking%20Green_seffaf.webm",
     className:
-      "fixed bottom-0 right-[-32px] z-10 h-[135px] w-[240px] object-contain md:right-[-68px] md:h-[180px] md:w-[360px]",
+      "fixed bottom-0 right-[-32px] -z-10 h-[135px] w-[240px] object-contain md:right-[-68px] md:h-[180px] md:w-[360px]",
   },
   {
     // Klip soldan %10, sagdan %20 kirpildigi icin 644x720 oldu; kutu
@@ -22,7 +22,8 @@ const VIDEOS = [
     // yanlarda olu bosluk birakip goruntuyu saga kaydiriyor. (270x242,
     // onceki 180x161'in %50 buyutulmus hali.)
     src: "/Derince%20Sunum.webm",
-    className: "fixed bottom-[-20px] left-0 z-10 h-[270px] w-[242px] object-contain",
+    className:
+      "fixed bottom-[-20px] left-0 -z-10 h-[270px] w-[242px] object-contain",
   },
   {
     // Mobil: tam genislik, sol-alt (degismedi). Masaustu: sabit 400x225,
@@ -31,17 +32,20 @@ const VIDEOS = [
     // genislikle celisip left kazanirdi.
     src: "/Mustafa%20ve%20Kediler_seffaf.webm",
     className:
-      "fixed bottom-[-10px] left-0 z-10 h-auto w-full md:left-auto md:right-[-15px] md:h-[225px] md:w-[400px] md:object-contain",
+      "fixed bottom-[-10px] left-0 -z-10 h-auto w-full md:left-auto md:right-[-15px] md:h-[225px] md:w-[400px] md:object-contain",
   },
   {
     // Gokyuzu yesil cekilip seffaflastirildi, artik digerleri gibi kendi
     // kenari yok; kenar maskesine gerek kalmadi. `object-contain` sart:
     // mobil kutu 270x135 (2:1) klibin 16:9 oraniyla ayni degil, contain
-    // olmadan goruntu ezilirdi. `max-w-none` de sart: Tailwind temel
-    // stilleri video'ya max-width:100% verip dar ekranda kirpiyor.
+    // olmadan goruntu ezilirdi. Mobil kutu 270x152: klibin 16:9 orani
+    // (270/1.778) — onceki 270x135 (2:1) object-contain'i tetikleyip
+    // yanlarda 15'er px olu bosluk birakiyordu. `max-w-none` sart:
+    // Tailwind temel stilleri video'ya max-width:100% verip dar ekranda
+    // kirpiyor.
     src: "/Mustafa%20Yagmur_seffaf.webm",
     className:
-      "fixed bottom-0 left-0 z-10 h-[135px] w-[270px] max-w-none object-contain md:h-[180px] md:w-[320px]",
+      "fixed bottom-0 left-0 -z-10 h-[152px] w-[270px] max-w-none object-contain md:h-[180px] md:w-[320px]",
   },
 ];
 
