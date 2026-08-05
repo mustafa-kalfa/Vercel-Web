@@ -5,13 +5,16 @@ export default function Home() {
   return (
     <div className="flex flex-col flex-1 items-center justify-center font-sans">
       <IntroVideo />
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-center gap-8 py-20 px-16 sm:items-start">
+      {/* Icerik dikeyde ortalandigi icin alt dolgunun ancak yarisi
+          gorunur bosluga donusuyor: pb, pt'den 112px fazla verilerek
+          About butonunun altinda ~38px aciklik birakiliyor. */}
+      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-center gap-8 px-16 pt-20 pb-48 sm:items-start">
         <Image
           className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
+          src="/HD-logo.png"
+          alt="Hadis ve Dijital"
+          width={44}
+          height={33}
           priority
         />
         <div className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-left">
@@ -27,14 +30,9 @@ export default function Home() {
           </p>
         </div>
         <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <span className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background md:w-[158px]">
             Let&apos;s Begin
-          </a>
+          </span>
           <a
             className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
             href="https://x.com/mustafakalfa__"

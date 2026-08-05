@@ -38,14 +38,13 @@ const VIDEOS = [
     // Gokyuzu yesil cekilip seffaflastirildi, artik digerleri gibi kendi
     // kenari yok; kenar maskesine gerek kalmadi. `object-contain` sart:
     // mobil kutu 270x135 (2:1) klibin 16:9 oraniyla ayni degil, contain
-    // olmadan goruntu ezilirdi. Mobil kutu 270x152: klibin 16:9 orani
-    // (270/1.778) — onceki 270x135 (2:1) object-contain'i tetikleyip
-    // yanlarda 15'er px olu bosluk birakiyordu. `max-w-none` sart:
-    // Tailwind temel stilleri video'ya max-width:100% verip dar ekranda
-    // kirpiyor.
+    // Mobil: iki yana yasli (w-full + h-auto ile oran kendiliginden
+    // korunur). Masaustu: 320x180, klibin 16:9 orani — sabit yukseklikle
+    // birlikte oranin disina cikan bir kutu verilirse object-contain
+    // yanlarda olu bosluk birakiyor.
     src: "/Mustafa%20Yagmur_seffaf.webm",
     className:
-      "fixed bottom-0 left-0 -z-10 h-[152px] w-[270px] max-w-none object-contain md:h-[180px] md:w-[320px]",
+      "fixed bottom-0 left-0 -z-10 h-auto w-full object-contain md:h-[180px] md:w-[320px]",
   },
 ];
 
