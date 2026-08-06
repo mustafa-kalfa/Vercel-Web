@@ -63,8 +63,16 @@ Bu hatta pahaliya mal olmus dersler:
   ve `trc`'yi her zaman gecersiz kilmiyor).
 - **Esik degeri (similarity) genis tutulmamali.** Genis esik, konunun
   arka plana yakin renkteki kisimlarini yari saydam yapip karakteri
-  "hayalet" gosteriyor. Yesil/mavi icin ~0.16, kirmizi icin ~0.06
-  (kirmizida ten rengi arka plana yakin oldugu icin cok daha dar).
+  "hayalet" gosteriyor. Yesil/mavi icin 0.10 + blend 0.05, kirmizi icin
+  ~0.06 (kirmizida ten rengi arka plana yakin oldugu icin dar). Eski 0.16
+  + 0.08 fazla genisti: adacayi yesili bir tisort yesil perdeye 0.176
+  uzaklikta kaliyor, yani bandin icine dusup neredeyse tamamen siliniyordu.
+- **despill varsayilan olarak KAPALI (`$DespillMix = 0`).** Perdeden konuya
+  vuran renk yansimasini temizlemek icin var ama konunun KENDI rengini de
+  soldurur: `mix=0.5` ile adacayi yesili tisort gri-kahveye donuyordu,
+  `mix=0.15` bile yesil kanali gorunur olcude kirpiyor. Bu klipler cizim
+  oldugu ve gercek bir isik yansimasi tasimadigi icin despill'e ihtiyac
+  yok; kenarlarda yesil halka gorursen kucuk bir degerle ac.
 - Kaynak mp4'leri silme; kirpma ya da yeniden anahtarlama gerektiginde
   tek dayanak onlar.
 

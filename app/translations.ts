@@ -27,7 +27,8 @@ type Translation = {
   about: string;
   themeToggle: string;
   languageToggle: string;
-  greeting: string;
+  greetingLead: string;
+  greetingBody: string;
 };
 
 export const TRANSLATIONS: Record<Language, Translation> = {
@@ -44,8 +45,9 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     about: "Mustafâ Hakkında",
     themeToggle: "Karanlık modu aç/kapat",
     languageToggle: "Dili değiştir",
-    greeting:
-      "Selam, ben Mustafâ. İlahiyatçı ve yazılımcıyım. Ama daha çok ilahiyatçı. Akademik koşuşturmacadan sıkıldığım için bu sayfayı kurdum. Buraya hadis ve dijitali birleştirmeyi denediğim çalışmaları yükleyeceğim. Ne kadar malzeme çıkar ve ne kadar devam ettirebilirim bilmiyorum. Şimdilik buradayım :D",
+    greetingLead: "Selam, ben Mustafâ.",
+    greetingBody:
+      "İlahiyatçı ve yazılımcıyım. Ama daha çok ilahiyatçı. Akademik koşuşturmacadan sıkıldığım için bu sayfayı kurdum. Buraya hadis ve dijitali birleştirmeyi denediğim çalışmaları yükleyeceğim. Ne kadar malzeme çıkar ve ne kadar devam ettirebilirim bilmiyorum. Şimdilik buradayım :D",
   },
   ar: {
     brandAlt: "الحديث والديجيتالية",
@@ -60,8 +62,9 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     about: "عن مصطفى",
     themeToggle: "تبديل الوضع الليلي",
     languageToggle: "تغيير اللغة",
-    greeting:
-      "مرحبًا، أنا مصطفى. باحث شرعي ومبرمج، لكنني باحث شرعي أكثر. أنشأت هذه الصفحة لأنني مللت من زحمة العمل الأكاديمي. سأرفع هنا الأعمال التي أحاول فيها الجمع بين الحديث والديجيتالية. لا أدري كم ستخرج من مادة ولا إلى متى أستطيع الاستمرار. أنا هنا في الوقت الحالي :ᗡ",
+    greetingLead: "مرحبًا، أنا مصطفى.",
+    greetingBody:
+      "باحث شرعي ومبرمج، لكنني باحث شرعي أكثر. أنشأت هذه الصفحة لأنني مللت من زحمة العمل الأكاديمي. سأرفع هنا الأعمال التي أحاول فيها الجمع بين الحديث والديجيتالية. لا أدري كم ستخرج من مادة ولا إلى متى أستطيع الاستمرار. أنا هنا في الوقت الحالي :ᗡ",
   },
   en: {
     brandAlt: "Hadith and Digital",
@@ -77,7 +80,8 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     about: "About Mustafâ",
     themeToggle: "Toggle dark mode",
     languageToggle: "Change language",
-    greeting:
-      "Hi, I'm Mustafâ. I'm a theologian and a developer. But more of a theologian. I set this page up because I got tired of the academic rush. I'll be posting the work where I try to combine hadith and digital here. I don't know how much will come of it, or how long I can keep it going. For now, I'm here :D",
+    greetingLead: "Hi, I'm Mustafâ.",
+    greetingBody:
+      "I'm a theologian and a developer. But more of a theologian. I set this page up because I got tired of the academic rush. I'll be posting the work where I try to combine hadith and digital here. I don't know how much will come of it, or how long I can keep it going. For now, I'm here :D",
   },
 };

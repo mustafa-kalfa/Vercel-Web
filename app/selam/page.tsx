@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import ChromaKeyVideo from "../ChromaKeyVideo";
 import { useLanguage } from "../LanguageContext";
 
@@ -8,6 +9,16 @@ export default function Selam() {
 
   return (
     <main className="relative flex flex-1 flex-col">
+      {/* Ana sayfaya donus. Dil ve tema dugmeleri gibi sabit duruyor ki
+          sayfa kaydirildiginda da erisilebilsin; iki dugmenin arasinda
+          ortada kaliyor. */}
+      <Link
+        href="/"
+        aria-label={t.brandAlt}
+        className="fixed left-1/2 top-4 z-20 flex h-9 -translate-x-1/2 items-center transition-opacity hover:opacity-70"
+      >
+        <span className="brand-logo" aria-hidden="true" />
+      </Link>
       {/* Balon ustten sabit uzaklikta: alta yaslasaydi yuksekligi metnin
           uzunluguyla degistigi icin ust kenari her dilde baska yerden
           baslardi. `ml-auto` mantiksal degil fiziksel: Arapca'da (rtl) da
@@ -18,7 +29,9 @@ export default function Selam() {
             kenarligi da cizgiyi surduruyor. */}
         <div className="relative ml-auto max-w-md rounded-3xl border border-black/[.08] bg-background px-6 py-5 dark:border-white/[.145]">
           <p className="text-base leading-7 text-zinc-700 sm:text-lg sm:leading-8 dark:text-cream-dim">
-            {t.greeting}
+            {t.greetingLead}
+            <br />
+            {t.greetingBody}
           </p>
           <span
             aria-hidden="true"
