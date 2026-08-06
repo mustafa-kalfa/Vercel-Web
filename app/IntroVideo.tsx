@@ -26,15 +26,16 @@ const VIDEOS = [
       "fixed bottom-[-20px] left-0 z-50 h-[270px] w-[242px] object-contain",
   },
   {
-    // Mobil: tam genislik, sol-alt. Masaustu: sabit 360x225, sag-alt,
-    // sagdan -15px tasarak. `left-auto` mobildeki left-0'i masaustunde
-    // iptal ediyor, yoksa left ve right ayni anda sabit genislikle
-    // celisip left kazanirdi. Kutu 360x225, klip 1152x720 (1.6:1)
-    // oldugu icin: oran tutmazsa object-contain yanlarda olu bosluk
-    // birakip karakteri kenardan iceri kaydiriyor.
-    src: "/Mustafa%20ve%20Kediler_seffaf.mp4",
+    // Mobil: tam genislik, sol-alt. Masaustu: sabit 355x225, SOL-alt,
+    // soldan -15px tasarak. Onceki klipte karakter karenin saginda
+    // durdugu icin kutu saga yaslanmisti; bu klipte karakter solda,
+    // dolayisiyla saga yaslamak onu ekranin ortasina dogru itiyordu.
+    // Kutu 355x225, klip 1136x720 (1.578:1) oldugu icin: oran tutmazsa
+    // object-contain yanlarda olu bosluk birakip karakteri kenardan
+    // iceri kaydiriyor.
+    src: "/Mustafa%20Kediler%20Dogru_seffaf.mp4",
     className:
-      "fixed bottom-[-10px] left-0 z-50 h-auto w-full md:left-auto md:right-[-15px] md:h-[225px] md:w-[360px] md:object-contain",
+      "fixed bottom-[-10px] left-0 z-50 h-auto w-full md:left-[-15px] md:h-[225px] md:w-[355px] md:object-contain",
   },
   {
     // Gokyuzu yesil cekilip seffaflastirildi, artik digerleri gibi kendi
