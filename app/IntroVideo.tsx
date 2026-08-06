@@ -12,7 +12,7 @@ const VIDEOS = [
     // Karakterin sagindaki seffaf bosluk (video karesinin %7.7'si) ve
     // object-contain'in biraktigi bosluk yuzunden goruntu kenardan iceride
     // kaliyordu; negatif right ile o boslugu kapatiyoruz.
-    src: "/Mustafa%20Thinking%20Green_seffaf.webm",
+    src: "/Mustafa%20Thinking%20Green_seffaf.mp4",
     className:
       "fixed bottom-0 right-[-32px] z-50 h-[135px] w-[240px] object-contain md:right-[-68px] md:h-[180px] md:w-[360px]",
   },
@@ -21,7 +21,7 @@ const VIDEOS = [
     // genisligi bu orana gore (270 * 644/720) ayarli, yoksa object-contain
     // yanlarda olu bosluk birakip goruntuyu saga kaydiriyor. (270x242,
     // onceki 180x161'in %50 buyutulmus hali.)
-    src: "/Derince%20Sunum.webm",
+    src: "/Derince%20Sunum.mp4",
     className:
       "fixed bottom-[-20px] left-0 z-50 h-[270px] w-[242px] object-contain",
   },
@@ -30,7 +30,7 @@ const VIDEOS = [
     // sag-alt, sagdan -15px tasarak. `left-auto` mobildeki left-0'i
     // masaustunde iptal ediyor, yoksa left ve right ayni anda sabit
     // genislikle celisip left kazanirdi.
-    src: "/Mustafa%20ve%20Kediler_seffaf.webm",
+    src: "/Mustafa%20ve%20Kediler_seffaf.mp4",
     className:
       "fixed bottom-[-10px] left-0 z-50 h-auto w-full md:left-auto md:right-[-15px] md:h-[225px] md:w-[400px] md:object-contain",
   },
@@ -42,7 +42,7 @@ const VIDEOS = [
     // korunur). Masaustu: 320x180, klibin 16:9 orani — sabit yukseklikle
     // birlikte oranin disina cikan bir kutu verilirse object-contain
     // yanlarda olu bosluk birakiyor.
-    src: "/Mustafa%20Yagmur_seffaf.webm",
+    src: "/Mustafa%20Yagmur_seffaf.mp4",
     className:
       "fixed bottom-0 left-0 z-50 h-auto w-full object-contain md:h-[180px] md:w-[320px]",
   },

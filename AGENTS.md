@@ -27,11 +27,29 @@ Test ederken: **dev modunda sayac her yuklemede 2 artiyor**, cunku React
 StrictMode efekti iki kez calistiriyor. Canlida ziyaret basina 1 artar.
 Belirli bir videoyu gormek icin sayaci elle ayarlayip yenile.
 
-## Yesil/kirmizi perde -> seffaf webm
+## Yesil/kirmizi perde -> seffaf mp4 (paketlenmis alfa)
 
 `Çalışma Alanı/Yesil-Perde-Kaldir.bat` uzerine video surukleyince
 `_yesil-perde.ps1` calisiyor: arka plan rengini otomatik algilayip
-siliyor, VP9 + alfa webm uretiyor. Ayarlar dosyanin basinda.
+siliyor ve **paketlenmis alfa** mp4 uretiyor. Ayarlar dosyanin basinda.
+
+**Neden webm degil:** Safari (iPhone ve Mac) WebM/VP9'un alfa kanalini
+desteklemiyor; seffaf webm orada opak goruntuleniyor. Alfa kanalli HEVC
+Safari'nin destekledigi tek alternatif ama onu yalnizca macOS uretebiliyor
+(Windows'taki x265 derlemesi `does not support alpha layer encoding`
+diyor). Bu yuzden alfa, videonun **ikinci bir yarisina** tasiniyor:
+
+- Ust yari: renk, **alfa ile onceden carpilmis** (premultiplied).
+- Alt yari: ayni karenin siyah-beyaz maskesi.
+- Tek dosya, duz H.264 -> her tarayicida oynuyor.
+- `app/ChromaKeyVideo.tsx` iki yariyi WebGL ile birlestirip seffafligi
+  geri uretiyor; canvas zaten onceden carpilmis alfa bekledigi icin
+  shader ciktisi dogrudan uyumlu.
+
+`premultiply` atlanirsa seffaf alanda kalan yesil perde artigi H.264'un
+renk altorneklemesinde kenarlara tasiyor ve karakterin cevresinde yesil
+halka olusuyor. Eski gercek-alfa webm'ler `Çalışma Alanı/eski-webm-arsiv/`
+altinda duruyor; site artik onlari kullanmiyor.
 
 Bu hatta pahaliya mal olmus dersler:
 
