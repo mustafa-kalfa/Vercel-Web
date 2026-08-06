@@ -12,10 +12,10 @@ export default function Home() {
   return (
     <div className="flex flex-col flex-1 items-center justify-center font-sans">
       <IntroVideo />
-      {/* Icerik dikeyde ortalandigi icin alt dolgunun ancak yarisi
-          gorunur bosluga donusuyor: pb, pt'den 112px fazla verilerek
-          About butonunun altinda ~38px aciklik birakiliyor. */}
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-center gap-8 px-16 pt-20 pb-48 sm:items-start">
+      {/* Icerik dikeyde ORTALANMIYOR, ustten sabit uzaklikta basliyor:
+          ortalandiginda blogun toplam yuksekligi metnin uzunluguna bagli
+          oldugu icin logo her dilde baska yerden basliyordu. */}
+      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-start gap-8 px-16 pt-28 pb-24 sm:items-start sm:pt-36">
         <span className="brand-logo" role="img" aria-label={t.brandAlt} />
         <div className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-start">
           <h1 className="site-title max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-foreground">

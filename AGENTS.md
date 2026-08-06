@@ -77,9 +77,11 @@ Bu hatta pahaliya mal olmus dersler:
   bosluk birakir. Kutu olcusunu klibin oranina gore sec.
 - Negatif arbitrary deger `-right-[32px]` seklinde yazilinca bu Tailwind
   surumunde **hic CSS uretilmiyor**; dogrusu `right-[-32px]`.
-- `main` dikeyde `justify-center` oldugu icin alt dolgunun ancak yarisi
-  gorunur bosluga donusuyor. Alt tarafta X px aciklik isteniyorsa dolguyu
-  2X artir.
+- **Icerigi dikeyde ortalama.** Ana sayfa ile `/selam` ustten sabit
+  dolguyla basliyor (`justify-start` / `pt-*`), cunku ortalanan ya da alta
+  yaslanan bir blogun ust kenari metnin uzunluguna baglidir: dil TR/AR/EN
+  arasinda degisince logo ve balon yer degistiriyordu. Ustten sabitlemek
+  bunu tamamen kaldiriyor.
 - Dev sunucusunun Tailwind ciktisi bazen bayatliyor: yeni bir sinif
   eklendigi halde CSS'te gorunmuyor. `rm -rf .next` + yeniden baslat.
 
