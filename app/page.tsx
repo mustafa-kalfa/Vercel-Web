@@ -40,11 +40,14 @@ export default function Home() {
           </p>
         </div>
         <div className="site-actions flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <span className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background md:w-[158px]">
+          {/* Masaustunde genislik sabit degil, en az 158px: "Mustafâ
+              Hakkinda" 158px'e sigmayip iki satira dusuyordu. Tasan
+              durumda da yazi ortali kalsin diye text-center. */}
+          <span className="flex h-12 w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-foreground px-5 text-center text-background md:w-auto md:min-w-[158px]">
             {t.begin}
           </span>
           <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
+            className="flex h-12 w-full items-center justify-center whitespace-nowrap rounded-full border border-solid border-black/[.08] px-5 text-center transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-auto md:min-w-[158px]"
             href="https://x.com/mustafakalfa__"
             target="_blank"
             rel="noopener noreferrer"

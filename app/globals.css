@@ -28,6 +28,14 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Tailwind v4 preflight'i <button>'a `cursor: default` veriyor (tarayici
+   varsayilanini takip ediyor). Sitede tiklanabilir her sey el isareti
+   gostersin. <a href> zaten tarayicidan pointer aliyor. */
+button:not(:disabled),
+[role="button"]:not(:disabled) {
+  cursor: pointer;
+}
+
 html[lang="ar"],
 html[lang="ar"] * {
   font-family: var(--font-naskh), serif;
