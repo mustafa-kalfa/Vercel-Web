@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useTheme } from "./ThemeContext";
 import { useLanguage } from "./LanguageContext";
 
@@ -62,22 +63,52 @@ function SunIcon() {
   );
 }
 
+function iconFor(theme: string) {
+  return theme === "dark" ? <SunIcon /> : <CrescentIcon />;
+}
+
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
   const { t } = useLanguage();
+  // Cikan ikon tiklama aninda yakalaniyor; effect ile izlemeye gerek yok.
+  const [outgoing, setOutgoing] = useState<string | null>(null);
 
   const isDark = theme === "dark";
 
   return (
     <button
       type="button"
-      onClick={toggleTheme}
+      onClick={() => {
+        setOutgoing(theme);
+        toggleTheme();
+        // Temizlik zamanlayiciyla: `animationend`'e baglanirsak
+        // prefers-reduced-motion acikken olay hic gelmiyor ve cikan
+        // ikon DOM'da asili kaliyor.
+        window.setTimeout(() => setOutgoing(null), 400);
+      }}
       className="fixed left-4 top-4 z-20 flex h-9 w-9 items-center justify-center rounded-full border border-black/[.08] bg-background text-foreground transition-colors hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
       aria-label={t.themeToggle}
       aria-pressed={isDark}
       title={t.themeToggle}
     >
-      {isDark ? <SunIcon /> : <CrescentIcon />}
+      <span className="relative block h-[19px] w-[19px] overflow-hidden">
+        {outgoing !== null && outgoing !== theme && (
+          <span
+            key={outgoing}
+            className="swap-out absolute inset-0 flex items-center justify-center"
+          >
+            {iconFor(outgoing)}
+          </span>
+        )}
+        <span
+          key={theme}
+          className={`absolute inset-0 flex items-center justify-center ${
+            outgoing !== null && outgoing !== theme ? "swap-in" : ""
+          }`}
+        >
+          {iconFor(theme)}
+        </span>
+      </span>
     </button>
   );
 }

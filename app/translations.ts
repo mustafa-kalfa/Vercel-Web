@@ -26,6 +26,7 @@ type Translation = {
   begin: string;
   about: string;
   themeToggle: string;
+  languageToggle: string;
 };
 
 export const TRANSLATIONS: Record<Language, Translation> = {
@@ -41,6 +42,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     begin: "Başlayalım",
     about: "Mustafâ Hakkında",
     themeToggle: "Karanlık modu aç/kapat",
+    languageToggle: "Dili değiştir",
   },
   ar: {
     brandAlt: "الحديث والديجيتالية",
@@ -54,6 +56,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     begin: "لنبدأ",
     about: "عن مصطفى",
     themeToggle: "تبديل الوضع الليلي",
+    languageToggle: "تغيير اللغة",
   },
   en: {
     brandAlt: "Hadith and Digital",
@@ -68,5 +71,6 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     begin: "Let's Begin",
     about: "About Mustafâ",
     themeToggle: "Toggle dark mode",
+    languageToggle: "Change language",
   },
 };

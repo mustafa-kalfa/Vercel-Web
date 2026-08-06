@@ -18,8 +18,10 @@ Repo koku `my-app/`. Video uretim scriptleri repo'nun **disinda**,
 
 `app/IntroVideo.tsx` her ziyarette sirayla bir video gosteriyor. Sayac
 `localStorage`'da (`introVideoVisitCount`), liste bitince basa donuyor
-(`(visitCount - 1) % VIDEOS.length`). Videolar `-z-10` ile icerigin
-arkasinda duruyor.
+(`(visitCount - 1) % VIDEOS.length`). Videolar `z-50` ile icerigin
+**onunde** duruyor; bu yuzden `ChromaKeyVideo` hepsine
+`pointer-events-none` veriyor, yoksa alta denk gelen baglantilar
+tiklanamiyor.
 
 Test ederken: **dev modunda sayac her yuklemede 2 artiyor**, cunku React
 StrictMode efekti iki kez calistiriyor. Canlida ziyaret basina 1 artar.

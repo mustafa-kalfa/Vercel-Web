@@ -36,6 +36,50 @@ button:not(:disabled),
   cursor: pointer;
 }
 
+/* Tema ve dil dugmelerinde deger degisimi: eski icerik yukari kayip
+   cikiyor, yenisi asagidan geliyor. Ikisi de overflow-hidden bir kutu
+   icinde ust uste duruyor; giren oge animasyon bitince cikani temizliyor. */
+@keyframes swap-in {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes swap-out {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.swap-in {
+  animation: swap-in 220ms ease-out;
+}
+
+.swap-out {
+  animation: swap-out 220ms ease-in forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .swap-in,
+  .swap-out {
+    animation: none;
+  }
+
+  .swap-out {
+    display: none;
+  }
+}
+
 html[lang="ar"],
 html[lang="ar"] * {
   font-family: var(--font-naskh), serif;

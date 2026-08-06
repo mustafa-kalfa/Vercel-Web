@@ -8,6 +8,9 @@ export default function ChromaKeyVideo({
   src: string;
   className?: string;
 }) {
+  // Klipler icerigin ustunde duruyor (z-50); dekoratif olduklari icin
+  // tiklamayi gecirmeleri sart, yoksa altlarina denk gelen baglantilar
+  // tiklanamaz hale geliyor.
   return (
     <video
       src={src}
@@ -15,7 +18,7 @@ export default function ChromaKeyVideo({
       muted
       loop
       playsInline
-      className={className}
+      className={`pointer-events-none ${className ?? ""}`}
     />
   );
 }
