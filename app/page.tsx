@@ -16,13 +16,13 @@ export default function Home() {
           ortalandiginda blogun toplam yuksekligi metnin uzunluguna bagli
           oldugu icin logo her dilde baska yerden basliyordu.
 
-          Alttaki dolgu dar ekranda 70vh: giris klipleri sayfanin onunde
+          Alttaki dolgu dar ekranda 35vh: giris klipleri sayfanin onunde
           (z-50) durdugu icin en uzunu "Mustafâ Hakkında" butonunu tam
           siniginda kesiyordu ve kaydiracak yer olmadigi icin buton
           acilamiyordu. Bu dolgu sayfayi kaydirilabilir yapip butonu
           klibin onunden yukari cikariyor. Genis ekranda klipler sag alt
           kosede kalip icerige degmedigi icin normal dolgu yetiyor. */}
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-start gap-8 px-16 pt-28 pb-[70vh] sm:items-start sm:pt-36 sm:pb-24">
+      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-start gap-8 px-16 pt-28 pb-[35vh] sm:items-start sm:pt-36 sm:pb-24">
         <span className="brand-logo" role="img" aria-label={t.brandAlt} />
         <div className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-start">
           <h1 className="site-title max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-foreground">
