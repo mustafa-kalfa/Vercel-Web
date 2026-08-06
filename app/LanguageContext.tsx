@@ -3,6 +3,7 @@
 import {
   createContext,
   useContext,
+  useState,
   useSyncExternalStore,
   type ReactNode,
 } from "react";
@@ -17,6 +18,7 @@ export const LANGUAGE_KEY = "language";
 
 type LanguageContextValue = {
   language: Language;
+  outgoingLanguage: Language | null;
   t: (typeof TRANSLATIONS)[Language];
   cycleLanguage: () => void;
 };
@@ -50,19 +52,35 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     getSnapshot,
     getServerSnapshot,
   );
+  // Cikan dil burada tutuluyor ki yalnizca dugme degil, dile gore
+  // degisen her etiket (ornegin "Mustafâ Hakkında") ayni kaymayi
+  // oynatabilsin.
+  const [outgoingLanguage, setOutgoingLanguage] = useState<Language | null>(
+    null,
+  );
 
   const cycleLanguage = () => {
-    const nextIndex = (LANGUAGES.indexOf(getSnapshot()) + 1) % LANGUAGES.length;
+    const current = getSnapshot();
+    const nextIndex = (LANGUAGES.indexOf(current) + 1) % LANGUAGES.length;
     const next = LANGUAGES[nextIndex];
+    setOutgoingLanguage(current);
     document.documentElement.lang = next;
     document.documentElement.dir = LANGUAGE_DIR[next];
     localStorage.setItem(LANGUAGE_KEY, next);
     listeners.forEach((listener) => listener());
+    // Temizlik zamanlayiciyla: `animationend`'e baglanirsak animasyonun
+    // hic calismadigi durumlarda cikan kopya DOM'da asili kaliyor.
+    window.setTimeout(() => setOutgoingLanguage(null), 400);
   };
 
   return (
     <LanguageContext.Provider
-      value={{ language, t: TRANSLATIONS[language], cycleLanguage }}
+      value={{
+        language,
+        outgoingLanguage,
+        t: TRANSLATIONS[language],
+        cycleLanguage,
+      }}
     >
       {children}
     </LanguageContext.Provider>

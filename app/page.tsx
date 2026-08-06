@@ -1,11 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import IntroVideo from "./IntroVideo";
 import { useLanguage } from "./LanguageContext";
+import SwapContent from "./SwapContent";
+import { TRANSLATIONS, type Language } from "./translations";
 
 export default function Home() {
-  const { t } = useLanguage();
+  const { t, language, outgoingLanguage } = useLanguage();
 
   return (
     <div className="flex flex-col flex-1 items-center justify-center font-sans">
@@ -14,22 +15,15 @@ export default function Home() {
           gorunur bosluga donusuyor: pb, pt'den 112px fazla verilerek
           About butonunun altinda ~38px aciklik birakiliyor. */}
       <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-center gap-8 px-16 pt-20 pb-48 sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/HD-logo.png"
-          alt={t.brandAlt}
-          width={44}
-          height={33}
-          priority
-        />
+        <span className="brand-logo" role="img" aria-label={t.brandAlt} />
         <div className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-start">
-          <h1 className="site-title max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
+          <h1 className="site-title max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-foreground">
             {t.title}
           </h1>
-          <p className="site-welcome text-base font-medium text-zinc-700 dark:text-zinc-300">
+          <p className="site-welcome text-base font-medium text-zinc-700 dark:text-cream-dim">
             {t.welcome}
           </p>
-          <p className="site-description max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
+          <p className="site-description max-w-md text-lg leading-8 text-zinc-600 dark:text-cream-dimmer">
             {t.descriptionQuestion}
             <br />
             {t.descriptionRephrase}
@@ -52,7 +46,11 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            {t.about}
+            <SwapContent
+              current={language}
+              outgoing={outgoingLanguage}
+              render={(key) => TRANSLATIONS[key as Language].about}
+            />
           </a>
         </div>
       </main>

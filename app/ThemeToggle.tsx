@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useTheme } from "./ThemeContext";
 import { useLanguage } from "./LanguageContext";
+import SwapContent from "./SwapContent";
 
 /* Tombul hilal + yildiz: acik moddayken gorunur, "karanliga gec" demek.
    Hilal, buyuk dairenin icinden kaydirilmis ikinci dairenin maske ile
@@ -91,24 +92,12 @@ export default function ThemeToggle() {
       aria-pressed={isDark}
       title={t.themeToggle}
     >
-      <span className="relative block h-[19px] w-[19px] overflow-hidden">
-        {outgoing !== null && outgoing !== theme && (
-          <span
-            key={outgoing}
-            className="swap-out absolute inset-0 flex items-center justify-center"
-          >
-            {iconFor(outgoing)}
-          </span>
-        )}
-        <span
-          key={theme}
-          className={`absolute inset-0 flex items-center justify-center ${
-            outgoing !== null && outgoing !== theme ? "swap-in" : ""
-          }`}
-        >
-          {iconFor(theme)}
-        </span>
-      </span>
+      <SwapContent
+        className="h-[19px] w-[19px]"
+        current={theme}
+        outgoing={outgoing}
+        render={iconFor}
+      />
     </button>
   );
 }

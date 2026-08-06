@@ -10,14 +10,22 @@
   --foreground: #171717;
 }
 
+/* Koyu modda metin beyaz degil krem: sitenin acik mod zemini (#d2ccbe)
+   ile ayni sicak aileden. --foreground hem govde yazisini hem
+   `text-foreground` / `bg-foreground` kullanan ogeleri (dugmeler,
+   "Başlayalım" hapi, logo maskesi) tek noktadan besliyor. */
 .dark {
   --background: #16150f;
-  --foreground: #ededed;
+  --foreground: #e5dfd0;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  /* Koyu modda ikincil metinler icin sonuk krem tonlari (eskiden
+     zinc-300 / zinc-400 idi). */
+  --color-cream-dim: #cdc6b4;
+  --color-cream-dimmer: #ada693;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -34,6 +42,18 @@ body {
 button:not(:disabled),
 [role="button"]:not(:disabled) {
   cursor: pointer;
+}
+
+/* Logo siyah PNG'yi goruntu olarak degil maske olarak kullaniyor:
+   rengini --foreground'dan aldigi icin acik modda siyah, koyu modda
+   krem oluyor. Onceki `dark:invert` ise siyahi ancak saf beyaza
+   cevirebiliyordu, krem tonu uretemiyordu. */
+.brand-logo {
+  width: 44px;
+  height: 33px;
+  background-color: var(--foreground);
+  -webkit-mask: url("/HD-logo.png") no-repeat center / contain;
+  mask: url("/HD-logo.png") no-repeat center / contain;
 }
 
 /* Tema ve dil dugmelerinde deger degisimi: eski icerik yukari kayip
