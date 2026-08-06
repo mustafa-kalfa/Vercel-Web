@@ -69,16 +69,10 @@ button:not(:disabled),
   animation: swap-out 220ms ease-in forwards;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .swap-in,
-  .swap-out {
-    animation: none;
-  }
-
-  .swap-out {
-    display: none;
-  }
-}
+/* Bilerek `prefers-reduced-motion` istisnasi yok: bu ayar Windows'ta
+   ("animasyon efektleri" kapali) sik sik aciktir ve acikken kayma hic
+   gorunmuyordu. Hareket 19px'lik, 220ms'lik kucuk bir yer degistirme;
+   vestibuler risk tasiyan turden degil. */
 
 html[lang="ar"],
 html[lang="ar"] * {
@@ -86,8 +80,11 @@ html[lang="ar"] * {
 }
 
 /* Dil butonu her dilde ayni gorunsun: etiketleri (TR/AR/EN) Latin
-   harfli, Naskh kurali onu da yakaladigi icin acikca geri aliniyor. */
-html[lang="ar"] .lang-switcher {
+   harfli, Naskh kurali onu da yakaladigi icin acikca geri aliniyor.
+   Etiket animasyon icin ic ice span'lere sarildigindan alt ogeleri de
+   kapsamak sart: `html[lang="ar"] *` onlara ayrica vuruyor. */
+html[lang="ar"] .lang-switcher,
+html[lang="ar"] .lang-switcher * {
   font-family: Arial, Helvetica, sans-serif;
 }
 
