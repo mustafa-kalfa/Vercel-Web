@@ -15,7 +15,7 @@
    `text-foreground` / `bg-foreground` kullanan ogeleri (dugmeler,
    "Başlayalım" hapi, logo maskesi) tek noktadan besliyor. */
 .dark {
-  --background: #16150f;
+  --background: #000000;
   --foreground: #e5dfd0;
 }
 
