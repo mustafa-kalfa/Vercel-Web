@@ -64,6 +64,27 @@ renk altorneklemesinde kenarlara tasiyor ve karakterin cevresinde yesil
 halka olusuyor. Eski gercek-alfa webm'ler `Çalışma Alanı/eski-webm-arsiv/`
 altinda duruyor; site artik onlari kullanmiyor.
 
+### Kaynagin IKI turu var — script ikisini de otomatik tanir
+
+1. **Perde/duz fon (renk anahtarlama gerekir):** kamera cekimi ya da
+   AI-uretimi bir video, arka planda yesil perde ya da nötr bir zemin
+   var. Script `Get-ArkaPlanRengi` ile kose rengini okuyup `colorkey`
+   ile siliyor (yukaridaki tum ayarlar bunun icin).
+2. **Kaynak zaten gercek alfa tasiyor** (DaVinci Resolve'un "ProRes
+   4444 + Alpha" gibi bir kalipla export ettigi dosya): script `pix_fmt`
+   adinda alfa bileseni gorunce (`yuva*`, `rgba`, vb.) renk anahtarlama
+   adiminin TAMAMINI atlayip dogrudan premultiply+paketlemeye geciyor.
+   **Bu YOL TERCIH EDILEN yoldur** eger kaynak zaten Resolve/Fusion'da
+   duzgun keylenmisse: Resolve'un keyeri muhtemelen bizim otomatik
+   corner-sampling + colorkey'imizden daha hassas, VE Fusion'da
+   arkaplani duz renge doldurmak (Background+Merge node'lari) gibi ekstra
+   bir adima hic gerek kalmiyor. **DIKKAT:** ffmpeg alfa kanalini yalnizca
+   DOGRUDAN dekode ederken guvenilir (test edildi: ProRes4444 -> alfa
+   0/255 birebir korundu). Bu, ayri bir konu olan "ffmpeg alfali bir
+   WEBM'i yeniden kodlarken alfayi dusuruyor" sorunuyla (asagida)
+   KARISTIRILMAMALI -- o, VP9/webm'in kendi (kirilgan) alfa ISLEME
+   yolunda; ProRes'in kendi alfa DEKODE yolu ayri ve saglam.
+
 Script artik surukle-birak disinda parametreli de calisabiliyor
 (`-Daralt`, `-Sure`, `-Basla`, `-Kalitesi`, `-SagGenislik`, `-PanKaydir`,
 `-GolgeSil`). "Kediler ilk" klibinin surukle-birak DISI hazirlanmasinin
