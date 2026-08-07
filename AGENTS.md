@@ -27,6 +27,19 @@ Test ederken: **dev modunda sayac her yuklemede 2 artiyor**, cunku React
 StrictMode efekti iki kez calistiriyor. Canlida ziyaret basina 1 artar.
 Belirli bir videoyu gormek icin sayaci elle ayarlayip yenile.
 
+### `/sinama` — gecici deneme sayfasi
+
+`app/sinama/` anasayfanin birebir kopyasi, tek farki `IntroVideo`ya
+`deneme` bayragini vermesi. Yeniden anahtarlanan Kediler ve Derince
+klipleri `public/sinama/` altinda duruyor; boylece yayindaki anasayfa
+eski dosyalarla dokunulmadan kalirken yenileri gercek sitede
+karsilastirilabiliyor. Belirli bir klibi gormek icin `localStorage`
+sayacini elle ayarla (yukariya bak).
+
+**Onaydan sonra silinecek:** `public/sinama/` dosyalari `public/`
+kokune tasinir, sonra `app/sinama/`, `public/sinama/`, `deneme`
+bayragi ve `denemeSrc` alanlari kaldirilir.
+
 ## Yesil/kirmizi perde -> seffaf mp4 (paketlenmis alfa)
 
 `Çalışma Alanı/Yesil-Perde-Kaldir.bat` uzerine video surukleyince
@@ -53,9 +66,32 @@ altinda duruyor; site artik onlari kullanmiyor.
 
 Bu hatta pahaliya mal olmus dersler:
 
+- **Kenardaki yesil/kirmizi halkanin sebebi esik degil, 4:2:0.** Kaynak
+  mp4'ler `yuv420p`: renk her 2x2 blok icin tek ornek. Siluetin kenarinda
+  perde rengi konunun rengiyle ayni ornege karisiyor, `colorkey` mesafeyi
+  RGB'den hesapladigi icin bu pikseller esigin DISINDA kalip **tam opak**
+  kaliyor. Esigi genisletmek cozmuyor (alfa zaten 255), despill ise
+  konunun kendi rengini soldurur. Cozum **maskeyi 1-2 piksel daraltmak**
+  (`$AlfaDaralt`, `erosion`): kirli seridi kesiyor, renklere dokunmuyor.
+  Olculen kenar rengi sapmasi: Kediler +21.7 -> +1.6, Derince -27.5 ->
+  -7.4. **3 piksel fazla** — kedilerin ince siyah konturunu yiyor.
+- **Daraltma kucuk ve ayrik ogeleri de yiyor.** "Derince Sunum"un birkac
+  piksellik sari yildizlari 2 pikselde kayboluyor; o klip `-Daralt 1` ile
+  uretildi. Yeni bir klipte once 1 ile dene, ciktiyi gozle karsilastir.
+- **Halkanin gorunurlugu konunun kontur kalinligina bagli.** "Mustafa
+  Thinking" ve "/selam" klipleri kalin koyu line-art tasidigi icin halka
+  (fiziksel olarak orada olsa bile) koyu kaliyor ve goze carpmiyor; ince
+  konturlu kedilerde ayni sizinti kurkun uzerine binip yesil goruluyor.
+- **`setsar=1` sart.** Kaynaklarin bir kismi kare olmayan piksel orani
+  tasiyor; tarayici `videoWidth/videoHeight`'i goruntuleme olcusu olarak
+  verdigi icin 1440 satirlik klip 1441 goruluyor ve canvas'in ic olcusu
+  (dolayisiyla `w-auto` ile turetilen sayfa genisligi) kayiyor.
 - **ffmpeg, alfali bir webm'i yeniden kodlarken alfayi sessizce
   dusuruyor.** Kirpma/olcek gibi bir islem gerekiyorsa mutlaka **mp4
   kaynaktan** yeniden anahtarla; mevcut webm'i tekrar kodlama.
+  `Derince Sunum.mp4` (644x720) bu yuzden `Derince.mp4`'ten (920x720)
+  `crop=644:720:92:0` ile bir kez uretilip Calisma Alani'na kaynak olarak
+  konuldu; artik .bat'a surukleyince dogru olcude cikiyor.
 - **Renk uzayi etiketlenmezse** tarayici ile masaustu oynatici ayni
   dosyayi farkli renklerde gosteriyor. Ciktiya her zaman
   `-colorspace bt709 -color_primaries bt709 -color_trc bt709` ve filtre

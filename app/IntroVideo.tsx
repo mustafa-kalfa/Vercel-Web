@@ -20,7 +20,7 @@ const VISIT_KEY = "introVideoVisitCount";
    sorunu tamamen ortadan kalkiyor (negatif kenar degerleri de artik
    dogrudan goruntunun kenarini olcuyor). Mobil olculer px olarak kaldi:
    telefonda sayfa yakinlastirmasi duzeni degistirmiyor. */
-const VIDEOS = [
+const VIDEOS: { src: string; denemeSrc?: string; className: string }[] = [
   {
     // Karakterin sagindaki seffaf bosluk yuzunden goruntu kenardan iceride
     // kaliyordu; negatif right ile o boslugu kapatiyoruz.
@@ -33,6 +33,7 @@ const VIDEOS = [
     // genisligi bu orana gore (270 * 644/720) ayarli, yoksa object-contain
     // yanlarda olu bosluk birakip goruntuyu saga kaydiriyor.
     src: "/Derince%20Sunum.mp4",
+    denemeSrc: "/sinama/Derince%20Sunum.mp4",
     className:
       "fixed bottom-[-20px] left-0 z-50 h-[270px] w-[242px] object-contain md:bottom-[-2.5vh] md:h-[34vh] md:w-auto md:max-w-none",
   },
@@ -41,6 +42,7 @@ const VIDEOS = [
     // karenin sag yarisinda duruyor (soldaki ~%43 bos), bu yuzden kutuyu
     // sola yaslamak karakteri ekranin ortasina itiyordu.
     src: "/Mustafa%20Kediler%20Dogru_seffaf.mp4",
+    denemeSrc: "/sinama/Mustafa%20Kediler%20Dogru_seffaf.mp4",
     className:
       "fixed bottom-[-10px] left-0 z-50 h-auto w-full md:bottom-[-1.25vh] md:left-auto md:right-0 md:h-[28vh] md:w-auto md:max-w-none",
   },
@@ -54,7 +56,12 @@ const VIDEOS = [
   },
 ];
 
-export default function IntroVideo() {
+/* `deneme`: `/sinama` sayfasi icin. Yeniden anahtarlanmis klipler once
+   `public/sinama/` altina konup orada yayina alindi, boylece anasayfa
+   eski dosyalarla dokunulmadan kaldi. Onaydan sonra yeni dosyalar
+   `public/` kokune tasinacak ve bu bayrak, `denemeSrc` alanlari,
+   `app/sinama/` ile `public/sinama/` birlikte silinecek. */
+export default function IntroVideo({ deneme = false }: { deneme?: boolean }) {
   const [visitCount, setVisitCount] = useState<number | null>(null);
 
   useEffect(() => {
@@ -67,6 +74,9 @@ export default function IntroVideo() {
   if (visitCount === null) return null;
 
   const video = VIDEOS[(visitCount - 1) % VIDEOS.length];
+  // Yalnizca yeniden anahtarlanan iki klibin deneme surumu var; digerleri
+  // degismedigi icin ikinci bir kopya tutulmuyor.
+  const src = (deneme && video.denemeSrc) || video.src;
 
-  return <ChromaKeyVideo src={video.src} className={video.className} />;
+  return <ChromaKeyVideo src={src} className={video.className} />;
 }
