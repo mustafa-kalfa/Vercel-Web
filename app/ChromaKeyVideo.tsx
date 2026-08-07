@@ -62,8 +62,8 @@ export default function ChromaKeyVideo({
   // Ust yarisi renk / alt yarisi maske olacak sekilde kodlanmis mp4.
   src: string;
   className?: string;
-  /* Kose susu klipleri surekli donuyor, ama /sinama'daki logo bir kez
-     oynayip son karesinde donuyor. Dondurma isi ek bir kod istemiyor:
+  /* Kose susu klipleri surekli donuyor, ama anasayfadaki animasyonlu logo
+     bir kez oynayip son karesinde donuyor. Dondurma isi ek kod istemiyor:
      video bitince `requestVideoFrameCallback` yeni kare uretmedigi icin
      cizim dongusu kendiliginden duruyor ve canvas son kareyi tutuyor. */
   loop?: boolean;

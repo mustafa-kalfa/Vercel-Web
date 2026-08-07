@@ -28,7 +28,7 @@ const VISIT_KEY = "introVideoVisitCount";
    sorunu ortadan kalkiyor (negatif kenar degerleri de dogrudan goruntunun
    kenarini olcuyor). `w-full` verilen mobil kliplerde de sorun yok:
    `w-full` her zaman ekranin tamami demek, yakinlastirmayla degismiyor. */
-const VIDEOS: { src: string; denemeSrc?: string; className: string }[] = [
+const VIDEOS: { src: string; className: string }[] = [
   {
     // Karakterin sagindaki seffaf bosluk yuzunden goruntu kenardan iceride
     // kaliyordu; negatif right ile o boslugu kapatiyoruz.
@@ -43,7 +43,6 @@ const VIDEOS: { src: string; denemeSrc?: string; className: string }[] = [
     // Yukseklik iki kirilimda da iki kez 20px kisaltildi (toplam 40px):
     // mobil 270 -> 230px (28.75vh), masaustu 34 -> 29vh (40px = 5vh).
     src: "/Derince%20Sunum.mp4",
-    denemeSrc: "/sinama/Derince%20Sunum.mp4",
     className:
       "fixed bottom-[-2.5vh] left-0 z-50 h-[28.75vh] w-auto max-w-none md:h-[29vh]",
   },
@@ -51,12 +50,11 @@ const VIDEOS: { src: string; denemeSrc?: string; className: string }[] = [
     // Mobil: tam genislik, sol-alt. Masaustu: SAG-alt. Karakter ve kediler
     // karenin sag yarisinda duruyor (soldaki ~%43 bos), bu yuzden kutuyu
     // sola yaslamak karakteri ekranin ortasina itiyordu.
-    src: "/Mustafa%20Kediler%20Dogru_seffaf.mp4",
-    // Deneme surumu: Resolve'dan "ProRes 4444 + Alpha" olarak gelen yeni
-    // cekim (Çalışma Alanı/Kediler.mov), renk anahtarlama olmadan dogrudan
-    // paketlendi. Kaynak 16:9, karakter sag yarida; kutu yine yukseklikten
+    // Resolve'dan "ProRes 4444 + Alpha" olarak gelen cekim
+    // (Çalışma Alanı/Kediler.mov), renk anahtarlama olmadan dogrudan
+    // paketlendi. Kaynak 16:9, karakter sag yarida; kutu yukseklikten
     // turedigi icin oran kendiliginden oturuyor.
-    denemeSrc: "/sinama/Kediler_seffaf.mp4",
+    src: "/Kediler_seffaf.mp4",
     className:
       "fixed bottom-[-1.25vh] left-0 z-50 h-auto w-full md:left-auto md:right-0 md:h-[28vh] md:w-auto md:max-w-none",
   },
@@ -70,12 +68,7 @@ const VIDEOS: { src: string; denemeSrc?: string; className: string }[] = [
   },
 ];
 
-/* `deneme`: `/sinama` sayfasi icin. Yeniden anahtarlanmis klipler once
-   `public/sinama/` altina konup orada yayina alindi, boylece anasayfa
-   eski dosyalarla dokunulmadan kaldi. Onaydan sonra yeni dosyalar
-   `public/` kokune tasinacak ve bu bayrak, `denemeSrc` alanlari,
-   `app/sinama/` ile `public/sinama/` birlikte silinecek. */
-export default function IntroVideo({ deneme = false }: { deneme?: boolean }) {
+export default function IntroVideo() {
   const [visitCount, setVisitCount] = useState<number | null>(null);
 
   useEffect(() => {
@@ -88,9 +81,6 @@ export default function IntroVideo({ deneme = false }: { deneme?: boolean }) {
   if (visitCount === null) return null;
 
   const video = VIDEOS[(visitCount - 1) % VIDEOS.length];
-  // Yalnizca yeniden anahtarlanan iki klibin deneme surumu var; digerleri
-  // degismedigi icin ikinci bir kopya tutulmuyor.
-  const src = (deneme && video.denemeSrc) || video.src;
 
-  return <ChromaKeyVideo src={src} className={video.className} />;
+  return <ChromaKeyVideo src={video.src} className={video.className} />;
 }

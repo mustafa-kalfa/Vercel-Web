@@ -17,7 +17,7 @@ Repo koku `my-app/`. Video uretim scriptleri repo'nun **disinda**,
 ## Giris videolari
 
 `ChromaKeyVideo` varsayilan olarak donguye aliyor (`loop` prop'u, ontanimli
-`true`). `/sinama`daki logo `loop={false}` ile bir kez oynayip son karesinde
+`true`). Anasayfadaki animasyonlu logo `loop={false}` ile bir kez oynayip son karesinde
 duruyor -- ek kod gerekmedi: video bitince `requestVideoFrameCallback` yeni
 kare uretmiyor, cizim dongusu kendiliginden duruyor ve canvas son kareyi
 tutuyor.
@@ -33,19 +33,18 @@ Test ederken: **dev modunda sayac her yuklemede 2 artiyor**, cunku React
 StrictMode efekti iki kez calistiriyor. Canlida ziyaret basina 1 artar.
 Belirli bir videoyu gormek icin sayaci elle ayarlayip yenile.
 
-### `/sinama` — gecici deneme sayfasi
+### `/sinama` deneme sayfasi KALDIRILDI (2026-08-08)
 
-`app/sinama/` anasayfanin birebir kopyasi, tek farki `IntroVideo`ya
-`deneme` bayragini vermesi. Yeniden anahtarlanan Kediler
-(`Kediler_seffaf.mp4`, ProRes 4444 kaynaktan) ve Derince
-klipleri `public/sinama/` altinda duruyor; boylece yayindaki anasayfa
-eski dosyalarla dokunulmadan kalirken yenileri gercek sitede
-karsilastirilabiliyor. Belirli bir klibi gormek icin `localStorage`
-sayacini elle ayarla (yukariya bak).
+Bir sure `app/sinama/` anasayfanin birebir kopyasi olarak durdu; yeniden
+anahtarlanan klipler `public/sinama/` altindan yayinlanip yayindaki
+anasayfaya dokunmadan gercek sitede karsilastirildi. Onaydan sonra
+plan uygulandi: dosyalar `public/` kokune tasindi, animasyonlu logo
+anasayfaya gecti, `app/sinama/` + `public/sinama/` + `deneme` bayragi +
+`denemeSrc` alanlari silindi. **`/sinama` artik 404.** Geri istenirse
+tek dayanak git gecmisi (`e9d3afe` ve oncesi).
 
-**Onaydan sonra silinecek:** `public/sinama/` dosyalari `public/`
-kokune tasinir, sonra `app/sinama/`, `public/sinama/`, `deneme`
-bayragi ve `denemeSrc` alanlari kaldirilir.
+Ayni anda kullanimdan kalkan iki klip de silindi:
+`Mustafa Kediler Dogru_seffaf.mp4` (hem kokte hem `sinama/` altinda).
 
 ## Yesil/kirmizi perde -> seffaf mp4 (paketlenmis alfa)
 
@@ -254,6 +253,17 @@ Bu hatta pahaliya mal olmus dersler:
   tasiyor; tarayici `videoWidth/videoHeight`'i goruntuleme olcusu olarak
   verdigi icin 1440 satirlik klip 1441 goruluyor ve canvas'in ic olcusu
   (dolayisiyla `w-auto` ile turetilen sayfa genisligi) kayiyor.
+  **`/selam` klibi bu duzeltmeden ONCE uretilmisti ve gozden kacmisti:**
+  `Mustafa Karsilama_seffaf.mp4` SAR'i `801623:800061` ile yayindaydi,
+  tarayici 720 yerine 721 goruyordu (2026-08-08'de duzeltildi). Yeni bir
+  klip eklemeden once TUM yayindaki klipleri ffprobe'dan gecir, yalnizca
+  yeni olani degil.
+  **Kabi `-c copy` ile duzeltmeye calisma:** SAR hem H.264 SPS'inde hem
+  MP4 `pasp` kutusunda yaziyor; `h264_metadata` bsf'i ve `-aspect`
+  denendi, ikisi de 1:1 vermedi (45847:45900 gibi degerlerde takildi).
+  `setsar=1` ile yeniden kodlamak tek guvenilir yol -- paketlenmis alfada
+  alfa piksel verisi oldugu icin yeniden kodlama onu bozmuyor (webm'deki
+  gercek alfa kanaliyla KARISTIRMA, o baska).
 - **ffmpeg, alfali bir webm'i yeniden kodlarken alfayi sessizce
   dusuruyor.** Kirpma/olcek gibi bir islem gerekiyorsa mutlaka **mp4
   kaynaktan** yeniden anahtarla; mevcut webm'i tekrar kodlama.
@@ -283,7 +293,7 @@ Bu hatta pahaliya mal olmus dersler:
   `HD Animation seffaf_arkaplan.mov`, `HD Seffaf Son.mov`, toplam 933 MB),
   eski islenmis ciktilar ve teslim dosyasi `HD Claude Teslim.mp4`.
   Geriye yalnizca paketlenmis klip kaldi:
-  `Çalışma Alanı/HD Claude Teslim_seffaf.mp4` = `public/sinama/HD-Animasyon.mp4`.
+  `Çalışma Alanı/HD Claude Teslim_seffaf.mp4` = `public/HD-Animasyon.mp4`.
   Logo yeniden uretilmek istenirse Resolve'dan yeni export sart; PNG'ler
   (`public/HD.png`, `HD-logo.png`, `icon-*.png`) duruyor.
 
@@ -331,7 +341,7 @@ calisirken en cok atlanan sey bu.
 - **Sabit (fixed) susleme klipleri vh, satir-ici (inline) ogeler px.**
   Kosede duran giris klipleri vh kullaniyor cunku tarayici
   yakinlastirmasinda ekranda ayni kalmalari isteniyor (asagida). Ama
-  `/sinama`daki animasyonlu logo gibi metnin arasinda akan bir oge
+  anasayfadaki animasyonlu logo gibi metnin arasinda akan bir oge
   px olmali -- o, sayfadaki diger her sey gibi yakinlastirmayla BUYUMELI.
 - **Kadrajin bos payi yerlesimi bozar.** Animasyonlu logoda durgun
   haldeki yazi kadrajin yalnizca ortadaki %20'sinde (y 445-656 / 1080);

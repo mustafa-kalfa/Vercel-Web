@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import ChromaKeyVideo from "./ChromaKeyVideo";
 import IntroVideo from "./IntroVideo";
 import { useLanguage } from "./LanguageContext";
 import SwapContent from "./SwapContent";
@@ -23,7 +24,33 @@ export default function Home() {
           klibin onunden yukari cikariyor. Genis ekranda klipler sag alt
           kosede kalip icerige degmedigi icin normal dolgu yetiyor. */}
       <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-start gap-8 px-16 pt-28 pb-[35vh] sm:items-start sm:pt-36 sm:pb-24">
-        <span className="brand-logo" role="img" aria-label={t.brandAlt} />
+        {/* Statik `.brand-logo` yerine animasyonlu surumu. Rol/etiket
+            disaridaki span'de: ChromaKeyVideo bir <canvas> uretiyor ve
+            erisilebilirlik ozelligi almiyor, o yuzden anlami sarmalayici
+            tasiyor.
+
+            Renk klibin ICINE gomulu: renk yarisi, maskenin koyu tema
+            foreground'u (`#e5dfd0`) ile carpilmis hali. Yani koyu temada
+            HIC filtre gerekmiyor, logo dogrudan dogru kremde cikiyor.
+            Acik temada `brightness-0` RGB'yi sifirlayip cizimi saf siyaha
+            indiriyor (alfaya dokunmuyor, seffaflik bozulmuyor).
+
+            Olcu px: bu, kosede duran susleme klipleri gibi degil, metnin
+            arasinda akan satir-ici bir oge -- sayfadaki her sey gibi
+            yakinlastirmayla BUYUMELI.
+
+            Negatif dikey kenar bosluklari: kadrajin ust/alt %40'i bos
+            (yazi durgun haldeyken y 445-656 / 1080 arasinda). Onlar
+            olmadan logo ile baslik arasinda kocaman bir bosluk kaliyordu.
+            `my-[-38px]`, `-my-[38px]` DEGIL: bu Tailwind surumunde negatif
+            arbitrary deger tire onde yazilinca hic CSS uretilmiyor. */}
+        <span role="img" aria-label={t.brandAlt} className="my-[-38px] block">
+          <ChromaKeyVideo
+            src="/HD-Animasyon.mp4"
+            loop={false}
+            className="h-[140px] w-auto max-w-none brightness-0 dark:brightness-100"
+          />
+        </span>
         <div className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-start">
           <h1 className="site-title max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-foreground">
             {t.title}

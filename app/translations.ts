@@ -45,7 +45,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     about: "Mustafâ Hakkında",
     themeToggle: "Karanlık modu aç/kapat",
     languageToggle: "Dili değiştir",
-    greetingLead: "Selam, ben Mustafâ.",
+    greetingLead: "Merhaba, ben Mustafâ.",
     greetingBody:
       "İlahiyatçı ve yazılımcıyım. Ama daha çok ilahiyatçı. Akademik koşuşturmacadan sıkıldığım için bu sayfayı kurdum. Buraya hadis ve dijitali birleştirmeyi denediğim çalışmaları yükleyeceğim. Ne kadar malzeme çıkar ve ne kadar devam ettirebilirim bilmiyorum. Şimdilik buradayım :D",
   },
