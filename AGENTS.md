@@ -82,7 +82,16 @@ Bu hatta pahaliya mal olmus dersler:
   Sabit genislik verirken `max-w-none` eklenmezse dar ekranda genislik
   kirpilir, yukseklik sabit kaldigi icin **goruntu ezilir**.
 - Kutu orani klibin oranindan farkliysa `object-contain` yanlarda olu
-  bosluk birakir. Kutu olcusunu klibin oranina gore sec.
+  bosluk birakir. Kutu olcusunu klibin oranina gore sec. En temizi
+  yalnizca yukseklik verip `w-auto max-w-none` birakmak: genislik
+  canvas'in kendi oranindan gelir, olu bosluk hic olusmaz. Masaustu
+  olculeri ve `/selam` boyle.
+- **Klip olculeri px degil vh.** Tarayici yakinlastirmasi (Ctrl +)
+  gorunum alanini CSS pikseli cinsinden kucultur, yani px ile verilen bir
+  kutu ekranda BUYUR. vh ile verilen kutu ayni kalir. Masaustu olculeri
+  1vh = 8px (800px yukseklikli gorunum alani) referansiyla cevrildi.
+  Mobil olculer px kalabilir: telefonda sayfa yakinlastirmasi duzeni
+  degistirmiyor.
 - Negatif arbitrary deger `-right-[32px]` seklinde yazilinca bu Tailwind
   surumunde **hic CSS uretilmiyor**; dogrusu `right-[-32px]`.
 - **Icerigi dikeyde ortalama.** Ana sayfa ile `/selam` ustten sabit

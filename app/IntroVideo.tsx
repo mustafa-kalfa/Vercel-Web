@@ -7,47 +7,50 @@ const VISIT_KEY = "introVideoVisitCount";
 
 // Ziyaret sirasina gore donen videolar: her ziyaret siradakini gosterir,
 // liste bitince bastan baslar (asagida mod alinarak).
+/* Masaustu olculeri neden px degil vh?
+   Tarayici yakinlastirmasi (Ctrl +) gorunum alanini CSS pikseli cinsinden
+   kucultuyor: 180px'lik bir kutu ekranda BUYUYOR. `/selam` sayfasindaki
+   karakter `h-[50vh]` oldugu icin yakinlastirmadan etkilenmiyor; buradaki
+   klipler de ayni davranissin diye masaustu olculeri vh'ye cevrildi
+   (1vh = 8px, 800px yuksekliginde bir gorunum alani referans alindi).
+
+   Ayrica masaustunde genislik verilmiyor: `w-auto` + `max-w-none` ile
+   genislik canvas'in kendi oranindan geliyor. Boylece kutu orani klibin
+   oranindan sapamiyor ve object-contain'in yanlarda birakacagi olu bosluk
+   sorunu tamamen ortadan kalkiyor (negatif kenar degerleri de artik
+   dogrudan goruntunun kenarini olcuyor). Mobil olculer px olarak kaldi:
+   telefonda sayfa yakinlastirmasi duzeni degistirmiyor. */
 const VIDEOS = [
   {
-    // Karakterin sagindaki seffaf bosluk (video karesinin %7.7'si) ve
-    // object-contain'in biraktigi bosluk yuzunden goruntu kenardan iceride
+    // Karakterin sagindaki seffaf bosluk yuzunden goruntu kenardan iceride
     // kaliyordu; negatif right ile o boslugu kapatiyoruz.
     src: "/Mustafa%20Thinking%20Green_seffaf.mp4",
     className:
-      "fixed bottom-0 right-[-32px] z-50 h-[135px] w-[240px] object-contain md:right-[-68px] md:h-[180px] md:w-[360px]",
+      "fixed bottom-0 right-[-32px] z-50 h-[135px] w-[240px] object-contain md:right-[-6vh] md:h-[22.5vh] md:w-auto md:max-w-none",
   },
   {
-    // Klip soldan %10, sagdan %20 kirpildigi icin 644x720 oldu; kutu
+    // Klip soldan %10, sagdan %20 kirpildigi icin 644x720 oldu; mobil kutu
     // genisligi bu orana gore (270 * 644/720) ayarli, yoksa object-contain
-    // yanlarda olu bosluk birakip goruntuyu saga kaydiriyor. (270x242,
-    // onceki 180x161'in %50 buyutulmus hali.)
+    // yanlarda olu bosluk birakip goruntuyu saga kaydiriyor.
     src: "/Derince%20Sunum.mp4",
     className:
-      "fixed bottom-[-20px] left-0 z-50 h-[270px] w-[242px] object-contain",
+      "fixed bottom-[-20px] left-0 z-50 h-[270px] w-[242px] object-contain md:bottom-[-2.5vh] md:h-[34vh] md:w-auto md:max-w-none",
   },
   {
-    // Mobil: tam genislik, sol-alt. Masaustu: sabit 355x225, SOL-alt,
-    // soldan -15px tasarak. Onceki klipte karakter karenin saginda
-    // durdugu icin kutu saga yaslanmisti; bu klipte karakter solda,
-    // dolayisiyla saga yaslamak onu ekranin ortasina dogru itiyordu.
-    // Kutu 355x225, klip 1136x720 (1.578:1) oldugu icin: oran tutmazsa
-    // object-contain yanlarda olu bosluk birakip karakteri kenardan
-    // iceri kaydiriyor.
+    // Mobil: tam genislik, sol-alt. Masaustu: SAG-alt. Karakter ve kediler
+    // karenin sag yarisinda duruyor (soldaki ~%43 bos), bu yuzden kutuyu
+    // sola yaslamak karakteri ekranin ortasina itiyordu.
     src: "/Mustafa%20Kediler%20Dogru_seffaf.mp4",
     className:
-      "fixed bottom-[-10px] left-0 z-50 h-auto w-full md:left-[-15px] md:h-[225px] md:w-[355px] md:object-contain",
+      "fixed bottom-[-10px] left-0 z-50 h-auto w-full md:bottom-[-1.25vh] md:left-auto md:right-0 md:h-[28vh] md:w-auto md:max-w-none",
   },
   {
     // Gokyuzu yesil cekilip seffaflastirildi, artik digerleri gibi kendi
-    // kenari yok; kenar maskesine gerek kalmadi. `object-contain` sart:
-    // mobil kutu 270x135 (2:1) klibin 16:9 oraniyla ayni degil, contain
-    // Mobil: iki yana yasli (w-full + h-auto ile oran kendiliginden
-    // korunur). Masaustu: 320x180, klibin 16:9 orani — sabit yukseklikle
-    // birlikte oranin disina cikan bir kutu verilirse object-contain
-    // yanlarda olu bosluk birakiyor.
+    // kenari yok; kenar maskesine gerek kalmadi. Mobil: iki yana yasli
+    // (w-full + h-auto ile oran kendiliginden korunur).
     src: "/Mustafa%20Yagmur_seffaf.mp4",
     className:
-      "fixed bottom-0 left-0 z-50 h-auto w-full object-contain md:h-[180px] md:w-[320px]",
+      "fixed bottom-0 left-0 z-50 h-auto w-full object-contain md:h-[22.5vh] md:w-auto md:max-w-none",
   },
 ];
 
