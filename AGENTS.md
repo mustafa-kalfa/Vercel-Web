@@ -85,10 +85,26 @@ altinda duruyor; site artik onlari kullanmiyor.
    KARISTIRILMAMALI -- o, VP9/webm'in kendi (kirilgan) alfa ISLEME
    yolunda; ProRes'in kendi alfa DEKODE yolu ayri ve saglam.
 
+### Mustafa'ya ne soylemeli: DaVinci'den nasil export etsin
+
+**"Seffaf - ProRes 4444 + Alpha" kalibi. Baska hicbir sey gerekmiyor.**
+Fusion sayfasina girmesine, `Background`+`Merge` node'lariyla arkaplani
+duz renge doldurmasina GEREK YOK -- bir kez oyle yonlendirildi, yanlisti,
+bosa emek oldu. 3D Keyer ile arkaplani silip dogrudan bu kalipla export
+etmesi yeterli.
+
+Dosya devasa cikar (8 saniye ~350-460 MB) -- **normal ve sorun degil.**
+ProRes her kareyi ayri kodluyor. O dosya siteye hic gitmiyor; script onu
+H.264'e yeniden kodluyor ve ~1 MB'a iniyor.
+
+**Buyuk kaynaklari `my-app/public/` icine KOYMA.** Oraya konan her sey
+siteyle birlikte yayinlanir. Kaynaklar `Çalışma Alanı/`'ya ait. (Bir kez
+`Kediler ilk.mp4` public'e konmustu, tasindi.)
+
 Script artik surukle-birak disinda parametreli de calisabiliyor
 (`-Daralt`, `-Sure`, `-Basla`, `-Kalitesi`, `-SagGenislik`, `-PanKaydir`,
-`-GolgeSil`). "Kediler ilk" klibinin surukle-birak DISI hazirlanmasinin
-tam gerekcesi ve kullanilan degerler:
+`-GolgeSil`, `-AlfaTaban`). "Kediler ilk" klibinin surukle-birak DISI
+hazirlanmasinin tam gerekcesi ve kullanilan degerler:
 
 - **Klibin neresi "baslangic", neresi "bitis"?** Kaynak `Kediler Ilk.mp4`
   10 saniyelik tek bir dongu: comelip kediyi kaldiriyor, yuruyup ekrandan
@@ -124,6 +140,25 @@ tam gerekcesi ve kullanilan degerler:
 
 Bu hatta pahaliya mal olmus dersler:
 
+- **Resolve'un keyeri arka planda TAM SIFIR alfa birakmiyor.** 1-20
+  arasi ince bir film kaliyor; kendi basina gorunmez ama duz bir sayfa
+  zeminine bindirilince cizimin dokusu (halka desenleri vb.) hayalet gibi
+  goruluyor. `-AlfaTaban N`: N'in ALTINI sifirlar, ustunu 0-255'e yeniden
+  gerdirir. Once artigi OLC (kadraj kenar seridindeki max alfa), sonra
+  biraz ustunu ver. HD animasyonunda olculen artik max 18-19 idi,
+  `-AlfaTaban 24` kullanildi -- gercek kenar yumusatmasi 255'e kadar
+  uzandigi icin bu kadar kucuk bir taban onu bozmuyor.
+- **Bu klipler sonda BOZUK bitiyor -- ama her seferinde ayni sekilde
+  degil.** Iki farkli bicim gorulen: (a) yesil/krem perdeli kaynaklarda
+  KARARARAK soluyor, solma karelerinde arka plan artik anahtar renginde
+  olmadigi icin hic silinmiyor; (b) Resolve export'unda son 17 kare
+  bastan asagi OPAK siyah bir karta donuyor (alfa tum karede 255). Ikisi
+  de dongude sayfanin uzerinde bir dikdortgen caktiriyor. **Her yeni
+  kaynakta son yarim saniyeyi kare kare kontrol et.**
+- **Bazi kaynaklarin ILK kareleri de bozuk.** HD animasyonunun ilk 2
+  karesi, animasyon daha baslamadan BITMIS lockup'i gosteriyor, sonra
+  siliniyor ve cizim basliyor -- dongude iki karelik bir sicrama. `-Basla`
+  ile atlandi. Basi da sonu kadar kontrol et.
 - **Notr fon klipleri kendi cizilmis bir yer golgesi tasiyabiliyor, ve bu
   golge acik temada gorunmez ama sitenin SIYAH koyu temasinda bej bir
   leke olarak kaliyor.** `-GolgeSil` bunu ayri bir renkten (golgenin
@@ -205,8 +240,41 @@ Bu hatta pahaliya mal olmus dersler:
 - Kaynak mp4'leri silme; kirpma ya da yeniden anahtarlama gerektiginde
   tek dayanak onlar.
 
+## Tema (acik/koyu) ve video
+
+Site iki tema tasiyor ve **koyu tema SAF SIYAH** (`--background: #000`,
+`--foreground: #e5dfd0`; acik tema `#d2ccbe` / `#171717`). Video ile
+calisirken en cok atlanan sey bu.
+
+- **Statik SVG/PNG logo temayla kendiliginden donuyor, VIDEO donmez.**
+  `.brand-logo` bir CSS maskesi: `mask: url(/HD-logo.png)` +
+  `background-color: var(--foreground)`. Yani renk temadan geliyor, acik
+  modda siyah koyu modda krem oluyor. Bir videoda cizim SIYAH olarak
+  GOMULU; koyu tema siyah oldugu icin oldugu gibi konulursa GORUNMEZ.
+  Cozum, `/sinama`daki animasyonlu logoda kullanildi: canvas'a
+  **`dark:invert`**. Cizim notr gri tonlarda oldugu surece (olculdu:
+  rgb 5,4,4 - 8,8,7) invert temiz beyaz veriyor; CSS `invert()` yalniz
+  RGB'yi cevirip alfaya dokunmadigi icin seffaflik bozulmuyor, halo
+  olusmuyor (koyu temada gozle dogrulandi).
+  **Renkli bir klipte bu ise YARAMAZ** -- invert renkleri de bozar.
+  Renkli klipler (karakter animasyonlari) zaten kendi renklerini
+  tasidigi icin iki temada da dogru gorunuyor, onlara dokunma.
+- Koyu temada dikkat edilecek ikinci sey: **cizimin kendi yer golgesi**.
+  Acik temada zemin krem oldugu icin gorunmuyor, siyahta bej leke
+  olarak kaliyor (`-GolgeSil`, yukarida).
+
 ## Yerlesim tuzaklari
 
+- **Sabit (fixed) susleme klipleri vh, satir-ici (inline) ogeler px.**
+  Kosede duran giris klipleri vh kullaniyor cunku tarayici
+  yakinlastirmasinda ekranda ayni kalmalari isteniyor (asagida). Ama
+  `/sinama`daki animasyonlu logo gibi metnin arasinda akan bir oge
+  px olmali -- o, sayfadaki diger her sey gibi yakinlastirmayla BUYUMELI.
+- **Kadrajin bos payi yerlesimi bozar.** Animasyonlu logoda durgun
+  haldeki yazi kadrajin yalnizca ortadaki %20'sinde (y 445-656 / 1080);
+  kalan %40+%40 seffaf. Oldugu gibi konursa logo ile baslik arasinda
+  kocaman bir bosluk kaliyor. Negatif dikey kenar bosluguyla toplandi
+  (`my-[-38px]`). Yeni bir klipte once icerigin sinir kutusunu olc.
 - Tailwind temel stilleri `<video>` ogesine `max-width: 100%` veriyor.
   Sabit genislik verirken `max-w-none` eklenmezse dar ekranda genislik
   kirpilir, yukseklik sabit kaldigi icin **goruntu ezilir**.
@@ -231,7 +299,37 @@ Bu hatta pahaliya mal olmus dersler:
 - Dev sunucusunun Tailwind ciktisi bazen bayatliyor: yeni bir sinif
   eklendigi halde CSS'te gorunmuyor. `rm -rf .next` + yeniden baslat.
 
+## Arac tuzaklari (defalarca vakit kaybettirdi)
+
+- **`select=eq(n\,N)` bash'te patlar.** `\,` kacisi bash tarafindan
+  yenip ffmpeg `eq(n,N)` goruyor ve `N)` diye bir filtre ariyor
+  ("No such filter: '0)'"). Bash'ten cagirirken ya cift kacis kullan
+  ya da filtre ifadesini bir **node/ps1 dosyasina** koy (tek tirnakli
+  arguman olarak gecince sorun yok). Tekrar tekrar bu hataya dusuldu.
+- **`ffmpeg ... out.png` tek kare icin `-frames:v 1` ISTER.** Yoksa
+  "Cannot write more than one file with the same name" der.
+- **PowerShell'de degisken adlari buyuk/kucuk harf AYIRMAZ.** Script
+  icinde `$daralt` yazmak `[int]$Daralt` parametresinin uzerine yazar ve
+  "Object[] -> Int32 cevrilemedi" verir. Yerel degiskenlere parametre
+  adlarindan FARKLI ad ver (`$daraltZinciri`, `$ssArg`, `$tArg`).
+- **PowerShell'de native exe'ye `2>&1` yapma.** ffmpeg'in `-stats`
+  ciktisi stderr'e gidiyor; yonlendirince her satir ErrorRecord'a
+  sarilip komut basarisiz sayiliyor. stderr zaten yakalaniyor.
+- **`$LASTEXITCODE`'u kontrol et.** Sadece "dosya var mi" bakmak
+  yaniltici: basarisiz bir ffmpeg calismasi onceki denemeden kalan
+  dosyayi oldugu gibi birakiyor ve "Bitti" yaziliyordu.
+- **Tarayici panelinin `zoom` bolge kirpmasi calismiyor** ("region crop
+  not yet supported"), tam ekran goruntusu doner.
+- **Emulasyonlu gorunum alaninda (resize_window ile) ekran goruntusu
+  yaniltici olcekte geliyor** -- oge sayfanin ortasinda duruyormus gibi
+  gorunebilir. Yerlesim dogrulamasi icin ya `preset desktop` (yerel
+  boyut) kullan ya da olcumlere guven.
+
 ## Dogrulama
+
+Mustafa'nin tercihi: **hizli git, her seyi sayisal dogrulama, kucuk
+seylere takilma, o soylerse yap.** Asagidakiler gerektiginde basvurulacak
+yontemler -- rutin olarak hepsini calistirma.
 
 Tarayici panelinin ekran goruntusu olcekli geldigi icin olculeri gozle
 kestirme; `getBoundingClientRect` / `getComputedStyle` ile **olc**.
