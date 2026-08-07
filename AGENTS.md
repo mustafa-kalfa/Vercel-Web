@@ -16,6 +16,12 @@ Repo koku `my-app/`. Video uretim scriptleri repo'nun **disinda**,
 
 ## Giris videolari
 
+`ChromaKeyVideo` varsayilan olarak donguye aliyor (`loop` prop'u, ontanimli
+`true`). `/sinama`daki logo `loop={false}` ile bir kez oynayip son karesinde
+duruyor -- ek kod gerekmedi: video bitince `requestVideoFrameCallback` yeni
+kare uretmiyor, cizim dongusu kendiliginden duruyor ve canvas son kareyi
+tutuyor.
+
 `app/IntroVideo.tsx` her ziyarette sirayla bir video gosteriyor. Sayac
 `localStorage`'da (`introVideoVisitCount`), liste bitince basa donuyor
 (`(visitCount - 1) % VIDEOS.length`). Videolar `z-50` ile icerigin
@@ -30,7 +36,8 @@ Belirli bir videoyu gormek icin sayaci elle ayarlayip yenile.
 ### `/sinama` — gecici deneme sayfasi
 
 `app/sinama/` anasayfanin birebir kopyasi, tek farki `IntroVideo`ya
-`deneme` bayragini vermesi. Yeniden anahtarlanan Kediler ve Derince
+`deneme` bayragini vermesi. Yeniden anahtarlanan Kediler
+(`Kediler_seffaf.mp4`, ProRes 4444 kaynaktan) ve Derince
 klipleri `public/sinama/` altinda duruyor; boylece yayindaki anasayfa
 eski dosyalarla dokunulmadan kalirken yenileri gercek sitede
 karsilastirilabiliyor. Belirli bir klibi gormek icin `localStorage`
@@ -84,6 +91,33 @@ altinda duruyor; site artik onlari kullanmiyor.
    WEBM'i yeniden kodlarken alfayi dusuruyor" sorunuyla (asagida)
    KARISTIRILMAMALI -- o, VP9/webm'in kendi (kirilgan) alfa ISLEME
    yolunda; ProRes'in kendi alfa DEKODE yolu ayri ve saglam.
+
+### Ucuncu durum: alfasiz, duz zemine basilmis SIYAH LINE-ART
+
+Logo animasyonu bir kez "teslim" formatinda geldi: 8K HEVC, `yuv420p`,
+alfa yok, krem zemine basilmis siyah cizgi. Burada script'in iki yolu da
+iyi sonuc VERMIYOR -- fon duz degil, **vinyetli**: kosede luma 154,
+ortada 205. `colorkey` mesafeyi tek bir anahtar renkten olctugu icin
+kose rengiyle anahtarlarsan vinyetin merkezi 0.19 uzakta kaliyor, o kadar
+genis bir esik ise gri "&" ogesini (0.22) de yutuyor.
+
+Cizim NOTR SIYAH oldugu icin cok daha saglam bir yol var: **alfayi
+lumadan turet, rengi saf siyah birak.**
+
+- `a = clip((148 - luma) * 255/53, 0, 255)` — 148 ustu tam seffaf,
+  95 alti tam opak. Esigi zeminin EN KOYU yerinin (154) biraz altina
+  koy; boylece vinyetin tamami sifirlaniyor.
+- Renk kanali `r=0:g=0:b=0`. Premultiplied ciktida `A*Fg` gerekiyor ve
+  cizimin gercek rengi zaten siyah; sabit siyah vermek hem dogru sonucu
+  veriyor hem de zeminden renk sizmasini IMKANSIZ kiliyor. Yan fayda:
+  renk yarisi duz siyah oldugu icin dosya kucucuk cikiyor (0.6 MB).
+- Zemin bilesenini geri cikarmaya (`C - (1-A)*Bg`) gerek yok: cizimin
+  gercek rengi siyah oldugu icin sonuc ayni.
+- Gri "&" ogesi bu rampada kendiliginden yari saydam kaliyor (luma ~127
+  -> alfa ~100), yani alfali kaynaktaki haline yakin duruyor.
+
+`_yesil-perde.ps1` bu yolu tanimiyor; dogrudan ffmpeg ile uretildi
+(`geq` + vstack), ama cikti bayraklari script'inkiyle ayni tutuldu.
 
 ### Mustafa'ya ne soylemeli: DaVinci'den nasil export etsin
 
@@ -147,7 +181,13 @@ Bu hatta pahaliya mal olmus dersler:
   gerdirir. Once artigi OLC (kadraj kenar seridindeki max alfa), sonra
   biraz ustunu ver. HD animasyonunda olculen artik max 18-19 idi,
   `-AlfaTaban 24` kullanildi -- gercek kenar yumusatmasi 255'e kadar
-  uzandigi icin bu kadar kucuk bir taban onu bozmuyor.
+  uzandigi icin bu kadar kucuk bir taban onu bozmuyor. **Artik miktari
+  export'tan export'a degisiyor:** `Kediler.mov`da (2026-08-07, 1920x1080
+  ProRes 4444) kenar seridi max'i 51 cikti, `-AlfaTaban 55` kullanildi.
+  Her yeni kaynakta yeniden OLC, onceki degeri varsayma.
+  Olcum tarifi: `alphaextract` + `signalstats` ile kenar seridinde
+  YMAX dagilimina bak; 255 cikan kareler konunun kenara degdigi
+  karelerdir, onlari haric tut.
 - **Bu klipler sonda BOZUK bitiyor -- ama her seferinde ayni sekilde
   degil.** Iki farkli bicim gorulen: (a) yesil/krem perdeli kaynaklarda
   KARARARAK soluyor, solma karelerinde arka plan artik anahtar renginde
@@ -238,7 +278,14 @@ Bu hatta pahaliya mal olmus dersler:
   oldugu ve gercek bir isik yansimasi tasimadigi icin despill'e ihtiyac
   yok; kenarlarda yesil halka gorursen kucuk bir degerle ac.
 - Kaynak mp4'leri silme; kirpma ya da yeniden anahtarlama gerektiginde
-  tek dayanak onlar.
+  tek dayanak onlar. **ISTISNA (2026-08-08, Mustafa'nin acik talebi):**
+  HD logosunun TUM kaynaklari silindi -- uc ProRes master (`HD 08.mov`,
+  `HD Animation seffaf_arkaplan.mov`, `HD Seffaf Son.mov`, toplam 933 MB),
+  eski islenmis ciktilar ve teslim dosyasi `HD Claude Teslim.mp4`.
+  Geriye yalnizca paketlenmis klip kaldi:
+  `Çalışma Alanı/HD Claude Teslim_seffaf.mp4` = `public/sinama/HD-Animasyon.mp4`.
+  Logo yeniden uretilmek istenirse Resolve'dan yeni export sart; PNG'ler
+  (`public/HD.png`, `HD-logo.png`, `icon-*.png`) duruyor.
 
 ## Tema (acik/koyu) ve video
 
@@ -251,14 +298,30 @@ calisirken en cok atlanan sey bu.
   `background-color: var(--foreground)`. Yani renk temadan geliyor, acik
   modda siyah koyu modda krem oluyor. Bir videoda cizim SIYAH olarak
   GOMULU; koyu tema siyah oldugu icin oldugu gibi konulursa GORUNMEZ.
-  Cozum, `/sinama`daki animasyonlu logoda kullanildi: canvas'a
-  **`dark:invert`**. Cizim notr gri tonlarda oldugu surece (olculdu:
-  rgb 5,4,4 - 8,8,7) invert temiz beyaz veriyor; CSS `invert()` yalniz
-  RGB'yi cevirip alfaya dokunmadigi icin seffaflik bozulmuyor, halo
-  olusmuyor (koyu temada gozle dogrulandi).
-  **Renkli bir klipte bu ise YARAMAZ** -- invert renkleri de bozar.
-  Renkli klipler (karakter animasyonlari) zaten kendi renklerini
-  tasidigi icin iki temada da dogru gorunuyor, onlara dokunma.
+
+  **Kullanilan cozum (2026-08-08): rengi klibin ICINE gom.** Paketlenmis
+  klibin renk yarisi = maske x `#e5dfd0` (koyu tema foreground'u). Boylece
+  koyu temada HIC filtre gerekmiyor, logo dogrudan dogru kremde cikiyor;
+  acik temada `brightness-0` RGB'yi sifirlayip saf siyaha indiriyor.
+  Tailwind: `brightness-0 dark:brightness-100`. `brightness()` yalniz
+  RGB'yi olcekliyor, alfaya dokunmuyor.
+
+  Renk yarisini tint'lemek ayri bir kaynak istemiyor: mevcut paketlenmis
+  klibin MASKE yarisindan uretiliyor --
+  `crop=...:0:1080,format=rgb24,lutrgb=r='val*229/255':g='val*223/255':b='val*208/255'`
+  sonra maskeyle `vstack`. **`blend=all_mode=multiply` KULLANMA:** paketli
+  `rgb24` girislerde kanallari karistirip yesil cikti veriyor (yasandi);
+  `lutrgb` kanal basina calistigi icin guvenli.
+
+  **Onceki cozum `dark:invert`'ti** -- klip saf siyah gomuluydu, koyu
+  temada invert onu BEYAZ yapiyordu. Calisiyordu ama beyaz, sayfanin krem
+  foreground'una gore fazla sertti. Beyaz surum yedekte:
+  `Çalışma Alanı/HD Claude Teslim_seffaf_beyaz-yedek.mp4`.
+
+  **Renkli bir klipte bunlarin HICBIRI ise yaramaz** -- tek renge indirmek
+  de invert de renkleri bozar. Renkli klipler (karakter animasyonlari)
+  zaten kendi renklerini tasidigi icin iki temada da dogru gorunuyor,
+  onlara dokunma.
 - Koyu temada dikkat edilecek ikinci sey: **cizimin kendi yer golgesi**.
   Acik temada zemin krem oldugu icin gorunmuyor, siyahta bej leke
   olarak kaliyor (`-GolgeSil`, yukarida).
@@ -283,12 +346,27 @@ calisirken en cok atlanan sey bu.
   yalnizca yukseklik verip `w-auto max-w-none` birakmak: genislik
   canvas'in kendi oranindan gelir, olu bosluk hic olusmaz. Masaustu
   olculeri ve `/selam` boyle.
-- **Klip olculeri px degil vh.** Tarayici yakinlastirmasi (Ctrl +)
-  gorunum alanini CSS pikseli cinsinden kucultur, yani px ile verilen bir
-  kutu ekranda BUYUR. vh ile verilen kutu ayni kalir. Masaustu olculeri
-  1vh = 8px (800px yukseklikli gorunum alani) referansiyla cevrildi.
-  Mobil olculer px kalabilir: telefonda sayfa yakinlastirmasi duzeni
-  degistirmiyor.
+- **Klip olculeri px degil vh -- MOBIL KIRILIM DAHIL.** Tarayici
+  yakinlastirmasi (Ctrl +) gorunum alanini CSS pikseli cinsinden kucultur,
+  yani px ile verilen bir kutu ekranda BUYUR. vh ile verilen kutu ayni
+  kalir. Cevrim: 1vh = 8px (800px yukseklikli gorunum alani referansi).
+  **Bir sure yalnizca masaustu olculeri cevrilmisti, mobil olculer px
+  kalmisti** ("telefonda yakinlastirma duzeni degistirmiyor" gerekcesiyle)
+  -- bu EKSIKTI: masaustunde yeterince yakinlastirinca gorunum alani
+  768px'in altina duser, `md:` kalkar ve px'li MOBIL olculer devreye
+  girer, klip birden buyur. Olculdu: Derince klibi 526px yuksekliginde bir
+  gorunum alaninda `h-[270px]` ile ekranin %51'ini kapliyordu, masaustunde
+  ise %34'unu. Iki kirilimde de vh olunca %31.2 / %31.5'e oturdu.
+  `w-full` verilen mobil klipler zaten guvenli: `w-full` her zaman ekranin
+  tamami demek, yakinlastirmayla degismiyor.
+- **Kirilim basamagi ayri bir sey, ve normaldir.** vh'ye gecmek bir klibin
+  768px'i gecerken olcu DEGISTIRMESINI engellemez, yalnizca her iki
+  kirilimda da yakinlastirmaya karsi bagisik yapar. Kediler ve Yagmur
+  kliplerinde mobil duzen (`w-full`, tam genislik) masaustunden zaten
+  bambaska oldugu icin bu basamak kasitli. Derince'de iki deger
+  neredeyse ayni oldugundan (31.25 / 31.5vh) basamak pratikte yok.
+  Basamagin tamamen kalkmasi isteniyorsa `/selam` deseni izlenir: tek bir
+  vh yukseklik, `md:` varyanti hic yok.
 - Negatif arbitrary deger `-right-[32px]` seklinde yazilinca bu Tailwind
   surumunde **hic CSS uretilmiyor**; dogrusu `right-[-32px]`.
 - **Icerigi dikeyde ortalama.** Ana sayfa ile `/selam` ustten sabit

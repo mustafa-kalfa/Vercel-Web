@@ -7,44 +7,58 @@ const VISIT_KEY = "introVideoVisitCount";
 
 // Ziyaret sirasina gore donen videolar: her ziyaret siradakini gosterir,
 // liste bitince bastan baslar (asagida mod alinarak).
-/* Masaustu olculeri neden px degil vh?
+/* Olculerin TAMAMI px degil vh -- mobil kirilim dahil.
    Tarayici yakinlastirmasi (Ctrl +) gorunum alanini CSS pikseli cinsinden
-   kucultuyor: 180px'lik bir kutu ekranda BUYUYOR. `/selam` sayfasindaki
-   karakter `h-[50vh]` oldugu icin yakinlastirmadan etkilenmiyor; buradaki
-   klipler de ayni davranissin diye masaustu olculeri vh'ye cevrildi
-   (1vh = 8px, 800px yuksekliginde bir gorunum alani referans alindi).
+   kucultuyor: 180px'lik bir kutu ekranda BUYUYOR, ayni kutu vh ile
+   verilirse ekranda ayni kaliyor. Referans: `/selam` sayfasindaki karakter
+   (`h-[50vh] w-auto`), yakinlastirmadan hic etkilenmiyor.
 
-   Ayrica masaustunde genislik verilmiyor: `w-auto` + `max-w-none` ile
+   Once yalnizca MASAUSTU olculeri cevrilmisti, mobil olculer px kalmisti
+   ("telefonda yakinlastirma duzeni degistirmiyor" gerekcesiyle). Bu
+   EKSIKTI: masaustunde yeterince yakinlastirinca gorunum alani 768px'in
+   altina dusuyor, `md:` kalkiyor ve px'li MOBIL olculer devreye giriyor --
+   klip birden buyuyordu. Yakinlastirma bagisikligi ancak her iki kirilimda
+   da px olmayinca saglaniyor.
+
+   Cevrim: 1vh = 8px (800px yuksekliginde bir gorunum alani referans).
+
+   Genislik mumkun oldugunca verilmiyor: `w-auto` + `max-w-none` ile
    genislik canvas'in kendi oranindan geliyor. Boylece kutu orani klibin
    oranindan sapamiyor ve object-contain'in yanlarda birakacagi olu bosluk
-   sorunu tamamen ortadan kalkiyor (negatif kenar degerleri de artik
-   dogrudan goruntunun kenarini olcuyor). Mobil olculer px olarak kaldi:
-   telefonda sayfa yakinlastirmasi duzeni degistirmiyor. */
+   sorunu ortadan kalkiyor (negatif kenar degerleri de dogrudan goruntunun
+   kenarini olcuyor). `w-full` verilen mobil kliplerde de sorun yok:
+   `w-full` her zaman ekranin tamami demek, yakinlastirmayla degismiyor. */
 const VIDEOS: { src: string; denemeSrc?: string; className: string }[] = [
   {
     // Karakterin sagindaki seffaf bosluk yuzunden goruntu kenardan iceride
     // kaliyordu; negatif right ile o boslugu kapatiyoruz.
     src: "/Mustafa%20Thinking%20Green_seffaf.mp4",
     className:
-      "fixed bottom-0 right-[-32px] z-50 h-[135px] w-[240px] object-contain md:right-[-6vh] md:h-[22.5vh] md:w-auto md:max-w-none",
+      "fixed bottom-0 right-[-4vh] z-50 h-[16.875vh] w-auto max-w-none md:right-[-6vh] md:h-[22.5vh]",
   },
   {
-    // Klip soldan %10, sagdan %20 kirpildigi icin 644x720 oldu; mobil kutu
-    // genisligi bu orana gore (270 * 644/720) ayarli, yoksa object-contain
-    // yanlarda olu bosluk birakip goruntuyu saga kaydiriyor.
+    // Klip soldan %10, sagdan %20 kirpildigi icin 644x720. Genislik artik
+    // verilmiyor (`w-auto`), klibin kendi oranindan geliyor -- mobil ve
+    // masaustu kutularinin oranini ayri ayri elde tutmaya gerek kalmadi.
+    // Yukseklik iki kirilimda da iki kez 20px kisaltildi (toplam 40px):
+    // mobil 270 -> 230px (28.75vh), masaustu 34 -> 29vh (40px = 5vh).
     src: "/Derince%20Sunum.mp4",
     denemeSrc: "/sinama/Derince%20Sunum.mp4",
     className:
-      "fixed bottom-[-20px] left-0 z-50 h-[270px] w-[242px] object-contain md:bottom-[-2.5vh] md:h-[34vh] md:w-auto md:max-w-none",
+      "fixed bottom-[-2.5vh] left-0 z-50 h-[28.75vh] w-auto max-w-none md:h-[29vh]",
   },
   {
     // Mobil: tam genislik, sol-alt. Masaustu: SAG-alt. Karakter ve kediler
     // karenin sag yarisinda duruyor (soldaki ~%43 bos), bu yuzden kutuyu
     // sola yaslamak karakteri ekranin ortasina itiyordu.
     src: "/Mustafa%20Kediler%20Dogru_seffaf.mp4",
-    denemeSrc: "/sinama/Mustafa%20Kediler%20Dogru_seffaf.mp4",
+    // Deneme surumu: Resolve'dan "ProRes 4444 + Alpha" olarak gelen yeni
+    // cekim (Çalışma Alanı/Kediler.mov), renk anahtarlama olmadan dogrudan
+    // paketlendi. Kaynak 16:9, karakter sag yarida; kutu yine yukseklikten
+    // turedigi icin oran kendiliginden oturuyor.
+    denemeSrc: "/sinama/Kediler_seffaf.mp4",
     className:
-      "fixed bottom-[-10px] left-0 z-50 h-auto w-full md:bottom-[-1.25vh] md:left-auto md:right-0 md:h-[28vh] md:w-auto md:max-w-none",
+      "fixed bottom-[-1.25vh] left-0 z-50 h-auto w-full md:left-auto md:right-0 md:h-[28vh] md:w-auto md:max-w-none",
   },
   {
     // Gokyuzu yesil cekilip seffaflastirildi, artik digerleri gibi kendi

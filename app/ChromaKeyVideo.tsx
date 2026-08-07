@@ -57,10 +57,16 @@ function createProgram(gl: WebGLRenderingContext) {
 export default function ChromaKeyVideo({
   src,
   className,
+  loop = true,
 }: {
   // Ust yarisi renk / alt yarisi maske olacak sekilde kodlanmis mp4.
   src: string;
   className?: string;
+  /* Kose susu klipleri surekli donuyor, ama /sinama'daki logo bir kez
+     oynayip son karesinde donuyor. Dondurma isi ek bir kod istemiyor:
+     video bitince `requestVideoFrameCallback` yeni kare uretmedigi icin
+     cizim dongusu kendiliginden duruyor ve canvas son kareyi tutuyor. */
+  loop?: boolean;
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -159,7 +165,7 @@ export default function ChromaKeyVideo({
         src={src}
         autoPlay
         muted
-        loop
+        loop={loop}
         playsInline
         preload="auto"
         aria-hidden="true"

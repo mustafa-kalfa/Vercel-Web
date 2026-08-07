@@ -34,13 +34,16 @@ export default function Sinama() {
             erisilebilirlik ozelligi almiyor, o yuzden anlami sarmalayici
             tasiyor.
 
-            `dark:invert` SART: statik logo bir CSS maskesiydi ve rengini
-            `var(--foreground)`'dan aldigi icin temayla birlikte donuyordu
-            (acik: siyah, koyu: krem). Videoda cizim SIYAH olarak gomulu,
-            koyu tema ise saf siyah -- oldugu gibi birakilsa gorunmezdi.
-            Cizim notr gri tonlarda (olculdu: rgb 5,4,4 - 8,8,7) oldugu icin
-            invert temiz bir beyaza donduruyor; alfa invert'ten etkilenmedigi
-            icin seffaflik bozulmuyor.
+            Renk klibin ICINE gomulu: renk yarisi, maskenin koyu tema
+            foreground'u (`#e5dfd0`) ile carpilmis hali. Yani koyu temada
+            HIC filtre gerekmiyor, logo dogrudan dogru kremde cikiyor.
+            Acik temada `brightness-0` RGB'yi sifirlayip cizimi saf siyaha
+            indiriyor (alfaya dokunmuyor, seffaflik bozulmuyor).
+
+            Onceki cozum `dark:invert`'ti: klip saf siyah gomuluydu, koyu
+            temada invert onu BEYAZ yapiyordu. Beyaz fazla sertti, sayfanin
+            krem foreground'uyla uyusmuyordu. Beyaz surum yedekte:
+            `Çalışma Alanı/HD Claude Teslim_seffaf_beyaz-yedek.mp4`.
 
             Negatif dikey kenar bosluklari: kadrajin ust/alt %40'i bos
             (yazi durgun haldeyken y 445-656 / 1080 arasinda). Onlar
@@ -50,7 +53,8 @@ export default function Sinama() {
         <span role="img" aria-label={t.brandAlt} className="my-[-38px] block">
           <ChromaKeyVideo
             src="/sinama/HD-Animasyon.mp4"
-            className="h-[140px] w-auto max-w-none dark:invert"
+            loop={false}
+            className="h-[140px] w-auto max-w-none brightness-0 dark:brightness-100"
           />
         </span>
         <div className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-start">
