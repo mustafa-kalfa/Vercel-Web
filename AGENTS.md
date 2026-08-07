@@ -216,3 +216,40 @@ Tarayici panelinin ekran goruntusu olcekli geldigi icin olculeri gozle
 kestirme; `getBoundingClientRect` / `getComputedStyle` ile **olc**.
 Alfa ve renk sorunlarinda videoyu canvas'a cizip piksel orneklemek en
 guvenilir yontem.
+
+### iPhone / Mac (Safari) uyumlulugu — her yeni video'da kontrol et
+
+Gercek bir iPhone/Mac elimde yok, Tarayici paneli de Chromium tabanli;
+Safari'de GOZLE goremem. Ama Safari'nin kirici oldugu noktalarin HEPSI
+`_yesil-perde.ps1` ve `ChromaKeyVideo.tsx` tarafindan HER klipte ayni
+sekilde uygulaniyor (bkz. yukaridaki "Neden webm degil" bolumu), yani
+bunlar dosyaya OZGU degil, BORUHATTINA ozgu. Yeni bir klip eklerken
+gozle goremedigim seyi olcerek dogrularim, ffprobe ile:
+
+```bash
+ffprobe -v error -select_streams v:0 -show_entries \
+  stream=codec_name,profile,pix_fmt,color_space,color_primaries,color_transfer,sample_aspect_ratio \
+  -of default=noprint_wrappers=1 "public/.../klip.mp4"
+```
+
+Hepsi bunlarla eslesmeli (esik degeri yok, ya boyle ya degil):
+- `codec_name=h264` (VP9/webm degil — Safari alfali webm'i opak gosteriyor)
+- `pix_fmt=yuv420p`, `profile=Main` (ya da Baseline)
+- `color_space/primaries/transfer=bt709` (etiketsizse Safari ile Chrome
+  klibi FARKLI renkte gosterir)
+- `sample_aspect_ratio=1:1` (degilse `videoWidth/Height` tarayicida
+  kaydigi icin `ChromaKeyVideo`'nun canvas olcusu ve ondan tureyen sayfa
+  genisligi kayar)
+
+`app/ChromaKeyVideo.tsx`'te de degismemesi gereken ucu: `<video>`
+etiketinde `autoPlay muted playsInline` (iOS'ta bu ucu olmadan inline
+autoplay ya hic baslamiyor ya tam ekrana aciyor) ve
+`requestVideoFrameCallback` yoksa `requestAnimationFrame`'e dusen fallback
+(eski Safari surumleri icin).
+
+`_yesil-perde.ps1` bunlarin hepsini HER ciktiya otomatik uyguluyor
+(degistirilmedigi surece); yeni parametreler (`-SagGenislik`,
+`-PanKaydir`, `-GolgeSil`) renk anahtarlanmasindan ONCE ham RGB uzerinde
+calisiyor, kodek/profil/renk etiketlerine dokunmuyor. Yani BU liste
+gecerse iPhone/Mac konusunda ayrica endise tasimana gerek yok — sorun
+cikarsa zaten script'in kendisinde cikar, tek bir klipte degil.
