@@ -66,6 +66,30 @@ altinda duruyor; site artik onlari kullanmiyor.
 
 Bu hatta pahaliya mal olmus dersler:
 
+- **Perde degil de duz bir fon (krem/bej/gri) geldiginde ayarlar bambaska.**
+  Script fonun doygunlugundan anliyor (yesil perde 0.80, kirmizi 0.73, krem
+  0.15; sinir 0.35) ve otomatik gecis yapiyor. Krem fonda esik **cok dar**
+  olmali: "Kediler ilk" klibinde ayakkabi fona 0.064, ten 0.081, tuxedo
+  kedinin beyazi 0.094 uzaklikta -- yesil perde ayari (0.10) bunlarin
+  ucunu de siliyor, karakterin yuzu ve ayakkabilari delik cikiyor. Fonun
+  kendi sapmasi 0.015 oldugu icin 0.03 hem yetiyor hem 4 kat pay birakiyor.
+  Notr fonda alfa lut'u ve maske daraltmasi **kapali**: lut kenari
+  basamakli yapiyor (tirtikli gorunum), erozyon ise esik bandina yakin
+  duran acik renkleri yiyip ayakkabinin ortasinda delik aciyor. Halkaya
+  gerek yok zaten -- kalan sizinti krem, sitenin acik temasiyla ayni aile.
+- **Notr fonun bedeli koyu temada.** Krem sizinti `#d2ccbe` zeminde
+  gorunmuyor ama koyu tema **saf siyah**; cizimin kendi yer golgesi
+  (fona 0.16-0.26 uzaklikta, yani silinemez) siyah uzerinde bej bir leke
+  olarak duruyor. Kabul edilebilir ama bilerek kabul et.
+- **Bu klipler sonda KARARARAK bitiyor.** Solma karelerinde arka plan artik
+  anahtar renginde olmadigi icin hic silinmiyor; video her dondugunde
+  sayfanin uzerinde krem bir dikdortgen cakip sonuyor. "Kediler ilk"te
+  solma 9.733'te basliyor, `-Sure 9.71` ile kesildi. Yeni bir kaynakta
+  once son yarim saniyeyi kare kare kontrol et.
+- **Uzun animasyonlarin ortasinda konular kadraj disina yuruyebiliyor.**
+  Bu kasitli olabilir (soldan cikip sagdan girme efekti), klibi bolme --
+  ama masaustunde kutu kosede ve dar oldugu icin cikis cizgisi ekranin
+  kenari degil kutunun kenari oluyor. Mobilde `w-full` oldugundan sorun yok.
 - **Kenardaki yesil/kirmizi halkanin sebebi esik degil, 4:2:0.** Kaynak
   mp4'ler `yuv420p`: renk her 2x2 blok icin tek ornek. Siluetin kenarinda
   perde rengi konunun rengiyle ayni ornege karisiyor, `colorkey` mesafeyi
