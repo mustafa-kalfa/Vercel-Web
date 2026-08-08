@@ -52,8 +52,10 @@ const VIDEOS: { src: string; className: string }[] = [
     // sola yaslamak karakteri ekranin ortasina itiyordu.
     // Resolve'dan "ProRes 4444 + Alpha" olarak gelen cekim
     // (Çalışma Alanı/Kediler.mov), renk anahtarlama olmadan dogrudan
-    // paketlendi. Kaynak 16:9, karakter sag yarida; kutu yukseklikten
-    // turedigi icin oran kendiliginden oturuyor.
+    // paketlendi. Kaynak 1920x1080'di ama iki yaninda 108'er piksel bos
+    // pay vardi, mobildeki `w-full` kutusunda konu ekran kenarlarina
+    // degmiyordu; `cropdetect` ile olculup 1704x1080'e kirpildi (oran
+    // 1.578 -- bu klibin yerini aldigi eski klibin oraniyla ayni).
     src: "/Kediler_seffaf.mp4",
     className:
       "fixed bottom-[-1.25vh] left-0 z-50 h-auto w-full md:left-auto md:right-0 md:h-[28vh] md:w-auto md:max-w-none",

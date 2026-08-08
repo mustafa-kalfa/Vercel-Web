@@ -127,10 +127,27 @@ yalnizca HD monogramini cizen bolum. **Kesme noktasi keyfi degil:**
 bir centik girip harfler ayrilmaya basliyor (58-60 temiz, 61'de kopuyor).
 Yeni bir kirpma gerekirse once o birlesim noktasini kare kare kontrol et.
 
-`-c copy -frames:v 61` ile kesildi: paketlenmis klibi zaman ekseninde
-kesmek yeniden kodlama ISTEMIYOR, dolayisiyla kalite kaybi sifir ve
-kodek/profil/seviye/renk bayraklari kaynakla birebir ayni kaliyor
-(Main / 5.0 / yuv420p / bt709 / SAR 1:1 / faststart).
+Zaman ekseninde kesmek (`-frames:v 61`) yeniden kodlama ISTEMIYOR;
+`-c copy` ile kalite kaybi sifir olur ve bayraklar kaynakla birebir ayni
+kalir (Main / 5.0 / yuv420p / bt709 / SAR 1:1 / faststart).
+
+**Son karede kalan parilti lekeleri.** Klip boyunca kucuk noktalar yanip
+sonuyor ve uc tanesi son karede ACIK kaliyor; klip orada dondugu icin
+kalici goruluyor. **Daha erken kesmek COZMUYOR:** olculdu, 53-55.
+karelerde 7-9 leke var, sona dogru azaliyorlar -- 60. kare zaten en
+temizi. Cozum, lekeleri `drawbox` ile sifirlamak (bu, `-c copy`yi
+imkansiz kilar; crf 18 ile yeniden kodlandi).
+
+- Lekelerin yerini gozle arama, **bagli bilesen analizi** yap: maskede
+  en buyuk bilesen monogramdir, geri kalan her sey lekedir. Frame 60'ta
+  bulunanlar: (1446-1455, 468-480), (1196-1205, 765-775),
+  (528-533, 738-743).
+- **Kutuyu HER IKI YARIYA da ciz** (`y` ve `y+1080`). Renk yarisi
+  premultiplied oldugu icin yalnizca maskeyi sifirlamak rengi oldugu
+  gibi birakir ve shader `color + (1-alpha)*bg` hesabinda toplamsal bir
+  hayalet cikar.
+- D'nin ic bosluğundaki 6 piksellik zerre BIRAKILDI: harf kenarina 5
+  piksel mesafede, kutusu harfi keserdi; bu olcekte zaten gorunmuyor.
 
 ### Mustafa'ya ne soylemeli: DaVinci'den nasil export etsin
 
@@ -362,6 +379,15 @@ calisirken en cok atlanan sey bu.
   kalan %40+%40 seffaf. Oldugu gibi konursa logo ile baslik arasinda
   kocaman bir bosluk kaliyor. Negatif dikey kenar bosluguyla toplandi
   (`my-[-38px]`). Yeni bir klipte once icerigin sinir kutusunu olc.
+- **`w-full` verilen kliplerde bos pay = konu ekran kenarina DEGMEZ.**
+  Kediler klibi 1920x1080 geldi ama icerik iki yanda 108'er piksel bos
+  birakiyordu; mobilde tam genislik kutusuna konunca kenarlarda serit
+  kaliyordu. `cropdetect` ile olcup 1704x1080'e kirpildi. Kirpmayi
+  H.264 ciktisi uzerinde degil **ProRes kaynaktan** yeniden ureterek
+  yap, ikinci nesil kayip olmasin. Yalnizca YATAYDA kirp: dikey kirpma
+  alt hizalamayi ve `bottom-[-*vh]` payini kaydirir.
+  Olcum tarifi: `ffmpeg -i klip.mp4 -vf "crop=W:H:0:H,cropdetect=limit=20:round=2:reset=0" -f null -`
+  (paketli klipte once maske yarisini kirp).
 - Tailwind temel stilleri `<video>` ogesine `max-width: 100%` veriyor.
   Sabit genislik verirken `max-w-none` eklenmezse dar ekranda genislik
   kirpilir, yukseklik sabit kaldigi icin **goruntu ezilir**.
