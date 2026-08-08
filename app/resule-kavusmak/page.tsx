@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "../LanguageContext";
+import { useTheme } from "../ThemeContext";
 
 // Oyun `public/resule-kavusmak-game.html` icinde kendi basina calisan bir
 // sayfa (kendi HTML/CSS/JS'i, WebGL ile ChromaKeyVideo cozumunun bir
@@ -13,6 +14,8 @@ import { useLanguage } from "../LanguageContext";
 function GameFrame() {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [height, setHeight] = useState(1200);
+  const { theme } = useTheme();
+  const { language } = useLanguage();
 
   useEffect(() => {
     function onMessage(e: MessageEvent) {
@@ -23,6 +26,32 @@ function GameFrame() {
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);
   }, []);
+
+  // Oyunun kendi tema/dil dugmesi yok (gercek site basligindaki
+  // dugmeler yeterli) -- onlara her basildiginda buradaki `theme`/
+  // `language` degisir, biz de degisimi iframe'e bildiririz ki oyun
+  // ayni anda karanlik/aydinlik gecis yapsin VE arayuz metinlerini
+  // (rävi isimleri/hadis/isnad haric) o dile cevirsin. `onLoad` ile de
+  // ilk yuklemede (ve her navigasyonda) gonderiyoruz, cunku iframe'in
+  // script'i mesaj dinleyicisini kurana kadar bu effect'in ilk
+  // calismasi kacabilir.
+  useEffect(() => {
+    const frame = iframeRef.current;
+    if (!frame || !frame.contentWindow) return;
+    frame.contentWindow.postMessage(
+      { type: "resule-kavusmak-appearance", theme, language },
+      "*"
+    );
+  }, [theme, language]);
+
+  function sendAppearance() {
+    const frame = iframeRef.current;
+    if (!frame || !frame.contentWindow) return;
+    frame.contentWindow.postMessage(
+      { type: "resule-kavusmak-appearance", theme, language },
+      "*"
+    );
+  }
 
   // Iframe yuksekligi ICERIGE esitlendigi icin kendi kaydirma cubugu
   // yok -- oyunun ic toast'i (bildirim balonu) tarayici penceresinin
@@ -66,6 +95,7 @@ function GameFrame() {
       title="Mustafâ'nın İsnad Yolculuğu"
       style={{ height }}
       className="w-full border-0"
+      onLoad={sendAppearance}
     />
   );
 }

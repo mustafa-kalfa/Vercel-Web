@@ -50,34 +50,14 @@
     overflow-x:hidden;
   }
 
-  .chip-icon{
-    position:fixed; left:16px; top:16px; z-index:20;
-    width:36px; height:36px; border-radius:9999px;
-    display:flex; align-items:center; justify-content:center;
-    border:1px solid var(--hairline);
-    background:var(--background);
-    color:var(--foreground);
-    cursor:pointer;
-  }
-  .chip-lang{
-    position:fixed; right:16px; top:16px; z-index:20;
-    height:36px; min-width:36px; padding:0 12px; border-radius:9999px;
-    display:flex; align-items:center; justify-content:center;
-    border:1px solid var(--hairline);
-    background:var(--background);
-    color:var(--foreground);
-    font-size:14px; font-weight:500;
-  }
-  .brand-mark{
-    position:fixed; left:50%; top:16px; transform:translateX(-50%);
-    z-index:20; font-weight:700; font-size:14px; letter-spacing:.02em;
-    color:var(--foreground); opacity:.55;
-  }
-
   .wrap{
     max-width:640px;
     margin:0 auto;
-    padding:76px 24px 0;
+    /* Ust bosluk kucuk: bu sayfa /resule-kavusmak icinde bir iframe'e
+       gomuluyor ve gercek site basligi (marka logosu, tema/dil
+       dugmeleri) zaten DISARIDA, kendi HTML'inde duruyor -- burada
+       onlarin bir kopyasini tekrar cizmiyoruz. */
+    padding:24px 24px 0;
   }
 
   h1{
@@ -334,22 +314,18 @@
 </style>
 
 <div class="page" id="pageRoot">
-  <div class="chip-icon" id="themeBtn" title="Koyu mod (site genelinde zaten var)">☾</div>
-  <div class="brand-mark">HD</div>
-  <div class="chip-lang" title="Dil (site genelinde zaten var)">TR</div>
-
   <div class="wrap">
-    <h1>Mustafâ'yı peygamberine kavuşturabilir misin?</h1>
-    <p class="lede">İsnâdı doğru şekilde tamamla. Râvileri, Mustafâ'ya en yakın olandan başlayarak sırayla seç.</p>
+    <h1 id="h1Text">Mustafâ'yı Peygamberine kavuşturabilir misin?</h1>
+    <p class="lede" id="ledeText">İsnâdı doğru şekilde tamamla. Râvileri, Mustafâ'ya en yakın olandan başlayarak sırayla seç.</p>
 
     <div class="bubble">
       <span class="progress" id="progress">0 / 6 râvi</span>
       <div class="bubble-row">
-        <span class="bubble-label">İsnad</span>
+        <span class="bubble-label" id="isnadLabel">İsnad</span>
         <div class="isnad-ar" id="isnadAr" dir="rtl" lang="ar">حَدَّثَنَا <span class="ravi-name" data-ravi="humeydi">الْحُمَيْدِيُّ عَبْدُ اللهِ بْنُ الزُّبَيْرِ</span>، قَالَ: حَدَّثَنَا <span class="ravi-name" data-ravi="sufyan">سُفْيَانُ</span>، قَالَ: حَدَّثَنَا <span class="ravi-name" data-ravi="yahya">يَحْيَى بْنُ سَعِيدٍ الْأَنْصَارِيُّ</span>، قَالَ: أَخْبَرَنِي <span class="ravi-name" data-ravi="muhammed">مُحَمَّدُ بْنُ إِبْرَاهِيمَ التَّيْمِيُّ</span> أَنَّهُ سَمِعَ <span class="ravi-name" data-ravi="alkame">عَلْقَمَةَ بْنَ وَقَّاصٍ اللَّيْثِيَّ</span>، يَقُولُ: سَمِعْتُ <span class="ravi-name" data-ravi="omer">عُمَرَ بْنَ الْخَطَّابِ</span> عَلَى الْمِنْبَرِ، قَالَ: سَمِعْتُ <span class="ravi-name" data-ravi="nebi">رَسُولَ اللهِ ﷺ</span></div>
       </div>
       <div class="bubble-row">
-        <span class="bubble-label">HADİSİN METNİ</span>
+        <span class="bubble-label" id="hadithLabel">HADİSİN METNİ</span>
         <span class="bubble-value" id="metinValue"><span class="placeholder">Râvileri tamamla. Ortaya çıksın</span></span>
       </div>
     </div>
@@ -357,7 +333,7 @@
     <div class="board" id="board">
       <svg class="path-layer" id="pathLayer"></svg>
       <div class="goal-row">
-        <div class="goal-pill" id="goalNode">Hz. Nebi <small>(s.a.v.)</small></div>
+        <div class="goal-pill" id="goalNode"><span id="goalLabel">Hz. Nebi</span> <small id="goalSub">(s.a.v.)</small></div>
       </div>
       <div class="node-grid" id="nodeGrid"></div>
       <div class="author-row" id="authorRow"></div>
@@ -378,7 +354,7 @@
     </div>
   </div>
 
-  <p class="caption">Prototip v5 — Mustafâ artık her doğru cevapta bir kat yukarı çıkıyor: hadisteki râvi sayısı kadar kat var, her katta 3 seçenek (1 doğru + 2 çeldirici) bulunuyor. Buhârî oyuna zaten seçili gelir, Mustafâ en baştan onun yanında durur. Karakter sitenin kendi "Mustafa Karşılama" videosu (ChromaKeyVideo ile aynı paketlenmiş-alfa çözme yöntemi), sürekli döngüde oynuyor; kattan kata geçiş 0,9 saniyelik kayma animasyonuyla görülüyor.</p>
+  <p class="caption" id="captionText">Prototip v5 — Mustafâ artık her doğru cevapta bir kat yukarı çıkıyor: hadisteki râvi sayısı kadar kat var, her katta 3 seçenek (1 doğru + 2 çeldirici) bulunuyor. Buhârî oyuna zaten seçili gelir, Mustafâ en baştan onun yanında durur. Karakter sitenin kendi "Mustafa Karşılama" videosu (ChromaKeyVideo ile aynı paketlenmiş-alfa çözme yöntemi), sürekli döngüde oynuyor; kattan kata geçiş 0,9 saniyelik kayma animasyonuyla görülüyor.</p>
 </div>
 
 <script>
@@ -481,15 +457,114 @@
   var HADITH_TEXT = 'Ameller ancak niyetlere göredir. Herkese, niyet ettiği şey vardır. Kimin hicreti dünyalık elde etmek veya bir kadınla evlenmek içinse, hicreti o yöneldiği şeyedir.';
   var MOVE_MS = 900;
 
+  // Site-genelindeki dil dugmesi (TR/AR/EN) bu oyunu da etkiler, ama
+  // yalnizca ARAYUZ metinleri icin: ravi isimleri (CORRECT/DECOY_NAMES),
+  // isnad'in Arapca metni ve hadisin kendisi (HADITH_TEXT) HER dilde
+  // AYNI kalir -- bunlar icerik/alinti, cevrilmiyor. dir yalnizca bu
+  // metinlerin bulundugu birkac paragrafa uygulanir (h1, lede, caption,
+  // toast), butonlarin/board'un fiziksel duzenine (Mustafa'nin
+  // konumlama matematigi vb.) dokunulmuyor.
+  var STRINGS = {
+    tr: {
+      dir: 'ltr',
+      title: 'Mustafâ\'nın İsnad Yolculuğu',
+      h1: 'Mustafâ\'yı Peygamberine kavuşturabilir misin?',
+      lede: 'İsnâdı doğru şekilde tamamla. Râvileri, Mustafâ\'ya en yakın olandan başlayarak sırayla seç.',
+      isnadLabel: 'İsnad',
+      hadithLabel: 'HADİSİN METNİ',
+      placeholder: 'Râvileri tamamla. Ortaya çıksın',
+      goalLabel: 'Hz. Nebi',
+      goalSub: '(s.a.v.)',
+      resetBtn: 'Baştan başlat',
+      progressUnit: 'râvi',
+      toastFinalStep: 'Son adım: Hz. Nebi’ye (s.a.v.) ulaş!',
+      toastCorrectSuffix: ' doğru — sıradaki râviyi bul.',
+      toastDone: 'Elhamdülillah! Mustafâ Peygamberine kavuştu.',
+      toastWrong: 'Sırada bu râvi yok — tekrar dene.',
+      caption: 'Prototip v5 — Mustafâ artık her doğru cevapta bir kat yukarı çıkıyor: hadisteki râvi sayısı kadar kat var, her katta 3 seçenek (1 doğru + 2 çeldirici) bulunuyor. Buhârî oyuna zaten seçili gelir, Mustafâ en baştan onun yanında durur. Karakter sitenin kendi "Mustafa Karşılama" videosu (ChromaKeyVideo ile aynı paketlenmiş-alfa çözme yöntemi), sürekli döngüde oynuyor; kattan kata geçiş 0,9 saniyelik kayma animasyonuyla görülüyor.'
+    },
+    en: {
+      dir: 'ltr',
+      title: 'Mustafâ\'s Isnād Journey',
+      h1: 'Can you reunite Mustafâ with his Prophet?',
+      lede: 'Complete the isnād correctly. Choose the narrators in order, starting with the one closest to Mustafâ.',
+      isnadLabel: 'Isnād',
+      hadithLabel: 'TEXT OF THE HADITH',
+      placeholder: 'Complete the narrators. It will appear here',
+      goalLabel: 'The Prophet',
+      goalSub: '(ﷺ)',
+      resetBtn: 'Start over',
+      progressUnit: 'narrators',
+      toastFinalStep: 'Last step: reach the Prophet ﷺ!',
+      toastCorrectSuffix: ' is correct — find the next narrator.',
+      toastDone: 'Alhamdulillah! Mustafâ has reunited with his Prophet.',
+      toastWrong: 'That narrator isn’t next — try again.',
+      caption: 'Prototype v5 — Mustafâ now climbs one level with every correct answer: there is one level per narrator in the hadith, each level offering 3 choices (1 correct + 2 decoys). Buhârî is already selected at the start, and Mustafâ stands beside him from the outset. The character is the site\'s own "Mustafa Karşılama" video (the same packed-alpha chroma-key technique as ChromaKeyVideo), looping continuously; moving between levels is shown with a 0.9-second slide animation.'
+    },
+    ar: {
+      dir: 'rtl',
+      title: 'رحلة مصطفى في الإسناد',
+      h1: 'هل تستطيع أن توصل مصطفى إلى نبيّه؟',
+      lede: 'أكمل الإسناد بالترتيب الصحيح. اختر الرواة بدءًا بالأقرب إلى مصطفى.',
+      isnadLabel: 'الإسناد',
+      hadithLabel: 'نص الحديث',
+      placeholder: 'أكمل الرواة. سيظهر هنا',
+      goalLabel: 'النبي',
+      goalSub: '(ﷺ)',
+      resetBtn: 'ابدأ من جديد',
+      progressUnit: 'راوٍ',
+      toastFinalStep: 'الخطوة الأخيرة: صِل إلى النبي ﷺ!',
+      toastCorrectSuffix: ' صحيح — ابحث عن الراوي التالي.',
+      toastDone: 'الحمد لله! وصل مصطفى إلى نبيّه.',
+      toastWrong: 'هذا ليس الراوي التالي — حاول مرة أخرى.',
+      caption: 'نموذج أولي v5 — يصعد مصطفى الآن درجة واحدة مع كل إجابة صحيحة: يوجد مستوى واحد لكل راوٍ في الحديث، وفي كل مستوى 3 خيارات (إجابة صحيحة ومُشتِّتان). يكون البخاري مختارًا مسبقًا منذ البداية، ويقف مصطفى بجانبه من البداية. الشخصية هي فيديو "استقبال مصطفى" الخاص بالموقع (بنفس تقنية المفتاح اللوني ذات القناة الشفافة المعبأة المستخدمة في ChromaKeyVideo)، يعمل في حلقة مستمرة؛ ويظهر الانتقال بين المستويات بحركة انزلاق مدتها 0.9 ثانية.'
+    }
+  };
+  var currentLang = 'tr';
+
   var board = document.getElementById('board');
   var nodeGrid = document.getElementById('nodeGrid');
   var authorRow = document.getElementById('authorRow');
   var pathLayer = document.getElementById('pathLayer');
   var mustafa = document.getElementById('mustafa');
   var goalNode = document.getElementById('goalNode');
+  var goalLabelEl = document.getElementById('goalLabel');
+  var goalSubEl = document.getElementById('goalSub');
   var toast = document.getElementById('toast');
   var metinValue = document.getElementById('metinValue');
   var progress = document.getElementById('progress');
+  var h1El = document.getElementById('h1Text');
+  var ledeEl = document.getElementById('ledeText');
+  var isnadLabelEl = document.getElementById('isnadLabel');
+  var hadithLabelEl = document.getElementById('hadithLabel');
+  var resetBtnEl = document.getElementById('resetBtn');
+  var captionEl = document.getElementById('captionText');
+
+  // Site-genelindeki dil dugmesinden gelen degeri uygular: yalnizca
+  // yukaridaki STRINGS'te tanimli arayuz metinlerini degistirir. Hadis
+  // henuz acilmamissa (metinValue hala placeholder gosteriyorsa) o da
+  // yeni dilin placeholder'ina guncellenir; acildiysa dokunulmaz (hadis
+  // metni her dilde ayni kalir).
+  function applyLanguage(lang){
+    if(!STRINGS[lang]) return;
+    currentLang = lang;
+    var s = STRINGS[lang];
+    document.title = s.title;
+    h1El.textContent = s.h1;
+    h1El.setAttribute('dir', s.dir);
+    ledeEl.textContent = s.lede;
+    ledeEl.setAttribute('dir', s.dir);
+    isnadLabelEl.textContent = s.isnadLabel;
+    hadithLabelEl.textContent = s.hadithLabel;
+    goalLabelEl.textContent = s.goalLabel;
+    goalSubEl.textContent = s.goalSub;
+    resetBtnEl.textContent = s.resetBtn;
+    captionEl.textContent = s.caption;
+    captionEl.setAttribute('dir', s.dir);
+    var placeholderEl = metinValue.querySelector('.placeholder');
+    if(placeholderEl) placeholderEl.textContent = s.placeholder;
+    updateProgress();
+  }
 
   var step = 0;
   // Iz cizgisi artik piksel degil KUTU tutuyor; koordinat her cizimde
@@ -567,7 +642,7 @@
     // step=1 -> henuz hic ravi bulunmadi (Buhari zaten secili sayilir,
     // sayaca dahil degil); step=7 (omer bulundugunda) -> 6/6.
     var found = Math.max(0, Math.min(step - 1, FLOOR_COUNT));
-    progress.textContent = found + ' / ' + FLOOR_COUNT + ' râvi';
+    progress.textContent = found + ' / ' + FLOOR_COUNT + ' ' + STRINGS[currentLang].progressUnit;
   }
 
   function moveMustafaTo(xPct, yPct, onDone){
@@ -595,10 +670,10 @@
       lightUpRavi(node.id);
       updateProgress();
       if(step === CORRECT.length){
-        showToast('Son adım: Hz. Nebi’ye (s.a.v.) ulaş!');
+        showToast(STRINGS[currentLang].toastFinalStep);
         setTimeout(finish, 400);
       } else {
-        showToast(node.name + ' doğru — sıradaki râviyi bul.');
+        showToast(node.name + STRINGS[currentLang].toastCorrectSuffix);
       }
     });
   }
@@ -612,7 +687,7 @@
       goalNode.classList.add('reached');
       lightUpRavi('nebi');
       metinValue.innerHTML = HADITH_TEXT;
-      showToast('Elhamdülillah! Mustafâ, Peygamberine (s.a.v.) kavuştu.', 'green');
+      showToast(STRINGS[currentLang].toastDone, 'green');
     });
   }
 
@@ -620,7 +695,7 @@
     el.classList.remove('wrong');
     void el.offsetWidth;
     el.classList.add('wrong');
-    showToast('Sırada bu râvi yok — tekrar dene.', 'rose');
+    showToast(STRINGS[currentLang].toastWrong, 'rose');
   }
 
   function shuffle(list){
@@ -714,7 +789,8 @@
 
   document.getElementById('resetBtn').addEventListener('click', function(){
     goalNode.classList.remove('reached');
-    metinValue.innerHTML = '<span class="placeholder">Râvileri tamamla. Ortaya çıksın</span>';
+    metinValue.innerHTML = '<span class="placeholder"></span>';
+    metinValue.querySelector('.placeholder').textContent = STRINGS[currentLang].placeholder;
     Array.prototype.forEach.call(board.querySelectorAll('.node'), function(el){
       el.classList.remove('visited','wrong');
       var b = el.querySelector('.badge');
@@ -729,11 +805,24 @@
     initState();
   });
 
-  document.getElementById('themeBtn').addEventListener('click', function(){
-    var isDark = document.documentElement.getAttribute('data-theme') === 'dark' ||
-      (!document.documentElement.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
-    document.getElementById('themeBtn').textContent = isDark ? '☾' : '☀';
+  // Bu sayfanin kendi tema/dil dugmesi yok: gercek site basligindaki
+  // karanlik/aydinlik ve dil dugmeleri DISARIDA, page.tsx'te duruyor.
+  // Ust pencere o dugmelere her basildiginda (ve iframe ilk
+  // yuklendiginde) bize "resule-kavusmak-appearance" mesajiyla guncel
+  // tema ve dili bildiriyor; biz de 'data-theme' niteligini (CSS
+  // degiskenleri siteyle birebir eslessin diye) ve arayuz metinlerini
+  // (applyLanguage) buna gore guncelliyoruz. Mesaj hic gelmezse (sayfa
+  // dogrudan aciliyorsa) CSS'teki prefers-color-scheme ve varsayilan
+  // 'tr' dili zaten makul bir varsayilan verir.
+  window.addEventListener('message', function(e){
+    var data = e.data;
+    if(!data || data.type !== 'resule-kavusmak-appearance') return;
+    if(data.theme === 'dark' || data.theme === 'light'){
+      document.documentElement.setAttribute('data-theme', data.theme);
+    }
+    if(STRINGS[data.language]){
+      applyLanguage(data.language);
+    }
   });
 
   // Bu sayfa bir iframe icinde gomulu kullanildiginda (resule-kavusmak
