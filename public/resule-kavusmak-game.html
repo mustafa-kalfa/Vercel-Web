@@ -127,13 +127,28 @@
 
   .board{
     position:relative;
-    aspect-ratio:5/6.2;
+    /* Yukseklik artik icerikten geliyor (izgara kac satir sürerse o kadar).
+       Alttaki dolgu, Mustafa'nin videosu Buhari satirinin altina tastigi
+       icin var. */
+    padding-bottom:52px;
     margin-bottom:22px;
   }
 
+  .goal-row{display:flex; justify-content:center; margin-bottom:20px;}
+  .author-row{display:flex; justify-content:center; margin-top:4px;}
+  .author-row .node{width:auto; min-width:104px;}
+
+  /* Ravi kutulari: rastgele serpistirme yerine duzenli izgara.
+     auto-fill + minmax, dar ekranda kendiliginden 2-3 sutuna iniyor. */
+  .node-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(96px, 1fr));
+    gap:10px 8px;
+    align-items:stretch;
+    margin-bottom:18px;
+  }
+
   .goal-pill{
-    position:absolute; left:50%; top:2%;
-    transform:translateX(-50%);
     display:flex; flex-direction:column; align-items:center;
     gap:1px;
     background:var(--background);
@@ -156,8 +171,12 @@
   .path-layer polyline{fill:none; stroke:var(--foreground); stroke-width:1.5; stroke-dasharray:1 6; stroke-linecap:round; opacity:.35;}
 
   .node{
-    position:absolute;
-    transform:translate(-50%,-50%);
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:36px;
+    width:100%;
     background:var(--background);
     border:1px solid var(--hairline);
     color:var(--foreground);
@@ -165,9 +184,9 @@
     padding:6px 10px;
     font-size:11px;
     font-weight:500;
+    font-family:inherit;
     cursor:pointer;
     z-index:3;
-    max-width:102px;
     text-align:center;
     line-height:1.2;
     transition:transform .15s, border-color .2s, background .2s, color .2s;
@@ -187,7 +206,7 @@
     border-color:var(--foreground);
     cursor:default;
   }
-  .node.visited:hover{transform:translate(-50%,-50%);}
+  .node.visited:hover{transform:none;}
   .node.wrong{
     animation:shake .38s ease;
     border-color:var(--rose);
@@ -195,10 +214,10 @@
   }
 
   @keyframes shake{
-    10%,90%{transform:translate(-50%,-50%) translateX(-1px);}
-    20%,80%{transform:translate(-50%,-50%) translateX(2px);}
-    30%,50%,70%{transform:translate(-50%,-50%) translateX(-4px);}
-    40%,60%{transform:translate(-50%,-50%) translateX(4px);}
+    10%,90%{transform:translateX(-1px);}
+    20%,80%{transform:translateX(2px);}
+    30%,50%,70%{transform:translateX(-4px);}
+    40%,60%{transform:translateX(4px);}
   }
 
   /* --- Mustafâ: gercek karsilama videosu, 50px yukseklik, surekli oynuyor --- */
@@ -302,7 +321,11 @@
 
     <div class="board" id="board">
       <svg class="path-layer" id="pathLayer"></svg>
-      <div class="goal-pill" id="goalNode">Hz. Nebi <small>(s.a.v.)</small></div>
+      <div class="goal-row">
+        <div class="goal-pill" id="goalNode">Hz. Nebi <small>(s.a.v.)</small></div>
+      </div>
+      <div class="node-grid" id="nodeGrid"></div>
+      <div class="author-row" id="authorRow"></div>
       <div class="mustafa" id="mustafa">
         <video
           id="karsilamaVideo"
@@ -321,7 +344,7 @@
     </div>
   </div>
 
-  <p class="caption">Prototip v4 — karakter artık sitenin kendi "Mustafa Karşılama" videosu (ChromaKeyVideo ile aynı paketlenmiş-alfa çözme yöntemi), 50px yükseklikte, sürekli döngüde oynuyor. Kutudan kutuya geçiş 0,9 saniyelik kayma animasyonuyla görülüyor.</p>
+  <p class="caption">Prototip v4 — râvi kutuları artık rastgele serpiştirilmiyor: Hz. Nebi üstte, Buhârî altta Mustafâ'nın yanında, geri kalan herkes aradaki düzenli ızgarada duruyor. Karakter sitenin kendi "Mustafa Karşılama" videosu (ChromaKeyVideo ile aynı paketlenmiş-alfa çözme yöntemi), sürekli döngüde oynuyor; kutudan kutuya geçiş 0,9 saniyelik kayma animasyonuyla görülüyor.</p>
 </div>
 
 <script>
@@ -394,18 +417,17 @@
   video.addEventListener('loadeddata', function(){ initChromaKey(video, canvas); }, { once:true });
   video.play().catch(function(){});
 
-  function rand(min, max){
-    return Math.random() * (max - min) + min;
-  }
-
+  // Kutularin YERI artik veriye bagli degil: Buhari alt satirda, geri
+  // kalan herkes ustteki izgarada. Sira bilgisi yalnizca dogru cevabi
+  // belirliyor.
   var CORRECT = [
-    {id:'buhari',  name:'Buhârî', x:76, y:90}, // layoutNodes() BUHARI_POS'a sabitler
-    {id:'humeydi', name:'Humeydî', x:16, y:82},
-    {id:'sufyan',  name:'Süfyân b. Uyeyne', x:63, y:71},
-    {id:'yahya',   name:'Yahyâ b. Saîd el-Ensârî', x:34, y:61},
-    {id:'muhammed',name:'Muhammed b. İbrâhim et-Teymî', x:70, y:49},
-    {id:'alkame',  name:'Alkame b. Vakkâs el-Leysî', x:22, y:41},
-    {id:'omer',    name:'Ömer b. el-Hattâb (r.a.)', x:53, y:26}
+    {id:'buhari',  name:'Buhârî'},              // authorRow'a, alt satira
+    {id:'humeydi', name:'Humeydî'},
+    {id:'sufyan',  name:'Süfyân b. Uyeyne'},
+    {id:'yahya',   name:'Yahyâ b. Saîd el-Ensârî'},
+    {id:'muhammed',name:'Muhammed b. İbrâhim et-Teymî'},
+    {id:'alkame',  name:'Alkame b. Vakkâs el-Leysî'},
+    {id:'omer',    name:'Ömer b. el-Hattâb (r.a.)'}
   ];
   var DECOY_NAMES = [
     'İmam Mâlik b. Enes', 'Ebû Hüreyre (r.a.)', 'İbn Şihâb ez-Zührî',
@@ -417,14 +439,16 @@
     'Câbir b. Abdullah (r.a.)'
   ];
   var DECOYS = DECOY_NAMES.map(function(n, i){
-    return { id:'decoy'+i, name:n, x:rand(6,94), y:rand(6,94) };
+    return { id:'decoy'+i, name:n };
   });
-  var MUSTAFA_START = {x:90, y:96};
-  var BUHARI_POS = {x:76, y:90};
+  // Mustafa, Buhari kutusunun sagindan baslar (krokideki gibi).
+  var MUSTAFA_START_GAP = 72; // px, Buhari'nin sag kenarindan uzaklik
   var HADITH_TEXT = 'Ameller ancak niyetlere göredir. Herkese, niyet ettiği şey vardır. Kimin hicreti dünyalık elde etmek veya bir kadınla evlenmek içinse, hicreti o yöneldiği şeyedir.';
   var MOVE_MS = 900;
 
   var board = document.getElementById('board');
+  var nodeGrid = document.getElementById('nodeGrid');
+  var authorRow = document.getElementById('authorRow');
   var pathLayer = document.getElementById('pathLayer');
   var mustafa = document.getElementById('mustafa');
   var goalNode = document.getElementById('goalNode');
@@ -433,7 +457,9 @@
   var progress = document.getElementById('progress');
 
   var step = 0;
-  var pathPoints = [];
+  // Iz cizgisi artik piksel degil KUTU tutuyor; koordinat her cizimde
+  // yeniden hesaplaniyor (yeniden boyutlandirmada iz kaymasin diye).
+  var pathAnchors = [];
   var toastTimer = null;
 
   function pctToPx(xPct, yPct){
@@ -443,113 +469,50 @@
 
   // Bir kutunun sag kenari + dikey ortasini, board'a gore yuzde olarak verir.
   // Mustafa'nin ortasi butonun ortasina gelecek sekilde konumlanir.
+  // Izgara duzeninde sag sutundaki kutular board'un kenarina dayandigi
+  // icin x, Mustafa'nin yarim genisligi kadar iceri kistiriliyor --
+  // yoksa karakter kutunun disina, sayfada yatay kaydirmaya sebep olacak
+  // sekilde tasiyor.
   var RIGHT_EDGE_GAP = 8; // px, kutuya yapismasin diye kucuk bir bosluk
-  function rightEdgePct(el){
+  function rightEdgePct(el, extraGap){
     var rect = el.getBoundingClientRect();
     var boardRect = board.getBoundingClientRect();
+    var half = (mustafa.offsetWidth || 60) / 2;
+    var x = rect.right + RIGHT_EDGE_GAP + (extraGap || 0) - boardRect.left;
+    var maxX = boardRect.width - half;
+    if(x > maxX) x = maxX;
+    if(x < half) x = half;
     return {
-      x: (rect.right + RIGHT_EDGE_GAP - boardRect.left) / boardRect.width * 100,
+      x: x / boardRect.width * 100,
       y: (rect.top + rect.height/2 - boardRect.top) / boardRect.height * 100
     };
   }
 
-  // Kutular baslangicta gozle serpistirilmis yuzdelerle konumlanir; bu
-  // fonksiyon sonradan aralarindaki (ve sabit Hz. Nebi kutusuyla olan)
-  // cakismalari basit bir itme/gevseme geçişiyle temizler, boylece metin
-  // uzunlugu veya font farkliliklarindan dogan ortusmeler elle ugrasmadan
-  // cozulur.
-  function resolvePair(a, b, pad){
-    var acx = a.x + a.w/2, acy = a.y + a.h/2;
-    var bcx = b.x + b.w/2, bcy = b.y + b.h/2;
-    var dx = acx - bcx, dy = acy - bcy;
-    var exX = (a.w + b.w)/2 + pad, exY = (a.h + b.h)/2 + pad;
-    var ox = exX - Math.abs(dx), oy = exY - Math.abs(dy);
-    if(ox <= 0 || oy <= 0) return;
-    if(ox < oy){
-      var sign = dx >= 0 ? 1 : -1;
-      if(a.fixed){ b.x -= sign*ox; }
-      else if(b.fixed){ a.x += sign*ox; }
-      else { a.x += sign*ox/2; b.x -= sign*ox/2; }
-    } else {
-      var signY = dy >= 0 ? 1 : -1;
-      if(a.fixed){ b.y -= signY*oy; }
-      else if(b.fixed){ a.y += signY*oy; }
-      else { a.y += signY*oy/2; b.y -= signY*oy/2; }
-    }
-  }
-
-  // Hz. Nebi ve Buhari (muellif) satirlarinda baska hicbir buton
-  // bulunmasin diye, cakisma hesabinda bu ikisinin "gorunmez" itme
-  // alanini board'un TAM genisligine yayiyoruz. Genislik zaten dolu
-  // oldugu icin fizik cozucu digger butonlari her zaman bu satirdan
-  // yukari ya da asagi iter, hicbir zaman yanina degil.
-  function fullWidthBand(rect, boardRect, boardW, marginY){
-    return {
-      x: 0,
-      y: rect.top-boardRect.top-marginY,
-      w: boardW,
-      h: rect.height + marginY*2,
-      fixed:true
-    };
-  }
-
-  function layoutNodes(){
-    var boardRect = board.getBoundingClientRect();
-    var boardW = boardRect.width, boardH = boardRect.height;
-    var pad = 6;
-
-    // Buhari fiziksel itmeye katilmaz: sabit bir koseye (Mustafa'nin
-    // basladigi yerin yakinina) kendisi yerlesir, digerleri onun
-    // satirindan disari itilir.
-    var buhariEl = board.querySelector('.node[data-id="buhari"]');
-    if(buhariEl){
-      buhariEl.style.left = BUHARI_POS.x + '%';
-      buhariEl.style.top = BUHARI_POS.y + '%';
-    }
-
-    var nodeEls = Array.prototype.slice.call(board.querySelectorAll('.node:not([data-id="buhari"])'));
-    var items = nodeEls.map(function(el){
-      var r = el.getBoundingClientRect();
-      return { x:r.left-boardRect.left, y:r.top-boardRect.top, w:r.width, h:r.height, fixed:false };
-    });
-
-    var goalRect = goalNode.getBoundingClientRect();
-    items.push(fullWidthBand(goalRect, boardRect, boardW, 34));
-
-    if(buhariEl){
-      var bRect = buhariEl.getBoundingClientRect();
-      items.push(fullWidthBand(bRect, boardRect, boardW, 22));
-    }
-
-    function clamp(it){
-      if(it.fixed) return;
-      if(it.x < 0) it.x = 0;
-      if(it.y < 0) it.y = 0;
-      if(it.x+it.w > boardW) it.x = boardW-it.w;
-      if(it.y+it.h > boardH) it.y = boardH-it.h;
-    }
-
-    for(var pass=0; pass<220; pass++){
-      for(var i=0;i<items.length;i++){
-        for(var j=i+1;j<items.length;j++){
-          resolvePair(items[i], items[j], pad);
-        }
-      }
-      items.forEach(clamp);
-    }
-
-    nodeEls.forEach(function(el, idx){
-      var it = items[idx];
-      el.style.left = ((it.x+it.w/2)/boardW*100) + '%';
-      el.style.top = ((it.y+it.h/2)/boardH*100) + '%';
-    });
-  }
+  // Yerlesimi artik CSS grid yapiyor; eski cakisma cozucuye (butonlari
+  // rastgele yerlestirip 220 turluk itmeyle ayiran fizik dongusune)
+  // gerek kalmadi. Mustafa ve iz cizgisi kutulara BAGLI tutuluyor
+  // (currentAnchor / pathAnchors), boylece pencere yeniden
+  // boyutlandiginda ya da izgara sutun sayisi degistiginde ikisi de yeni
+  // yerlerine kendiliginden oturuyor.
 
   function placeMustafa(xPct, yPct){
     mustafa.style.left = xPct + '%';
     mustafa.style.top = yPct + '%';
   }
-  placeMustafa(MUSTAFA_START.x, MUSTAFA_START.y);
+
+  // Mustafa'nin su an yaslandigi kutu; null ise henuz baslangicta.
+  var currentAnchor = null;
+
+  function startPos(){
+    var buhariEl = board.querySelector('.node[data-id="buhari"]');
+    if(!buhariEl) return {x:90, y:96};
+    return rightEdgePct(buhariEl, MUSTAFA_START_GAP);
+  }
+
+  function syncMustafa(){
+    var p = currentAnchor ? rightEdgePct(currentAnchor) : startPos();
+    placeMustafa(p.x, p.y);
+  }
 
   function showToast(msg, rose){
     clearTimeout(toastTimer);
@@ -560,7 +523,11 @@
   }
 
   function drawPath(){
-    var pts = pathPoints.map(function(p){ return p.x.toFixed(1)+','+p.y.toFixed(1); }).join(' ');
+    var pts = pathAnchors.map(function(el){
+      var pct = rightEdgePct(el);
+      var px = pctToPx(pct.x, pct.y);
+      return px.x.toFixed(1)+','+px.y.toFixed(1);
+    }).join(' ');
     pathLayer.innerHTML = pts ? '<polyline points="'+pts+'"></polyline>' : '';
   }
 
@@ -592,11 +559,11 @@
       el.appendChild(badge);
     }
 
-    var landing = rightEdgePct(el);
-    var px = pctToPx(landing.x, landing.y);
-    pathPoints.push(px);
+    currentAnchor = el;
+    pathAnchors.push(el);
     drawPath();
 
+    var landing = rightEdgePct(el);
     moveMustafaTo(landing.x, landing.y, function(){
       step++;
       lightUpRavi(node.id);
@@ -611,10 +578,10 @@
   }
 
   function finish(){
-    var landing = rightEdgePct(goalNode);
-    var px = pctToPx(landing.x, landing.y);
-    pathPoints.push(px);
+    currentAnchor = goalNode;
+    pathAnchors.push(goalNode);
     drawPath();
+    var landing = rightEdgePct(goalNode);
     moveMustafaTo(landing.x, landing.y, function(){
       goalNode.classList.add('reached');
       lightUpRavi('nebi');
@@ -630,36 +597,76 @@
     showToast('Sırada bu râvi yok — tekrar dene.', true);
   }
 
-  function buildNodes(){
-    var all = CORRECT.map(function(r,i){ return Object.assign({}, r, {correctIndex:i}); })
-      .concat(DECOYS.map(function(d){ return Object.assign({}, d, {correctIndex:-1}); }));
+  function shuffle(list){
+    for(var i = list.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = list[i]; list[i] = list[j]; list[j] = tmp;
+    }
+    return list;
+  }
 
-    all.forEach(function(node){
-      var btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'node';
-      btn.dataset.id = node.id;
-      btn.style.left = node.x + '%';
-      btn.style.top = node.y + '%';
-      btn.textContent = node.name;
-      btn.addEventListener('click', function(){
-        if(btn.classList.contains('visited')) return;
-        if(node.correctIndex === step){
-          handleCorrect(node, btn);
-        } else {
-          handleWrong(btn);
-        }
-      });
-      board.appendChild(btn);
+  function makeNode(node){
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'node';
+    btn.dataset.id = node.id;
+    btn.textContent = node.name;
+    btn.addEventListener('click', function(){
+      if(btn.classList.contains('visited')) return;
+      if(node.correctIndex === step){
+        handleCorrect(node, btn);
+      } else {
+        handleWrong(btn);
+      }
+    });
+    return btn;
+  }
+
+  function buildNodes(){
+    // Buhari (muellif) her zaman alt satirda, Mustafa'nin yanindadir;
+    // izgaraya girmez. Geri kalan ravi ve celdiriciler izgara
+    // hucrelerine karisik sirada oturur -- yerlesim duzenli, hangi
+    // kutunun dogru oldugu yine oyunun kendi meselesi.
+    var author = CORRECT[0];
+    authorRow.appendChild(makeNode(Object.assign({}, author, {correctIndex:0})));
+
+    var rest = CORRECT.slice(1).map(function(r,i){
+      return Object.assign({}, r, {correctIndex:i+1});
+    }).concat(DECOYS.map(function(d){
+      return Object.assign({}, d, {correctIndex:-1});
+    }));
+
+    shuffle(rest).forEach(function(node){
+      nodeGrid.appendChild(makeNode(node));
     });
   }
   buildNodes();
-  layoutNodes();
+  syncMustafa();
   updateProgress();
+
+  // Izgara sutun sayisi degistiginde (pencere/yakinlastirma) Mustafa ve
+  // iz cizgisi kutulardan yeniden hesaplanir.
+  var relayoutTimer = null;
+  function relayout(){
+    clearTimeout(relayoutTimer);
+    relayoutTimer = setTimeout(function(){
+      syncMustafa();
+      drawPath();
+    }, 80);
+  }
+  window.addEventListener('resize', relayout);
+  if('ResizeObserver' in window){
+    new ResizeObserver(relayout).observe(board);
+  }
+  // Canvas olcusu ancak video yuklenince belli oluyor; kistirma hesabi
+  // (rightEdgePct) Mustafa'nin genisligini kullandigi icin o anda bir kez
+  // daha hizala.
+  video.addEventListener('loadeddata', relayout);
 
   document.getElementById('resetBtn').addEventListener('click', function(){
     step = 0;
-    pathPoints = [];
+    pathAnchors = [];
+    currentAnchor = null;
     drawPath();
     goalNode.classList.remove('reached');
     metinValue.innerHTML = '<span class="placeholder">Râvileri tamamla. Ortaya çıksın</span>';
@@ -672,7 +679,7 @@
     Array.prototype.forEach.call(document.querySelectorAll('.ravi-name'), function(s){
       s.classList.remove('lit','lit-flash');
     });
-    placeMustafa(MUSTAFA_START.x, MUSTAFA_START.y);
+    syncMustafa();
   });
 
   document.getElementById('themeBtn').addEventListener('click', function(){
