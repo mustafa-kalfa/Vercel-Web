@@ -299,15 +299,6 @@
     font-variant-numeric:tabular-nums;
   }
 
-  .caption{
-    max-width:640px;
-    margin:28px auto 0;
-    padding:0 24px;
-    font-size:12px;
-    color:var(--tertiary);
-    line-height:1.5;
-  }
-
   @media (prefers-reduced-motion: reduce){
     .goal-pill, .node{transition:none !important; animation:none !important;}
   }
@@ -353,8 +344,6 @@
       <button class="reset-btn" id="resetBtn" type="button">Baştan başlat</button>
     </div>
   </div>
-
-  <p class="caption" id="captionText">Prototip v5 — Mustafâ artık her doğru cevapta bir kat yukarı çıkıyor: hadisteki râvi sayısı kadar kat var, her katta 3 seçenek (1 doğru + 2 çeldirici) bulunuyor. Buhârî oyuna zaten seçili gelir, Mustafâ en baştan onun yanında durur. Karakter sitenin kendi "Mustafa Karşılama" videosu (ChromaKeyVideo ile aynı paketlenmiş-alfa çözme yöntemi), sürekli döngüde oynuyor; kattan kata geçiş 0,9 saniyelik kayma animasyonuyla görülüyor.</p>
 </div>
 
 <script>
@@ -429,24 +418,53 @@
 
   // Buhari (muellif) ve Hz. Nebi (kaynak) birer RAVI olarak sayilmiyor.
   // Aralarindaki 6 kisi (humeydi..omer) tirmanilacak katlari olusturuyor.
+  // Her ravinin adi dile gore degisir (nameFor()); tr yoksa/eksikse tr'ye
+  // duser. isnad'daki Arapca metin (data-ravi span'lari) bundan bagimsiz,
+  // HER dilde sabit -- o dogrudan alinti, cevrilmiyor.
   var CORRECT = [
-    {id:'buhari',  name:'Buhârî'},
-    {id:'humeydi', name:'Humeydî'},
-    {id:'sufyan',  name:'Süfyân b. Uyeyne'},
-    {id:'yahya',   name:'Yahyâ b. Saîd el-Ensârî'},
-    {id:'muhammed',name:'Muhammed b. İbrâhim et-Teymî'},
-    {id:'alkame',  name:'Alkame b. Vakkâs el-Leysî'},
-    {id:'omer',    name:'Ömer b. el-Hattâb (r.a.)'}
+    {id:'buhari',   tr:'Buhârî',                       ar:'البخاري',                      en:'Al-Bukhari'},
+    {id:'humeydi',  tr:'Humeydî',                      ar:'الحميدي عبد الله بن الزبير',    en:'Al-Humaydi'},
+    {id:'sufyan',   tr:'Süfyân b. Uyeyne',              ar:'سفيان بن عيينة',                en:'Sufyan ibn Uyaynah'},
+    {id:'yahya',    tr:'Yahyâ b. Saîd el-Ensârî',       ar:'يحيى بن سعيد الأنصاري',         en:'Yahya ibn Sa’id al-Ansari'},
+    {id:'muhammed', tr:'Muhammed b. İbrâhim et-Teymî',  ar:'محمد بن إبراهيم التيمي',        en:'Muhammad ibn Ibrahim al-Taymi'},
+    {id:'alkame',   tr:'Alkame b. Vakkâs el-Leysî',     ar:'علقمة بن وقاص الليثي',          en:'Alqamah ibn Waqqas al-Laythi'},
+    {id:'omer',     tr:'Ömer b. el-Hattâb (r.a.)',      ar:'عمر بن الخطاب رضي الله عنه',    en:'Umar ibn al-Khattab (r.a.)'}
   ];
-  var DECOY_NAMES = [
-    'İmam Mâlik b. Enes', 'Ebû Hüreyre (r.a.)', 'İbn Şihâb ez-Zührî',
-    'Şu’be b. el-Haccâc', 'Ahmed b. Hanbel', 'İbn Abbâs (r.a.)',
-    'Katâde b. Diâme', 'Süleyman el-A’meş', 'et-Tirmizî', 'en-Nesâî',
-    'İbn Mâce', 'Ebû Dâvûd', 'ed-Dârekutnî', 'el-Hâkim', 'el-Beyhekî',
-    'et-Taberânî', 'Enes b. Mâlik (r.a.)', 'Âişe (r.anhâ)',
-    'İbn Ömer (r.a.)', 'Zeyd b. Sâbit (r.a.)', 'Ebû Saîd el-Hudrî (r.a.)',
-    'Câbir b. Abdullah (r.a.)'
+  // Celdirici havuzu: her biri sabit bir id tasir (dil degisince ekrandaki
+  // butonun hangi isme ait oldugunu bulabilmek icin), 6 kat x 2 celdirici
+  // = 12'si rastgele secilir.
+  var DECOY_POOL = [
+    {id:'malik',     tr:'İmam Mâlik b. Enes',          ar:'الإمام مالك بن أنس',              en:'Imam Malik ibn Anas'},
+    {id:'huraira',   tr:'Ebû Hüreyre (r.a.)',          ar:'أبو هريرة رضي الله عنه',           en:'Abu Hurairah (r.a.)'},
+    {id:'zuhri',     tr:'İbn Şihâb ez-Zührî',          ar:'ابن شهاب الزهري',                 en:'Ibn Shihab al-Zuhri'},
+    {id:'shuba',     tr:'Şu’be b. el-Haccâc',          ar:'شعبة بن الحجاج',                  en:'Shu’bah ibn al-Hajjaj'},
+    {id:'hanbal',    tr:'Ahmed b. Hanbel',             ar:'أحمد بن حنبل',                    en:'Ahmad ibn Hanbal'},
+    {id:'ibnabbas',  tr:'İbn Abbâs (r.a.)',            ar:'ابن عباس رضي الله عنه',            en:'Ibn Abbas (r.a.)'},
+    {id:'katade',    tr:'Katâde b. Diâme',             ar:'قتادة بن دعامة',                  en:'Qatadah ibn Di’amah'},
+    {id:'amesh',     tr:'Süleyman el-A’meş',           ar:'سليمان الأعمش',                   en:'Sulayman al-A’mash'},
+    {id:'tirmizi',   tr:'et-Tirmizî',                  ar:'الترمذي',                         en:'Al-Tirmidhi'},
+    {id:'nesai',     tr:'en-Nesâî',                    ar:'النسائي',                         en:'Al-Nasa’i'},
+    {id:'ibnmace',   tr:'İbn Mâce',                    ar:'ابن ماجه',                        en:'Ibn Majah'},
+    {id:'ebudavud',  tr:'Ebû Dâvûd',                   ar:'أبو داود',                        en:'Abu Dawud'},
+    {id:'darekutni', tr:'ed-Dârekutnî',                ar:'الدارقطني',                       en:'Al-Daraqutni'},
+    {id:'hakim',     tr:'el-Hâkim',                    ar:'الحاكم',                          en:'Al-Hakim'},
+    {id:'beyheki',   tr:'el-Beyhekî',                  ar:'البيهقي',                         en:'Al-Bayhaqi'},
+    {id:'taberani',  tr:'et-Taberânî',                 ar:'الطبراني',                        en:'Al-Tabarani'},
+    {id:'enes',      tr:'Enes b. Mâlik (r.a.)',        ar:'أنس بن مالك رضي الله عنه',         en:'Anas ibn Malik (r.a.)'},
+    {id:'aise',      tr:'Âişe (r.anhâ)',               ar:'عائشة رضي الله عنها',              en:'Aisha (r.anha)'},
+    {id:'ibnomer',   tr:'İbn Ömer (r.a.)',             ar:'ابن عمر رضي الله عنه',             en:'Ibn Umar (r.a.)'},
+    {id:'zeyd',      tr:'Zeyd b. Sâbit (r.a.)',        ar:'زيد بن ثابت رضي الله عنه',         en:'Zayd ibn Thabit (r.a.)'},
+    {id:'ebusaid',   tr:'Ebû Saîd el-Hudrî (r.a.)',    ar:'أبو سعيد الخدري رضي الله عنه',     en:'Abu Sa’id al-Khudri (r.a.)'},
+    {id:'cabir',     tr:'Câbir b. Abdullah (r.a.)',    ar:'جابر بن عبد الله رضي الله عنه',    en:'Jabir ibn Abdullah (r.a.)'}
   ];
+  // Her ravi/celdirici id'sinden nesnesine hizli erisim (dil degisince
+  // ekrandaki butonlari yeniden adlandirmak icin kullanilir).
+  var NAME_BY_ID = {};
+  CORRECT.forEach(function(r){ NAME_BY_ID[r.id] = r; });
+  DECOY_POOL.forEach(function(d){ NAME_BY_ID[d.id] = d; });
+  function nameFor(entry){
+    return entry[currentLang] || entry.tr;
+  }
   // Kat basina 1 dogru + 2 celdirici -- yanlis sayisi dogru sayisinin
   // her katta (ve toplamda) 2 kati oluyor.
   var DECOYS_PER_FLOOR = 2;
@@ -454,16 +472,23 @@
   // ravi olarak SAYILMIYOR, yalnizca aralarindaki CORRECT.slice(1)
   // kadar (6) ravi var.
   var FLOOR_COUNT = CORRECT.length - 1;
-  var HADITH_TEXT = 'Ameller ancak niyetlere göredir. Herkese, niyet ettiği şey vardır. Kimin hicreti dünyalık elde etmek veya bir kadınla evlenmek içinse, hicreti o yöneldiği şeyedir.';
+  // Hadisin metni de dile gore degisir (icerik cevirisi -- TR/EN icin
+  // ayni kisaltilmis 3 cumlelik yapi korunur); yalnizca isnad'in
+  // Arapca metni HER dilde sabit kalir, o dogrudan alinti.
+  var HADITH_TEXT_BY_LANG = {
+    tr: 'Ameller ancak niyetlere göredir. Herkese, niyet ettiği şey vardır. Kimin hicreti dünyalık elde etmek veya bir kadınla evlenmek içinse, hicreti o yöneldiği şeyedir.',
+    ar: 'إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ، وَلِكُلِّ امْرِئٍ مَا نَوَى، فَمَنْ كَانَتْ هِجْرَتُهُ إِلَى دُنْيَا يُصِيبُهَا أَوِ امْرَأَةٍ يَنْكِحُهَا فَهِجْرَتُهُ إِلَى مَا هَاجَرَ إِلَيْهِ.',
+    en: 'Actions are only according to intentions, and everyone will have only what he intended. Whoever’s emigration was for worldly gain or to marry a woman, his emigration was for that which he emigrated for.'
+  };
   var MOVE_MS = 900;
 
-  // Site-genelindeki dil dugmesi (TR/AR/EN) bu oyunu da etkiler, ama
-  // yalnizca ARAYUZ metinleri icin: ravi isimleri (CORRECT/DECOY_NAMES),
-  // isnad'in Arapca metni ve hadisin kendisi (HADITH_TEXT) HER dilde
-  // AYNI kalir -- bunlar icerik/alinti, cevrilmiyor. dir yalnizca bu
-  // metinlerin bulundugu birkac paragrafa uygulanir (h1, lede, caption,
-  // toast), butonlarin/board'un fiziksel duzenine (Mustafa'nin
-  // konumlama matematigi vb.) dokunulmuyor.
+  // Site-genelindeki dil dugmesi (TR/AR/EN) bu oyunu da etkiler: arapça
+  // secilince isimler dahil HER SEY arapça, ingilizce secilince isnad
+  // HARIC her sey ingilizce olur. isnad'in Arapca metni (data-ravi
+  // span'lari) tek istisna -- o dogrudan alinti, HER dilde sabit kalir.
+  // dir yalnizca metin iceren paragraflara uygulanir (h1, lede, toast),
+  // butonlarin/board'un fiziksel duzenine (Mustafa'nin konumlama
+  // matematigi vb.) dokunulmuyor.
   var STRINGS = {
     tr: {
       dir: 'ltr',
@@ -480,8 +505,7 @@
       toastFinalStep: 'Son adım: Hz. Nebi’ye (s.a.v.) ulaş!',
       toastCorrectSuffix: ' doğru — sıradaki râviyi bul.',
       toastDone: 'Elhamdülillah! Mustafâ Peygamberine kavuştu.',
-      toastWrong: 'Sırada bu râvi yok — tekrar dene.',
-      caption: 'Prototip v5 — Mustafâ artık her doğru cevapta bir kat yukarı çıkıyor: hadisteki râvi sayısı kadar kat var, her katta 3 seçenek (1 doğru + 2 çeldirici) bulunuyor. Buhârî oyuna zaten seçili gelir, Mustafâ en baştan onun yanında durur. Karakter sitenin kendi "Mustafa Karşılama" videosu (ChromaKeyVideo ile aynı paketlenmiş-alfa çözme yöntemi), sürekli döngüde oynuyor; kattan kata geçiş 0,9 saniyelik kayma animasyonuyla görülüyor.'
+      toastWrong: 'Sırada bu râvi yok — tekrar dene.'
     },
     en: {
       dir: 'ltr',
@@ -498,8 +522,7 @@
       toastFinalStep: 'Last step: reach the Prophet ﷺ!',
       toastCorrectSuffix: ' is correct — find the next narrator.',
       toastDone: 'Alhamdulillah! Mustafâ has reunited with his Prophet.',
-      toastWrong: 'That narrator isn’t next — try again.',
-      caption: 'Prototype v5 — Mustafâ now climbs one level with every correct answer: there is one level per narrator in the hadith, each level offering 3 choices (1 correct + 2 decoys). Buhârî is already selected at the start, and Mustafâ stands beside him from the outset. The character is the site\'s own "Mustafa Karşılama" video (the same packed-alpha chroma-key technique as ChromaKeyVideo), looping continuously; moving between levels is shown with a 0.9-second slide animation.'
+      toastWrong: 'That narrator isn’t next — try again.'
     },
     ar: {
       dir: 'rtl',
@@ -516,8 +539,7 @@
       toastFinalStep: 'الخطوة الأخيرة: صِل إلى النبي ﷺ!',
       toastCorrectSuffix: ' صحيح — ابحث عن الراوي التالي.',
       toastDone: 'الحمد لله! وصل مصطفى إلى نبيّه.',
-      toastWrong: 'هذا ليس الراوي التالي — حاول مرة أخرى.',
-      caption: 'نموذج أولي v5 — يصعد مصطفى الآن درجة واحدة مع كل إجابة صحيحة: يوجد مستوى واحد لكل راوٍ في الحديث، وفي كل مستوى 3 خيارات (إجابة صحيحة ومُشتِّتان). يكون البخاري مختارًا مسبقًا منذ البداية، ويقف مصطفى بجانبه من البداية. الشخصية هي فيديو "استقبال مصطفى" الخاص بالموقع (بنفس تقنية المفتاح اللوني ذات القناة الشفافة المعبأة المستخدمة في ChromaKeyVideo)، يعمل في حلقة مستمرة؛ ويظهر الانتقال بين المستويات بحركة انزلاق مدتها 0.9 ثانية.'
+      toastWrong: 'هذا ليس الراوي التالي — حاول مرة أخرى.'
     }
   };
   var currentLang = 'tr';
@@ -538,13 +560,12 @@
   var isnadLabelEl = document.getElementById('isnadLabel');
   var hadithLabelEl = document.getElementById('hadithLabel');
   var resetBtnEl = document.getElementById('resetBtn');
-  var captionEl = document.getElementById('captionText');
 
-  // Site-genelindeki dil dugmesinden gelen degeri uygular: yalnizca
-  // yukaridaki STRINGS'te tanimli arayuz metinlerini degistirir. Hadis
-  // henuz acilmamissa (metinValue hala placeholder gosteriyorsa) o da
-  // yeni dilin placeholder'ina guncellenir; acildiysa dokunulmaz (hadis
-  // metni her dilde ayni kalir).
+  // Site-genelindeki dil dugmesinden gelen degeri uygular: STRINGS'teki
+  // arayuz metinlerinin yaninda, ekrandaki HER ravi butonunu (NAME_BY_ID
+  // uzerinden) ve -hadis acilmissa- hadisin kendisini de yeni dile
+  // gore yeniden yazar. Yalnizca isnad'in Arapca metni (data-ravi
+  // span'lari) HER dilde sabit kalir -- o dogrudan alinti.
   function applyLanguage(lang){
     if(!STRINGS[lang]) return;
     currentLang = lang;
@@ -559,10 +580,16 @@
     goalLabelEl.textContent = s.goalLabel;
     goalSubEl.textContent = s.goalSub;
     resetBtnEl.textContent = s.resetBtn;
-    captionEl.textContent = s.caption;
-    captionEl.setAttribute('dir', s.dir);
-    var placeholderEl = metinValue.querySelector('.placeholder');
-    if(placeholderEl) placeholderEl.textContent = s.placeholder;
+    Array.prototype.forEach.call(document.querySelectorAll('.node'), function(btn){
+      var entry = NAME_BY_ID[btn.dataset.id];
+      if(entry) btn.textContent = nameFor(entry);
+    });
+    if(goalNode.classList.contains('reached')){
+      metinValue.innerHTML = HADITH_TEXT_BY_LANG[lang];
+    } else {
+      var placeholderEl = metinValue.querySelector('.placeholder');
+      if(placeholderEl) placeholderEl.textContent = s.placeholder;
+    }
     updateProgress();
   }
 
@@ -611,13 +638,13 @@
     placeMustafa(p.x, p.y);
   }
 
-  function showToast(msg, variant){
+  function showToast(msg, variant, duration){
     clearTimeout(toastTimer);
     toast.textContent = msg;
     toast.classList.toggle('rose', variant === 'rose');
     toast.classList.toggle('green', variant === 'green');
     toast.classList.add('show');
-    toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 1600);
+    toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, duration || 1600);
   }
 
   function drawPath(){
@@ -673,7 +700,7 @@
         showToast(STRINGS[currentLang].toastFinalStep);
         setTimeout(finish, 400);
       } else {
-        showToast(node.name + STRINGS[currentLang].toastCorrectSuffix);
+        showToast(nameFor(node) + STRINGS[currentLang].toastCorrectSuffix);
       }
     });
   }
@@ -686,8 +713,10 @@
     moveMustafaTo(landing.x, landing.y, function(){
       goalNode.classList.add('reached');
       lightUpRavi('nebi');
-      metinValue.innerHTML = HADITH_TEXT;
-      showToast(STRINGS[currentLang].toastDone, 'green');
+      metinValue.innerHTML = HADITH_TEXT_BY_LANG[currentLang];
+      // Kavusma anini kutlayan mesaj digerlerinden (1.6s) daha uzun
+      // kalsin diye 5 saniye gosteriliyor.
+      showToast(STRINGS[currentLang].toastDone, 'green', 5000);
     });
   }
 
@@ -711,7 +740,7 @@
     btn.type = 'button';
     btn.className = 'node';
     btn.dataset.id = node.id;
-    btn.textContent = node.name;
+    btn.textContent = nameFor(node);
     btn.addEventListener('click', function(){
       if(btn.classList.contains('visited')) return;
       if(node.correctIndex === step){
@@ -738,14 +767,14 @@
     var remaining = CORRECT.slice(1).map(function(r, i){
       return { ravi:r, correctIndex:i+1 };
     });
-    var decoyPool = shuffle(DECOY_NAMES.slice());
+    var decoyPool = shuffle(DECOY_POOL.slice());
     var floorsTopDown = remaining.slice().reverse();
 
     floorsTopDown.forEach(function(pair){
       var floorEl = document.createElement('div');
       floorEl.className = 'floor';
-      var decoys = decoyPool.splice(0, DECOYS_PER_FLOOR).map(function(name, di){
-        return { id:'decoy-'+pair.correctIndex+'-'+di, name:name, correctIndex:-1 };
+      var decoys = decoyPool.splice(0, DECOYS_PER_FLOOR).map(function(entry){
+        return Object.assign({}, entry, {correctIndex:-1});
       });
       var items = shuffle([Object.assign({}, pair.ravi, {correctIndex:pair.correctIndex})].concat(decoys));
       items.forEach(function(item){ floorEl.appendChild(makeNode(item)); });
