@@ -50,7 +50,7 @@ export default function Selam() {
             ayni oldugu icin altta kalan kenarligi kapatiyor, kendi iki
             kenarligi da cizgiyi surduruyor. */}
         <div className="relative ml-auto max-w-md rounded-3xl border border-black/[.08] bg-background px-6 py-5 dark:border-white/[.145]">
-          <p className="text-base leading-7 text-zinc-700 sm:text-lg sm:leading-8 dark:text-cream-dim">
+          <p className="text-base leading-7 text-zinc-700 sm:text-lg sm:leading-8 dark:text-cream-dim ar-greeting">
             {t.greetingLead}
             <br />
             {t.greetingBody}

@@ -130,3 +130,11 @@ html[lang="ar"] .site-actions {
   font-size: 1.215rem;
 }
 
+/* Sadece punto buyutuluyor, line-height'a dokunulmuyor: leading-7/leading-8
+   Tailwind'de sabit rem degeri oldugundan (font-size ile olceklenmiyor),
+   satirlar arasinda fazlasiyla pay var; bir onceki denemede line-height'i
+   da em ile ezmek metni ust uste bindirmisti. */
+html[lang="ar"] .ar-greeting {
+  font-size: 1.1em;
+}
+
