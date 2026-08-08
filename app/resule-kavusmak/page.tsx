@@ -24,6 +24,41 @@ function GameFrame() {
     return () => window.removeEventListener("message", onMessage);
   }, []);
 
+  // Iframe yuksekligi ICERIGE esitlendigi icin kendi kaydirma cubugu
+  // yok -- oyunun ic toast'i (bildirim balonu) tarayici penceresinin
+  // neresini gosterdigini bilemiyor. Burasi kendi kaydirma konumunu ve
+  // pencere yuksekligini oyuna bildirir ki toast, sayfanin en altina
+  // degil, kullanicinin O AN gordugu ekranin altina sabitlensin.
+  useEffect(() => {
+    let ticking = false;
+    function post() {
+      ticking = false;
+      var frame = iframeRef.current;
+      if (!frame || !frame.contentWindow) return;
+      var rect = frame.getBoundingClientRect();
+      frame.contentWindow.postMessage(
+        {
+          type: "resule-kavusmak-viewport",
+          frameTop: rect.top,
+          viewportHeight: window.innerHeight,
+        },
+        "*"
+      );
+    }
+    function onScrollOrResize() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(post);
+    }
+    window.addEventListener("scroll", onScrollOrResize, { passive: true });
+    window.addEventListener("resize", onScrollOrResize);
+    post();
+    return () => {
+      window.removeEventListener("scroll", onScrollOrResize);
+      window.removeEventListener("resize", onScrollOrResize);
+    };
+  }, [height]);
+
   return (
     <iframe
       ref={iframeRef}

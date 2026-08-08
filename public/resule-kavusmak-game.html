@@ -8,6 +8,7 @@
     --hairline:rgba(0,0,0,.08);
     --hover:rgba(0,0,0,.04);
     --rose:#a13b2e;
+    --green:#3f7d4f;
   }
   :root[data-theme="dark"]{
     --background:#000000;
@@ -17,6 +18,7 @@
     --hairline:rgba(255,255,255,.145);
     --hover:#1a1a1a;
     --rose:#d97b6c;
+    --green:#6fc27f;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
@@ -27,6 +29,7 @@
       --hairline:rgba(255,255,255,.145);
       --hover:#1a1a1a;
       --rose:#d97b6c;
+      --green:#6fc27f;
     }
   }
 
@@ -39,6 +42,12 @@
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     position:relative;
     padding-bottom:40px;
+    /* Butonlar tam genislikte kalsin diye board'da sag tarafa yer
+       AYRILMIYOR; Mustafa en sagdaki butonun yaninda dururken sayfanin
+       gercek kenarinin biraz disina tasabilir. overflow-x:hidden bunu
+       gorunmez kirpiyor -- sayfada yatay kaydirma cubugu hic cikmiyor,
+       ama hicbir buton kaymiyor/kuculmuyor. */
+    overflow-x:hidden;
   }
 
   .chip-icon{
@@ -94,6 +103,10 @@
     padding:16px 18px;
     margin-bottom:28px;
   }
+  .bubble .progress{
+    position:absolute;
+    top:14px; right:18px;
+  }
   .bubble-row{font-size:14px; line-height:1.6;}
   .bubble-row + .bubble-row{margin-top:8px; padding-top:8px; border-top:1px solid var(--hairline);}
   .bubble-label{
@@ -127,26 +140,37 @@
 
   .board{
     position:relative;
-    /* Yukseklik artik icerikten geliyor (izgara kac satir sürerse o kadar).
-       Alttaki dolgu, Mustafa'nin videosu Buhari satirinin altina tastigi
-       icin var. */
+    /* Yukseklik artik icerikten geliyor (kat sayisi kadar). Alttaki
+       dolgu, Mustafa'nin videosu Buhari satirinin altina tastigi icin
+       var. Butonlar TAM GENISLIKTE kalir -- Mustafa'ya yer acmak icin
+       sagdan kisilmiyor; en sagdaki butonun yaninda durabilmesi icin
+       gerekirse .page'in overflow-x:hidden'i icinde board'un disina
+       tasabiliyor (bkz. rightEdgePct). */
     padding-bottom:52px;
     margin-bottom:22px;
   }
 
   .goal-row{display:flex; justify-content:center; margin-bottom:20px;}
   .author-row{display:flex; justify-content:center; margin-top:4px;}
-  .author-row .node{width:auto; min-width:104px;}
+  .author-row .node{flex:0 0 auto; width:auto; min-width:104px;}
 
-  /* Ravi kutulari: rastgele serpistirme yerine duzenli izgara.
-     auto-fill + minmax, dar ekranda kendiliginden 2-3 sutuna iniyor. */
+  /* Her ravi kendi KATINI alir: hadiste Buhari disinda kac ravi varsa
+     o kadar kat var, kat sayisi asagidan (Buhari) yukariya (Hz. Nebi)
+     dogru artar. Katlar DOM'da tersten dizilir (en ustteki kat en son
+     bulunacak ravi), ki dikey siralama gorsel olarak da tirmanisi
+     yansitsin. */
   .node-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(96px, 1fr));
-    gap:10px 8px;
-    align-items:stretch;
+    display:flex;
+    flex-direction:column;
     margin-bottom:18px;
   }
+  .floor{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    margin-bottom:12px;
+  }
+  .floor .node{flex:1 1 0; min-width:0; max-width:190px;}
 
   .goal-pill{
     display:flex; flex-direction:column; align-items:center;
@@ -240,7 +264,16 @@
   .toast{
     /* Sayfaya degil viewport'a sabit: board uzun oldugunda (cok
        buton + capiyon) eski mutlak konum sayfanin cok altinda kalip
-       kullanicinin kaydirmadan gormedigi bir yere dusuyordu. */
+       kullanicinin kaydirmadan gormedigi bir yere dusuyordu.
+       NOT: bu sayfa /resule-kavusmak'ta yuksekligi ICERIGE esitlenmis
+       (kaydirmasiz) bir iframe icine gomuluyor; o zaman "viewport" burada
+       kendi document'imizin TAMAMI demek, disaridaki tarayici penceresi
+       degil -- yani fixed tek basina yetersiz kalip toast'u sayfanin en
+       altina sabitliyordu. JS, ust pencereden gelen kaydirma bilgisiyle
+       (bkz. asagida "resule-kavusmak-viewport" mesaji) bunu duzeltip
+       position:absolute + hesaplanmis bottom'a geciriyor; mesaj hic
+       gelmezse (sayfa dogrudan/iframe'siz aciliyorsa) bu fixed hali
+       zaten dogru calisir. */
     position:fixed;
     left:50%; bottom:24px;
     transform:translate(-50%,8px);
@@ -262,10 +295,11 @@
     box-shadow:0 6px 20px rgba(0,0,0,0.25);
   }
   .toast.rose{background:var(--rose); color:#fff;}
+  .toast.green{background:var(--green); color:#fff;}
   .toast.show{opacity:1; transform:translate(-50%,0);}
 
   .footer-row{
-    display:flex; justify-content:space-between; align-items:center;
+    display:flex; justify-content:flex-end; align-items:center;
     padding:0 2px;
   }
   .reset-btn{
@@ -309,6 +343,7 @@
     <p class="lede">İsnâdı doğru şekilde tamamla. Râvileri, Mustafâ'ya en yakın olandan başlayarak sırayla seç.</p>
 
     <div class="bubble">
+      <span class="progress" id="progress">0 / 6 râvi</span>
       <div class="bubble-row">
         <span class="bubble-label">İsnad</span>
         <div class="isnad-ar" id="isnadAr" dir="rtl" lang="ar">حَدَّثَنَا <span class="ravi-name" data-ravi="humeydi">الْحُمَيْدِيُّ عَبْدُ اللهِ بْنُ الزُّبَيْرِ</span>، قَالَ: حَدَّثَنَا <span class="ravi-name" data-ravi="sufyan">سُفْيَانُ</span>، قَالَ: حَدَّثَنَا <span class="ravi-name" data-ravi="yahya">يَحْيَى بْنُ سَعِيدٍ الْأَنْصَارِيُّ</span>، قَالَ: أَخْبَرَنِي <span class="ravi-name" data-ravi="muhammed">مُحَمَّدُ بْنُ إِبْرَاهِيمَ التَّيْمِيُّ</span> أَنَّهُ سَمِعَ <span class="ravi-name" data-ravi="alkame">عَلْقَمَةَ بْنَ وَقَّاصٍ اللَّيْثِيَّ</span>، يَقُولُ: سَمِعْتُ <span class="ravi-name" data-ravi="omer">عُمَرَ بْنَ الْخَطَّابِ</span> عَلَى الْمِنْبَرِ، قَالَ: سَمِعْتُ <span class="ravi-name" data-ravi="nebi">رَسُولَ اللهِ ﷺ</span></div>
@@ -339,12 +374,11 @@
     <div class="toast" id="toast"></div>
 
     <div class="footer-row">
-      <span class="progress" id="progress">0 / 7 râvi</span>
       <button class="reset-btn" id="resetBtn" type="button">Baştan başlat</button>
     </div>
   </div>
 
-  <p class="caption">Prototip v4 — râvi kutuları artık rastgele serpiştirilmiyor: Hz. Nebi üstte, Buhârî altta Mustafâ'nın yanında, geri kalan herkes aradaki düzenli ızgarada duruyor. Karakter sitenin kendi "Mustafa Karşılama" videosu (ChromaKeyVideo ile aynı paketlenmiş-alfa çözme yöntemi), sürekli döngüde oynuyor; kutudan kutuya geçiş 0,9 saniyelik kayma animasyonuyla görülüyor.</p>
+  <p class="caption">Prototip v5 — Mustafâ artık her doğru cevapta bir kat yukarı çıkıyor: hadisteki râvi sayısı kadar kat var, her katta 3 seçenek (1 doğru + 2 çeldirici) bulunuyor. Buhârî oyuna zaten seçili gelir, Mustafâ en baştan onun yanında durur. Karakter sitenin kendi "Mustafa Karşılama" videosu (ChromaKeyVideo ile aynı paketlenmiş-alfa çözme yöntemi), sürekli döngüde oynuyor; kattan kata geçiş 0,9 saniyelik kayma animasyonuyla görülüyor.</p>
 </div>
 
 <script>
@@ -417,11 +451,10 @@
   video.addEventListener('loadeddata', function(){ initChromaKey(video, canvas); }, { once:true });
   video.play().catch(function(){});
 
-  // Kutularin YERI artik veriye bagli degil: Buhari alt satirda, geri
-  // kalan herkes ustteki izgarada. Sira bilgisi yalnizca dogru cevabi
-  // belirliyor.
+  // Buhari (muellif) ve Hz. Nebi (kaynak) birer RAVI olarak sayilmiyor.
+  // Aralarindaki 6 kisi (humeydi..omer) tirmanilacak katlari olusturuyor.
   var CORRECT = [
-    {id:'buhari',  name:'Buhârî'},              // authorRow'a, alt satira
+    {id:'buhari',  name:'Buhârî'},
     {id:'humeydi', name:'Humeydî'},
     {id:'sufyan',  name:'Süfyân b. Uyeyne'},
     {id:'yahya',   name:'Yahyâ b. Saîd el-Ensârî'},
@@ -438,11 +471,13 @@
     'İbn Ömer (r.a.)', 'Zeyd b. Sâbit (r.a.)', 'Ebû Saîd el-Hudrî (r.a.)',
     'Câbir b. Abdullah (r.a.)'
   ];
-  var DECOYS = DECOY_NAMES.map(function(n, i){
-    return { id:'decoy'+i, name:n };
-  });
-  // Mustafa, Buhari kutusunun sagindan baslar (krokideki gibi).
-  var MUSTAFA_START_GAP = 72; // px, Buhari'nin sag kenarindan uzaklik
+  // Kat basina 1 dogru + 2 celdirici -- yanlis sayisi dogru sayisinin
+  // her katta (ve toplamda) 2 kati oluyor.
+  var DECOYS_PER_FLOOR = 2;
+  // Sayaç ve kat sayisi: muellif (Buhari) ve kaynak (Hz. Nebi) birer
+  // ravi olarak SAYILMIYOR, yalnizca aralarindaki CORRECT.slice(1)
+  // kadar (6) ravi var.
+  var FLOOR_COUNT = CORRECT.length - 1;
   var HADITH_TEXT = 'Ameller ancak niyetlere göredir. Herkese, niyet ettiği şey vardır. Kimin hicreti dünyalık elde etmek veya bir kadınla evlenmek içinse, hicreti o yöneldiği şeyedir.';
   var MOVE_MS = 900;
 
@@ -467,57 +502,45 @@
     return {x: xPct/100*r.width, y: yPct/100*r.height};
   }
 
-  // Bir kutunun sag kenari + dikey ortasini, board'a gore yuzde olarak verir.
-  // Mustafa'nin ortasi butonun ortasina gelecek sekilde konumlanir.
-  // Izgara duzeninde sag sutundaki kutular board'un kenarina dayandigi
-  // icin x, Mustafa'nin yarim genisligi kadar iceri kistiriliyor --
-  // yoksa karakter kutunun disina, sayfada yatay kaydirmaya sebep olacak
-  // sekilde tasiyor.
+  // Bir kutunun sag kenari + dikey ortasini, board'a gore yuzde olarak
+  // verir. Mustafa'nin ortasi bu noktaya gelecek sekilde konumlanir --
+  // yani DAIMA butonun saginda durur, hangi butonun secildiginden
+  // (Buhari dahil) bagimsiz olarak ayni kucuk bosluk kullanilir. Butonlar
+  // tam genislikte kaldigi icin BILEREK kirpma yapmiyoruz: en sagdaki
+  // butonun yaninda Mustafa board'un (hatta sayfanin) disina birkac
+  // piksel tasabilir; bu .page'in overflow-x:hidden'i tarafindan
+  // gorunmez sekilde kirpilir, yatay kaydirma cubugu hic cikmaz.
   var RIGHT_EDGE_GAP = 8; // px, kutuya yapismasin diye kucuk bir bosluk
-  function rightEdgePct(el, extraGap){
+  function rightEdgePct(el){
     var rect = el.getBoundingClientRect();
     var boardRect = board.getBoundingClientRect();
-    var half = (mustafa.offsetWidth || 60) / 2;
-    var x = rect.right + RIGHT_EDGE_GAP + (extraGap || 0) - boardRect.left;
-    var maxX = boardRect.width - half;
-    if(x > maxX) x = maxX;
-    if(x < half) x = half;
+    var x = rect.right + RIGHT_EDGE_GAP - boardRect.left;
     return {
       x: x / boardRect.width * 100,
       y: (rect.top + rect.height/2 - boardRect.top) / boardRect.height * 100
     };
   }
 
-  // Yerlesimi artik CSS grid yapiyor; eski cakisma cozucuye (butonlari
-  // rastgele yerlestirip 220 turluk itmeyle ayiran fizik dongusune)
-  // gerek kalmadi. Mustafa ve iz cizgisi kutulara BAGLI tutuluyor
-  // (currentAnchor / pathAnchors), boylece pencere yeniden
-  // boyutlandiginda ya da izgara sutun sayisi degistiginde ikisi de yeni
-  // yerlerine kendiliginden oturuyor.
-
   function placeMustafa(xPct, yPct){
     mustafa.style.left = xPct + '%';
     mustafa.style.top = yPct + '%';
   }
 
-  // Mustafa'nin su an yaslandigi kutu; null ise henuz baslangicta.
+  // Mustafa'nin su an yaslandigi kutu. Buhari zaten secili geldigi icin
+  // oyun HER ZAMAN bir anchor ile baslar (bkz. initState).
   var currentAnchor = null;
 
-  function startPos(){
-    var buhariEl = board.querySelector('.node[data-id="buhari"]');
-    if(!buhariEl) return {x:90, y:96};
-    return rightEdgePct(buhariEl, MUSTAFA_START_GAP);
-  }
-
   function syncMustafa(){
-    var p = currentAnchor ? rightEdgePct(currentAnchor) : startPos();
+    if(!currentAnchor) return;
+    var p = rightEdgePct(currentAnchor);
     placeMustafa(p.x, p.y);
   }
 
-  function showToast(msg, rose){
+  function showToast(msg, variant){
     clearTimeout(toastTimer);
     toast.textContent = msg;
-    toast.classList.toggle('rose', !!rose);
+    toast.classList.toggle('rose', variant === 'rose');
+    toast.classList.toggle('green', variant === 'green');
     toast.classList.add('show');
     toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 1600);
   }
@@ -541,7 +564,10 @@
   }
 
   function updateProgress(){
-    progress.textContent = Math.min(step, CORRECT.length) + ' / ' + CORRECT.length + ' râvi';
+    // step=1 -> henuz hic ravi bulunmadi (Buhari zaten secili sayilir,
+    // sayaca dahil degil); step=7 (omer bulundugunda) -> 6/6.
+    var found = Math.max(0, Math.min(step - 1, FLOOR_COUNT));
+    progress.textContent = found + ' / ' + FLOOR_COUNT + ' râvi';
   }
 
   function moveMustafaTo(xPct, yPct, onDone){
@@ -586,7 +612,7 @@
       goalNode.classList.add('reached');
       lightUpRavi('nebi');
       metinValue.innerHTML = HADITH_TEXT;
-      showToast('Mübarek olsun! Mustafâ, Peygamberine (s.a.v.) kavuştu.');
+      showToast('Elhamdülillah! Mustafâ, Peygamberine (s.a.v.) kavuştu.', 'green');
     });
   }
 
@@ -594,7 +620,7 @@
     el.classList.remove('wrong');
     void el.offsetWidth;
     el.classList.add('wrong');
-    showToast('Sırada bu râvi yok — tekrar dene.', true);
+    showToast('Sırada bu râvi yok — tekrar dene.', 'rose');
   }
 
   function shuffle(list){
@@ -623,29 +649,52 @@
   }
 
   function buildNodes(){
-    // Buhari (muellif) her zaman alt satirda, Mustafa'nin yanindadir;
-    // izgaraya girmez. Geri kalan ravi ve celdiriciler izgara
-    // hucrelerine karisik sirada oturur -- yerlesim duzenli, hangi
-    // kutunun dogru oldugu yine oyunun kendi meselesi.
-    var author = CORRECT[0];
-    authorRow.appendChild(makeNode(Object.assign({}, author, {correctIndex:0})));
+    // Buhari (muellif) oyuna zaten secili gelir: bir kat ya da tiklama
+    // gerektirmez, Mustafa basindan onun yanindadir.
+    var buhariBtn = makeNode(Object.assign({}, CORRECT[0], {correctIndex:0}));
+    buhariBtn.classList.add('visited');
+    authorRow.appendChild(buhariBtn);
 
-    var rest = CORRECT.slice(1).map(function(r,i){
-      return Object.assign({}, r, {correctIndex:i+1});
-    }).concat(DECOYS.map(function(d){
-      return Object.assign({}, d, {correctIndex:-1});
-    }));
+    // Geri kalan her ravi kendi KATINI alir: hadiste Buhari disinda kac
+    // ravi varsa o kadar kat olusur, her katta 1 dogru + 2 celdirici
+    // (DECOYS_PER_FLOOR) bulunur. Katlar DOM'a Hz. Nebi'ye en yakindan
+    // (en son bulunacak ravi) baslayarak yazilir ki gorsel siralama en
+    // ustten en alta, tirmanis sirasinin TERSini yansitsin.
+    var remaining = CORRECT.slice(1).map(function(r, i){
+      return { ravi:r, correctIndex:i+1 };
+    });
+    var decoyPool = shuffle(DECOY_NAMES.slice());
+    var floorsTopDown = remaining.slice().reverse();
 
-    shuffle(rest).forEach(function(node){
-      nodeGrid.appendChild(makeNode(node));
+    floorsTopDown.forEach(function(pair){
+      var floorEl = document.createElement('div');
+      floorEl.className = 'floor';
+      var decoys = decoyPool.splice(0, DECOYS_PER_FLOOR).map(function(name, di){
+        return { id:'decoy-'+pair.correctIndex+'-'+di, name:name, correctIndex:-1 };
+      });
+      var items = shuffle([Object.assign({}, pair.ravi, {correctIndex:pair.correctIndex})].concat(decoys));
+      items.forEach(function(item){ floorEl.appendChild(makeNode(item)); });
+      nodeGrid.appendChild(floorEl);
     });
   }
-  buildNodes();
-  syncMustafa();
-  updateProgress();
 
-  // Izgara sutun sayisi degistiginde (pencere/yakinlastirma) Mustafa ve
-  // iz cizgisi kutulardan yeniden hesaplanir.
+  // Oyunun basindaki (ve "Bastan baslat" sonrasindaki) durum: Buhari
+  // zaten secili, step 1'den baslar (CORRECT[0] zaten bulunmus sayilir),
+  // Mustafa ve iz onun yanindan baslar.
+  function initState(){
+    step = 1;
+    currentAnchor = board.querySelector('.node[data-id="buhari"]');
+    pathAnchors = currentAnchor ? [currentAnchor] : [];
+    drawPath();
+    syncMustafa();
+    updateProgress();
+  }
+
+  buildNodes();
+  initState();
+
+  // Kat genislikleri (pencere/yakinlastirma) degistiginde Mustafa ve iz
+  // cizgisi kutulardan yeniden hesaplanir.
   var relayoutTimer = null;
   function relayout(){
     clearTimeout(relayoutTimer);
@@ -664,13 +713,8 @@
   video.addEventListener('loadeddata', relayout);
 
   document.getElementById('resetBtn').addEventListener('click', function(){
-    step = 0;
-    pathAnchors = [];
-    currentAnchor = null;
-    drawPath();
     goalNode.classList.remove('reached');
     metinValue.innerHTML = '<span class="placeholder">Râvileri tamamla. Ortaya çıksın</span>';
-    updateProgress();
     Array.prototype.forEach.call(board.querySelectorAll('.node'), function(el){
       el.classList.remove('visited','wrong');
       var b = el.querySelector('.badge');
@@ -679,7 +723,10 @@
     Array.prototype.forEach.call(document.querySelectorAll('.ravi-name'), function(s){
       s.classList.remove('lit','lit-flash');
     });
-    syncMustafa();
+    // Buhari yeniden secili baslar; digerleri initState() ile bosa doner.
+    var buhariEl = board.querySelector('.node[data-id="buhari"]');
+    if(buhariEl) buhariEl.classList.add('visited');
+    initState();
   });
 
   document.getElementById('themeBtn').addEventListener('click', function(){
@@ -706,5 +753,31 @@
     new ResizeObserver(reportHeight).observe(document.body);
   }
   setTimeout(reportHeight, 300);
+
+  // Iframe'in kendi yuksekligi icerige esitlendigi icin hic kaydirma
+  // cubugu yok -- "position:fixed" burada tarayici penceresine degil,
+  // bu document'in TAMAMINA gore sabitleniyor, o yuzden toast eskiden
+  // sayfanin en altina yapisip kaliyordu. Ust pencere (page.tsx) bize
+  // kendi kaydirma konumunu ve pencere yuksekligini bildiriyor; bunlardan
+  // "goruntudeki gercek alt kenarin" bu document icindeki Y konumunu
+  // hesaplayip toast'u position:absolute + bottom ile oraya sabitliyoruz.
+  // Mesaj hic gelmezse (sayfa dogrudan aciliyorsa) CSS'teki varsayilan
+  // fixed hali zaten dogru calisir.
+  window.addEventListener('message', function(e){
+    var data = e.data;
+    if(!data || data.type !== 'resule-kavusmak-viewport') return;
+    // Bu document icinde, tarayici penceresinin gorunen alt kenarinin Y
+    // konumu; sonra bunun sayfanin (document) TOPLAM yuksekliginden ne
+    // kadar yukarida kaldigini bulup ayni miktari toast'un "bottom"
+    // degeri olarak kullaniyoruz -- boylece toast her zaman GORUNEN
+    // pencerenin altina 24px kalarak yapisir, sayfanin gercek sonuna
+    // degil.
+    var docHeight = document.documentElement.scrollHeight;
+    var visibleBottom = data.viewportHeight - data.frameTop;
+    var fromPageBottom = docHeight - visibleBottom;
+    toast.style.position = 'absolute';
+    toast.style.top = 'auto';
+    toast.style.bottom = Math.max(24, Math.round(fromPageBottom + 24)) + 'px';
+  });
 })();
 </script>
