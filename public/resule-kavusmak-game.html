@@ -1,0 +1,703 @@
+<title>Mustafâ'nın İsnad Yolculuğu — v4</title>
+<style>
+  :root{
+    --background:#d2ccbe;
+    --foreground:#171717;
+    --secondary:#3f3f46;
+    --tertiary:#52525b;
+    --hairline:rgba(0,0,0,.08);
+    --hover:rgba(0,0,0,.04);
+    --rose:#a13b2e;
+  }
+  :root[data-theme="dark"]{
+    --background:#000000;
+    --foreground:#e5dfd0;
+    --secondary:#cdc6b4;
+    --tertiary:#ada693;
+    --hairline:rgba(255,255,255,.145);
+    --hover:#1a1a1a;
+    --rose:#d97b6c;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --background:#000000;
+      --foreground:#e5dfd0;
+      --secondary:#cdc6b4;
+      --tertiary:#ada693;
+      --hairline:rgba(255,255,255,.145);
+      --hover:#1a1a1a;
+      --rose:#d97b6c;
+    }
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0;}
+  .page{
+    min-height:100%;
+    background:var(--background);
+    color:var(--foreground);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    position:relative;
+    padding-bottom:40px;
+  }
+
+  .chip-icon{
+    position:fixed; left:16px; top:16px; z-index:20;
+    width:36px; height:36px; border-radius:9999px;
+    display:flex; align-items:center; justify-content:center;
+    border:1px solid var(--hairline);
+    background:var(--background);
+    color:var(--foreground);
+    cursor:pointer;
+  }
+  .chip-lang{
+    position:fixed; right:16px; top:16px; z-index:20;
+    height:36px; min-width:36px; padding:0 12px; border-radius:9999px;
+    display:flex; align-items:center; justify-content:center;
+    border:1px solid var(--hairline);
+    background:var(--background);
+    color:var(--foreground);
+    font-size:14px; font-weight:500;
+  }
+  .brand-mark{
+    position:fixed; left:50%; top:16px; transform:translateX(-50%);
+    z-index:20; font-weight:700; font-size:14px; letter-spacing:.02em;
+    color:var(--foreground); opacity:.55;
+  }
+
+  .wrap{
+    max-width:640px;
+    margin:0 auto;
+    padding:76px 24px 0;
+  }
+
+  h1{
+    font-size:1.5rem;
+    line-height:2rem;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0 0 6px;
+  }
+  .lede{
+    font-size:1rem;
+    line-height:1.6rem;
+    color:var(--secondary);
+    margin:0 0 22px;
+    max-width:46ch;
+  }
+
+  .bubble{
+    position:relative;
+    border:1px solid var(--hairline);
+    background:var(--background);
+    border-radius:22px;
+    padding:16px 18px;
+    margin-bottom:28px;
+  }
+  .bubble-row{font-size:14px; line-height:1.6;}
+  .bubble-row + .bubble-row{margin-top:8px; padding-top:8px; border-top:1px solid var(--hairline);}
+  .bubble-label{
+    font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--tertiary); margin-right:8px;
+  }
+  .bubble-value .placeholder{color:var(--tertiary); font-style:normal;}
+  .bubble-value .step{font-weight:600;}
+  .bubble-value .sep{color:var(--hairline); margin:0 4px; opacity:.9;}
+
+  .isnad-ar{
+    margin-top:8px;
+    font-size:15px;
+    line-height:2.1;
+    text-align:right;
+    color:var(--tertiary);
+    font-family:"Traditional Arabic","Noto Naskh Arabic","Arabic Typesetting","Segoe UI",serif;
+  }
+  .ravi-name{
+    color:var(--tertiary);
+    font-weight:700;
+    transition:color .4s;
+  }
+  .ravi-name.lit{color:#fff; font-weight:700;}
+  .ravi-name.lit-flash{animation:ravi-glow .9s ease;}
+  @keyframes ravi-glow{
+    0%{text-shadow:0 0 0 transparent;}
+    35%{text-shadow:0 0 8px var(--foreground);}
+    100%{text-shadow:0 0 0 transparent;}
+  }
+
+  .board{
+    position:relative;
+    aspect-ratio:5/6.2;
+    margin-bottom:22px;
+  }
+
+  .goal-pill{
+    position:absolute; left:50%; top:2%;
+    transform:translateX(-50%);
+    display:flex; flex-direction:column; align-items:center;
+    gap:1px;
+    background:var(--background);
+    border:1px solid var(--foreground);
+    color:var(--foreground);
+    border-radius:9999px;
+    padding:10px 20px;
+    font-size:13px; font-weight:600;
+    z-index:5;
+    transition:background .3s, color .3s, box-shadow .3s;
+  }
+  .goal-pill small{font-weight:400; font-size:11px; opacity:.75;}
+  .goal-pill.reached{
+    background:var(--foreground);
+    color:var(--background);
+    box-shadow:0 0 0 6px var(--hover);
+  }
+
+  .path-layer{position:absolute; inset:0; width:100%; height:100%; overflow:visible; z-index:1; pointer-events:none;}
+  .path-layer polyline{fill:none; stroke:var(--foreground); stroke-width:1.5; stroke-dasharray:1 6; stroke-linecap:round; opacity:.35;}
+
+  .node{
+    position:absolute;
+    transform:translate(-50%,-50%);
+    background:var(--background);
+    border:1px solid var(--hairline);
+    color:var(--foreground);
+    border-radius:9999px;
+    padding:6px 10px;
+    font-size:11px;
+    font-weight:500;
+    cursor:pointer;
+    z-index:3;
+    max-width:102px;
+    text-align:center;
+    line-height:1.2;
+    transition:transform .15s, border-color .2s, background .2s, color .2s;
+  }
+  .node:hover{border-color:var(--foreground);}
+  .node:focus-visible{outline:2px solid var(--foreground); outline-offset:2px;}
+  .node .badge{
+    position:absolute; top:-7px; left:-7px;
+    width:17px; height:17px; border-radius:50%;
+    background:var(--foreground); color:var(--background);
+    font-size:9.5px; font-weight:700;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .node.visited{
+    background:var(--foreground);
+    color:var(--background);
+    border-color:var(--foreground);
+    cursor:default;
+  }
+  .node.visited:hover{transform:translate(-50%,-50%);}
+  .node.wrong{
+    animation:shake .38s ease;
+    border-color:var(--rose);
+    color:var(--rose);
+  }
+
+  @keyframes shake{
+    10%,90%{transform:translate(-50%,-50%) translateX(-1px);}
+    20%,80%{transform:translate(-50%,-50%) translateX(2px);}
+    30%,50%,70%{transform:translate(-50%,-50%) translateX(-4px);}
+    40%,60%{transform:translate(-50%,-50%) translateX(4px);}
+  }
+
+  /* --- Mustafâ: gercek karsilama videosu, 50px yukseklik, surekli oynuyor --- */
+  .mustafa{
+    position:absolute;
+    left:0; top:0;
+    /* Merkez hizasi = hedefin ortasi: Mustafa'nin merkezi
+       butonun merkezinde hizalanir, saginda durmaya devam eder. */
+    transform:translate(-50%,-50%);
+    z-index:6;
+    transition:left .9s cubic-bezier(.4,0,.2,1), top .9s cubic-bezier(.4,0,.2,1);
+  }
+  .mustafa canvas{
+    display:block;
+    height:75px;
+    width:auto;
+    pointer-events:none;
+  }
+
+  .toast{
+    /* Sayfaya degil viewport'a sabit: board uzun oldugunda (cok
+       buton + capiyon) eski mutlak konum sayfanin cok altinda kalip
+       kullanicinin kaydirmadan gormedigi bir yere dusuyordu. */
+    position:fixed;
+    left:50%; bottom:24px;
+    transform:translate(-50%,8px);
+    background:var(--foreground);
+    color:var(--background);
+    font-size:12px;
+    font-weight:500;
+    padding:8px 16px;
+    border-radius:9999px;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .25s, transform .25s;
+    z-index:30;
+    max-width:90%;
+    text-align:center;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    box-shadow:0 6px 20px rgba(0,0,0,0.25);
+  }
+  .toast.rose{background:var(--rose); color:#fff;}
+  .toast.show{opacity:1; transform:translate(-50%,0);}
+
+  .footer-row{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:0 2px;
+  }
+  .reset-btn{
+    font-size:13px; font-weight:500;
+    color:var(--foreground);
+    background:none;
+    border:1px solid var(--hairline);
+    border-radius:9999px;
+    padding:8px 16px;
+    cursor:pointer;
+    transition:background .2s, border-color .2s;
+  }
+  .reset-btn:hover{background:var(--hover); border-color:var(--foreground);}
+  .progress{
+    font-size:12px;
+    color:var(--tertiary);
+    font-variant-numeric:tabular-nums;
+  }
+
+  .caption{
+    max-width:640px;
+    margin:28px auto 0;
+    padding:0 24px;
+    font-size:12px;
+    color:var(--tertiary);
+    line-height:1.5;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .goal-pill, .node{transition:none !important; animation:none !important;}
+  }
+</style>
+
+<div class="page" id="pageRoot">
+  <div class="chip-icon" id="themeBtn" title="Koyu mod (site genelinde zaten var)">☾</div>
+  <div class="brand-mark">HD</div>
+  <div class="chip-lang" title="Dil (site genelinde zaten var)">TR</div>
+
+  <div class="wrap">
+    <h1>Mustafâ'yı peygamberine kavuşturabilir misin?</h1>
+    <p class="lede">İsnâdı doğru şekilde tamamla. Râvileri, Mustafâ'ya en yakın olandan başlayarak sırayla seç.</p>
+
+    <div class="bubble">
+      <div class="bubble-row">
+        <span class="bubble-label">İsnad</span>
+        <div class="isnad-ar" id="isnadAr" dir="rtl" lang="ar">حَدَّثَنَا <span class="ravi-name" data-ravi="humeydi">الْحُمَيْدِيُّ عَبْدُ اللهِ بْنُ الزُّبَيْرِ</span>، قَالَ: حَدَّثَنَا <span class="ravi-name" data-ravi="sufyan">سُفْيَانُ</span>، قَالَ: حَدَّثَنَا <span class="ravi-name" data-ravi="yahya">يَحْيَى بْنُ سَعِيدٍ الْأَنْصَارِيُّ</span>، قَالَ: أَخْبَرَنِي <span class="ravi-name" data-ravi="muhammed">مُحَمَّدُ بْنُ إِبْرَاهِيمَ التَّيْمِيُّ</span> أَنَّهُ سَمِعَ <span class="ravi-name" data-ravi="alkame">عَلْقَمَةَ بْنَ وَقَّاصٍ اللَّيْثِيَّ</span>، يَقُولُ: سَمِعْتُ <span class="ravi-name" data-ravi="omer">عُمَرَ بْنَ الْخَطَّابِ</span> عَلَى الْمِنْبَرِ، قَالَ: سَمِعْتُ <span class="ravi-name" data-ravi="nebi">رَسُولَ اللهِ ﷺ</span></div>
+      </div>
+      <div class="bubble-row">
+        <span class="bubble-label">HADİSİN METNİ</span>
+        <span class="bubble-value" id="metinValue"><span class="placeholder">Râvileri tamamla. Ortaya çıksın</span></span>
+      </div>
+    </div>
+
+    <div class="board" id="board">
+      <svg class="path-layer" id="pathLayer"></svg>
+      <div class="goal-pill" id="goalNode">Hz. Nebi <small>(s.a.v.)</small></div>
+      <div class="mustafa" id="mustafa">
+        <video
+          id="karsilamaVideo"
+          src="/Mustafa%20Karsilama_seffaf.mp4"
+          autoplay muted loop playsinline preload="auto"
+          style="position:fixed; width:1px; height:1px; opacity:0; pointer-events:none; left:0; bottom:0;"
+        ></video>
+        <canvas id="karsilamaCanvas"></canvas>
+      </div>
+    </div>
+    <div class="toast" id="toast"></div>
+
+    <div class="footer-row">
+      <span class="progress" id="progress">0 / 7 râvi</span>
+      <button class="reset-btn" id="resetBtn" type="button">Baştan başlat</button>
+    </div>
+  </div>
+
+  <p class="caption">Prototip v4 — karakter artık sitenin kendi "Mustafa Karşılama" videosu (ChromaKeyVideo ile aynı paketlenmiş-alfa çözme yöntemi), 50px yükseklikte, sürekli döngüde oynuyor. Kutudan kutuya geçiş 0,9 saniyelik kayma animasyonuyla görülüyor.</p>
+</div>
+
+<script>
+(function(){
+  // --- ChromaKeyVideo'nun ayni WebGL cozumu (app/ChromaKeyVideo.tsx) ---
+  var VERTEX_SHADER = "attribute vec2 position;\nvarying vec2 uv;\nvoid main() {\n  uv = vec2((position.x + 1.0) * 0.5, (1.0 - position.y) * 0.5);\n  gl_Position = vec4(position, 0.0, 1.0);\n}";
+  var FRAGMENT_SHADER = "precision mediump float;\nvarying vec2 uv;\nuniform sampler2D frame;\nvoid main() {\n  vec3 color = texture2D(frame, vec2(uv.x, uv.y * 0.5)).rgb;\n  float alpha = texture2D(frame, vec2(uv.x, uv.y * 0.5 + 0.5)).r;\n  gl_FragColor = vec4(color, alpha);\n}";
+
+  function createProgram(gl){
+    function compile(type, source){
+      var shader = gl.createShader(type);
+      gl.shaderSource(shader, source);
+      gl.compileShader(shader);
+      return shader;
+    }
+    var vertex = compile(gl.VERTEX_SHADER, VERTEX_SHADER);
+    var fragment = compile(gl.FRAGMENT_SHADER, FRAGMENT_SHADER);
+    var program = gl.createProgram();
+    gl.attachShader(program, vertex);
+    gl.attachShader(program, fragment);
+    gl.linkProgram(program);
+    return program;
+  }
+
+  function initChromaKey(video, canvas){
+    var gl = canvas.getContext('webgl', { alpha:true, premultipliedAlpha:true, antialias:false });
+    if(!gl) return;
+    var program = createProgram(gl);
+    gl.useProgram(program);
+
+    var buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+    var position = gl.getAttribLocation(program, 'position');
+    gl.enableVertexAttribArray(position);
+    gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
+
+    var texture = gl.createTexture();
+    gl.bindTexture(gl.TEXTURE_2D, texture);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+
+    function draw(){
+      if(video.readyState >= 2 && video.videoWidth > 0){
+        var width = video.videoWidth;
+        var height = Math.floor(video.videoHeight / 2);
+        if(canvas.width !== width || canvas.height !== height){
+          canvas.width = width;
+          canvas.height = height;
+          gl.viewport(0, 0, width, height);
+        }
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, video);
+        gl.clearColor(0,0,0,0);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      }
+      if('requestVideoFrameCallback' in video){
+        video.requestVideoFrameCallback(draw);
+      } else {
+        requestAnimationFrame(draw);
+      }
+    }
+    draw();
+  }
+
+  var video = document.getElementById('karsilamaVideo');
+  var canvas = document.getElementById('karsilamaCanvas');
+  video.addEventListener('loadeddata', function(){ initChromaKey(video, canvas); }, { once:true });
+  video.play().catch(function(){});
+
+  function rand(min, max){
+    return Math.random() * (max - min) + min;
+  }
+
+  var CORRECT = [
+    {id:'buhari',  name:'Buhârî', x:76, y:90}, // layoutNodes() BUHARI_POS'a sabitler
+    {id:'humeydi', name:'Humeydî', x:16, y:82},
+    {id:'sufyan',  name:'Süfyân b. Uyeyne', x:63, y:71},
+    {id:'yahya',   name:'Yahyâ b. Saîd el-Ensârî', x:34, y:61},
+    {id:'muhammed',name:'Muhammed b. İbrâhim et-Teymî', x:70, y:49},
+    {id:'alkame',  name:'Alkame b. Vakkâs el-Leysî', x:22, y:41},
+    {id:'omer',    name:'Ömer b. el-Hattâb (r.a.)', x:53, y:26}
+  ];
+  var DECOY_NAMES = [
+    'İmam Mâlik b. Enes', 'Ebû Hüreyre (r.a.)', 'İbn Şihâb ez-Zührî',
+    'Şu’be b. el-Haccâc', 'Ahmed b. Hanbel', 'İbn Abbâs (r.a.)',
+    'Katâde b. Diâme', 'Süleyman el-A’meş', 'et-Tirmizî', 'en-Nesâî',
+    'İbn Mâce', 'Ebû Dâvûd', 'ed-Dârekutnî', 'el-Hâkim', 'el-Beyhekî',
+    'et-Taberânî', 'Enes b. Mâlik (r.a.)', 'Âişe (r.anhâ)',
+    'İbn Ömer (r.a.)', 'Zeyd b. Sâbit (r.a.)', 'Ebû Saîd el-Hudrî (r.a.)',
+    'Câbir b. Abdullah (r.a.)'
+  ];
+  var DECOYS = DECOY_NAMES.map(function(n, i){
+    return { id:'decoy'+i, name:n, x:rand(6,94), y:rand(6,94) };
+  });
+  var MUSTAFA_START = {x:90, y:96};
+  var BUHARI_POS = {x:76, y:90};
+  var HADITH_TEXT = 'Ameller ancak niyetlere göredir. Herkese, niyet ettiği şey vardır. Kimin hicreti dünyalık elde etmek veya bir kadınla evlenmek içinse, hicreti o yöneldiği şeyedir.';
+  var MOVE_MS = 900;
+
+  var board = document.getElementById('board');
+  var pathLayer = document.getElementById('pathLayer');
+  var mustafa = document.getElementById('mustafa');
+  var goalNode = document.getElementById('goalNode');
+  var toast = document.getElementById('toast');
+  var metinValue = document.getElementById('metinValue');
+  var progress = document.getElementById('progress');
+
+  var step = 0;
+  var pathPoints = [];
+  var toastTimer = null;
+
+  function pctToPx(xPct, yPct){
+    var r = board.getBoundingClientRect();
+    return {x: xPct/100*r.width, y: yPct/100*r.height};
+  }
+
+  // Bir kutunun sag kenari + dikey ortasini, board'a gore yuzde olarak verir.
+  // Mustafa'nin ortasi butonun ortasina gelecek sekilde konumlanir.
+  var RIGHT_EDGE_GAP = 8; // px, kutuya yapismasin diye kucuk bir bosluk
+  function rightEdgePct(el){
+    var rect = el.getBoundingClientRect();
+    var boardRect = board.getBoundingClientRect();
+    return {
+      x: (rect.right + RIGHT_EDGE_GAP - boardRect.left) / boardRect.width * 100,
+      y: (rect.top + rect.height/2 - boardRect.top) / boardRect.height * 100
+    };
+  }
+
+  // Kutular baslangicta gozle serpistirilmis yuzdelerle konumlanir; bu
+  // fonksiyon sonradan aralarindaki (ve sabit Hz. Nebi kutusuyla olan)
+  // cakismalari basit bir itme/gevseme geçişiyle temizler, boylece metin
+  // uzunlugu veya font farkliliklarindan dogan ortusmeler elle ugrasmadan
+  // cozulur.
+  function resolvePair(a, b, pad){
+    var acx = a.x + a.w/2, acy = a.y + a.h/2;
+    var bcx = b.x + b.w/2, bcy = b.y + b.h/2;
+    var dx = acx - bcx, dy = acy - bcy;
+    var exX = (a.w + b.w)/2 + pad, exY = (a.h + b.h)/2 + pad;
+    var ox = exX - Math.abs(dx), oy = exY - Math.abs(dy);
+    if(ox <= 0 || oy <= 0) return;
+    if(ox < oy){
+      var sign = dx >= 0 ? 1 : -1;
+      if(a.fixed){ b.x -= sign*ox; }
+      else if(b.fixed){ a.x += sign*ox; }
+      else { a.x += sign*ox/2; b.x -= sign*ox/2; }
+    } else {
+      var signY = dy >= 0 ? 1 : -1;
+      if(a.fixed){ b.y -= signY*oy; }
+      else if(b.fixed){ a.y += signY*oy; }
+      else { a.y += signY*oy/2; b.y -= signY*oy/2; }
+    }
+  }
+
+  // Hz. Nebi ve Buhari (muellif) satirlarinda baska hicbir buton
+  // bulunmasin diye, cakisma hesabinda bu ikisinin "gorunmez" itme
+  // alanini board'un TAM genisligine yayiyoruz. Genislik zaten dolu
+  // oldugu icin fizik cozucu digger butonlari her zaman bu satirdan
+  // yukari ya da asagi iter, hicbir zaman yanina degil.
+  function fullWidthBand(rect, boardRect, boardW, marginY){
+    return {
+      x: 0,
+      y: rect.top-boardRect.top-marginY,
+      w: boardW,
+      h: rect.height + marginY*2,
+      fixed:true
+    };
+  }
+
+  function layoutNodes(){
+    var boardRect = board.getBoundingClientRect();
+    var boardW = boardRect.width, boardH = boardRect.height;
+    var pad = 6;
+
+    // Buhari fiziksel itmeye katilmaz: sabit bir koseye (Mustafa'nin
+    // basladigi yerin yakinina) kendisi yerlesir, digerleri onun
+    // satirindan disari itilir.
+    var buhariEl = board.querySelector('.node[data-id="buhari"]');
+    if(buhariEl){
+      buhariEl.style.left = BUHARI_POS.x + '%';
+      buhariEl.style.top = BUHARI_POS.y + '%';
+    }
+
+    var nodeEls = Array.prototype.slice.call(board.querySelectorAll('.node:not([data-id="buhari"])'));
+    var items = nodeEls.map(function(el){
+      var r = el.getBoundingClientRect();
+      return { x:r.left-boardRect.left, y:r.top-boardRect.top, w:r.width, h:r.height, fixed:false };
+    });
+
+    var goalRect = goalNode.getBoundingClientRect();
+    items.push(fullWidthBand(goalRect, boardRect, boardW, 34));
+
+    if(buhariEl){
+      var bRect = buhariEl.getBoundingClientRect();
+      items.push(fullWidthBand(bRect, boardRect, boardW, 22));
+    }
+
+    function clamp(it){
+      if(it.fixed) return;
+      if(it.x < 0) it.x = 0;
+      if(it.y < 0) it.y = 0;
+      if(it.x+it.w > boardW) it.x = boardW-it.w;
+      if(it.y+it.h > boardH) it.y = boardH-it.h;
+    }
+
+    for(var pass=0; pass<220; pass++){
+      for(var i=0;i<items.length;i++){
+        for(var j=i+1;j<items.length;j++){
+          resolvePair(items[i], items[j], pad);
+        }
+      }
+      items.forEach(clamp);
+    }
+
+    nodeEls.forEach(function(el, idx){
+      var it = items[idx];
+      el.style.left = ((it.x+it.w/2)/boardW*100) + '%';
+      el.style.top = ((it.y+it.h/2)/boardH*100) + '%';
+    });
+  }
+
+  function placeMustafa(xPct, yPct){
+    mustafa.style.left = xPct + '%';
+    mustafa.style.top = yPct + '%';
+  }
+  placeMustafa(MUSTAFA_START.x, MUSTAFA_START.y);
+
+  function showToast(msg, rose){
+    clearTimeout(toastTimer);
+    toast.textContent = msg;
+    toast.classList.toggle('rose', !!rose);
+    toast.classList.add('show');
+    toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 1600);
+  }
+
+  function drawPath(){
+    var pts = pathPoints.map(function(p){ return p.x.toFixed(1)+','+p.y.toFixed(1); }).join(' ');
+    pathLayer.innerHTML = pts ? '<polyline points="'+pts+'"></polyline>' : '';
+  }
+
+  function lightUpRavi(id){
+    var span = document.querySelector('.ravi-name[data-ravi="'+id+'"]');
+    if(!span) return;
+    span.classList.add('lit');
+    span.classList.remove('lit-flash');
+    void span.offsetWidth;
+    span.classList.add('lit-flash');
+  }
+
+  function updateProgress(){
+    progress.textContent = Math.min(step, CORRECT.length) + ' / ' + CORRECT.length + ' râvi';
+  }
+
+  function moveMustafaTo(xPct, yPct, onDone){
+    placeMustafa(xPct, yPct);
+    setTimeout(function(){ if(onDone) onDone(); }, MOVE_MS);
+  }
+
+  function handleCorrect(node, el){
+    el.classList.add('visited');
+    // Buhari (adim 0) sayaca dahil degil, rakamlandirma ondan sonra 1'den baslar.
+    if(step > 0){
+      var badge = document.createElement('span');
+      badge.className = 'badge';
+      badge.textContent = step;
+      el.appendChild(badge);
+    }
+
+    var landing = rightEdgePct(el);
+    var px = pctToPx(landing.x, landing.y);
+    pathPoints.push(px);
+    drawPath();
+
+    moveMustafaTo(landing.x, landing.y, function(){
+      step++;
+      lightUpRavi(node.id);
+      updateProgress();
+      if(step === CORRECT.length){
+        showToast('Son adım: Hz. Nebi’ye (s.a.v.) ulaş!');
+        setTimeout(finish, 400);
+      } else {
+        showToast(node.name + ' doğru — sıradaki râviyi bul.');
+      }
+    });
+  }
+
+  function finish(){
+    var landing = rightEdgePct(goalNode);
+    var px = pctToPx(landing.x, landing.y);
+    pathPoints.push(px);
+    drawPath();
+    moveMustafaTo(landing.x, landing.y, function(){
+      goalNode.classList.add('reached');
+      lightUpRavi('nebi');
+      metinValue.innerHTML = HADITH_TEXT;
+      showToast('Mübarek olsun! Mustafâ, Peygamberine (s.a.v.) kavuştu.');
+    });
+  }
+
+  function handleWrong(el){
+    el.classList.remove('wrong');
+    void el.offsetWidth;
+    el.classList.add('wrong');
+    showToast('Sırada bu râvi yok — tekrar dene.', true);
+  }
+
+  function buildNodes(){
+    var all = CORRECT.map(function(r,i){ return Object.assign({}, r, {correctIndex:i}); })
+      .concat(DECOYS.map(function(d){ return Object.assign({}, d, {correctIndex:-1}); }));
+
+    all.forEach(function(node){
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'node';
+      btn.dataset.id = node.id;
+      btn.style.left = node.x + '%';
+      btn.style.top = node.y + '%';
+      btn.textContent = node.name;
+      btn.addEventListener('click', function(){
+        if(btn.classList.contains('visited')) return;
+        if(node.correctIndex === step){
+          handleCorrect(node, btn);
+        } else {
+          handleWrong(btn);
+        }
+      });
+      board.appendChild(btn);
+    });
+  }
+  buildNodes();
+  layoutNodes();
+  updateProgress();
+
+  document.getElementById('resetBtn').addEventListener('click', function(){
+    step = 0;
+    pathPoints = [];
+    drawPath();
+    goalNode.classList.remove('reached');
+    metinValue.innerHTML = '<span class="placeholder">Râvileri tamamla. Ortaya çıksın</span>';
+    updateProgress();
+    Array.prototype.forEach.call(board.querySelectorAll('.node'), function(el){
+      el.classList.remove('visited','wrong');
+      var b = el.querySelector('.badge');
+      if(b) b.remove();
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('.ravi-name'), function(s){
+      s.classList.remove('lit','lit-flash');
+    });
+    placeMustafa(MUSTAFA_START.x, MUSTAFA_START.y);
+  });
+
+  document.getElementById('themeBtn').addEventListener('click', function(){
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark' ||
+      (!document.documentElement.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    document.getElementById('themeBtn').textContent = isDark ? '☾' : '☀';
+  });
+
+  // Bu sayfa bir iframe icinde gomulu kullanildiginda (resule-kavusmak
+  // sayfasi), ust pencereye kendi yuksekligini bildirir ki iframe sabit
+  // bir tahmin yerine gercek icerige gore boyutlansin.
+  function reportHeight(){
+    if(window.parent !== window){
+      window.parent.postMessage(
+        { type:'resule-kavusmak-height', height: document.documentElement.scrollHeight },
+        '*'
+      );
+    }
+  }
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  if('ResizeObserver' in window){
+    new ResizeObserver(reportHeight).observe(document.body);
+  }
+  setTimeout(reportHeight, 300);
+})();
+</script>
