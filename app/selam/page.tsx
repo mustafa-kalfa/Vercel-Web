@@ -11,13 +11,35 @@ export default function Selam() {
     <main className="relative flex flex-1 flex-col">
       {/* Ana sayfaya donus. Dil ve tema dugmeleri gibi sabit duruyor ki
           sayfa kaydirildiginda da erisilebilsin; iki dugmenin arasinda
-          ortada kaliyor. */}
+          ortada kaliyor.
+
+          Statik `.brand-logo` maskesi yerine `HD-Mini.mp4`: anasayfadaki
+          logo klibinin ilk 61 karesi (2.03 sn), yalnizca HD monogramini
+          cizen bolum. 62. karede H ile D'nin kosegen baglantisi kopmaya
+          basliyor, o yuzden orada kesildi. `-c copy` ile kesildigi icin
+          yeniden kodlanmadi.
+
+          Kutu `h-9`dan yuksek: `.brand-logo` sikica kirpilmis bir PNG
+          maskesiydi, videoda ise monogram kadrajin ortadaki %45'ini
+          kapliyor (olculdu: 924x484 / 1920x1080) -- kalan pay, cizim
+          sirasinda etrafta suzulen yaylara ait. 72px'lik kutuda monogram
+          32px cikiyor, yani eski maskeyle ayni gorunur boyda. Genislik
+          verilmiyor, oran klibin kendisinden geliyor.
+
+          `brightness-0 dark:brightness-100`: klibin renk yarisi koyu tema
+          foreground'uyla (#e5dfd0) tintli, koyu temada filtre gerekmiyor;
+          acik temada brightness RGB'yi sifirlayip siyaha indiriyor. Ayni
+          yontem anasayfadaki animasyonlu logoda da var. */}
       <Link
         href="/"
         aria-label={t.brandAlt}
-        className="fixed left-1/2 top-4 z-20 flex h-9 -translate-x-1/2 items-center transition-opacity hover:opacity-70"
+        className="fixed left-1/2 top-4 z-20 flex h-[72px] -translate-x-1/2 items-center transition-opacity hover:opacity-70"
       >
-        <span className="brand-logo" aria-hidden="true" />
+        <ChromaKeyVideo
+          src="/HD-Mini.mp4"
+          loop={false}
+          className="h-[72px] w-auto max-w-none brightness-0 dark:brightness-100"
+        />
       </Link>
       {/* Balon ustten sabit uzaklikta: alta yaslasaydi yuksekligi metnin
           uzunluguyla degistigi icin ust kenari her dilde baska yerden

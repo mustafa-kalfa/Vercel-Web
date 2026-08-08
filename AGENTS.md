@@ -118,6 +118,20 @@ lumadan turet, rengi saf siyah birak.**
 `_yesil-perde.ps1` bu yolu tanimiyor; dogrudan ffmpeg ile uretildi
 (`geq` + vstack), ama cikti bayraklari script'inkiyle ayni tutuldu.
 
+### `HD-Mini.mp4` — ayni klipten kirpilmis header logosu
+
+`/selam` ustundeki logo (eskiden `.brand-logo` CSS maskesi) artik
+`HD-Mini.mp4`: `HD-Animasyon.mp4`in ILK 61 KARESI (2.033 sn), yani
+yalnizca HD monogramini cizen bolum. **Kesme noktasi keyfi degil:**
+62. karede H'nin kolu ile D'nin govdesi arasindaki kosegen baglantiya
+bir centik girip harfler ayrilmaya basliyor (58-60 temiz, 61'de kopuyor).
+Yeni bir kirpma gerekirse once o birlesim noktasini kare kare kontrol et.
+
+`-c copy -frames:v 61` ile kesildi: paketlenmis klibi zaman ekseninde
+kesmek yeniden kodlama ISTEMIYOR, dolayisiyla kalite kaybi sifir ve
+kodek/profil/seviye/renk bayraklari kaynakla birebir ayni kaliyor
+(Main / 5.0 / yuv420p / bt709 / SAR 1:1 / faststart).
+
 ### Mustafa'ya ne soylemeli: DaVinci'den nasil export etsin
 
 **"Seffaf - ProRes 4444 + Alpha" kalibi. Baska hicbir sey gerekmiyor.**
