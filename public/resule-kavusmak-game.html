@@ -49,6 +49,13 @@
        ama hicbir buton kaymiyor/kuculmuyor. */
     overflow-x:hidden;
   }
+  /* Dil Arapca'ya gecince applyLanguage() bu sinifi #pageRoot'a ekler:
+     tum sayfa (baslik, etiketler, butonlar, toast, hadis metni) ayni
+     geleneksel nesih (Traditional Arabic / Noto Naskh Arabic) fontuna
+     gecer -- yalnizca isnad-ar degil, GORUNEN HER Arapca yazi. */
+  .lang-ar{
+    font-family:"Traditional Arabic","Noto Naskh Arabic","Arabic Typesetting","Segoe UI",serif;
+  }
 
   .wrap{
     max-width:640px;
@@ -284,6 +291,7 @@
   }
   .reset-btn{
     font-size:13px; font-weight:500;
+    font-family:inherit;
     color:var(--foreground);
     background:none;
     border:1px solid var(--hairline);
@@ -570,6 +578,7 @@
     if(!STRINGS[lang]) return;
     currentLang = lang;
     var s = STRINGS[lang];
+    document.getElementById('pageRoot').classList.toggle('lang-ar', lang === 'ar');
     document.title = s.title;
     h1El.textContent = s.h1;
     h1El.setAttribute('dir', s.dir);
