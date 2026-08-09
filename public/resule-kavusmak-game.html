@@ -1,4 +1,17 @@
 <title>Mustafâ'nın İsnad Yolculuğu — v4</title>
+<!-- "Traditional Arabic" ve "Arabic Typesetting" yalnizca Windows'ta
+     yukludur; "Noto Naskh Arabic" da hicbir isletim sisteminde SISTEM
+     fontu olarak gelmez -- bu dosya app/layout.tsx'teki next/font/google
+     mekanizmasindan (kendi barindirdigi font, ayrica bkz. globals.css
+     `.lang-ar{font-family:var(--font-naskh)...}`) YARARLANAMIYOR, cunku
+     `/resule-kavusmak` sayfasina bir <iframe> icinde gomulu, AYRI bir
+     document -- CSS degiskenleri iframe sinirini gecmiyor. Bu yuzden
+     Google Fonts'tan KENDI basina yukluyor; iPhone'da (ve Windows/Android
+     disinda her yerde) Arapca metin gercek Naskh yerine sistemin
+     varsayilan Arapca fontuna dusuyordu, sebebi buydu. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --background:#d2ccbe;
@@ -57,7 +70,7 @@
      geleneksel nesih (Traditional Arabic / Noto Naskh Arabic) fontuna
      gecer -- yalnizca isnad-ar degil, GORUNEN HER Arapca yazi. */
   .lang-ar{
-    font-family:"Traditional Arabic","Noto Naskh Arabic","Arabic Typesetting","Segoe UI",serif;
+    font-family:"Noto Naskh Arabic","Traditional Arabic","Arabic Typesetting","Segoe UI",serif;
   }
   /* Kural: ayni ifadenin arapcasi, turkcesinin punto degerinden +4px
      buyuk olmali (isnad-ar'in kendi buyuklugu -- Arapca disinda karsiligi
@@ -170,7 +183,7 @@
     line-height:2.1;
     text-align:right;
     color:var(--tertiary);
-    font-family:"Traditional Arabic","Noto Naskh Arabic","Arabic Typesetting","Segoe UI",serif;
+    font-family:"Noto Naskh Arabic","Traditional Arabic","Arabic Typesetting","Segoe UI",serif;
   }
   .ravi-name{
     color:var(--tertiary);

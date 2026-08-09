@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useId, useRef } from "react";
 import ChromaKeyVideo from "../ChromaKeyVideo";
 import IntroVideo from "../IntroVideo";
 import { useLanguage } from "../LanguageContext";
@@ -12,7 +11,12 @@ function GamepadIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
-      className="h-[19px] w-[19px]"
+      // relative: .glow-ring/.glow-cover position:absolute oldugu icin
+      // DOM sirasindan bagimsiz olarak normalde onlarin ALTINDA kalirdi
+      // (konumlanmamis/in-flow icerik, konumlanmis kardeslerden once
+      // boyanir) -- ikonun opak .glow-cover'in ALTINDA kaybolmasini
+      // (ve boylece dugmenin tamamen bombos gorunmesini) engelliyor.
+      className="relative h-[19px] w-[19px]"
       aria-hidden="true"
       focusable="false"
       fill="none"
@@ -32,66 +36,6 @@ function GamepadIcon() {
 
 export default function Sinama() {
   const { t, language, outgoingLanguage } = useLanguage();
-  const gamepadRef = useRef<HTMLAnchorElement>(null);
-  const blurFilterId = useId();
-
-  // DENEME v2 (2026-08-10): iPhone'da parilti hic gorunmuyordu. Iki ayri
-  // Safari eksigi ust uste bindi:
-  //   1. pathLength <rect> gibi temel sekillerde desteklenmiyor (v1'de
-  //      cozulmustu),
-  //   2. stroke-dasharray/stroke-dashoffset icin calc() (hele calc(var())
-  //      keyframe icinde) WebKit'te YOK SAYILIYOR -- v1'in perimetre
-  //      degiskenli calc matematigi bu yuzden iPhone'da olu kaldi.
-  // v2 hicbir kirilgan ozellik kullanmiyor: <path>'in d'si JS'te gercek
-  // piksellerle kuruluyor, cevre getTotalLength() ile olculuyor,
-  // dasharray duz px string'i olarak yaziliyor ve animasyon CSS keyframe
-  // yerine Web Animations API (element.animate) ile veriliyor. Bunlarin
-  // hepsi SVG1/temel platform ozellikleri, Safari dahil her yerde var.
-  useEffect(() => {
-    const el = gamepadRef.current;
-    if (!el) return;
-    const paths = Array.from(
-      el.querySelectorAll<SVGPathElement>(".glow-blur, .glow-line"),
-    );
-    if (paths.length === 0) return;
-    const OFFSET = 100; // globals.css --container-offset ile ayni
-    const anims: Animation[] = [];
-    const update = () => {
-      const w = el.clientWidth;
-      const h = el.clientHeight;
-      if (!w || !h) return;
-      // Buton rounded-full: kose yaricapi kisa kenarin yarisi. SVG kabi
-      // butondan her yonde OFFSET/2 tasiyor, ic dikdortgen o kadar iceride.
-      const r = Math.min(w, h) / 2;
-      const x = OFFSET / 2;
-      const y = OFFSET / 2;
-      const d =
-        `M ${x + r} ${y} h ${w - 2 * r} a ${r} ${r} 0 0 1 ${r} ${r} ` +
-        `v ${h - 2 * r} a ${r} ${r} 0 0 1 ${-r} ${r} h ${-(w - 2 * r)} ` +
-        `a ${r} ${r} 0 0 1 ${-r} ${-r} v ${-(h - 2 * r)} ` +
-        `a ${r} ${r} 0 0 1 ${r} ${-r} Z`;
-      anims.splice(0).forEach((a) => a.cancel());
-      for (const p of paths) {
-        p.setAttribute("d", d);
-        const len = p.getTotalLength();
-        // Orijinal oran korunuyor: cevrenin %20'si yanik, %80'i bosluk.
-        p.style.strokeDasharray = `${len * 0.2}px ${len * 0.8}px`;
-        anims.push(
-          p.animate(
-            [{ strokeDashoffset: "0px" }, { strokeDashoffset: `${-len}px` }],
-            { duration: 2400, iterations: Infinity },
-          ),
-        );
-      }
-    };
-    update();
-    const ro = new ResizeObserver(update);
-    ro.observe(el);
-    return () => {
-      ro.disconnect();
-      anims.forEach((a) => a.cancel());
-    };
-  }, []);
 
   return (
     <div className="flex flex-col flex-1 items-center justify-center font-sans">
@@ -102,45 +46,30 @@ export default function Sinama() {
 
           glow-btn-test: iPhone/Safari uyumluluk denemesi (2026-08-10).
           Anasayfadaki/oyundaki .glow-btn / .bubble.glow-active henuz
-          buna gecirilmedi -- onaylanana kadar yalniz burada. */}
+          buna gecirilmedi -- onaylanana kadar yalniz burada.
+
+          v5: SVG'yi TAMAMEN birakan farkli bir teknik (globals.css'teki
+          .glow-ring yorumuna bkz.) -- v1/v2/v3'te sirayla pathLength,
+          calc(), SVG'ye dogrudan filter:blur() kusurlari bulunup
+          duzeltildi ama iPhone'da yine degisiklik gorulmedi. v4
+          (conic-gradient + mask-composite:exclude ring-oyma) test
+          aracimda BILE tutarsiz davrandi (buyuk boyutta calisiyor, 36px
+          dugmede kayboluyor) -- o yuzden mask'a hic guvenmeyen v5'e
+          gecildi: donen bir conic-gradient dairesi dugmenin ARKASINA
+          konup uzerine dugmeyle AYNI boyutta opak bir "kapak" katmani
+          bindiriliyor; halka yalniz kapaktan tasan kenarda (RIM'de)
+          gorunuyor. Hicbir mask/filtre/SVG YOK, sadece DOM sirasiyla
+          (arka->kapak->ikon) katman katman boyama -- CSS'in en temel,
+          en eski ozelligi. JS de hala gerekmiyor. */}
       <Link
-        ref={gamepadRef}
         href="/resule-kavusmak"
         className="glow-btn-test fixed right-4 top-[60px] z-20 flex h-9 w-9 items-center justify-center rounded-full border border-black/[.08] bg-background text-foreground transition-colors hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
         aria-label="Resûle Kavuşmak"
         title="Resûle Kavuşmak"
       >
+        <span className="glow-ring" aria-hidden="true" />
+        <span className="glow-cover" aria-hidden="true" />
         <GamepadIcon />
-        {/* d ozniteligi JS'te kuruluyor (yukaridaki useEffect) -- rect
-            degil path, cunku Safari rect'te ne pathLength'i ne de CSS
-            geometri ozelliklerini guvenilir destekliyor.
-
-            glow-blur'un bulanikligi CSS `filter:blur()` DEGIL, gercek bir
-            SVG <filter>/<feGaussianBlur> + `filter="url(#...)"` OZNITELIGI
-            (v3, 2026-08-10): iPhone'da halka donuyordu ama hic isik/parilti
-            yoktu ve kalinlasmis gorunuyordu -- WebKit'in SVG sekillerine
-            DOGRUDAN uygulanan CSS filter:blur()'u guvenilir islememesi
-            (bilinen bir WebKit kusuru) glow-blur'u bulaniklastirmadan,
-            duz/keskin 10px'lik OPAK bir cizgi olarak biraktigi icin hem
-            "isik" hissi kayboluyor hem de ince glow-line'in ustune binen bu
-            kalin katman halkayi olmasi gerekenden SISKIN gosteriyordu. Bir
-            <filter> tanimlayip presentation attribute ile referans vermek
-            SVG1.1'den beri her tarayicida (Safari dahil) guvenilir. */}
-        <svg className="glow-container" aria-hidden="true" focusable="false">
-          <defs>
-            <filter
-              id={blurFilterId}
-              x="-100%"
-              y="-100%"
-              width="300%"
-              height="300%"
-            >
-              <feGaussianBlur stdDeviation="4" />
-            </filter>
-          </defs>
-          <path strokeLinecap="round" className="glow-blur" filter={`url(#${blurFilterId})`} />
-          <path strokeLinecap="round" className="glow-line" />
-        </svg>
       </Link>
       <IntroVideo />
       <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-start gap-8 px-16 pt-28 pb-[35vh] sm:items-start sm:pt-36 sm:pb-24">

@@ -191,45 +191,57 @@ html[lang="ar"] .ar-greeting {
   }
 }
 
-/* DENEME v2 -- yalnizca /sinama (app/sinama/page.tsx). iPhone/Safari'de
-   parilti hic cikmiyordu; iki WebKit eksigi ust uste binmisti:
-   1. pathLength <rect> gibi temel sekillerde desteklenmiyor (SVG2'de
-      eklendi, WebKit hala gecemiyor -- w3c/svgwg#773),
-   2. stroke-dasharray/stroke-dashoffset degerlerinde calc() (ozellikle
-      calc(var()) bir keyframe icinde) WebKit'te yok sayiliyor -- v1'in
-      "--glow-perimeter uzerinden calc" matematigi bu yuzden olu kaldi.
-   v2'de CSS yalnizca renk/kalinlik/blur tasiyor; sekil (path d'si),
-   dasharray (duz px) ve animasyon (Web Animations API) tamamen JS'te,
-   sinama/page.tsx'teki useEffect'te. Onaylanirsa .glow-btn (anasayfa) ve
-   resule-kavusmak-game.html'deki .bubble.glow-active ayni desene
-   gecirilecek. */
-.glow-btn-test {
-  --glow-line-color: #fff;
-  --glow-line-thickness: 2px;
-  --glow-blur-color: #fff;
-  --glow-blur-size: 10px;
-  --container-offset: 100px;
-}
-.glow-btn-test .glow-container {
+/* DENEME v5 -- yalnizca /sinama (app/sinama/page.tsx). Onceki denemeler:
+   v1 pathLength <rect>'te calismiyordu, v2 stroke-dash* icinde calc()
+   WebKit'te yok sayiliyordu, v3 CSS filter:blur() bir SVG sekline
+   DOGRUDAN uygulaninca guvenilir degildi -- ucu de bulunup duzeltildi
+   ama iPhone'da degisiklik bildirilmedi. v4 (conic-gradient +
+   mask-composite:exclude ile "halka oyma") DENENDI ama kendi test
+   aracimda BILE tutarsiz cikti: 300px'lik bir kutuda net gorunuyordu,
+   36px'lik gercek dugmede GORUNMEZ oluyordu (alt-piksel/compositing
+   duyarliligi). mask'a guvenmek yerine v5 CSS'in en eski/en temel
+   ozelligine, DOM boyama SIRASINA donuyor:
+
+   1. `.glow-ring`: dugmeden her yonde birkac piksel TASAN, donen bir
+      conic-gradient dairesi -- dugmenin ILK cocugu, yani digerlerinden
+      ONCE (altta) boyanir.
+   2. `.glow-cover`: dugmeyle BIREBIR ayni boyutta, opak (var(--background))
+      bir daire -- ondan SONRA (ustunde) boyanir, halkanin TAM ORTASINI
+      kapatir.
+   3. GamepadIcon en son (en ustte).
+
+   Net sonuc: halka yalniz kapaktan DISARI TASAN ince kenarda (rim'de)
+   gorunur -- mask, filter:blur() (SVG'ye), stroke-dasharray, @property,
+   pathLength'in HICBIRI yok; yalniz conic-gradient + duz DOM sirasi +
+   transform:rotate. Bunlarin dorduu de CSS2/erken CSS3 duzeyinde,
+   Safari'de ONYILLARDIR sorunsuz. */
+.glow-ring {
   pointer-events: none;
   position: absolute;
-  inset: calc(var(--container-offset) / -2);
-  width: calc(100% + var(--container-offset));
-  height: calc(100% + var(--container-offset));
+  inset: -4px;
+  border-radius: 9999px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    transparent 60%,
+    #fff 74%,
+    #fff 86%,
+    transparent 98%,
+    transparent 100%
+  );
+  filter: blur(2px);
+  animation: glow-ring-spin 2.4s linear infinite;
 }
-.glow-btn-test .glow-blur,
-.glow-btn-test .glow-line {
-  fill: transparent;
+.glow-cover {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: var(--background);
 }
-.glow-btn-test .glow-line {
-  stroke: var(--glow-line-color);
-  stroke-width: var(--glow-line-thickness);
-}
-.glow-btn-test .glow-blur {
-  /* Bulaniklik artik CSS'te degil -- sinama/page.tsx'teki gercek SVG
-     <feGaussianBlur> filtresinden geliyor (WebKit, CSS filter:blur()'u
-     SVG sekillerine dogrudan uygulaninca guvenilir calismiyor). */
-  stroke: var(--glow-blur-color);
-  stroke-width: var(--glow-blur-size);
+@keyframes glow-ring-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
