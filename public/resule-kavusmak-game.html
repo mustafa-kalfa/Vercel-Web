@@ -56,6 +56,19 @@
   .lang-ar{
     font-family:"Traditional Arabic","Noto Naskh Arabic","Arabic Typesetting","Segoe UI",serif;
   }
+  /* Kural: ayni ifadenin arapcasi, turkcesinin punto degerinden +4px
+     buyuk olmali (isnad-ar'in kendi buyuklugu -- Arapca disinda karsiligi
+     olmadigindan -- ustteki temel kuralda zaten +4 uygulanmis halde). */
+  .lang-ar h1{font-size:28px;}                 /* tr 24px (1.5rem) +4 */
+  .lang-ar .lede{font-size:20px;}               /* tr 16px (1rem) +4 */
+  .lang-ar .bubble-label{font-size:15px;}        /* tr 11px +4 */
+  .lang-ar .bubble-value{font-size:18px;}        /* tr 14px (bubble-row'dan miras) +4 */
+  .lang-ar .goal-pill{font-size:17px;}           /* tr 13px +4 */
+  .lang-ar .goal-pill small{font-size:15px;}     /* tr 11px +4 */
+  .lang-ar .reset-btn{font-size:17px;}           /* tr 13px +4 */
+  .lang-ar .progress{font-size:16px;}            /* tr 12px +4 */
+  .lang-ar .toast{font-size:16px;}               /* tr 12px +4 */
+  .lang-ar .node{font-size:17px;}                /* tr 13px +4 */
 
   .wrap{
     max-width:640px;
@@ -106,7 +119,7 @@
 
   .isnad-ar{
     margin-top:8px;
-    font-size:15px;
+    font-size:19px;
     line-height:2.1;
     text-align:right;
     color:var(--tertiary);
@@ -193,7 +206,7 @@
     color:var(--foreground);
     border-radius:9999px;
     padding:6px 10px;
-    font-size:11px;
+    font-size:13px;
     font-weight:500;
     font-family:inherit;
     cursor:pointer;
