@@ -1,19 +1,31 @@
 import { ImageResponse } from "next/og";
+import { readFileSync } from "fs";
+import { join } from "path";
 
-// WhatsApp/X paylasim onizlemesi. Mustafa'nin istedigi tasarim
-// (2026-08-10): sitenin ACIK temasiyla ayni -- krem zemin (#d2ccbe),
-// siyah "Hadis & Dijital" yazisi, ortadaki "&" ana kelimelerden kucuk
-// (site basligindaki gorunumun aynisi). Onceki surum siyah zemin +
-// HD monogramiydi, begenilmedi.
-//
-// NOT: WhatsApp onizlemeyi URL basina GUNLERCE onbellekliyor; tasarim
-// degisince eski kartin gorunmeye devam etmesi normaldir. Taze sonucu
-// gormek icin linki soru isaretli bir varyantla (ornegin
-// mustafakalfa.com/?v=2) gondererek test et.
+// WhatsApp/X paylasim onizlemesi. Mustafa jenerik bir fontla yaklasik bir
+// "Hadis & Dijital" yazisi degil, SITENIN GERCEK marka goruntusunu istedi.
+// Bu metin aslinda hicbir yerde duz yazi olarak yok -- anasayfadaki
+// animasyonlu logo videosunun (public/HD-Animasyon.mp4) kendi cizdigi bir
+// gorsel, ozel bir fontla. O yuzden burada "Hadis & Dijital" YAZILMIYOR,
+// videonun SON KARESİNDEN (koyu tema, WebGL chroma-key shader'i ile
+// paketlenmis alfadan geri acilmis, sonra ChromaKeyVideo.tsx'teki
+// `brightness-0` mantigiyla ayni sekilde siyaha indirilmis) bir kez
+// cikarilan, siki kirpilmis bir PNG kullanılıyor: public/hadis-dijital-
+// wordmark.png. Video/kaynak degismedigi surece bu dosya sabit kalir;
+// logo yeniden uretilirse (bkz. AGENTS.md "Giris videolari") bu PNG de
+// ayni yontemle yeniden cikarilmali.
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default function Image() {
+  const logo = readFileSync(
+    join(process.cwd(), "public/hadis-dijital-wordmark.png"),
+  );
+  const logoSrc = `data:image/png;base64,${logo.toString("base64")}`;
+  // Kaynak PNG 1820x359 (oran ~5.07:1).
+  const logoWidth = 860;
+  const logoHeight = Math.round(logoWidth / (1820 / 359));
+
   return new ImageResponse(
     (
       <div
@@ -23,22 +35,11 @@ export default function Image() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          gap: 44,
           background: "#d2ccbe",
-          color: "#171717",
         }}
       >
-        <div
-          style={{ fontSize: 128, fontWeight: 700, letterSpacing: "-0.03em" }}
-        >
-          Hadis
-        </div>
-        <div style={{ fontSize: 84, fontWeight: 700, display: "flex" }}>&</div>
-        <div
-          style={{ fontSize: 128, fontWeight: 700, letterSpacing: "-0.03em" }}
-        >
-          Dijital
-        </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={logoSrc} width={logoWidth} height={logoHeight} alt="" />
       </div>
     ),
     { ...size },
