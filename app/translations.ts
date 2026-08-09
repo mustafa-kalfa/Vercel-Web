@@ -29,6 +29,7 @@ type Translation = {
   languageToggle: string;
   greetingLead: string;
   greetingBody: string;
+  workingOnIt: string;
 };
 
 export const TRANSLATIONS: Record<Language, Translation> = {
@@ -48,6 +49,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     greetingLead: "Merhaba, ben Mustafâ.",
     greetingBody:
       "İlahiyatçı ve yazılımcıyım. Ama daha çok ilahiyatçı. Akademik koşuşturmacadan bir nebze uzaklaşmak için bu sayfayı kurdum. Buraya hadis ve dijitali birleştirmeyi denediğim çalışmaları yükleyeceğim. Ne kadar malzeme çıkar ve ne kadar devam ettirebilirim bilmiyorum. Şimdilik buradayım :D",
+    workingOnIt: "Mustafâ bu iş üzerinde çalışıyor.",
   },
   ar: {
     brandAlt: "الحديث والديجيتالية",
@@ -65,6 +67,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     greetingLead: "مرحبًا، أنا مصطفى.",
     greetingBody:
       "باحث شرعي ومبرمج، لكنني باحث شرعي أكثر. أنشأت هذه الصفحة للابتعاد قليلاً عن زحمة العمل الأكاديمي. سأرفع هنا الأعمال التي أحاول فيها الجمع بين الحديث والديجيتالية. لا أدري كم ستخرج من مادة ولا إلى متى أستطيع الاستمرار. أنا هنا في الوقت الحالي :ᗡ",
+    workingOnIt: "مصطفى يعمل على هذا الأمر.",
   },
   en: {
     brandAlt: "Hadith and Digital",
@@ -83,5 +86,6 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     greetingLead: "Hi, I'm Mustafâ.",
     greetingBody:
       "I'm a theologian and a developer. But more of a theologian. I set this page up to get some distance from the academic rush. I'll be posting the work where I try to combine hadith and digital here. I don't know how much will come of it, or how long I can keep it going. For now, I'm here :D",
+    workingOnIt: "Mustafâ is working on this.",
   },
 };

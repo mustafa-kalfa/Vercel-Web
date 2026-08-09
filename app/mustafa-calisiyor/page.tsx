@@ -22,8 +22,8 @@ export default function MustafaCalisiyor() {
       </Link>
       <div className="px-6 pt-24 sm:px-10 sm:pt-28">
         <div className="relative ml-auto max-w-md rounded-3xl border border-black/[.08] bg-background px-6 py-5 dark:border-white/[.145]">
-          <p className="text-base leading-7 text-zinc-700 sm:text-lg sm:leading-8 dark:text-cream-dim">
-            Mustafâ bu iş üzerinde çalışıyor.
+          <p className="text-base leading-7 text-zinc-700 sm:text-lg sm:leading-8 dark:text-cream-dim ar-greeting">
+            {t.workingOnIt}
           </p>
           <span
             aria-hidden="true"
