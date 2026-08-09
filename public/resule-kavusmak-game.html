@@ -9,7 +9,7 @@
     --hover:rgba(0,0,0,.04);
     --rose:#a13b2e;
     --green:#3f7d4f;
-    --sparkle:#c9a227;
+    --sparkle:#ffffff;
   }
   :root[data-theme="dark"]{
     --background:#000000;
@@ -20,7 +20,7 @@
     --hover:#1a1a1a;
     --rose:#d97b6c;
     --green:#6fc27f;
-    --sparkle:#f2cf5b;
+    --sparkle:#ffffff;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
@@ -32,7 +32,7 @@
       --hover:#1a1a1a;
       --rose:#d97b6c;
       --green:#6fc27f;
-      --sparkle:#f2cf5b;
+      --sparkle:#ffffff;
     }
   }
 
@@ -820,10 +820,8 @@
       metinValue.innerHTML = HADITH_TEXT_BY_LANG[currentLang];
       metinValue.classList.add('sparkle');
       // Kavusma anini kutlayan mesaj digerlerinden (1.6s) daha uzun
-      // kalsin diye 5 saniye gosteriliyor, ve ASAGIDA degil YUKARIDA
-      // cikiyor -- hadis metni de yukarida ortaya ciktigi icin dikkat
-      // ayni bolgede kaliyor.
-      showToast(STRINGS[currentLang].toastDone, 'green', 5000, 'top');
+      // kalsin diye 5 saniye gosteriliyor; ASAGIDA (varsayilan konum).
+      showToast(STRINGS[currentLang].toastDone, 'green', 5000);
     });
   }
 
