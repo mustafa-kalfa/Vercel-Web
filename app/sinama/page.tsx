@@ -34,26 +34,62 @@ export default function Sinama() {
   const { t, language, outgoingLanguage } = useLanguage();
   const gamepadRef = useRef<HTMLAnchorElement>(null);
 
-  // DENEME: Safari <rect> uzerinde pathLength'i desteklemiyor (bkz.
-  // globals.css'teki .glow-btn-test yorumu), o yuzden orana degil
-  // GERCEK cevreye (px) dayanan bir dasharray/dashoffset kuruyoruz.
-  // rx:9999 en kucuk kenarin yarisina kilitlendigi icin (kare dugmede
-  // tam cember olur), cevre = dogru donen dikdortgen formulu.
+  // DENEME v2 (2026-08-10): iPhone'da parilti hic gorunmuyordu. Iki ayri
+  // Safari eksigi ust uste bindi:
+  //   1. pathLength <rect> gibi temel sekillerde desteklenmiyor (v1'de
+  //      cozulmustu),
+  //   2. stroke-dasharray/stroke-dashoffset icin calc() (hele calc(var())
+  //      keyframe icinde) WebKit'te YOK SAYILIYOR -- v1'in perimetre
+  //      degiskenli calc matematigi bu yuzden iPhone'da olu kaldi.
+  // v2 hicbir kirilgan ozellik kullanmiyor: <path>'in d'si JS'te gercek
+  // piksellerle kuruluyor, cevre getTotalLength() ile olculuyor,
+  // dasharray duz px string'i olarak yaziliyor ve animasyon CSS keyframe
+  // yerine Web Animations API (element.animate) ile veriliyor. Bunlarin
+  // hepsi SVG1/temel platform ozellikleri, Safari dahil her yerde var.
   useEffect(() => {
     const el = gamepadRef.current;
     if (!el) return;
+    const paths = Array.from(
+      el.querySelectorAll<SVGPathElement>(".glow-blur, .glow-line"),
+    );
+    if (paths.length === 0) return;
+    const OFFSET = 100; // globals.css --container-offset ile ayni
+    const anims: Animation[] = [];
     const update = () => {
       const w = el.clientWidth;
       const h = el.clientHeight;
       if (!w || !h) return;
-      const rx = Math.min(w, h) / 2;
-      const perimeter = 2 * (w + h) - 8 * rx + 2 * Math.PI * rx;
-      el.style.setProperty("--glow-perimeter", `${perimeter}px`);
+      // Buton rounded-full: kose yaricapi kisa kenarin yarisi. SVG kabi
+      // butondan her yonde OFFSET/2 tasiyor, ic dikdortgen o kadar iceride.
+      const r = Math.min(w, h) / 2;
+      const x = OFFSET / 2;
+      const y = OFFSET / 2;
+      const d =
+        `M ${x + r} ${y} h ${w - 2 * r} a ${r} ${r} 0 0 1 ${r} ${r} ` +
+        `v ${h - 2 * r} a ${r} ${r} 0 0 1 ${-r} ${r} h ${-(w - 2 * r)} ` +
+        `a ${r} ${r} 0 0 1 ${-r} ${-r} v ${-(h - 2 * r)} ` +
+        `a ${r} ${r} 0 0 1 ${r} ${-r} Z`;
+      anims.splice(0).forEach((a) => a.cancel());
+      for (const p of paths) {
+        p.setAttribute("d", d);
+        const len = p.getTotalLength();
+        // Orijinal oran korunuyor: cevrenin %20'si yanik, %80'i bosluk.
+        p.style.strokeDasharray = `${len * 0.2}px ${len * 0.8}px`;
+        anims.push(
+          p.animate(
+            [{ strokeDashoffset: "0px" }, { strokeDashoffset: `${-len}px` }],
+            { duration: 2400, iterations: Infinity },
+          ),
+        );
+      }
     };
     update();
     const ro = new ResizeObserver(update);
     ro.observe(el);
-    return () => ro.disconnect();
+    return () => {
+      ro.disconnect();
+      anims.forEach((a) => a.cancel());
+    };
   }, []);
 
   return (
@@ -74,9 +110,12 @@ export default function Sinama() {
         title="Resûle Kavuşmak"
       >
         <GamepadIcon />
+        {/* d ozniteligi JS'te kuruluyor (yukaridaki useEffect) -- rect
+            degil path, cunku Safari rect'te ne pathLength'i ne de CSS
+            geometri ozelliklerini guvenilir destekliyor. */}
         <svg className="glow-container" aria-hidden="true" focusable="false">
-          <rect strokeLinecap="round" className="glow-blur" />
-          <rect strokeLinecap="round" className="glow-line" />
+          <path strokeLinecap="round" className="glow-blur" />
+          <path strokeLinecap="round" className="glow-line" />
         </svg>
       </Link>
       <IntroVideo />

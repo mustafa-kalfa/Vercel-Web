@@ -1,22 +1,19 @@
 import { ImageResponse } from "next/og";
-import { readFileSync } from "fs";
-import { join } from "path";
 
-// WhatsApp, X, vb. paylasim onizlemeleri koyu temayi bilmiyor (statik bir
-// goruntu istiyor) -- sitenin varsayilan koyu temasiyla ayni renkler
-// (globals.css .dark: #000 zemin, #e5dfd0 krem yazi) sabit kullanildi.
+// WhatsApp/X paylasim onizlemesi. Mustafa'nin istedigi tasarim
+// (2026-08-10): sitenin ACIK temasiyla ayni -- krem zemin (#d2ccbe),
+// siyah "Hadis & Dijital" yazisi, ortadaki "&" ana kelimelerden kucuk
+// (site basligindaki gorunumun aynisi). Onceki surum siyah zemin +
+// HD monogramiydi, begenilmedi.
+//
+// NOT: WhatsApp onizlemeyi URL basina GUNLERCE onbellekliyor; tasarim
+// degisince eski kartin gorunmeye devam etmesi normaldir. Taze sonucu
+// gormek icin linki soru isaretli bir varyantla (ornegin
+// mustafakalfa.com/?v=2) gondererek test et.
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default function Image() {
-  // icon-dark.png: koyu zeminde gorunecek sekilde krem renkte, seffaf
-  // fonlu HD monogrami (bkz. layout.tsx metadata.icons -- ayni dosya
-  // koyu-tema favicon'u icin de kullaniliyor). ImageResponse'un istek
-  // baglaminda /public'e HTTP ile erisimi yok, dogrudan dosyadan okuyup
-  // data URI'ye ceviriyoruz.
-  const logo = readFileSync(join(process.cwd(), "public/icon-dark.png"));
-  const logoSrc = `data:image/png;base64,${logo.toString("base64")}`;
-
   return new ImageResponse(
     (
       <div
@@ -24,24 +21,23 @@ export default function Image() {
           width: "100%",
           height: "100%",
           display: "flex",
-          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          gap: 28,
-          background: "#000000",
+          gap: 44,
+          background: "#d2ccbe",
+          color: "#171717",
         }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={logoSrc} width={132} height={132} alt="" />
         <div
-          style={{
-            fontSize: 64,
-            fontWeight: 600,
-            letterSpacing: "-0.02em",
-            color: "#e5dfd0",
-          }}
+          style={{ fontSize: 128, fontWeight: 700, letterSpacing: "-0.03em" }}
         >
-          Hadis ve Dijital
+          Hadis
+        </div>
+        <div style={{ fontSize: 84, fontWeight: 700, display: "flex" }}>&</div>
+        <div
+          style={{ fontSize: 128, fontWeight: 700, letterSpacing: "-0.03em" }}
+        >
+          Dijital
         </div>
       </div>
     ),

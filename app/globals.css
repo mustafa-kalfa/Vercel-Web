@@ -191,36 +191,24 @@ html[lang="ar"] .ar-greeting {
   }
 }
 
-/* DENEME -- yalnizca /sinama (app/sinama/page.tsx). .glow-btn'in aynisi,
-   TEK fark: pathLength="100" YOK. Arastirildi (2026-08-10): Safari/WebKit
-   pathLength'i <path> disindaki temel sekillerde (rect, circle...) HALA
-   duzgun desteklemiyor (SVG2'de eklendi ama WebKit test case'leri
-   basarisiz -- bkz. w3c/svgwg#773, wpt.fyi). pathLength yok sayilinca
-   "20 80" dasharray'i normalize 100 birim yerine GERCEK piksel cinsinden
-   uygulaniyor: kucuk yuvarlak dugmede (~113px cevre) donguyu tam
-   kapatmiyor (her turda sicrama), buyuk hadis kutusunda (~1600px cevre)
-   tek parlak iz yerine onlarca kucuk 20px'lik parcaya bolunup "parilti"
-   izlenimi kayboluyor -- iPhone'da rapor edilen budur.
-
-   Cozum: pathLength'e hic guvenme, GERCEK cevreyi JS ile olcup
-   (sinama/page.tsx, ResizeObserver) --glow-perimeter degiskenine yaz;
-   dasharray/dashoffset buradan pikselle hesaplansin. dasharray/dashoffset
-   gercek birimlerle butun tarayicilarda (Safari dahil) standart SVG1'den
-   beri calisiyor, pathLength normalizasyonuna hic ihtiyac kalmiyor.
-   Chromium'da olcum/matematik dogrulandi; gercek iPhone'da GORULEMEDI,
-   onaylanirsa .glow-btn + resule-kavusmak-game.html'deki .bubble.glow-active
-   da ayni desene gecirilecek. */
+/* DENEME v2 -- yalnizca /sinama (app/sinama/page.tsx). iPhone/Safari'de
+   parilti hic cikmiyordu; iki WebKit eksigi ust uste binmisti:
+   1. pathLength <rect> gibi temel sekillerde desteklenmiyor (SVG2'de
+      eklendi, WebKit hala gecemiyor -- w3c/svgwg#773),
+   2. stroke-dasharray/stroke-dashoffset degerlerinde calc() (ozellikle
+      calc(var()) bir keyframe icinde) WebKit'te yok sayiliyor -- v1'in
+      "--glow-perimeter uzerinden calc" matematigi bu yuzden olu kaldi.
+   v2'de CSS yalnizca renk/kalinlik/blur tasiyor; sekil (path d'si),
+   dasharray (duz px) ve animasyon (Web Animations API) tamamen JS'te,
+   sinama/page.tsx'teki useEffect'te. Onaylanirsa .glow-btn (anasayfa) ve
+   resule-kavusmak-game.html'deki .bubble.glow-active ayni desene
+   gecirilecek. */
 .glow-btn-test {
   --glow-line-color: #fff;
   --glow-line-thickness: 2px;
-  --glow-line-length: 20;
   --glow-blur-color: #fff;
   --glow-blur-size: 10px;
-  --animation-speed: 2400ms;
   --container-offset: 100px;
-  /* JS yuklenmeden once bir kare icin dogru deger: 36px'lik yuvarlak
-     dugmenin cevresi (2 * pi * 18). */
-  --glow-perimeter: 113.1px;
 }
 .glow-btn-test .glow-container {
   pointer-events: none;
@@ -231,18 +219,7 @@ html[lang="ar"] .ar-greeting {
 }
 .glow-btn-test .glow-blur,
 .glow-btn-test .glow-line {
-  width: calc(100% - var(--container-offset));
-  height: calc(100% - var(--container-offset));
-  x: calc(var(--container-offset) / 2);
-  y: calc(var(--container-offset) / 2);
-  rx: 9999px;
   fill: transparent;
-  stroke: black;
-  stroke-width: 5px;
-  stroke-dasharray:
-    calc(var(--glow-line-length) * var(--glow-perimeter) / 100)
-    calc((100 - var(--glow-line-length)) * var(--glow-perimeter) / 100);
-  animation: glow-trace-test var(--animation-speed) linear infinite;
 }
 .glow-btn-test .glow-line {
   stroke: var(--glow-line-color);
@@ -252,10 +229,5 @@ html[lang="ar"] .ar-greeting {
   filter: blur(var(--glow-blur-size));
   stroke: var(--glow-blur-color);
   stroke-width: var(--glow-blur-size);
-}
-@keyframes glow-trace-test {
-  to {
-    stroke-dashoffset: calc(-1 * var(--glow-perimeter));
-  }
 }
 
