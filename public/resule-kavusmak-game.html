@@ -371,6 +371,12 @@
     display:inline-block;
   }
   .reset-btn:hover, .next-btn:hover{background:var(--hover); border-color:var(--foreground);}
+  /* Isnad dogru tamamlanmadan "Sonraki"nin bir anlami yok -- finish()
+     'visible' sinifini eklecek kadar gizli tutuluyor (Bastan baslat'ta
+     geri kaldiriliyor). display:none, yalnizca opacity degil: gizliyken
+     footer-row'da bos bir bosluk birakmasin. */
+  .next-btn{display:none;}
+  .next-btn.visible{display:inline-block;}
   .progress{
     font-size:12px;
     color:var(--tertiary);
@@ -378,8 +384,18 @@
   }
 
   @media (prefers-reduced-motion: reduce){
-    .goal-pill, .node, .bubble.glow-active .glow-blur, .bubble.glow-active .glow-line{transition:none !important; animation:none !important;}
+    .goal-pill, .node{transition:none !important; animation:none !important;}
   }
+  /* NOT: hadis kutusu border parildamasi (.glow-active) kasitli olarak
+     prefers-reduced-motion'a BAGLI DEGIL. Eskiden animation:none
+     !important ile durduruluyordu, ama opacity:1 kaldigi icin dasharray'in
+     yalnizca 20/100'luk parcasi YANIK, SABIT bir yay olarak donup
+     kaliyordu -- masaustunde ("bilgisayar versiyonunda yarida kaliyor",
+     2026-08-09 rapor edildi) TAM BOYLE goruldu: bu makinenin/tarayicinin
+     "animasyonlari azalt" tercihi acik, telefonda degil, o yuzden ayni
+     efekt telefonda sorunsuz akiyor, masaustunde donuk kalıyordu. Cozum:
+     bu efekti reduced-motion sorgusundan tamamen CIKAR (asagida hicbir
+     kosul yok), boylece her iki platformda da ayni sekilde akar. */
 </style>
 
 <div class="page" id="pageRoot">
@@ -665,6 +681,7 @@
   var toast = document.getElementById('toast');
   var metinValue = document.getElementById('metinValue');
   var hadithBubble = document.getElementById('hadithBubble');
+  var nextBtn = document.getElementById('nextBtn');
   var progress = document.getElementById('progress');
   var h1El = document.getElementById('h1Text');
   var ledeEl = document.getElementById('ledeText');
@@ -862,6 +879,7 @@
       lightUpRavi('nebi');
       metinValue.innerHTML = HADITH_TEXT_BY_LANG[currentLang];
       hadithBubble.classList.add('glow-active');
+      nextBtn.classList.add('visible');
       // Kavusma anini kutlayan mesaj digerlerinden (1.6s) daha uzun
       // kalsin diye 5 saniye gosteriliyor; ASAGIDA (varsayilan konum).
       showToast(STRINGS[currentLang].toastDone, 'green', 5000);
@@ -973,6 +991,7 @@
   document.getElementById('resetBtn').addEventListener('click', function(){
     goalNode.classList.remove('reached');
     hadithBubble.classList.remove('glow-active');
+    nextBtn.classList.remove('visible');
     metinValue.innerHTML = '<span class="placeholder"></span>';
     metinValue.querySelector('.placeholder').textContent = STRINGS[currentLang].placeholder;
     Array.prototype.forEach.call(board.querySelectorAll('.node'), function(el){

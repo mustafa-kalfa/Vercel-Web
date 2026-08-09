@@ -665,12 +665,34 @@ Burada oyun bitince "baslasin ve DEVAM etsin" istendigi icin:
 - Renk `var(--sparkle)` (eski efektle ayni degisken, `#fff`) kullaniyor,
   yani tema degisince ayrica dokunmaya gerek yok.
 
-`prefers-reduced-motion: reduce` tercihinde `.bubble.glow-active
-.glow-blur`/`.glow-line` icin animasyon kapatiliyor (izin akan kismi
-durur, sabit bir parlama kalir -- eski davranista oldugu gibi TAM
-gorunmez olmuyor, cunku container'in `opacity:1`'i animasyona bagli
-degil; bu kasitli, hareketsiz de olsa bir gorsel geri bildirim kalsin
-diye).
+**`prefers-reduced-motion: reduce`'a KASITLI OLARAK bagli degil** (digger
+sitede `.goal-pill`/`.node` gibi geceli efektlerin aksine). Ilk surumde
+bagliydi: `animation:none !important` ile duruyordu ama `opacity:1`
+kaldigi icin dasharray'in yalnizca 20/100'luk parcasi YANIK, SABIT bir
+yay olarak donup kaliyordu. Mustafa'nin makinesinde/tarayicisinda bu
+tercih ACIK oldugu icin ("Windows'ta animasyonlari azalt" veya benzeri)
+efekt masaustunde TAM BU SEKILDE goruldu ve "yarida kaliyor" diye rapor
+edildi (2026-08-09); telefonda ayni tercih kapali oldugundan sorunsuzdu.
+Cozum: bu tek efekt icin reduced-motion sorgusu tamamen KALDIRILDI,
+boylece iki platformda da ayni sekilde akar. Yeni bir azaltilmis-hareket
+kosulu eklenecekse burada TEKRAR bu tuzaga dusme: `animation:none` DEGIL,
+ya opacity'yi de birlikte sifirla ya da hic dokunma.
+
+### "Sonraki" butonu ve `/mustafa-calisiyor` (2026-08-09)
+
+`#nextBtn` (`.next-btn`, `#resetBtn`'in hemen alti, `footer-row` artik
+`flex-direction:column`) varsayilan `display:none`; yalnizca `finish()`
+`visible` sinifini ekleyince gorunur olur, "Bastan baslat" tekrar gizler.
+Yani isnad DOGRU tamamlanmadan bu buton hic yok -- bos bir bosluk da
+birakmiyor (opacity degil display).
+
+`/mustafa-calisiyor` sayfasi `/selam`'in (`app/selam/page.tsx`) birebir
+kopyasi (ayni logo/karakter/balon duzeni), TEK farki: balonda dil/tema
+bagimsiz sabit Turkce cumle ("Mustafâ bu iş üzerinde çalışıyor.") --
+`t.greetingLead`/`t.greetingBody` KULLANILMIYOR, cevirisi de yok. `#nextBtn`
+`target="_top"` tasiyor: bu HTML `/resule-kavusmak` sayfasinda bir iframe
+icinde gomulu oldugu icin `_top` olmadan tiklama yalnizca iframe'i
+degistirir, ust sayfayi degil.
 
 ### Bu sayfanin kendi basligi YOK
 
