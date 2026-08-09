@@ -9,6 +9,7 @@
     --hover:rgba(0,0,0,.04);
     --rose:#a13b2e;
     --green:#3f7d4f;
+    --sparkle:#c9a227;
   }
   :root[data-theme="dark"]{
     --background:#000000;
@@ -19,6 +20,7 @@
     --hover:#1a1a1a;
     --rose:#d97b6c;
     --green:#6fc27f;
+    --sparkle:#f2cf5b;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
@@ -30,6 +32,7 @@
       --hover:#1a1a1a;
       --rose:#d97b6c;
       --green:#6fc27f;
+      --sparkle:#f2cf5b;
     }
   }
 
@@ -116,6 +119,15 @@
   .bubble-value .placeholder{color:var(--tertiary); font-style:normal;}
   .bubble-value .step{font-weight:600;}
   .bubble-value .sep{color:var(--hairline); margin:0 4px; opacity:.9;}
+  /* Isnad tamamlanip hadis metni ortaya cikinca finish() bu sinifi ekler:
+     metin surekli hafifce parildar. Bastan baslat'ta kaldirilir. */
+  @keyframes hadith-sparkle{
+    0%, 100%{text-shadow:0 0 0 transparent;}
+    25%{text-shadow:0 0 10px var(--sparkle);}
+    50%{text-shadow:0 0 3px var(--sparkle);}
+    75%{text-shadow:0 0 14px var(--sparkle);}
+  }
+  .bubble-value.sparkle{animation:hadith-sparkle 2.2s ease-in-out infinite;}
 
   .isnad-ar{
     margin-top:8px;
@@ -296,6 +308,14 @@
   }
   .toast.rose{background:var(--rose); color:#fff;}
   .toast.green{background:var(--green); color:#fff;}
+  /* Kavusma mesaji gibi bazi toast'lar UST'te gosterilir (bkz.
+     showToast'un 4. parametresi): yukaridan asagi kayar, bottom yerine
+     top kullanir. applyToastPosition() bunu iframe icinde de dogru
+     konuma tasir. */
+  .toast.top-pos{
+    bottom:auto; top:24px;
+    transform:translate(-50%,-8px);
+  }
   .toast.show{opacity:1; transform:translate(-50%,0);}
 
   .footer-row{
@@ -321,7 +341,7 @@
   }
 
   @media (prefers-reduced-motion: reduce){
-    .goal-pill, .node{transition:none !important; animation:none !important;}
+    .goal-pill, .node, .bubble-value.sparkle{transition:none !important; animation:none !important;}
   }
 </style>
 
@@ -436,6 +456,33 @@
   var canvas = document.getElementById('karsilamaCanvas');
   video.addEventListener('loadeddata', function(){ initChromaKey(video, canvas); }, { once:true });
   video.play().catch(function(){});
+
+  // Ust pencereden (ayni origin) tema/dili SENKRON okuyoruz. postMessage
+  // ile gelen "resule-kavusmak-appearance" mesaji (asagida) ust
+  // pencerenin React effect'i CALISTIKTAN sonra gelir -- bu da bu
+  // sayfanin once kendi varsayilan Turkce/acik hâliyle cizilip HEMEN
+  // ARDINDAN dogru dile gecmesine, yani kisa bir "once Turkce gorunup
+  // sonra degisiyor" yanip sonmesine sebep oluyordu. Ayni origin
+  // oldugumuz icin parent.document'a dogrudan erisebiliyoruz; asagida
+  // buildNodes()+initState()'ten hemen sonra, TEK bir senkron script
+  // calismasi icinde applyLanguage() cagirilarak dogru dil DAHA ILK
+  // boyanan karede uygulaniyor. postMessage mekanizmasi yalnizca
+  // SONRAKI degisiklikler (kullanici dugmeye basinca) icin kalir.
+  var initialAppearance = (function(){
+    try {
+      if(window.parent && window.parent !== window){
+        var doc = window.parent.document;
+        return {
+          theme: doc.documentElement.classList.contains('dark') ? 'dark' : 'light',
+          language: doc.documentElement.lang
+        };
+      }
+    } catch(e){}
+    return null;
+  })();
+  if(initialAppearance && (initialAppearance.theme === 'dark' || initialAppearance.theme === 'light')){
+    document.documentElement.setAttribute('data-theme', initialAppearance.theme);
+  }
 
   // Buhari (muellif) ve Hz. Nebi (kaynak) birer RAVI olarak sayilmiyor.
   // Aralarindaki 6 kisi (humeydi..omer) tirmanilacak katlari olusturuyor.
@@ -660,11 +707,36 @@
     placeMustafa(p.x, p.y);
   }
 
-  function showToast(msg, variant, duration){
+  // Toast varsayilan olarak ALTTA gosterilir; position:'top' verilirse
+  // (kavusma mesaji gibi) USTTE gosterilir. applyToastPosition() bu
+  // sinifa gore, iframe icindeyken en son alinan kaydirma bilgisiyle
+  // (lastViewportData) dogru "top"/"bottom" degerini hesaplar; hic
+  // mesaj gelmediyse (sayfa dogrudan aciliyorsa) CSS'teki sabit
+  // top:24px / bottom:24px degerleri zaten dogrudur.
+  var lastViewportData = null;
+  function applyToastPosition(){
+    if(!lastViewportData) return;
+    toast.style.position = 'absolute';
+    if(toast.classList.contains('top-pos')){
+      var visibleTop = Math.max(0, -lastViewportData.frameTop);
+      toast.style.bottom = 'auto';
+      toast.style.top = Math.round(visibleTop + 24) + 'px';
+    } else {
+      var docHeight = document.documentElement.scrollHeight;
+      var visibleBottom = lastViewportData.viewportHeight - lastViewportData.frameTop;
+      var fromPageBottom = docHeight - visibleBottom;
+      toast.style.top = 'auto';
+      toast.style.bottom = Math.max(24, Math.round(fromPageBottom + 24)) + 'px';
+    }
+  }
+
+  function showToast(msg, variant, duration, position){
     clearTimeout(toastTimer);
     toast.textContent = msg;
     toast.classList.toggle('rose', variant === 'rose');
     toast.classList.toggle('green', variant === 'green');
+    toast.classList.toggle('top-pos', position === 'top');
+    applyToastPosition();
     toast.classList.add('show');
     toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, duration || 1600);
   }
@@ -702,10 +774,11 @@
   function handleCorrect(node, el){
     el.classList.add('visited');
     // Buhari (adim 0) sayaca dahil degil, rakamlandirma ondan sonra 1'den baslar.
+    var badgeNum = step;
     if(step > 0){
       var badge = document.createElement('span');
       badge.className = 'badge';
-      badge.textContent = step;
+      badge.textContent = badgeNum;
       el.appendChild(badge);
     }
 
@@ -713,12 +786,21 @@
     pathAnchors.push(el);
     drawPath();
 
+    // step HEMEN ilerler, 900ms'lik hareket animasyonunu BEKLEMEZ.
+    // Eskiden step yalnizca moveMustafaTo'nun callback'inde (animasyon
+    // bitince) artiyordu; kullanici bir sonraki dogru butona hizlica
+    // basinca step hala ESKI degerdeydi, correctIndex ile eslesmeyip
+    // YANLIS sayiliyordu (kirmizi titreme). Gorsel/toast tarafi yine
+    // animasyonu bekler, ama oyunun DOGRU/YANLIS mantigi artik tiklama
+    // aninda senkron guncelleniyor.
+    step++;
+    updateProgress();
+    var isLast = (step === CORRECT.length);
+
     var landing = rightEdgePct(el);
     moveMustafaTo(landing.x, landing.y, function(){
-      step++;
       lightUpRavi(node.id);
-      updateProgress();
-      if(step === CORRECT.length){
+      if(isLast){
         showToast(STRINGS[currentLang].toastFinalStep);
         setTimeout(finish, 400);
       } else {
@@ -736,9 +818,12 @@
       goalNode.classList.add('reached');
       lightUpRavi('nebi');
       metinValue.innerHTML = HADITH_TEXT_BY_LANG[currentLang];
+      metinValue.classList.add('sparkle');
       // Kavusma anini kutlayan mesaj digerlerinden (1.6s) daha uzun
-      // kalsin diye 5 saniye gosteriliyor.
-      showToast(STRINGS[currentLang].toastDone, 'green', 5000);
+      // kalsin diye 5 saniye gosteriliyor, ve ASAGIDA degil YUKARIDA
+      // cikiyor -- hadis metni de yukarida ortaya ciktigi icin dikkat
+      // ayni bolgede kaliyor.
+      showToast(STRINGS[currentLang].toastDone, 'green', 5000, 'top');
     });
   }
 
@@ -818,6 +903,12 @@
 
   buildNodes();
   initState();
+  // Yukarida senkron okunan dil gecerliyse (STRINGS'te varsa) hemen
+  // uygula -- hala aynı senkron script calismasi icindeyiz, yani
+  // tarayici Turkce halini hic BOYAMADAN dogru dille devam ediyor.
+  if(initialAppearance && STRINGS[initialAppearance.language]){
+    applyLanguage(initialAppearance.language);
+  }
 
   // Kat genislikleri (pencere/yakinlastirma) degistiginde Mustafa ve iz
   // cizgisi kutulardan yeniden hesaplanir.
@@ -840,6 +931,7 @@
 
   document.getElementById('resetBtn').addEventListener('click', function(){
     goalNode.classList.remove('reached');
+    metinValue.classList.remove('sparkle');
     metinValue.innerHTML = '<span class="placeholder"></span>';
     metinValue.querySelector('.placeholder').textContent = STRINGS[currentLang].placeholder;
     Array.prototype.forEach.call(board.querySelectorAll('.node'), function(el){
@@ -906,18 +998,8 @@
   window.addEventListener('message', function(e){
     var data = e.data;
     if(!data || data.type !== 'resule-kavusmak-viewport') return;
-    // Bu document icinde, tarayici penceresinin gorunen alt kenarinin Y
-    // konumu; sonra bunun sayfanin (document) TOPLAM yuksekliginden ne
-    // kadar yukarida kaldigini bulup ayni miktari toast'un "bottom"
-    // degeri olarak kullaniyoruz -- boylece toast her zaman GORUNEN
-    // pencerenin altina 24px kalarak yapisir, sayfanin gercek sonuna
-    // degil.
-    var docHeight = document.documentElement.scrollHeight;
-    var visibleBottom = data.viewportHeight - data.frameTop;
-    var fromPageBottom = docHeight - visibleBottom;
-    toast.style.position = 'absolute';
-    toast.style.top = 'auto';
-    toast.style.bottom = Math.max(24, Math.round(fromPageBottom + 24)) + 'px';
+    lastViewportData = data;
+    applyToastPosition();
   });
 })();
 </script>
