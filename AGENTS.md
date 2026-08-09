@@ -635,15 +635,42 @@ sabit `bottom:24px` / `.top-pos{top:24px}` degerleri zaten dogru
 calisir — `applyToastPosition()` `lastViewportData` bos oldugunda
 no-op yapar.
 
-### Hadis parildama efekti
+### Hadis kutusu border parildamasi (2026-08-09)
 
-Isnad tamamlanip hadis metni ortaya cikinca (`finish()`) `#metinValue`'ye
-`sparkle` sinifi eklenir: `hadith-sparkle` keyframe'i ile surekli
-hafif bir text-shadow pulse (altin renk, `--sparkle` degiskeni).
-`prefers-reduced-motion: reduce` tercihinde otomatik kapanir.
-"Bastan baslat" tiklaninca `sparkle` sinifi KALDIRILIR (reset
-handler'inda, `innerHTML` degisimi classList'i etkilemedigi icin ayrica
-`classList.remove('sparkle')` sart).
+Isnad tamamlanip hadis metni ortaya cikinca (`finish()`) `#hadithBubble`
+(`.bubble` kutusunun kendisi -- hadis metnini VE isnad satirini birlikte
+saran, `border-radius:22px` tasiyan bordurlu kutu) `glow-active` sinifini
+alir: kutunun kenarinda surekli donen bir isik izi belirir. "Bastan
+baslat" tiklaninca `glow-active` KALDIRILIR.
+
+**Eskiden** (`#metinValue`'ye `sparkle` sinifi + `hadith-sparkle`
+keyframe'i ile text-shadow pulse) yalnizca metnin kendisi parildiyordu;
+Mustafa'nin acik istegiyle (2026-08-09) KALDIRILDI, yerine kutunun
+BORDER'i parildiyor.
+
+Kaynak: freefrontend.com "Glowing Border Trace Button"
+(`codepen.io/gusevdigital/pen/JjxvbEW`) -- embedded SVG (`<rect
+pathLength="100">` iki kopya: `glow-line` keskin cizgi, `glow-blur`
+bulanik parlama), `stroke-dasharray`/`stroke-dashoffset` ile perimetre
+etrafinda kayan bir "iz" olusturuyor. **Orijinali** `:hover`/`:focus`'ta
+`transition` ile TEK SEFERLIK bir iz cizip birakiyordu ve JS ile
+`getComputedStyle(...).borderRadius`'u SVG `rx`'ine senkronluyordu.
+Burada oyun bitince "baslasin ve DEVAM etsin" istendigi icin:
+- `transition` yerine `@keyframes glow-trace{ to{stroke-dashoffset:-100} }`
+  + `animation:...linear infinite` kullanildi (sonsuz dongu).
+- Tetikleyici `:hover` degil `.bubble.glow-active` sinifi.
+- `rx` JS'le senkronlanmiyor, dogrudan CSS'te `22px` sabit (kutunun
+  kendi `border-radius`'uyla ayni deger) -- boylece orijinaldeki JS
+  senkron script'i (`setGlowEffectRx`) hic eklenmedi, gerek yok.
+- Renk `var(--sparkle)` (eski efektle ayni degisken, `#fff`) kullaniyor,
+  yani tema degisince ayrica dokunmaya gerek yok.
+
+`prefers-reduced-motion: reduce` tercihinde `.bubble.glow-active
+.glow-blur`/`.glow-line` icin animasyon kapatiliyor (izin akan kismi
+durur, sabit bir parlama kalir -- eski davranista oldugu gibi TAM
+gorunmez olmuyor, cunku container'in `opacity:1`'i animasyona bagli
+degil; bu kasitli, hareketsiz de olsa bir gorsel geri bildirim kalsin
+diye).
 
 ### Bu sayfanin kendi basligi YOK
 

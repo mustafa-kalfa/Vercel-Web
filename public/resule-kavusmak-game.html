@@ -119,15 +119,50 @@
   .bubble-value .placeholder{color:var(--tertiary); font-style:normal;}
   .bubble-value .step{font-weight:600;}
   .bubble-value .sep{color:var(--hairline); margin:0 4px; opacity:.9;}
-  /* Isnad tamamlanip hadis metni ortaya cikinca finish() bu sinifi ekler:
-     metin surekli hafifce parildar. Bastan baslat'ta kaldirilir. */
-  @keyframes hadith-sparkle{
-    0%, 100%{text-shadow:0 0 0 transparent;}
-    25%{text-shadow:0 0 18px var(--sparkle), 0 0 32px var(--sparkle);}
-    50%{text-shadow:0 0 6px var(--sparkle), 0 0 12px var(--sparkle);}
-    75%{text-shadow:0 0 24px var(--sparkle), 0 0 44px var(--sparkle);}
+  /* Isnad tamamlanip hadis metni ortaya cikinca finish() .bubble kutusuna
+     bu sinifi ekler: kutunun kenarinda surekli donen bir isik izi belirir.
+     Bastan baslat'ta kaldirilir. Kaynak: freefrontend.com "Glowing Border
+     Trace Button" (codepen.io/gusevdigital/pen/JjxvbEW) -- orijinali
+     :hover/:focus'ta transition ile TEK SEFERLIK bir iz cizip birakiyordu;
+     burada transition yerine "to{stroke-dashoffset:-100}" + "infinite"
+     kullanilarak sonsuz donguye alindi, tetikleyici de hover degil
+     .glow-active sinifi. rx, .bubble'in kendi border-radius'una (22px)
+     sabitlendi; orijinaldeki JS (getComputedStyle ile rx senkronu)
+     bu yuzden gerekmiyor. */
+  .bubble{
+    --glow-line-color:var(--sparkle);
+    --glow-line-thickness:2px;
+    --glow-line-length:20;
+    --glow-blur-color:var(--sparkle);
+    --glow-blur-size:10px;
+    --animation-speed:2400ms;
+    --container-offset:100px;
   }
-  .bubble-value.sparkle{animation:hadith-sparkle 2.2s ease-in-out infinite;}
+  .glow-container{
+    pointer-events:none;
+    position:absolute;
+    inset:calc(var(--container-offset) / -2);
+    width:calc(100% + var(--container-offset));
+    height:calc(100% + var(--container-offset));
+    opacity:0;
+  }
+  .glow-blur, .glow-line{
+    width:calc(100% - var(--container-offset));
+    height:calc(100% - var(--container-offset));
+    x:calc(var(--container-offset) / 2);
+    y:calc(var(--container-offset) / 2);
+    rx:22px;
+    fill:transparent;
+    stroke:black;
+    stroke-width:5px;
+    stroke-dasharray:var(--glow-line-length) calc(100 - var(--glow-line-length));
+  }
+  .glow-line{stroke:var(--glow-line-color); stroke-width:var(--glow-line-thickness);}
+  .glow-blur{filter:blur(var(--glow-blur-size)); stroke:var(--glow-blur-color); stroke-width:var(--glow-blur-size);}
+  @keyframes glow-trace{ to{ stroke-dashoffset:-100; } }
+  .bubble.glow-active .glow-container{opacity:1;}
+  .bubble.glow-active .glow-blur,
+  .bubble.glow-active .glow-line{animation:glow-trace var(--animation-speed) linear infinite;}
 
   .isnad-ar{
     margin-top:8px;
@@ -341,7 +376,7 @@
   }
 
   @media (prefers-reduced-motion: reduce){
-    .goal-pill, .node, .bubble-value.sparkle{transition:none !important; animation:none !important;}
+    .goal-pill, .node, .bubble.glow-active .glow-blur, .bubble.glow-active .glow-line{transition:none !important; animation:none !important;}
   }
 </style>
 
@@ -350,7 +385,7 @@
     <h1 id="h1Text">Mustafâ'yı Peygamberine kavuşturabilir misin?</h1>
     <p class="lede" id="ledeText">İsnâdı doğru şekilde tamamla. Râvileri, Mustafâ'ya en yakın olandan başlayarak sırayla seç.</p>
 
-    <div class="bubble">
+    <div class="bubble" id="hadithBubble">
       <span class="progress" id="progress">0 / 6 râvi</span>
       <div class="bubble-row">
         <span class="bubble-label" id="isnadLabel">İsnad</span>
@@ -360,6 +395,10 @@
         <span class="bubble-label" id="hadithLabel">HADİSİN METNİ</span>
         <span class="bubble-value" id="metinValue"><span class="placeholder">Râvileri tamamla. Ortaya çıksın</span></span>
       </div>
+      <svg class="glow-container" aria-hidden="true" focusable="false">
+        <rect pathLength="100" stroke-linecap="round" class="glow-blur"></rect>
+        <rect pathLength="100" stroke-linecap="round" class="glow-line"></rect>
+      </svg>
     </div>
 
     <div class="board" id="board">
@@ -622,6 +661,7 @@
   var goalSubEl = document.getElementById('goalSub');
   var toast = document.getElementById('toast');
   var metinValue = document.getElementById('metinValue');
+  var hadithBubble = document.getElementById('hadithBubble');
   var progress = document.getElementById('progress');
   var h1El = document.getElementById('h1Text');
   var ledeEl = document.getElementById('ledeText');
@@ -818,7 +858,7 @@
       goalNode.classList.add('reached');
       lightUpRavi('nebi');
       metinValue.innerHTML = HADITH_TEXT_BY_LANG[currentLang];
-      metinValue.classList.add('sparkle');
+      hadithBubble.classList.add('glow-active');
       // Kavusma anini kutlayan mesaj digerlerinden (1.6s) daha uzun
       // kalsin diye 5 saniye gosteriliyor; ASAGIDA (varsayilan konum).
       showToast(STRINGS[currentLang].toastDone, 'green', 5000);
@@ -929,7 +969,7 @@
 
   document.getElementById('resetBtn').addEventListener('click', function(){
     goalNode.classList.remove('reached');
-    metinValue.classList.remove('sparkle');
+    hadithBubble.classList.remove('glow-active');
     metinValue.innerHTML = '<span class="placeholder"></span>';
     metinValue.querySelector('.placeholder').textContent = STRINGS[currentLang].placeholder;
     Array.prototype.forEach.call(board.querySelectorAll('.node'), function(el){
