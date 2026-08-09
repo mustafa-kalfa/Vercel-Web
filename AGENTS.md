@@ -500,3 +500,209 @@ autoplay ya hic baslamiyor ya tam ekrana aciyor) ve
 calisiyor, kodek/profil/renk etiketlerine dokunmuyor. Yani BU liste
 gecerse iPhone/Mac konusunda ayrica endise tasimana gerek yok — sorun
 cikarsa zaten script'in kendisinde cikar, tek bir klipte degil.
+
+## `/resule-kavusmak` — Isnad oyunu (Mustafa'yi Peygamberine kavustur)
+
+Kucuk bir egitici oyun: kullanici hadis raviler bir isnad zincirinde
+DOGRU sirayla secip Mustafa karakterini Hz. Nebi'ye "tirmandiriyor".
+
+**Dosyalar:**
+- `public/resule-kavusmak-game.html` — oyunun TAMAMI (HTML+CSS+JS tek
+  dosyada, hicbir build adimi yok, Next.js'e dokunmuyor). Duzenlemeler
+  DOGRUDAN bu dosyada yapilir, degisiklik icin `npm run build` gerekmez.
+- `app/resule-kavusmak/page.tsx` — ince bir sarmalayici: yukaridaki HTML'i
+  `<iframe src="/resule-kavusmak-game.html">` icine gomuyor (prototip
+  hizli degistigi icin iframe secildi; tasarim oturunca gercek React
+  bilesenine cevrilebilir).
+
+Iframe SECILDI cunku dosya, sitenin geri kalanindan bagimsiz kendi
+basina duran, kopyalanmis bir WebGL chroma-key cozumu tasiyor
+(`app/ChromaKeyVideo.tsx`'in ayni mantiginin bir kopyasi, `initChromaKey`
+fonksiyonu). Video: `public/Mustafa Karsilama_seffaf.mp4` (paketlenmis
+alfa, bkz. yukaridaki "Yesil/kirmizi perde" bolumu).
+
+### Oyun mekanigi ("kat tirmanma")
+
+- `CORRECT` dizisi 7 kisi: `buhari` (muellif) + 6 gercek ravi
+  (`humeydi`..`omer`). Buhari ve Hz. Nebi (hedef) birer "ravi"
+  SAYILMIYOR — sayac (`FLOOR_COUNT = CORRECT.length - 1 = 6`) yalnizca
+  aradaki 6 kisiyi sayiyor.
+- Buhari oyuna ZATEN SECILI gelir (tiklama gerektirmez), Mustafa en
+  basta onun yaninda durur. `step` 1'den baslar (Buhari zaten
+  "bulunmus" sayilir).
+- Geri kalan her ravi kendi KATINI (floor) alir: 1 dogru + 2 celdirici
+  (`DECOY_POOL`'dan rastgele, 22 kisilik havuzdan 12'si kullanilir).
+  Katlar DOM'a Hz. Nebi'ye en yakindan (son bulunacak ravi, `omer`)
+  baslayarak yazilir — gorsel siralama YUKARIDAN ASAGI, tirmanis
+  sirasinin TERSi.
+- **ONEMLI DUZELTME (bu oturumda):** `step` sayaci ESKIDEN yalnizca
+  Mustafa'nin 900ms'lik hareket animasyonu BITINCE artiyordu. Kullanici
+  dogru cevaplara ART ARDA hizli basinca, ikinci tiklama hala ESKI
+  `step` degeriyle kiyaslanip YANLIS sayiliyordu (kirmizi titreme).
+  `handleCorrect()` icinde artik `step++` TIKLAMA ANINDA senkron
+  calisiyor; yalniz gorsel/toast tarafi (Mustafa'nin hareketi, rozet,
+  mesaj) hala 900ms'lik animasyonu bekliyor. Bu alani DEGISTIRIRSEN
+  ayni hataya tekrar dusme: mantiksal state (`step`) ile gorsel
+  animasyon ZAMANLAMASINI birbirinden AYRI tut.
+
+### Coklu dil (TR/AR/EN) ve tema
+
+Oyunun kendi tema/dil dugmesi YOK — gercek site basligindaki (page.tsx
+DISINDA, layout.tsx'teki global) `ThemeToggle`/`LanguageSwitcher`
+kullaniliyor. Iki yonlu senkron:
+
+1. **Parent → iframe, ILK YUKLEME (senkron, flash yok):** `game.html`
+   script'inin EN BASINDA, ayni origin oldugu icin `window.parent.document`
+   dogrudan okunuyor (tema: `.dark` sinifi var mi; dil: `document
+   Element.lang`). `buildNodes()+initState()`'ten HEMEN SONRA, hala AYNI
+   senkron script calismasi icinde `applyLanguage(...)` cagriliyor.
+   Boylece tarayici yanlis dili (varsayilan Turkce) HIC BOYAMIYOR —
+   eskiden postMessage round-trip'i (ust pencerenin React effect'i
+   calisip iframe'in `onLoad`'undan SONRA gelir) yuzunden kisa bir
+   "once Turkce gorunup sonra degisiyor" yanip sonmesi vardi, bu artik
+   yok. **Bu alani bozmamaya dikkat et:** `initialAppearance` okuma
+   kodu ile `applyLanguage()` cagrisi arasinda HICBIR `await`/`setTimeout`
+   olmamali, yoksa flash geri gelir.
+2. **Parent → iframe, SONRAKI DEGISIKLIKLER:** `page.tsx`'teki
+   `GameFrame` bileseni `useTheme()`/`useLanguage()`'i izleyip her
+   degisiklikte + iframe `onLoad`'unda `{type:'resule-kavusmak-appearance',
+   theme, language}` postMessage'i gonderiyor. `game.html` bunu dinleyip
+   `data-theme` niteligini ve `applyLanguage()`'i guncelliyor.
+
+**Ceviri kapsami** (kullanicinin acikca belirledigi kural):
+- **Turkce (varsayilan):** ravi isimleri Turkce harf cevirisi
+  (`Buhârî`, `Süfyân b. Uyeyne`...), hadis metni Turkce.
+- **Arapca:** ISIMLER DAHIL HER SEY Arapca (ravi isimleri Arapca
+  yaziyla, hadis metni de gercek Arapca haliyle).
+- **Ingilizce:** isnad'in Arapca ALINTI metni HARIC her sey Ingilizce
+  (ravi isimleri Ingilizce harf cevirisi, hadis metni Ingilizce
+  ceviri).
+- **isnad'in kendi Arapca metni (`.isnad-ar`, `data-ravi` span'lari)
+  HICBIR ZAMAN cevrilmez** — o dogrudan alinti, 3 dilde de sabit.
+
+Veri yapisi: `CORRECT` ve `DECOY_POOL`'daki her kisi nesnesi
+`{id, tr, ar, en}` seklinde (tek tek `.name` alani YOK, `nameFor(entry)`
+fonksiyonu `entry[currentLang] || entry.tr` doner). Hadis metni ayri:
+`HADITH_TEXT_BY_LANG = {tr,ar,en}`. Arayuz metinleri (baslik, buton
+yazilari, toast mesajlari vb.) `STRINGS = {tr:{...}, ar:{...}, en:{...}}`
+icinde. Dil degisince `applyLanguage(lang)`: STRINGS'i uygular +
+ekrandaki HER `.node` butonunu `NAME_BY_ID` uzerinden yeniden adlandirir
++ (oyun bitmisse) hadis metnini yeni dile gore yeniden yazar.
+
+**Yeni bir ravi/celdirici eklerken** UCUNU de (tr/ar/en) birlikte
+yazmayi unutma, yoksa o kisi Arapca/Ingilizce modda Turkce kalir
+(fallback `entry.tr`'ye duser, sessizce, hata vermez).
+
+### Font boyutu kurali
+
+**Arapca metin = Turkce karsiligi + 4px**, `.lang-ar` sinifi altinda
+scoped kurallarla (`#pageRoot`'a `applyLanguage()` icinde eklenir).
+`.isnad-ar`'in kendi Arapca alinti metninin Turkce karsiligi olmadigi
+icin o KOSULSUZ (dil modundan bagimsiz) kendi eski boyutunun +4px'i
+(15→19px). Ravi buton isimleri (`.node`) ayrica Turkce/Ingilizce'de
++2px buyutuldu (11→13px), Arapcasi da bunun ustune +4 (13→17px). Yeni
+bir metin elemani eklersen ayni oraninda bir `.lang-ar <secici>{font-size:
+tr+4px;}` kurali ekle.
+
+Arapca font: `.lang-ar` sinifi `#pageRoot`'a font-family zincirini
+(`"Traditional Arabic","Noto Naskh Arabic","Arabic Typesetting",
+"Segoe UI",serif`) veriyor, INHERITANCE ile tum sayfaya yayiliyor.
+`<button>` elemanlari (`.node`, `.reset-btn`) tarayicinin UA
+stylesheet'i font'u miras almayabildigi icin ACIKCA `font-family:
+inherit;` tasiyor — yeni bir buton eklersen bunu unutma.
+
+### Toast (bildirim) konumlandirmasi
+
+Iframe'in KENDI kaydirma cubugu yok (yuksekligi icerige esitleniyor,
+`page.tsx` postMessage ile `resule-kavusmak-height` alip iframe'i
+buyutuyor) — yani CSS `position:fixed` burada TARAYICI PENCERESINE
+degil, iframe'in KENDI (cok uzun) document'ine gore sabitleniyor. Bunu
+duzeltmek icin `page.tsx` kendi kaydirma/viewport bilgisini
+`{type:'resule-kavusmak-viewport', frameTop, viewportHeight}` ile
+gonderiyor (scroll/resize + mount'ta), `game.html` bunu `lastViewportData`'da
+onbelleklemis, `applyToastPosition()` bundan `position:absolute` +
+hesaplanmis `top`/`bottom` degeri turetiyor.
+
+`showToast(msg, variant, duration, position)`:
+- `variant`: `'rose'` (yanlis, kirmizi) | `'green'` (basari, yesil) |
+  `undefined` (notr).
+- `duration`: ms, varsayilan 1600; kavusma mesaji 5000 kullaniyor.
+- `position`: `'top'` (kavusma mesaji — YUKARIDA cikar, `.toast.top-pos`
+  sinifi) | `undefined` (varsayilan ALTTA).
+
+Mesaj hic gelmezse (sayfa iframe disinda dogrudan aciliyorsa) CSS'teki
+sabit `bottom:24px` / `.top-pos{top:24px}` degerleri zaten dogru
+calisir — `applyToastPosition()` `lastViewportData` bos oldugunda
+no-op yapar.
+
+### Hadis parildama efekti
+
+Isnad tamamlanip hadis metni ortaya cikinca (`finish()`) `#metinValue`'ye
+`sparkle` sinifi eklenir: `hadith-sparkle` keyframe'i ile surekli
+hafif bir text-shadow pulse (altin renk, `--sparkle` degiskeni).
+`prefers-reduced-motion: reduce` tercihinde otomatik kapanir.
+"Bastan baslat" tiklaninca `sparkle` sinifi KALDIRILIR (reset
+handler'inda, `innerHTML` degisimi classList'i etkilemedigi icin ayrica
+`classList.remove('sparkle')` sart).
+
+### Bu sayfanin kendi basligi YOK
+
+Eskiden `game.html` kendi karanlik/aydinlik dugmesi + "HD" yazisi +
+"TR" dil rozeti ciziyordu (`.chip-icon`/`.brand-mark`/`.chip-lang`) —
+bunlar KALDIRILDI, cunku gercek site basligi (marka logosu, tema/dil
+dugmeleri) zaten `/resule-kavusmak` sayfasinda DISARIDA duruyor.
+`.wrap`'in ust bosluğu da bu yuzden 76px'den 24px'e indirildi.
+
+### Claude Artifact kopyasi (opsiyonel, siteden BAGIMSIZ)
+
+Bu oyunun bir de Claude'da yayinlanmis "Artifact" onizlemesi var:
+`https://claude.ai/code/artifact/b38e1974-0611-4d2e-933a-0ffe4c4b169d`
+(URL sabit tutuluyor, her guncellemede ayni linke tekrar publish
+ediliyor). **Bu, siteden TAMAMEN AYRI bir kopya** — canli siteye
+pushlamak bunu OTOMATIK guncellemez, ayrica elle publish etmek gerekir.
+Farki: artifact'ler disari network istegi atamadigi icin video
+`src="/Mustafa%20Karsilama_seffaf.mp4"` yerine base64 `data:` URI olarak
+GOMULU olmali. Guncellemek icin:
+
+```bash
+node -e "
+const fs = require('fs');
+const src = 'public/resule-kavusmak-game.html';
+const videoPath = 'public/Mustafa Karsilama_seffaf.mp4';
+const out = 'artifact-build.html'; // scratchpad'e yaz, repo'ya commit ETME
+
+const b64 = fs.readFileSync(videoPath).toString('base64');
+let html = fs.readFileSync(src, 'utf8');
+const before = html;
+html = html.replace('src=\"/Mustafa%20Karsilama_seffaf.mp4\"', 'src=\"data:video/mp4;base64,' + b64 + '\"');
+if (html === before) throw new Error('video src degistirilemedi');
+fs.writeFileSync(out, html, 'utf8');
+console.log('yazildi:', out, (html.length/1024/1024).toFixed(2)+' MB');
+"
+```
+
+Sonra `Artifact` aracini (`file_path` = ustteki `out`, `url` =
+yukaridaki sabit link, `favicon`= 🕌) cagirarak publish et. Kullanici
+acikca istemedikce bu adimi ATLAMA GEREKMEZ — sadece siteye pushlamak
+yeterli, artifact'i ayrica guncellemek EK bir istektir (kullanici
+gecmiste her degisiklikten sonra ikisini de istedi, ama sormadan
+varsayma).
+
+### Genel notlar
+
+- Butonlar (`.node`) TAM GENISLIKTE kalir, Mustafa'ya yer acmak icin
+  KISILMEZ; Mustafa en sagdaki butonun yaninda dururken gerekirse
+  `.page`'in `overflow-x:hidden`'i icinde board'un/sayfanin disina
+  gorunmez sekilde tasar (bkz. `rightEdgePct()` yorumlari).
+- `git status`'u kontrol etmeden varsayima girme: bu oyun uzerinde
+  calisirken bir kez (2026-08-09 sabahi) commit'lenmemis degisiklikler
+  disaridan (muhtemelen kullanicinin kendi git komutuyla) son commit'e
+  SIFIRLANDI ve o oturumdaki is kaybolup yeniden yapilmak zorunda
+  kalindi. Onemli bir asama bitince ARA SIRA commit atmak (kullanici
+  onayiyla) bu riski azaltir.
+- Test ederken `preview_start({name:'next-dev'})` + Browser panelinden
+  hem `/resule-kavusmak-game.html` (dogrudan, standalone) hem
+  `/resule-kavusmak` (gercek iframe icinde, tema/dil postMessage'lari
+  dahil) ayri ayri kontrol edilmeli — ikisinin davranisi FARKLI
+  (standalone'da `lastViewportData` hep null, toast CSS varsayilanlarina
+  duser; postMessage'lar da standalone'da hic gelmez).
