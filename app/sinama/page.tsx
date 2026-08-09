@@ -40,11 +40,15 @@ export default function Sinama() {
           yerine burada duruyor. */}
       <Link
         href="/resule-kavusmak"
-        className="fixed right-4 top-[60px] z-20 flex h-9 w-9 items-center justify-center rounded-full border border-black/[.08] bg-background text-foreground transition-colors hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+        className="glow-btn fixed right-4 top-[60px] z-20 flex h-9 w-9 items-center justify-center rounded-full border border-black/[.08] bg-background text-foreground transition-colors hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
         aria-label="Resûle Kavuşmak"
         title="Resûle Kavuşmak"
       >
         <GamepadIcon />
+        <svg className="glow-container" aria-hidden="true" focusable="false">
+          <rect pathLength={100} strokeLinecap="round" className="glow-blur" />
+          <rect pathLength={100} strokeLinecap="round" className="glow-line" />
+        </svg>
       </Link>
       <IntroVideo />
       <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-start gap-8 px-16 pt-28 pb-[35vh] sm:items-start sm:pt-36 sm:pb-24">

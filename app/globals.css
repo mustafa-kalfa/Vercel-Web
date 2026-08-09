@@ -138,3 +138,56 @@ html[lang="ar"] .ar-greeting {
   font-size: 1.1em;
 }
 
+/* /resule-kavusmak oyunundaki hadis kutusu border parıltısının
+   (public/resule-kavusmak-game.html, .bubble.glow-active) aynı degerlerle
+   tekrarı: /sinama'daki oyun dugmesinin kenarinda surekli donen bir isik
+   izi. Orijinalde toggle bir sinifti (.glow-active, yalnizca isnad
+   tamamlaninca eklenirdi); burada dugme her zaman ayni durumda oldugu
+   icin ayrica bir aktif/pasif ayrimi yok. `rx:9999px` SVG'nin kendi
+   kurallarina gore genislik/yuksekligin yarisina otomatik sabitlenir --
+   `rounded-full` Tailwind sinifiyla ayni mantik, dugme boyutu degisirse
+   piksel degeri elle guncellenmesi gerekmez. */
+.glow-btn {
+  --glow-line-color: #fff;
+  --glow-line-thickness: 2px;
+  --glow-line-length: 20;
+  --glow-blur-color: #fff;
+  --glow-blur-size: 10px;
+  --animation-speed: 2400ms;
+  --container-offset: 100px;
+}
+.glow-btn .glow-container {
+  pointer-events: none;
+  position: absolute;
+  inset: calc(var(--container-offset) / -2);
+  width: calc(100% + var(--container-offset));
+  height: calc(100% + var(--container-offset));
+}
+.glow-btn .glow-blur,
+.glow-btn .glow-line {
+  width: calc(100% - var(--container-offset));
+  height: calc(100% - var(--container-offset));
+  x: calc(var(--container-offset) / 2);
+  y: calc(var(--container-offset) / 2);
+  rx: 9999px;
+  fill: transparent;
+  stroke: black;
+  stroke-width: 5px;
+  stroke-dasharray: var(--glow-line-length) calc(100 - var(--glow-line-length));
+  animation: glow-trace var(--animation-speed) linear infinite;
+}
+.glow-btn .glow-line {
+  stroke: var(--glow-line-color);
+  stroke-width: var(--glow-line-thickness);
+}
+.glow-btn .glow-blur {
+  filter: blur(var(--glow-blur-size));
+  stroke: var(--glow-blur-color);
+  stroke-width: var(--glow-blur-size);
+}
+@keyframes glow-trace {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
