@@ -23,6 +23,11 @@ const notoNaskhArabic = Noto_Naskh_Arabic({
 });
 
 export const metadata: Metadata = {
+  // WhatsApp/X gibi paylasim onizlemeleri og:image'i MUTLAK URL bekliyor;
+  // bu olmadan Next.js goreli bir yol uretiyor ve harici botlar goruntuyu
+  // hic cekemiyor, onizleme bos/beyaz kaliyordu. Goruntunun kendisi
+  // app/opengraph-image.tsx'te.
+  metadataBase: new URL("https://mustafakalfa.com"),
   title: "Hadis ve Dijital",
   description: "Klasik ile günümüzü birleştirmek mümkün mü? Hadis ve Dijital.",
   // Sekme ikonu seffaf zeminli: acik modda siyah, koyu modda beyaz HD.

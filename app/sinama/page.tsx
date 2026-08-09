@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 import ChromaKeyVideo from "../ChromaKeyVideo";
 import IntroVideo from "../IntroVideo";
 import { useLanguage } from "../LanguageContext";
@@ -31,23 +32,51 @@ function GamepadIcon() {
 
 export default function Sinama() {
   const { t, language, outgoingLanguage } = useLanguage();
+  const gamepadRef = useRef<HTMLAnchorElement>(null);
+
+  // DENEME: Safari <rect> uzerinde pathLength'i desteklemiyor (bkz.
+  // globals.css'teki .glow-btn-test yorumu), o yuzden orana degil
+  // GERCEK cevreye (px) dayanan bir dasharray/dashoffset kuruyoruz.
+  // rx:9999 en kucuk kenarin yarisina kilitlendigi icin (kare dugmede
+  // tam cember olur), cevre = dogru donen dikdortgen formulu.
+  useEffect(() => {
+    const el = gamepadRef.current;
+    if (!el) return;
+    const update = () => {
+      const w = el.clientWidth;
+      const h = el.clientHeight;
+      if (!w || !h) return;
+      const rx = Math.min(w, h) / 2;
+      const perimeter = 2 * (w + h) - 8 * rx + 2 * Math.PI * rx;
+      el.style.setProperty("--glow-perimeter", `${perimeter}px`);
+    };
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
 
   return (
     <div className="flex flex-col flex-1 items-center justify-center font-sans">
       {/* Dil dugmesinin (layout.tsx, fixed right-4 top-4, h-9) hemen
           altinda, ayni gorunumde bir dugme: 8px bosluk icin top-[60px]
           (16 + 36 + 8). Yalnizca bu sayfaya ozgu oldugundan layout.tsx
-          yerine burada duruyor. */}
+          yerine burada duruyor.
+
+          glow-btn-test: iPhone/Safari uyumluluk denemesi (2026-08-10).
+          Anasayfadaki/oyundaki .glow-btn / .bubble.glow-active henuz
+          buna gecirilmedi -- onaylanana kadar yalniz burada. */}
       <Link
+        ref={gamepadRef}
         href="/resule-kavusmak"
-        className="glow-btn fixed right-4 top-[60px] z-20 flex h-9 w-9 items-center justify-center rounded-full border border-black/[.08] bg-background text-foreground transition-colors hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+        className="glow-btn-test fixed right-4 top-[60px] z-20 flex h-9 w-9 items-center justify-center rounded-full border border-black/[.08] bg-background text-foreground transition-colors hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
         aria-label="Resûle Kavuşmak"
         title="Resûle Kavuşmak"
       >
         <GamepadIcon />
         <svg className="glow-container" aria-hidden="true" focusable="false">
-          <rect pathLength={100} strokeLinecap="round" className="glow-blur" />
-          <rect pathLength={100} strokeLinecap="round" className="glow-line" />
+          <rect strokeLinecap="round" className="glow-blur" />
+          <rect strokeLinecap="round" className="glow-line" />
         </svg>
       </Link>
       <IntroVideo />
