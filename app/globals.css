@@ -226,7 +226,9 @@ html[lang="ar"] .ar-greeting {
   stroke-width: var(--glow-line-thickness);
 }
 .glow-btn-test .glow-blur {
-  filter: blur(var(--glow-blur-size));
+  /* Bulaniklik artik CSS'te degil -- sinama/page.tsx'teki gercek SVG
+     <feGaussianBlur> filtresinden geliyor (WebKit, CSS filter:blur()'u
+     SVG sekillerine dogrudan uygulaninca guvenilir calismiyor). */
   stroke: var(--glow-blur-color);
   stroke-width: var(--glow-blur-size);
 }

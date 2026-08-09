@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useId, useRef } from "react";
 import ChromaKeyVideo from "../ChromaKeyVideo";
 import IntroVideo from "../IntroVideo";
 import { useLanguage } from "../LanguageContext";
@@ -33,6 +33,7 @@ function GamepadIcon() {
 export default function Sinama() {
   const { t, language, outgoingLanguage } = useLanguage();
   const gamepadRef = useRef<HTMLAnchorElement>(null);
+  const blurFilterId = useId();
 
   // DENEME v2 (2026-08-10): iPhone'da parilti hic gorunmuyordu. Iki ayri
   // Safari eksigi ust uste bindi:
@@ -112,9 +113,32 @@ export default function Sinama() {
         <GamepadIcon />
         {/* d ozniteligi JS'te kuruluyor (yukaridaki useEffect) -- rect
             degil path, cunku Safari rect'te ne pathLength'i ne de CSS
-            geometri ozelliklerini guvenilir destekliyor. */}
+            geometri ozelliklerini guvenilir destekliyor.
+
+            glow-blur'un bulanikligi CSS `filter:blur()` DEGIL, gercek bir
+            SVG <filter>/<feGaussianBlur> + `filter="url(#...)"` OZNITELIGI
+            (v3, 2026-08-10): iPhone'da halka donuyordu ama hic isik/parilti
+            yoktu ve kalinlasmis gorunuyordu -- WebKit'in SVG sekillerine
+            DOGRUDAN uygulanan CSS filter:blur()'u guvenilir islememesi
+            (bilinen bir WebKit kusuru) glow-blur'u bulaniklastirmadan,
+            duz/keskin 10px'lik OPAK bir cizgi olarak biraktigi icin hem
+            "isik" hissi kayboluyor hem de ince glow-line'in ustune binen bu
+            kalin katman halkayi olmasi gerekenden SISKIN gosteriyordu. Bir
+            <filter> tanimlayip presentation attribute ile referans vermek
+            SVG1.1'den beri her tarayicida (Safari dahil) guvenilir. */}
         <svg className="glow-container" aria-hidden="true" focusable="false">
-          <path strokeLinecap="round" className="glow-blur" />
+          <defs>
+            <filter
+              id={blurFilterId}
+              x="-100%"
+              y="-100%"
+              width="300%"
+              height="300%"
+            >
+              <feGaussianBlur stdDeviation="4" />
+            </filter>
+          </defs>
+          <path strokeLinecap="round" className="glow-blur" filter={`url(#${blurFilterId})`} />
           <path strokeLinecap="round" className="glow-line" />
         </svg>
       </Link>
