@@ -627,6 +627,7 @@
       goalLabel: 'Hz. Nebî',
       goalSub: '(s.a.v.)',
       resetBtn: 'Baştan Başlat',
+      nextBtn: 'Sonraki',
       progressUnit: 'râvi',
       toastFinalStep: 'Son adım: Hz. Nebî’ye (s.a.v.) ulaş!',
       toastCorrectSuffix: ' doğru — sıradaki râviyi bul.',
@@ -644,6 +645,7 @@
       goalLabel: 'The Prophet',
       goalSub: '(ﷺ)',
       resetBtn: 'Start over',
+      nextBtn: 'Next',
       progressUnit: 'narrators',
       toastFinalStep: 'Last step: reach the Prophet ﷺ!',
       toastCorrectSuffix: ' is correct — find the next narrator.',
@@ -661,6 +663,7 @@
       goalLabel: 'النبي',
       goalSub: '(ﷺ)',
       resetBtn: 'ابدأ من جديد',
+      nextBtn: 'التالي',
       progressUnit: 'راوٍ',
       toastFinalStep: 'الخطوة الأخيرة: صِل إلى النبي ﷺ!',
       toastCorrectSuffix: ' صحيح — ابحث عن الراوي التالي.',
@@ -709,6 +712,7 @@
     goalLabelEl.textContent = s.goalLabel;
     goalSubEl.textContent = s.goalSub;
     resetBtnEl.textContent = s.resetBtn;
+    nextBtn.textContent = s.nextBtn;
     Array.prototype.forEach.call(document.querySelectorAll('.node'), function(btn){
       var entry = NAME_BY_ID[btn.dataset.id];
       if(entry) btn.textContent = nameFor(entry);
