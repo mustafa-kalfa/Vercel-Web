@@ -120,18 +120,16 @@ export default function Home() {
               render={(key) => TRANSLATIONS[key as Language].begin}
             />
           </Link>
-          <a
+          <Link
+            href="/selam"
             className="flex h-12 w-full items-center justify-center whitespace-nowrap rounded-full border border-solid border-black/[.08] px-5 text-center transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-auto md:min-w-[158px]"
-            href="https://ibnhaldun.academia.edu/MustafaKalfa"
-            target="_blank"
-            rel="noopener noreferrer"
           >
             <SwapContent
               current={language}
               outgoing={outgoingLanguage}
               render={(key) => TRANSLATIONS[key as Language].about}
             />
-          </a>
+          </Link>
         </div>
       </main>
     </div>
