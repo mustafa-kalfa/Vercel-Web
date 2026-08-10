@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /* Safari (iPhone ve Mac) WebM/VP9'un alfa kanalini desteklemiyor; oradaki
    klipler opak goruntuleniyordu. Bu yuzden klipler "paketlenmis alfa"
@@ -54,6 +54,16 @@ function createProgram(gl: WebGLRenderingContext) {
   return program;
 }
 
+/* Klip yolundan yedek poster yolunu turetir:
+   "/Mustafa%20Karsilama_seffaf.mp4" -> "/poster/Mustafa%20Karsilama_seffaf.png"
+   Posterler public/poster/ altinda, kliplerle AYNI adla duruyor. */
+function posterYolu(src: string) {
+  const egikCizgi = src.lastIndexOf("/");
+  const klasor = src.slice(0, egikCizgi + 1);
+  const dosya = src.slice(egikCizgi + 1).replace(/\.mp4$/i, ".png");
+  return `${klasor}poster/${dosya}`;
+}
+
 export default function ChromaKeyVideo({
   src,
   className,
@@ -70,46 +80,65 @@ export default function ChromaKeyVideo({
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  /* WebGL yolu tamamen basarisiz olursa (context alinamiyor, video hic
+     yuklenmiyor, cihazda WebGL yok) canvas SONSUZA KADAR bos kalirdi.
+     Bu durumda yerine statik poster gosteriliyor -- animasyon yok ama
+     karakter/logo GORUNUYOR. */
+  const [yedegeGec, setYedegeGec] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
     const canvas = canvasRef.current;
     if (!video || !canvas) return;
 
-    const gl = canvas.getContext("webgl", {
-      alpha: true,
-      premultipliedAlpha: true,
-      antialias: false,
-    });
-    if (!gl) return;
-
-    const program = createProgram(gl);
-    if (!program) return;
-    gl.useProgram(program);
-
-    const buffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-    gl.bufferData(
-      gl.ARRAY_BUFFER,
-      new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]),
-      gl.STATIC_DRAW,
-    );
-    const position = gl.getAttribLocation(program, "position");
-    gl.enableVertexAttribArray(position);
-    gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
-
-    const texture = gl.createTexture();
-    gl.bindTexture(gl.TEXTURE_2D, texture);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-
     let stopped = false;
     let rafId = 0;
+    let cizildi = false; // en az bir kare canvas'a gitti mi?
+    let gozcu: ReturnType<typeof setTimeout> | null = null;
+    let gl: WebGLRenderingContext | null = null;
+    let hasFrameCallback = false;
+
+    /* --- WebGL kurulumu. Context kaybinda yeniden cagrilabilir. --- */
+    function kur(): boolean {
+      const ctx = canvas!.getContext("webgl", {
+        alpha: true,
+        premultipliedAlpha: true,
+        antialias: false,
+      });
+      if (!ctx) return false;
+      const program = createProgram(ctx);
+      if (!program) return false;
+      ctx.useProgram(program);
+
+      const buffer = ctx.createBuffer();
+      ctx.bindBuffer(ctx.ARRAY_BUFFER, buffer);
+      ctx.bufferData(
+        ctx.ARRAY_BUFFER,
+        new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]),
+        ctx.STATIC_DRAW,
+      );
+      const position = ctx.getAttribLocation(program, "position");
+      ctx.enableVertexAttribArray(position);
+      ctx.vertexAttribPointer(position, 2, ctx.FLOAT, false, 0, 0);
+
+      const texture = ctx.createTexture();
+      ctx.bindTexture(ctx.TEXTURE_2D, texture);
+      ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_WRAP_S, ctx.CLAMP_TO_EDGE);
+      ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_WRAP_T, ctx.CLAMP_TO_EDGE);
+      ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_MIN_FILTER, ctx.LINEAR);
+      ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_MAG_FILTER, ctx.LINEAR);
+
+      gl = ctx;
+      return true;
+    }
+
+    if (!kur()) {
+      setYedegeGec(true);
+      return;
+    }
 
     const draw = () => {
-      if (stopped) return;
+      if (stopped || !gl) return;
       if (video.readyState >= 2 && video.videoWidth > 0) {
         const width = video.videoWidth;
         const height = Math.floor(video.videoHeight / 2);
@@ -129,12 +158,13 @@ export default function ChromaKeyVideo({
         gl.clearColor(0, 0, 0, 0);
         gl.clear(gl.COLOR_BUFFER_BIT);
         gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+        cizildi = true;
       }
       schedule();
     };
 
     // requestVideoFrameCallback kareyi videoya kilitliyor; yoksa rAF.
-    const hasFrameCallback = "requestVideoFrameCallback" in video;
+    hasFrameCallback = "requestVideoFrameCallback" in video;
     const schedule = () => {
       if (stopped) return;
       if (hasFrameCallback) {
@@ -144,17 +174,98 @@ export default function ChromaKeyVideo({
       }
     };
 
+    /* --- Oynatmayi ACIKCA baslat ---
+       `autoPlay` niteligi bir ISTEKTIR, garanti degil: iOS Dusuk Guc Modu,
+       veri/pil tasarrufu ve otomatik oynatma politikalari engelleyebiliyor.
+       Engellenirse video hic oynamaz; `requestVideoFrameCallback` YALNIZCA
+       yeni kare gosterildiginde tetiklendigi icin cizim dongusu hic
+       calismaz ve canvas kalici olarak bos kalirdi. */
+    const oynat = () => {
+      const p = video.play();
+      if (p && typeof p.catch === "function") p.catch(() => {});
+    };
+    oynat();
+
+    /* --- Gozcu ---
+       Belirli sure sonunda hala tek kare bile cizilmediyse sirayla:
+       1) oynatmayi tekrar dene,
+       2) rVFC yerine rAF dongusune gec (video DURUYOR olsa bile, verisi
+          varsa karesi cizilebilir -- autoplay engellendiginde animasyon
+          olmaz ama karakter GORUNUR),
+       3) hicbiri olmadiysa statik postere dus. */
+    const gozcuBaslat = (ms: number, adim: number) => {
+      gozcu = setTimeout(() => {
+        if (stopped || cizildi) return;
+        if (adim === 1) {
+          oynat();
+          if (hasFrameCallback) {
+            // rVFC hic tetiklenmiyor olabilir; rAF'e gecip duraklatilmis
+            // videonun mevcut karesini de cizebilir hale geliyoruz.
+            hasFrameCallback = false;
+            schedule();
+          }
+          gozcuBaslat(2500, 2);
+        } else {
+          setYedegeGec(true);
+        }
+      }, ms);
+    };
+    gozcuBaslat(1500, 1);
+
+    /* --- Context kaybi ---
+       Mobilde sekme arka plana atilip donunce veya GPU baskisinda tarayici
+       WebGL context'ini dusurebiliyor. Islenmezse canvas kalici bos kalir. */
+    const contextKayboldu = (e: Event) => {
+      e.preventDefault(); // varsayilan: context bir daha ASLA geri gelmez
+      gl = null;
+    };
+    const contextGeriGeldi = () => {
+      if (stopped) return;
+      if (kur()) schedule();
+      else setYedegeGec(true);
+    };
+    canvas.addEventListener("webglcontextlost", contextKayboldu);
+    canvas.addEventListener("webglcontextrestored", contextGeriGeldi);
+
+    // Video hic yuklenemezse (ag hatasi, eksik dosya) postere dus.
+    const videoHatasi = () => setYedegeGec(true);
+    video.addEventListener("error", videoHatasi);
+
     schedule();
 
     return () => {
       stopped = true;
+      if (gozcu) clearTimeout(gozcu);
+      canvas.removeEventListener("webglcontextlost", contextKayboldu);
+      canvas.removeEventListener("webglcontextrestored", contextGeriGeldi);
+      video.removeEventListener("error", videoHatasi);
       if (hasFrameCallback) {
         video.cancelVideoFrameCallback(rafId);
       } else {
         cancelAnimationFrame(rafId);
       }
+      /* Context'i ACIKCA birak: tarayicilar ayni anda ~8-16 WebGL
+         context'ine izin veriyor. Sayfalar arasi gezinirken her bilesen
+         yenisini aciyordu ve eskiler belirsiz bir zamana kadar
+         toplanmiyordu; uzun oturumlarda limite dayanip yeni context
+         alinamaz hale gelebiliyordu. */
+      const kayip = gl?.getExtension("WEBGL_lose_context");
+      if (kayip) kayip.loseContext();
+      gl = null;
     };
   }, [src]);
+
+  if (yedegeGec) {
+    /* eslint-disable-next-line @next/next/no-img-element */
+    return (
+      <img
+        src={posterYolu(src)}
+        alt=""
+        aria-hidden="true"
+        className={`pointer-events-none ${className ?? ""}`}
+      />
+    );
+  }
 
   return (
     <>

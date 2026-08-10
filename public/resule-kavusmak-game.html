@@ -329,6 +329,13 @@
     z-index:6;
     transition:left .9s cubic-bezier(.4,0,.2,1), top .9s cubic-bezier(.4,0,.2,1);
   }
+  /* CSS'teki baslangic konumu left:0/top:0, yani sol UST kose. JS ilk
+     konumu atadiginda yukaridaki transition devreye girip Mustafa'yi
+     koseden Buhari'nin yanina KAYDIRIYORDU (sayfa her acilista gorunen
+     "soldan gelme"). Ayni sey video yuklenince yapilan yeniden hizalamada
+     da oluyordu. Bu sinif ilk yerlestirme ve yeniden hizalamalarda
+     gecisi kapatir; oyun ICI hamleler (moveMustafaTo) animasyonlu kalir. */
+  .mustafa.anim-yok{ transition:none; }
   .mustafa canvas{
     display:block;
     height:75px;
@@ -788,19 +795,31 @@
     };
   }
 
-  function placeMustafa(xPct, yPct){
+  // animasyonsuz=true ise gecis kapatilarak konumlanir (ilk yerlestirme,
+  // yeniden hizalama). Reflow'u zorlamak SART: sinifi ekleyip konumu atayip
+  // ayni karede kaldirsak tarayici ikisini birlestirip yine animasyon
+  // yapardi.
+  function placeMustafa(xPct, yPct, animasyonsuz){
+    if(animasyonsuz) mustafa.classList.add('anim-yok');
     mustafa.style.left = xPct + '%';
     mustafa.style.top = yPct + '%';
+    if(animasyonsuz){
+      void mustafa.offsetWidth;
+      mustafa.classList.remove('anim-yok');
+    }
   }
 
   // Mustafa'nin su an yaslandigi kutu. Buhari zaten secili geldigi icin
   // oyun HER ZAMAN bir anchor ile baslar (bkz. initState).
   var currentAnchor = null;
 
+  // Hep animasyonsuz: bu fonksiyon oyun HAMLESI degil, mevcut konumu
+  // yeniden hesaplama (ilk kurulum, pencere boyutu degisimi, video
+  // yuklenince canvas olcusunun belli olmasi). Hamleler moveMustafaTo'dan.
   function syncMustafa(){
     if(!currentAnchor) return;
     var p = rightEdgePct(currentAnchor);
-    placeMustafa(p.x, p.y);
+    placeMustafa(p.x, p.y, true);
   }
 
   // Toast varsayilan olarak ALTTA gosterilir; position:'top' verilirse
