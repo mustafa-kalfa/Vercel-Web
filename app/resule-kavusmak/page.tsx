@@ -23,6 +23,21 @@ function GameFrame() {
       if (e.data && e.data.type === "resule-kavusmak-height") {
         setHeight(Math.ceil(e.data.height));
       }
+      // Isnad dogru tamamlaninca oyun hadis kutusunun KENDI belgesindeki
+      // Y konumunu yolluyor. Iframe'in kendi kaydirma cubugu olmadigi
+      // icin kaydirmasi gereken taraf biziz: iframe'in sayfadaki yerine
+      // o konumu ekleyip oraya gidiyoruz. Kullanici oyunu bitirdiginde
+      // en altta (ravi butonlarinda) duruyor, hadis metni ise en ustte.
+      if (e.data && e.data.type === "resule-kavusmak-scroll-to") {
+        const frame = iframeRef.current;
+        if (!frame) return;
+        const hedef =
+          window.scrollY +
+          frame.getBoundingClientRect().top +
+          Number(e.data.top) -
+          24; // kutunun ustunde biraz nefes payi
+        window.scrollTo({ top: Math.max(0, hedef), behavior: "smooth" });
+      }
     }
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);

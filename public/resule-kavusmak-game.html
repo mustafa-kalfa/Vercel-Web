@@ -919,7 +919,32 @@
       // Kavusma anini kutlayan mesaj digerlerinden (1.6s) daha uzun
       // kalsin diye 5 saniye gosteriliyor; ASAGIDA (varsayilan konum).
       showToast(STRINGS[currentLang].toastDone, 'green', 5000);
+      // Oyun bitince kullanici ASAGIDA (son ravi butonlarinin oldugu
+      // yerde) duruyor; hadis kutusu ise sayfanin EN USTUNDE. Metin ortaya
+      // ciktigi halde gorunmuyor, elle yukari kaydirmak gerekiyordu.
+      scrollToHadith();
     });
+  }
+
+  // Isnad tamamlaninca hadis metnini gorunur kilar.
+  // IKI FARKLI DURUM var:
+  //  - iframe icinde (/resule-kavusmak): bu belgenin kendi kaydirma
+  //    cubugu YOK (yukseklik icerige esitleniyor), yani buradan
+  //    scrollTo cagirmak HICBIR SEY yapmaz. Kaydirmasi gereken UST
+  //    pencere; ona hadis kutusunun bu belge icindeki Y konumunu
+  //    bildiriyoruz, gerisini page.tsx hesapliyor.
+  //  - dogrudan acildiginda (/resule-kavusmak-game.html): kendi
+  //    penceremizi kaydiriyoruz.
+  function scrollToHadith(){
+    var y = hadithBubble.getBoundingClientRect().top + (window.scrollY || 0);
+    if(window.parent !== window){
+      window.parent.postMessage(
+        { type:'resule-kavusmak-scroll-to', top: y },
+        '*'
+      );
+    } else {
+      window.scrollTo({ top: Math.max(0, y - 24), behavior:'smooth' });
+    }
   }
 
   function handleWrong(el){
