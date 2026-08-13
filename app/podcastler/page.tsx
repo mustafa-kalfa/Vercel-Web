@@ -4,15 +4,15 @@ import Link from "next/link";
 import ChromaKeyVideo from "../ChromaKeyVideo";
 import { useLanguage } from "../LanguageContext";
 
-const CATEGORIES = [
-  "Hadis Tarihi",
-  "Hadis Usûlü",
-  "Hadis Edebiyatı",
-  "Oryantalizm",
-];
-
 export default function Podcastler() {
   const { t } = useLanguage();
+
+  const categories = [
+    t.podcastHadithHistory,
+    t.podcastHadithMethodology,
+    t.podcastHadithLiterature,
+    t.podcastOrientalism,
+  ];
 
   return (
     <main className="relative flex flex-1 flex-col items-center">
@@ -29,7 +29,7 @@ export default function Podcastler() {
       </Link>
 
       <div className="flex w-full flex-1 flex-col items-center justify-center gap-4 px-6 pb-16 pt-32 sm:px-10">
-        {CATEGORIES.map((label) => (
+        {categories.map((label) => (
           <button
             key={label}
             type="button"
