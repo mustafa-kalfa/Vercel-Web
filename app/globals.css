@@ -245,3 +245,67 @@ html[lang="ar"] .ar-greeting {
   }
 }
 
+
+/* Podcast oynaticinin ilerleme cubugu. Native <input type="range">
+   kullaniliyor -- klavye (ok tuslariyla sarma) ve ekran okuyucu destegi
+   hazir gelsin diye; gorunumu `appearance:none` ile sifirlanip sitenin
+   ince/duz diline uyduruluyor.
+
+   Dolu kisim JS'ten gelen `--progress` degiskeniyle track'in kendi
+   arka planina bir gradyan olarak ciziliyor: native range dolu tarafi
+   ayri boyayamiyor (Firefox'un `::-moz-range-progress`i var, WebKit'in
+   karsiligi yok), o yuzden iki tarayicida da ayni gradyan yolu. */
+.audio-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  /* Cubuk 4px gorunuyor ama tiklama/surukleme alani 16px: parmakla
+     tutulabilsin. Fazlalik seffaf. */
+  height: 16px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.audio-range:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.audio-range::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    var(--foreground) var(--progress, 0%),
+    color-mix(in srgb, var(--foreground) 18%, transparent) var(--progress, 0%)
+  );
+}
+
+.audio-range::-moz-range-track {
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    var(--foreground) var(--progress, 0%),
+    color-mix(in srgb, var(--foreground) 18%, transparent) var(--progress, 0%)
+  );
+}
+
+.audio-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--foreground);
+  /* Track 4px, thumb 12px: (4 - 12) / 2 = -4 ile dikeyde ortalaniyor. */
+  margin-top: -4px;
+}
+
+.audio-range::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 999px;
+  background: var(--foreground);
+}

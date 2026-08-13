@@ -7,8 +7,12 @@ import { useLanguage } from "../LanguageContext";
 export default function Podcastler() {
   const { t } = useLanguage();
 
+  const buttonClass =
+    "flex h-12 w-full max-w-xs items-center justify-center whitespace-nowrap rounded-full border border-solid border-black/[.08] px-5 text-center text-base font-medium transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]";
+
+  // Yalnizca Hadis Tarihi'nin kendi sayfasi var; digerleri bolum
+  // eklendikce ayni sekilde `href` alacak.
   const categories = [
-    t.podcastHadithHistory,
     t.podcastHadithMethodology,
     t.podcastHadithLiterature,
     t.podcastOrientalism,
@@ -29,12 +33,12 @@ export default function Podcastler() {
       </Link>
 
       <div className="flex w-full flex-1 flex-col items-center justify-center gap-4 px-6 pb-16 pt-32 sm:px-10">
+        <Link href="/hadis-tarihi" className={buttonClass}>
+          {t.podcastHadithHistory}
+        </Link>
+
         {categories.map((label) => (
-          <button
-            key={label}
-            type="button"
-            className="flex h-12 w-full max-w-xs items-center justify-center whitespace-nowrap rounded-full border border-solid border-black/[.08] px-5 text-center text-base font-medium transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
-          >
+          <button key={label} type="button" className={buttonClass}>
             {label}
           </button>
         ))}

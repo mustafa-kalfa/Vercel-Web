@@ -34,6 +34,14 @@ type Translation = {
   podcastHadithMethodology: string;
   podcastHadithLiterature: string;
   podcastOrientalism: string;
+  podcastMihna: string;
+  podcastOtherTopics: string;
+  playerPlay: string;
+  playerPause: string;
+  playerBack5: string;
+  playerForward5: string;
+  playerSpeed: string;
+  playerSeek: string;
 };
 
 export const TRANSLATIONS: Record<Language, Translation> = {
@@ -58,6 +66,14 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     podcastHadithMethodology: "Hadis Usûlü",
     podcastHadithLiterature: "Hadis Edebiyatı",
     podcastOrientalism: "Oryantalizm",
+    podcastMihna: "Mihne Hâdisesi",
+    podcastOtherTopics: "Diğer Konular",
+    playerPlay: "Oynat",
+    playerPause: "Duraklat",
+    playerBack5: "5 saniye geri",
+    playerForward5: "5 saniye ileri",
+    playerSpeed: "Oynatma hızı",
+    playerSeek: "Ses konumu",
   },
   ar: {
     brandAlt: "الحديث والديجيتالية",
@@ -80,6 +96,14 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     podcastHadithMethodology: "علم مصطلح الحديث",
     podcastHadithLiterature: "أدب الحديث",
     podcastOrientalism: "الاستشراق",
+    podcastMihna: "حادثة المحنة",
+    podcastOtherTopics: "مواضيع أخرى",
+    playerPlay: "تشغيل",
+    playerPause: "إيقاف مؤقت",
+    playerBack5: "خمس ثوانٍ إلى الوراء",
+    playerForward5: "خمس ثوانٍ إلى الأمام",
+    playerSpeed: "سرعة التشغيل",
+    playerSeek: "موضع الصوت",
   },
   en: {
     brandAlt: "Hadith and Digital",
@@ -103,5 +127,13 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     podcastHadithMethodology: "Hadith Methodology",
     podcastHadithLiterature: "Hadith Literature",
     podcastOrientalism: "Orientalism",
+    podcastMihna: "The Mihna",
+    podcastOtherTopics: "Other Topics",
+    playerPlay: "Play",
+    playerPause: "Pause",
+    playerBack5: "Back 5 seconds",
+    playerForward5: "Forward 5 seconds",
+    playerSpeed: "Playback speed",
+    playerSeek: "Seek",
   },
 };
