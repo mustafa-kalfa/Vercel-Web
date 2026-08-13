@@ -709,33 +709,66 @@ Bu oyunun bir de Claude'da yayinlanmis "Artifact" onizlemesi var:
 (URL sabit tutuluyor, her guncellemede ayni linke tekrar publish
 ediliyor). **Bu, siteden TAMAMEN AYRI bir kopya** — canli siteye
 pushlamak bunu OTOMATIK guncellemez, ayrica elle publish etmek gerekir.
-Farki: artifact'ler disari network istegi atamadigi icin video
-`src="/Mustafa%20Karsilama_seffaf.mp4"` yerine base64 `data:` URI olarak
-GOMULU olmali. Guncellemek icin:
 
-```bash
-node -e "
-const fs = require('fs');
-const src = 'public/resule-kavusmak-game.html';
-const videoPath = 'public/Mustafa Karsilama_seffaf.mp4';
-const out = 'artifact-build.html'; // scratchpad'e yaz, repo'ya commit ETME
+**NE ZAMAN GUNCELLENIR: SADECE Mustafa acikca istedigi zaman**
+("artifact'i de guncelle" gibi). Her siteye push'tan sonra otomatik
+guncelleme YOK -- bu, 2026-08-11'de Mustafa'nin kendi acik talimati
+(onceki not "gecmiste her degisiklikten sonra ikisini de istedi"
+YANLIS/ESKI cikti, boyle bir talep gelmedi; simdi tam tersi acikca
+soylendi: yalniz ara sira, ben istedigimde). O tarihte artifact ~19
+commit/birkaç ay geride kalmisti, hicbir sorun cikarmadi -- yani
+geride kalmasi BASLI BASINA bir sorun degil, sadece istendiginde
+tazelenir.
 
-const b64 = fs.readFileSync(videoPath).toString('base64');
-let html = fs.readFileSync(src, 'utf8');
-const before = html;
-html = html.replace('src=\"/Mustafa%20Karsilama_seffaf.mp4\"', 'src=\"data:video/mp4;base64,' + b64 + '\"');
-if (html === before) throw new Error('video src degistirilemedi');
-fs.writeFileSync(out, html, 'utf8');
-console.log('yazildi:', out, (html.length/1024/1024).toFixed(2)+' MB');
-"
+**Guncelleme siteye push'tan cok daha fazlasini gerektirebilir.**
+Artifact'ler DIS AG ISTEGI ATAMIYOR (strict CSP) -- yalnizca video
+degil, siteye SONRADAN eklenen HERHANGI bir dis kaynak (2026-08-10'da
+eklenen Google Fonts Arapca font linki gibi) da SESSIZCE basarisiz
+olur. Guncellemeden once `public/resule-kavusmak-game.html`'i BASTAN
+tara: `<link href="https://...">`, `@import`, veya baska bir goreli
+`/...` kaynak eklenmis mi? Her biri ayni sekilde (video gibi) base64
+`data:` URI'ye gomulmeli, yoksa o ozellik (font, vs.) artifact'te
+sessizce bozuk kalir -- HATA VERMEZ, sadece yedek foota duser.
+
+Guncellemek icin (script'i scratchpad'te tut, repo'ya commit ETME):
+
+```js
+// build-artifact.js -- gomulmesi gereken her yeni dis kaynagi buraya ekle
+const fs = require("fs");
+const [, , src, videoPath, fontPath, out] = process.argv;
+
+let html = fs.readFileSync(src, "utf8");
+
+// Video: ayni-kaynak GORELI yol bile agdan erisilemiyor.
+const videoB64 = fs.readFileSync(videoPath).toString("base64");
+html = html.replace(
+  'src="/Mustafa%20Karsilama_seffaf.mp4"',
+  'src="data:video/mp4;base64,' + videoB64 + '"',
+);
+
+// Arapca font: <link> DIS istek, CSP'de sessizce basarisiz olurdu.
+const fontB64 = fs.readFileSync(fontPath).toString("base64");
+const fontFace =
+  "<style>@font-face{font-family:'Noto Naskh Arabic';font-style:normal;" +
+  "font-weight:400 700;font-display:swap;src:url(data:font/woff2;base64," +
+  fontB64 + ") format('woff2');}</style>";
+html = html.replace(
+  /<link rel="preconnect"[^>]*>\s*<link rel="preconnect"[^>]*>\s*<link href="https:\/\/fonts\.googleapis\.com[^>]*>/,
+  fontFace,
+);
+
+fs.writeFileSync(out, html, "utf8");
 ```
 
+Font dosyasini once indir (yalnizca Arapca subset yeterli, ~90 KB):
+`curl -s -A "Mozilla/5.0 ... Chrome/120" "https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;700&display=swap"`
+CSS'teki `arabic` etiketli `@font-face`in `.woff2` linkini bul, indir.
+
 Sonra `Artifact` aracini (`file_path` = ustteki `out`, `url` =
-yukaridaki sabit link, `favicon`= 🕌) cagirarak publish et. Kullanici
-acikca istemedikce bu adimi ATLAMA GEREKMEZ — sadece siteye pushlamak
-yeterli, artifact'i ayrica guncellemek EK bir istektir (kullanici
-gecmiste her degisiklikten sonra ikisini de istedi, ama sormadan
-varsayma).
+yukaridaki sabit link, `favicon`= 🕌) cagirarak publish et. Baska bir
+oturum dokunmussa "hasn't viewed the latest version" hatasi gelebilir
+-- burada ENDISE ETME: cikti resule-kavusmak-game.html'in TAMAMINDAN
+YENIDEN uretiliyor (ustune ekleme degil), yani `force:true` guvenli.
 
 ### Genel notlar
 
