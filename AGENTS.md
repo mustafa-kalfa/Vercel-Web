@@ -33,18 +33,59 @@ Test ederken: **dev modunda sayac her yuklemede 2 artiyor**, cunku React
 StrictMode efekti iki kez calistiriyor. Canlida ziyaret basina 1 artar.
 Belirli bir videoyu gormek icin sayaci elle ayarlayip yenile.
 
-### `/sinama` deneme sayfasi KALDIRILDI (2026-08-08)
+### `/sinama` deneme sayfasi — KALICI, SILINMEZ
 
-Bir sure `app/sinama/` anasayfanin birebir kopyasi olarak durdu; yeniden
-anahtarlanan klipler `public/sinama/` altindan yayinlanip yayindaki
-anasayfaya dokunmadan gercek sitede karsilastirildi. Onaydan sonra
-plan uygulandi: dosyalar `public/` kokune tasindi, animasyonlu logo
-anasayfaya gecti, `app/sinama/` + `public/sinama/` + `deneme` bayragi +
-`denemeSrc` alanlari silindi. **`/sinama` artik 404.** Geri istenirse
-tek dayanak git gecmisi (`e9d3afe` ve oncesi).
+`app/sinama/page.tsx` anasayfanin birebir kopyasi ve **her zaman var
+olacak** (Mustafa'nin acik talimati, 2026-08-17). Amaci: bir degisiklik
+yayindaki anasayfaya dokunmadan GERCEK sitede denenebilsin. Yeni bir
+efekt/klip/duzen once burada denenir, onaylanirsa anasayfaya tasinir --
+`/sinama` sonrasinda da yerinde kalir.
 
-Ayni anda kullanimdan kalkan iki klip de silindi:
-`Mustafa Kediler Dogru_seffaf.mp4` (hem kokte hem `sinama/` altinda).
+**Bu sayfayi silme, "kullanilmiyor" diye temizleme, `git status`ta fazla
+gorunuyor diye kaldirmayi onerme.** Bir kez silinmisti (2026-08-08) ve
+geri acildi; buton parilti efektlerinin uc surumu (`036ab8d`, `a0da1fc`,
+`79f1ee5`) bu sayfada denendi.
+
+Anasayfa degisince `/sinama` da elle guncellenmeli -- ortak bir bilesen
+degil, KOPYA; iki dosya kendiliginden es kalmiyor.
+
+`public/sinama/` klasoru ise yok: deneme varliklari (klipler vb.)
+`public/` kokunde duruyor. 2026-08-08'de kullanimdan kalkan
+`Mustafa Kediler Dogru_seffaf.mp4` o zaman silinmisti.
+
+## 404: her bilinmeyen adres `/su-anda-buradasiniz`a gider
+
+`app/not-found.tsx` tek is yapiyor: `redirect("/su-anda-buradasiniz")`.
+Next.js'in ontanimli siyah-beyaz "404 | This page could not be found"
+ekrani artik hic gorunmuyor; ziyaretci 307 ile gercek bir sayfaya
+dusuyor ve adres cubugu da `/su-anda-buradasiniz` oluyor.
+
+`app/su-anda-buradasiniz/page.tsx` duzen olarak `/mustafa-calisiyor`in
+KOPYASI, tek fark balondaki cumle (`t.pageNotCreated`, uc dilde).
+Ortak bilesen degil: birinin duzeni degisirse otekini elle guncelle.
+
+**Bilincli tercih, yan etkisi var:** arama motorlari artik 404 yerine
+yonlendirme goruyor ("soft 404"). Gercek 404 durumu istenirse
+`not-found.tsx` redirect yerine ayni icerigi RENDER etmeli.
+
+## Vercel Web Analytics (trafik istatistigi)
+
+`app/layout.tsx`'in `<head>`inde tek satir:
+`<script defer src="/_vercel/insights/script.js" />`.
+
+**`@vercel/analytics` paketi BILEREK kurulmadi.** Bu makinenin bagli
+oldugu ISAM agindaki FortiGate guvenlik duvari npm registry'sinin TLS
+baglantisini kesip kendi sertifikasiyla imzaliyor ve ara sertifikayi
+zincire koymuyor; Node dogrulayamiyor, `npm install` bu agda
+`UNABLE_TO_VERIFY_LEAF_SIGNATURE` ile HER ZAMAN patliyor (kok
+sertifikayi Windows deposundan cikarip `NODE_EXTRA_CA_CERTS` ile vermek
+de ise yaramaz -- eksik olan kok degil, ara sertifika). Baska bir agda
+`npm install` normal calisir.
+
+Script yolu pakete hic bagimli degil, bundle'a agirlik eklemiyor.
+Yerel `npm run dev`de 404 doner (dosyayi yalnizca Vercel uretir) --
+NORMAL, dokunma. Vercel panelinde Analytics "Enable" edilmeden hic veri
+akmaz.
 
 ## Yesil/kirmizi perde -> seffaf mp4 (paketlenmis alfa)
 
@@ -687,9 +728,9 @@ Yani isnad DOGRU tamamlanmadan bu buton hic yok -- bos bir bosluk da
 birakmiyor (opacity degil display).
 
 `/mustafa-calisiyor` sayfasi `/selam`'in (`app/selam/page.tsx`) birebir
-kopyasi (ayni logo/karakter/balon duzeni), TEK farki: balonda dil/tema
-bagimsiz sabit Turkce cumle ("Mustafâ bu iş üzerinde çalışıyor.") --
-`t.greetingLead`/`t.greetingBody` KULLANILMIYOR, cevirisi de yok. `#nextBtn`
+kopyasi (ayni logo/karakter/balon duzeni), TEK farki: balonda uzun
+tanitim metni yerine tek cumle var -- `t.greetingLead`/`t.greetingBody`
+DEGIL, `t.workingOnIt` (uc dilde de cevirisi var). `#nextBtn`
 `target="_top"` tasiyor: bu HTML `/resule-kavusmak` sayfasinda bir iframe
 icinde gomulu oldugu icin `_top` olmadan tiklama yalnizca iframe'i
 degistirir, ust sayfayi degil.

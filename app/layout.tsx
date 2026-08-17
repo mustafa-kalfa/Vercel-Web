@@ -63,6 +63,14 @@ export default function RootLayout({
             __html: `(function(){try{var e=document.documentElement;var t=localStorage.getItem("theme");if(t?t==="dark":matchMedia("(prefers-color-scheme: dark)").matches)e.classList.add("dark");var l=localStorage.getItem("language");if(l==="tr"||l==="ar"||l==="en"){e.lang=l;e.dir=l==="ar"?"rtl":"ltr"}}catch(e){}})()`,
           }}
         />
+        {/* Vercel Web Analytics. @vercel/analytics paketi yerine dogrudan
+            script: bu makinedeki guvenlik duvari npm registry'sini kesiyor
+            ve paket kurulamiyor; ayrica bu yol pakete hic bagimli degil.
+            Dosyayi Vercel kendi kenar sunucusundan veriyor (yerel dev'de
+            404 doner, zararsiz). Cerez kullanmiyor, IP saklamiyor.
+            NOT: Vercel panelinde Analytics "Enable" edilmezse bu yol da
+            404 doner ve hicbir veri toplanmaz. */}
+        <script defer src="/_vercel/insights/script.js" />
       </head>
       <body className="min-h-full flex flex-col">
         <LanguageProvider>
