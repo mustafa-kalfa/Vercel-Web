@@ -64,7 +64,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
       "İlahiyatçı ve yazılımcıyım. Ama daha çok ilahiyatçı. Akademik koşuşturmacadan bir nebze uzaklaşmak için bu sayfayı kurdum. Buraya hadis ve dijitali birleştirmeyi denediğim çalışmaları yükleyeceğim. Ne kadar malzeme çıkar ve ne kadar devam ettirebilirim bilmiyorum. Şimdilik buradayım :D",
     workingOnIt: "Mustafâ bu iş üzerinde çalışıyor.",
     pageNotCreated:
-      "Şu anda buradasınız. Mustafâ henüz böyle bir sayfa oluşturmadı. Fakat neden olmasın?",
+      "Şu anda buradasınız. Mustafâ henüz böyle bir sayfa oluşturmadı. Fakat... Neden olmasın?",
     podcastHadithHistory: "Hadis Tarihi",
     podcastHadithMethodology: "Hadis Usûlü",
     podcastHadithLiterature: "Hadis Edebiyatı",
@@ -96,7 +96,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
       "باحث شرعي ومبرمج، لكنني باحث شرعي أكثر. أنشأت هذه الصفحة للابتعاد قليلاً عن زحمة العمل الأكاديمي. سأرفع هنا الأعمال التي أحاول فيها الجمع بين الحديث والديجيتالية. لا أدري كم ستخرج من مادة ولا إلى متى أستطيع الاستمرار. أنا هنا في الوقت الحالي :ᗡ",
     workingOnIt: "مصطفى يعمل على هذا الأمر.",
     pageNotCreated:
-      "أنتم الآن هنا. لم يُنشئ مصطفى هذه الصفحة بعدُ. ولكن لِمَ لا؟",
+      "أنتم الآن هنا. لم يُنشئ مصطفى هذه الصفحة بعدُ. ولكن... لِمَ لا؟",
     podcastHadithHistory: "تاريخ الحديث",
     podcastHadithMethodology: "علم مصطلح الحديث",
     podcastHadithLiterature: "أدب الحديث",
@@ -129,7 +129,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
       "I'm a theologian and a developer. But more of a theologian. I set this page up to get some distance from the academic rush. I'll be posting the work where I try to combine hadith and digital here. I don't know how much will come of it, or how long I can keep it going. For now, I'm here :D",
     workingOnIt: "Mustafâ is working on this.",
     pageNotCreated:
-      "You are here right now. Mustafâ hasn't made such a page yet. But why not?",
+      "You are here right now. Mustafâ hasn't made such a page yet. But... Why not?",
     podcastHadithHistory: "History of Hadith",
     podcastHadithMethodology: "Hadith Methodology",
     podcastHadithLiterature: "Hadith Literature",
