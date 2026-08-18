@@ -53,20 +53,28 @@ degil, KOPYA; iki dosya kendiliginden es kalmiyor.
 `public/` kokunde duruyor. 2026-08-08'de kullanimdan kalkan
 `Mustafa Kediler Dogru_seffaf.mp4` o zaman silinmisti.
 
-## 404: her bilinmeyen adres `/su-anda-buradasiniz`a gider
+## 404: var olmayan adresler
 
-`app/not-found.tsx` tek is yapiyor: `redirect("/su-anda-buradasiniz")`.
-Next.js'in ontanimli siyah-beyaz "404 | This page could not be found"
-ekrani artik hic gorunmuyor; ziyaretci 307 ile gercek bir sayfaya
-dusuyor ve adres cubugu da `/su-anda-buradasiniz` oluyor.
+`app/not-found.tsx` ortak bileseni (`app/SuAndaBuradasiniz.tsx`) DOGRUDAN
+render ediyor: ziyaretci yazdigi adreste KALIYOR, icerik oraya geliyor,
+HTTP durumu da dogru sekilde 404 kaliyor. Next.js'in ontanimli siyah-beyaz
+"404 | This page could not be found" ekrani hic gorunmuyor.
 
-`app/su-anda-buradasiniz/page.tsx` duzen olarak `/mustafa-calisiyor`in
-KOPYASI, tek fark balondaki cumle (`t.pageNotCreated`, uc dilde).
-Ortak bilesen degil: birinin duzeni degisirse otekini elle guncelle.
+Ayni bilesen `app/su-anda-buradasiniz/page.tsx` ile gercek bir adres
+olarak da yayinda. Duzen `/mustafa-calisiyor`in kopyasi, tek fark
+balondaki cumle (`t.pageNotCreated`, uc dilde).
 
-**Bilincli tercih, yan etkisi var:** arama motorlari artik 404 yerine
-yonlendirme goruyor ("soft 404"). Gercek 404 durumu istenirse
-`not-found.tsx` redirect yerine ayni icerigi RENDER etmeli.
+**`redirect()` KULLANMA -- denendi, YAYINDA CALISMIYOR.** Site tamamen
+statik oldugu icin `/_not-found` build sirasinda onceden uretiliyor;
+`redirect()` o anda tuketiliyor ve canlida hicbir sey yapmiyor. Dev
+sunucusu YANILTIYOR: orada duzgun 307 doner, yayinda ziyaretci Next'in ham
+404 ekranini gorur. 2026-08-18'de tam olarak bu yasandi ve ancak yayindan
+olculerek yakalandi. Bu dosyaya dokunursan dogrulamayi `npm run dev` ile
+DEGIL, `npm run build && npx next start` ile yap.
+
+Yan etki: ziyaretcinin adres cubugunda `/su-anda-buradasiniz` YAZMAZ,
+yazdigi adres kalir. Adresin degismesi istenirse tek yol istemci
+tarafinda `history.replaceState` -- ama o da gercek 404 durumunu korur.
 
 ## Vercel Web Analytics (trafik istatistigi)
 
