@@ -102,7 +102,13 @@ const HADITHS: HadithCard[] = [
 // goturur. Kalan ikisinin icerigi henuz yok, DAIMA kilitli duruyor.
 type SectionCard = {
   id: string;
+  // Turkce etiketlerdeki `\n` KASITLI satir kirilimi ("Hadisler" alt
+  // satira insin). Kutu `whitespace-pre-line` tasidigi icin oldugu gibi
+  // uygulaniyor; Arapca/Ingilizce'de kirilim yok, dogal sariyorlar.
   label: Record<Language, string>;
+  // Zorluk rozeti (kutunun sag ust kosesi). Kilitli kutularda da
+  // gorunuyor: zorlugu soylemek icerigi sizdirmiyor.
+  badge: Record<Language, string>;
   // 'list'  = bu sayfadaki hadis izgarasini acar
   // 'link'  = siteye ait baska bir sayfaya gider
   // 'soon'  = icerik henuz yok, hep kilitli
@@ -115,23 +121,39 @@ const SECTIONS: SectionCard[] = [
     id: "tek-isnad",
     kind: "list",
     label: {
-      tr: "Tek İsnadlı Hadisler",
+      tr: "Tek İsnadlı\nHadisler",
       ar: "الأحاديث ذات الإسناد الواحد",
       en: "Hadiths with a Single Isnād",
     },
+    badge: { tr: "Kolay", ar: "سهل", en: "Easy" },
   },
   {
     id: "tahvil",
     kind: "link",
     href: "/mustafa-calisiyor",
     label: {
-      tr: "Tahvîl İçeren Hadisler",
+      tr: "Tahvîl İçeren\nHadisler",
       ar: "الأحاديث التي فيها تحويل",
       en: "Hadiths Containing a Taḥwīl",
     },
+    badge: { tr: "Orta", ar: "متوسط", en: "Medium" },
   },
-  { id: "bolum-3", kind: "soon", label: { tr: "", ar: "", en: "" } },
-  { id: "bolum-4", kind: "soon", label: { tr: "", ar: "", en: "" } },
+  {
+    id: "bolum-3",
+    kind: "soon",
+    label: { tr: "", ar: "", en: "" },
+    badge: { tr: "Meşakkatli", ar: "شاقّ", en: "Demanding" },
+  },
+  {
+    id: "bolum-4",
+    kind: "soon",
+    label: { tr: "", ar: "", en: "" },
+    badge: {
+      tr: "Yalnızca Buhârî’ler İçin",
+      ar: "للبخاريّين فقط",
+      en: "For Bukhārīs Only",
+    },
+  },
 ];
 
 // Izgaralarin ve gezinme dugmelerinin arayuz metinleri. Oyunun KENDI
@@ -155,9 +177,9 @@ const UI: Record<
 > = {
   tr: {
     sectionsHeading: "Mustafâ’yı Peygamberine kavuşturabilir misin?",
-    sectionsLede: "Bölümler sırayla açılır. Birini bitirmeden sonrakine geçemezsin.",
+    sectionsLede: "Bölümler sırayla açılır. Haydi başlayalım.",
     heading: "Hadislerin isnâdında dolaşma vakti.",
-    lede: "Hadisler sırayla açılır. Bir isnâdı tamamlamadan sonraki hadise geçemezsin.",
+    lede: "Sonraki hadise geçmek için isnadları sırayla tamamla.",
     back: "← Hadis Listesi",
     backToSections: "← Bölümlere Dön",
     locked: "Henüz kilitli — önceki hadisi tamamla",
@@ -168,9 +190,9 @@ const UI: Record<
   },
   ar: {
     sectionsHeading: "هل تستطيع أن توصل مصطفى إلى نبيّه؟",
-    sectionsLede: "تُفتح الأقسام بالترتيب: لا تنتقل إلى القسم التالي قبل إتمام الذي قبله.",
+    sectionsLede: "تُفتح الأقسام بالترتيب. هيّا نبدأ.",
     heading: "حان وقت التجوّل في أسانيد الأحاديث.",
-    lede: "تُفتح الأحاديث بالترتيب: لا تنتقل إلى الحديث التالي قبل إتمام الإسناد الذي قبله.",
+    lede: "أتمم الأسانيد بالترتيب لتنتقل إلى الحديث التالي.",
     back: "→ قائمة الأحاديث",
     backToSections: "→ العودة إلى الأقسام",
     locked: "مقفل — أتمم الحديث السابق",
@@ -181,9 +203,9 @@ const UI: Record<
   },
   en: {
     sectionsHeading: "Can you reunite Mustafâ with his Prophet?",
-    sectionsLede: "The sections unlock in order: you cannot move on before finishing the one you are on.",
+    sectionsLede: "The sections unlock in order. Let’s begin.",
     heading: "Time to wander through the isnāds of the hadiths.",
-    lede: "The hadiths unlock in order: you cannot move on before completing the isnād you are on.",
+    lede: "Complete the isnāds in order to move on to the next hadith.",
     back: "← Hadith list",
     backToSections: "← Back to sections",
     locked: "Locked — complete the previous hadith",
@@ -441,12 +463,27 @@ export default function ResuleKavusmakHub() {
                 const hint =
                   s.kind === "soon" ? ui.soon : ui.lockedSection;
                 const cardClass =
-                  "press-go flex aspect-square flex-col items-center justify-center gap-1.5 rounded-2xl border border-solid px-3 text-center sm:px-5 " +
+                  "press-go relative flex aspect-square flex-col items-center justify-center gap-1.5 rounded-2xl border border-solid px-3 text-center sm:px-5 " +
                   (unlocked
                     ? "border-black/[.08] hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
                     : "cursor-not-allowed border-dashed border-black/[.12] text-black/25 dark:border-white/[.12] dark:text-cream-dimmer/40");
+                // Zorluk rozeti: kilitli kutuda da duruyor, yalnizca
+                // biraz daha soluk. `whitespace-normal` uzun etiket
+                // ("Yalnızca Buhârî'ler İçin") sarabilsin diye.
+                const badge = (
+                  <span
+                    className={
+                      "absolute right-2 top-2 max-w-[62%] whitespace-normal rounded-full border border-solid px-2 py-0.5 text-[9px] leading-tight sm:text-[10px] " +
+                      (unlocked
+                        ? "border-black/[.12] text-black/55 dark:border-white/[.18] dark:text-cream-dimmer"
+                        : "border-black/[.10] text-black/30 dark:border-white/[.12] dark:text-cream-dimmer/50")
+                    }
+                  >
+                    {s.badge[language]}
+                  </span>
+                );
                 const label = (
-                  <span className="text-sm font-medium leading-tight sm:text-base">
+                  <span className="whitespace-pre-line text-sm font-medium leading-tight sm:text-base">
                     {s.label[language]}
                   </span>
                 );
@@ -457,6 +494,7 @@ export default function ResuleKavusmakHub() {
                 if (unlocked && s.kind === "link" && s.href) {
                   return (
                     <Link key={s.id} href={s.href} className={cardClass}>
+                      {badge}
                       {label}
                     </Link>
                   );
@@ -471,6 +509,7 @@ export default function ResuleKavusmakHub() {
                     onClick={(e) => pressThenGo(e, true, null)}
                     className={cardClass}
                   >
+                    {badge}
                     {unlocked ? (
                       label
                     ) : (
@@ -604,14 +643,14 @@ export default function ResuleKavusmakHub() {
                dugmelerin uzerine binmesin diye asagida yer aciliyor.
                `overflow-hidden` karakterin yuvarlak koseden tasmasini
                engelliyor. */
-            className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-solid border-black/[.08] bg-background px-6 pb-28 pt-6 text-center shadow-xl dark:border-white/[.145]"
+            className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-solid border-black/[.08] bg-background px-6 py-6 text-center shadow-xl dark:border-white/[.145]"
           >
             {/* Kavusmayi karsilayan Mustafa. Oyunun icindeki ile ayni
                 klip; burada React bileseni kullanilabiliyor cunku bu
                 pop-up iframe'in DISINDA, sitenin kendi agacinda. */}
             <ChromaKeyVideo
               src="/Mustafa%20Karsilama_seffaf.mp4"
-              className="pointer-events-none absolute bottom-0 right-1 h-28 w-auto max-w-none select-none"
+              className="pointer-events-none absolute bottom-0 right-1 z-10 h-28 w-auto max-w-none select-none"
             />
             <p className="text-base font-medium leading-snug">{ui.congrats}</p>
             <div className="mt-5 flex flex-col items-stretch gap-2">

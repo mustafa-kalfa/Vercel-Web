@@ -410,9 +410,10 @@
     color:var(--foreground);
     border:1px solid var(--hairline);
     border-radius:22px;
-    /* Alt bosluk Mustafa icin: karakter sag alt koseye oturuyor,
-       buton onun ustunde akista kaliyor. */
-    padding:26px 24px 96px;
+    /* Mustafa akisin DISINDA (absolute) ve kendisi icin yer
+       AYRILMIYOR: alt bosluk eklemek kartin boyunu gereksiz uzatiyordu.
+       Gerekirse dugmenin uzerine biner (z-index:2). */
+    padding:26px 24px 22px;
     text-align:center;
     box-shadow:0 18px 40px rgba(0,0,0,.28);
   }
@@ -421,16 +422,27 @@
     font-size:15px; line-height:1.5;
   }
   .modal-mustafa{
-    position:absolute; right:10px; bottom:6px;
+    position:absolute; right:6px; bottom:0;
     width:104px; height:auto;
+    z-index:2;
     pointer-events:none;
   }
   .lang-ar .modal-text{ font-size:19px; }  /* tr 15px +4 */
 
+  /* Uc dugme tek satirda: Onceki SOLDA, Bastan Basla ORTADA, Sonraki
+     SAGDA. Grid kullaniliyor (flex + space-between degil) cunku orta
+     dugmenin, yanindakiler gizliyken bile TAM ORTADA kalmasi gerekiyor:
+     1fr | auto | 1fr sutunlari bunu kendiliginden saglıyor. */
   .footer-row{
-    display:flex; flex-direction:column; align-items:flex-end; gap:10px;
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+    gap:10px;
     padding:0 2px;
   }
+  .footer-row .prev-btn{ justify-self:start; }
+  .footer-row .reset-btn{ justify-self:center; }
+  .footer-row .next-btn{ justify-self:end; }
   .reset-btn, .next-btn, .prev-btn{
     font-size:13px; font-weight:500;
     font-family:inherit;
@@ -446,15 +458,12 @@
   }
   .reset-btn:hover, .next-btn:hover, .prev-btn:hover{background:var(--hover); border-color:var(--foreground);}
 
-  /* Isnad dogru tamamlanmadan "Sonraki"nin bir anlami yok -- finish()
-     'visible' sinifini eklecek kadar gizli tutuluyor (Bastan baslat'ta
-     geri kaldiriliyor). display:none, yalnizca opacity degil: gizliyken
-     footer-row'da bos bir bosluk birakmasin. */
-  .next-btn, .prev-btn, .nav-row{display:none;}
-  .next-btn.visible, .prev-btn.visible{display:inline-block;}
-  /* Ikisi de gizliyken satirin kendisi de yok olmali, yoksa
-     footer-row'un 10px'lik gap'i bos bir bosluk birakir. */
-  .nav-row.visible{display:flex; gap:8px; align-items:center;}
+  /* Isnad dogru tamamlanmadan "Sonraki"nin bir anlami yok; ilk hadiste
+     de "Onceki" yok. Gizleme "display:none" DEGIL "visibility:hidden":
+     gizli dugme grid hucresini BIRAKMAMALI, yoksa "Bastan Basla"
+     ortadan kayar. */
+  .next-btn, .prev-btn{visibility:hidden;}
+  .next-btn.visible, .prev-btn.visible{visibility:visible;}
   /* Isnad tamamlanip hadis metni acilinca artik secilecek ravi
      kalmadi: Hz. Nebi'nin altindaki katlar ve muellif satiri gizlenir,
      ekranda yalnizca kavusma ve alt bilgi dugmeleri kalir.
@@ -536,11 +545,9 @@
     </div>
 
     <div class="footer-row">
+      <button class="prev-btn" id="prevBtn" type="button">Önceki</button>
       <button class="reset-btn" id="resetBtn" type="button">Baştan Başla</button>
-      <div class="nav-row" id="navRow">
-        <button class="prev-btn" id="prevBtn" type="button">Önceki</button>
-        <a class="next-btn" id="nextBtn" href="/mustafa-calisiyor" target="_top">Sonraki</a>
-      </div>
+      <a class="next-btn" id="nextBtn" href="/mustafa-calisiyor" target="_top">Sonraki</a>
     </div>
   </div>
 </div>
@@ -1092,7 +1099,6 @@
   var hadithBubble = document.getElementById('hadithBubble');
   var nextBtn = document.getElementById('nextBtn');
   var prevBtn = document.getElementById('prevBtn');
-  var navRow = document.getElementById('navRow');
   var progress = document.getElementById('progress');
   var wrongModal = document.getElementById('wrongModal');
   var wrongModalText = document.getElementById('wrongModalText');
@@ -1255,7 +1261,6 @@
       : finished;
     prevBtn.classList.toggle('visible', showPrev);
     nextBtn.classList.toggle('visible', showNext);
-    navRow.classList.toggle('visible', showPrev || showNext);
   }
 
   function lightUpRavi(id){

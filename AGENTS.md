@@ -844,6 +844,11 @@ başlayalım." + "Baştan Başla" dugmesi + sag alt kosede Mustafa.
   `initChromaKey(video, wrongCanvas)` ile IKINCI bir WebGL baglami
   kuruluyor, ve bu ancak pencere ILK acildiginda yapiliyor (hic
   acilmazsa bosuna GPU isi olmasin).
+- **Karakter pencerenin BOYUNU UZATMIYOR** (2026-08-19): ilk surumde
+  ona yer acmak icin karta alt bosluk konmustu, pencere gereksiz
+  uzuyordu. Artik akisin tamamen disinda ve gerekirse dugmenin uzerine
+  biniyor (`z-index` + `pointer-events:none`, yani tiklamayi
+  engellemiyor). React tarafindaki tebrik pop-up'i da ayni sekilde.
 - **Konumlandirma tuzagi**: iframe'in kendi kaydirma cubugu yok, yani
   `position:fixed` burada tarayici penceresine gore CALISMAZ (toast ile
   ayni tuzak). `positionWrongModal()` ust pencereden gelen
@@ -1032,7 +1037,7 @@ degistirir, ust sayfayi degil.
 
 **Ancak `?h=` ile acildiysa (izgaradan gelindiyse)** dugme
 `/mustafa-calisiyor`a DEGIL SIRADAKI HADISE goturur, ve yanina bir de
-`#prevBtn` ("Onceki") gelir — ikisi `.nav-row` icinde yan yana.
+`#prevBtn` ("Onceki") gelir.
 Tiklama `preventDefault()` ile iptal edilip ust pencereye
 `{type:'resule-kavusmak-next'|'resule-kavusmak-prev', hadis:<id>}`
 yollaniyor; sayfa ayni iframe'i yeni hadisle yeniden kuruyor (React
@@ -1053,8 +1058,12 @@ dagitma):
 - **Parametresiz `/resule-kavusmak`:** "Onceki" hic yok, "Sonraki"
   eskisi gibi yalnizca bitirince cikar ve `/mustafa-calisiyor`a gider.
 
-`.nav-row` ikisi de gizliyken `display:none` — yoksa `.footer-row`'un
-10px'lik `gap`'i bos bir bosluk birakiyor.
+**Alt bilgi duzeni (2026-08-19):** uc dugme TEK SATIRDA. `.footer-row`
+bir grid (`1fr | auto | 1fr`): "Onceki" solda, "Bastan Basla" ortada,
+"Sonraki" sagda. Gizleme `display:none` DEGIL **`visibility:hidden`** —
+gizli dugme grid hucresini birakirsa ortadaki dugme ortadan kayardi
+(ilk hadiste "Onceki" yok, yine de "Bastan Basla" tam ortada duruyor).
+Eski `.nav-row` sarmalayicisi kaldirildi.
 
 ### Marka logosu artik sabit degil (2026-08-19)
 
