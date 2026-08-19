@@ -185,7 +185,7 @@ const UI: Record<
     locked: "Henüz kilitli — önceki hadisi tamamla",
     lockedSection: "Henüz kilitli — önceki bölümü tamamla",
     soon: "Yakında",
-    congrats: "Tebrikler! Tahvîl İçeren Hadisler’in kilidini açtınız.",
+    congrats: "Tebrikler!\nTahvîl İçeren Hadisler’in kilidini açtınız.",
     close: "Kapat",
   },
   ar: {
@@ -198,7 +198,7 @@ const UI: Record<
     locked: "مقفل — أتمم الحديث السابق",
     lockedSection: "مقفل — أتمم القسم السابق",
     soon: "قريبًا",
-    congrats: "تهانينا! لقد فتحتَ قسم «الأحاديث التي فيها تحويل».",
+    congrats: "تهانينا!\nلقد فتحتَ قسم «الأحاديث التي فيها تحويل».",
     close: "إغلاق",
   },
   en: {
@@ -211,7 +211,7 @@ const UI: Record<
     locked: "Locked — complete the previous hadith",
     lockedSection: "Locked — finish the previous section",
     soon: "Coming soon",
-    congrats: "Congratulations! You have unlocked ‘Hadiths Containing a Taḥwīl’.",
+    congrats: "Congratulations!\nYou have unlocked ‘Hadiths Containing a Taḥwīl’.",
     close: "Close",
   },
 };
@@ -603,7 +603,11 @@ export default function ResuleKavusmakHub() {
       ) : (
         /* 3. katman: oyun. */
         <div className="pt-24">
-          <div className="mx-auto w-full max-w-3xl px-4 sm:px-6">
+          {/* Genislik ve ic bosluk OYUNUN kendi sutunuyla ayni olmali:
+              `game.html`'de `.wrap` `max-width:640px` + `padding:24px`.
+              Burada `max-w-3xl` (768px) kullanilinca dugme oyunun sol
+              kenarindan 64px disariya tasip kopuk duruyordu. */}
+          <div className="mx-auto w-full max-w-[640px] px-6">
             <button
               type="button"
               onClick={(e) => pressThenGo(e, true, null)}
@@ -652,7 +656,9 @@ export default function ResuleKavusmakHub() {
               src="/Mustafa%20Karsilama_seffaf.mp4"
               className="pointer-events-none absolute bottom-0 right-1 z-10 h-28 w-auto max-w-none select-none"
             />
-            <p className="text-base font-medium leading-snug">{ui.congrats}</p>
+            <p className="whitespace-pre-line text-base font-medium leading-snug">
+              {ui.congrats}
+            </p>
             <div className="mt-5 flex flex-col items-stretch gap-2">
               <button
                 type="button"
