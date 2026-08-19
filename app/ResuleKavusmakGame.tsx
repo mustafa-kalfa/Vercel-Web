@@ -15,7 +15,7 @@ import { useTheme } from "./ThemeContext";
 // listesinden). Verilmezse oyun kendi varsayilanini -- niyet hadisini --
 // acar, yani /resule-kavusmak sayfasinin davranisi degismez. Birden
 // fazla hadis arasinda gecis yapan sayfalar (bkz.
-// /resule-kavusmak-sinama) bu bilesene `key={hadis}` vermeli: iframe'in
+// ResuleKavusmakHub) bu bilesene `key={hadis}` vermeli: iframe'in
 // bastan yuklenmesi gerekiyor, `src` degisimi tek basina oyunun ic
 // durumunu (bulunmus raviler, Mustafa'nin konumu) sifirlamaz.
 //

@@ -571,13 +571,20 @@ DOGRU sirayla secip Mustafa karakterini Hz. Nebi'ye "tirmandiriyor".
   yasandi: `nextUnlocked` isnad tamamlaninca degisiyordu, oyun kendini
   sifirliyordu, ayni hadisi ikinci kez oynamak gerekiyordu. Hadis
   degisiminde iframe'i yenileyen sey `key={hadis}`, `src` DEGIL.
-- `app/resule-kavusmak/page.tsx` — ince sarmalayici: logo + bilesen,
-  `hadis` VERMEDEN (yani varsayilan niyet hadisi).
-- `app/resule-kavusmak-sinama/page.tsx` — coklu-hadis SINAMA surumu.
-  Uc katman: 4 bolum kutusu (2x2) → 12 hadis kutusu (3x4) → oyun
-  (ayni bilesen, `hadis={id}` ile). Hem bolumler hem hadisler sirayla
-  aciliyor, ilerleme localStorage'da (bkz. "Uc katman" ve
-  "Sirali kilit").
+- `app/ResuleKavusmakHub.tsx` — deneyimin TAMAMI: logo basligi, uc
+  katman (4 bolum kutusu 2x2 → 12 hadis kutusu 3x4 → oyun), sirali
+  kilit, localStorage'da ilerleme, tebrik pop-up'i, tarayici gecmisi.
+  Hadis/bolum listeleri ve arayuz metinleri de burada.
+- `app/resule-kavusmak/page.tsx` ve
+  `app/resule-kavusmak-sinama/page.tsx` — ikisi de yalnizca
+  `<ResuleKavusmakHub />` render eden ince rotalar, yani IKI ADRES
+  BIREBIR AYNI sayfayi gosterir.
+
+  Deneyim once sinama adresinde gelistirildi; 2026-08-19'da Mustafa'nin
+  istegiyle gercek sayfaya TASINDI. Sinama rotasi daha once paylasilmis
+  baglantilar kirilmasin diye duruyor, gerek kalmadiginda o klasor
+  silinebilir. **Sayfayi degistirirken iki rotayi ayri ayri duzenlemeye
+  calisma** — tek kaynak `ResuleKavusmakHub.tsx`.
 
 ### 12 hadis ve `?h=<id>` (2026-08-19)
 
@@ -613,7 +620,7 @@ yaziliyor; belgedeki sabit icerik yalnizca niyet hadisi icin yedek.
 
 ### Uc katman: bolumler → hadisler → oyun (2026-08-19)
 
-`/resule-kavusmak-sinama` tek bir state cifti (`inList`, `selected`) ile
+`ResuleKavusmakHub` tek bir state cifti (`inList`, `selected`) ile
 uc katman gosteriyor:
 
 1. **Bolumler (acilis):** 4 kutu, 2x2. `SECTIONS` dizisi.
@@ -646,7 +653,7 @@ oldugu icin golge is gormuyor, karti arka plandan ayiran tek sey o.
 
 ### Sirali kilit ve ilerleme (2026-08-19)
 
-`/resule-kavusmak-sinama`'da hadisler SIRAYLA aciliyor: `HADITHS`
+Hadisler SIRAYLA aciliyor: `HADITHS`
 dizisindeki bir kutu ancak KENDINDEN ONCEKI hadis tamamlanmissa
 tiklanabilir (ilki daima acik). Kilitli kutuda ne isim ne kaynak
 gorunur — yalnizca buyuk bir `?` durur ve buton `disabled`'dir;
@@ -655,14 +662,17 @@ boylece sonraki hadisin ne oldugu sizmaz.
 Kilidi acan tek sey oyunun GERCEKTEN bitirilmesi: `game.html`'deki
 `finish()` ust pencereye `{type:'resule-kavusmak-completed', hadis:<id>}`
 postMessage'i yolluyor, sayfa bunu dinleyip id'yi ilerleme listesine
-ekliyor. Kutuya girip cikmak yetmez. (`/resule-kavusmak` bu mesaji
-dinlemiyor, orada zararsizca yok sayiliyor.)
+ekliyor. Kutuya girip cikmak yetmez. (Oyun dosyasi tek basina
+`/resule-kavusmak-game.html` olarak acilirsa mesaji dinleyen kimse
+olmaz, zararsizca yok sayilir.)
 
-Ilerleme `localStorage`'da `resule-kavusmak-sinama-progress-v1`
-anahtarinda, tamamlanan id'lerin JSON dizisi olarak duruyor.
-**Anahtar surumlu**: ileride `HADITHS`'in SIRASI degisirse eski kayit
-yanlis kutulari acabilir — o durumda anahtari `-v2` yapmak ilerlemeyi
-temiz sekilde sifirlar.
+Ilerleme `localStorage`'da `resule-kavusmak-sinama-progress-v2`
+anahtarinda, tamamlanan id'lerin JSON dizisi olarak duruyor. (Anahtar
+adinda "sinama" gecmesi tarihsel: deneyim once o adreste gelistirildi.
+Adini degistirmek herkesin ilerlemesini sifirlar, gereksiz yere
+dokunma.) **Anahtar surumlu**: `HADITHS`'in SIRASI ya da id'leri
+degisirse eski kayit YANLIS kutulari acar — o durumda bir surum
+ilerlet (`-v3`), boylece ilerleme temiz sekilde sifirlanir.
 
 Okuma `useSyncExternalStore` ile (sitedeki tema/dil ile ayni desen; bir
 effect icinde `setState` cagirmak lint hatasi veriyor:
@@ -701,7 +711,7 @@ disarida birakildi.
 
 **Yeni hadis eklerken:** (1) `HADITHS`'e kaydi ekle, (2) zincirdeki
 her yeni kisiyi `PEOPLE`'a uc dille birlikte yaz, (3) izgarada
-gorunmesi icin `app/resule-kavusmak-sinama/page.tsx`'teki listeye ayni
+gorunmesi icin `app/ResuleKavusmakHub.tsx`'teki listeye ayni
 `id` ile kisaltma + kaynak etiketini ekle. Id'ler ve SIRA iki dosyada
 BIREBIR ayni olmali (kilit ve "Onceki/Sonraki" siraya bakiyor).
 Listeyi degistirdiysen `PROGRESS_KEY`'i de bir surum ilerlet.
@@ -775,7 +785,7 @@ Veri yapisi: her kisi `PEOPLE` kutugunde `{tr, ar, en}` olarak duruyor
 `nameFor(entry)` fonksiyonu `entry[currentLang] || entry.tr` doner).
 Hadis metni ayri: `HADITH_TEXT_BY_LANG` (= aktif hadisin `text`'i,
 `{tr,ar,en}`); izgaradaki kisaltmalar ise `game.html`'de DEGIL,
-`app/resule-kavusmak-sinama/page.tsx` icinde uc dille birlikte
+`app/ResuleKavusmakHub.tsx` icinde uc dille birlikte
 tutuluyor. Arayuz metinleri (baslik, buton
 yazilari, toast mesajlari vb.) `STRINGS = {tr:{...}, ar:{...}, en:{...}}`
 icinde. Dil degisince `applyLanguage(lang)`: STRINGS'i uygular +
@@ -832,7 +842,7 @@ kullan.
 
 ### Geri tusu ve tarayici gecmisi (2026-08-19)
 
-`/resule-kavusmak-sinama`'nin uc katmani da TEK bir URL'de yasiyor.
+Sayfanin uc katmani da TEK bir URL'de yasiyor.
 Ilk surumde gecisler yalnizca React state'iydi, yani tarayicinin geri
 tusu "bir onceki katman" yerine sayfadan TAMAMEN cikariyordu.
 
@@ -982,9 +992,9 @@ Alt sayfalardaki HD logosu (`HD-Mini.mp4` tasiyan `<Link href="/">`)
 zaten `relative` oldugu icin konum aynen korundu, sayfalarin ust
 bosluklarina (`pt-20`/`pt-24`/`pt-32`) dokunmaya gerek kalmadi.
 
-Ayni satir YEDI dosyada tekrar ediyor (`selam`, `mustafa-calisiyor`,
-`podcastler`, `hadis-tarihi`, `resule-kavusmak`,
-`resule-kavusmak-sinama`, `SuAndaBuradasiniz.tsx`) — birini
+Ayni satir ALTI dosyada tekrar ediyor (`selam`, `mustafa-calisiyor`,
+`podcastler`, `hadis-tarihi`, `ResuleKavusmakHub.tsx`,
+`SuAndaBuradasiniz.tsx`) — birini
 degistirirken hepsini birlikte degistir, yoksa sayfalar arasi ziplama
 olur.
 
@@ -1004,8 +1014,8 @@ Bu oyunun bir de Claude'da yayinlanmis "Artifact" onizlemesi var:
 ediliyor). **Bu, siteden TAMAMEN AYRI bir kopya** — canli siteye
 pushlamak bunu OTOMATIK guncellemez, ayrica elle publish etmek gerekir.
 Artifact URL'ine `?h=<id>` eklenemedigi icin orada DAIMA varsayilan
-hadis (niyet) acilir; 12 hadislik izgara yalnizca sitede
-(`/resule-kavusmak-sinama`) var.
+hadis (niyet) acilir; bolum/hadis izgaralari yalnizca sitede var
+(onlar React tarafinda, `ResuleKavusmakHub.tsx`).
 
 **NE ZAMAN GUNCELLENIR: SADECE Mustafa acikca istedigi zaman**
 ("artifact'i de guncelle" gibi). Her siteye push'tan sonra otomatik
