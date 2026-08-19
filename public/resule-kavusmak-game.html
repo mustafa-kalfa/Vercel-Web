@@ -418,39 +418,59 @@
   /* Ikisi de gizliyken satirin kendisi de yok olmali, yoksa
      footer-row'un 10px'lik gap'i bos bir bosluk birakir. */
   .nav-row.visible{display:flex; gap:8px; align-items:center;}
-  /* --- Basma dalgasi -------------------------------------------------
-     Tiklanan kutunun ORTASINDAN kenarlarina dogru bir daire buyuyup
-     soner. `::after` kullaniliyor cunku hem `.node` hem dugmelerin
-     metni JS'te `textContent` ile yeniden yaziliyor -- bir COCUK
-     element koysaydik dil her degistiginde silinirdi; pseudo-element
-     bundan etkilenmez.
-     Boyut %100'de duruyor (daha buyugu kutunun disina tasardi):
-     `.node`'a `overflow:hidden` KOYAMIYORUZ, cunku sira rozeti
-     (`.badge`) kutunun disinda, top/left:-7px'te duruyor ve kirpilirdi.
-     Tetikleyici `:active` DEGIL `.pressed` sinifi: `:active` kisa
+  /* --- Basma parlamasi (btn-4 tarzi capraz supurme) -------------------
+     Tiklanan kutunun uzerinden soldan saga CAPRAZ bir isik seridi
+     geciyor (kaynak: Dave Conner'in "Button Hover Effects" btn-4
+     ornegi; orada :hover ile, burada TIKLAMA ile tetikleniyor).
+
+     Orijinaldeki serit dondurulmus bir KUTU; burada onun yerine
+     kutuyu tam ortten kaplayan bir "::after"in ARKA PLAN GRADYANI
+     kaydiriliyor. Iki sebep:
+      - Kutu seklindeki bir serit "overflow:hidden" ister, ".node"a
+        bunu KOYAMIYORUZ: sira rozeti (".badge") kutunun disinda
+        (top/left:-7px) duruyor ve kirpilirdi. Arka plan ise zaten
+        kendi border-box'ina kirpilir, "border-radius:inherit" ile de
+        yuvarlak kenarlara uyar.
+      - Animasyon ELEMANIN KENDISINDE degil pseudo-element'te olmali:
+        asagidaki "prefers-reduced-motion" blogu ".node"un kendi
+        "animation"ini kapatiyor. Ilk denemede serit dogrudan ".node"
+        uzerindeydi ve Mustafa'nin makinesinde (o tercih ACIK) animasyon
+        hic calismadi; "animationend" de gelmedigi icin ".pressed"
+        sinifi UZERINDE KALDI ve gradyan bitis konumunda donup kaldi.
+        "animation" miras alinan bir ozellik olmadigi icin
+        ".node::after" o kuraldan etkilenmez.
+
+     Tetikleyici ":active" DEGIL ".pressed" sinifi: ":active" kisa
      dokunuslarda animasyonu yarida kesiyordu. */
   .node::after,
   .reset-btn::after, .next-btn::after, .prev-btn::after{
     content:"";
-    position:absolute; left:50%; top:50%;
-    width:0; height:0;
-    border-radius:50%;
-    background:currentColor;
+    position:absolute; inset:0;
+    border-radius:inherit;
+    background-image:linear-gradient(115deg,
+      transparent 38%,
+      color-mix(in srgb, currentColor 26%, transparent) 50%,
+      transparent 62%);
+    background-repeat:no-repeat;
+    background-size:250% 100%;
+    background-position:100% 0;
     opacity:0;
-    transform:translate(-50%,-50%);
     pointer-events:none;
   }
   .node.pressed::after,
   .reset-btn.pressed::after, .next-btn.pressed::after, .prev-btn.pressed::after{
-    animation:press-wave .5s ease-out;
+    opacity:1;
+    animation:press-sweep .55s cubic-bezier(.19,1,.22,1);
   }
-  /* Opaklik bastan sona sifira inmiyor: oyle olunca dalga tam
-     buyudugunde neredeyse gorunmez kaliyordu. */
-  @keyframes press-wave{
-    0%{ width:0; height:0; opacity:.34; }
-    72%{ opacity:.26; }
-    100%{ width:100%; height:100%; opacity:0; }
+  /* %250 genislikteki gradyanda 100% -> 0%, seridin SOL kenardan girip
+     SAG kenardan ciktigi tam aralik. */
+  @keyframes press-sweep{
+    from{ background-position:100% 0; }
+    to{ background-position:0% 0; }
   }
+  /* Serit "::after" uzerinde ve pseudo-element cocuklardan SONRA
+     boyaniyor: rozet onun altinda kalmasin diye one aliniyor. */
+  .node .badge{ z-index:2; }
 
   .progress{
     font-size:12px;
@@ -755,6 +775,18 @@
   // Her ravi/celdirici id'sinden nesnesine hizli erisim (dil degisince
   // ekrandaki butonlari yeniden adlandirmak icin kullanilir).
   var NAME_BY_ID = PEOPLE;
+  // Bir ravi butonunun adini yazar. "textContent = ..." KULLANMIYORUZ:
+  // o, butonun BUTUN cocuklarini siler -- dogru cevaplara eklenen sira
+  // rozeti (".badge") dahil. Oyunun ortasinda dili ya da temayi
+  // degistirmek (ikisi de applyLanguage cagiriyor) o yuzden rozetleri
+  // siliyordu (2026-08-19'da fark edildi). Artik yalnizca bastaki
+  // metin dugumu guncelleniyor, cocuklar yerinde kaliyor.
+  function setNodeLabel(btn, text){
+    var first = btn.firstChild;
+    if(first && first.nodeType === 3){ first.nodeValue = text; }
+    else { btn.insertBefore(document.createTextNode(text), btn.firstChild); }
+  }
+
   function nameFor(entry){
     return entry[currentLang] || entry.tr;
   }
@@ -1091,7 +1123,7 @@
     prevBtn.textContent = s.prevBtn;
     Array.prototype.forEach.call(document.querySelectorAll('.node'), function(btn){
       var entry = NAME_BY_ID[btn.dataset.id];
-      if(entry) btn.textContent = nameFor(entry);
+      if(entry) setNodeLabel(btn, nameFor(entry));
     });
     if(goalNode.classList.contains('reached')){
       metinValue.innerHTML = HADITH_TEXT_BY_LANG[lang];
@@ -1350,7 +1382,7 @@
     btn.type = 'button';
     btn.className = 'node';
     btn.dataset.id = node.id;
-    btn.textContent = nameFor(node);
+    setNodeLabel(btn, nameFor(node));
     btn.addEventListener('click', function(){
       if(btn.classList.contains('visited')) return;
       if(node.correctIndex === step){
@@ -1459,7 +1491,7 @@
     );
   });
 
-  // Basma dalgasini baslatan tek dinleyici (bkz. .pressed / press-wave).
+  // Basma parlamasini baslatan tek dinleyici (bkz. .pressed / press-sweep).
   // `remove + offsetWidth + add`: ard arda hizli tiklamalarda animasyon
   // bastan basalsin diye akis zorla yeniden hesaplaniyor.
   document.addEventListener('pointerdown', function(e){
@@ -1470,9 +1502,13 @@
     el.classList.remove('pressed');
     void el.offsetWidth;
     el.classList.add('pressed');
+    // Emniyet: animasyon herhangi bir sebeple hic calismazsa
+    // 'animationend' de gelmez ve sinif UZERINDE KALIRDI (gradyan
+    // bitis konumunda donar). Sure dolunca kosulsuz temizliyoruz.
+    setTimeout(function(){ el.classList.remove('pressed'); }, 700);
   });
   document.addEventListener('animationend', function(e){
-    if(e.animationName === 'press-wave') e.target.classList.remove('pressed');
+    if(e.animationName === 'press-sweep') e.target.classList.remove('pressed');
   }, true);
 
   document.getElementById('resetBtn').addEventListener('click', function(){

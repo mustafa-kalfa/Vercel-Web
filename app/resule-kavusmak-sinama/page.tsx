@@ -20,7 +20,7 @@ import type { Language } from "../translations";
 // `label` yalnizca kutunun uzerindeki KISALTMA; hadisin kendi metni ve
 // isnadi oyunun icinde duruyor, burada tekrarlanmiyor.
 // Basma dalgasini tetikleyen ortak prop'lar (bkz. globals.css
-// `.press-wave` / `@keyframes press-wave`): tiklanan kutunun ortasindan
+// `.press-sweep` / `@keyframes press-sweep`): tiklanan kutunun ortasindan
 // kenarlarina dogru bir daire buyuyup soner.
 // Sinifi `:active` yerine JS ekliyor -- kisa dokunuslarda `:active`
 // animasyonu yarida kesiyordu. `remove + offsetWidth + add`: ard arda
@@ -35,7 +35,7 @@ const pressProps = {
     el.classList.add("is-pressed");
   },
   onAnimationEnd: (e: React.AnimationEvent<HTMLElement>) => {
-    if (e.animationName.includes("press-wave")) {
+    if (e.animationName.includes("press-sweep")) {
       e.currentTarget.classList.remove("is-pressed");
     }
   },
@@ -436,7 +436,7 @@ export default function ResuleKavusmakSinama() {
                 const hint =
                   s.kind === "soon" ? ui.soon : ui.lockedSection;
                 const cardClass =
-                  "press-wave flex aspect-square overflow-hidden flex-col items-center justify-center gap-1.5 rounded-2xl border border-solid px-3 text-center transition-colors sm:px-5 " +
+                  "press-sweep flex aspect-square flex-col items-center justify-center gap-1.5 rounded-2xl border border-solid px-3 text-center transition-colors sm:px-5 " +
                   (unlocked
                     ? "border-black/[.08] hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
                     : "cursor-not-allowed border-dashed border-black/[.12] text-black/25 dark:border-white/[.12] dark:text-cream-dimmer/40");
@@ -498,7 +498,7 @@ export default function ResuleKavusmakSinama() {
               type="button"
               onClick={() => go(false, null)}
               {...pressProps}
-              className="press-wave rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+              className="press-sweep rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
             >
               {ui.backToSections}
             </button>
@@ -529,7 +529,7 @@ export default function ResuleKavusmakSinama() {
                     onClick={() => go(true, h.id)}
                     {...pressProps}
                     className={
-                      "press-wave flex aspect-square overflow-hidden flex-col items-center justify-center gap-1.5 rounded-2xl border border-solid px-2 text-center transition-colors sm:px-4 " +
+                      "press-sweep flex aspect-square flex-col items-center justify-center gap-1.5 rounded-2xl border border-solid px-2 text-center transition-colors sm:px-4 " +
                       (unlocked
                         ? "border-black/[.08] hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
                         : "cursor-not-allowed border-dashed border-black/[.12] text-black/25 dark:border-white/[.12] dark:text-cream-dimmer/40")
@@ -567,7 +567,7 @@ export default function ResuleKavusmakSinama() {
               type="button"
               onClick={() => go(true, null)}
               {...pressProps}
-              className="press-wave rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+              className="press-sweep rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
             >
               {ui.back}
             </button>
@@ -610,7 +610,7 @@ export default function ResuleKavusmakSinama() {
                   go(false, null);
                 }}
                 {...pressProps}
-                className="press-wave rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+                className="press-sweep rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
               >
                 {ui.backToSections}
               </button>

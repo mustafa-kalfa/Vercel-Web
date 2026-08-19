@@ -310,45 +310,51 @@ html[lang="ar"] .ar-greeting {
   background: var(--foreground);
 }
 
-/* Basma dalgasi (React tarafi) — oyunun icindeki `.pressed`/`press-wave`
-   ile ayni his: tiklanan kutunun ORTASINDAN kenarlarina dogru bir daire
-   buyuyup soner. Tetikleyici `:active` DEGIL `.is-pressed` sinifi, cunku
-   kisa dokunuslarda `:active` animasyonu yarida kesiyor; sinifi
-   `onPointerDown` ekliyor, `onAnimationEnd` kaldiriyor. */
-.press-wave {
+/* Basma parlamasi (React tarafi) — oyunun icindeki .pressed/press-sweep
+   ile ayni his: tiklanan kutunun uzerinden soldan saga CAPRAZ bir isik
+   seridi geciyor (Dave Conner, "Button Hover Effects" btn-4; orada
+   :hover ile, burada tiklama ile).
+
+   Serit bir kutu degil, kutuyu ortten kaplayan bir ::after in ARKA PLAN
+   GRADYANI: arka plan kendi border-box ina kirpildigi icin yuvarlak
+   kenarlara kendiliginden uyuyor, overflow:hidden gerekmiyor. Oyun
+   tarafinda ayni cozum ayrica zorunlu (bkz. game.html: rozet kutunun
+   disinda + reduced-motion elemanin animasyonunu kapatiyor).
+
+   Tetikleyici :active DEGIL .is-pressed sinifi; kisa dokunuslarda
+   :active animasyonu yarida kesiyordu. Sinifi onPointerDown ekliyor,
+   onAnimationEnd kaldiriyor. */
+.press-sweep {
   position: relative;
 }
-.press-wave::after {
+.press-sweep::after {
   content: "";
   position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: currentColor;
+  inset: 0;
+  border-radius: inherit;
+  background-image: linear-gradient(
+    115deg,
+    transparent 38%,
+    color-mix(in srgb, currentColor 22%, transparent) 50%,
+    transparent 62%
+  );
+  background-repeat: no-repeat;
+  background-size: 250% 100%;
+  background-position: 100% 0;
   opacity: 0;
-  transform: translate(-50%, -50%);
   pointer-events: none;
 }
-.press-wave.is-pressed::after {
-  animation: press-wave 0.5s ease-out;
+.press-sweep.is-pressed::after {
+  opacity: 1;
+  animation: press-sweep 0.55s cubic-bezier(0.19, 1, 0.22, 1);
 }
-/* Opaklik BASTAN SONA sifira inmiyor: oyle olunca dalga tam
-   buyudugunde neredeyse gorunmez kaliyordu (ilk surumde efekt "yok"
-   diye rapor edildi). %72'ye kadar korunuyor, son parcada soniyor. */
-@keyframes press-wave {
-  0% {
-    width: 0;
-    height: 0;
-    opacity: 0.34;
+/* %250 genislikteki gradyanda 100% -> 0%, seridin sol kenardan girip
+   sag kenardan ciktigi tam aralik. */
+@keyframes press-sweep {
+  from {
+    background-position: 100% 0;
   }
-  72% {
-    opacity: 0.26;
-  }
-  100% {
-    width: 150%;
-    height: 150%;
-    opacity: 0;
+  to {
+    background-position: 0% 0;
   }
 }

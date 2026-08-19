@@ -786,40 +786,61 @@ ekrandaki HER `.node` butonunu `NAME_BY_ID` uzerinden yeniden adlandirir
 yazmayi unutma, yoksa o kisi Arapca/Ingilizce modda Turkce kalir
 (fallback `entry.tr`'ye duser, sessizce, hata vermez).
 
-### Basma dalgasi (tiklama geri bildirimi, 2026-08-19)
+### Basma parlamasi (tiklama geri bildirimi, 2026-08-19)
 
-Kutulara basildiginda ORTADAN KENARLARA yayilan bir daire buyuyup
-soner. Iki yerde ayni his, ayri uygulama:
-- Oyun: `game.html`'de `.node/.reset-btn/.next-btn/.prev-btn`'in
-  `::after`'i + `@keyframes press-wave`, tetikleyici `.pressed` sinifi
+Kutulara basildiginda uzerlerinden soldan saga CAPRAZ bir isik seridi
+geciyor. Kaynak: Dave Conner, "Button Hover Effects" (btn-4). Orijinali
+`:hover` ile calisiyor, burada TIKLAMA ile. Ayni his iki yerde:
+- Oyun: `game.html` → `.node/.reset-btn/.next-btn/.prev-btn`'in
+  `::after`'i + `@keyframes press-sweep`, tetikleyici `.pressed` sinifi
   (tek bir delege `pointerdown` dinleyicisi ekliyor, `animationend`
-  kaldiriyor).
-- Site: `globals.css`'te `.press-wave` / `.is-pressed`, React tarafinda
-  `pressProps` (ayni desen).
+  kaldiriyor; ayrica 700ms'lik emniyet zamanlayicisi var).
+- Site: `globals.css` → `.press-sweep` / `.is-pressed`, React tarafinda
+  `pressProps`.
 
-**Opaklik egrisi onemli:** ilk surumde opaklik bastan sona dogrusal
-olarak sifira iniyordu, yani dalga tam buyudugunde neredeyse gorunmez
-oluyordu ve Mustafa "efekt yok" diye rapor etti. Simdi opaklik %72'ye
-kadar korunup son parcada soniyor. Degeri dusurmeden once bunu hatirla.
+**Once ORTADAN KENARLARA yayilan bir daire (ripple) denendi ve
+BEGENILMEDI** (2026-08-19, Mustafa: "korkunc olmus"). Geri donmeden
+once bunu hatirla.
 
-Dort tuzak:
-1. **`::after` kullaniliyor, cocuk element DEGIL:** hem `.node` hem
-   dugmelerin metni JS'te `textContent` ile yeniden yaziliyor
-   (`applyLanguage`), cocuk element her dil degisiminde silinirdi.
-2. **`.node`'a `overflow:hidden` KOYULAMAZ:** sira rozeti (`.badge`)
-   kutunun DISINDA (`top/left:-7px`) duruyor, kirpilirdi. Bu yuzden
-   dalga %100'de duruyor (daha buyugu kutu disina tasardi).
-3. **Tetikleyici `:active` DEGIL:** kisa dokunuslarda `:active`
-   animasyonu yarida kesiyordu. Sinif ekleme + `void offsetWidth` +
-   yeniden ekleme, ard arda hizli tiklamalarda animasyonu bastan
-   baslatiyor.
-4. **`prefers-reduced-motion` bu efekti DURDURMUYOR** ve durdurmamali:
-   Mustafa'nin makinesinde bu tercih ACIK (bkz. `.glow-active` notu),
-   yani reduced-motion'a baglasaydik efekti hic goremezdi.
-   `game.html`'deki `@media (prefers-reduced-motion: reduce)` blogu
-   `.node`'un kendi `animation`'ini kapatiyor ama `animation` miras
-   alinan bir ozellik olmadigi icin `.node::after`'a dokunmuyor --
-   bu bir tesaduf degil, oyle kalmali.
+Uygulama notlari — her biri bir hatanin bedeli:
+
+1. **Serit bir KUTU degil, `::after`'in ARKA PLAN GRADYANI.** Kutu
+   seklinde bir serit `overflow:hidden` ister; `.node`'a bunu
+   koyamiyoruz, cunku sira rozeti (`.badge`) kutunun DISINDA
+   (`top/left:-7px`) duruyor ve kirpilirdi. Arka plan ise kendi
+   border-box'ina kirpilir, `border-radius:inherit` ile yuvarlak
+   kenarlara uyar.
+2. **Animasyon elemanin KENDISINDE degil pseudo-element'te.** Asagidaki
+   `@media (prefers-reduced-motion: reduce)` blogu `.node`'un kendi
+   `animation`'ini kapatiyor. Ilk denemede serit dogrudan `.node`
+   uzerindeydi: Mustafa'nin makinesinde (o tercih ACIK) animasyon hic
+   calismadi, `animationend` de gelmedigi icin `.pressed` sinifi
+   UZERINDE KALDI ve gradyan bitis konumunda donup kaldi. `animation`
+   miras alinan bir ozellik olmadigi icin `.node::after` o kuraldan
+   etkilenmez — bu tesaduf degil, oyle kalmali.
+3. **`background-position` araligi 100% → 0%.** Arka plan %250
+   genislikte; bu aralik seridin sol kenardan girip sag kenardan
+   ciktigi TAM araliga denk geliyor. Daha genis degerler (ilk denemede
+   -150%..250%) seridi surenin cogunda kutunun DISINDA tutuyor, efekt
+   "bir anda gecip gitmis" gibi gorunuyordu.
+4. **Tetikleyici `:active` DEGIL** `.pressed` / `.is-pressed`: kisa
+   dokunuslarda `:active` animasyonu yarida kesiyordu. Sinif ekleme +
+   `void offsetWidth` + yeniden ekleme, ard arda hizli tiklamalarda
+   animasyonu bastan baslatiyor.
+5. **`.node .badge{z-index:2}`**: pseudo-element cocuklardan SONRA
+   boyandigi icin serit rozetin uzerine biniyordu.
+
+### Ravi butonunun adini yazarken rozet silinmesin (2026-08-19)
+
+`applyLanguage` eskiden her `.node` icin `btn.textContent = ...`
+yapiyordu; bu, butonun BUTUN cocuklarini siler — dogru cevaplara
+eklenen sira rozeti (`.badge`) dahil. Yani oyunun ortasinda dili YA DA
+temayi degistirmek (ikisi de ayni `resule-kavusmak-appearance`
+mesajini tetikliyor, o da `applyLanguage`'i cagiriyor) bulunmus
+ravilerin numaralarini siliyordu. Artik `setNodeLabel()` yalnizca
+bastaki metin dugumunu guncelliyor, cocuklar yerinde kaliyor. Butona
+metin yazan yeni bir yer eklersen `textContent` DEGIL bu fonksiyonu
+kullan.
 
 ### Geri tusu ve tarayici gecmisi (2026-08-19)
 
