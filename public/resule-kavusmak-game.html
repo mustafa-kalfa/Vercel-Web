@@ -442,11 +442,14 @@
   }
   .node.pressed::after,
   .reset-btn.pressed::after, .next-btn.pressed::after, .prev-btn.pressed::after{
-    animation:press-wave .42s ease-out;
+    animation:press-wave .5s ease-out;
   }
+  /* Opaklik bastan sona sifira inmiyor: oyle olunca dalga tam
+     buyudugunde neredeyse gorunmez kaliyordu. */
   @keyframes press-wave{
-    from{ width:0; height:0; opacity:.26; }
-    to{ width:100%; height:100%; opacity:0; }
+    0%{ width:0; height:0; opacity:.34; }
+    72%{ opacity:.26; }
+    100%{ width:100%; height:100%; opacity:0; }
   }
 
   .progress{

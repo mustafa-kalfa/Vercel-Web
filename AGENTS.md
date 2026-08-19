@@ -797,7 +797,12 @@ soner. Iki yerde ayni his, ayri uygulama:
 - Site: `globals.css`'te `.press-wave` / `.is-pressed`, React tarafinda
   `pressProps` (ayni desen).
 
-Uc tuzak:
+**Opaklik egrisi onemli:** ilk surumde opaklik bastan sona dogrusal
+olarak sifira iniyordu, yani dalga tam buyudugunde neredeyse gorunmez
+oluyordu ve Mustafa "efekt yok" diye rapor etti. Simdi opaklik %72'ye
+kadar korunup son parcada soniyor. Degeri dusurmeden once bunu hatirla.
+
+Dort tuzak:
 1. **`::after` kullaniliyor, cocuk element DEGIL:** hem `.node` hem
    dugmelerin metni JS'te `textContent` ile yeniden yaziliyor
    (`applyLanguage`), cocuk element her dil degisiminde silinirdi.
@@ -808,6 +813,29 @@ Uc tuzak:
    animasyonu yarida kesiyordu. Sinif ekleme + `void offsetWidth` +
    yeniden ekleme, ard arda hizli tiklamalarda animasyonu bastan
    baslatiyor.
+4. **`prefers-reduced-motion` bu efekti DURDURMUYOR** ve durdurmamali:
+   Mustafa'nin makinesinde bu tercih ACIK (bkz. `.glow-active` notu),
+   yani reduced-motion'a baglasaydik efekti hic goremezdi.
+   `game.html`'deki `@media (prefers-reduced-motion: reduce)` blogu
+   `.node`'un kendi `animation`'ini kapatiyor ama `animation` miras
+   alinan bir ozellik olmadigi icin `.node::after`'a dokunmuyor --
+   bu bir tesaduf degil, oyle kalmali.
+
+### Geri tusu ve tarayici gecmisi (2026-08-19)
+
+`/resule-kavusmak-sinama`'nin uc katmani da TEK bir URL'de yasiyor.
+Ilk surumde gecisler yalnizca React state'iydi, yani tarayicinin geri
+tusu "bir onceki katman" yerine sayfadan TAMAMEN cikariyordu.
+
+Artik katmanlar arasi her gecis `go(inList, selected)` uzerinden
+gidiyor ve `history.pushState({rk:{...}})` ile gecmise bir adim
+birakiyor; `popstate` dinleyicisi o adimi geri okuyup state'i
+kuruyor. State'i DOGRUDAN `setInList`/`setSelected` ile degistirme --
+o adim gecmise yazilmaz ve geri tusu yine sayfadan cikarir.
+
+En ust katmanda (bolum izgarasi) geri tusuna basmak siteden cikarir:
+o adim bizim birakmadigimiz, sayfaya giris adimidir (`e.state` bos
+gelir, en ust katmana doneriz).
 
 ### Font boyutu kurali
 

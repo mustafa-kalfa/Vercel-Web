@@ -312,6 +312,34 @@ export default function ResuleKavusmakSinama() {
     writeProgress([...list, id]);
   }, []);
 
+  // Katmanlar arasi HER gecis tarayici gecmisine bir adim birakiyor.
+  // Aksi halde uc katman da tek bir URL'de yasadigi icin geri tusu
+  // "bir onceki asama" yerine sayfadan TAMAMEN cikariyordu (2026-08-19).
+  // Ileri/geri artik gezinti izini adim adim yuruyor; en bastaki
+  // bolum izgarasinda geri tusuna basmak ise dogal olarak siteden
+  // cikarir (o adim bizim birakmadigimiz, sayfaya giris adimidir).
+  const go = useCallback((nextInList: boolean, nextSelected: string | null) => {
+    window.history.pushState(
+      { rk: { inList: nextInList, selected: nextSelected } },
+      "",
+    );
+    setInList(nextInList);
+    setSelected(nextSelected);
+  }, []);
+
+  useEffect(() => {
+    function onPop(e: PopStateEvent) {
+      // Bizim birakmadigimiz adimda (sayfaya ilk giris) state bos olur:
+      // o zaman en ust katmana, bolum izgarasina donuyoruz.
+      const s = e.state && e.state.rk;
+      setInList(s ? !!s.inList : false);
+      setSelected(s && typeof s.selected === "string" ? s.selected : null);
+      setShowCongrats(false);
+    }
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
+
   // Oyun isnadi tamamlayinca iframe'den "bitti" haberi geliyor
   // (game.html icindeki finish()). Kilidi acan tek olay bu -- kutuya
   // girip cikmak yetmiyor, hadisin GERCEKTEN bitirilmesi gerekiyor.
@@ -342,13 +370,13 @@ export default function ResuleKavusmakSinama() {
           index === 0 ||
           getProgressSnapshot().includes(HADITHS[index - 1].id);
         if (!unlocked) return;
-        setSelected(id);
+        go(true, id);
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
     }
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);
-  }, [markCompleted]);
+  }, [markCompleted, go]);
 
   // Pop-up acikken Esc kapatsin (yalnizca acikken dinleniyor).
   useEffect(() => {
@@ -408,7 +436,7 @@ export default function ResuleKavusmakSinama() {
                 const hint =
                   s.kind === "soon" ? ui.soon : ui.lockedSection;
                 const cardClass =
-                  "press-wave flex aspect-square flex-col items-center justify-center gap-1.5 rounded-2xl border border-solid px-3 text-center transition-colors sm:px-5 " +
+                  "press-wave flex aspect-square overflow-hidden flex-col items-center justify-center gap-1.5 rounded-2xl border border-solid px-3 text-center transition-colors sm:px-5 " +
                   (unlocked
                     ? "border-black/[.08] hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
                     : "cursor-not-allowed border-dashed border-black/[.12] text-black/25 dark:border-white/[.12] dark:text-cream-dimmer/40");
@@ -435,7 +463,7 @@ export default function ResuleKavusmakSinama() {
                     disabled={!unlocked}
                     aria-label={unlocked ? undefined : hint}
                     title={unlocked ? undefined : hint}
-                    onClick={() => setInList(true)}
+                    onClick={() => go(true, null)}
                     {...pressProps}
                     className={cardClass}
                   >
@@ -468,7 +496,7 @@ export default function ResuleKavusmakSinama() {
           <div className="mt-6 flex justify-center">
             <button
               type="button"
-              onClick={() => setInList(false)}
+              onClick={() => go(false, null)}
               {...pressProps}
               className="press-wave rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
             >
@@ -498,10 +526,10 @@ export default function ResuleKavusmakSinama() {
                     disabled={!unlocked}
                     aria-label={unlocked ? undefined : ui.locked}
                     title={unlocked ? undefined : ui.locked}
-                    onClick={() => setSelected(h.id)}
+                    onClick={() => go(true, h.id)}
                     {...pressProps}
                     className={
-                      "press-wave flex aspect-square flex-col items-center justify-center gap-1.5 rounded-2xl border border-solid px-2 text-center transition-colors sm:px-4 " +
+                      "press-wave flex aspect-square overflow-hidden flex-col items-center justify-center gap-1.5 rounded-2xl border border-solid px-2 text-center transition-colors sm:px-4 " +
                       (unlocked
                         ? "border-black/[.08] hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
                         : "cursor-not-allowed border-dashed border-black/[.12] text-black/25 dark:border-white/[.12] dark:text-cream-dimmer/40")
@@ -537,7 +565,7 @@ export default function ResuleKavusmakSinama() {
           <div className="mx-auto w-full max-w-3xl px-4 sm:px-6">
             <button
               type="button"
-              onClick={() => setSelected(null)}
+              onClick={() => go(true, null)}
               {...pressProps}
               className="press-wave rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
             >
@@ -579,8 +607,7 @@ export default function ResuleKavusmakSinama() {
                 type="button"
                 onClick={() => {
                   setShowCongrats(false);
-                  setSelected(null);
-                  setInList(false);
+                  go(false, null);
                 }}
                 {...pressProps}
                 className="press-wave rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
