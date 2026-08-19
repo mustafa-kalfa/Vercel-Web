@@ -309,3 +309,40 @@ html[lang="ar"] .ar-greeting {
   border-radius: 999px;
   background: var(--foreground);
 }
+
+/* Basma dalgasi (React tarafi) — oyunun icindeki `.pressed`/`press-wave`
+   ile ayni his: tiklanan kutunun ORTASINDAN kenarlarina dogru bir daire
+   buyuyup soner. Tetikleyici `:active` DEGIL `.is-pressed` sinifi, cunku
+   kisa dokunuslarda `:active` animasyonu yarida kesiyor; sinifi
+   `onPointerDown` ekliyor, `onAnimationEnd` kaldiriyor. */
+.press-wave {
+  position: relative;
+}
+.press-wave::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.press-wave.is-pressed::after {
+  animation: press-wave 0.42s ease-out;
+}
+@keyframes press-wave {
+  from {
+    width: 0;
+    height: 0;
+    opacity: 0.18;
+  }
+  to {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+}

@@ -565,6 +565,12 @@ DOGRU sirayla secip Mustafa karakterini Hz. Nebi'ye "tirmandiriyor".
   oturunca gercek React bilesenine cevrilebilir). Iframe yuksekligi,
   tema/dil senkronu ve toast/scroll postMessage'lari BURADA.
   `hadis` prop'u verilirse `?h=<id>` ile o hadis acilir.
+  **`src` mount aninda donduruluyor** (`useState(() => ...)`): degismesi
+  iframe'i yeni adrese GEZDIRIR, yani oyun bastan yuklenir ve o ana
+  kadarki ilerleme silinir. 2026-08-19'da tam bu yuzden bir hata
+  yasandi: `nextUnlocked` isnad tamamlaninca degisiyordu, oyun kendini
+  sifirliyordu, ayni hadisi ikinci kez oynamak gerekiyordu. Hadis
+  degisiminde iframe'i yenileyen sey `key={hadis}`, `src` DEGIL.
 - `app/resule-kavusmak/page.tsx` — ince sarmalayici: logo + bilesen,
   `hadis` VERMEDEN (yani varsayilan niyet hadisi).
 - `app/resule-kavusmak-sinama/page.tsx` — coklu-hadis SINAMA surumu.
@@ -612,7 +618,7 @@ uc katman gosteriyor:
 
 1. **Bolumler (acilis):** 4 kutu, 2x2. `SECTIONS` dizisi.
    - `tek-isnad` — "Tek Isnadli Hadisler", DAIMA acik, 2. katmani acar.
-   - `tahvil` — "Tahvil Iceren Hadisler", 12 hadisin TAMAMI bitince
+   - `tahvil` — "Tahvîl Iceren Hadisler", 12 hadisin TAMAMI bitince
      acilir; acilinca `<button>` degil gercek bir `<Link>` olur ve
      `/mustafa-calisiyor`a gider.
    - 3. ve 4. kutu (`kind:'soon'`) — icerik henuz yok, DAIMA kilitli
@@ -624,7 +630,7 @@ Kilitli kutu her iki izgarada da ayni: isim/kaynak gizli, yalnizca
 buyuk bir "?" ve `disabled` buton.
 
 **Tebrik pop-up'i:** 12. hadis BITTIGI AN ekranin ortasinda bir modal
-aciliyor ("Tebrikler! Tahvil Iceren Hadisler'in kilidini actiniz." +
+aciliyor ("Tebrikler! Tahvîl Iceren Hadisler'in kilidini actiniz." +
 "Bolumlere don" + "Kapat"). Sayfa duzeninde duran sabit bir kutu DEGIL
 (2026-08-19'da once oyle yapilmisti, Mustafa pop-up istedi).
 
@@ -667,13 +673,38 @@ yoksa geri donen kullanici bir kare boyunca kendi actigi hadisleri
 localStorage yazmayi reddederse (kota/gizli sekme) kilit hic olmazsa
 o oturum boyunca dogru kalir.
 
+### Hadis secim olcutleri (2026-08-19'da BASTAN secildi)
+
+12 hadis Kutub-i Tis'a'nin DOKUZUNDAN da secili: Buhari 3, Muslim 2,
+Ebu Davud / Tirmizi / Nesai / Ibn Mace / Muvatta' / Musned-i Ahmed /
+Darimi birer. Kat sayisi 4-7 arasi degisiyor.
+
+**Ebu Nuaym el-Fazl b. Dukeyn'in en az bir isnadda GECMESI gerekiyor**
+(Mustafa'nin istegi) — Buhari 52 (`helal-haram`) tam da onun kendi
+rivayeti oldugu icin listede o var. Listeyi degistirirken bu adi
+zincirlerden dusurme. Turkce yazilisi `Fazl` (z ile), `Fadl` degil.
+
+**Iki kural (Mustafa'nin acik talimati) — yeni hadiste de gecerli:**
+1. Isnadda **TAHVÎL (ح) YOK**. (Tahvîlli rivayetler ayri bir bolumun
+   konusu: "Tahvîl Iceren Hadisler".)
+2. Bir tabakada **IKI RAVI YOK**: "filan ve filan", "kilahuma", iki
+   ayri hoca... Zincir bastan sona TEK SERIT olmali. Muslim'in cok
+   hocali senedleri (`حدثنا أبو بكر بن أبي شيبة وابن نمير`) bu yuzden
+   ELENDI — matn ne kadar uygun olursa olsun.
+
+Ayrica: metinler Samile'deki basili nushalardan (Buhari ط السلطانية,
+Muslim ت عبد الباقي, Ebu Davud ت محيي الدين, Tirmizi ت شاكر, Nesai ط
+الرسالة, Ibn Mace ت عبد الباقي, Muvatta' رواية يحيى, Musned ط الرسالة,
+Darimi ت حسين أسد) DOGRULANARAK alindi, ezberden yazilmadi; zayif
+senedli rivayetler (ornegin Darimi'nin "خيركم من تعلم القرآن"i) bilerek
+disarida birakildi.
+
 **Yeni hadis eklerken:** (1) `HADITHS`'e kaydi ekle, (2) zincirdeki
 her yeni kisiyi `PEOPLE`'a uc dille birlikte yaz, (3) izgarada
 gorunmesi icin `app/resule-kavusmak-sinama/page.tsx`'teki listeye ayni
-`id` ile kisaltma + kaynak etiketini ekle. Id'ler iki dosyada BIREBIR
-ayni olmali. Metinler Sahih-i Buhari (ط السلطانية) ve Sahih-i Muslim
-(ت عبد الباقي) nushalarindan alindi; yeni bir hadis de KAYNAKTAN
-dogrulanarak eklenmeli, ezberden yazilmamali.
+`id` ile kisaltma + kaynak etiketini ekle. Id'ler ve SIRA iki dosyada
+BIREBIR ayni olmali (kilit ve "Onceki/Sonraki" siraya bakiyor).
+Listeyi degistirdiysen `PROGRESS_KEY`'i de bir surum ilerlet.
 
 Iframe SECILDI cunku dosya, sitenin geri kalanindan bagimsiz kendi
 basina duran, kopyalanmis bir WebGL chroma-key cozumu tasiyor
@@ -754,6 +785,29 @@ ekrandaki HER `.node` butonunu `NAME_BY_ID` uzerinden yeniden adlandirir
 **Yeni bir ravi/celdirici eklerken** UCUNU de (tr/ar/en) birlikte
 yazmayi unutma, yoksa o kisi Arapca/Ingilizce modda Turkce kalir
 (fallback `entry.tr`'ye duser, sessizce, hata vermez).
+
+### Basma dalgasi (tiklama geri bildirimi, 2026-08-19)
+
+Kutulara basildiginda ORTADAN KENARLARA yayilan bir daire buyuyup
+soner. Iki yerde ayni his, ayri uygulama:
+- Oyun: `game.html`'de `.node/.reset-btn/.next-btn/.prev-btn`'in
+  `::after`'i + `@keyframes press-wave`, tetikleyici `.pressed` sinifi
+  (tek bir delege `pointerdown` dinleyicisi ekliyor, `animationend`
+  kaldiriyor).
+- Site: `globals.css`'te `.press-wave` / `.is-pressed`, React tarafinda
+  `pressProps` (ayni desen).
+
+Uc tuzak:
+1. **`::after` kullaniliyor, cocuk element DEGIL:** hem `.node` hem
+   dugmelerin metni JS'te `textContent` ile yeniden yaziliyor
+   (`applyLanguage`), cocuk element her dil degisiminde silinirdi.
+2. **`.node`'a `overflow:hidden` KOYULAMAZ:** sira rozeti (`.badge`)
+   kutunun DISINDA (`top/left:-7px`) duruyor, kirpilirdi. Bu yuzden
+   dalga %100'de duruyor (daha buyugu kutu disina tasardi).
+3. **Tetikleyici `:active` DEGIL:** kisa dokunuslarda `:active`
+   animasyonu yarida kesiyordu. Sinif ekleme + `void offsetWidth` +
+   yeniden ekleme, ard arda hizli tiklamalarda animasyonu bastan
+   baslatiyor.
 
 ### Font boyutu kurali
 

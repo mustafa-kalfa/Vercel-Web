@@ -36,10 +36,24 @@ export default function ResuleKavusmakGame({
   const { theme } = useTheme();
   const { language } = useLanguage();
 
-  const src = hadis
-    ? `/resule-kavusmak-game.html?h=${encodeURIComponent(hadis)}` +
-      (nextUnlocked ? "&u=1" : "")
-    : "/resule-kavusmak-game.html";
+  // `src` MOUNT ANINDA donduruluyor ve bir daha degismiyor.
+  //
+  // Neden: `src`'nin degismesi iframe'i yeni bir adrese GEZDIRIR, yani
+  // oyun bastan yuklenir ve o ana kadarki ilerleme (bulunmus raviler,
+  // Mustafa'nin konumu, ortaya cikmis hadis metni) SILINIR. `nextUnlocked`
+  // ise tam da isnad tamamlaninca degisiyordu (hadis "bitti" diye
+  // kaydedilince) -- sonuc: kullanici hadisi bitirir bitirmez oyun
+  // kendini sifirliyor, ayni hadisi ikinci kez oynamak gerekiyordu
+  // (2026-08-19'da boyle bir hata yasandi).
+  //
+  // Hadis degistiginde iframe'in yeniden kurulmasi cagiranin `key={hadis}`
+  // vermesiyle saglaniyor (asagidaki nota bkz.), `src` degisimiyle degil.
+  const [src] = useState(() =>
+    hadis
+      ? `/resule-kavusmak-game.html?h=${encodeURIComponent(hadis)}` +
+        (nextUnlocked ? "&u=1" : "")
+      : "/resule-kavusmak-game.html",
+  );
 
   useEffect(() => {
     function onMessage(e: MessageEvent) {

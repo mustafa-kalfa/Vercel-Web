@@ -19,12 +19,38 @@ import type { Language } from "../translations";
 //
 // `label` yalnizca kutunun uzerindeki KISALTMA; hadisin kendi metni ve
 // isnadi oyunun icinde duruyor, burada tekrarlanmiyor.
+// Basma dalgasini tetikleyen ortak prop'lar (bkz. globals.css
+// `.press-wave` / `@keyframes press-wave`): tiklanan kutunun ortasindan
+// kenarlarina dogru bir daire buyuyup soner.
+// Sinifi `:active` yerine JS ekliyor -- kisa dokunuslarda `:active`
+// animasyonu yarida kesiyordu. `remove + offsetWidth + add`: ard arda
+// hizli tiklamalarda animasyon bastan bassin diye akis zorla yeniden
+// hesaplaniyor. Oyunun kendi icindeki esdegeri game.html'de
+// (`.pressed` sinifi + ayni keyframe).
+const pressProps = {
+  onPointerDown: (e: React.PointerEvent<HTMLElement>) => {
+    const el = e.currentTarget;
+    el.classList.remove("is-pressed");
+    void el.offsetWidth;
+    el.classList.add("is-pressed");
+  },
+  onAnimationEnd: (e: React.AnimationEvent<HTMLElement>) => {
+    if (e.animationName.includes("press-wave")) {
+      e.currentTarget.classList.remove("is-pressed");
+    }
+  },
+};
+
 type HadithCard = {
   id: string;
   label: Record<Language, string>;
   source: Record<Language, string>;
 };
 
+// Sira, game.html'deki HADITHS ile BIREBIR ayni olmali: kilit
+// "bir onceki hadis bitti mi" diye sirayla bakiyor, oyunun
+// "Onceki"/"Sonraki" dugmeleri de o siraya gore komsu buluyor.
+// Ilki BILEREK niyet hadisi -- parametresiz /resule-kavusmak onu acar.
 const HADITHS: HadithCard[] = [
   {
     id: "niyet",
@@ -32,49 +58,49 @@ const HADITHS: HadithCard[] = [
     source: { tr: "Buhârî 1", ar: "البخاري ١", en: "Bukhari 1" },
   },
   {
-    id: "islamin-sartlari",
-    label: { tr: "İslâm’ın Beş Şartı", ar: "أركان الإسلام الخمسة", en: "The Five Pillars" },
-    source: { tr: "Buhârî 8", ar: "البخاري ٨", en: "Bukhari 8" },
-  },
-  {
-    id: "musluman",
-    label: { tr: "Müslümanın Tarifi", ar: "من هو المسلم", en: "Who Is a Muslim" },
-    source: { tr: "Buhârî 10", ar: "البخاري ١٠", en: "Bukhari 10" },
-  },
-  {
-    id: "kardeslik",
-    label: { tr: "Kardeşi İçin İstemek", ar: "أن يحب لأخيه", en: "Loving for One’s Brother" },
-    source: { tr: "Buhârî 13", ar: "البخاري ١٣", en: "Bukhari 13" },
-  },
-  {
     id: "helal-haram",
     label: { tr: "Helâl ve Harâm", ar: "الحلال والحرام", en: "The Lawful and the Unlawful" },
     source: { tr: "Buhârî 52", ar: "البخاري ٥٢", en: "Bukhari 52" },
   },
   {
-    id: "merhamet",
-    label: { tr: "Merhamet Hadisi", ar: "حديث الرحمة", en: "The Hadith of Mercy" },
-    source: { tr: "Buhârî 5997", ar: "البخاري ٥٩٩٧", en: "Bukhari 5997" },
+    id: "kalpler",
+    label: { tr: "Allah Kalplere Bakar", ar: "ينظر إلى قلوبكم", en: "Allah Looks at Hearts" },
+    source: { tr: "Müslim 2564", ar: "مسلم ٢٥٦٤", en: "Muslim 2564" },
   },
   {
-    id: "komsu",
-    label: { tr: "Komşu ve Misafir", ar: "الجار والضيف", en: "Neighbour and Guest" },
-    source: { tr: "Buhârî 6018", ar: "البخاري ٦٠١٨", en: "Bukhari 6018" },
+    id: "ahlak-iman",
+    label: { tr: "Îmân ve Güzel Ahlâk", ar: "أكمل المؤمنين إيمانًا", en: "Faith and Character" },
+    source: { tr: "Ebû Dâvûd 4682", ar: "أبو داود ٤٦٨٢", en: "Abu Dawud 4682" },
   },
   {
-    id: "ofke",
-    label: { tr: "Öfke Hadisi", ar: "لا تغضب", en: "Do Not Get Angry" },
-    source: { tr: "Buhârî 6116", ar: "البخاري ٦١١٦", en: "Bukhari 6116" },
+    id: "takva",
+    label: { tr: "Takvâ Hadisi", ar: "اتق الله حيثما كنت", en: "The Hadith of Taqwā" },
+    source: { tr: "Tirmizî 1987", ar: "الترمذي ١٩٨٧", en: "Tirmidhi 1987" },
   },
   {
-    id: "kolaylik",
-    label: { tr: "Kolaylaştırma Hadisi", ar: "يسروا ولا تعسروا", en: "Make Things Easy" },
-    source: { tr: "Buhârî 6125", ar: "البخاري ٦١٢٥", en: "Bukhari 6125" },
+    id: "gozumun-nuru",
+    label: { tr: "Gözümün Nûru Namaz", ar: "قرة عيني في الصلاة", en: "Delight of My Eye" },
+    source: { tr: "Nesâî 3939", ar: "النسائي ٣٩٣٩", en: "Nasa’i 3939" },
   },
   {
-    id: "iki-kelime",
-    label: { tr: "İki Kelime", ar: "كلمتان", en: "Two Words" },
-    source: { tr: "Buhârî 7563", ar: "البخاري ٧٥٦٣", en: "Bukhari 7563" },
+    id: "malayani",
+    label: { tr: "Mâlâyâniyi Terk", ar: "ترك ما لا يعنيه", en: "Leaving the Idle" },
+    source: { tr: "İbn Mâce 3976", ar: "ابن ماجه ٣٩٧٦", en: "Ibn Majah 3976" },
+  },
+  {
+    id: "deniz-suyu",
+    label: { tr: "Deniz Suyu", ar: "هو الطهور ماؤه", en: "The Water of the Sea" },
+    source: { tr: "Muvatta’, Tahâret 12", ar: "الموطأ، الطهارة ١٢", en: "Muwatta, Tahara 12" },
+  },
+  {
+    id: "guzel-ahlak",
+    label: { tr: "Güzel Ahlâkı Tamamlamak", ar: "لأتمم صالح الأخلاق", en: "Perfecting Character" },
+    source: { tr: "Müsned 8952", ar: "المسند ٨٩٥٢", en: "Musnad 8952" },
+  },
+  {
+    id: "teblig",
+    label: { tr: "Tebliğ Hadisi", ar: "بلغوا عني ولو آية", en: "Convey from Me" },
+    source: { tr: "Dârimî 559", ar: "الدارمي ٥٥٩", en: "Darimi 559" },
   },
   {
     id: "nasihat",
@@ -82,9 +108,9 @@ const HADITHS: HadithCard[] = [
     source: { tr: "Müslim 55", ar: "مسلم ٥٥", en: "Muslim 55" },
   },
   {
-    id: "munker",
-    label: { tr: "Kötülüğe Karşı Durmak", ar: "تغيير المنكر", en: "Confronting Wrong" },
-    source: { tr: "Müslim 49", ar: "مسلم ٤٩", en: "Muslim 49" },
+    id: "komsu",
+    label: { tr: "Komşu ve Misafir", ar: "الجار والضيف", en: "Neighbour and Guest" },
+    source: { tr: "Buhârî 6018", ar: "البخاري ٦٠١٨", en: "Bukhari 6018" },
   },
 ];
 
@@ -116,7 +142,7 @@ const SECTIONS: SectionCard[] = [
     kind: "link",
     href: "/mustafa-calisiyor",
     label: {
-      tr: "Tahvil İçeren Hadisler",
+      tr: "Tahvîl İçeren Hadisler",
       ar: "الأحاديث التي فيها تحويل",
       en: "Hadiths Containing a Taḥwīl",
     },
@@ -154,7 +180,7 @@ const UI: Record<
     locked: "Henüz kilitli — önceki hadisi tamamla",
     lockedSection: "Henüz kilitli — önceki bölümü tamamla",
     soon: "Yakında",
-    congrats: "Tebrikler! Tahvil İçeren Hadisler’in kilidini açtınız.",
+    congrats: "Tebrikler! Tahvîl İçeren Hadisler’in kilidini açtınız.",
     close: "Kapat",
   },
   ar: {
@@ -186,10 +212,11 @@ const UI: Record<
 };
 
 // Ilerleme tarayici hafizasinda: tamamlanan hadislerin id listesi.
-// Anahtar surumlu (`-v1`): ileride HADITHS'in SIRASI degisirse eski
-// kayit yanlis kutulari acabilir, o zaman anahtari `-v2` yapmak
-// ilerlemeyi temiz bir sekilde sifirlar.
-const PROGRESS_KEY = "resule-kavusmak-sinama-progress-v1";
+// Anahtar SURUMLU: HADITHS'in sirasi/id'leri degisirse eski kayit
+// YANLIS kutulari acar. 2026-08-19'da 12 hadis bastan secilince (artik
+// Kutub-i Tis'a'nin dokuzundan) -v1→-v2 yapildi ve herkesin ilerlemesi
+// bilerek sifirlandi. Bir dahaki listede -v3 yap.
+const PROGRESS_KEY = "resule-kavusmak-sinama-progress-v2";
 
 // Kayit `useSyncExternalStore` ile okunuyor (sitedeki tema/dil ile ayni
 // desen): localStorage sunucuda YOK, effect icinde setState ise
@@ -381,7 +408,7 @@ export default function ResuleKavusmakSinama() {
                 const hint =
                   s.kind === "soon" ? ui.soon : ui.lockedSection;
                 const cardClass =
-                  "flex aspect-square flex-col items-center justify-center gap-1.5 rounded-2xl border border-solid px-3 text-center transition-colors sm:px-5 " +
+                  "press-wave flex aspect-square flex-col items-center justify-center gap-1.5 rounded-2xl border border-solid px-3 text-center transition-colors sm:px-5 " +
                   (unlocked
                     ? "border-black/[.08] hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
                     : "cursor-not-allowed border-dashed border-black/[.12] text-black/25 dark:border-white/[.12] dark:text-cream-dimmer/40");
@@ -396,7 +423,7 @@ export default function ResuleKavusmakSinama() {
                 // hedefi gorunsun); digerleri buton.
                 if (unlocked && s.kind === "link" && s.href) {
                   return (
-                    <Link key={s.id} href={s.href} className={cardClass}>
+                    <Link key={s.id} href={s.href} className={cardClass} {...pressProps}>
                       {label}
                     </Link>
                   );
@@ -409,6 +436,7 @@ export default function ResuleKavusmakSinama() {
                     aria-label={unlocked ? undefined : hint}
                     title={unlocked ? undefined : hint}
                     onClick={() => setInList(true)}
+                    {...pressProps}
                     className={cardClass}
                   >
                     {unlocked ? (
@@ -441,7 +469,8 @@ export default function ResuleKavusmakSinama() {
             <button
               type="button"
               onClick={() => setInList(false)}
-              className="rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+              {...pressProps}
+              className="press-wave rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
             >
               {ui.backToSections}
             </button>
@@ -470,8 +499,9 @@ export default function ResuleKavusmakSinama() {
                     aria-label={unlocked ? undefined : ui.locked}
                     title={unlocked ? undefined : ui.locked}
                     onClick={() => setSelected(h.id)}
+                    {...pressProps}
                     className={
-                      "flex aspect-square flex-col items-center justify-center gap-1.5 rounded-2xl border border-solid px-2 text-center transition-colors sm:px-4 " +
+                      "press-wave flex aspect-square flex-col items-center justify-center gap-1.5 rounded-2xl border border-solid px-2 text-center transition-colors sm:px-4 " +
                       (unlocked
                         ? "border-black/[.08] hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
                         : "cursor-not-allowed border-dashed border-black/[.12] text-black/25 dark:border-white/[.12] dark:text-cream-dimmer/40")
@@ -508,7 +538,8 @@ export default function ResuleKavusmakSinama() {
             <button
               type="button"
               onClick={() => setSelected(null)}
-              className="rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+              {...pressProps}
+              className="press-wave rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
             >
               {ui.back}
             </button>
@@ -551,7 +582,8 @@ export default function ResuleKavusmakSinama() {
                   setSelected(null);
                   setInList(false);
                 }}
-                className="rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+                {...pressProps}
+                className="press-wave rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
               >
                 {ui.backToSections}
               </button>
