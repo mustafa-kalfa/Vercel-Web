@@ -154,12 +154,12 @@ const UI: Record<
   }
 > = {
   tr: {
-    sectionsHeading: "Nereden başlayalım?",
+    sectionsHeading: "Mustafâ’yı Peygamberine kavuşturabilir misin?",
     sectionsLede: "Bölümler sırayla açılır. Birini bitirmeden sonrakine geçemezsin.",
-    heading: "Hangi hadisin isnâdını tırmanmak istersin?",
+    heading: "Hadislerin isnâdında dolaşma vakti.",
     lede: "Hadisler sırayla açılır. Bir isnâdı tamamlamadan sonraki hadise geçemezsin.",
     back: "← Hadis Listesi",
-    backToSections: "← Bölümlere dön",
+    backToSections: "← Bölümlere Dön",
     locked: "Henüz kilitli — önceki hadisi tamamla",
     lockedSection: "Henüz kilitli — önceki bölümü tamamla",
     soon: "Yakında",
@@ -167,9 +167,9 @@ const UI: Record<
     close: "Kapat",
   },
   ar: {
-    sectionsHeading: "من أين نبدأ؟",
+    sectionsHeading: "هل تستطيع أن توصل مصطفى إلى نبيّه؟",
     sectionsLede: "تُفتح الأقسام بالترتيب: لا تنتقل إلى القسم التالي قبل إتمام الذي قبله.",
-    heading: "أيَّ حديثٍ تريد أن تصعد إسناده؟",
+    heading: "حان وقت التجوّل في أسانيد الأحاديث.",
     lede: "تُفتح الأحاديث بالترتيب: لا تنتقل إلى الحديث التالي قبل إتمام الإسناد الذي قبله.",
     back: "→ قائمة الأحاديث",
     backToSections: "→ العودة إلى الأقسام",
@@ -180,9 +180,9 @@ const UI: Record<
     close: "إغلاق",
   },
   en: {
-    sectionsHeading: "Where shall we begin?",
+    sectionsHeading: "Can you reunite Mustafâ with his Prophet?",
     sectionsLede: "The sections unlock in order: you cannot move on before finishing the one you are on.",
-    heading: "Which hadith’s isnād would you like to climb?",
+    heading: "Time to wander through the isnāds of the hadiths.",
     lede: "The hadiths unlock in order: you cannot move on before completing the isnād you are on.",
     back: "← Hadith list",
     backToSections: "← Back to sections",
@@ -310,6 +310,28 @@ export default function ResuleKavusmakHub() {
     setSelected(nextSelected);
   }, []);
 
+  // Katman degistiren her dugme once KISA bir basma efekti oynatiyor,
+  // sonra gecis oluyor: tiklamanin hissedilmesi icin. 160ms bilerek
+  // kisa -- sayfa "gecikiyor" degil "onayliyor" gibi dursun (bkz.
+  // globals.css `.press-go` / `.is-going`).
+  const pressThenGo = useCallback(
+    (
+      e: React.MouseEvent<HTMLElement>,
+      nextInList: boolean,
+      nextSelected: string | null,
+    ) => {
+      const el = e.currentTarget;
+      el.classList.add("is-going");
+      window.setTimeout(() => {
+        // Sinifi geri aliyoruz: React bu elemani (ornegin listeye geri
+        // donunce) yeniden kullanabilir, uzerinde kalirsa solgun kalirdi.
+        el.classList.remove("is-going");
+        go(nextInList, nextSelected);
+      }, 160);
+    },
+    [go],
+  );
+
   useEffect(() => {
     function onPop(e: PopStateEvent) {
       // Bizim birakmadigimiz adimda (sayfaya ilk giris) state bos olur:
@@ -419,7 +441,7 @@ export default function ResuleKavusmakHub() {
                 const hint =
                   s.kind === "soon" ? ui.soon : ui.lockedSection;
                 const cardClass =
-                  "flex aspect-square flex-col items-center justify-center gap-1.5 rounded-2xl border border-solid px-3 text-center transition-colors sm:px-5 " +
+                  "press-go flex aspect-square flex-col items-center justify-center gap-1.5 rounded-2xl border border-solid px-3 text-center sm:px-5 " +
                   (unlocked
                     ? "border-black/[.08] hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
                     : "cursor-not-allowed border-dashed border-black/[.12] text-black/25 dark:border-white/[.12] dark:text-cream-dimmer/40");
@@ -446,7 +468,7 @@ export default function ResuleKavusmakHub() {
                     disabled={!unlocked}
                     aria-label={unlocked ? undefined : hint}
                     title={unlocked ? undefined : hint}
-                    onClick={() => go(true, null)}
+                    onClick={(e) => pressThenGo(e, true, null)}
                     className={cardClass}
                   >
                     {unlocked ? (
@@ -475,11 +497,11 @@ export default function ResuleKavusmakHub() {
             {ui.lede}
           </p>
 
-          <div className="mt-6 flex justify-center">
+          <div className="mt-6 flex justify-start">
             <button
               type="button"
-              onClick={() => go(false, null)}
-              className="rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+              onClick={(e) => pressThenGo(e, false, null)}
+              className="press-go rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
             >
               {ui.backToSections}
             </button>
@@ -507,9 +529,9 @@ export default function ResuleKavusmakHub() {
                     disabled={!unlocked}
                     aria-label={unlocked ? undefined : ui.locked}
                     title={unlocked ? undefined : ui.locked}
-                    onClick={() => go(true, h.id)}
+                    onClick={(e) => pressThenGo(e, true, h.id)}
                     className={
-                      "flex aspect-square flex-col items-center justify-center gap-1.5 rounded-2xl border border-solid px-2 text-center transition-colors sm:px-4 " +
+                      "press-go flex aspect-square flex-col items-center justify-center gap-1.5 rounded-2xl border border-solid px-2 text-center sm:px-4 " +
                       (unlocked
                         ? "border-black/[.08] hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
                         : "cursor-not-allowed border-dashed border-black/[.12] text-black/25 dark:border-white/[.12] dark:text-cream-dimmer/40")
@@ -545,8 +567,8 @@ export default function ResuleKavusmakHub() {
           <div className="mx-auto w-full max-w-3xl px-4 sm:px-6">
             <button
               type="button"
-              onClick={() => go(true, null)}
-              className="rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+              onClick={(e) => pressThenGo(e, true, null)}
+              className="press-go rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
             >
               {ui.back}
             </button>
@@ -578,8 +600,19 @@ export default function ResuleKavusmakHub() {
             onClick={(e) => e.stopPropagation()}
             /* Koyu temada zemin de kart da siyah: golge is gormez,
                karti arka plandan ayiran sey bu ince cerceve. */
-            className="w-full max-w-sm rounded-2xl border border-solid border-black/[.08] bg-background px-6 py-6 text-center shadow-xl dark:border-white/[.145]"
+            /* `pb-28`: Mustafa karakteri sag alt koseye oturuyor,
+               dugmelerin uzerine binmesin diye asagida yer aciliyor.
+               `overflow-hidden` karakterin yuvarlak koseden tasmasini
+               engelliyor. */
+            className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-solid border-black/[.08] bg-background px-6 pb-28 pt-6 text-center shadow-xl dark:border-white/[.145]"
           >
+            {/* Kavusmayi karsilayan Mustafa. Oyunun icindeki ile ayni
+                klip; burada React bileseni kullanilabiliyor cunku bu
+                pop-up iframe'in DISINDA, sitenin kendi agacinda. */}
+            <ChromaKeyVideo
+              src="/Mustafa%20Karsilama_seffaf.mp4"
+              className="pointer-events-none absolute bottom-0 right-1 h-28 w-auto max-w-none select-none"
+            />
             <p className="text-base font-medium leading-snug">{ui.congrats}</p>
             <div className="mt-5 flex flex-col items-stretch gap-2">
               <button
@@ -588,7 +621,7 @@ export default function ResuleKavusmakHub() {
                   setShowCongrats(false);
                   go(false, null);
                 }}
-                className="rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+                className="press-go rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
               >
                 {ui.backToSections}
               </button>

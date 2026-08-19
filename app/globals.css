@@ -309,3 +309,24 @@ html[lang="ar"] .ar-greeting {
   border-radius: 999px;
   background: var(--foreground);
 }
+
+/* Sayfa gecis dokunusu: bir bolum/hadis kutusuna ya da gezinme
+   dugmesine basildiginda kutu bir an iceri cokuyor, SONRA katman
+   degisiyor (bkz. ResuleKavusmakHub -> pressThenGo). Amac tiklamanin
+   hissedilmesi; sure kasitli olarak kisa (160ms) tutuldu, sayfa
+   "geciken" degil "onaylayan" bir his versin.
+
+   Not: butonlarin uzerinde SUREKLI duran bir tiklama animasyonu iki kez
+   denenip kaldirildi (bkz. AGENTS.md). Buradaki efekt farkli: yalnizca
+   katman degistiren dugmelerde ve gecise eslik ediyor. */
+.press-go {
+  transition:
+    transform 0.16s ease,
+    opacity 0.16s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+.press-go.is-going {
+  transform: scale(0.96);
+  opacity: 0.6;
+}

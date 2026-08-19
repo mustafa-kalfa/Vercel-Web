@@ -828,6 +828,79 @@ Yine de tekrar denenirse, bedeli odenmis uc tuzak:
   yarida kesiyor. Sinif ekle + `void offsetWidth` + yeniden ekle
   deseni gerekiyor, ustune bir de emniyet zamanlayicisi.
 
+### Uc yanlis -> uyari penceresi (2026-08-19)
+
+Bir hadiste toplam UC yanlis ravi secilince oyun kucuk bir pencere
+acip bastan aldiriyor: "3 kez yanlış râviyi seçtin. Haydi baştan
+başlayalım." + "Baştan Başla" dugmesi + sag alt kosede Mustafa.
+
+- Sayac `wrongCount`; dogru cevapta SIFIRLANMIYOR (bilerek: mesaj
+  hadis boyunca TOPLAM yanlisi anlatiyor). `resetGame()` sifirliyor.
+- Ilk iki yanlis eskisi gibi yalnizca toast gosteriyor, ucuncude
+  toast yerine pencere aciliyor.
+- `resetGame()` artik adlandirilmis bir fonksiyon: hem "Bastan Basla"
+  dugmesi hem pencerenin dugmesi onu cagiriyor.
+- Penceredeki Mustafa AYNI `<video>` elemanindan besleniyor:
+  `initChromaKey(video, wrongCanvas)` ile IKINCI bir WebGL baglami
+  kuruluyor, ve bu ancak pencere ILK acildiginda yapiliyor (hic
+  acilmazsa bosuna GPU isi olmasin).
+- **Konumlandirma tuzagi**: iframe'in kendi kaydirma cubugu yok, yani
+  `position:fixed` burada tarayici penceresine gore CALISMAZ (toast ile
+  ayni tuzak). `positionWrongModal()` ust pencereden gelen
+  `lastViewportData`'dan `top`/`height` hesapliyor.
+
+**Bunun icin `ResuleKavusmakGame` degisti:** konum bilgisi artik
+iframe'in `onLoad`'unda da yollaniyor (`postViewport`). Eskiden yalnizca
+scroll/resize effect'i mount'ta bir kez gonderiyordu ve bu, iframe'in
+script'i dinleyicisini kurmadan ONCE olabiliyordu; kullanici hic
+kaydirmadan pencere acilirsa oyun konumu bilemedigi icin pencere
+belgenin en ustune oturuyordu.
+
+### Isnad tamamlaninca tahta toparlaniyor (2026-08-19)
+
+Hadis bitip metne kaydirildiktan ~1.3 sn sonra `.board` `finished`
+sinifini aliyor: Hz. Nebi'nin ALTINDA kalan katlar (`.node-grid`) ve
+muellif satiri (`.author-row`) gizleniyor. Ekranda kavusma ve alt bilgi
+dugmeleri (Bastan Basla / Onceki / Sonraki) kaliyor. Gecikme bilerek:
+once kavusma gorulsun, sonra tahta toparlansin.
+
+Ayni anda `pathAnchors` BOSALTILIYOR ve iz yeniden ciziliyor: dayanak
+butonlar artik gorunmedigi icin birakilsaydi `drawPath()` onlardan sifir
+koordinat okuyup tahtanin kosesine tuhaf bir cizgi cizerdi. Ardindan
+`syncMustafa()` cagriliyor, cunku katlar kalkinca tahta kisaliyor ve
+Mustafa'nin yuzdeye dayali konumu yeniden hesaplanmali.
+`resetGame()` sinifi kaldirip her seyi geri getiriyor.
+
+### Katman gecisinde basma hissi (2026-08-19)
+
+Bolum/hadis kutularina ve gezinme dugmelerine basildiginda kutu 160ms
+iceri cokuyor, SONRA katman degisiyor (`pressThenGo` +
+`globals.css`'teki `.press-go` / `.is-going`).
+
+Bu, kaldirilan "tiklama animasyonu"ndan FARKLI bir sey: orada butonun
+uzerinde surekli duran bir efekt vardi ve iki kez begenilmedi; buradaki
+yalnizca KATMAN DEGISTIREN dugmelerde ve gecise eslik ediyor
+(Mustafa'nin acik istegi: "butona tikladigimizi hissettiren hafif bir
+efekt olsun sonra sayfa degissin").
+
+`is-going` sinifi gecisten hemen once KALDIRILIYOR: React bu elemani
+(listeye geri donunce) yeniden kullanabiliyor, uzerinde kalsa solgun
+gorunurdu.
+
+### ChromaKeyVideo dev'de postere dusebiliyor (2026-08-19)
+
+`next dev`'de (React StrictMode) bir `ChromaKeyVideo` ornegi bazen
+animasyonlu canvas yerine statik posterine dusuyor: StrictMode effect'i
+iki kez calistiriyor, ilk temizlik `WEBGL_lose_context.loseContext()`
+cagiriyor, ikinci kurulum ayni canvas'tan KAYIP context'i geri aliyor
+(`getContext` ayni nesneyi doner) ve `kur()` basarisiz sayilip
+`yedegeGec` aciliyor.
+
+**Uretimde bu yok** -- tebrik pop-up'indaki Mustafa `next build` +
+`next start` ile animasyonlu canvas olarak dogrulandi (2026-08-19).
+Dev'de poster gorursen once bunu hatirla, kodu "duzeltmeye" calisma;
+suphelenirsen uretim yapisinda kontrol et.
+
 ### Ravi butonunun adini yazarken rozet silinmesin (2026-08-19)
 
 `applyLanguage` eskiden her `.node` icin `btn.textContent = ...`

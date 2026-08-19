@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useLanguage } from "./LanguageContext";
 import { useTheme } from "./ThemeContext";
 
@@ -97,49 +97,58 @@ export default function ResuleKavusmakGame({
     );
   }, [theme, language]);
 
-  function sendAppearance() {
+  // Iframe yuksekligi ICERIGE esitlendigi icin kendi kaydirma cubugu
+  // yok -- oyunun ic toast'i (bildirim balonu) ve uyari penceresi
+  // tarayici penceresinin neresini gosterdigini bilemiyor. Burasi kendi
+  // kaydirma konumunu ve pencere yuksekligini oyuna bildirir ki bunlar
+  // sayfanin en altina degil, kullanicinin O AN gordugu ekrana otursun.
+  const postViewport = useCallback(() => {
+    const frame = iframeRef.current;
+    if (!frame || !frame.contentWindow) return;
+    const rect = frame.getBoundingClientRect();
+    frame.contentWindow.postMessage(
+      {
+        type: "resule-kavusmak-viewport",
+        frameTop: rect.top,
+        viewportHeight: window.innerHeight,
+      },
+      "*",
+    );
+  }, []);
+
+  function onFrameLoad() {
     const frame = iframeRef.current;
     if (!frame || !frame.contentWindow) return;
     frame.contentWindow.postMessage(
       { type: "resule-kavusmak-appearance", theme, language },
       "*",
     );
+    // Konum bilgisini de ILK YUKLEMEDE yolluyoruz. Eskiden yalnizca
+    // asagidaki effect mount'ta bir kez gonderiyordu ve bu, iframe'in
+    // script'i dinleyicisini kurmadan once olabiliyordu: kullanici hic
+    // kaydirmadan bir uyari penceresi acilirsa oyun konumu bilemedigi
+    // icin pencere belgenin EN USTUNE oturuyordu (2026-08-19).
+    postViewport();
   }
 
-  // Iframe yuksekligi ICERIGE esitlendigi icin kendi kaydirma cubugu
-  // yok -- oyunun ic toast'i (bildirim balonu) tarayici penceresinin
-  // neresini gosterdigini bilemiyor. Burasi kendi kaydirma konumunu ve
-  // pencere yuksekligini oyuna bildirir ki toast, sayfanin en altina
-  // degil, kullanicinin O AN gordugu ekranin altina sabitlensin.
   useEffect(() => {
     let ticking = false;
-    function post() {
-      ticking = false;
-      const frame = iframeRef.current;
-      if (!frame || !frame.contentWindow) return;
-      const rect = frame.getBoundingClientRect();
-      frame.contentWindow.postMessage(
-        {
-          type: "resule-kavusmak-viewport",
-          frameTop: rect.top,
-          viewportHeight: window.innerHeight,
-        },
-        "*",
-      );
-    }
     function onScrollOrResize() {
       if (ticking) return;
       ticking = true;
-      requestAnimationFrame(post);
+      requestAnimationFrame(() => {
+        ticking = false;
+        postViewport();
+      });
     }
     window.addEventListener("scroll", onScrollOrResize, { passive: true });
     window.addEventListener("resize", onScrollOrResize);
-    post();
+    postViewport();
     return () => {
       window.removeEventListener("scroll", onScrollOrResize);
       window.removeEventListener("resize", onScrollOrResize);
     };
-  }, [height]);
+  }, [height, postViewport]);
 
   return (
     <iframe
@@ -148,7 +157,7 @@ export default function ResuleKavusmakGame({
       title="Mustafâ'nın İsnad Yolculuğu"
       style={{ height }}
       className="w-full border-0"
-      onLoad={sendAppearance}
+      onLoad={onFrameLoad}
     />
   );
 }

@@ -389,6 +389,44 @@
   }
   .toast.show{opacity:1; transform:translate(-50%,0);}
 
+  /* --- Uyari penceresi (3 yanlis) --------------------------------
+     Iframe'in kendi kaydirma cubugu yok, yani "position:fixed" burada
+     TARAYICI penceresine degil bu belgenin TAMAMINA gore sabitlenir --
+     toast ile ayni tuzak. Bu yuzden overlay "absolute" ve konumu
+     positionModal() tarafindan lastViewportData'dan hesaplaniyor. */
+  .modal{
+    display:none;
+    position:absolute; left:0; right:0;
+    z-index:60;
+    align-items:center; justify-content:center;
+    padding:0 20px;
+    background:rgba(0,0,0,.5);
+  }
+  .modal.show{ display:flex; }
+  .modal-card{
+    position:relative;
+    width:100%; max-width:360px;
+    background:var(--background);
+    color:var(--foreground);
+    border:1px solid var(--hairline);
+    border-radius:22px;
+    /* Alt bosluk Mustafa icin: karakter sag alt koseye oturuyor,
+       buton onun ustunde akista kaliyor. */
+    padding:26px 24px 96px;
+    text-align:center;
+    box-shadow:0 18px 40px rgba(0,0,0,.28);
+  }
+  .modal-text{
+    margin:0 0 18px;
+    font-size:15px; line-height:1.5;
+  }
+  .modal-mustafa{
+    position:absolute; right:10px; bottom:6px;
+    width:104px; height:auto;
+    pointer-events:none;
+  }
+  .lang-ar .modal-text{ font-size:19px; }  /* tr 15px +4 */
+
   .footer-row{
     display:flex; flex-direction:column; align-items:flex-end; gap:10px;
     padding:0 2px;
@@ -417,6 +455,13 @@
   /* Ikisi de gizliyken satirin kendisi de yok olmali, yoksa
      footer-row'un 10px'lik gap'i bos bir bosluk birakir. */
   .nav-row.visible{display:flex; gap:8px; align-items:center;}
+  /* Isnad tamamlanip hadis metni acilinca artik secilecek ravi
+     kalmadi: Hz. Nebi'nin altindaki katlar ve muellif satiri gizlenir,
+     ekranda yalnizca kavusma ve alt bilgi dugmeleri kalir.
+     "Bastan Basla" bu sinifi kaldirir. */
+  .board.finished .node-grid,
+  .board.finished .author-row{ display:none; }
+
   .progress{
     font-size:12px;
     color:var(--tertiary);
@@ -481,6 +526,14 @@
       </div>
     </div>
     <div class="toast" id="toast"></div>
+
+    <div class="modal" id="wrongModal" role="dialog" aria-modal="true">
+      <div class="modal-card">
+        <p class="modal-text" id="wrongModalText">3 kez yanlış râviyi seçtin. Haydi baştan başlayalım.</p>
+        <button class="reset-btn" id="wrongModalBtn" type="button">Baştan Başla</button>
+        <canvas class="modal-mustafa" id="wrongCanvas"></canvas>
+      </div>
+    </div>
 
     <div class="footer-row">
       <button class="reset-btn" id="resetBtn" type="button">Baştan Başla</button>
@@ -980,7 +1033,8 @@
       toastFinalStep: 'Son adım: Hz. Nebî’ye (s.a.v.) ulaş!',
       toastCorrectSuffix: ' doğru — sıradaki râviyi bul.',
       toastDone: 'Elhamdülillah! Mustafâ Peygamberine kavuştu.',
-      toastWrong: 'Sırada bu râvi yok — tekrar dene.'
+      toastWrong: 'Sırada bu râvi yok — tekrar dene.',
+      wrongModal: '3 kez yanlış râviyi seçtin. Haydi baştan başlayalım.'
     },
     en: {
       dir: 'ltr',
@@ -999,7 +1053,8 @@
       toastFinalStep: 'Last step: reach the Prophet ﷺ!',
       toastCorrectSuffix: ' is correct — find the next narrator.',
       toastDone: 'Alhamdulillah! Mustafâ has reunited with his Prophet.',
-      toastWrong: 'That narrator isn’t next — try again.'
+      toastWrong: 'That narrator isn’t next — try again.',
+      wrongModal: 'You picked the wrong narrator three times. Let’s start over.'
     },
     ar: {
       dir: 'rtl',
@@ -1018,7 +1073,8 @@
       toastFinalStep: 'الخطوة الأخيرة: صِل إلى النبي ﷺ!',
       toastCorrectSuffix: ' صحيح — ابحث عن الراوي التالي.',
       toastDone: 'الحمد لله! وصل مصطفى إلى نبيّه.',
-      toastWrong: 'هذا ليس الراوي التالي — حاول مرة أخرى.'
+      toastWrong: 'هذا ليس الراوي التالي — حاول مرة أخرى.',
+      wrongModal: 'اخترت الراوي الخطأ ثلاث مرات. لنبدأ من جديد.'
     }
   };
   var currentLang = 'tr';
@@ -1038,6 +1094,10 @@
   var prevBtn = document.getElementById('prevBtn');
   var navRow = document.getElementById('navRow');
   var progress = document.getElementById('progress');
+  var wrongModal = document.getElementById('wrongModal');
+  var wrongModalText = document.getElementById('wrongModalText');
+  var wrongModalBtn = document.getElementById('wrongModalBtn');
+  var wrongCanvas = document.getElementById('wrongCanvas');
   var h1El = document.getElementById('h1Text');
   var ledeEl = document.getElementById('ledeText');
   var isnadLabelEl = document.getElementById('isnadLabel');
@@ -1064,6 +1124,8 @@
     goalLabelEl.textContent = s.goalLabel;
     goalSubEl.textContent = s.goalSub;
     resetBtnEl.textContent = s.resetBtn;
+    wrongModalText.textContent = s.wrongModal;
+    wrongModalBtn.textContent = s.resetBtn;
     nextBtn.textContent = s.nextBtn;
     prevBtn.textContent = s.prevBtn;
     Array.prototype.forEach.call(document.querySelectorAll('.node'), function(btn){
@@ -1255,6 +1317,27 @@
     });
   }
 
+  // Kavusma animasyonu ve hadis metnine kaydirma bittikten SONRA
+  // artik secilecek ravi kalmadigi icin katlari ve muellif satirini
+  // kaldiriyoruz; ekranda kavusma ve alt bilgi dugmeleri kaliyor.
+  // Gecikme bilerek: kullanici once Mustafa'nin Hz. Nebi'ye ulastigini
+  // gorsun, tahta ondan sonra toparlansin.
+  var tidyTimer = null;
+  function tidyBoardAfterFinish(){
+    clearTimeout(tidyTimer);
+    tidyTimer = setTimeout(function(){
+      board.classList.add('finished');
+      // Iz cizgisinin dayanaklari (kat butonlari) artik DOM'da yok;
+      // birakirsak drawPath() kopmus elemanlardan sifir koordinat
+      // okuyup tahtanin kosesine tuhaf bir cizgi cizerdi.
+      pathAnchors = [];
+      drawPath();
+      // Katlar kalkinca tahta kisaliyor: Mustafa'yi Hz. Nebi'nin
+      // yanindaki yeni konumuna tekrar oturt.
+      syncMustafa();
+    }, 1300);
+  }
+
   function finish(){
     currentAnchor = goalNode;
     pathAnchors.push(goalNode);
@@ -1283,6 +1366,7 @@
       // yerde) duruyor; hadis kutusu ise sayfanin EN USTUNDE. Metin ortaya
       // ciktigi halde gorunmuyor, elle yukari kaydirmak gerekiyordu.
       scrollToHadith();
+      tidyBoardAfterFinish();
     });
   }
 
@@ -1307,11 +1391,54 @@
     }
   }
 
+  // Ust uste UC yanlis secimden sonra kucuk bir uyari penceresi cikip
+  // oyunu bastan aldiriyor. Sayac dogru cevapta da sifirlanmiyor
+  // BILEREK: "3 kez yanlis ravi sectin" ifadesi hadis boyunca toplam
+  // yanlisi anlatiyor. resetGame() sifirliyor.
+  var wrongCount = 0;
   function handleWrong(el){
     el.classList.remove('wrong');
     void el.offsetWidth;
     el.classList.add('wrong');
-    showToast(STRINGS[currentLang].toastWrong, 'rose');
+    wrongCount++;
+    if(wrongCount >= 3){
+      showWrongModal();
+    } else {
+      showToast(STRINGS[currentLang].toastWrong, 'rose');
+    }
+  }
+
+  // Pencere iframe'in KENDI belgesinde duruyor ve bu belgenin kendi
+  // kaydirma cubugu yok -- yani "position:fixed" burada tarayici
+  // penceresine gore calismaz (toast ile ayni tuzak). Ust pencereden
+  // gelen kaydirma bilgisiyle (lastViewportData) overlay'i tam
+  // GORUNEN alanin uzerine oturtuyoruz. Bilgi hic gelmediyse (sayfa
+  // dogrudan aciliyorsa) belgenin tamamini kaplamasi yeterli.
+  function positionWrongModal(){
+    if(!lastViewportData){
+      wrongModal.style.top = '0px';
+      wrongModal.style.height = document.documentElement.scrollHeight + 'px';
+      return;
+    }
+    wrongModal.style.top = Math.max(0, -lastViewportData.frameTop) + 'px';
+    wrongModal.style.height = lastViewportData.viewportHeight + 'px';
+  }
+
+  // Mustafa karakteri penceredeki ikinci bir canvas'a ciziliyor. Ayni
+  // <video> elemani iki WebGL baglamini birden besleyebiliyor; ikinci
+  // baglami ancak pencere ILK acildiginda kuruyoruz ki hic acilmazsa
+  // bosuna GPU isi olmasin.
+  var wrongCanvasReady = false;
+  function showWrongModal(){
+    positionWrongModal();
+    wrongModal.classList.add('show');
+    if(!wrongCanvasReady && video.readyState >= 2){
+      wrongCanvasReady = true;
+      initChromaKey(video, wrongCanvas);
+    }
+  }
+  function hideWrongModal(){
+    wrongModal.classList.remove('show');
   }
 
   function shuffle(list){
@@ -1436,10 +1563,16 @@
     );
   });
 
-  document.getElementById('resetBtn').addEventListener('click', function(){
+  // Hem "Bastan Basla" dugmesi hem 3-yanlis penceresi bunu cagiriyor.
+  function resetGame(){
     goalNode.classList.remove('reached');
     hadithBubble.classList.remove('glow-active');
     syncNavButtons();
+    // finish() gizledigi katlari geri getir.
+    board.classList.remove('finished');
+    clearTimeout(tidyTimer);
+    wrongCount = 0;
+    hideWrongModal();
     metinValue.innerHTML = '<span class="placeholder"></span>';
     metinValue.querySelector('.placeholder').textContent = STRINGS[currentLang].placeholder;
     Array.prototype.forEach.call(board.querySelectorAll('.node'), function(el){
@@ -1455,7 +1588,9 @@
     var buhariEl = board.querySelector('.node[data-id="' + AUTHOR_ID + '"]');
     if(buhariEl) buhariEl.classList.add('visited');
     initState();
-  });
+  }
+  document.getElementById('resetBtn').addEventListener('click', resetGame);
+  wrongModalBtn.addEventListener('click', resetGame);
 
   // Bu sayfanin kendi tema/dil dugmesi yok: gercek site basligindaki
   // karanlik/aydinlik ve dil dugmeleri DISARIDA, page.tsx'te duruyor.
@@ -1509,6 +1644,7 @@
     if(!data || data.type !== 'resule-kavusmak-viewport') return;
     lastViewportData = data;
     applyToastPosition();
+    if(wrongModal.classList.contains('show')) positionWrongModal();
   });
 })();
 </script>
