@@ -581,70 +581,306 @@
     document.documentElement.setAttribute('data-theme', initialAppearance.theme);
   }
 
-  // Buhari (muellif) ve Hz. Nebi (kaynak) birer RAVI olarak sayilmiyor.
-  // Aralarindaki 6 kisi (humeydi..omer) tirmanilacak katlari olusturuyor.
-  // Her ravinin adi dile gore degisir (nameFor()); tr yoksa/eksikse tr'ye
-  // duser. isnad'daki Arapca metin (data-ravi span'lari) bundan bagimsiz,
-  // HER dilde sabit -- o dogrudan alinti, cevrilmiyor.
-  var CORRECT = [
-    {id:'buhari',   tr:'Buhârî',                       ar:'البخاري',                      en:'Al-Bukhari'},
-    {id:'humeydi',  tr:'Humeydî',                      ar:'الحميدي عبد الله بن الزبير',    en:'Al-Humaydi'},
-    {id:'sufyan',   tr:'Süfyân b. Uyeyne',              ar:'سفيان بن عيينة',                en:'Sufyan ibn Uyaynah'},
-    {id:'yahya',    tr:'Yahyâ b. Saîd el-Ensârî',       ar:'يحيى بن سعيد الأنصاري',         en:'Yahya ibn Sa’id al-Ansari'},
-    {id:'muhammed', tr:'Muhammed b. İbrâhim et-Teymî',  ar:'محمد بن إبراهيم التيمي',        en:'Muhammad ibn Ibrahim al-Taymi'},
-    {id:'alkame',   tr:'Alkame b. Vakkâs el-Leysî',     ar:'علقمة بن وقاص الليثي',          en:'Alqamah ibn Waqqas al-Laythi'},
-    {id:'omer',     tr:'Ömer b. el-Hattâb (r.a.)',      ar:'عمر بن الخطاب رضي الله عنه',    en:'Umar ibn al-Khattab (r.a.)'}
-  ];
-  // Celdirici havuzu: her biri sabit bir id tasir (dil degisince ekrandaki
-  // butonun hangi isme ait oldugunu bulabilmek icin), 6 kat x 2 celdirici
-  // = 12'si rastgele secilir.
-  var DECOY_POOL = [
-    {id:'malik',     tr:'İmam Mâlik b. Enes',          ar:'الإمام مالك بن أنس',              en:'Imam Malik ibn Anas'},
-    {id:'huraira',   tr:'Ebû Hüreyre (r.a.)',          ar:'أبو هريرة رضي الله عنه',           en:'Abu Hurairah (r.a.)'},
-    {id:'zuhri',     tr:'İbn Şihâb ez-Zührî',          ar:'ابن شهاب الزهري',                 en:'Ibn Shihab al-Zuhri'},
-    {id:'shuba',     tr:'Şu’be b. el-Haccâc',          ar:'شعبة بن الحجاج',                  en:'Shu’bah ibn al-Hajjaj'},
-    {id:'hanbal',    tr:'Ahmed b. Hanbel',             ar:'أحمد بن حنبل',                    en:'Ahmad ibn Hanbal'},
-    {id:'ibnabbas',  tr:'İbn Abbâs (r.a.)',            ar:'ابن عباس رضي الله عنه',            en:'Ibn Abbas (r.a.)'},
-    {id:'katade',    tr:'Katâde b. Diâme',             ar:'قتادة بن دعامة',                  en:'Qatadah ibn Di’amah'},
-    {id:'amesh',     tr:'Süleyman el-A’meş',           ar:'سليمان الأعمش',                   en:'Sulayman al-A’mash'},
-    {id:'tirmizi',   tr:'et-Tirmizî',                  ar:'الترمذي',                         en:'Al-Tirmidhi'},
-    {id:'nesai',     tr:'en-Nesâî',                    ar:'النسائي',                         en:'Al-Nasa’i'},
-    {id:'ibnmace',   tr:'İbn Mâce',                    ar:'ابن ماجه',                        en:'Ibn Majah'},
-    {id:'ebudavud',  tr:'Ebû Dâvûd',                   ar:'أبو داود',                        en:'Abu Dawud'},
-    {id:'darekutni', tr:'ed-Dârekutnî',                ar:'الدارقطني',                       en:'Al-Daraqutni'},
-    {id:'hakim',     tr:'el-Hâkim',                    ar:'الحاكم',                          en:'Al-Hakim'},
-    {id:'beyheki',   tr:'el-Beyhekî',                  ar:'البيهقي',                         en:'Al-Bayhaqi'},
-    {id:'taberani',  tr:'et-Taberânî',                 ar:'الطبراني',                        en:'Al-Tabarani'},
-    {id:'enes',      tr:'Enes b. Mâlik (r.a.)',        ar:'أنس بن مالك رضي الله عنه',         en:'Anas ibn Malik (r.a.)'},
-    {id:'aise',      tr:'Âişe (r.anhâ)',               ar:'عائشة رضي الله عنها',              en:'Aisha (r.anha)'},
-    {id:'ibnomer',   tr:'İbn Ömer (r.a.)',             ar:'ابن عمر رضي الله عنه',             en:'Ibn Umar (r.a.)'},
-    {id:'zeyd',      tr:'Zeyd b. Sâbit (r.a.)',        ar:'زيد بن ثابت رضي الله عنه',         en:'Zayd ibn Thabit (r.a.)'},
-    {id:'ebusaid',   tr:'Ebû Saîd el-Hudrî (r.a.)',    ar:'أبو سعيد الخدري رضي الله عنه',     en:'Abu Sa’id al-Khudri (r.a.)'},
-    {id:'cabir',     tr:'Câbir b. Abdullah (r.a.)',    ar:'جابر بن عبد الله رضي الله عنه',    en:'Jabir ibn Abdullah (r.a.)'}
-  ];
+  // --- Kisi kutugu (butun hadislerin ravileri + celdiriciler) ---------
+  // Her kisi TEK bir yerde, uc dille birlikte tanimli: isnad zincirleri
+  // ve celdirici havuzu buraya id ile bakar. Ayni kisi (Su'be, Ebu
+  // Hureyre, Sufyan b. Uyeyne...) birden fazla isnadda gectigi icin
+  // tekrar yazilmiyor. YENI BIR KISI EKLERKEN ucunu de (tr/ar/en)
+  // doldur, yoksa Arapca/Ingilizce modda sessizce Turkce kalir
+  // (nameFor() fallback'i entry.tr'ye duser, hata vermez).
+  var PEOPLE = {
+    // Muellifler (oyuna zaten secili gelir, kat almaz)
+    buhari:        {tr:'Buhârî',                            ar:'البخاري',                         en:'Al-Bukhari'},
+    muslim:        {tr:'Müslim',                            ar:'مسلم',                            en:'Muslim'},
+    // 1) Niyet hadisi (Buhârî 1)
+    humeydi:       {tr:'Humeydî',                           ar:'الحميدي عبد الله بن الزبير',      en:'Al-Humaydi'},
+    sufyan:        {tr:'Süfyân b. Uyeyne',                  ar:'سفيان بن عيينة',                  en:'Sufyan ibn Uyaynah'},
+    yahya:         {tr:'Yahyâ b. Saîd el-Ensârî',           ar:'يحيى بن سعيد الأنصاري',           en:'Yahya ibn Sa’id al-Ansari'},
+    muhammed:      {tr:'Muhammed b. İbrâhim et-Teymî',      ar:'محمد بن إبراهيم التيمي',          en:'Muhammad ibn Ibrahim al-Taymi'},
+    alkame:        {tr:'Alkame b. Vakkâs el-Leysî',         ar:'علقمة بن وقاص الليثي',            en:'Alqamah ibn Waqqas al-Laythi'},
+    omer:          {tr:'Ömer b. el-Hattâb (r.a.)',          ar:'عمر بن الخطاب رضي الله عنه',      en:'Umar ibn al-Khattab (r.a.)'},
+    // 2) İslâm'ın beş şartı (Buhârî 8)
+    ubeydullah:    {tr:'Ubeydullah b. Mûsâ',                ar:'عبيد الله بن موسى',               en:'Ubaydullah ibn Musa'},
+    hanzala:       {tr:'Hanzala b. Ebî Süfyân',             ar:'حنظلة بن أبي سفيان',              en:'Hanzalah ibn Abi Sufyan'},
+    ikrimehalid:   {tr:'İkrime b. Hâlid',                   ar:'عكرمة بن خالد',                   en:'Ikrimah ibn Khalid'},
+    // 3) Müslümanın tarifi (Buhârî 10)
+    adem:          {tr:'Âdem b. Ebî İyâs',                  ar:'آدم بن أبي إياس',                 en:'Adam ibn Abi Iyas'},
+    ibnebissefer:  {tr:'Abdullah b. Ebi’s-Sefer',           ar:'عبد الله بن أبي السفر',           en:'Abdullah ibn Abi al-Safar'},
+    sabi:          {tr:'Âmir eş-Şa’bî',                     ar:'عامر الشعبي',                     en:'Amir al-Sha’bi'},
+    abdullahamr:   {tr:'Abdullah b. Amr (r.a.)',            ar:'عبد الله بن عمرو رضي الله عنهما', en:'Abdullah ibn Amr (r.a.)'},
+    // 4) Kardeşi için istemek (Buhârî 13)
+    musedded:      {tr:'Müsedded',                          ar:'مسدد',                            en:'Musaddad'},
+    yahyakattan:   {tr:'Yahyâ b. Saîd el-Kattân',           ar:'يحيى بن سعيد القطان',             en:'Yahya ibn Sa’id al-Qattan'},
+    // 5) Helâl ve harâm (Buhârî 52)
+    ebunuaym:      {tr:'Ebû Nuaym el-Fadl b. Dükeyn',       ar:'أبو نعيم الفضل بن دكين',          en:'Abu Nu’aym al-Fadl ibn Dukayn'},
+    zekeriyya:     {tr:'Zekeriyyâ b. Ebî Zâide',            ar:'زكرياء بن أبي زائدة',             en:'Zakariyya ibn Abi Za’idah'},
+    numan:         {tr:'Nu’mân b. Beşîr (r.a.)',            ar:'النعمان بن بشير رضي الله عنه',    en:'Al-Nu’man ibn Bashir (r.a.)'},
+    // 6) Merhamet (Buhârî 5997)
+    ebulyeman:     {tr:'Ebü’l-Yemân el-Hakem b. Nâfi‘',     ar:'أبو اليمان الحكم بن نافع',        en:'Abu al-Yaman al-Hakam ibn Nafi'},
+    suayb:         {tr:'Şuayb b. Ebî Hamza',                ar:'شعيب بن أبي حمزة',                en:'Shu’ayb ibn Abi Hamzah'},
+    ebuseleme:     {tr:'Ebû Seleme b. Abdirrahmân',         ar:'أبو سلمة بن عبد الرحمن',          en:'Abu Salamah ibn Abd al-Rahman'},
+    // 7) Komşu ve misafir (Buhârî 6018)
+    kuteybe:       {tr:'Kuteybe b. Saîd',                   ar:'قتيبة بن سعيد',                   en:'Qutaybah ibn Sa’id'},
+    ebulahvas:     {tr:'Ebü’l-Ahvas Sellâm b. Süleym',      ar:'أبو الأحوص سلام بن سليم',         en:'Abu al-Ahwas Sallam ibn Sulaym'},
+    ebuhasin:      {tr:'Ebû Hasîn Osmân b. Âsım',           ar:'أبو حصين عثمان بن عاصم',          en:'Abu Hasin Uthman ibn Asim'},
+    ebusalih:      {tr:'Ebû Sâlih es-Semmân',               ar:'أبو صالح السمان',                 en:'Abu Salih al-Samman'},
+    // 8) Öfke (Buhârî 6116)
+    yahyayusuf:    {tr:'Yahyâ b. Yûsuf',                    ar:'يحيى بن يوسف',                    en:'Yahya ibn Yusuf'},
+    ebubekirayyas: {tr:'Ebû Bekir b. Ayyâş',                ar:'أبو بكر بن عياش',                 en:'Abu Bakr ibn Ayyash'},
+    // 9) Kolaylaştırma (Buhârî 6125)
+    ebutteyyah:    {tr:'Ebü’t-Teyyâh Yezîd b. Humeyd',      ar:'أبو التياح يزيد بن حميد',         en:'Abu al-Tayyah Yazid ibn Humayd'},
+    // 10) İki kelime (Buhârî 7563)
+    ahmediskab:    {tr:'Ahmed b. İşkâb',                    ar:'أحمد بن إشكاب',                   en:'Ahmad ibn Ishkab'},
+    ibnfudayl:     {tr:'Muhammed b. Fudayl',                ar:'محمد بن فضيل',                    en:'Muhammad ibn Fudayl'},
+    umare:         {tr:'Umâre b. el-Ka’kâ‘',                ar:'عمارة بن القعقاع',                en:'Umarah ibn al-Qa’qa’'},
+    ebuzura:       {tr:'Ebû Zür’a b. Amr b. Cerîr',         ar:'أبو زرعة بن عمرو بن جرير',        en:'Abu Zur’ah ibn Amr ibn Jarir'},
+    // 11) Din nasihattir (Müslim 55)
+    ibnabbadmekki: {tr:'Muhammed b. Abbâd el-Mekkî',        ar:'محمد بن عباد المكي',              en:'Muhammad ibn Abbad al-Makki'},
+    suheyl:        {tr:'Süheyl b. Ebî Sâlih',               ar:'سهيل بن أبي صالح',                en:'Suhayl ibn Abi Salih'},
+    atayezid:      {tr:'Atâ b. Yezîd el-Leysî',             ar:'عطاء بن يزيد الليثي',             en:'Ata ibn Yazid al-Laythi'},
+    temim:         {tr:'Temîm ed-Dârî (r.a.)',              ar:'تميم الداري رضي الله عنه',        en:'Tamim al-Dari (r.a.)'},
+    // 12) Münkere karşı durmak (Müslim 49)
+    ebubekirsibe:  {tr:'Ebû Bekir b. Ebî Şeybe',            ar:'أبو بكر بن أبي شيبة',             en:'Abu Bakr ibn Abi Shaybah'},
+    veki:          {tr:'Vekî‘ b. el-Cerrâh',                ar:'وكيع بن الجراح',                  en:'Waki ibn al-Jarrah'},
+    sufyansevri:   {tr:'Süfyân es-Sevrî',                   ar:'سفيان الثوري',                    en:'Sufyan al-Thawri'},
+    kaysmuslim:    {tr:'Kays b. Müslim',                    ar:'قيس بن مسلم',                     en:'Qays ibn Muslim'},
+    tarik:         {tr:'Târık b. Şihâb',                    ar:'طارق بن شهاب',                    en:'Tariq ibn Shihab'},
+    // Birden fazla isnadda gecen raviler/sahabiler. Bunlar AYNI ZAMANDA
+    // celdirici havuzunda da yer alir; kendi isnadinda celdirici olarak
+    // cikarilirlar (bkz. DECOY_POOL).
+    shuba:         {tr:'Şu’be b. el-Haccâc',                ar:'شعبة بن الحجاج',                  en:'Shu’bah ibn al-Hajjaj'},
+    katade:        {tr:'Katâde b. Diâme',                   ar:'قتادة بن دعامة',                  en:'Qatadah ibn Di’amah'},
+    zuhri:         {tr:'İbn Şihâb ez-Zührî',                ar:'ابن شهاب الزهري',                 en:'Ibn Shihab al-Zuhri'},
+    huraira:       {tr:'Ebû Hüreyre (r.a.)',                ar:'أبو هريرة رضي الله عنه',          en:'Abu Hurairah (r.a.)'},
+    enes:          {tr:'Enes b. Mâlik (r.a.)',              ar:'أنس بن مالك رضي الله عنه',        en:'Anas ibn Malik (r.a.)'},
+    ibnomer:       {tr:'İbn Ömer (r.a.)',                   ar:'ابن عمر رضي الله عنه',            en:'Ibn Umar (r.a.)'},
+    ebusaid:       {tr:'Ebû Saîd el-Hudrî (r.a.)',          ar:'أبو سعيد الخدري رضي الله عنه',    en:'Abu Sa’id al-Khudri (r.a.)'},
+    // Yalnizca celdirici olarak kullanilanlar
+    malik:         {tr:'İmam Mâlik b. Enes',                ar:'الإمام مالك بن أنس',              en:'Imam Malik ibn Anas'},
+    hanbal:        {tr:'Ahmed b. Hanbel',                   ar:'أحمد بن حنبل',                    en:'Ahmad ibn Hanbal'},
+    ibnabbas:      {tr:'İbn Abbâs (r.a.)',                  ar:'ابن عباس رضي الله عنه',           en:'Ibn Abbas (r.a.)'},
+    amesh:         {tr:'Süleyman el-A’meş',                 ar:'سليمان الأعمش',                   en:'Sulayman al-A’mash'},
+    tirmizi:       {tr:'et-Tirmizî',                        ar:'الترمذي',                         en:'Al-Tirmidhi'},
+    nesai:         {tr:'en-Nesâî',                          ar:'النسائي',                         en:'Al-Nasa’i'},
+    ibnmace:       {tr:'İbn Mâce',                          ar:'ابن ماجه',                        en:'Ibn Majah'},
+    ebudavud:      {tr:'Ebû Dâvûd',                         ar:'أبو داود',                        en:'Abu Dawud'},
+    darekutni:     {tr:'ed-Dârekutnî',                      ar:'الدارقطني',                       en:'Al-Daraqutni'},
+    hakim:         {tr:'el-Hâkim',                          ar:'الحاكم',                          en:'Al-Hakim'},
+    beyheki:       {tr:'el-Beyhekî',                        ar:'البيهقي',                         en:'Al-Bayhaqi'},
+    taberani:      {tr:'et-Taberânî',                       ar:'الطبراني',                        en:'Al-Tabarani'},
+    aise:          {tr:'Âişe (r.anhâ)',                     ar:'عائشة رضي الله عنها',             en:'Aisha (r.anha)'},
+    zeyd:          {tr:'Zeyd b. Sâbit (r.a.)',              ar:'زيد بن ثابت رضي الله عنه',        en:'Zayd ibn Thabit (r.a.)'},
+    cabir:         {tr:'Câbir b. Abdullah (r.a.)',          ar:'جابر بن عبد الله رضي الله عنه',   en:'Jabir ibn Abdullah (r.a.)'}
+  };
+  // Her kisiye kendi id'sini de yaz: makeNode/handleCorrect node.id'ye,
+  // applyLanguage ise butonun data-id'sine bakiyor.
+  Object.keys(PEOPLE).forEach(function(id){ PEOPLE[id].id = id; });
   // Her ravi/celdirici id'sinden nesnesine hizli erisim (dil degisince
   // ekrandaki butonlari yeniden adlandirmak icin kullanilir).
-  var NAME_BY_ID = {};
-  CORRECT.forEach(function(r){ NAME_BY_ID[r.id] = r; });
-  DECOY_POOL.forEach(function(d){ NAME_BY_ID[d.id] = d; });
+  var NAME_BY_ID = PEOPLE;
   function nameFor(entry){
     return entry[currentLang] || entry.tr;
   }
+
+  // Celdirici havuzu (id listesi). Aktif hadisin KENDI isnadinda gecen
+  // kisiler asagida buradan cikarilir, yoksa ayni isim hem dogru cevap
+  // hem celdirici olarak iki kez ekrana gelebilirdi. En uzun isnad 6
+  // kat x 2 celdirici = 12 kisi ister; cikarmalardan sonra da havuzda
+  // bundan fazlasi kalacak sekilde genis tutuldu.
+  var DECOY_IDS = [
+    'malik','huraira','zuhri','shuba','hanbal','ibnabbas','katade','amesh',
+    'tirmizi','nesai','ibnmace','ebudavud','darekutni','hakim','beyheki',
+    'taberani','enes','aise','ibnomer','zeyd','ebusaid','cabir',
+    'sufyan','yahya','musedded','kuteybe','adem','veki'
+  ];
+
+  // --- 12 hadis -------------------------------------------------------
+  // Her kayit:
+  //  - chain[0]  = MUELLIF (Buhari/Muslim; oyuna zaten secili gelir,
+  //                bir kat almaz, sayaca dahil degil)
+  //  - chain[1..]= tirmanilacak raviler; kat sayisi = chain.length - 1
+  //                (hadisten hadise 4-6 arasi degisir)
+  //  - isnad     = isnadin Arapca ALINTI metni. Icindeki
+  //                `.ravi-name[data-ravi]` span'lari chain id'leriyle
+  //                eslesir; ravi dogru bulununca o span parlar
+  //                (lightUpRavi). Zincirin sonundaki "nebi" span'i
+  //                oyun bitince parlar.
+  //  - text      = hadisin metni uc dilde (isnad metni HICBIR dilde
+  //                cevrilmez, o dogrudan alinti).
+  // Kaynak: Sahih-i Buhari (ط السلطانية) ve Sahih-i Muslim
+  // (ت محمد فؤاد عبد الباقي), Sâmile nushalarindan alindi.
+  var HADITHS = [
+    {
+      id:'niyet',
+      chain:['buhari','humeydi','sufyan','yahya','muhammed','alkame','omer'],
+      isnad:'حَدَّثَنَا <span class="ravi-name" data-ravi="humeydi">الْحُمَيْدِيُّ عَبْدُ اللهِ بْنُ الزُّبَيْرِ</span>، قَالَ: حَدَّثَنَا <span class="ravi-name" data-ravi="sufyan">سُفْيَانُ</span>، قَالَ: حَدَّثَنَا <span class="ravi-name" data-ravi="yahya">يَحْيَى بْنُ سَعِيدٍ الْأَنْصَارِيُّ</span>، قَالَ: أَخْبَرَنِي <span class="ravi-name" data-ravi="muhammed">مُحَمَّدُ بْنُ إِبْرَاهِيمَ التَّيْمِيُّ</span> أَنَّهُ سَمِعَ <span class="ravi-name" data-ravi="alkame">عَلْقَمَةَ بْنَ وَقَّاصٍ اللَّيْثِيَّ</span>، يَقُولُ: سَمِعْتُ <span class="ravi-name" data-ravi="omer">عُمَرَ بْنَ الْخَطَّابِ</span> عَلَى الْمِنْبَرِ، قَالَ: سَمِعْتُ <span class="ravi-name" data-ravi="nebi">رَسُولَ اللهِ ﷺ</span>',
+      text:{
+        tr:'Ameller ancak niyetlere göredir. Herkese, niyet ettiği şey vardır. Kimin hicreti dünyalık elde etmek veya bir kadınla evlenmek içinse, hicreti o yöneldiği şeyedir.',
+        ar:'إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ، وَلِكُلِّ امْرِئٍ مَا نَوَى، فَمَنْ كَانَتْ هِجْرَتُهُ إِلَى دُنْيَا يُصِيبُهَا أَوِ امْرَأَةٍ يَنْكِحُهَا فَهِجْرَتُهُ إِلَى مَا هَاجَرَ إِلَيْهِ.',
+        en:'Actions are only according to intentions, and everyone will have only what he intended. Whoever’s emigration was for worldly gain or to marry a woman, his emigration was for that which he emigrated for.'
+      }
+    },
+    {
+      id:'islamin-sartlari',
+      chain:['buhari','ubeydullah','hanzala','ikrimehalid','ibnomer'],
+      isnad:'حَدَّثَنَا <span class="ravi-name" data-ravi="ubeydullah">عُبَيْدُ اللهِ بْنُ مُوسَى</span> قَالَ: أَخْبَرَنَا <span class="ravi-name" data-ravi="hanzala">حَنْظَلَةُ بْنُ أَبِي سُفْيَانَ</span>، عَنْ <span class="ravi-name" data-ravi="ikrimehalid">عِكْرِمَةَ بْنِ خَالِدٍ</span>، عَنِ <span class="ravi-name" data-ravi="ibnomer">ابْنِ عُمَرَ</span> رَضِيَ اللهُ عَنْهُمَا قَالَ: قَالَ <span class="ravi-name" data-ravi="nebi">رَسُولُ اللهِ ﷺ</span>',
+      text:{
+        tr:'İslâm beş temel üzerine kurulmuştur: Allah’tan başka ilâh olmadığına ve Muhammed’in Allah’ın Resûlü olduğuna şahitlik etmek, namazı kılmak, zekâtı vermek, haccetmek ve Ramazan orucunu tutmak.',
+        ar:'بُنِيَ الْإِسْلَامُ عَلَى خَمْسٍ: شَهَادَةِ أَنْ لَا إِلَهَ إِلَّا اللهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللهِ، وَإِقَامِ الصَّلَاةِ، وَإِيتَاءِ الزَّكَاةِ، وَالْحَجِّ، وَصَوْمِ رَمَضَانَ.',
+        en:'Islam is built upon five: testifying that there is no god but Allah and that Muhammad is the Messenger of Allah, establishing the prayer, giving the zakat, the pilgrimage, and fasting Ramadan.'
+      }
+    },
+    {
+      id:'musluman',
+      chain:['buhari','adem','shuba','ibnebissefer','sabi','abdullahamr'],
+      isnad:'حَدَّثَنَا <span class="ravi-name" data-ravi="adem">آدَمُ بْنُ أَبِي إِيَاسٍ</span> قَالَ: حَدَّثَنَا <span class="ravi-name" data-ravi="shuba">شُعْبَةُ</span>، عَنْ <span class="ravi-name" data-ravi="ibnebissefer">عَبْدِ اللهِ بْنِ أَبِي السَّفَرِ</span> وَإِسْمَاعِيلَ، عَنِ <span class="ravi-name" data-ravi="sabi">الشَّعْبِيِّ</span>، عَنْ <span class="ravi-name" data-ravi="abdullahamr">عَبْدِ اللهِ بْنِ عَمْرٍو</span> رَضِيَ اللهُ عَنْهُمَا، عَنِ <span class="ravi-name" data-ravi="nebi">النَّبِيِّ ﷺ</span>',
+      text:{
+        tr:'Müslüman, Müslümanların elinden ve dilinden emin olduğu kimsedir. Muhâcir ise Allah’ın yasakladığı şeyleri terk edendir.',
+        ar:'الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ، وَالْمُهَاجِرُ مَنْ هَجَرَ مَا نَهَى اللهُ عَنْهُ.',
+        en:'The Muslim is the one from whose tongue and hand the Muslims are safe; and the emigrant is the one who abandons what Allah has forbidden.'
+      }
+    },
+    {
+      id:'kardeslik',
+      chain:['buhari','musedded','yahyakattan','shuba','katade','enes'],
+      isnad:'حَدَّثَنَا <span class="ravi-name" data-ravi="musedded">مُسَدَّدٌ</span> قَالَ: حَدَّثَنَا <span class="ravi-name" data-ravi="yahyakattan">يَحْيَى</span>، عَنْ <span class="ravi-name" data-ravi="shuba">شُعْبَةَ</span>، عَنْ <span class="ravi-name" data-ravi="katade">قَتَادَةَ</span>، عَنْ <span class="ravi-name" data-ravi="enes">أَنَسٍ</span> رَضِيَ اللهُ عَنْهُ، عَنِ <span class="ravi-name" data-ravi="nebi">النَّبِيِّ ﷺ</span>',
+      text:{
+        tr:'Sizden biriniz, kendisi için sevip istediğini kardeşi için de sevip istemedikçe (gerçek anlamda) iman etmiş olmaz.',
+        ar:'لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ.',
+        en:'None of you truly believes until he loves for his brother what he loves for himself.'
+      }
+    },
+    {
+      id:'helal-haram',
+      chain:['buhari','ebunuaym','zekeriyya','sabi','numan'],
+      isnad:'حَدَّثَنَا <span class="ravi-name" data-ravi="ebunuaym">أَبُو نُعَيْمٍ</span>، حَدَّثَنَا <span class="ravi-name" data-ravi="zekeriyya">زَكَرِيَّاءُ</span>، عَنْ <span class="ravi-name" data-ravi="sabi">عَامِرٍ</span> قَالَ: سَمِعْتُ <span class="ravi-name" data-ravi="numan">النُّعْمَانَ بْنَ بَشِيرٍ</span> يَقُولُ: سَمِعْتُ <span class="ravi-name" data-ravi="nebi">رَسُولَ اللهِ ﷺ</span> يَقُولُ',
+      text:{
+        tr:'Helâl bellidir, harâm da bellidir. İkisi arasında, insanların çoğunun bilmediği şüpheli şeyler vardır. Kim şüpheli şeylerden sakınırsa dinini ve ırzını korumuş olur… Dikkat edin! Bedende bir et parçası vardır: o düzelirse bütün beden düzelir, o bozulursa bütün beden bozulur. Dikkat edin, o kalptir.',
+        ar:'الْحَلَالُ بَيِّنٌ وَالْحَرَامُ بَيِّنٌ، وَبَيْنَهُمَا مُشَبَّهَاتٌ لَا يَعْلَمُهَا كَثِيرٌ مِنَ النَّاسِ، فَمَنِ اتَّقَى الْمُشَبَّهَاتِ اسْتَبْرَأَ لِدِينِهِ وَعِرْضِهِ… أَلَا وَإِنَّ فِي الْجَسَدِ مُضْغَةً إِذَا صَلَحَتْ صَلَحَ الْجَسَدُ كُلُّهُ، وَإِذَا فَسَدَتْ فَسَدَ الْجَسَدُ كُلُّهُ، أَلَا وَهِيَ الْقَلْبُ.',
+        en:'The lawful is clear and the unlawful is clear, and between them are doubtful matters that many people do not know. Whoever guards against the doubtful protects his religion and his honour… Truly, in the body there is a morsel of flesh: if it is sound the whole body is sound, and if it is corrupt the whole body is corrupt. Truly, it is the heart.'
+      }
+    },
+    {
+      id:'merhamet',
+      chain:['buhari','ebulyeman','suayb','zuhri','ebuseleme','huraira'],
+      isnad:'حَدَّثَنَا <span class="ravi-name" data-ravi="ebulyeman">أَبُو الْيَمَانِ</span>: أَخْبَرَنَا <span class="ravi-name" data-ravi="suayb">شُعَيْبٌ</span>، عَنِ <span class="ravi-name" data-ravi="zuhri">الزُّهْرِيِّ</span>: حَدَّثَنَا <span class="ravi-name" data-ravi="ebuseleme">أَبُو سَلَمَةَ بْنُ عَبْدِ الرَّحْمَنِ</span>: أَنَّ <span class="ravi-name" data-ravi="huraira">أَبَا هُرَيْرَةَ</span> رَضِيَ اللهُ عَنْهُ قَالَ: قَبَّلَ <span class="ravi-name" data-ravi="nebi">رَسُولُ اللهِ ﷺ</span>',
+      text:{
+        tr:'Resûlullah (s.a.v.) Hasan b. Ali’yi öptü. Yanında Akra‘ b. Hâbis oturuyordu. Akra‘: “Benim on çocuğum var, hiçbirini öpmedim” dedi. Resûlullah (s.a.v.) ona baktı, sonra şöyle buyurdu: “Merhamet etmeyene merhamet edilmez.”',
+        ar:'قَبَّلَ رَسُولُ اللهِ ﷺ الْحَسَنَ بْنَ عَلِيٍّ وَعِنْدَهُ الْأَقْرَعُ بْنُ حَابِسٍ التَّمِيمِيُّ جَالِسًا، فَقَالَ الْأَقْرَعُ: إِنَّ لِي عَشَرَةً مِنَ الْوَلَدِ مَا قَبَّلْتُ مِنْهُمْ أَحَدًا، فَنَظَرَ إِلَيْهِ رَسُولُ اللهِ ﷺ ثُمَّ قَالَ: مَنْ لَا يَرْحَمُ لَا يُرْحَمُ.',
+        en:'The Messenger of Allah ﷺ kissed al-Hasan ibn Ali while al-Aqra‘ ibn Habis was sitting with him. Al-Aqra‘ said: “I have ten children and I have never kissed any of them.” The Messenger of Allah ﷺ looked at him and said: “Whoever shows no mercy will be shown no mercy.”'
+      }
+    },
+    {
+      id:'komsu',
+      chain:['buhari','kuteybe','ebulahvas','ebuhasin','ebusalih','huraira'],
+      isnad:'حَدَّثَنَا <span class="ravi-name" data-ravi="kuteybe">قُتَيْبَةُ بْنُ سَعِيدٍ</span>: حَدَّثَنَا <span class="ravi-name" data-ravi="ebulahvas">أَبُو الْأَحْوَصِ</span>، عَنْ <span class="ravi-name" data-ravi="ebuhasin">أَبِي حَصِينٍ</span>، عَنْ <span class="ravi-name" data-ravi="ebusalih">أَبِي صَالِحٍ</span>، عَنْ <span class="ravi-name" data-ravi="huraira">أَبِي هُرَيْرَةَ</span> قَالَ: قَالَ <span class="ravi-name" data-ravi="nebi">رَسُولُ اللهِ ﷺ</span>',
+      text:{
+        tr:'Allah’a ve âhiret gününe iman eden komşusuna eziyet etmesin. Allah’a ve âhiret gününe iman eden misafirine ikram etsin. Allah’a ve âhiret gününe iman eden ya hayır söylesin ya da sussun.',
+        ar:'مَنْ كَانَ يُؤْمِنُ بِاللهِ وَالْيَوْمِ الْآخِرِ فَلَا يُؤْذِ جَارَهُ، وَمَنْ كَانَ يُؤْمِنُ بِاللهِ وَالْيَوْمِ الْآخِرِ فَلْيُكْرِمْ ضَيْفَهُ، وَمَنْ كَانَ يُؤْمِنُ بِاللهِ وَالْيَوْمِ الْآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ.',
+        en:'Whoever believes in Allah and the Last Day, let him not harm his neighbour. Whoever believes in Allah and the Last Day, let him honour his guest. Whoever believes in Allah and the Last Day, let him speak good or remain silent.'
+      }
+    },
+    {
+      id:'ofke',
+      chain:['buhari','yahyayusuf','ebubekirayyas','ebuhasin','ebusalih','huraira'],
+      isnad:'حَدَّثَنِي <span class="ravi-name" data-ravi="yahyayusuf">يَحْيَى بْنُ يُوسُفَ</span>: أَخْبَرَنَا <span class="ravi-name" data-ravi="ebubekirayyas">أَبُو بَكْرٍ هُوَ ابْنُ عَيَّاشٍ</span>، عَنْ <span class="ravi-name" data-ravi="ebuhasin">أَبِي حَصِينٍ</span>، عَنْ <span class="ravi-name" data-ravi="ebusalih">أَبِي صَالِحٍ</span>، عَنْ <span class="ravi-name" data-ravi="huraira">أَبِي هُرَيْرَةَ</span> رَضِيَ اللهُ عَنْهُ، عَنِ <span class="ravi-name" data-ravi="nebi">النَّبِيِّ ﷺ</span>',
+      text:{
+        tr:'Bir adam Hz. Peygamber’e (s.a.v.) “Bana öğüt ver” dedi. O da: “Öfkelenme” buyurdu. Adam isteğini birkaç kez tekrarladı; Hz. Peygamber (s.a.v.) her defasında: “Öfkelenme” buyurdu.',
+        ar:'أَنَّ رَجُلًا قَالَ لِلنَّبِيِّ ﷺ: أَوْصِنِي، قَالَ: لَا تَغْضَبْ، فَرَدَّدَ مِرَارًا، قَالَ: لَا تَغْضَبْ.',
+        en:'A man said to the Prophet ﷺ: “Advise me.” He said: “Do not become angry.” The man repeated his request several times, and each time he said: “Do not become angry.”'
+      }
+    },
+    {
+      id:'kolaylik',
+      chain:['buhari','adem','shuba','ebutteyyah','enes'],
+      isnad:'حَدَّثَنَا <span class="ravi-name" data-ravi="adem">آدَمُ</span>: حَدَّثَنَا <span class="ravi-name" data-ravi="shuba">شُعْبَةُ</span>، عَنْ <span class="ravi-name" data-ravi="ebutteyyah">أَبِي التَّيَّاحِ</span> قَالَ: سَمِعْتُ <span class="ravi-name" data-ravi="enes">أَنَسَ بْنَ مَالِكٍ</span> رَضِيَ اللهُ عَنْهُ قَالَ: قَالَ <span class="ravi-name" data-ravi="nebi">النَّبِيُّ ﷺ</span>',
+      text:{
+        tr:'Kolaylaştırın, zorlaştırmayın; sükûnet verin, nefret ettirmeyin.',
+        ar:'يَسِّرُوا وَلَا تُعَسِّرُوا، وَسَكِّنُوا وَلَا تُنَفِّرُوا.',
+        en:'Make things easy and do not make them difficult; bring tranquillity and do not repel people.'
+      }
+    },
+    {
+      id:'iki-kelime',
+      chain:['buhari','ahmediskab','ibnfudayl','umare','ebuzura','huraira'],
+      isnad:'حَدَّثَنِي <span class="ravi-name" data-ravi="ahmediskab">أَحْمَدُ بْنُ إِشْكَابٍ</span>، حَدَّثَنَا <span class="ravi-name" data-ravi="ibnfudayl">مُحَمَّدُ بْنُ فُضَيْلٍ</span>، عَنْ <span class="ravi-name" data-ravi="umare">عُمَارَةَ بْنِ الْقَعْقَاعِ</span>، عَنْ <span class="ravi-name" data-ravi="ebuzura">أَبِي زُرْعَةَ</span>، عَنْ <span class="ravi-name" data-ravi="huraira">أَبِي هُرَيْرَةَ</span> رَضِيَ اللهُ عَنْهُ قَالَ: قَالَ <span class="ravi-name" data-ravi="nebi">النَّبِيُّ ﷺ</span>',
+      text:{
+        tr:'Rahmân’a sevimli, dile hafif, mîzanda ağır iki kelime vardır: “Sübhânallâhi ve bi-hamdih, sübhânallâhi’l-azîm.”',
+        ar:'كَلِمَتَانِ حَبِيبَتَانِ إِلَى الرَّحْمَنِ، خَفِيفَتَانِ عَلَى اللِّسَانِ، ثَقِيلَتَانِ فِي الْمِيزَانِ: سُبْحَانَ اللهِ وَبِحَمْدِهِ، سُبْحَانَ اللهِ الْعَظِيمِ.',
+        en:'Two words beloved to the Most Merciful, light on the tongue, heavy on the scale: “Subhan Allah wa bi-hamdih, Subhan Allah al-Azim.”'
+      }
+    },
+    {
+      id:'nasihat',
+      chain:['muslim','ibnabbadmekki','sufyan','suheyl','atayezid','temim'],
+      isnad:'حَدَّثَنَا <span class="ravi-name" data-ravi="ibnabbadmekki">مُحَمَّدُ بْنُ عَبَّادٍ الْمَكِّيُّ</span>، حَدَّثَنَا <span class="ravi-name" data-ravi="sufyan">سُفْيَانُ</span>، عَنْ <span class="ravi-name" data-ravi="suheyl">سُهَيْلٍ</span>، عَنْ <span class="ravi-name" data-ravi="atayezid">عَطَاءِ بْنِ يَزِيدَ</span>، عَنْ <span class="ravi-name" data-ravi="temim">تَمِيمٍ الدَّارِيِّ</span> رَضِيَ اللهُ عَنْهُ؛ أَنَّ <span class="ravi-name" data-ravi="nebi">النَّبِيَّ ﷺ</span> قَالَ',
+      text:{
+        tr:'“Din nasihattir.” “Kimin için?” diye sorduk. Şöyle buyurdu: “Allah için, Kitabı için, Resûlü için, Müslümanların yöneticileri ve bütün Müslümanlar için.”',
+        ar:'الدِّينُ النَّصِيحَةُ. قُلْنَا: لِمَنْ؟ قَالَ: لِلَّهِ، وَلِكِتَابِهِ، وَلِرَسُولِهِ، وَلِأَئِمَّةِ الْمُسْلِمِينَ وَعَامَّتِهِمْ.',
+        en:'“Religion is sincere counsel.” We said: “To whom?” He said: “To Allah, to His Book, to His Messenger, to the leaders of the Muslims and to their common folk.”'
+      }
+    },
+    {
+      id:'munker',
+      chain:['muslim','ebubekirsibe','veki','sufyansevri','kaysmuslim','tarik','ebusaid'],
+      isnad:'حَدَّثَنَا <span class="ravi-name" data-ravi="ebubekirsibe">أَبُو بَكْرِ بْنُ أَبِي شَيْبَةَ</span>، حَدَّثَنَا <span class="ravi-name" data-ravi="veki">وَكِيعٌ</span>، عَنْ <span class="ravi-name" data-ravi="sufyansevri">سُفْيَانَ</span>، عَنْ <span class="ravi-name" data-ravi="kaysmuslim">قَيْسِ بْنِ مُسْلِمٍ</span>، عَنْ <span class="ravi-name" data-ravi="tarik">طَارِقِ بْنِ شِهَابٍ</span>، قَالَ <span class="ravi-name" data-ravi="ebusaid">أَبُو سَعِيدٍ</span> رَضِيَ اللهُ عَنْهُ: سَمِعْتُ <span class="ravi-name" data-ravi="nebi">رَسُولَ اللهِ ﷺ</span> يَقُولُ',
+      text:{
+        tr:'Sizden kim bir kötülük görürse onu eliyle düzeltsin. Buna gücü yetmezse diliyle, ona da gücü yetmezse kalbiyle (buğzetsin). Bu ise imanın en zayıf derecesidir.',
+        ar:'مَنْ رَأَى مِنْكُمْ مُنْكَرًا فَلْيُغَيِّرْهُ بِيَدِهِ، فَإِنْ لَمْ يَسْتَطِعْ فَبِلِسَانِهِ، فَإِنْ لَمْ يَسْتَطِعْ فَبِقَلْبِهِ، وَذَلِكَ أَضْعَفُ الْإِيمَانِ.',
+        en:'Whoever among you sees an evil, let him change it with his hand; if he cannot, then with his tongue; if he cannot, then with his heart — and that is the weakest of faith.'
+      }
+    }
+  ];
+
+  // Hangi hadis oynanacak? `?h=<id>` ile secilir; parametre yoksa ya da
+  // tanimsizsa HADITHS[0] (niyet hadisi) -- boylece /resule-kavusmak
+  // (parametresiz) ESKISIYLE BIREBIR ayni davranir, yalnizca
+  // /resule-kavusmak-sinama sayfasi parametre gonderir.
+  var hadithParam = (function(){
+    var m = /[?&]h=([^&]+)/.exec(window.location.search);
+    return m ? decodeURIComponent(m[1]) : null;
+  })();
+  var activeHadith = (function(){
+    for(var i = 0; i < HADITHS.length; i++){
+      if(HADITHS[i].id === hadithParam) return HADITHS[i];
+    }
+    return HADITHS[0];
+  })();
+
+  // Aktif hadisin isnad zinciri: CORRECT[0] muellif (oyuna zaten secili
+  // gelir, kat almaz), gerisi asagidan yukari tirmanilacak raviler.
+  var CORRECT = activeHadith.chain.map(function(id){ return PEOPLE[id]; });
+  // Celdiriciler: aktif isnadda GECEN kisiler havuzdan cikarilir.
+  var DECOY_POOL = (function(){
+    var inChain = {};
+    activeHadith.chain.forEach(function(id){ inChain[id] = true; });
+    return DECOY_IDS
+      .filter(function(id){ return !inChain[id]; })
+      .map(function(id){ return PEOPLE[id]; });
+  })();
   // Kat basina 1 dogru + 2 celdirici -- yanlis sayisi dogru sayisinin
   // her katta (ve toplamda) 2 kati oluyor.
   var DECOYS_PER_FLOOR = 2;
-  // Sayaç ve kat sayisi: muellif (Buhari) ve kaynak (Hz. Nebi) birer
-  // ravi olarak SAYILMIYOR, yalnizca aralarindaki CORRECT.slice(1)
-  // kadar (6) ravi var.
+  // Sayaç ve kat sayisi: muellif (Buhari/Muslim) ve kaynak (Hz. Nebi)
+  // birer ravi olarak SAYILMIYOR, yalnizca aralarindaki CORRECT.slice(1)
+  // kadar ravi var (hadise gore 4-6).
   var FLOOR_COUNT = CORRECT.length - 1;
-  // Hadisin metni de dile gore degisir (icerik cevirisi -- TR/EN icin
-  // ayni kisaltilmis 3 cumlelik yapi korunur); yalnizca isnad'in
-  // Arapca metni HER dilde sabit kalir, o dogrudan alinti.
-  var HADITH_TEXT_BY_LANG = {
-    tr: 'Ameller ancak niyetlere göredir. Herkese, niyet ettiği şey vardır. Kimin hicreti dünyalık elde etmek veya bir kadınla evlenmek içinse, hicreti o yöneldiği şeyedir.',
-    ar: 'إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ، وَلِكُلِّ امْرِئٍ مَا نَوَى، فَمَنْ كَانَتْ هِجْرَتُهُ إِلَى دُنْيَا يُصِيبُهَا أَوِ امْرَأَةٍ يَنْكِحُهَا فَهِجْرَتُهُ إِلَى مَا هَاجَرَ إِلَيْهِ.',
-    en: 'Actions are only according to intentions, and everyone will have only what he intended. Whoever’s emigration was for worldly gain or to marry a woman, his emigration was for that which he emigrated for.'
-  };
+  // Muellifin id'si artik sabit degil (Buhari ya da Muslim): "oyuna
+  // zaten secili gelen" butonu arayan yerler bunu kullanir.
+  var AUTHOR_ID = CORRECT[0].id;
+  // Hadisin metni de dile gore degisir (icerik cevirisi); yalnizca
+  // isnad'in Arapca metni HER dilde sabit kalir, o dogrudan alinti.
+  var HADITH_TEXT_BY_LANG = activeHadith.text;
+  // `?h=` ile acildiysa (yani /resule-kavusmak-sinama izgarasindan
+  // gelindiyse) ve sirada baska bir hadis varsa: "Sonraki" dugmesi
+  // /mustafa-calisiyor yerine SIRADAKI HADISE gotursun. Parametresiz
+  // acilan /resule-kavusmak'ta `nextHadith` null kalir, dugme eski
+  // hedefinde (ve eski etiketinde) durur.
+  var nextHadith = (function(){
+    if(!hadithParam) return null;
+    var i = HADITHS.indexOf(activeHadith);
+    return (i >= 0 && i + 1 < HADITHS.length) ? HADITHS[i + 1] : null;
+  })();
   var MOVE_MS = 900;
 
   // Site-genelindeki dil dugmesi (TR/AR/EN) bu oyunu da etkiler: arapça
@@ -667,6 +903,7 @@
       goalSub: '(s.a.v.)',
       resetBtn: 'Baştan Başla',
       nextBtn: 'Sonraki',
+      nextHadithBtn: 'Sonraki hadis',
       progressUnit: 'râvi',
       toastFinalStep: 'Son adım: Hz. Nebî’ye (s.a.v.) ulaş!',
       toastCorrectSuffix: ' doğru — sıradaki râviyi bul.',
@@ -685,6 +922,7 @@
       goalSub: '(ﷺ)',
       resetBtn: 'Start over',
       nextBtn: 'Next',
+      nextHadithBtn: 'Next hadith',
       progressUnit: 'narrators',
       toastFinalStep: 'Last step: reach the Prophet ﷺ!',
       toastCorrectSuffix: ' is correct — find the next narrator.',
@@ -703,6 +941,7 @@
       goalSub: '(ﷺ)',
       resetBtn: 'ابدأ من جديد',
       nextBtn: 'التالي',
+      nextHadithBtn: 'الحديث التالي',
       progressUnit: 'راوٍ',
       toastFinalStep: 'الخطوة الأخيرة: صِل إلى النبي ﷺ!',
       toastCorrectSuffix: ' صحيح — ابحث عن الراوي التالي.',
@@ -751,7 +990,9 @@
     goalLabelEl.textContent = s.goalLabel;
     goalSubEl.textContent = s.goalSub;
     resetBtnEl.textContent = s.resetBtn;
-    nextBtn.textContent = s.nextBtn;
+    // Izgaradan gelindiyse (?h=) dugme siradaki HADISE goturur, sitedeki
+    // /mustafa-calisiyor sayfasina degil -- etiketi de ona gore.
+    nextBtn.textContent = nextHadith ? s.nextHadithBtn : s.nextBtn;
     Array.prototype.forEach.call(document.querySelectorAll('.node'), function(btn){
       var entry = NAME_BY_ID[btn.dataset.id];
       if(entry) btn.textContent = nameFor(entry);
@@ -935,6 +1176,16 @@
       metinValue.innerHTML = HADITH_TEXT_BY_LANG[currentLang];
       hadithBubble.classList.add('glow-active');
       nextBtn.classList.add('visible');
+      // Ust pencereye "bu hadis bitti" haberi. /resule-kavusmak-sinama
+      // sirali kilit icin bunu dinliyor (bir sonraki hadisi aciyor ve
+      // ilerlemeyi localStorage'a yaziyor). Iframe disinda acildiginda
+      // (dogrudan game.html) kimse dinlemez, zararsizdir.
+      if(window.parent !== window){
+        window.parent.postMessage(
+          { type:'resule-kavusmak-completed', hadis: activeHadith.id },
+          '*'
+        );
+      }
       // Kavusma anini kutlayan mesaj digerlerinden (1.6s) daha uzun
       // kalsin diye 5 saniye gosteriliyor; ASAGIDA (varsayilan konum).
       showToast(STRINGS[currentLang].toastDone, 'green', 5000);
@@ -1033,12 +1284,22 @@
   // Mustafa ve iz onun yanindan baslar.
   function initState(){
     step = 1;
-    currentAnchor = board.querySelector('.node[data-id="buhari"]');
+    currentAnchor = board.querySelector('.node[data-id="' + AUTHOR_ID + '"]');
     pathAnchors = currentAnchor ? [currentAnchor] : [];
     drawPath();
     syncMustafa();
     updateProgress();
   }
+
+  // isnad'in Arapca ALINTI metni aktif hadisten gelir (HTML'deki sabit
+  // icerik yalnizca varsayilan/niyet hadisi icin bir yedektir).
+  document.getElementById('isnadAr').innerHTML = activeHadith.isnad;
+  // Dugme etiketi normalde applyLanguage()'te yaziliyor; ust pencerenin
+  // dili okunamazsa (dogrudan acilan sayfa) o hic calismaz, o yuzden
+  // dogru etiketi burada da bir kez veriyoruz.
+  nextBtn.textContent = nextHadith
+    ? STRINGS[currentLang].nextHadithBtn
+    : STRINGS[currentLang].nextBtn;
 
   buildNodes();
   initState();
@@ -1068,6 +1329,20 @@
   // daha hizala.
   video.addEventListener('loadeddata', relayout);
 
+  // "Sonraki" dugmesi: izgaradan gelindiyse gezinmeyi IPTAL edip ust
+  // pencereye siradaki hadisin id'sini yolluyoruz -- oyun ayni sayfada,
+  // ayni iframe'de yeni hadisle yeniden kuruluyor (bkz.
+  // app/resule-kavusmak-sinama/page.tsx). Aksi halde <a href> kendi
+  // isini yapar ve /mustafa-calisiyor acilir.
+  nextBtn.addEventListener('click', function(e){
+    if(!nextHadith || window.parent === window) return;
+    e.preventDefault();
+    window.parent.postMessage(
+      { type:'resule-kavusmak-next', hadis: nextHadith.id },
+      '*'
+    );
+  });
+
   document.getElementById('resetBtn').addEventListener('click', function(){
     goalNode.classList.remove('reached');
     hadithBubble.classList.remove('glow-active');
@@ -1082,8 +1357,9 @@
     Array.prototype.forEach.call(document.querySelectorAll('.ravi-name'), function(s){
       s.classList.remove('lit','lit-flash');
     });
-    // Buhari yeniden secili baslar; digerleri initState() ile bosa doner.
-    var buhariEl = board.querySelector('.node[data-id="buhari"]');
+    // Muellif (Buhari/Muslim) yeniden secili baslar; digerleri
+    // initState() ile bosa doner.
+    var buhariEl = board.querySelector('.node[data-id="' + AUTHOR_ID + '"]');
     if(buhariEl) buhariEl.classList.add('visited');
     initState();
   });

@@ -23,7 +23,7 @@ export default function Podcastler() {
       <Link
         href="/"
         aria-label={t.brandAlt}
-        className="fixed left-1/2 top-4 z-20 flex h-[72px] -translate-x-1/2 items-center transition-opacity hover:opacity-70"
+        className="absolute left-1/2 top-1 z-20 flex h-[72px] -translate-x-1/2 items-center transition-opacity hover:opacity-70"
       >
         <ChromaKeyVideo
           src="/HD-Mini.mp4"

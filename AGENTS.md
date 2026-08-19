@@ -559,10 +559,87 @@ DOGRU sirayla secip Mustafa karakterini Hz. Nebi'ye "tirmandiriyor".
 - `public/resule-kavusmak-game.html` — oyunun TAMAMI (HTML+CSS+JS tek
   dosyada, hicbir build adimi yok, Next.js'e dokunmuyor). Duzenlemeler
   DOGRUDAN bu dosyada yapilir, degisiklik icin `npm run build` gerekmez.
-- `app/resule-kavusmak/page.tsx` — ince bir sarmalayici: yukaridaki HTML'i
-  `<iframe src="/resule-kavusmak-game.html">` icine gomuyor (prototip
-  hizli degistigi icin iframe secildi; tasarim oturunca gercek React
-  bilesenine cevrilebilir).
+- `app/ResuleKavusmakGame.tsx` — yukaridaki HTML'i
+  `<iframe src="/resule-kavusmak-game.html">` icine gomen paylasilan
+  bilesen (prototip hizli degistigi icin iframe secildi; tasarim
+  oturunca gercek React bilesenine cevrilebilir). Iframe yuksekligi,
+  tema/dil senkronu ve toast/scroll postMessage'lari BURADA.
+  `hadis` prop'u verilirse `?h=<id>` ile o hadis acilir.
+- `app/resule-kavusmak/page.tsx` — ince sarmalayici: logo + bilesen,
+  `hadis` VERMEDEN (yani varsayilan niyet hadisi).
+- `app/resule-kavusmak-sinama/page.tsx` — coklu-hadis SINAMA surumu:
+  once 12 hadislik bir izgara (3 sutun x 4 sira), bir kutuya
+  basilinca ayni bilesen `hadis={id}` ile aciliyor. Hadisler sirayla
+  aciliyor, ilerleme localStorage'da (bkz. "Sirali kilit").
+
+### 12 hadis ve `?h=<id>` (2026-08-19)
+
+Oyun artik tek hadise gomulu degil, `HADITHS` dizisinden besleniyor
+(baslangicta 12 kayit). Hangisinin oynanacagi URL'deki `?h=<id>` ile
+secilir; parametre yoksa ya da tanimsiz bir id gelirse `HADITHS[0]`
+(niyet hadisi) acilir — bu yuzden `/resule-kavusmak` ve dogrudan
+acilan `/resule-kavusmak-game.html` ESKISIYLE BIREBIR ayni davranir.
+
+`game.html`'deki uc veri yapisi:
+- `PEOPLE` — id → `{tr,ar,en}`. Butun raviler VE celdiriciler tek
+  kutukte; ayni kisi (Su'be, Ebu Hureyre, Sufyan b. Uyeyne...) birden
+  fazla isnadda gectigi icin bir kez yaziliyor. `NAME_BY_ID` artik
+  dogrudan bu nesne.
+- `DECOY_IDS` — celdirici havuzu (id listesi). Aktif hadisin KENDI
+  zincirinde gecen kisiler `DECOY_POOL` uretilirken buradan CIKARILIR,
+  yoksa ayni isim hem dogru cevap hem celdirici olarak ekrana gelirdi.
+  En uzun isnad 6 kat x 2 = 12 celdirici ister; havuz cikarmalardan
+  sonra da bunun ustunde kalacak sekilde genis tutuldu.
+- `HADITHS` — her kayit `{id, chain, isnad, text}`. `chain[0]` muellif,
+  `chain[1..]` tirmanilacak raviler; `isnad` isnadin Arapca alinti
+  metni (icindeki `.ravi-name[data-ravi]` id'leri chain ile eslesmeli,
+  yoksa `lightUpRavi` o raviyi parlatamaz — sessiz hata); `text` hadis
+  metni uc dilde.
+
+Turemis degiskenler: `CORRECT` (= chain'in PEOPLE karsiliklari),
+`FLOOR_COUNT` (= `CORRECT.length - 1`, hadise gore 4-6 arasi degisir,
+ARTIK SABIT 6 DEGIL), `AUTHOR_ID` (`buhari` ya da `muslim` — "zaten
+secili gelen" butonu arayan yerler sabit `"buhari"` yerine bunu
+kullanir), `HADITH_TEXT_BY_LANG` (= aktif hadisin `text`'i).
+`#isnadAr`'in HTML'i acilis sirasinda `activeHadith.isnad`'dan
+yaziliyor; belgedeki sabit icerik yalnizca niyet hadisi icin yedek.
+
+### Sirali kilit ve ilerleme (2026-08-19)
+
+`/resule-kavusmak-sinama`'da hadisler SIRAYLA aciliyor: `HADITHS`
+dizisindeki bir kutu ancak KENDINDEN ONCEKI hadis tamamlanmissa
+tiklanabilir (ilki daima acik). Kilitli kutuda ne isim ne kaynak
+gorunur — yalnizca buyuk bir `?` durur ve buton `disabled`'dir;
+boylece sonraki hadisin ne oldugu sizmaz.
+
+Kilidi acan tek sey oyunun GERCEKTEN bitirilmesi: `game.html`'deki
+`finish()` ust pencereye `{type:'resule-kavusmak-completed', hadis:<id>}`
+postMessage'i yolluyor, sayfa bunu dinleyip id'yi ilerleme listesine
+ekliyor. Kutuya girip cikmak yetmez. (`/resule-kavusmak` bu mesaji
+dinlemiyor, orada zararsizca yok sayiliyor.)
+
+Ilerleme `localStorage`'da `resule-kavusmak-sinama-progress-v1`
+anahtarinda, tamamlanan id'lerin JSON dizisi olarak duruyor.
+**Anahtar surumlu**: ileride `HADITHS`'in SIRASI degisirse eski kayit
+yanlis kutulari acabilir — o durumda anahtari `-v2` yapmak ilerlemeyi
+temiz sekilde sifirlar.
+
+Okuma `useSyncExternalStore` ile (sitedeki tema/dil ile ayni desen; bir
+effect icinde `setState` cagirmak lint hatasi veriyor:
+`react-hooks/set-state-in-effect`). `getServerSnapshot` bilerek `null`
+donuyor = "kayit henuz okunmadi"; izgara o asamada HIC cizilmiyor,
+yoksa geri donen kullanici bir kare boyunca kendi actigi hadisleri
+"?" olarak gorurdu. Store bellek-once calisiyor (`current`), boylece
+localStorage yazmayi reddederse (kota/gizli sekme) kilit hic olmazsa
+o oturum boyunca dogru kalir.
+
+**Yeni hadis eklerken:** (1) `HADITHS`'e kaydi ekle, (2) zincirdeki
+her yeni kisiyi `PEOPLE`'a uc dille birlikte yaz, (3) izgarada
+gorunmesi icin `app/resule-kavusmak-sinama/page.tsx`'teki listeye ayni
+`id` ile kisaltma + kaynak etiketini ekle. Id'ler iki dosyada BIREBIR
+ayni olmali. Metinler Sahih-i Buhari (ط السلطانية) ve Sahih-i Muslim
+(ت عبد الباقي) nushalarindan alindi; yeni bir hadis de KAYNAKTAN
+dogrulanarak eklenmeli, ezberden yazilmamali.
 
 Iframe SECILDI cunku dosya, sitenin geri kalanindan bagimsiz kendi
 basina duran, kopyalanmis bir WebGL chroma-key cozumu tasiyor
@@ -572,18 +649,17 @@ alfa, bkz. yukaridaki "Yesil/kirmizi perde" bolumu).
 
 ### Oyun mekanigi ("kat tirmanma")
 
-- `CORRECT` dizisi 7 kisi: `buhari` (muellif) + 6 gercek ravi
-  (`humeydi`..`omer`). Buhari ve Hz. Nebi (hedef) birer "ravi"
-  SAYILMIYOR — sayac (`FLOOR_COUNT = CORRECT.length - 1 = 6`) yalnizca
-  aradaki 6 kisiyi sayiyor.
-- Buhari oyuna ZATEN SECILI gelir (tiklama gerektirmez), Mustafa en
-  basta onun yaninda durur. `step` 1'den baslar (Buhari zaten
-  "bulunmus" sayilir).
+- `CORRECT` aktif hadisin zinciri: `CORRECT[0]` muellif (`buhari` ya da
+  `muslim`), gerisi gercek raviler. Muellif ve Hz. Nebi (hedef) birer
+  "ravi" SAYILMIYOR — sayac (`FLOOR_COUNT = CORRECT.length - 1`)
+  yalnizca aradakileri sayiyor (hadise gore 4-6).
+- Muellif oyuna ZATEN SECILI gelir (tiklama gerektirmez), Mustafa en
+  basta onun yaninda durur. `step` 1'den baslar (muellif zaten
+  "bulunmus" sayilir). O butonu arayan yerler `AUTHOR_ID` kullanir.
 - Geri kalan her ravi kendi KATINI (floor) alir: 1 dogru + 2 celdirici
-  (`DECOY_POOL`'dan rastgele, 22 kisilik havuzdan 12'si kullanilir).
-  Katlar DOM'a Hz. Nebi'ye en yakindan (son bulunacak ravi, `omer`)
-  baslayarak yazilir — gorsel siralama YUKARIDAN ASAGI, tirmanis
-  sirasinin TERSi.
+  (`DECOY_POOL`'dan rastgele). Katlar DOM'a Hz. Nebi'ye en yakindan
+  (son bulunacak ravi) baslayarak yazilir — gorsel siralama YUKARIDAN
+  ASAGI, tirmanis sirasinin TERSi.
 - **ONEMLI DUZELTME (bu oturumda):** `step` sayaci ESKIDEN yalnizca
   Mustafa'nin 900ms'lik hareket animasyonu BITINCE artiyordu. Kullanici
   dogru cevaplara ART ARDA hizli basinca, ikinci tiklama hala ESKI
@@ -629,10 +705,13 @@ kullaniliyor. Iki yonlu senkron:
 - **isnad'in kendi Arapca metni (`.isnad-ar`, `data-ravi` span'lari)
   HICBIR ZAMAN cevrilmez** — o dogrudan alinti, 3 dilde de sabit.
 
-Veri yapisi: `CORRECT` ve `DECOY_POOL`'daki her kisi nesnesi
-`{id, tr, ar, en}` seklinde (tek tek `.name` alani YOK, `nameFor(entry)`
-fonksiyonu `entry[currentLang] || entry.tr` doner). Hadis metni ayri:
-`HADITH_TEXT_BY_LANG = {tr,ar,en}`. Arayuz metinleri (baslik, buton
+Veri yapisi: her kisi `PEOPLE` kutugunde `{tr, ar, en}` olarak duruyor
+(`.id` acilista dongude ekleniyor; tek tek `.name` alani YOK,
+`nameFor(entry)` fonksiyonu `entry[currentLang] || entry.tr` doner).
+Hadis metni ayri: `HADITH_TEXT_BY_LANG` (= aktif hadisin `text`'i,
+`{tr,ar,en}`); izgaradaki kisaltmalar ise `game.html`'de DEGIL,
+`app/resule-kavusmak-sinama/page.tsx` icinde uc dille birlikte
+tutuluyor. Arayuz metinleri (baslik, buton
 yazilari, toast mesajlari vb.) `STRINGS = {tr:{...}, ar:{...}, en:{...}}`
 icinde. Dil degisince `applyLanguage(lang)`: STRINGS'i uygular +
 ekrandaki HER `.node` butonunu `NAME_BY_ID` uzerinden yeniden adlandirir
@@ -743,6 +822,33 @@ DEGIL, `t.workingOnIt` (uc dilde de cevirisi var). `#nextBtn`
 icinde gomulu oldugu icin `_top` olmadan tiklama yalnizca iframe'i
 degistirir, ust sayfayi degil.
 
+**Ancak `?h=` ile acildiysa (izgaradan gelindiyse) ve sirada baska bir
+hadis varsa (2026-08-19):** dugme `/mustafa-calisiyor`a DEGIL SIRADAKI
+HADISE goturur. `nextHadith` turemis degiskeni doluysa tiklama
+`preventDefault()` ile iptal edilip ust pencereye
+`{type:'resule-kavusmak-next', hadis:<id>}` yollaniyor; sayfa da ayni
+iframe'i yeni hadisle yeniden kuruyor (React `key`'i degistigi icin
+tam yeniden yukleme). Etiket de degisir: `nextHadithBtn`
+("Sonraki hadis" / "الحديث التالي" / "Next hadith").
+Parametresiz acilan `/resule-kavusmak`'ta ve SON hadiste `nextHadith`
+null kalir — dugme eski etiketiyle (`nextBtn`) `/mustafa-calisiyor`a
+gider, yani eski davranis korunur.
+
+### Marka logosu artik sabit degil (2026-08-19)
+
+Alt sayfalardaki HD logosu (`HD-Mini.mp4` tasiyan `<Link href="/">`)
+`fixed` idi ve sayfa kaydirilirken tepede ASILI kaliyordu; artik
+`absolute` — sayfayla birlikte yukari kayip gozden kayboluyor. Ayrica
+`top-4` yerine `top-1` (12px yukari). Sarmalayici `<main>`'lerin hepsi
+zaten `relative` oldugu icin konum aynen korundu, sayfalarin ust
+bosluklarina (`pt-20`/`pt-24`/`pt-32`) dokunmaya gerek kalmadi.
+
+Ayni satir YEDI dosyada tekrar ediyor (`selam`, `mustafa-calisiyor`,
+`podcastler`, `hadis-tarihi`, `resule-kavusmak`,
+`resule-kavusmak-sinama`, `SuAndaBuradasiniz.tsx`) — birini
+degistirirken hepsini birlikte degistir, yoksa sayfalar arasi ziplama
+olur.
+
 ### Bu sayfanin kendi basligi YOK
 
 Eskiden `game.html` kendi karanlik/aydinlik dugmesi + "HD" yazisi +
@@ -758,6 +864,9 @@ Bu oyunun bir de Claude'da yayinlanmis "Artifact" onizlemesi var:
 (URL sabit tutuluyor, her guncellemede ayni linke tekrar publish
 ediliyor). **Bu, siteden TAMAMEN AYRI bir kopya** — canli siteye
 pushlamak bunu OTOMATIK guncellemez, ayrica elle publish etmek gerekir.
+Artifact URL'ine `?h=<id>` eklenemedigi icin orada DAIMA varsayilan
+hadis (niyet) acilir; 12 hadislik izgara yalnizca sitede
+(`/resule-kavusmak-sinama`) var.
 
 **NE ZAMAN GUNCELLENIR: SADECE Mustafa acikca istedigi zaman**
 ("artifact'i de guncelle" gibi). Her siteye push'tan sonra otomatik
