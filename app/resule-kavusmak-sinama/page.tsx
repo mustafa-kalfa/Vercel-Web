@@ -19,28 +19,6 @@ import type { Language } from "../translations";
 //
 // `label` yalnizca kutunun uzerindeki KISALTMA; hadisin kendi metni ve
 // isnadi oyunun icinde duruyor, burada tekrarlanmiyor.
-// Basma dalgasini tetikleyen ortak prop'lar (bkz. globals.css
-// `.press-sweep` / `@keyframes press-sweep`): tiklanan kutunun ortasindan
-// kenarlarina dogru bir daire buyuyup soner.
-// Sinifi `:active` yerine JS ekliyor -- kisa dokunuslarda `:active`
-// animasyonu yarida kesiyordu. `remove + offsetWidth + add`: ard arda
-// hizli tiklamalarda animasyon bastan bassin diye akis zorla yeniden
-// hesaplaniyor. Oyunun kendi icindeki esdegeri game.html'de
-// (`.pressed` sinifi + ayni keyframe).
-const pressProps = {
-  onPointerDown: (e: React.PointerEvent<HTMLElement>) => {
-    const el = e.currentTarget;
-    el.classList.remove("is-pressed");
-    void el.offsetWidth;
-    el.classList.add("is-pressed");
-  },
-  onAnimationEnd: (e: React.AnimationEvent<HTMLElement>) => {
-    if (e.animationName.includes("press-sweep")) {
-      e.currentTarget.classList.remove("is-pressed");
-    }
-  },
-};
-
 type HadithCard = {
   id: string;
   label: Record<Language, string>;
@@ -175,7 +153,7 @@ const UI: Record<
     sectionsLede: "Bölümler sırayla açılır. Birini bitirmeden sonrakine geçemezsin.",
     heading: "Hangi hadisin isnâdını tırmanmak istersin?",
     lede: "Hadisler sırayla açılır. Bir isnâdı tamamlamadan sonraki hadise geçemezsin.",
-    back: "← Hadis listesi",
+    back: "← Hadis Listesi",
     backToSections: "← Bölümlere dön",
     locked: "Henüz kilitli — önceki hadisi tamamla",
     lockedSection: "Henüz kilitli — önceki bölümü tamamla",
@@ -436,7 +414,7 @@ export default function ResuleKavusmakSinama() {
                 const hint =
                   s.kind === "soon" ? ui.soon : ui.lockedSection;
                 const cardClass =
-                  "press-sweep flex aspect-square flex-col items-center justify-center gap-1.5 rounded-2xl border border-solid px-3 text-center transition-colors sm:px-5 " +
+                  "flex aspect-square flex-col items-center justify-center gap-1.5 rounded-2xl border border-solid px-3 text-center transition-colors sm:px-5 " +
                   (unlocked
                     ? "border-black/[.08] hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
                     : "cursor-not-allowed border-dashed border-black/[.12] text-black/25 dark:border-white/[.12] dark:text-cream-dimmer/40");
@@ -451,7 +429,7 @@ export default function ResuleKavusmakSinama() {
                 // hedefi gorunsun); digerleri buton.
                 if (unlocked && s.kind === "link" && s.href) {
                   return (
-                    <Link key={s.id} href={s.href} className={cardClass} {...pressProps}>
+                    <Link key={s.id} href={s.href} className={cardClass}>
                       {label}
                     </Link>
                   );
@@ -464,7 +442,6 @@ export default function ResuleKavusmakSinama() {
                     aria-label={unlocked ? undefined : hint}
                     title={unlocked ? undefined : hint}
                     onClick={() => go(true, null)}
-                    {...pressProps}
                     className={cardClass}
                   >
                     {unlocked ? (
@@ -497,8 +474,7 @@ export default function ResuleKavusmakSinama() {
             <button
               type="button"
               onClick={() => go(false, null)}
-              {...pressProps}
-              className="press-sweep rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+              className="rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
             >
               {ui.backToSections}
             </button>
@@ -527,9 +503,8 @@ export default function ResuleKavusmakSinama() {
                     aria-label={unlocked ? undefined : ui.locked}
                     title={unlocked ? undefined : ui.locked}
                     onClick={() => go(true, h.id)}
-                    {...pressProps}
                     className={
-                      "press-sweep flex aspect-square flex-col items-center justify-center gap-1.5 rounded-2xl border border-solid px-2 text-center transition-colors sm:px-4 " +
+                      "flex aspect-square flex-col items-center justify-center gap-1.5 rounded-2xl border border-solid px-2 text-center transition-colors sm:px-4 " +
                       (unlocked
                         ? "border-black/[.08] hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
                         : "cursor-not-allowed border-dashed border-black/[.12] text-black/25 dark:border-white/[.12] dark:text-cream-dimmer/40")
@@ -566,8 +541,7 @@ export default function ResuleKavusmakSinama() {
             <button
               type="button"
               onClick={() => go(true, null)}
-              {...pressProps}
-              className="press-sweep rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+              className="rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
             >
               {ui.back}
             </button>
@@ -609,8 +583,7 @@ export default function ResuleKavusmakSinama() {
                   setShowCongrats(false);
                   go(false, null);
                 }}
-                {...pressProps}
-                className="press-sweep rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+                className="rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
               >
                 {ui.backToSections}
               </button>

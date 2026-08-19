@@ -786,49 +786,37 @@ ekrandaki HER `.node` butonunu `NAME_BY_ID` uzerinden yeniden adlandirir
 yazmayi unutma, yoksa o kisi Arapca/Ingilizce modda Turkce kalir
 (fallback `entry.tr`'ye duser, sessizce, hata vermez).
 
-### Basma parlamasi (tiklama geri bildirimi, 2026-08-19)
+### Tiklama animasyonu: DENENDI, GERI ALINDI (2026-08-19)
 
-Kutulara basildiginda uzerlerinden soldan saga CAPRAZ bir isik seridi
-geciyor. Kaynak: Dave Conner, "Button Hover Effects" (btn-4). Orijinali
-`:hover` ile calisiyor, burada TIKLAMA ile. Ayni his iki yerde:
-- Oyun: `game.html` → `.node/.reset-btn/.next-btn/.prev-btn`'in
-  `::after`'i + `@keyframes press-sweep`, tetikleyici `.pressed` sinifi
-  (tek bir delege `pointerdown` dinleyicisi ekliyor, `animationend`
-  kaldiriyor; ayrica 700ms'lik emniyet zamanlayicisi var).
-- Site: `globals.css` → `.press-sweep` / `.is-pressed`, React tarafinda
-  `pressProps`.
+Kutulara basildiginda gorsel bir geri bildirim iki kez denendi, ikisi
+de Mustafa'nin istegiyle KALDIRILDI. Su an butonlarda tiklama
+animasyonu YOK; yalnizca `:hover` ve `:focus-visible` durumlari var.
+Yeniden eklemeden once sor.
 
-**Once ORTADAN KENARLARA yayilan bir daire (ripple) denendi ve
-BEGENILMEDI** (2026-08-19, Mustafa: "korkunc olmus"). Geri donmeden
-once bunu hatirla.
+Denenenler ve sonuclari:
+1. **Kucultme** (`transform:scale(.94)`) — "basma hissi olmuyor".
+2. **Dalga / ripple** (ortadan kenarlara buyuyen daire) — "korkunc
+   olmus, hic begenmedim".
+3. **Capraz parlama** (Dave Conner "Button Hover Effects" btn-4;
+   soldan saga gecen isik seridi, `:hover` yerine tiklamayla) —
+   "animasyonu geri al".
 
-Uygulama notlari — her biri bir hatanin bedeli:
-
-1. **Serit bir KUTU degil, `::after`'in ARKA PLAN GRADYANI.** Kutu
-   seklinde bir serit `overflow:hidden` ister; `.node`'a bunu
-   koyamiyoruz, cunku sira rozeti (`.badge`) kutunun DISINDA
-   (`top/left:-7px`) duruyor ve kirpilirdi. Arka plan ise kendi
-   border-box'ina kirpilir, `border-radius:inherit` ile yuvarlak
-   kenarlara uyar.
-2. **Animasyon elemanin KENDISINDE degil pseudo-element'te.** Asagidaki
-   `@media (prefers-reduced-motion: reduce)` blogu `.node`'un kendi
-   `animation`'ini kapatiyor. Ilk denemede serit dogrudan `.node`
-   uzerindeydi: Mustafa'nin makinesinde (o tercih ACIK) animasyon hic
-   calismadi, `animationend` de gelmedigi icin `.pressed` sinifi
-   UZERINDE KALDI ve gradyan bitis konumunda donup kaldi. `animation`
-   miras alinan bir ozellik olmadigi icin `.node::after` o kuraldan
-   etkilenmez — bu tesaduf degil, oyle kalmali.
-3. **`background-position` araligi 100% → 0%.** Arka plan %250
-   genislikte; bu aralik seridin sol kenardan girip sag kenardan
-   ciktigi TAM araliga denk geliyor. Daha genis degerler (ilk denemede
-   -150%..250%) seridi surenin cogunda kutunun DISINDA tutuyor, efekt
-   "bir anda gecip gitmis" gibi gorunuyordu.
-4. **Tetikleyici `:active` DEGIL** `.pressed` / `.is-pressed`: kisa
-   dokunuslarda `:active` animasyonu yarida kesiyordu. Sinif ekleme +
-   `void offsetWidth` + yeniden ekleme, ard arda hizli tiklamalarda
-   animasyonu bastan baslatiyor.
-5. **`.node .badge{z-index:2}`**: pseudo-element cocuklardan SONRA
-   boyandigi icin serit rozetin uzerine biniyordu.
+Yine de tekrar denenirse, bedeli odenmis uc tuzak:
+- **`.node`'a `overflow:hidden` KOYULAMAZ**: sira rozeti (`.badge`)
+  kutunun DISINDA (`top/left:-7px`) duruyor, kirpilirdi. Kirpma
+  gerektiren her efekt (kutu seklindeki serit, buyuyen daire) ya
+  pseudo-element'in KENDI arka planina tasinmali ya da kutunun disina
+  tasmayacak sekilde sinirlanmali.
+- **Animasyon elemanin kendisinde DEGIL pseudo-element'te olmali**:
+  `@media (prefers-reduced-motion: reduce)` blogu `.node`'un kendi
+  `animation`'ini kapatiyor. Mustafa'nin makinesinde bu tercih ACIK,
+  yani efekt hic calismadi; dahasi `animationend` gelmedigi icin
+  tetikleyici sinif UZERINDE KALDI ve stil bitis konumunda donup
+  kaldi. `animation` miras alinan bir ozellik olmadigi icin
+  `.node::after` o kuraldan etkilenmez.
+- **Tetikleyici `:active` olmamali**: kisa dokunuslarda animasyonu
+  yarida kesiyor. Sinif ekle + `void offsetWidth` + yeniden ekle
+  deseni gerekiyor, ustune bir de emniyet zamanlayicisi.
 
 ### Ravi butonunun adini yazarken rozet silinmesin (2026-08-19)
 
