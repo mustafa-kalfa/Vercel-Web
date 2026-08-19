@@ -81,7 +81,7 @@
   .lang-ar .bubble-value{font-size:18px;}        /* tr 14px (bubble-row'dan miras) +4 */
   .lang-ar .goal-pill{font-size:17px;}           /* tr 13px +4 */
   .lang-ar .goal-pill small{font-size:15px;}     /* tr 11px +4 */
-  .lang-ar .reset-btn, .lang-ar .next-btn{font-size:17px;}  /* tr 13px +4 */
+  .lang-ar .reset-btn, .lang-ar .next-btn, .lang-ar .prev-btn{font-size:17px;}  /* tr 13px +4 */
   .lang-ar .progress{font-size:16px;}            /* tr 12px +4 */
   .lang-ar .toast{font-size:16px;}               /* tr 12px +4 */
   .lang-ar .node{font-size:17px;}                /* tr 13px +4 */
@@ -392,7 +392,7 @@
     display:flex; flex-direction:column; align-items:flex-end; gap:10px;
     padding:0 2px;
   }
-  .reset-btn, .next-btn{
+  .reset-btn, .next-btn, .prev-btn{
     font-size:13px; font-weight:500;
     font-family:inherit;
     color:var(--foreground);
@@ -405,13 +405,16 @@
     text-decoration:none;
     display:inline-block;
   }
-  .reset-btn:hover, .next-btn:hover{background:var(--hover); border-color:var(--foreground);}
+  .reset-btn:hover, .next-btn:hover, .prev-btn:hover{background:var(--hover); border-color:var(--foreground);}
   /* Isnad dogru tamamlanmadan "Sonraki"nin bir anlami yok -- finish()
      'visible' sinifini eklecek kadar gizli tutuluyor (Bastan baslat'ta
      geri kaldiriliyor). display:none, yalnizca opacity degil: gizliyken
      footer-row'da bos bir bosluk birakmasin. */
-  .next-btn{display:none;}
-  .next-btn.visible{display:inline-block;}
+  .next-btn, .prev-btn, .nav-row{display:none;}
+  .next-btn.visible, .prev-btn.visible{display:inline-block;}
+  /* Ikisi de gizliyken satirin kendisi de yok olmali, yoksa
+     footer-row'un 10px'lik gap'i bos bir bosluk birakir. */
+  .nav-row.visible{display:flex; gap:8px; align-items:center;}
   .progress{
     font-size:12px;
     color:var(--tertiary);
@@ -479,7 +482,10 @@
 
     <div class="footer-row">
       <button class="reset-btn" id="resetBtn" type="button">Baştan Başla</button>
-      <a class="next-btn" id="nextBtn" href="/mustafa-calisiyor" target="_top">Sonraki</a>
+      <div class="nav-row" id="navRow">
+        <button class="prev-btn" id="prevBtn" type="button">Önceki</button>
+        <a class="next-btn" id="nextBtn" href="/mustafa-calisiyor" target="_top">Sonraki</a>
+      </div>
     </div>
   </div>
 </div>
@@ -876,11 +882,19 @@
   // /mustafa-calisiyor yerine SIRADAKI HADISE gotursun. Parametresiz
   // acilan /resule-kavusmak'ta `nextHadith` null kalir, dugme eski
   // hedefinde (ve eski etiketinde) durur.
-  var nextHadith = (function(){
-    if(!hadithParam) return null;
-    var i = HADITHS.indexOf(activeHadith);
-    return (i >= 0 && i + 1 < HADITHS.length) ? HADITHS[i + 1] : null;
-  })();
+  // Izgaradan gelindiyse (?h=) alt bilgideki "Onceki"/"Sonraki"
+  // dugmeleri komsu hadislere goturur. Parametresiz acilan
+  // /resule-kavusmak'ta ikisi de null kalir: orada "Onceki" hic
+  // gorunmez, "Sonraki" ise eskisi gibi /mustafa-calisiyor'a gider.
+  var hadithIndex = HADITHS.indexOf(activeHadith);
+  var prevHadith = hadithParam && hadithIndex > 0 ? HADITHS[hadithIndex - 1] : null;
+  var nextHadith = hadithParam && hadithIndex >= 0 && hadithIndex + 1 < HADITHS.length
+    ? HADITHS[hadithIndex + 1]
+    : null;
+  // `&u=1`: siradaki hadis ZATEN acik (kullanici bunu daha once
+  // bitirmis, simdi tekrar oynuyor). O zaman "Sonraki" bastan
+  // gorunur; aksi halde ancak isnad tamamlaninca belirir.
+  var nextUnlocked = /[?&]u=1(&|$)/.test(window.location.search);
   var MOVE_MS = 900;
 
   // Site-genelindeki dil dugmesi (TR/AR/EN) bu oyunu da etkiler: arapça
@@ -903,7 +917,7 @@
       goalSub: '(s.a.v.)',
       resetBtn: 'Baştan Başla',
       nextBtn: 'Sonraki',
-      nextHadithBtn: 'Sonraki hadis',
+      prevBtn: 'Önceki',
       progressUnit: 'râvi',
       toastFinalStep: 'Son adım: Hz. Nebî’ye (s.a.v.) ulaş!',
       toastCorrectSuffix: ' doğru — sıradaki râviyi bul.',
@@ -922,7 +936,7 @@
       goalSub: '(ﷺ)',
       resetBtn: 'Start over',
       nextBtn: 'Next',
-      nextHadithBtn: 'Next hadith',
+      prevBtn: 'Previous',
       progressUnit: 'narrators',
       toastFinalStep: 'Last step: reach the Prophet ﷺ!',
       toastCorrectSuffix: ' is correct — find the next narrator.',
@@ -941,7 +955,7 @@
       goalSub: '(ﷺ)',
       resetBtn: 'ابدأ من جديد',
       nextBtn: 'التالي',
-      nextHadithBtn: 'الحديث التالي',
+      prevBtn: 'السابق',
       progressUnit: 'راوٍ',
       toastFinalStep: 'الخطوة الأخيرة: صِل إلى النبي ﷺ!',
       toastCorrectSuffix: ' صحيح — ابحث عن الراوي التالي.',
@@ -963,6 +977,8 @@
   var metinValue = document.getElementById('metinValue');
   var hadithBubble = document.getElementById('hadithBubble');
   var nextBtn = document.getElementById('nextBtn');
+  var prevBtn = document.getElementById('prevBtn');
+  var navRow = document.getElementById('navRow');
   var progress = document.getElementById('progress');
   var h1El = document.getElementById('h1Text');
   var ledeEl = document.getElementById('ledeText');
@@ -990,9 +1006,8 @@
     goalLabelEl.textContent = s.goalLabel;
     goalSubEl.textContent = s.goalSub;
     resetBtnEl.textContent = s.resetBtn;
-    // Izgaradan gelindiyse (?h=) dugme siradaki HADISE goturur, sitedeki
-    // /mustafa-calisiyor sayfasina degil -- etiketi de ona gore.
-    nextBtn.textContent = nextHadith ? s.nextHadithBtn : s.nextBtn;
+    nextBtn.textContent = s.nextBtn;
+    prevBtn.textContent = s.prevBtn;
     Array.prototype.forEach.call(document.querySelectorAll('.node'), function(btn){
       var entry = NAME_BY_ID[btn.dataset.id];
       if(entry) btn.textContent = nameFor(entry);
@@ -1106,6 +1121,23 @@
     pathLayer.innerHTML = pts ? '<polyline points="'+pts+'"></polyline>' : '';
   }
 
+  // Alt bilgideki gezinme dugmelerinin gorunurlugu:
+  //  - "Onceki": komsu hadis varsa DAIMA acik (oraya zaten ulasilmis).
+  //  - "Sonraki": siradaki hadis ya zaten acik (`&u=1`) ya da bu
+  //    isnad SIMDI tamamlanmis olmali -- yoksa kilit atlanabilirdi.
+  //  - Parametresiz mod (/resule-kavusmak): "Onceki" yok, "Sonraki"
+  //    eskisi gibi yalnizca bitirince cikar ve /mustafa-calisiyor'a gider.
+  function syncNavButtons(){
+    var finished = goalNode.classList.contains('reached');
+    var showPrev = !!prevHadith;
+    var showNext = hadithParam
+      ? (!!nextHadith && (nextUnlocked || finished))
+      : finished;
+    prevBtn.classList.toggle('visible', showPrev);
+    nextBtn.classList.toggle('visible', showNext);
+    navRow.classList.toggle('visible', showPrev || showNext);
+  }
+
   function lightUpRavi(id){
     var span = document.querySelector('.ravi-name[data-ravi="'+id+'"]');
     if(!span) return;
@@ -1175,7 +1207,7 @@
       lightUpRavi('nebi');
       metinValue.innerHTML = HADITH_TEXT_BY_LANG[currentLang];
       hadithBubble.classList.add('glow-active');
-      nextBtn.classList.add('visible');
+      syncNavButtons();
       // Ust pencereye "bu hadis bitti" haberi. /resule-kavusmak-sinama
       // sirali kilit icin bunu dinliyor (bir sonraki hadisi aciyor ve
       // ilerlemeyi localStorage'a yaziyor). Iframe disinda acildiginda
@@ -1294,12 +1326,7 @@
   // isnad'in Arapca ALINTI metni aktif hadisten gelir (HTML'deki sabit
   // icerik yalnizca varsayilan/niyet hadisi icin bir yedektir).
   document.getElementById('isnadAr').innerHTML = activeHadith.isnad;
-  // Dugme etiketi normalde applyLanguage()'te yaziliyor; ust pencerenin
-  // dili okunamazsa (dogrudan acilan sayfa) o hic calismaz, o yuzden
-  // dogru etiketi burada da bir kez veriyoruz.
-  nextBtn.textContent = nextHadith
-    ? STRINGS[currentLang].nextHadithBtn
-    : STRINGS[currentLang].nextBtn;
+  syncNavButtons();
 
   buildNodes();
   initState();
@@ -1329,6 +1356,14 @@
   // daha hizala.
   video.addEventListener('loadeddata', relayout);
 
+  prevBtn.addEventListener('click', function(){
+    if(!prevHadith || window.parent === window) return;
+    window.parent.postMessage(
+      { type:'resule-kavusmak-prev', hadis: prevHadith.id },
+      '*'
+    );
+  });
+
   // "Sonraki" dugmesi: izgaradan gelindiyse gezinmeyi IPTAL edip ust
   // pencereye siradaki hadisin id'sini yolluyoruz -- oyun ayni sayfada,
   // ayni iframe'de yeni hadisle yeniden kuruluyor (bkz.
@@ -1346,7 +1381,7 @@
   document.getElementById('resetBtn').addEventListener('click', function(){
     goalNode.classList.remove('reached');
     hadithBubble.classList.remove('glow-active');
-    nextBtn.classList.remove('visible');
+    syncNavButtons();
     metinValue.innerHTML = '<span class="placeholder"></span>';
     metinValue.querySelector('.placeholder').textContent = STRINGS[currentLang].placeholder;
     Array.prototype.forEach.call(board.querySelectorAll('.node'), function(el){

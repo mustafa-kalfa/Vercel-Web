@@ -88,29 +88,100 @@ const HADITHS: HadithCard[] = [
   },
 ];
 
-// Izgaranin ve geri dugmesinin arayuz metinleri. Oyunun KENDI metinleri
-// game.html'deki STRINGS'ten geliyor, burasi yalnizca bu sayfaya ait.
+// Bolumler (en ust katman). Ilki bu sayfadaki 12 hadislik listeyi acar;
+// ikincisi 12'si de bitince acilir ve site icinde baska bir sayfaya
+// goturur. Kalan ikisinin icerigi henuz yok, DAIMA kilitli duruyor.
+type SectionCard = {
+  id: string;
+  label: Record<Language, string>;
+  // 'list'  = bu sayfadaki hadis izgarasini acar
+  // 'link'  = siteye ait baska bir sayfaya gider
+  // 'soon'  = icerik henuz yok, hep kilitli
+  kind: "list" | "link" | "soon";
+  href?: string;
+};
+
+const SECTIONS: SectionCard[] = [
+  {
+    id: "tek-isnad",
+    kind: "list",
+    label: {
+      tr: "Tek İsnadlı Hadisler",
+      ar: "الأحاديث ذات الإسناد الواحد",
+      en: "Hadiths with a Single Isnād",
+    },
+  },
+  {
+    id: "tahvil",
+    kind: "link",
+    href: "/mustafa-calisiyor",
+    label: {
+      tr: "Tahvil İçeren Hadisler",
+      ar: "الأحاديث التي فيها تحويل",
+      en: "Hadiths Containing a Taḥwīl",
+    },
+  },
+  { id: "bolum-3", kind: "soon", label: { tr: "", ar: "", en: "" } },
+  { id: "bolum-4", kind: "soon", label: { tr: "", ar: "", en: "" } },
+];
+
+// Izgaralarin ve gezinme dugmelerinin arayuz metinleri. Oyunun KENDI
+// metinleri game.html'deki STRINGS'ten geliyor, burasi yalnizca bu
+// sayfaya ait.
 const UI: Record<
   Language,
-  { heading: string; lede: string; back: string; locked: string }
+  {
+    sectionsHeading: string;
+    sectionsLede: string;
+    heading: string;
+    lede: string;
+    back: string;
+    backToSections: string;
+    locked: string;
+    lockedSection: string;
+    soon: string;
+    congrats: string;
+    close: string;
+  }
 > = {
   tr: {
+    sectionsHeading: "Nereden başlayalım?",
+    sectionsLede: "Bölümler sırayla açılır. Birini bitirmeden sonrakine geçemezsin.",
     heading: "Hangi hadisin isnâdını tırmanmak istersin?",
     lede: "Hadisler sırayla açılır. Bir isnâdı tamamlamadan sonraki hadise geçemezsin.",
     back: "← Hadis listesi",
+    backToSections: "← Bölümlere dön",
     locked: "Henüz kilitli — önceki hadisi tamamla",
+    lockedSection: "Henüz kilitli — önceki bölümü tamamla",
+    soon: "Yakında",
+    congrats: "Tebrikler! Tahvil İçeren Hadisler’in kilidini açtınız.",
+    close: "Kapat",
   },
   ar: {
+    sectionsHeading: "من أين نبدأ؟",
+    sectionsLede: "تُفتح الأقسام بالترتيب: لا تنتقل إلى القسم التالي قبل إتمام الذي قبله.",
     heading: "أيَّ حديثٍ تريد أن تصعد إسناده؟",
     lede: "تُفتح الأحاديث بالترتيب: لا تنتقل إلى الحديث التالي قبل إتمام الإسناد الذي قبله.",
     back: "→ قائمة الأحاديث",
+    backToSections: "→ العودة إلى الأقسام",
     locked: "مقفل — أتمم الحديث السابق",
+    lockedSection: "مقفل — أتمم القسم السابق",
+    soon: "قريبًا",
+    congrats: "تهانينا! لقد فتحتَ قسم «الأحاديث التي فيها تحويل».",
+    close: "إغلاق",
   },
   en: {
+    sectionsHeading: "Where shall we begin?",
+    sectionsLede: "The sections unlock in order: you cannot move on before finishing the one you are on.",
     heading: "Which hadith’s isnād would you like to climb?",
     lede: "The hadiths unlock in order: you cannot move on before completing the isnād you are on.",
     back: "← Hadith list",
+    backToSections: "← Back to sections",
     locked: "Locked — complete the previous hadith",
+    lockedSection: "Locked — finish the previous section",
+    soon: "Coming soon",
+    congrats: "Congratulations! You have unlocked ‘Hadiths Containing a Taḥwīl’.",
+    close: "Close",
   },
 };
 
@@ -188,7 +259,15 @@ function writeProgress(next: string[]) {
 
 export default function ResuleKavusmakSinama() {
   const { t, language } = useLanguage();
+  // Uc katman: bolumler -> hadis listesi -> oyun.
+  //  - inList false, selected null  -> bolum izgarasi (acilis)
+  //  - inList true,  selected null  -> 12 hadislik izgara
+  //  - selected dolu                -> oyun
+  const [inList, setInList] = useState(false);
   const [selected, setSelected] = useState<string | null>(null);
+  // Tebrik pop-up'i yalnizca 12. hadisin BITTIGI AN aciliyor; sonraki
+  // ziyaretlerde (allDone hala true olsa bile) tekrar cikmiyor.
+  const [showCongrats, setShowCongrats] = useState(false);
   // `null` = kayit henuz okunmadi (sunucu render'i / hidrasyon).
   const completed = useSyncExternalStore(
     subscribeProgress,
@@ -196,6 +275,9 @@ export default function ResuleKavusmakSinama() {
     getProgressServerSnapshot,
   );
   const ui = UI[language];
+  // 12'sinin de bitmesi ikinci bolumun kilidini aciyor.
+  const allDone =
+    completed !== null && HADITHS.every((h) => completed.includes(h.id));
 
   const markCompleted = useCallback((id: string) => {
     const list = getProgressSnapshot();
@@ -211,30 +293,58 @@ export default function ResuleKavusmakSinama() {
       if (!e.data) return;
       if (e.data.type === "resule-kavusmak-completed") {
         const id = String(e.data.hadis);
-        if (HADITHS.some((h) => h.id === id)) markCompleted(id);
+        if (!HADITHS.some((h) => h.id === id)) return;
+        markCompleted(id);
+        // 12'nin sonuncusu SIMDI mi bitti? Kayda bu hadis eklendikten
+        // sonraki hale bakiyoruz; oyle ise tebrik pop-up'ini aciyoruz.
+        const after = getProgressSnapshot();
+        if (HADITHS.every((h) => after.includes(h.id))) setShowCongrats(true);
       }
-      // Oyundaki "Sonraki hadis" dugmesi: listeye ugramadan dogrudan
-      // siradaki hadise geciyoruz. Dugme zaten yalnizca isnad
-      // tamamlaninca goruniyor, yani siradaki hadis o an acilmis
-      // oluyor -- yine de kilit kontrolunu burada tekrarliyoruz.
-      if (e.data.type === "resule-kavusmak-next") {
+      // Oyunun alt bilgisindeki "Onceki"/"Sonraki": listeye ugramadan
+      // dogrudan komsu hadise geciyoruz. "Sonraki" zaten ancak siradaki
+      // hadis acikken goruniyor -- yine de kilit kontrolunu burada
+      // tekrarliyoruz, cunku iframe'den gelen mesaja guvenilmez.
+      if (
+        e.data.type === "resule-kavusmak-next" ||
+        e.data.type === "resule-kavusmak-prev"
+      ) {
         const id = String(e.data.hadis);
         const index = HADITHS.findIndex((h) => h.id === id);
-        if (index > 0 && getProgressSnapshot().includes(HADITHS[index - 1].id)) {
-          setSelected(id);
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }
+        if (index < 0) return;
+        const unlocked =
+          index === 0 ||
+          getProgressSnapshot().includes(HADITHS[index - 1].id);
+        if (!unlocked) return;
+        setSelected(id);
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
     }
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);
   }, [markCompleted]);
 
+  // Pop-up acikken Esc kapatsin (yalnizca acikken dinleniyor).
+  useEffect(() => {
+    if (!showCongrats) return;
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") setShowCongrats(false);
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [showCongrats]);
+
   // Sirali kilit: ilk hadis daima acik, digeri ancak KENDINDEN ONCEKI
   // hadis tamamlanmissa acilir.
   function isUnlocked(index: number) {
     if (index === 0) return true;
     return (completed ?? []).includes(HADITHS[index - 1].id);
+  }
+
+  // Oyuna "siradaki hadis zaten acik mi" diye bildirmek icin: kilit
+  // bilgisi burada (localStorage) duruyor, iframe kendi basina bilemez.
+  // Acikken oyunun "Sonraki" dugmesi bastan gorunur.
+  function isNextUnlocked(id: string) {
+    return (completed ?? []).includes(id);
   }
 
   return (
@@ -252,7 +362,73 @@ export default function ResuleKavusmakSinama() {
         />
       </Link>
 
-      {selected === null ? (
+      {selected === null && !inList ? (
+        /* 1. katman: bolumler. Ilki daima acik; ikincisi 12 hadisin
+           tamami bitince acilir; kalan ikisinin icerigi henuz yok. */
+        <div className="mx-auto w-full max-w-3xl px-4 pb-16 pt-28 sm:px-6">
+          <h1 className="text-center text-xl font-semibold sm:text-2xl">
+            {ui.sectionsHeading}
+          </h1>
+          <p className="mx-auto mt-2 max-w-xl text-center text-sm text-black/60 dark:text-cream-dimmer">
+            {ui.sectionsLede}
+          </p>
+
+          {completed !== null && (
+            <div className="mx-auto mt-8 grid max-w-xl grid-cols-2 gap-3 sm:gap-4">
+              {SECTIONS.map((s) => {
+                const unlocked =
+                  s.kind === "list" || (s.kind === "link" && allDone);
+                const hint =
+                  s.kind === "soon" ? ui.soon : ui.lockedSection;
+                const cardClass =
+                  "flex aspect-square flex-col items-center justify-center gap-1.5 rounded-2xl border border-solid px-3 text-center transition-colors sm:px-5 " +
+                  (unlocked
+                    ? "border-black/[.08] hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+                    : "cursor-not-allowed border-dashed border-black/[.12] text-black/25 dark:border-white/[.12] dark:text-cream-dimmer/40");
+                const label = (
+                  <span className="text-sm font-medium leading-tight sm:text-base">
+                    {s.label[language]}
+                  </span>
+                );
+
+                // Acik VE bir sayfaya goturuyorsa gercek bir baglanti
+                // olsun (yeni sekmede acilabilsin, durum cubugunda
+                // hedefi gorunsun); digerleri buton.
+                if (unlocked && s.kind === "link" && s.href) {
+                  return (
+                    <Link key={s.id} href={s.href} className={cardClass}>
+                      {label}
+                    </Link>
+                  );
+                }
+                return (
+                  <button
+                    key={s.id}
+                    type="button"
+                    disabled={!unlocked}
+                    aria-label={unlocked ? undefined : hint}
+                    title={unlocked ? undefined : hint}
+                    onClick={() => setInList(true)}
+                    className={cardClass}
+                  >
+                    {unlocked ? (
+                      label
+                    ) : (
+                      <span
+                        aria-hidden
+                        className="text-2xl font-medium sm:text-3xl"
+                      >
+                        ?
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      ) : selected === null ? (
+        /* 2. katman: 12 hadislik izgara. */
         <div className="mx-auto w-full max-w-3xl px-4 pb-16 pt-28 sm:px-6">
           <h1 className="text-center text-xl font-semibold sm:text-2xl">
             {ui.heading}
@@ -260,6 +436,17 @@ export default function ResuleKavusmakSinama() {
           <p className="mx-auto mt-2 max-w-xl text-center text-sm text-black/60 dark:text-cream-dimmer">
             {ui.lede}
           </p>
+
+          <div className="mt-6 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setInList(false)}
+              className="rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+            >
+              {ui.backToSections}
+            </button>
+          </div>
+
 
           {/* Kullanicinin istedigi duzen: yan yana 3, alt alta 4 sira.
               Sutun sayisi ekran boyutundan BAGIMSIZ olarak 3 -- dar
@@ -315,6 +502,7 @@ export default function ResuleKavusmakSinama() {
           )}
         </div>
       ) : (
+        /* 3. katman: oyun. */
         <div className="pt-24">
           <div className="mx-auto w-full max-w-3xl px-4 sm:px-6">
             <button
@@ -328,7 +516,54 @@ export default function ResuleKavusmakSinama() {
           {/* `key` ZORUNLU: yalnizca `src` degisirse iframe yeniden
               yuklenmeyip onceki hadisin ic durumunu (bulunmus raviler,
               Mustafa'nin konumu) tasiyabiliyor. */}
-          <ResuleKavusmakGame key={selected} hadis={selected} />
+          <ResuleKavusmakGame
+            key={selected}
+            hadis={selected}
+            nextUnlocked={isNextUnlocked(selected)}
+          />
+        </div>
+      )}
+
+      {/* 12. hadis bitince acilan tebrik pop-up'i. Kapatilinca oyunda
+          KALINIYOR -- son hadisin metni daha yeni ortaya cikti,
+          kullanici okumaya devam edebilsin; "Bolumlere don" isteyen
+          icin de ayri bir dugme var. */}
+      {showCongrats && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={ui.congrats}
+          onClick={() => setShowCongrats(false)}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            /* Koyu temada zemin de kart da siyah: golge is gormez,
+               karti arka plandan ayiran sey bu ince cerceve. */
+            className="w-full max-w-sm rounded-2xl border border-solid border-black/[.08] bg-background px-6 py-6 text-center shadow-xl dark:border-white/[.145]"
+          >
+            <p className="text-base font-medium leading-snug">{ui.congrats}</p>
+            <div className="mt-5 flex flex-col items-stretch gap-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setShowCongrats(false);
+                  setSelected(null);
+                  setInList(false);
+                }}
+                className="rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+              >
+                {ui.backToSections}
+              </button>
+              <button
+                type="button"
+                onClick={() => setShowCongrats(false)}
+                className="px-4 py-1 text-sm text-black/50 transition-opacity hover:opacity-70 dark:text-cream-dimmer"
+              >
+                {ui.close}
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </main>

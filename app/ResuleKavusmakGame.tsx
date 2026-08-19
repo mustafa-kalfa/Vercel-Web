@@ -18,14 +18,27 @@ import { useTheme } from "./ThemeContext";
 // /resule-kavusmak-sinama) bu bilesene `key={hadis}` vermeli: iframe'in
 // bastan yuklenmesi gerekiyor, `src` degisimi tek basina oyunun ic
 // durumunu (bulunmus raviler, Mustafa'nin konumu) sifirlamaz.
-export default function ResuleKavusmakGame({ hadis }: { hadis?: string }) {
+//
+// `nextUnlocked`: siradaki hadis kullanicida ZATEN acik mi. Kilit
+// durumu localStorage'da, yani BURADA duruyor; oyun bunu kendi basina
+// bilemez, `&u=1` ile bildiriliyor. Acikken oyunun "Sonraki" dugmesi
+// bastan gorunur (tekrar oynayan kullanici bitirmek zorunda kalmaz),
+// kapaliyken ancak isnad tamamlaninca belirir.
+export default function ResuleKavusmakGame({
+  hadis,
+  nextUnlocked,
+}: {
+  hadis?: string;
+  nextUnlocked?: boolean;
+}) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [height, setHeight] = useState(1200);
   const { theme } = useTheme();
   const { language } = useLanguage();
 
   const src = hadis
-    ? `/resule-kavusmak-game.html?h=${encodeURIComponent(hadis)}`
+    ? `/resule-kavusmak-game.html?h=${encodeURIComponent(hadis)}` +
+      (nextUnlocked ? "&u=1" : "")
     : "/resule-kavusmak-game.html";
 
   useEffect(() => {

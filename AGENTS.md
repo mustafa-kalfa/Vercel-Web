@@ -567,10 +567,11 @@ DOGRU sirayla secip Mustafa karakterini Hz. Nebi'ye "tirmandiriyor".
   `hadis` prop'u verilirse `?h=<id>` ile o hadis acilir.
 - `app/resule-kavusmak/page.tsx` — ince sarmalayici: logo + bilesen,
   `hadis` VERMEDEN (yani varsayilan niyet hadisi).
-- `app/resule-kavusmak-sinama/page.tsx` — coklu-hadis SINAMA surumu:
-  once 12 hadislik bir izgara (3 sutun x 4 sira), bir kutuya
-  basilinca ayni bilesen `hadis={id}` ile aciliyor. Hadisler sirayla
-  aciliyor, ilerleme localStorage'da (bkz. "Sirali kilit").
+- `app/resule-kavusmak-sinama/page.tsx` — coklu-hadis SINAMA surumu.
+  Uc katman: 4 bolum kutusu (2x2) → 12 hadis kutusu (3x4) → oyun
+  (ayni bilesen, `hadis={id}` ile). Hem bolumler hem hadisler sirayla
+  aciliyor, ilerleme localStorage'da (bkz. "Uc katman" ve
+  "Sirali kilit").
 
 ### 12 hadis ve `?h=<id>` (2026-08-19)
 
@@ -603,6 +604,39 @@ secili gelen" butonu arayan yerler sabit `"buhari"` yerine bunu
 kullanir), `HADITH_TEXT_BY_LANG` (= aktif hadisin `text`'i).
 `#isnadAr`'in HTML'i acilis sirasinda `activeHadith.isnad`'dan
 yaziliyor; belgedeki sabit icerik yalnizca niyet hadisi icin yedek.
+
+### Uc katman: bolumler → hadisler → oyun (2026-08-19)
+
+`/resule-kavusmak-sinama` tek bir state cifti (`inList`, `selected`) ile
+uc katman gosteriyor:
+
+1. **Bolumler (acilis):** 4 kutu, 2x2. `SECTIONS` dizisi.
+   - `tek-isnad` — "Tek Isnadli Hadisler", DAIMA acik, 2. katmani acar.
+   - `tahvil` — "Tahvil Iceren Hadisler", 12 hadisin TAMAMI bitince
+     acilir; acilinca `<button>` degil gercek bir `<Link>` olur ve
+     `/mustafa-calisiyor`a gider.
+   - 3. ve 4. kutu (`kind:'soon'`) — icerik henuz yok, DAIMA kilitli
+     ("?" + `title="Yakinda"`). Iceri gelince `kind`'lerini degistir.
+2. **Hadis izgarasi:** 12 kutu, 3x4 (asagidaki "Sirali kilit").
+3. **Oyun:** iframe.
+
+Kilitli kutu her iki izgarada da ayni: isim/kaynak gizli, yalnizca
+buyuk bir "?" ve `disabled` buton.
+
+**Tebrik pop-up'i:** 12. hadis BITTIGI AN ekranin ortasinda bir modal
+aciliyor ("Tebrikler! Tahvil Iceren Hadisler'in kilidini actiniz." +
+"Bolumlere don" + "Kapat"). Sayfa duzeninde duran sabit bir kutu DEGIL
+(2026-08-19'da once oyle yapilmisti, Mustafa pop-up istedi).
+
+Tetikleyici `allDone` DEGIL, tamamlanma mesajinin kendisi: kayda bu
+hadis eklendikten SONRAKI hale bakilip 12'si de doluysa
+`setShowCongrats(true)`. Boylece pop-up yalnizca o an cikiyor, her
+ziyarette tekrar acilmiyor (`allDone` hala true olsa bile).
+
+"Kapat" oyunda BIRAKIYOR, disari atmiyor: son hadisin metni daha yeni
+ortaya cikti, kullanici okumaya devam edebilmeli. Esc de kapatir.
+Karttaki ince cerceve sus degil: koyu temada hem zemin hem kart siyah
+oldugu icin golge is gormuyor, karti arka plandan ayiran tek sey o.
 
 ### Sirali kilit ve ilerleme (2026-08-19)
 
@@ -822,17 +856,31 @@ DEGIL, `t.workingOnIt` (uc dilde de cevirisi var). `#nextBtn`
 icinde gomulu oldugu icin `_top` olmadan tiklama yalnizca iframe'i
 degistirir, ust sayfayi degil.
 
-**Ancak `?h=` ile acildiysa (izgaradan gelindiyse) ve sirada baska bir
-hadis varsa (2026-08-19):** dugme `/mustafa-calisiyor`a DEGIL SIRADAKI
-HADISE goturur. `nextHadith` turemis degiskeni doluysa tiklama
-`preventDefault()` ile iptal edilip ust pencereye
-`{type:'resule-kavusmak-next', hadis:<id>}` yollaniyor; sayfa da ayni
-iframe'i yeni hadisle yeniden kuruyor (React `key`'i degistigi icin
-tam yeniden yukleme). Etiket de degisir: `nextHadithBtn`
-("Sonraki hadis" / "الحديث التالي" / "Next hadith").
-Parametresiz acilan `/resule-kavusmak`'ta ve SON hadiste `nextHadith`
-null kalir — dugme eski etiketiyle (`nextBtn`) `/mustafa-calisiyor`a
-gider, yani eski davranis korunur.
+**Ancak `?h=` ile acildiysa (izgaradan gelindiyse)** dugme
+`/mustafa-calisiyor`a DEGIL SIRADAKI HADISE goturur, ve yanina bir de
+`#prevBtn` ("Onceki") gelir — ikisi `.nav-row` icinde yan yana.
+Tiklama `preventDefault()` ile iptal edilip ust pencereye
+`{type:'resule-kavusmak-next'|'resule-kavusmak-prev', hadis:<id>}`
+yollaniyor; sayfa ayni iframe'i yeni hadisle yeniden kuruyor (React
+`key`'i degistigi icin tam yeniden yukleme).
+
+Gorunurluk TEK yerden, `syncNavButtons()`'tan yonetiliyor (acilis,
+`finish()` ve "Bastan Basla" bu fonksiyonu cagirir — kurallari
+dagitma):
+- **Onceki:** komsu hadis varsa daima acik (oraya zaten ulasilmis).
+- **Sonraki:** ya siradaki hadis ZATEN acik (URL'de `&u=1`) ya da bu
+  isnad simdi tamamlanmis olmali. Kilit bilgisi localStorage'da, yani
+  React tarafinda; oyun bunu kendi basina bilemedigi icin `&u=1`
+  parametresiyle bildiriliyor (`ResuleKavusmakGame`'in `nextUnlocked`
+  prop'u). Bu sayede tekrar oynayan kullanici "Sonraki"yi gormek icin
+  isnadi bir daha bitirmek zorunda kalmiyor.
+- **SON hadiste** `nextHadith` null olur, "Sonraki" hic cikmaz —
+  oradan devam yolu tebrik kutusundaki "Bolumlere don" dugmesi.
+- **Parametresiz `/resule-kavusmak`:** "Onceki" hic yok, "Sonraki"
+  eskisi gibi yalnizca bitirince cikar ve `/mustafa-calisiyor`a gider.
+
+`.nav-row` ikisi de gizliyken `display:none` — yoksa `.footer-row`'un
+10px'lik `gap`'i bos bir bosluk birakiyor.
 
 ### Marka logosu artik sabit degil (2026-08-19)
 
