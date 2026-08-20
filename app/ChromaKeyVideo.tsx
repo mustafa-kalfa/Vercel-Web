@@ -26,9 +26,25 @@ const FRAGMENT_SHADER = `
 precision mediump float;
 varying vec2 uv;
 uniform sampler2D frame;
+uniform float texelY; // 1.0 / video.videoHeight
 void main() {
   vec3 color = texture2D(frame, vec2(uv.x, uv.y * 0.5)).rgb;
-  float alpha = texture2D(frame, vec2(uv.x, uv.y * 0.5 + 0.5)).r;
+  /* Maskenin ILK satirini OKUMA. Kaynak dosyada o satir temiz (olculdu:
+     luma 0), ama tarayici yuv420p'yi RGB'ye cevirirken kroma satirlarini
+     ARA DEGERLIYOR: kroma yarim cozunurlukte oldugu icin sinirin hemen
+     ustundeki son RENK satirinin kromasi maskenin ilk satirina siziyor ve
+     alfayi 0 yerine ~10/255 yapiyor. Sonuc, goruntunun UST KENARINDA tam
+     genislikte ince bir cizgi (acik temada belli oluyor, siyahta degil).
+     Renk yarisinin alt kenari ne kadar parlak/doygunsa cizgi o kadar
+     gorunur: kose karakterlerinde fark edilmiyordu, alt kenari bastan
+     basa col olan "Mustafa Rihle"de fark edildi (2026-08-20).
+     Cozum: ust kenari 2.5 doku satiri icerden ornekle. 1.5 YETMEZ --
+     mediump float (iOS'ta gercekten fp16 olabilir) 0.5 civarinda ~1
+     satirlik adimlarla yuvarliyor ve kirli satira geri dusebiliyor.
+     Bedeli: en ustteki 2 satirin alfasi ucuncu satirdan geliyor; o
+     bolge bu kliplerin hepsinde zaten seffaf. */
+  float alphaY = max(uv.y * 0.5 + 0.5, 0.5 + 2.5 * texelY);
+  float alpha = texture2D(frame, vec2(uv.x, alphaY)).r;
   gl_FragColor = vec4(color, alpha);
 }`;
 
@@ -96,6 +112,7 @@ export default function ChromaKeyVideo({
     let cizildi = false; // en az bir kare canvas'a gitti mi?
     let gozcu: ReturnType<typeof setTimeout> | null = null;
     let gl: WebGLRenderingContext | null = null;
+    let texelYKonum: WebGLUniformLocation | null = null;
     let hasFrameCallback = false;
 
     /* --- WebGL kurulumu. Context kaybinda yeniden cagrilabilir. --- */
@@ -128,6 +145,7 @@ export default function ChromaKeyVideo({
       ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_MIN_FILTER, ctx.LINEAR);
       ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_MAG_FILTER, ctx.LINEAR);
 
+      texelYKonum = ctx.getUniformLocation(program, "texelY");
       gl = ctx;
       return true;
     }
@@ -147,6 +165,7 @@ export default function ChromaKeyVideo({
           canvas.height = height;
           gl.viewport(0, 0, width, height);
         }
+        gl.uniform1f(texelYKonum, 1 / video.videoHeight);
         gl.texImage2D(
           gl.TEXTURE_2D,
           0,

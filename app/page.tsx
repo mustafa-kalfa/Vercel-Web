@@ -111,7 +111,7 @@ export default function Home() {
               Hakkinda" 158px'e sigmayip iki satira dusuyordu. Tasan
               durumda da yazi ortali kalsin diye text-center. */}
           <Link
-            href="/mustafa-calisiyor"
+            href="/rihle"
             className="flex h-12 w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-foreground px-5 text-center text-background transition-opacity hover:opacity-90 md:w-auto md:min-w-[158px]"
           >
             <SwapContent

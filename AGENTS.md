@@ -187,7 +187,7 @@ anahtari). `d = g - max(r,b)` olcusu parlaklik degisiminden etkilenmiyor:
 
 | | `d` |
 |---|---|
-| gokyuzu `#00853B` | 133 |
+| gokyuzu `#00853B` | 76 |
 | tulun en acik yeri `#699F5C` | 54 |
 | kum, ten, beyaz kumas, dag -- sahnenin TAMAMI | <= 0 |
 
@@ -228,6 +228,66 @@ genislikte bir ufuk seridi (`w-full`, boylece sert dikey kenar hic
 olusmuyor), masaustunde yukseklikten sinirlanan bir kose susu
 (`sm:h-[45vh] sm:w-auto sm:max-w-none`). `Mustafa Yagmur` da ayni kalibi
 kullaniyor.
+
+### Ust kenardaki ince cizgi — kroma sizmasi (2026-08-20)
+
+`Mustafa Rihle` sitede yayina girince goruntunun **ust kenarinda tam
+genislikte cok ince, koyu bir cizgi** goruldu. Uzun surdu, cunku
+**dosyada bir sorun YOK** ve ffmpeg ile bakinca hicbir sey gorunmuyor:
+
+- Paketlenmis mp4'te maskenin ilk satiri (satir 1080) temiz: luma
+  ortalamasi 0.2, en yuksek 3.
+- Kaynak 8K'nin ust satirlari da temiz: `d` degeri 74-78, esigin
+  (35) cok ustunde, yani tam seffaf.
+- ffmpeg'le RGB'ye cevirip (`full_chroma_int` dahil) olcunce bile
+  R ortalamasi 0.72.
+
+Sizma **tarayicinin kendi video->doku donusumunde** oluyor. `yuv420p`de
+kroma yarim dikey cozunurlukte; tarayici RGB'ye cevirirken kroma
+satirlarini ARA DEGERLIYOR ve maskenin ilk satiri, kroma orneginin bir
+kismini **sinirin hemen ustundeki son RENK satirindan** aliyor. O satir
+bizim klipte bastan basa parlak kum. Sonuc: `R = 1.793*(Cr-128)`
+kadar bir alfa. WebGL'de `readPixels` ile olculdu:
+
+| satir | eski alfa (ort/max) | duzeltmeden sonra |
+|---|---|---|
+| 0 (ust kenar) | **10.47 / 16** | 0.15 / 3 |
+| 1 | 0.59 / 8 | 0.15 / 3 |
+| 2 | 0.15 / 3 | 0.15 / 3 |
+
+10/255 = %4 opaklik; renk yarisi orada premultiplied SIYAH oldugu icin
+cizgi koyu cikiyor -- **acik temada goruluyor, siyah temada hic
+gorunmuyor.** Sadece ust satiri etkiliyor (kroma "center siting": luma
+satiri 1080 kromasini 0.75/0.25 ile 540 ve 539'dan aliyor; 1081 temiz).
+
+**Bu bir Rihle sorunu degil, BORUHATTI sorunu** -- her klipte var, ama
+renk yarisinin ALT kenari ne kadar parlak/doygunsa o kadar goruluyor.
+Kose karakterlerinde alt kenar ya seffaf ya kucuk bir alan oldugu icin
+yillarca fark edilmedi (olculdu: Karsilama/Kediler/HD-Mini'de 0).
+
+**Cozum `ChromaKeyVideo.tsx`'te, shader'da:** maskenin ilk satirini hic
+okuma, ust kenari 2.5 doku satiri icerden ornekle
+(`max(uv.y*0.5+0.5, 0.5+2.5*texelY)`, `texelY = 1/videoHeight`).
+
+- **Neden 2.5, 1.5 degil:** `precision mediump float` iOS'ta gercekten
+  fp16 olabilir; 0.5 civarinda adim ~1 doku satiri. 1.5 verilirse asagi
+  yuvarlanip kirli satirin %45'ini geri okuyabiliyor.
+- **Neden `max`, sabit kaydirma degil:** `max` yalnizca en ustteki 2
+  satiri etkiliyor, geri kalan her satir eskisi gibi. Alfayi tumden 1
+  satir kaydirmak butun kliplerde maskeyi renkten ayirirdi.
+- **Bedeli olculdu:** ust 2 satirin alfasi ucuncu satirdan geliyor.
+  Kliplerin ustu zaten seffaf; tepesinde gercek icerik olan tek klip
+  `Mustafa Yagmur` (agac dallari) ve orada fark 12.05 -> 13.34, yani
+  1/255. Karsilama, Kediler, HD-Mini'de fark SIFIR.
+- `texelY` uniform'u HER KAREDE yaziliyor, canvas olcusu degisince
+  degil: context kaybindan sonra `kur()` yeni bir program uretiyor ama
+  canvas olcusu ayni kaldigi icin o dal calismaz ve uniform 0 kalirdi
+  (cizgi geri gelirdi).
+
+Yeni bir klipte bu cizgiyi olcmek icin (sayfa acikken konsolda ya da
+`javascript_tool` ile): klibi bir `<video>`ye yukle, shader'i kur,
+`gl.readPixels(0, H-1, W, 1, ...)` ile EN UST satirin alfa ortalamasina
+bak. 10 civari bir deger sizma, 0 temiz.
 
 ### `HD-Mini.mp4` — ayni klipten kirpilmis header logosu
 
