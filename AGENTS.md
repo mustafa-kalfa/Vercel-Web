@@ -167,6 +167,68 @@ lumadan turet, rengi saf siyah birak.**
 `_yesil-perde.ps1` bu yolu tanimiyor; dogrudan ffmpeg ile uretildi
 (`geq` + vstack), ama cikti bayraklari script'inkiyle ayni tutuldu.
 
+### Dorduncu durum: yesil GOKYUZU, sahnenin geri kalani klibin ICINDE
+
+Bazi klipler karakter degil, bir SAHNE: yalnizca gokyuzu yesil cekilmis,
+zeminin (col, sahil, park) kendisi cizimin parcasi. `Mustafa
+Yagmur_seffaf.mp4` ve `Mustafa Rihle_seffaf.mp4` boyle. Karakteri tek
+basina kesip cikarmaya CALISMA -- zeminin uzerinde duruyor, renk
+anahtarlamayla ayrilamaz; dogru sonuc "gokyuzu seffaf, sahne opak".
+
+`Mustafa Rihle.mp4` (2026-08-20) bu turde YENI bir tuzak gosterdi:
+**gokyuzunun uzerine yari saydam kum/toz tulleri cizilmis.** O tuller
+yesili beyaza dogru actigi icin (`#00853B` -> `#699F5C`) `colorkey`
+mesafesi 0.256'ya cikiyor, yani esigin (0.10+0.05) cok disinda kaliyor ve
+gokyuzunun ortasinda **yaprak seklinde yesil bir leke** opak kaliyordu.
+Esigi 0.26'ya acmak coz*mez*: karakterin acik renkleri de o bantta.
+
+Cozum, mesafe yerine **renk baskinligiyla** anahtarlamak (klasik fark
+anahtari). `d = g - max(r,b)` olcusu parlaklik degisiminden etkilenmiyor:
+
+| | `d` |
+|---|---|
+| gokyuzu `#00853B` | 133 |
+| tulun en acik yeri `#699F5C` | 54 |
+| kum, ten, beyaz kumas, dag -- sahnenin TAMAMI | <= 0 |
+
+Rampa `d = 10` (tam opak) -> `d = 35` (tam seffaf): tul de gokyuzuyle
+birlikte gidiyor ve on plana 10 birimlik pay kaliyor. Bu sahnede hic
+yesil nesne olmadigi icin pay fazlasiyla genis; **yesil bir nesne varsa
+(bitki, yesil kiyafet) bu yol kullanilamaz.**
+
+```
+[0:v]format=gbrap,
+geq=r='r(X,Y)':g='min(g(X,Y),max(r(X,Y),b(X,Y))+12)':b='b(X,Y)'
+   :a='255-clip((g(X,Y)-max(r(X,Y),b(X,Y))-10)*255/25,0,255)',
+format=rgba,premultiply=inplace=1, ...  (gerisi script'le ayni)
+```
+
+- `g` kanalinin `max(r,b)+12` ile kirpilmasi **despill yerine geciyor**:
+  on planda `d <= 0` oldugu icin hicbir seye dokunmuyor, yalnizca ufuk
+  cizgisindeki yari saydam piksellerin yesil fazlasini kesiyor. Ayri bir
+  `despill` filtresine gerek kalmadi.
+- **Erozyon (maske daraltma) KULLANILMADI.** Rampa zaten kenari ~1/3
+  piksel iceri cekiyor; ustune erozyon eklemek gokyuzunde ucusan minik
+  kum zerrelerini yiyordu (o zerreler kalsin, koyu temada yildiz gibi
+  duruyorlar). Ufuk kenari siyah zeminde 3 kat buyutmede kontrol edildi:
+  yesil halka yok.
+
+Kaynak 8K HEVC (`yuv420p`, alfa yok) geldi. Once ProRes 422 HQ ara
+dosyaya 1920x1080'e indirildi (`scale=1920:1080:flags=lanczos`), sonra
+yukaridaki zincir uygulandi -- 8K'da `geq` calistirmak dakikalar suruyor
+ve kazanci yok. Ara dosyayi ProRes yap, mp4 yapma: 4:2:2 kroma
+anahtarlamaya yardim ediyor. Ham 8K kaynak `Çalışma Alanı/`'nda; **public/
+altinda BIRAKMA**, 59 MB.
+
+**Yerlesim:** 16:9 bir sahne, `/mustafa-calisiyor`in `h-[50vh] right-0`
+olcusunu kaldirmiyor -- o olcu 16:9'da 89vh genislik demek, sahne butun
+sayfayi kapliyor ve balon karakterin kafasina biniyor (olculdu, 1280x720
+gorunum alaninda klip 1280x720 cikiyor). Bu klipler mobilde tam
+genislikte bir ufuk seridi (`w-full`, boylece sert dikey kenar hic
+olusmuyor), masaustunde yukseklikten sinirlanan bir kose susu
+(`sm:h-[45vh] sm:w-auto sm:max-w-none`). `Mustafa Yagmur` da ayni kalibi
+kullaniyor.
+
 ### `HD-Mini.mp4` — ayni klipten kirpilmis header logosu
 
 `/selam` ustundeki logo (eskiden `.brand-logo` CSS maskesi) artik
