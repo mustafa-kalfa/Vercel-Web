@@ -275,8 +275,10 @@ export default function ChromaKeyVideo({
   }, [src]);
 
   if (yedegeGec) {
-    /* eslint-disable-next-line @next/next/no-img-element */
+    /* Yedek poster. next/image burada ise yaramaz: olcu canvas ile ayni
+       kalmali ve dosya zaten optimize edilmis bir PNG. */
     return (
+      // eslint-disable-next-line @next/next/no-img-element
       <img
         src={posterYolu(src)}
         alt=""

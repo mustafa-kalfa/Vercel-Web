@@ -77,6 +77,10 @@ export default function IntroVideo() {
     const stored = Number(localStorage.getItem(VISIT_KEY) ?? "0");
     const count = stored + 1;
     localStorage.setItem(VISIT_KEY, String(count));
+    // Sayac localStorage'dan geliyor, sunucuda render sirasinda okunamaz.
+    // Ilk render bilerek null donuyor (asagidaki erken cikis), yoksa sunucu
+    // ciktisi ile istemci uyusmaz. Kural bu istisnayi tanimiyor.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setVisitCount(count);
   }, []);
 
