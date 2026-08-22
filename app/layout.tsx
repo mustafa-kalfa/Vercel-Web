@@ -28,7 +28,13 @@ export const metadata: Metadata = {
   // hic cekemiyor, onizleme bos/beyaz kaliyordu. Goruntunun kendisi
   // app/opengraph-image.tsx'te.
   metadataBase: new URL("https://mustafakalfa.com"),
-  title: "Hadis ve Dijital",
+  // Sablon: alt sayfalar yalnizca kendi adini veriyor, sonuna site adi
+  // otomatik ekleniyor ("Podcastler — Hadis ve Dijital"). Anasayfa
+  // sablonu kullanmiyor, default'i oldugu gibi aliyor.
+  title: {
+    default: "Hadis ve Dijital",
+    template: "%s — Hadis ve Dijital",
+  },
   description: "Klasik ile günümüzü birleştirmek mümkün mü? Hadis ve Dijital.",
   // Sekme ikonu seffaf zeminli: acik modda siyah, koyu modda beyaz HD.
   // (app/icon.png dosya kuralindan cikarildi, yoksa kendi linkini de

@@ -1,5 +1,13 @@
 import ResuleKavusmakHub from "../ResuleKavusmakHub";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Resûle Kavuşmak",
+  description:
+    "Hadis râvilerini doğru sırayla seçip isnâd zincirini tamamlama oyunu.",
+};
+
 // Isnad oyununun asil sayfasi. Butun icerik (bolum/hadis izgaralari,
 // kilit, ilerleme, oyun) `app/ResuleKavusmakHub.tsx` icinde; burasi
 // yalnizca rotayi ona bagliyor.
