@@ -104,6 +104,26 @@ tasiyor -- `/sinama` (anasayfanin kopyasi), `/resule-kavusmak-sinama`
 ASILLARINI da zayiflatirdi. Yeni bir deneme kopyasi acarsan ayni satiri
 eklemeyi unutma.
 
+## sitemap.xml ve robots.txt
+
+`app/sitemap.ts` ve `app/robots.ts` -- build sirasinda uretiliyorlar,
+calisan bir program eklemiyorlar.
+
+**YENI SAYFA EKLEYINCE `app/sitemap.ts` icindeki `YOLLAR` listesine de
+ekle.** Liste bilerek elle tutuluyor; `app/` altini otomatik taramak
+deneme kopyalarini da iceri alir ve hangisinin bilerek disarida oldugu
+belirsizlesir. Su an listede olmayanlar: `/sinama`,
+`/resule-kavusmak-sinama`, `/su-anda-buradasiniz` (ucu de noindex).
+
+**robots.txt HICBIR SEYI engellemiyor, bu kasitli.** Kopya sayfalar meta
+etiketle indeks disi tutuluyor; ama Google bir sayfayi TARAYAMAZSA o
+etiketi de okuyamaz ve adresi baska yerde gorurse yine listeye alabilir.
+Yani oraya `disallow` yazmak indeks disi birakma isini BOZAR.
+
+`lastModified` bilerek yazilmiyor: her deploy'da "bugun" yazmak butun
+sayfalar her gun degisiyormus izlenimi verir ve Google boyle bir
+sitemap'in tarihlerine guvenmeyi birakir. Alan zaten istege bagli.
+
 ## `/rihle`
 
 Tek balonlu kisa bir sayfa (`t.journeyAhead` -- "Bir yolculuk yaklasiyor").
