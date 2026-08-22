@@ -49,6 +49,10 @@ geri acildi; buton parilti efektlerinin uc surumu (`036ab8d`, `a0da1fc`,
 Anasayfa degisince `/sinama` da elle guncellenmeli -- ortak bir bilesen
 degil, KOPYA; iki dosya kendiliginden es kalmiyor.
 
+Arama motorlarina KAPALI (`app/sinama/layout.tsx`, `robots.index:
+false`) -- anasayfanin kopyasi oldugu icin acik kalsa Google ikisini
+kopya sayip anasayfayi da zayiflatirdi.
+
 `public/sinama/` klasoru ise yok: deneme varliklari (klipler vb.)
 `public/` kokunde duruyor. 2026-08-08'de kullanimdan kalkan
 `Mustafa Kediler Dogru_seffaf.mp4` o zaman silinmisti.
@@ -75,6 +79,62 @@ DEGIL, `npm run build && npx next start` ile yap.
 Yan etki: ziyaretcinin adres cubugunda `/su-anda-buradasiniz` YAZMAZ,
 yazdigi adres kalir. Adresin degismesi istenirse tek yol istemci
 tarafinda `history.replaceState` -- ama o da gercek 404 durumunu korur.
+
+## Sayfa basliklari (metadata) -- iki ayri yol
+
+Kok `app/layout.tsx` bir sablon veriyor: `title.template = "%s — Hadis ve
+Dijital"`. Alt sayfalar YALNIZCA kendi adini yaziyor, site adi sonuna
+kendiliginden ekleniyor. Anasayfa sablonu kullanmiyor, `title.default`i
+oldugu gibi aliyor.
+
+Yeni bir sayfaya baslik eklerken sayfanin turune bak:
+
+- Sayfa `"use client"` ise **metadata export EDEMEZ** (Next.js metadata'yi
+  yalnizca sunucu bileseninden okur, hata da vermez -- sessizce yok sayar).
+  Rota klasorune ince bir `layout.tsx` koy: metadata orada, govdesi sadece
+  `return children`. Ornek: `app/podcastler/layout.tsx`.
+- Sayfa sunucu bileseni ise (ustunde `"use client"` yok) metadata dogrudan
+  `page.tsx`e yazilir, fazladan dosya gerekmez. Ornek:
+  `app/resule-kavusmak/page.tsx`.
+
+**Kopya adresler aramaya KAPALI.** Uc adres `robots: { index: false }`
+tasiyor -- `/sinama` (anasayfanin kopyasi), `/resule-kavusmak-sinama`
+(ayrica `alternates.canonical` ile asil adresi gosteriyor) ve
+`/su-anda-buradasiniz`. Acik kalsalardi Google kopya sayfa gorup
+ASILLARINI da zayiflatirdi. Yeni bir deneme kopyasi acarsan ayni satiri
+eklemeyi unutma.
+
+## `/rihle`
+
+Tek balonlu kisa bir sayfa (`t.journeyAhead` -- "Bir yolculuk yaklasiyor").
+Anasayfadaki "Baslayalim" dugmesi buraya gidiyor.
+
+Kose klibi (`Mustafa Rihle_seffaf.mp4`) otekilerden FARKLI: bir karakter
+degil, 16:9 bir SAHNE -- gokyuzu yesil cekilmis, col klibin icinde. Bu
+yuzden `/mustafa-calisiyor`un `h-[50vh] right-0` olcusu burada
+KULLANILAMAZ (16:9'da o olcu 89vh genislik demek, sahne sayfayi kaplayip
+balonu eziyordu). Gerekcenin tamami `app/rihle/page.tsx` icindeki
+yorumda; degistirmeden once oku.
+
+## `AudioPlayer.tsx` -- podcast oynaticisi
+
+`<AudioPlayer src title? autoPlay? />`. Kendi arayuzunu ciziyor (oynat/
+duraklat, 5 sn geri/ileri, hiz 0.75-2x, surgu), tarayicinin ham
+`controls` arayuzu kullanilmiyor. Su an TEK yerde: `/hadis-tarihi`,
+"Mihne Hadisesi" dugmesine basilinca aciliyor.
+
+Iki tuzak, ikisi de dosyada yorumlu: `playbackRate` bir DOM ozelligi,
+yeni `<audio>` her zaman 1x baslar ve kaynak degisince sifirlanir (efektle
+senkron tutuluyor); `autoPlay` tarayici tarafindan reddedilebilir, o
+durumda dugme duraklatilmis halde kaliyor.
+
+**ACIK EKSIK (2026-08-22): ses dosyasi YOK.** `MIHNA_SRC` =
+`/podcast/mihne-hadisesi.mp3` ama `public/podcast/` klasoru hic
+olusturulmamis; adres yayinda 404 donuyor. Oynatici hatayi yakalayip
+(`onError` -> `failed`) duzgun bir uyari gosteriyor, yani sayfa
+kirilmiyor -- ama dugmeye basan ziyaretci sesi DINLEYEMIYOR. Dosya
+`public/podcast/mihne-hadisesi.mp3` olarak eklenirse baska hicbir
+degisiklik gerekmiyor.
 
 ## Vercel Web Analytics (trafik istatistigi)
 
