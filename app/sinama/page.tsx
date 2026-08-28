@@ -256,7 +256,9 @@ export default function Sinama() {
           </Link>
         </div>
       </main>
-      <Footer />
+      {/* Kart izgarasi zaten ayni yerlere goturuyor; footer'da tekrari
+          gereksiz. Kart izgarasi olmayan sayfalarda liste gosteriliyor. */}
+      <Footer sayfaListesi={false} />
     </div>
   );
 }

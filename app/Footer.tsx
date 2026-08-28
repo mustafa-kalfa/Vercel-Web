@@ -17,7 +17,18 @@ import { useLanguage } from "./LanguageContext";
    riskini tamamen kaldiriyor. Yil degisince burayi guncelle. */
 const YIL = 2026;
 
-export default function Footer() {
+/* `sayfaListesi`: footer'daki sayfa baglantilarinin gosterilip
+   gosterilmeyecegi.
+
+   Anasayfa ve /sinama govdesinde zaten ayni yerlere goturen kart
+   izgarasini tasiyor; footer'da tekrarlamak ayni listeyi tek ekranda
+   iki kez gostermek oluyor. Kart izgarasi olmayan sayfalarda ise bu
+   liste sitede gezinmenin tek yolu -- o yuzden ontanimli `true`. */
+export default function Footer({
+  sayfaListesi = true,
+}: {
+  sayfaListesi?: boolean;
+}) {
   const { t } = useLanguage();
 
   const baglantilar = [
@@ -35,6 +46,7 @@ export default function Footer() {
        ekranin ortasinda asili kalmasin, dibe otursun. */
     <footer className="mt-auto w-full border-t border-black/[.08] dark:border-white/[.145]">
       <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-8 py-8 sm:px-16 md:max-w-5xl">
+        {sayfaListesi ? (
         <nav aria-label={t.brandAlt}>
           <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
             {baglantilar.map((b) => (
@@ -49,6 +61,7 @@ export default function Footer() {
             ))}
           </ul>
         </nav>
+        ) : null}
 
         {/* Her sey SOLA yasli, sag alt kose bilerek bos birakiliyor.
             Sitede karakter klipleri (`/sinama`, `/selam`) tam oraya
@@ -89,7 +102,7 @@ export default function Footer() {
                 >
                   <path d="M9.527 18.95q2.116-5.301 4.098-10.653l4.261 10.653zM28.538 27.472l-10.326-25.894h-7.374l1.311 3.278-8.85 22.616c-0.327 1.147-1.311 1.312-2.294 1.476v1.475h8.523v-1.475c-2.294-0.164-3.606-0.492-2.623-2.95 0.531-1.125 1.086-2.536 1.56-3.983l0.079-0.278h10.488l1.475 3.769c0.161 0.479 0.277 1.036 0.326 1.612l0.002 0.026c0 1.311-1.147 1.803-3.278 1.803v1.475h13.441v-1.475c-1.147-0.163-2.131-0.491-2.458-1.475z" />
                 </svg>
-                ibnhaldun.academia.edu
+                academia.edu/MustafaKalfa
               </a>
             </li>
             <li>
