@@ -6,6 +6,10 @@ import { useLanguage } from "../LanguageContext";
 import SwapContent from "../SwapContent";
 import { TRANSLATIONS, type Language } from "../translations";
 
+/* Ceviri sozlugunun anahtarlari. Kart dizisi metni degil bu anahtari
+   tutuyor, boylece SwapContent ayni anahtari iki dilde de cozebiliyor. */
+type CeviriAnahtari = keyof (typeof TRANSLATIONS)[Language];
+
 /* Kart ikonlari. Hepsi ayni kalipta: 24'luk viewBox, dolgu yok, cizgi
    `currentColor`'dan geliyor (yani kartin metin rengini takip ediyor,
    iki temada da ayri bir kural gerekmiyor), kalinlik 1.8.
@@ -91,37 +95,45 @@ function KitapIcon() {
 export default function Sinama() {
   const { t, language, outgoingLanguage } = useLanguage();
 
-  /* Kartlar. Her birinin kendi ikonu var, kartin SAG UST kosesinde
-     duruyor (basligin solunda denendi, koseye alindi). */
+  /* Kartlar. Metinler COZULMUS DEGIL, ceviri ANAHTARI olarak tutuluyor
+     (`adAnahtar` / `altAnahtar`). Sebep: dil degisiminde SwapContent
+     hem eski hem yeni dilin metnini ayni anda cizmek zorunda, yani
+     `t.cardPodcasts` gibi tek bir dile baglanmis bir dize ise
+     yaramiyor -- anahtardan iki dilde de okunabilmesi gerekiyor. */
   const kartlar: {
     href: string;
-    ad: string;
-    alt: string;
+    adAnahtar: CeviriAnahtari;
+    altAnahtar: CeviriAnahtari;
     ikon: React.ReactNode;
   }[] = [
     {
       href: "/ravi-iliski-aglari",
-      ad: t.cardNetworks,
-      alt: t.cardNetworksDesc,
+      adAnahtar: "cardNetworks",
+      altAnahtar: "cardNetworksDesc",
       ikon: <AgIcon />,
     },
     {
       href: "/podcastler",
-      ad: t.cardPodcasts,
-      alt: t.cardPodcastsDesc,
+      adAnahtar: "cardPodcasts",
+      altAnahtar: "cardPodcastsDesc",
       ikon: <MikrofonIcon />,
     },
-    { href: "/rihle", ad: t.cardRihle, alt: t.cardRihleDesc, ikon: <YolIcon /> },
+    {
+      href: "/rihle",
+      adAnahtar: "cardRihle",
+      altAnahtar: "cardRihleDesc",
+      ikon: <YolIcon />,
+    },
     {
       href: "/resule-kavusmak",
-      ad: t.cardGames,
-      alt: t.cardGamesDesc,
+      adAnahtar: "cardGames",
+      altAnahtar: "cardGamesDesc",
       ikon: <GamepadIcon />,
     },
     {
       href: "/egitim-icerikleri",
-      ad: t.cardEducation,
-      alt: t.cardEducationDesc,
+      adAnahtar: "cardEducation",
+      altAnahtar: "cardEducationDesc",
       ikon: <KitapIcon />,
     },
   ];
@@ -193,15 +205,34 @@ export default function Sinama() {
         <h1 className="sr-only">{t.brandAlt}</h1>
 
         <div className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-start">
-          <p className="site-description max-w-md text-lg leading-8 text-zinc-600 dark:text-cream-dimmer">
-            {t.descriptionQuestion}
-            <br />
-            {t.descriptionRephrase}
-            <br />
-            <strong className="font-semibold">{t.descriptionHadith}</strong>{" "}
-            {t.descriptionAnd}{" "}
-            <strong className="font-semibold">{t.descriptionDigital}</strong>
-          </p>
+          {/* Paragrafin TAMAMI tek bir SwapContent icinde. Parca parca
+              sarilsaydi (soru, yeniden-ifade, "Hadis ve Dijital") her
+              parca kendi kutusunda ayri ayri kayardi ve satirlar birbiri
+              ardina degil ayni anda oynardi. Tek kutu, tek hareket. */}
+          <SwapContent
+            className="site-description max-w-md text-lg leading-8 text-zinc-600 dark:text-cream-dimmer"
+            current={language}
+            outgoing={outgoingLanguage}
+            cokSatir
+            render={(anahtar) => {
+              const c = TRANSLATIONS[anahtar as Language];
+              return (
+                <>
+                  {c.descriptionQuestion}
+                  <br />
+                  {c.descriptionRephrase}
+                  <br />
+                  <strong className="font-semibold">
+                    {c.descriptionHadith}
+                  </strong>{" "}
+                  {c.descriptionAnd}{" "}
+                  <strong className="font-semibold">
+                    {c.descriptionDigital}
+                  </strong>
+                </>
+              );
+            }}
+          />
         </div>
 
         {/* "Burada neler var" izgarasi. Sayfanin govdesi bu: anasayfadan
@@ -216,7 +247,12 @@ export default function Sinama() {
             ("Mustafa bu is uzerinde calisiyor") tam bunun icin duruyor. */}
         <nav aria-label={t.indexLead} className="w-full">
           <h2 className="mb-4 text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-cream-dimmer">
-            {t.indexLead}
+            <SwapContent
+              current={language}
+              outgoing={outgoingLanguage}
+              cokSatir
+              render={(anahtar) => TRANSLATIONS[anahtar as Language].indexLead}
+            />
           </h2>
           {/* `auto-rows-fr`: kartlarin BASLIK uzunlugu farkli ("Oyunlar" tek
               satir, "Egitim Icerikleri ve Diger Hizmetler" iki satir).
@@ -231,16 +267,39 @@ export default function Sinama() {
                   className="flex h-full flex-col gap-1 rounded-2xl border border-solid border-black/20 p-4 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
                 >
                   <span className="flex items-start justify-between gap-3">
-                    <span className="text-lg font-semibold text-black dark:text-foreground">
-                      {kart.ad}
-                    </span>
-                    <span className="mt-1 text-zinc-500 dark:text-cream-dimmer">
-                      {kart.ikon}
-                    </span>
+                  {/* Baslik ve aciklama SwapContent'ten geciyor: dil
+                      degisince eski metin yukari kayip cikiyor, yenisi
+                      asagidan geliyor -- dil ve "Mustafâ Hakkında"
+                      dugmelerindeki hareketin aynisi.
+
+                      `cokSatir` sart: ontanimli hal dugme etiketlerine
+                      gore ayarli (tek satir, ortali). Kart metni sola
+                      yasli ve sarabiliyor.
+
+                      Baslikta `min-w-0`: flex satirinda ikonun yaninda
+                      duruyor ve onsuz uzun baslik ikonu eziyor. */}
+                  <SwapContent
+                    className="min-w-0 flex-1 text-lg font-semibold text-black dark:text-foreground"
+                    current={language}
+                    outgoing={outgoingLanguage}
+                    render={(anahtar) =>
+                      TRANSLATIONS[anahtar as Language][kart.adAnahtar]
+                    }
+                    cokSatir
+                  />
+                  <span className="mt-1 text-zinc-500 dark:text-cream-dimmer">
+                    {kart.ikon}
                   </span>
-                  <span className="text-sm leading-6 text-zinc-600 dark:text-cream-dimmer">
-                    {kart.alt}
-                  </span>
+                </span>
+                <SwapContent
+                  className="text-sm leading-6 text-zinc-600 dark:text-cream-dimmer"
+                  current={language}
+                  outgoing={outgoingLanguage}
+                  render={(anahtar) =>
+                    TRANSLATIONS[anahtar as Language][kart.altAnahtar]
+                  }
+                  cokSatir
+                />
                 </Link>
               </li>
             ))}
