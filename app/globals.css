@@ -339,7 +339,12 @@ html[lang="ar"] .ar-greeting {
 
    ::-moz-selection'a gerek yok: Firefox 62'den beri oneksiz ::selection'i
    destekliyor, zaten yazilsa da derleyici (Lightning CSS) hedef tarayici
-   listesine bakip cikti dosyasindan atiyor. */
+   listesine bakip cikti dosyasindan atiyor.
+
+   AYNI KURAL public/resule-kavusmak-game.html ICINDE DE VAR. Oyun bir
+   iframe'de aciliyor, iframe ayri bir belge sayildigi icin buradaki
+   kural oraya HIC ulasmiyor. Rengi degistirirsen ikisini birden
+   degistir. */
 ::selection {
   background-color: #c9e7d4;
   color: #171717;

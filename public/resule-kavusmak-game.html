@@ -51,6 +51,13 @@
 
   *{box-sizing:border-box;}
   body{margin:0;}
+
+  /* Secim rengi burada TEKRAR tanimlanmali. Bu dosya iframe icinde
+     acildigi icin ayri bir belge sayilir ve app/globals.css'teki
+     ::selection kurali buraya HIC ulasmiyor -- oyun sayfalarinda secim
+     tarayicinin mavi varsayilanina donuyordu. Deger globals.css ile ayni
+     tutulmali, birini degistirirsen digerini de degistir. */
+  ::selection{background-color:#c9e7d4; color:#171717;}
   .page{
     min-height:100%;
     background:var(--background);
