@@ -134,16 +134,11 @@ export default function EgitimIcerikleri() {
           ekranin %56'si oluyordu ve listeden UC kalemi ortuyordu
           (olculdu). Bu sayfa metin agirlikli, susleme okunurlugun
           onune gecmemeli. Klip 644x720, yani dikey -- genislik
-          `w-auto` ile kendi oranindan geliyor.
-
-          `-scale-x-100`: klip yatayda AYNALANIYOR. Ozgun cekimde karakter
-          sola bakiyor; sag alt kosede duracaksa sayfanin icine, yani
-          sola donuk olmasi gerekiyor. Donusum fiziksel, sayfa yonunden
-          (rtl/ltr) etkilenmiyor. */}
+          `w-auto` ile kendi oranindan geliyor. */}
       <div className="pointer-events-none sticky bottom-0 z-50 h-0 w-full">
         <ChromaKeyVideo
           src="/Derince%20Sunum.mp4"
-          className="absolute bottom-0 right-0 h-[20vh] w-auto max-w-none -scale-x-100 md:h-[29vh]"
+          className="absolute bottom-0 right-0 h-[20vh] w-auto max-w-none md:h-[29vh]"
         />
       </div>
     </main>

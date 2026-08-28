@@ -81,12 +81,24 @@ export default function Footer() {
                 </Link>
                 {i < baglantilar.length - 1 ? (
                   <>
+                    {/* Bosluk `mx-2` ile veriliyor, metin boslugu ile
+                        DEGIL: onceden solda `ml-2` (8px), sagda ise bir
+                        kelime boslugu (~4px) vardi ve nokta sagindaki
+                        baglantiya daha yakin duruyordu. Simdi iki yan
+                        da 8px.
+
+                        Ardindaki <wbr />: satir sonu FIRSATI, genisligi
+                        sifir. Onceden bu isi noktadan sonraki gercek
+                        bosluk goruyordu; o kalksa liste hic saramazdi.
+                        Noktadan ONCE hala hicbir firsat yok, yani nokta
+                        yeni satirin basina dusemiyor. */}
                     <span
                       aria-hidden="true"
-                      className="ml-2 text-zinc-400 dark:text-cream-dimmer"
+                      className="mx-2 text-zinc-400 dark:text-cream-dimmer"
                     >
                       ·
-                    </span>{" "}
+                    </span>
+                    <wbr />
                   </>
                 ) : null}
               </li>
