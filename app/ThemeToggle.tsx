@@ -84,24 +84,42 @@ export default function ThemeToggle() {
 
   const isDark = theme === "dark";
 
+  /* Gecis suresi globals.css'teki `.tema-gecisi` ile AYNI (450ms):
+     topuz kayarken sayfa renkleri de doniyor, ikisi ayni anda bitsin.
+     Egri easeOutQuint -- basta hizli, sonda uzun uzun yavaslayan bir
+     yumusama; duz `ease-out`tan daha sakin duruyor. */
+  const gecis =
+    "duration-[450ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none";
+
+  const toggle = () => {
+    /* Gecis sinifi once ekleniyor, tema ONDAN SONRA degisiyor: sinif
+       ayni karede girmezse tarayici eski (kisa) sureyle animasyona
+       baslar. Sure dolunca temizleniyor, yoksa hover'lar da kalici
+       olarak agirlasirdi. */
+    const kok = document.documentElement;
+    kok.classList.add("tema-gecisi");
+    toggleTheme();
+    window.setTimeout(() => kok.classList.remove("tema-gecisi"), 450);
+  };
+
   return (
     <button
       type="button"
       role="switch"
       aria-checked={isDark}
-      onClick={toggleTheme}
+      onClick={toggle}
       className="fixed left-4 top-4 z-20 flex h-9 w-16 items-center rounded-full border border-black/[.08] bg-background p-1 transition-colors hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
       aria-label={t.themeToggle}
       title={t.themeToggle}
     >
       <span
-        className={`relative flex h-7 w-7 items-center justify-center rounded-full bg-foreground text-background transition-transform duration-300 ease-out motion-reduce:transition-none ${
+        className={`relative flex h-7 w-7 items-center justify-center rounded-full bg-foreground text-background transition-transform ${gecis} ${
           isDark ? "translate-x-7" : "translate-x-0"
         }`}
       >
         <span
           aria-hidden="true"
-          className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ease-out motion-reduce:transition-none ${
+          className={`absolute inset-0 flex items-center justify-center transition-all ${gecis} ${
             isDark ? "scale-50 rotate-90 opacity-0" : "scale-100 rotate-0 opacity-100"
           }`}
         >
@@ -109,7 +127,7 @@ export default function ThemeToggle() {
         </span>
         <span
           aria-hidden="true"
-          className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ease-out motion-reduce:transition-none ${
+          className={`absolute inset-0 flex items-center justify-center transition-all ${gecis} ${
             isDark ? "scale-100 rotate-0 opacity-100" : "scale-50 -rotate-90 opacity-0"
           }`}
         >

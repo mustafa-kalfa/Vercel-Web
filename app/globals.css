@@ -358,3 +358,43 @@ html[lang="ar"] .ar-greeting {
   background-color: #6FE795;
   color: #171717;
 }
+
+/* --- Tema gecisi ---------------------------------------------------
+
+   Tema degisince renkler ANINDA degisiyordu: `.dark` sinifi <html>'e
+   girer girmez --background/--foreground yeni degerine atliyor.
+
+   Iki katmanda yumusatiliyor:
+
+   1) Govde. Sayfanin en buyuk yuzeyi burasi ve kendi gecisi yok, o
+      yuzden dogrudan tanimlaniyor.
+
+   2) Geri kalan her sey. Sitedeki dugme/kart/baglanti gibi ogeler
+      Tailwind'in `transition-colors` sinifini tasiyor, yani tema
+      degisiminde de kendi 150ms'lik suresini kullaniyorlar. Govde
+      450ms'de donerken onlarin cok once bitmesi gecisi PARCALI
+      gosteriyordu. `.tema-gecisi` sinifi ThemeContext tarafindan
+      yalnizca gecis boyunca <html>'e ekleniyor ve o an icin herkesin
+      suresini esitliyor. Sinif kalkinca hover sureleri eski hizina
+      donuyor -- kalici olsaydi butun etkilesimler agirlasirdi.
+
+   `transition-property`ye DOKUNULMUYOR, sadece sure ve egri. Boylece
+   hareketi azalt tercihiyle `transition-property: none` almis ogeler
+   yine hicbir sey animasyonlamiyor.
+
+   Blogun tamami `prefers-reduced-motion: no-preference` icinde: hareket
+   istemeyen kullaniciya tema yine aninda degisiyor. */
+@media (prefers-reduced-motion: no-preference) {
+  body {
+    transition:
+      background-color 450ms ease,
+      color 450ms ease;
+  }
+
+  html.tema-gecisi *,
+  html.tema-gecisi *::before,
+  html.tema-gecisi *::after {
+    transition-duration: 450ms !important;
+    transition-timing-function: ease !important;
+  }
+}
