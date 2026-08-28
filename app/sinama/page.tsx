@@ -113,17 +113,19 @@ export default function Sinama() {
 
   return (
     <div className="flex flex-col flex-1 items-center justify-center font-sans">
-      {/* Giris klibi ESKI HALINE dondu: kosede `fixed z-50`, dongude ve
-          IntroVideo'daki olculerin aynisi. Tek fark, havuzdan sirayla
-          degil yalnizca bu klip geliyor -- digerleri sayfalara
-          dagitilacak.
+      {/* Giris klibi kosede `fixed`, dongude. Olculer IntroVideo'daki
+          degerlerin YARISI (22.5 -> 11.25vh, 16.875 -> 8.4375vh).
+          Negatif sag kenar da ayni oranda yarilandi: o deger klibin
+          sagindaki seffaf boslugu kapatmak icin ve bosluk da klip
+          kuculunce kuculuyor, yarilanmazsa karakter ekranin disina
+          tasardi.
 
-          Alttaki `pb-[35vh]` bu yuzden geri kondu: klip icerigin ONUNDE
-          durdugu icin dar ekranda en alttaki ogeyi kesiyordu ve
-          kaydiracak yer olmadigi icin ulasilamiyordu. */}
+          Klip kucuk oldugu icin main'de `pb-[35vh]`, footer altinda da
+          ayrica bir bosluk gerekmiyor -- kapattigi serit artik icerige
+          degmiyor. */}
       <ChromaKeyVideo
         src="/Mustafa%20Thinking%20Green_seffaf.mp4"
-        className="fixed bottom-0 right-[-4vh] z-50 h-[16.875vh] w-auto max-w-none md:right-[-6vh] md:h-[22.5vh]"
+        className="fixed bottom-0 right-[-2vh] z-50 h-[8.4375vh] w-auto max-w-none md:right-[-3vh] md:h-[11.25vh]"
       />
       {/* Logo artik main'in ICINDE degil, ustte kendi header'inda: sitenin
           diger sayfalarindaki (/mustafa-calisiyor, /podcastler ...) ust
@@ -231,16 +233,6 @@ export default function Sinama() {
         </div>
       </main>
       <Footer />
-      {/* Kosedeki klip `fixed`, yani gorunum alaninin ALT SERIDINI her
-          zaman kapatiyor (masaustunde 22.5vh, mobilde 16.875vh). Sayfa
-          sonuna gelindiginde footer'in sag alt kosesi -- X baglantisi --
-          tam o seride denk geliyordu. Bu bos alan footer'i seridin
-          uzerine itiyor.
-
-          Bosluk FOOTER'IN ICINDE degil, cunku Footer butun sayfalarda
-          kullanilacak ve digerlerinde boyle bir klip yok. Klip hangi
-          sayfadaysa bosluk da orada duruyor. */}
-      <div aria-hidden="true" className="h-[20vh] shrink-0 md:h-[26vh]" />
     </div>
   );
 }

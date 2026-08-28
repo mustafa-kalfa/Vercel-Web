@@ -65,14 +65,18 @@ export default function Selam() {
       {/* Karakter dar ekranda balonun alt kismini ortuyor. Bu bos pay
           sayfayi kaydirilabilir yapiyor: asagi kaydirinca balon karakterin
           onunden yukari cikip tamamen okunuyor. Genis ekranda ortusme
-          olmadigi icin pay kapatiliyor. */}
-      <div aria-hidden="true" className="h-[60vh] shrink-0 sm:h-0" />
+          olmadigi icin pay kapatiliyor.
 
-      {/* Yuksekligi ekranin yarisi; genislik klibin kendi oranindan
-          geliyor (canvas'in ic olcusu 720x722). */}
+          Pay da klip ile birlikte yarilandi (60 -> 30vh): karakter yari
+          boya inince ortu de yarisina indi. */}
+      <div aria-hidden="true" className="h-[30vh] shrink-0 sm:h-0" />
+
+      {/* Yuksekligi ekranin CEYREGI (once yarisiydi, 2026-08-28'de
+          yarilandi); genislik klibin kendi oranindan geliyor (canvas'in
+          ic olcusu 720x722). */}
       <ChromaKeyVideo
         src="/Mustafa%20Karsilama_seffaf.mp4"
-        className="fixed bottom-0 right-0 h-[50vh] w-auto max-w-none"
+        className="fixed bottom-0 right-0 h-[25vh] w-auto max-w-none"
       />
     </main>
   );
