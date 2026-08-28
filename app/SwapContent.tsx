@@ -10,12 +10,6 @@ import type { ReactNode } from "react";
    kalmadan "Mustafâ Hakkında" gibi dile gore uzayan etiketlerde de
    kullanilabiliyor.
 
-   `satirIci`: kutu metnin AKISI icinde durmali oldugunda (footer telif
-   satiri gibi). Kokun ontanimli `block` degeri orada satir sonu
-   yaratiyordu -- className ile `inline-block` gecmek ise ise yaramiyor,
-   cunku iki sinif ayni ozgullukte ve hangisinin kazandigini Tailwind
-   ciktisindaki sira belirliyor.
-
    `cokSatir`: uzun ve saran metinler icin. Ontanimli (false) hal
    dugme etiketlerine gore ayarli -- tek satir, ortalanmis, sarmiyor.
    Kart basligi/aciklamasi gibi bir paragrafta bu yanlis olur, cunku
@@ -28,24 +22,20 @@ export default function SwapContent({
   render,
   className = "",
   cokSatir = false,
-  satirIci = false,
 }: {
   current: string;
   outgoing: string | null;
   render: (key: string) => ReactNode;
   className?: string;
   cokSatir?: boolean;
-  satirIci?: boolean;
 }) {
   const swapping = outgoing !== null && outgoing !== current;
   const icerik = cokSatir
     ? "block"
     : "flex items-center justify-center whitespace-nowrap";
 
-  const kok = satirIci ? "inline-block align-bottom" : "block";
-
   return (
-    <span className={`relative ${kok} overflow-hidden ${className}`}>
+    <span className={`relative block overflow-hidden ${className}`}>
       {swapping && (
         <span
           key={outgoing}

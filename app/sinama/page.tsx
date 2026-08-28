@@ -145,26 +145,6 @@ export default function Sinama() {
      istenmeyen bir kaydirma kabi olusturuyor, clip ise sadece kirpiyor. */
   return (
     <div className="relative flex flex-col flex-1 items-center justify-center overflow-x-clip font-sans">
-      {/* Giris klibi kosede, dongude. KONUM `absolute`: fixed iken
-          gorunum alaninin dibine yapisip footer'in uzerini ortuyordu;
-          absolute olunca kok div'in (relative) dibine, yani footer'in
-          hemen USTUNE oturuyor. Yukseklik IntroVideo'daki
-          degerlerin 0.75 kati: once yarilandi, sonra 1.5 kat buyutuldu
-          (masaustu 22.5 -> 11.25 -> 16.875vh, mobil 16.875 -> 8.4375 ->
-          12.65625vh).
-
-          Negatif sag kenar HER ADIMDA ayni oranda gidiyor. O deger
-          klibin sagindaki seffaf boslugu kapatmak icin ve bosluk klip
-          ile birlikte olcekleniyor; sabit birakilirsa klip kuculdugunde
-          karakter ekranin disina tasiyor.
-
-          main'de `pb-[35vh]`, footer altinda da ayrica bir bosluk YOK:
-          klip bu boyda gorunum alaninin yalnizca ince bir seridini
-          kapatiyor ve icerige degmiyor (olculdu). */}
-      <ChromaKeyVideo
-        src="/Mustafa%20Thinking%20Green_seffaf.mp4"
-        className="absolute bottom-0 right-[-3vh] z-50 h-[12.65625vh] w-auto max-w-none md:right-[-4.5vh] md:h-[16.875vh]"
-      />
       {/* Logo artik main'in ICINDE degil, ustte kendi header'inda: sitenin
           diger sayfalarindaki (/mustafa-calisiyor, /podcastler ...) ust
           orta logo yerlesimiyle ayni his.
@@ -205,34 +185,15 @@ export default function Sinama() {
         <h1 className="sr-only">{t.brandAlt}</h1>
 
         <div className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-start">
-          {/* Paragrafin TAMAMI tek bir SwapContent icinde. Parca parca
-              sarilsaydi (soru, yeniden-ifade, "Hadis ve Dijital") her
-              parca kendi kutusunda ayri ayri kayardi ve satirlar birbiri
-              ardina degil ayni anda oynardi. Tek kutu, tek hareket. */}
-          <SwapContent
-            className="site-description max-w-md text-lg leading-8 text-zinc-600 dark:text-cream-dimmer"
-            current={language}
-            outgoing={outgoingLanguage}
-            cokSatir
-            render={(anahtar) => {
-              const c = TRANSLATIONS[anahtar as Language];
-              return (
-                <>
-                  {c.descriptionQuestion}
-                  <br />
-                  {c.descriptionRephrase}
-                  <br />
-                  <strong className="font-semibold">
-                    {c.descriptionHadith}
-                  </strong>{" "}
-                  {c.descriptionAnd}{" "}
-                  <strong className="font-semibold">
-                    {c.descriptionDigital}
-                  </strong>
-                </>
-              );
-            }}
-          />
+          <p className="site-description max-w-md text-lg leading-8 text-zinc-600 dark:text-cream-dimmer">
+            {t.descriptionQuestion}
+            <br />
+            {t.descriptionRephrase}
+            <br />
+            <strong className="font-semibold">{t.descriptionHadith}</strong>{" "}
+            {t.descriptionAnd}{" "}
+            <strong className="font-semibold">{t.descriptionDigital}</strong>
+          </p>
         </div>
 
         {/* "Burada neler var" izgarasi. Sayfanin govdesi bu: anasayfadan
@@ -247,12 +208,7 @@ export default function Sinama() {
             ("Mustafa bu is uzerinde calisiyor") tam bunun icin duruyor. */}
         <nav aria-label={t.indexLead} className="w-full">
           <h2 className="mb-4 text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-cream-dimmer">
-            <SwapContent
-              current={language}
-              outgoing={outgoingLanguage}
-              cokSatir
-              render={(anahtar) => TRANSLATIONS[anahtar as Language].indexLead}
-            />
+            {t.indexLead}
           </h2>
           {/* `auto-rows-fr`: kartlarin BASLIK uzunlugu farkli ("Oyunlar" tek
               satir, "Egitim Icerikleri ve Diger Hizmetler" iki satir).
@@ -327,6 +283,27 @@ export default function Sinama() {
           </Link>
         </div>
       </main>
+      {/* Klip `sticky`, akisin EN SONUNDA. Uc denemenin ucuncusu:
+
+          `fixed`   gorunum alanina yapisiyor, hep gorunuyor -- ama sayfa
+                    sonunda footer'in uzerine biniyordu.
+          `absolute` sarmalayicinin dibine yapisiyor, footer'a hic
+                    degmiyor -- ama /sinama'nin govdesi bir ekrandan
+                    UZUN oldugu icin klip katlanma cizgisinin altinda
+                    kaliyor ve acilista hic gorunmuyordu.
+          `sticky`  ikisinin birlesimi: kaydirdikca gorunum alaninin
+                    dibinde duruyor, sayfa sonuna gelindiginde sarmalayici
+                    bitiyor ve klip tam footer'in ustunde duruyor.
+
+          Kap `h-0`: sticky oge akisin icinde oldugu icin yukseklik
+          verseydi sayfaya o kadar bosluk eklerdi. Klip kabin icinde
+          `absolute bottom-0` ile yukari dogru ciziliyor. */}
+      <div className="pointer-events-none sticky bottom-0 z-50 h-0 w-full">
+        <ChromaKeyVideo
+          src="/Mustafa%20Thinking%20Green_seffaf.mp4"
+          className="absolute bottom-0 right-[-3vh] h-[12.65625vh] w-auto max-w-none md:right-[-4.5vh] md:h-[16.875vh]"
+        />
+      </div>
     </div>
   );
 }

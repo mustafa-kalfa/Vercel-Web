@@ -3,8 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "./LanguageContext";
-import SwapContent from "./SwapContent";
-import { TRANSLATIONS, type Language } from "./translations";
 
 /* Sitenin alt bilgisi. app/layout.tsx'te bir kez cagriliyor, yani
    ANASAYFA DISINDA her sayfada var (asagidaki FOOTERSIZ listesine bkz.).
@@ -33,25 +31,21 @@ const FOOTERSIZ = ["/"];
 const LISTESIZ = ["/", "/sinama"];
 
 export default function Footer() {
-  const { t, language, outgoingLanguage } = useLanguage();
+  const { t } = useLanguage();
   const yol = usePathname();
 
   if (FOOTERSIZ.includes(yol)) return null;
 
   const sayfaListesi = !LISTESIZ.includes(yol);
 
-  /* Baglantilar metni degil ceviri ANAHTARINI tutuyor: dil degisiminde
-     SwapContent ayni anahtari hem eski hem yeni dilde cozup ikisini
-     birden ciziyor. Cozulmus bir dize (`t.cardPodcasts`) tek dile
-     bagli kalirdi. */
-  const baglantilar: { href: string; anahtar: keyof typeof t }[] = [
-    { href: "/ravi-iliski-aglari", anahtar: "cardNetworks" },
-    { href: "/podcastler", anahtar: "cardPodcasts" },
-    { href: "/hadis-tarihi", anahtar: "podcastHadithHistory" },
-    { href: "/rihle", anahtar: "cardRihle" },
-    { href: "/resule-kavusmak", anahtar: "cardGames" },
-    { href: "/egitim-icerikleri", anahtar: "cardEducation" },
-    { href: "/selam", anahtar: "about" },
+  const baglantilar = [
+    { href: "/ravi-iliski-aglari", ad: t.cardNetworks },
+    { href: "/podcastler", ad: t.cardPodcasts },
+    { href: "/hadis-tarihi", ad: t.podcastHadithHistory },
+    { href: "/rihle", ad: t.cardRihle },
+    { href: "/resule-kavusmak", ad: t.cardGames },
+    { href: "/egitim-icerikleri", ad: t.cardEducation },
+    { href: "/selam", ad: t.about },
   ];
 
   return (
@@ -80,15 +74,7 @@ export default function Footer() {
                   href={b.href}
                   className="text-zinc-600 transition-colors hover:text-black dark:text-cream-dimmer dark:hover:text-foreground"
                 >
-                  <SwapContent
-                    current={language}
-                    outgoing={outgoingLanguage}
-                    cokSatir
-                    satirIci
-                    render={(anahtar) =>
-                      TRANSLATIONS[anahtar as Language][b.anahtar]
-                    }
-                  />
+                  {b.ad}
                 </Link>
                 {i < baglantilar.length - 1 ? (
                   <>
@@ -122,15 +108,7 @@ export default function Footer() {
             <span aria-hidden="true" className="text-zinc-400 dark:text-cream-dimmer">
               ·
             </span>{" "}
-            <SwapContent
-              current={language}
-              outgoing={outgoingLanguage}
-              cokSatir
-              satirIci
-              render={(anahtar) =>
-                TRANSLATIONS[anahtar as Language].footerRights
-              }
-            />
+            {t.footerRights}
           </p>
 
           {/* Dis baglantilar alt alta, Academia ustte. */}
