@@ -118,6 +118,33 @@ export default function EgitimIcerikleri() {
         <Liste baslik={t.eduVideos} kalemler={VIDEOLAR} />
         <Liste baslik={t.eduPosts} kalemler={PAYLASIMLAR} />
       </div>
+
+      {/* Derince Sunum klibi, sag alt kosede.
+
+          Konum `sticky`, akisin en sonunda -- /sinama'daki cozumun
+          aynisi. `fixed` olsaydi sayfa sonunda footer'in uzerine
+          binerdi; `absolute` olsaydi bu sayfanin govdesi bir ekrandan
+          UZUN oldugu icin (13 kalemlik liste) klip katlanma cizgisinin
+          altinda kalir, acilista hic gorunmezdi. `sticky` ikisini
+          birden veriyor: kaydirdikca gorunum alaninin dibinde duruyor,
+          sona gelindiginde footer'in tam ustunde kaliyor.
+
+          Kap `h-0`: sticky oge akisin icinde oldugu icin yukseklik
+          verseydi sayfaya o kadar bosluk eklerdi.
+
+          Masaustu olcusu klibin IntroVideo'daki ozgun degeri (29vh);
+          tek fark sola degil SAGA yaslanmasi. DAR EKRANDA 20vh'ye
+          iniyor: ozgun 28.75vh ile klip 209px, yani 375px'lik bir
+          ekranin %56'si oluyordu ve listeden UC kalemi ortuyordu
+          (olculdu). Bu sayfa metin agirlikli, susleme okunurlugun
+          onune gecmemeli. Klip 644x720, yani dikey -- genislik
+          `w-auto` ile kendi oranindan geliyor. */}
+      <div className="pointer-events-none sticky bottom-0 z-50 h-0 w-full">
+        <ChromaKeyVideo
+          src="/Derince%20Sunum.mp4"
+          className="absolute bottom-0 right-0 h-[20vh] w-auto max-w-none md:h-[29vh]"
+        />
+      </div>
     </main>
   );
 }
