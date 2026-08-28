@@ -84,13 +84,16 @@ export default function Footer() {
             yaslandiginda klibin altinda kaliyordu (olculdu). Sol taraf
             her sayfada guvenli. */}
         <div className="flex flex-col gap-3 text-xs text-zinc-500 dark:text-cream-dimmer">
-          {/* Iki satir. Tek satirda "© 2026 Mustafâ Kalfa. Tum haklari
-              saklidir." mobilde 267px'e uzayip sag alt kosedeki klibin
-              (x=194'ten basliyor) altina giriyordu; bolununce iki parca da
-              162px'in altinda kaliyor. */}
+          {/* Tek satir. Bir ara iki satira bolunmustu: kosedeki klip o
+              zaman `fixed` idi ve sayfa sonunda bu satirin uzerine
+              biniyordu. Klipler `absolute` olup footer'in USTUNE
+              alininca (bkz. selam/rihle/mustafa-calisiyor sayfalari) o
+              kisitlama ortadan kalkti. */}
           <p>
-            © {YIL} Mustafâ Kalfa
-            <br />
+            © {YIL} Mustafâ Kalfa{" "}
+            <span aria-hidden="true" className="text-zinc-400 dark:text-cream-dimmer">
+              ·
+            </span>{" "}
             {t.footerRights}
           </p>
 
@@ -139,7 +142,7 @@ export default function Footer() {
                 >
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
-                mustafakalfa__
+                x.com/mustafakalfa__
               </a>
             </li>
           </ul>
