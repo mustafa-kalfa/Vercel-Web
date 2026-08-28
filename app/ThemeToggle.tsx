@@ -112,9 +112,16 @@ export default function ThemeToggle() {
       aria-label={t.themeToggle}
       title={t.themeToggle}
     >
+      {/* `rtl:-translate-x-7` SART. Arapca'da <html dir="rtl"> oldugu icin
+          rayin flex baslangici SAG kenar, yani topuz sagda duruyor.
+          Yalnizca `translate-x-7` verilirse topuz oradan bir 28px daha
+          saga itiliyor ve rayin TAMAMEN DISINA cikiyor (olculdu: ray
+          16-80, topuz 75-103). Ters yone kaydirinca hareket RTL'de de
+          "obur uca git" anlamina geliyor: hilal sagda basliyor, sola
+          kayarken gunese donuyor. */}
       <span
         className={`relative flex h-7 w-7 items-center justify-center rounded-full bg-foreground text-background transition-transform ${gecis} ${
-          isDark ? "translate-x-7" : "translate-x-0"
+          isDark ? "translate-x-7 rtl:-translate-x-7" : "translate-x-0"
         }`}
       >
         <span
