@@ -79,6 +79,16 @@ function GamepadIcon() {
   );
 }
 
+// Egitim Icerikleri: acik kitap.
+function KitapIcon() {
+  return (
+    <IkonKabi>
+      <path d="M12 6.5S9.5 4.5 4 4.5v13c5.5 0 8 2 8 2s2.5-2 8-2v-13c-5.5 0-8 2-8 2z" />
+      <path d="M12 6.5v13" />
+    </IkonKabi>
+  );
+}
+
 export default function Sinama() {
   const { t, language, outgoingLanguage } = useLanguage();
 
@@ -89,6 +99,11 @@ export default function Sinama() {
     ad: string;
     alt: string;
     ikon: React.ReactNode;
+    /* Iki sutunu birden kaplar. Kart sayisi TEK oldugu icin sonuncusu
+       yarim satirda tek basina kaliyordu; basligi da uzun olan bu kart
+       satiri doldurunca hem izgara duzgun bitiyor hem baslik tek satira
+       sigiyor. */
+    genis?: boolean;
   }[] = [
     {
       href: "/mustafa-calisiyor",
@@ -108,6 +123,13 @@ export default function Sinama() {
       ad: t.cardGames,
       alt: t.cardGamesDesc,
       ikon: <GamepadIcon />,
+    },
+    {
+      href: "/egitim-icerikleri",
+      ad: t.cardEducation,
+      alt: t.cardEducationDesc,
+      ikon: <KitapIcon />,
+      genis: true,
     },
   ];
 
@@ -192,7 +214,7 @@ export default function Sinama() {
           </h2>
           <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {kartlar.map((kart) => (
-              <li key={kart.href}>
+              <li key={kart.href} className={kart.genis ? "sm:col-span-2" : undefined}>
                 <Link
                   href={kart.href}
                   className="flex h-full flex-col gap-1 rounded-2xl border border-solid border-black/[.08] p-4 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"

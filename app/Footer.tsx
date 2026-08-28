@@ -26,6 +26,7 @@ export default function Footer() {
     { href: "/hadis-tarihi", ad: t.podcastHadithHistory },
     { href: "/rihle", ad: t.cardRihle },
     { href: "/resule-kavusmak", ad: t.cardGames },
+    { href: "/egitim-icerikleri", ad: t.cardEducation },
     { href: "/selam", ad: t.about },
   ];
 

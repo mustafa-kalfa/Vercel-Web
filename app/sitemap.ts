@@ -32,6 +32,7 @@ const YOLLAR = [
   "/rihle",
   "/resule-kavusmak",
   "/mustafa-calisiyor",
+  "/egitim-icerikleri",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
