@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import ChromaKeyVideo from "../ChromaKeyVideo";
-import Footer from "../Footer";
 import { useLanguage } from "../LanguageContext";
 import SwapContent from "../SwapContent";
 import { TRANSLATIONS, type Language } from "../translations";
@@ -256,9 +255,6 @@ export default function Sinama() {
           </Link>
         </div>
       </main>
-      {/* Kart izgarasi zaten ayni yerlere goturuyor; footer'da tekrari
-          gereksiz. Kart izgarasi olmayan sayfalarda liste gosteriliyor. */}
-      <Footer sayfaListesi={false} />
     </div>
   );
 }

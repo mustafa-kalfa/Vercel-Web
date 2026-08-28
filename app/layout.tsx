@@ -5,6 +5,7 @@ import { LanguageProvider } from "./LanguageContext";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { ThemeProvider } from "./ThemeContext";
 import ThemeToggle from "./ThemeToggle";
+import Footer from "./Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -84,6 +85,11 @@ export default function RootLayout({
             <ThemeToggle />
             <LanguageSwitcher />
             {children}
+            {/* Footer BURADA, yani her sayfada. Hangi yolda gorunecegine
+                kendisi karar veriyor (bkz. Footer.tsx, FOOTERSIZ).
+                LanguageProvider'in ICINDE olmali -- metinlerini
+                oradan aliyor. */}
+            <Footer />
           </ThemeProvider>
         </LanguageProvider>
       </body>

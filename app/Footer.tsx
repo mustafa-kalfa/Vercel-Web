@@ -1,15 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useLanguage } from "./LanguageContext";
 
-/* Sitenin alt bilgisi.
-
-   AYRI BIR BILESEN, cunku hedef butun sayfalara konmasi. Su an yalnizca
-   /sinama kullaniyor -- once orada denenip onaylanacak, sonra ya tek tek
-   sayfalara ya da dogrudan app/layout.tsx'e eklenecek. layout'a konursa
-   her sayfa kendiliginden alir; ama /resule-kavusmak gibi tam ekran
-   calisan sayfalarda istenmeyebilir, o yuzden karar sonraya birakildi.
+/* Sitenin alt bilgisi. app/layout.tsx'te bir kez cagriliyor, yani
+   ANASAYFA DISINDA her sayfada var (asagidaki FOOTERSIZ listesine bkz.).
 
    Yil ELLE yazili. `new Date().getFullYear()` bu sayfalar statik olarak
    onceden uretildigi icin zaten derleme anindaki yila donardi; sabit
@@ -17,19 +13,53 @@ import { useLanguage } from "./LanguageContext";
    riskini tamamen kaldiriyor. Yil degisince burayi guncelle. */
 const YIL = 2026;
 
-/* `sayfaListesi`: footer'daki sayfa baglantilarinin gosterilip
-   gosterilmeyecegi.
+/* Footer app/layout.tsx'te BIR KEZ cagriliyor, sayfalara tek tek
+   eklenmiyor. Boylece yeni acilan her sayfa kendiliginden aliyor ve
+   yedi ayri dosyada ayni satiri tekrarlamak gerekmiyor.
 
-   Anasayfa ve /sinama govdesinde zaten ayni yerlere goturen kart
-   izgarasini tasiyor; footer'da tekrarlamak ayni listeyi tek ekranda
-   iki kez gostermek oluyor. Kart izgarasi olmayan sayfalarda ise bu
-   liste sitede gezinmenin tek yolu -- o yuzden ontanimli `true`. */
-export default function Footer({
-  sayfaListesi = true,
-}: {
-  sayfaListesi?: boolean;
-}) {
+   Hangi sayfada ne yapacagini da kendisi biliyor. Iki liste var: */
+
+// Footer'in HIC gorunmedigi yollar. Anasayfa: tasarimi tek ekrana
+// kurulmus, altina bir seyler eklemek istenmiyor.
+const FOOTERSIZ = ["/"];
+
+// Footer'in gorundugu ama ust siradaki SAYFA LISTESININ gizlendigi
+// yollar. Bu sayfalar govdesinde zaten ayni yerlere goturen kart
+// izgarasini tasiyor; footer'da tekrarlamak ayni listeyi tek ekranda
+// iki kez gostermek olur. Diger sayfalarda kart izgarasi yok, orada bu
+// liste sitede gezinmenin tek yolu.
+const LISTESIZ = ["/", "/sinama"];
+
+/* Bazi sayfalar sag alt kosede `fixed` bir karakter klibi tasiyor. Klip
+   GORUNUM ALANINA yapisik oldugu icin, sayfa sonuna gelindiginde her
+   zaman alttaki seridi kapatiyor -- footer da tam oraya dusuyordu ve
+   yazilar karakterin altinda kaliyordu (olculdu).
+
+   Cozum, footer'in ICINE klip yuksekligi kadar alt bosluk koymak:
+   metin yukari cikiyor, karakter altta kendi bos alaninda kaliyor.
+   Bosluk footer'in disina konulamaz, cunku klip sayfanin degil
+   gorunum alaninin dibine yapisik.
+
+   Olculen klip yukseklikleri (mobil / masaustu):
+     /rihle              26vh / 45vh
+     /mustafa-calisiyor  50vh / 50vh
+     /selam              25vh / 25vh
+   Degerler bunlarin biraz ustunde. YENI BIR SAYFAYA fixed klip
+   eklersen buraya da bir satir ekle. */
+const KLIP_BOSLUGU: Record<string, string> = {
+  "/rihle": "pb-[30vh] sm:pb-[48vh]",
+  "/mustafa-calisiyor": "pb-[53vh]",
+  "/selam": "pb-[28vh]",
+};
+
+export default function Footer() {
   const { t } = useLanguage();
+  const yol = usePathname();
+
+  if (FOOTERSIZ.includes(yol)) return null;
+
+  const sayfaListesi = !LISTESIZ.includes(yol);
+  const altBosluk = KLIP_BOSLUGU[yol] ?? "pb-8";
 
   const baglantilar = [
     { href: "/ravi-iliski-aglari", ad: t.cardNetworks },
@@ -45,7 +75,7 @@ export default function Footer({
     /* `mt-auto`: govde kisa kalan sayfalarda (ornegin /rihle) footer
        ekranin ortasinda asili kalmasin, dibe otursun. */
     <footer className="mt-auto w-full border-t border-black/[.08] dark:border-white/[.145]">
-      <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-8 py-8 sm:px-16 md:max-w-5xl">
+      <div className={`mx-auto flex w-full max-w-3xl flex-col gap-6 px-8 pt-8 sm:px-16 md:max-w-5xl ${altBosluk}`}>
         {sayfaListesi ? (
         <nav aria-label={t.brandAlt}>
           <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
