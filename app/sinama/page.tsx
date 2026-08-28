@@ -82,28 +82,39 @@ export default function Sinama() {
         src="/Mustafa%20Thinking%20Green_seffaf.mp4"
         className="fixed bottom-0 right-[-4vh] z-50 h-[16.875vh] w-auto max-w-none md:right-[-6vh] md:h-[22.5vh]"
       />
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-start gap-8 px-16 pt-28 pb-[35vh] sm:items-start sm:pt-36 sm:pb-24">
+      {/* Logo artik main'in ICINDE degil, ustte kendi header'inda: sitenin
+          diger sayfalarindaki (/mustafa-calisiyor, /podcastler ...) ust
+          orta logo yerlesimiyle ayni his.
+
+          `my-[-38px]` yerinde kaliyor -- kadrajin ust/alt %40'i bos, o
+          negatif kenar bosluklari olmadan header kocaman gorunur.
+          Hesap: 140px kutu - 76px bosluk = 64px gorunur yukseklik,
+          ustteki pt-4 ile gorunen cizim y=16'da basliyor.
+
+          Dar ekranda (sm alti) logo 104px'e iniyor, negatif kenar
+          boslugu da ayni oranda -28px oluyor. Sebep: 140px'lik logo
+          320px genislikte 249px yer kapliyor ve sag ustteki dil
+          dugmesine (fixed right-4) degiyordu. 104px'te 185px kaliyor,
+          iki dugmeyle de arasi aciliyor. */}
+      <header className="flex w-full justify-center pt-4">
+        <span
+          role="img"
+          aria-label={t.brandAlt}
+          className="my-[-28px] block sm:my-[-38px]"
+        >
+          <ChromaKeyVideo
+            src="/HD-Animasyon.mp4"
+            loop={false}
+            className="h-[104px] w-auto max-w-none brightness-0 sm:h-[140px] dark:brightness-100"
+          />
+        </span>
+      </header>
+      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-start gap-8 px-8 pt-8 pb-[35vh] sm:items-start sm:px-16 sm:pt-12 sm:pb-24">
         {/* Sayfada gorunur bir h1 kalmadi ("Bir Seyler Deniyorum"
             kaldirildi). Belgenin yine de tek bir ana basligi olmali --
             ekran okuyucular sayfayi basliklardan geziyor. Gorsel duzeni
             hic etkilemeyen bir h1 birakildi. */}
         <h1 className="sr-only">{t.brandAlt}</h1>
-
-        {/* `self-center`: main genis ekranda `sm:items-start` ile her seyi
-            sola yasliyor, logo da oyle olunca tek basina sol kenarda
-            asili kaliyordu. Yalnizca logo ortalaniyor, metin ve
-            dugmeler sola yasli kaliyor. */}
-        <span
-          role="img"
-          aria-label={t.brandAlt}
-          className="my-[-38px] block self-center"
-        >
-          <ChromaKeyVideo
-            src="/HD-Animasyon.mp4"
-            loop={false}
-            className="h-[140px] w-auto max-w-none brightness-0 dark:brightness-100"
-          />
-        </span>
 
         <div className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-start">
           <p className="site-description max-w-md text-lg leading-8 text-zinc-600 dark:text-cream-dimmer">
@@ -154,9 +165,9 @@ export default function Sinama() {
           </h2>
           <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {[
+              { href: "/mustafa-calisiyor", ad: t.cardNetworks, alt: t.cardNetworksDesc },
+              { href: "/resule-kavusmak", ad: t.cardGames, alt: t.cardGamesDesc },
               { href: "/podcastler", ad: t.cardPodcasts, alt: t.cardPodcastsDesc },
-              { href: "/hadis-tarihi", ad: t.cardHadithHistory, alt: t.cardHadithHistoryDesc },
-              { href: "/resule-kavusmak", ad: t.cardGame, alt: t.cardGameDesc },
               { href: "/rihle", ad: t.cardRihle, alt: t.cardRihleDesc },
             ].map((kart) => (
               <li key={kart.href}>

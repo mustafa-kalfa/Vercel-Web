@@ -47,12 +47,12 @@ type Translation = {
   // /sinama'daki 'burada neler var' kart izgarasi. Anasayfa henuz
   // kullanmiyor -- duzen orada onaylanirsa oraya da tasinacak.
   indexLead: string;
+  cardNetworks: string;
+  cardNetworksDesc: string;
+  cardGames: string;
+  cardGamesDesc: string;
   cardPodcasts: string;
   cardPodcastsDesc: string;
-  cardHadithHistory: string;
-  cardHadithHistoryDesc: string;
-  cardGame: string;
-  cardGameDesc: string;
   cardRihle: string;
   cardRihleDesc: string;
 };
@@ -91,13 +91,13 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     playerSpeed: "Oynatma hızı",
     playerSeek: "Ses konumu",
     indexLead: "Burada neler var",
+    cardNetworks: "Râvi İlişki Ağları",
+    cardNetworksDesc: "Râvilerin hoca-talebe bağlarını haritalama çalışması.",
+    cardGames: "Oyunlar",
+    cardGamesDesc: "İsnâd zincirini doğru sırayla tamamlama oyunu.",
     cardPodcasts: "Podcastler",
     cardPodcastsDesc: "Hadis tarihi, usûlü ve edebiyatı üzerine ses kayıtları.",
-    cardHadithHistory: "Hadis Tarihi",
-    cardHadithHistoryDesc: "Bölümler ve Mihne hadisesi üzerine kayıtlar.",
-    cardGame: "Resûle Kavuşmak",
-    cardGameDesc: "İsnâd zincirini doğru sırayla tamamlama oyunu.",
-    cardRihle: "Rihle",
+    cardRihle: "Rihleler",
     cardRihleDesc: "Bir yolculuk yaklaşıyor.",
   },
   ar: {
@@ -133,13 +133,13 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     playerSpeed: "سرعة التشغيل",
     playerSeek: "موضع الصوت",
     indexLead: "ما الذي تجده هنا",
+    cardNetworks: "شبكات علاقات الرواة",
+    cardNetworksDesc: "محاولةٌ لرسم صلات الشيوخ والتلاميذ بين الرواة.",
+    cardGames: "الألعاب",
+    cardGamesDesc: "لعبةٌ لإتمام سلسلة الإسناد بترتيبها الصحيح.",
     cardPodcasts: "التسجيلات الصوتية",
     cardPodcastsDesc: "تسجيلات في تاريخ الحديث وأصوله وأدبه.",
-    cardHadithHistory: "تاريخ الحديث",
-    cardHadithHistoryDesc: "أقسامٌ وتسجيلاتٌ حول محنة خلق القرآن.",
-    cardGame: "لقاء الرسول",
-    cardGameDesc: "لعبةٌ لإتمام سلسلة الإسناد بترتيبها الصحيح.",
-    cardRihle: "الرحلة",
+    cardRihle: "الرحلات",
     cardRihleDesc: "رحلةٌ تقترب.",
   },
   en: {
@@ -176,13 +176,13 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     playerSpeed: "Playback speed",
     playerSeek: "Seek",
     indexLead: "What's here",
+    cardNetworks: "Narrator Networks",
+    cardNetworksDesc: "Mapping teacher-student links between hadith narrators.",
+    cardGames: "Games",
+    cardGamesDesc: "A game about completing the chain of transmission in order.",
     cardPodcasts: "Podcasts",
     cardPodcastsDesc: "Recordings on hadith history, methodology and literature.",
-    cardHadithHistory: "History of Hadith",
-    cardHadithHistoryDesc: "Chapters and recordings on the Mihna.",
-    cardGame: "Meeting the Messenger",
-    cardGameDesc: "A game about completing the chain of transmission in order.",
-    cardRihle: "Rihla",
+    cardRihle: "Journeys",
     cardRihleDesc: "A journey is drawing near.",
   },
 };
