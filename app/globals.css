@@ -373,28 +373,28 @@ html[lang="ar"] .ar-greeting {
       Tailwind'in `transition-colors` sinifini tasiyor, yani tema
       degisiminde de kendi 150ms'lik suresini kullaniyorlar. Govde
       450ms'de donerken onlarin cok once bitmesi gecisi PARCALI
-      gosteriyordu. `.tema-gecisi` sinifi ThemeContext tarafindan
+      gosteriyordu. `.tema-gecisi` sinifi ThemeToggle tarafindan
       yalnizca gecis boyunca <html>'e ekleniyor ve o an icin herkesin
       suresini esitliyor. Sinif kalkinca hover sureleri eski hizina
       donuyor -- kalici olsaydi butun etkilesimler agirlasirdi.
 
-   `transition-property`ye DOKUNULMUYOR, sadece sure ve egri. Boylece
-   hareketi azalt tercihiyle `transition-property: none` almis ogeler
-   yine hicbir sey animasyonlamiyor.
+   `prefers-reduced-motion` ISTISNASI YOK (Mustafa'nin acik talimati,
+   2026-08-29). Bir sure `no-preference` sorgusunun icindeydi ve o
+   yuzden Windows'ta "animasyon efektleri" kapali olan makinelerde gecis
+   hic gorunmuyordu -- Mustafa'nin bilgisayarinda tam bu yasandi,
+   telefonda yumusaktı, masaustunde degildi. Ayni karar sitede daha once
+   iki kez verilmisti: yukaridaki swap-in/swap-out ve oyundaki
+   .glow-active. Talimat, animasyonun guc modu dusuk cihazlarda da
+   gorunmesi yonunde. */
+body {
+  transition:
+    background-color 450ms ease,
+    color 450ms ease;
+}
 
-   Blogun tamami `prefers-reduced-motion: no-preference` icinde: hareket
-   istemeyen kullaniciya tema yine aninda degisiyor. */
-@media (prefers-reduced-motion: no-preference) {
-  body {
-    transition:
-      background-color 450ms ease,
-      color 450ms ease;
-  }
-
-  html.tema-gecisi *,
-  html.tema-gecisi *::before,
-  html.tema-gecisi *::after {
-    transition-duration: 450ms !important;
-    transition-timing-function: ease !important;
-  }
+html.tema-gecisi *,
+html.tema-gecisi *::before,
+html.tema-gecisi *::after {
+  transition-duration: 450ms !important;
+  transition-timing-function: ease !important;
 }

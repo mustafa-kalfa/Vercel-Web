@@ -75,9 +75,10 @@ function SunIcon() {
    ust uste duruyor (`absolute inset-0`), yani biri digerini iterek yer
    degistirmiyor -- gecis boyunca merkez sabit.
 
-   `motion-reduce:transition-none`: hareketi azalt tercihi acikken kayma
-   ve donme yok, durum aninda degisiyor. Site genelinde SwapContent'te
-   de ayni hassasiyet var. */
+   `prefers-reduced-motion` istisnasi YOK (Mustafa'nin acik talimati,
+   2026-08-29): animasyon guc modu dusuk cihazlarda da gorunsun. Ayni
+   karar globals.css'teki tema gecisi blogunda ve swap-in/swap-out'ta da
+   gecerli, gerekcesi orada. */
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
   const { t } = useLanguage();
@@ -89,7 +90,7 @@ export default function ThemeToggle() {
      Egri easeOutQuint -- basta hizli, sonda uzun uzun yavaslayan bir
      yumusama; duz `ease-out`tan daha sakin duruyor. */
   const gecis =
-    "duration-[450ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none";
+    "duration-[450ms] ease-[cubic-bezier(0.22,1,0.36,1)]";
 
   const toggle = () => {
     /* Gecis sinifi once ekleniyor, tema ONDAN SONRA degisiyor: sinif

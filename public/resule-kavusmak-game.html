@@ -484,19 +484,17 @@
     font-variant-numeric:tabular-nums;
   }
 
-  @media (prefers-reduced-motion: reduce){
-    .goal-pill, .node{transition:none !important; animation:none !important;}
-  }
-  /* NOT: hadis kutusu border parildamasi (.glow-active) kasitli olarak
-     prefers-reduced-motion'a BAGLI DEGIL. Eskiden animation:none
-     !important ile durduruluyordu, ama opacity:1 kaldigi icin dasharray'in
-     yalnizca 20/100'luk parcasi YANIK, SABIT bir yay olarak donup
-     kaliyordu -- masaustunde ("bilgisayar versiyonunda yarida kaliyor",
-     2026-08-09 rapor edildi) TAM BOYLE goruldu: bu makinenin/tarayicinin
-     "animasyonlari azalt" tercihi acik, telefonda degil, o yuzden ayni
-     efekt telefonda sorunsuz akiyor, masaustunde donuk kalıyordu. Cozum:
-     bu efekti reduced-motion sorgusundan tamamen CIKAR (asagida hicbir
-     kosul yok), boylece her iki platformda da ayni sekilde akar. */
+  /* NOT: bu dosyada `prefers-reduced-motion` sorgusu KALMADI (Mustafa'nin
+     acik talimati, 2026-08-29). Eskiden .goal-pill ve .node icin bir
+     `reduce` blogu vardi ve o tercihi acik olan makinelerde bu ogeler
+     hic animasyonlanmiyordu. Talimat, animasyonun guc modu dusuk
+     cihazlarda da gorunmesi yonunde.
+
+     Hadis kutusu border parildamasi (.glow-active) zaten daha once ayni
+     gerekceyle sorgudan cikarilmisti: opacity:1 kaldigi icin
+     dasharray'in yalnizca 20/100'luk parcasi YANIK, SABIT bir yay olarak
+     donup kaliyordu -- masaustunde ("bilgisayar versiyonunda yarida
+     kaliyor", 2026-08-09) tam boyle goruldu. */
 </style>
 
 <div class="page" id="pageRoot">
