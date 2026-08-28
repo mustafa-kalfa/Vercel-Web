@@ -55,12 +55,21 @@ export default function Footer() {
       <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-8 py-8 sm:px-16 md:max-w-5xl">
         {sayfaListesi ? (
         <nav aria-label={t.brandAlt}>
-          {/* Baglantilarin arasinda "·". Ayirac AYRI bir <li> degil,
-              kendinden onceki baglantiyla ayni <li> icinde: liste
-              sarildiginda nokta yeni satirin BASINA dusmesin diye. */}
-          <ul className="flex flex-wrap items-center gap-x-2 gap-y-2 text-sm">
+          {/* Liste FLEX DEGIL, duz metin akisi (`li` inline). Flex iken
+              her baglanti bolunmez bir kutuydu: "Egitim Icerikleri ve
+              Diger Hizmetler" satira sigmayinca komple alta atlayip
+              ustunde kocaman bir bosluk birakiyordu. Inline akista uzun
+              bir baslik kendi icinde bolunup alt satirdan devam ediyor,
+              satirlar da dolu gorunuyor.
+
+              Ayirac ile ondan ONCEKI baglanti arasinda BOSLUK YOK
+              (gorsel araligi `ml-2` veriyor); bosluk olsa orasi bir
+              satir sonu firsati olur ve nokta yeni satirin basina
+              duserdi. Noktadan SONRAKI `{" "}` ise bilerek var, sonraki
+              baglantinin alta gecebilmesi icin. */}
+          <ul className="text-sm leading-7">
             {baglantilar.map((b, i) => (
-              <li key={b.href} className="flex items-center gap-x-2">
+              <li key={b.href} className="inline">
                 <Link
                   href={b.href}
                   className="text-zinc-600 transition-colors hover:text-black dark:text-cream-dimmer dark:hover:text-foreground"
@@ -68,9 +77,14 @@ export default function Footer() {
                   {b.ad}
                 </Link>
                 {i < baglantilar.length - 1 ? (
-                  <span aria-hidden="true" className="text-zinc-400 dark:text-cream-dimmer">
-                    ·
-                  </span>
+                  <>
+                    <span
+                      aria-hidden="true"
+                      className="ml-2 text-zinc-400 dark:text-cream-dimmer"
+                    >
+                      ·
+                    </span>{" "}
+                  </>
                 ) : null}
               </li>
             ))}
