@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import ChromaKeyVideo from "../ChromaKeyVideo";
-import IntroVideo from "../IntroVideo";
 import { useLanguage } from "../LanguageContext";
 import SwapContent from "../SwapContent";
 import { TRANSLATIONS, type Language } from "../translations";
@@ -71,33 +70,76 @@ export default function Sinama() {
         <span className="glow-cover" aria-hidden="true" />
         <GamepadIcon />
       </Link>
-      <IntroVideo />
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-start gap-8 px-16 pt-28 pb-[35vh] sm:items-start sm:pt-36 sm:pb-24">
-        <span role="img" aria-label={t.brandAlt} className="my-[-38px] block">
+      {/* Giris klibi burada `IntroVideo` ile GELMIYOR. Anasayfadaki
+          surum klibi `fixed z-50` ile gorunum alanina cakiyor, sonsuz
+          donguye aliyor ve her ziyarette listeden sirayla birini
+          gosteriyor. Uc sorun da burada bilerek terk edildi:
+
+          - Dongu kapatildi (`loop={false}`). Klip bir kez oynayip son
+            karesinde duruyor -- tipki logo gibi. Okurken kosede surekli
+            hareket eden bir sey kalmiyor.
+          - `fixed` yerine akisin ICINDE. Kaydirinca pesimizden gelmiyor,
+            sayfanin bir parcasi. Bu sayede anasayfadaki `pb-[35vh]`
+            kacamagina da gerek kalmadi (o dolgu, ustte duran klibin
+            butonlari kapatmasini onlemek icindi).
+          - Havuz degil tek klip. Digerleri sayfalara dagitilacak. */}
+      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-start gap-10 px-8 pt-28 pb-24 sm:items-start sm:px-16 sm:pt-36 md:max-w-5xl">
+        {/* Sayfada gorunur bir h1 kalmadi ("Bir Seyler Deniyorum"
+            kaldirildi). Belgenin yine de tek bir ana basligi olmali --
+            ekran okuyucular sayfayi basliklardan geziyor. Gorsel duzeni
+            hic etkilemeyen bir h1 birakildi. */}
+        <h1 className="sr-only">{t.brandAlt}</h1>
+
+        <div className="flex w-full flex-col items-center gap-10 md:flex-row md:items-center md:justify-between md:gap-6">
+          <div className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-start">
+            <span role="img" aria-label={t.brandAlt} className="my-[-38px] block">
+              <ChromaKeyVideo
+                src="/HD-Animasyon.mp4"
+                loop={false}
+                className="h-[140px] w-auto max-w-none brightness-0 dark:brightness-100"
+              />
+            </span>
+            <p className="site-welcome text-sm font-medium uppercase tracking-[0.14em] text-zinc-500 dark:text-cream-dimmer">
+              {t.welcome}
+            </p>
+            {/* Metin serifi yalnizca BURADA. Baslik kaldirildigi icin
+                sayfanin gorsel agirligini artik bu paragraf tasiyor;
+                serif ona hem agirlik hem sicaklik veriyor. Font
+                degiskeni app/sinama/layout.tsx'ten geliyor, bu yuzden
+                anasayfada bu sinif hicbir sey yapmaz. */}
+            <p className="site-description max-w-md font-[family-name:var(--font-newsreader)] text-2xl leading-9 text-zinc-700 dark:text-cream-dim">
+              {t.descriptionQuestion}
+              <br />
+              {t.descriptionRephrase}
+              <br />
+              <strong className="font-semibold text-black dark:text-foreground">
+                {t.descriptionHadith}
+              </strong>{" "}
+              {t.descriptionAnd}{" "}
+              <strong className="font-semibold text-black dark:text-foreground">
+                {t.descriptionDigital}
+              </strong>
+            </p>
+          </div>
+
+          {/* Olcu px, vh DEGIL. vh kurali kosede duran fixed konumlu susleme
+              klipleri icin; bu klip akisin icinde, yani logo gibi
+              sayfanin geri kalaniyla birlikte yakinlastirmadan
+              ETKILENMELI (bkz. logonun uzerindeki not).
+
+              Yukseklik 210px'i gecmemeli: klip 16:9 oldugu icin 210px
+              yukseklik ~373px genislik demek ve metin sutununa
+              (max-w-md = 448px) 896px'lik alanda ancak bu kaliyor.
+              Denemede 38vh ile birakilmisti, klip 486px'e ciktigi icin
+              metni 249px'e sikistiriyordu. */}
           <ChromaKeyVideo
-            src="/HD-Animasyon.mp4"
+            src="/Mustafa%20Thinking%20Green_seffaf.mp4"
             loop={false}
-            className="h-[140px] w-auto max-w-none brightness-0 dark:brightness-100"
+            className="h-[150px] w-auto max-w-none shrink-0 md:h-[210px]"
           />
-        </span>
-        <div className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-start">
-          <h1 className="site-title max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-foreground">
-            {t.title}
-          </h1>
-          <p className="site-welcome text-base font-medium text-zinc-700 dark:text-cream-dim">
-            {t.welcome}
-          </p>
-          <p className="site-description max-w-md text-lg leading-8 text-zinc-600 dark:text-cream-dimmer">
-            {t.descriptionQuestion}
-            <br />
-            {t.descriptionRephrase}
-            <br />
-            <strong className="font-semibold">{t.descriptionHadith}</strong>{" "}
-            {t.descriptionAnd}{" "}
-            <strong className="font-semibold">{t.descriptionDigital}</strong>
-          </p>
         </div>
-        <div className="site-actions flex flex-col gap-4 text-base font-medium sm:flex-row">
+
+        <div className="site-actions flex w-full flex-col gap-4 text-base font-medium sm:flex-row">
           <Link
             href="/selam"
             className="flex h-12 w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-foreground px-5 text-center text-background transition-opacity hover:opacity-90 md:w-auto md:min-w-[158px]"
@@ -121,6 +163,52 @@ export default function Sinama() {
             />
           </a>
         </div>
+
+        {/* "Burada neler var" izgarasi. Iki isi birden goruyor: sayfa iki
+            dugmeyle bitmedigi icin daha bitmis duruyor, VE anasayfadan
+            hic baglanti almayan sayfalar (/podcastler, /hadis-tarihi)
+            nihayet ulasilabilir oluyor. Ikincisi arama tarafi icin de
+            onemli -- Google ic baglantiyla geziyor, sitemap'te olmak tek
+            basina yetmiyor. */}
+        <nav aria-label={t.indexLead} className="w-full">
+          <h2 className="mb-4 text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-cream-dimmer">
+            {t.indexLead}
+          </h2>
+          <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {[
+              { href: "/podcastler", ad: t.cardPodcasts, alt: t.cardPodcastsDesc },
+              { href: "/hadis-tarihi", ad: t.cardHadithHistory, alt: t.cardHadithHistoryDesc },
+              { href: "/resule-kavusmak", ad: t.cardGame, alt: t.cardGameDesc },
+              { href: "/rihle", ad: t.cardRihle, alt: t.cardRihleDesc },
+            ].map((kart) => (
+              <li key={kart.href}>
+                {/* Kenar rengi `dark:border-white/[.145]` ILE VERILMIYOR. O
+                    sinif sitede her yerde var ama koyu temada CALISMIYOR:
+                    `@custom-variant dark (&:where(.dark, .dark *))` ozgullugu
+                    :where() ile sifirladigi icin dark kurali
+                    `border-black/[.08]` ile ayni ozgullukte kaliyor ve
+                    siralamada kaybediyor -- koyu temada kenar, siyah zemin
+                    uzerinde %8 siyah cikiyor, yani gorunmuyor. (Yayindaki
+                    anasayfada da boyle, ayri bir is.)
+
+                    Cozum globals.css icindeki `.hairline-card` sinifi:
+                    duz CSS oldugu icin tema degisince gercekten donuyor.
+                    Tailwind ile denenen iki yol da donmedi, gerekcesi orada. */}
+                <Link
+                  href={kart.href}
+                  className="hairline-card flex h-full flex-col gap-1 rounded-2xl p-4 transition-colors hover:bg-foreground/[.04]"
+                >
+                  <span className="font-[family-name:var(--font-newsreader)] text-lg font-semibold text-black dark:text-foreground">
+                    {kart.ad}
+                  </span>
+                  <span className="text-sm leading-6 text-zinc-600 dark:text-cream-dimmer">
+                    {kart.alt}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </main>
     </div>
   );

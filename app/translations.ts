@@ -44,6 +44,17 @@ type Translation = {
   playerForward5: string;
   playerSpeed: string;
   playerSeek: string;
+  // /sinama'daki 'burada neler var' kart izgarasi. Anasayfa henuz
+  // kullanmiyor -- duzen orada onaylanirsa oraya da tasinacak.
+  indexLead: string;
+  cardPodcasts: string;
+  cardPodcastsDesc: string;
+  cardHadithHistory: string;
+  cardHadithHistoryDesc: string;
+  cardGame: string;
+  cardGameDesc: string;
+  cardRihle: string;
+  cardRihleDesc: string;
 };
 
 export const TRANSLATIONS: Record<Language, Translation> = {
@@ -79,6 +90,15 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     playerForward5: "5 saniye ileri",
     playerSpeed: "Oynatma hızı",
     playerSeek: "Ses konumu",
+    indexLead: "Burada neler var",
+    cardPodcasts: "Podcastler",
+    cardPodcastsDesc: "Hadis tarihi, usûlü ve edebiyatı üzerine ses kayıtları.",
+    cardHadithHistory: "Hadis Tarihi",
+    cardHadithHistoryDesc: "Bölümler ve Mihne hadisesi üzerine kayıtlar.",
+    cardGame: "Resûle Kavuşmak",
+    cardGameDesc: "İsnâd zincirini doğru sırayla tamamlama oyunu.",
+    cardRihle: "Rihle",
+    cardRihleDesc: "Bir yolculuk yaklaşıyor.",
   },
   ar: {
     brandAlt: "الحديث والديجيتالية",
@@ -112,6 +132,15 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     playerForward5: "خمس ثوانٍ إلى الأمام",
     playerSpeed: "سرعة التشغيل",
     playerSeek: "موضع الصوت",
+    indexLead: "ما الذي تجده هنا",
+    cardPodcasts: "التسجيلات الصوتية",
+    cardPodcastsDesc: "تسجيلات في تاريخ الحديث وأصوله وأدبه.",
+    cardHadithHistory: "تاريخ الحديث",
+    cardHadithHistoryDesc: "أقسامٌ وتسجيلاتٌ حول محنة خلق القرآن.",
+    cardGame: "لقاء الرسول",
+    cardGameDesc: "لعبةٌ لإتمام سلسلة الإسناد بترتيبها الصحيح.",
+    cardRihle: "الرحلة",
+    cardRihleDesc: "رحلةٌ تقترب.",
   },
   en: {
     brandAlt: "Hadith and Digital",
@@ -146,5 +175,14 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     playerForward5: "Forward 5 seconds",
     playerSpeed: "Playback speed",
     playerSeek: "Seek",
+    indexLead: "What's here",
+    cardPodcasts: "Podcasts",
+    cardPodcastsDesc: "Recordings on hadith history, methodology and literature.",
+    cardHadithHistory: "History of Hadith",
+    cardHadithHistoryDesc: "Chapters and recordings on the Mihna.",
+    cardGame: "Meeting the Messenger",
+    cardGameDesc: "A game about completing the chain of transmission in order.",
+    cardRihle: "Rihla",
+    cardRihleDesc: "A journey is drawing near.",
   },
 };

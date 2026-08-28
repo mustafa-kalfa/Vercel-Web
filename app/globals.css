@@ -349,3 +349,41 @@ html[lang="ar"] .ar-greeting {
   background-color: #c9e7d4;
   color: #171717;
 }
+
+/* Tema ile birlikte donen ince kenar.
+
+   NEDEN VAR: sitede her yerde kullanilan `border-black/[.08]
+   dark:border-white/[.145]` ikilisi koyu temada CALISMIYOR. Olculdu
+   (yayindaki anasayfa dahil): koyu temada kenar `oklab(0 0 0 / 0.08)`,
+   yani siyah zemin uzerinde %8 siyah -- gorunmez. Sebep,
+   `@custom-variant dark (&:where(.dark, .dark *))` sarmalayicisinin
+   :where() ile ozgullugu sifirlamasi; dark kurali normal kuralla ayni
+   ozgullukte kalinca siralama belirliyor ve dark kaybediyor.
+
+   NEDEN TAILWIND SINIFI DEGIL: once `border-foreground/10`, sonra
+   `border-[color:var(--hairline)]` denendi, IKISI DE tema degisince
+   donmedi -- Tailwind opaklik/arbitrary yolunda rengi bir kez cozup
+   sabitliyor. Ayni degiskeni inline `style` ile veren bir kontrol ogesi
+   ise duzgun donuyor (olculdu). Yani sorun degiskende degil, sinifi
+   ureten yolda. Bu yuzden duz CSS.
+
+   Su an yalnizca /sinama'daki kartlar kullaniyor. Duzen onaylanirsa
+   sitedeki diger `dark:border-white` kullanimlari da buraya cevrilmeli;
+   hepsi ayni sessiz hatayi tasiyor. */
+:root {
+  --hairline: rgba(0, 0, 0, 0.08);
+  --hairline-strong: rgba(0, 0, 0, 0.28);
+}
+
+.dark {
+  --hairline: rgba(255, 255, 255, 0.145);
+  --hairline-strong: rgba(255, 255, 255, 0.4);
+}
+
+.hairline-card {
+  border: 1px solid var(--hairline);
+}
+
+.hairline-card:hover {
+  border-color: var(--hairline-strong);
+}
