@@ -59,6 +59,17 @@ type Translation = {
   cardEducationDesc: string;
   eduVideos: string;
   eduPosts: string;
+  eduVideoShamelaSetup: string;
+  eduVideoMacbook: string;
+  eduVideoSearchPanel: string;
+  eduVideoClaudeExt: string;
+  eduVideoChh: string;
+  eduVideoCevami: string;
+  eduPostNotebookLM: string;
+  eduPostVolumeLimit: string;
+  eduPostShamelaFeature: string;
+  eduPostYdsCards: string;
+  eduPostDataPrivacy: string;
   footerRights: string;
 };
 
@@ -108,6 +119,25 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     cardEducationDesc: "Verilen eğitimler, rehber videoları ve paylaşımlar.",
     eduVideos: "Rehber videoları",
     eduPosts: "Paylaşımlar",
+    eduVideoShamelaSetup:
+      "el-Mektebetü'ş-Şâmile Kullanım Rehberi 1 — Kurulum Videosu",
+    eduVideoMacbook: "Macbook'a Windows ve Şâmile Kurulumu",
+    eduVideoSearchPanel: "Arama Paneli 1 — el-Mektebetü'ş-Şâmile Rehberi 3",
+    eduVideoClaudeExt:
+      "Şâmile ile Türkçe Konuşmak! Claude'a Şâmile Eklentisi Nasıl Kurulur?",
+    eduVideoChh:
+      "Camiu Hâdimi'l-Haremeyn (CHH) Kurulumu, Sık Karşılaşılan Sorunlar ve Çözümleri",
+    eduVideoCevami: "Cevâmiü'l-kelim Programı Kurulumu",
+    eduPostNotebookLM:
+      "Şâmile'den elde edilen kitaplar üzerinde NotebookLM ile işlem yapma",
+    eduPostVolumeLimit:
+      "Eser hacminde sınırlamaya giderek NotebookLM'de daha etkili sonuç almak",
+    eduPostShamelaFeature:
+      "Şâmile'nin çok bilinmeyen ama oldukça işlevsel bir özelliği",
+    eduPostYdsCards:
+      "Gemini ve NotebookLM ile YDS kelime çalışma kartları hazırlamak",
+    eduPostDataPrivacy:
+      "Dil modellerine verilen akademik metinlerin ve kişisel verilerin şirketlerce kullanımını önlemek (ChatGPT, Gemini, Claude)",
     footerRights: "Tüm hakları saklıdır.",
   },
   ar: {
@@ -155,6 +185,21 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     cardEducationDesc: "دوراتٌ وفيديوهات إرشادية ومنشورات.",
     eduVideos: "الفيديوهات الإرشادية",
     eduPosts: "المنشورات",
+    eduVideoShamelaSetup: "دليل استخدام المكتبة الشاملة ١ — فيديو التثبيت",
+    eduVideoMacbook: "تثبيت ويندوز والمكتبة الشاملة على ماك بوك",
+    eduVideoSearchPanel: "لوحة البحث ١ — دليل المكتبة الشاملة ٣",
+    eduVideoClaudeExt:
+      "التحدّث إلى الشاملة بالتركية! كيف تُثبَّت إضافة الشاملة في Claude؟",
+    eduVideoChh: "تثبيت جامع خادم الحرمين: المشكلات الشائعة وحلولها",
+    eduVideoCevami: "تثبيت برنامج جوامع الكلم",
+    eduPostNotebookLM:
+      "العمل على الكتب المستخرجة من المكتبة الشاملة بواسطة NotebookLM",
+    eduPostVolumeLimit:
+      "الحصول على نتائج أفضل في NotebookLM بتقليص حجم الكتاب",
+    eduPostShamelaFeature: "ميزةٌ في المكتبة الشاملة قليلة الشهرة عظيمة الفائدة",
+    eduPostYdsCards: "إعداد بطاقات مفردات اختبار YDS بواسطة Gemini وNotebookLM",
+    eduPostDataPrivacy:
+      "منع الشركات من استخدام النصوص الأكاديمية والبيانات الشخصية التي تُعطى لنماذج اللغة (ChatGPT وGemini وClaude)",
     footerRights: "جميع الحقوق محفوظة.",
   },
   en: {
@@ -203,6 +248,22 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     cardEducationDesc: "Courses taught, guide videos and posts.",
     eduVideos: "Guide videos",
     eduPosts: "Posts",
+    eduVideoShamelaSetup: "al-Maktaba al-Shamela Guide 1 — Installation",
+    eduVideoMacbook: "Installing Windows and Shamela on a MacBook",
+    eduVideoSearchPanel: "Search Panel 1 — al-Maktaba al-Shamela Guide 3",
+    eduVideoClaudeExt:
+      "Talking to Shamela in Turkish! How to install the Shamela extension for Claude",
+    eduVideoChh:
+      "Installing Jāmiʿ Khādim al-Ḥaramayn (CHH): common problems and fixes",
+    eduVideoCevami: "Installing the Jawāmiʿ al-Kalim program",
+    eduPostNotebookLM: "Working on books exported from Shamela with NotebookLM",
+    eduPostVolumeLimit:
+      "Getting better results in NotebookLM by limiting the size of the work",
+    eduPostShamelaFeature: "A little-known but very useful feature of Shamela",
+    eduPostYdsCards:
+      "Making YDS vocabulary cards with Gemini and NotebookLM",
+    eduPostDataPrivacy:
+      "Stopping companies from using the academic texts and personal data you give to language models (ChatGPT, Gemini, Claude)",
     footerRights: "All rights reserved.",
   },
 };

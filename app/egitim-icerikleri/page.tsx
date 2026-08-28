@@ -3,64 +3,52 @@
 import Link from "next/link";
 import ChromaKeyVideo from "../ChromaKeyVideo";
 import { useLanguage } from "../LanguageContext";
+import { TRANSLATIONS, type Language } from "../translations";
 
-/* Sayfanin ICERIGI bilerek TURKCE, cevirilere baglanmadi. Buradaki her
-   satir gercek bir seyin ADI: bir kursun adi, bir videonun basligi, bir
-   X gonderisinin konusu. Bunlari Arapca/Ingilizce'ye "cevirmek" olmayan
-   bir ad uydurmak olurdu. Yalnizca bolum basliklari ceviriden geliyor.
+/* Ceviri sozlugunun anahtarlari. */
+type CeviriAnahtari = keyof (typeof TRANSLATIONS)[Language];
 
-   Adresler `?s=20` gibi paylasim parametreleri temizlenerek yazildi;
-   parametre hedefi degistirmiyor, yalnizca nereden paylasildigini
-   tasiyor. */
+/* Liste kalemleri metni degil ceviri ANAHTARINI tutuyor. Onceden
+   basliklar dogrudan Turkce yazilmisti; gerekce "her satir gercek bir
+   seyin adi, cevirmek olmayan bir ad uydurmak olur" idi. Mustafa
+   sayfanin ucu dilde de degismesini istedi (2026-08-29), o yuzden
+   basliklar artik ceviriliyor.
 
-type Kalem = { ad: string; href: string };
+   Adresler DEGISMIYOR: hedef video ve gonderi hangi dilde ise oyle
+   kaliyor, ceviri yalnizca ziyaretcinin ne oldugunu anlamasi icin.
+   `?s=20` gibi paylasim parametreleri temizlendi; hedefi degistirmiyor,
+   yalnizca nereden paylasildigini tasiyor. */
+
+type Kalem = { anahtar: CeviriAnahtari; href: string };
 
 const VIDEOLAR: Kalem[] = [
-  {
-    ad: "el-Mektebetü'ş-Şâmile Kullanım Rehberi 1 — Kurulum Videosu",
-    href: "https://youtu.be/E2FQ54kZ2j4",
-  },
-  {
-    ad: "Macbook'a Windows ve Şâmile Kurulumu",
-    href: "https://youtu.be/kOFPtcE4O54",
-  },
-  {
-    ad: "Arama Paneli 1 — el-Mektebetü'ş-Şâmile Rehberi 3",
-    href: "https://youtu.be/Nzpnf_YN47o",
-  },
-  {
-    ad: "Şâmile ile Türkçe Konuşmak! Claude'a Şâmile Eklentisi Nasıl Kurulur?",
-    href: "https://youtu.be/qLbSDKsBXBA",
-  },
-  {
-    ad: "Camiu Hâdimi'l-Haremeyn (CHH) Kurulumu, Sık Karşılaşılan Sorunlar ve Çözümleri",
-    href: "https://youtu.be/RnauL-BLXmg",
-  },
-  {
-    ad: "Cevâmiü'l-kelim Programı Kurulumu",
-    href: "https://youtu.be/mv91CJnRZTY",
-  },
+  { anahtar: "eduVideoShamelaSetup", href: "https://youtu.be/E2FQ54kZ2j4" },
+  { anahtar: "eduVideoMacbook", href: "https://youtu.be/kOFPtcE4O54" },
+  { anahtar: "eduVideoSearchPanel", href: "https://youtu.be/Nzpnf_YN47o" },
+  { anahtar: "eduVideoClaudeExt", href: "https://youtu.be/qLbSDKsBXBA" },
+  { anahtar: "eduVideoChh", href: "https://youtu.be/RnauL-BLXmg" },
+  { anahtar: "eduVideoCevami", href: "https://youtu.be/mv91CJnRZTY" },
 ];
 
 const PAYLASIMLAR: Kalem[] = [
   {
-    ad: "Şâmile'den elde edilen kitaplar üzerinde NotebookLM ile işlem yapma",
+    anahtar: "eduPostNotebookLM",
     href: "https://x.com/mustafakalfa__/status/2020937920647962728",
   },
   {
-    ad: "Eser hacminde sınırlamaya giderek NotebookLM'de daha etkili sonuç almak",
+    anahtar: "eduPostVolumeLimit",
     href: "https://x.com/mustafakalfa__/status/2021647890674762009",
   },
   {
-    ad: "Şâmile'nin çok bilinmeyen ama oldukça işlevsel bir özelliği",
+    anahtar: "eduPostShamelaFeature",
     href: "https://x.com/mustafakalfa__/status/2015870691728654502",
   },
   {
-    ad: "Gemini ve NotebookLM ile YDS kelime çalışma kartları hazırlamak",
+    anahtar: "eduPostYdsCards",
     href: "https://x.com/mustafakalfa__/status/2029559654775132636",
   },
   {
-    ad: "Dil modellerine verilen akademik metinlerin ve kişisel verilerin şirketlerce kullanımını önlemek (ChatGPT, Gemini, Claude)",
+    anahtar: "eduPostDataPrivacy",
     href: "https://x.com/mustafakalfa__/status/2035419172813902122",
   },
 ];
@@ -69,7 +57,15 @@ const PAYLASIMLAR: Kalem[] = [
    siteden tamamen ayri yerler. `rel="noopener"` sart -- onsuz acilan
    sayfa `window.opener` uzerinden bu sekmeyi baska bir adrese
    gonderebiliyor. */
-function Liste({ baslik, kalemler }: { baslik: string; kalemler: Kalem[] }) {
+function Liste({
+  baslik,
+  kalemler,
+  t,
+}: {
+  baslik: string;
+  kalemler: Kalem[];
+  t: (typeof TRANSLATIONS)[Language];
+}) {
   return (
     <section className="w-full">
       <h2 className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-cream-dimmer">
@@ -84,7 +80,7 @@ function Liste({ baslik, kalemler }: { baslik: string; kalemler: Kalem[] }) {
               rel="noopener noreferrer"
               className="flex rounded-2xl border border-solid border-black/20 p-4 text-base leading-6 text-black transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/70 dark:text-foreground dark:hover:bg-[#1a1a1a]"
             >
-              {k.ad}
+              {t[k.anahtar]}
             </a>
           </li>
         ))}
@@ -115,8 +111,8 @@ export default function EgitimIcerikleri() {
 
       <div className="flex w-full max-w-3xl flex-col gap-10 px-8 pb-16 pt-28 sm:px-16 sm:pt-32">
         <h1 className="sr-only">{t.cardEducation}</h1>
-        <Liste baslik={t.eduVideos} kalemler={VIDEOLAR} />
-        <Liste baslik={t.eduPosts} kalemler={PAYLASIMLAR} />
+        <Liste baslik={t.eduVideos} kalemler={VIDEOLAR} t={t} />
+        <Liste baslik={t.eduPosts} kalemler={PAYLASIMLAR} t={t} />
       </div>
 
       {/* Derince Sunum klibi, sag alt kosede.
@@ -138,11 +134,16 @@ export default function EgitimIcerikleri() {
           ekranin %56'si oluyordu ve listeden UC kalemi ortuyordu
           (olculdu). Bu sayfa metin agirlikli, susleme okunurlugun
           onune gecmemeli. Klip 644x720, yani dikey -- genislik
-          `w-auto` ile kendi oranindan geliyor. */}
+          `w-auto` ile kendi oranindan geliyor.
+
+          `-scale-x-100`: klip yatayda AYNALANIYOR. Ozgun cekimde karakter
+          sola bakiyor; sag alt kosede duracaksa sayfanin icine, yani
+          sola donuk olmasi gerekiyor. Donusum fiziksel, sayfa yonunden
+          (rtl/ltr) etkilenmiyor. */}
       <div className="pointer-events-none sticky bottom-0 z-50 h-0 w-full">
         <ChromaKeyVideo
           src="/Derince%20Sunum.mp4"
-          className="absolute bottom-0 right-0 h-[20vh] w-auto max-w-none md:h-[29vh]"
+          className="absolute bottom-0 right-0 h-[20vh] w-auto max-w-none -scale-x-100 md:h-[29vh]"
         />
       </div>
     </main>
