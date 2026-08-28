@@ -49,14 +49,23 @@ export default function Footer() {
           </ul>
         </nav>
 
-        <div className="flex flex-col gap-3 text-xs text-zinc-500 sm:flex-row sm:items-end sm:justify-between dark:text-cream-dimmer">
+        {/* Her sey SOLA yasli, sag alt kose bilerek bos birakiliyor.
+            Sitede karakter klipleri (`/sinama`, `/selam`) tam oraya
+            `fixed` konumlaniyor; footer'in dis baglantilari saga
+            yaslandiginda klibin altinda kaliyordu (olculdu). Sol taraf
+            her sayfada guvenli. */}
+        <div className="flex flex-col gap-3 text-xs text-zinc-500 dark:text-cream-dimmer">
+          {/* Iki satir. Tek satirda "© 2026 Mustafâ Kalfa. Tum haklari
+              saklidir." mobilde 267px'e uzayip sag alt kosedeki klibin
+              (x=194'ten basliyor) altina giriyordu; bolununce iki parca da
+              162px'in altinda kaliyor. */}
           <p>
-            © {YIL} Mustafâ Kalfa. {t.footerRights}
+            © {YIL} Mustafâ Kalfa
+            <br />
+            {t.footerRights}
           </p>
 
-          {/* Dis baglantilar alt alta, Academia ustte. `items-start`
-              mobilde sola yaslasin diye; genis ekranda sarmalayici
-              `sm:items-end` ile sagda topluyor. */}
+          {/* Dis baglantilar alt alta, Academia ustte. */}
           <ul className="flex flex-col items-start gap-1.5">
             <li>
               <a
@@ -65,24 +74,19 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 transition-colors hover:text-black dark:hover:text-foreground"
               >
-                {/* Academia.edu'nun kendi markasi degil, akademik icerigi
-                    anlatan genel bir mezuniyet kepi. Resmi logoyu birebir
-                    cizmek yerine bu tercih edildi -- yanlis cizilmis bir
-                    marka isareti, hic olmamasindan kotu. */}
+                {/* Academia.edu logosu (Mustafa'nin verdigi dosyadan,
+                    SVG Repo). Tek parca yol, dolgu `currentColor` -- kart
+                    ikonlarinin aksine cizgi degil dolgu. viewBox 32'lik,
+                    digerleri 24; yol o koordinatlara gore cizildigi icin
+                    degistirilmedi, olcuyu zaten sinif veriyor. */}
                 <svg
-                  viewBox="0 0 24 24"
+                  viewBox="0 0 32 32"
                   className="h-3.5 w-3.5"
                   aria-hidden="true"
                   focusable="false"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+                  fill="currentColor"
                 >
-                  <path d="M12 4 2 9l10 5 10-5z" />
-                  <path d="M6 11.5V17c0 1.5 2.7 3 6 3s6-1.5 6-3v-5.5" />
-                  <path d="M21 9.5V15" />
+                  <path d="M9.527 18.95q2.116-5.301 4.098-10.653l4.261 10.653zM28.538 27.472l-10.326-25.894h-7.374l1.311 3.278-8.85 22.616c-0.327 1.147-1.311 1.312-2.294 1.476v1.475h8.523v-1.475c-2.294-0.164-3.606-0.492-2.623-2.95 0.531-1.125 1.086-2.536 1.56-3.983l0.079-0.278h10.488l1.475 3.769c0.161 0.479 0.277 1.036 0.326 1.612l0.002 0.026c0 1.311-1.147 1.803-3.278 1.803v1.475h13.441v-1.475c-1.147-0.163-2.131-0.491-2.458-1.475z" />
                 </svg>
                 ibnhaldun.academia.edu
               </a>

@@ -113,19 +113,22 @@ export default function Sinama() {
 
   return (
     <div className="flex flex-col flex-1 items-center justify-center font-sans">
-      {/* Giris klibi kosede `fixed`, dongude. Olculer IntroVideo'daki
-          degerlerin YARISI (22.5 -> 11.25vh, 16.875 -> 8.4375vh).
-          Negatif sag kenar da ayni oranda yarilandi: o deger klibin
-          sagindaki seffaf boslugu kapatmak icin ve bosluk da klip
-          kuculunce kuculuyor, yarilanmazsa karakter ekranin disina
-          tasardi.
+      {/* Giris klibi kosede `fixed`, dongude. Yukseklik IntroVideo'daki
+          degerlerin 0.75 kati: once yarilandi, sonra 1.5 kat buyutuldu
+          (masaustu 22.5 -> 11.25 -> 16.875vh, mobil 16.875 -> 8.4375 ->
+          12.65625vh).
 
-          Klip kucuk oldugu icin main'de `pb-[35vh]`, footer altinda da
-          ayrica bir bosluk gerekmiyor -- kapattigi serit artik icerige
-          degmiyor. */}
+          Negatif sag kenar HER ADIMDA ayni oranda gidiyor. O deger
+          klibin sagindaki seffaf boslugu kapatmak icin ve bosluk klip
+          ile birlikte olcekleniyor; sabit birakilirsa klip kuculdugunde
+          karakter ekranin disina tasiyor.
+
+          main'de `pb-[35vh]`, footer altinda da ayrica bir bosluk YOK:
+          klip bu boyda gorunum alaninin yalnizca ince bir seridini
+          kapatiyor ve icerige degmiyor (olculdu). */}
       <ChromaKeyVideo
         src="/Mustafa%20Thinking%20Green_seffaf.mp4"
-        className="fixed bottom-0 right-[-2vh] z-50 h-[8.4375vh] w-auto max-w-none md:right-[-3vh] md:h-[11.25vh]"
+        className="fixed bottom-0 right-[-3vh] z-50 h-[12.65625vh] w-auto max-w-none md:right-[-4.5vh] md:h-[16.875vh]"
       />
       {/* Logo artik main'in ICINDE degil, ustte kendi header'inda: sitenin
           diger sayfalarindaki (/mustafa-calisiyor, /podcastler ...) ust
