@@ -333,8 +333,8 @@ html[lang="ar"] .ar-greeting {
 
 /* Fare ile secilen yazinin rengi. Tarayici varsayilani (Chrome'da parlak
    mavi) sitenin sicak bej/krem paletiyle carpisiyordu; yerine turkuaza
-   calan canli bir acik yesil konuldu (once solgun bir nane yesiliydi,
-   2026-08-28'de degistirildi). Zemin ikisinde de ayni: acik modda bej
+   calan canli bir acik yesil konuldu, sonra bir tik daha yesile cekildi
+   (ton 163 -> 139 derece). Zemin ikisinde de ayni: acik modda bej
    uzerinde, koyu modda siyah uzerinde ayni vurgu cikiyor, yazi ise her
    iki durumda da koyu kaliyor (yesil zemin uzerinde okunakli olan bu).
 
@@ -347,7 +347,7 @@ html[lang="ar"] .ar-greeting {
    kural oraya HIC ulasmiyor. Rengi degistirirsen ikisini birden
    degistir. */
 ::selection {
-  background-color: #6FE7C5;
+  background-color: #6FE795;
   color: #171717;
 }
 

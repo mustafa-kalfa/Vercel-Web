@@ -10,12 +10,7 @@ function GamepadIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
-      // relative: .glow-ring/.glow-cover position:absolute oldugu icin
-      // DOM sirasindan bagimsiz olarak normalde onlarin ALTINDA kalirdi
-      // (konumlanmamis/in-flow icerik, konumlanmis kardeslerden once
-      // boyanir) -- ikonun opak .glow-cover'in ALTINDA kaybolmasini
-      // (ve boylece dugmenin tamamen bombos gorunmesini) engelliyor.
-      className="relative h-[19px] w-[19px]"
+      className="h-[19px] w-[19px] shrink-0"
       aria-hidden="true"
       focusable="false"
       fill="none"
@@ -36,40 +31,29 @@ function GamepadIcon() {
 export default function Sinama() {
   const { t, language, outgoingLanguage } = useLanguage();
 
+  /* Kartlar. `ikon` istege bagli -- su an yalnizca "Oyunlar" tasiyor.
+     O ikon eskiden sag ustteki `glow-btn-test` dugmesindeydi; dugme
+     kaldirilinca (kartlar zaten oraya goturuyor) ikon basligin soluna
+     alindi. */
+  const kartlar: {
+    href: string;
+    ad: string;
+    alt: string;
+    ikon?: React.ReactNode;
+  }[] = [
+    { href: "/mustafa-calisiyor", ad: t.cardNetworks, alt: t.cardNetworksDesc },
+    { href: "/podcastler", ad: t.cardPodcasts, alt: t.cardPodcastsDesc },
+    { href: "/rihle", ad: t.cardRihle, alt: t.cardRihleDesc },
+    {
+      href: "/resule-kavusmak",
+      ad: t.cardGames,
+      alt: t.cardGamesDesc,
+      ikon: <GamepadIcon />,
+    },
+  ];
+
   return (
     <div className="flex flex-col flex-1 items-center justify-center font-sans">
-      {/* Dil dugmesinin (layout.tsx, fixed right-4 top-4, h-9) hemen
-          altinda, ayni gorunumde bir dugme: 8px bosluk icin top-[60px]
-          (16 + 36 + 8). Yalnizca bu sayfaya ozgu oldugundan layout.tsx
-          yerine burada duruyor.
-
-          glow-btn-test: iPhone/Safari uyumluluk denemesi (2026-08-10).
-          Anasayfadaki/oyundaki .glow-btn / .bubble.glow-active henuz
-          buna gecirilmedi -- onaylanana kadar yalniz burada.
-
-          v5: SVG'yi TAMAMEN birakan farkli bir teknik (globals.css'teki
-          .glow-ring yorumuna bkz.) -- v1/v2/v3'te sirayla pathLength,
-          calc(), SVG'ye dogrudan filter:blur() kusurlari bulunup
-          duzeltildi ama iPhone'da yine degisiklik gorulmedi. v4
-          (conic-gradient + mask-composite:exclude ring-oyma) test
-          aracimda BILE tutarsiz davrandi (buyuk boyutta calisiyor, 36px
-          dugmede kayboluyor) -- o yuzden mask'a hic guvenmeyen v5'e
-          gecildi: donen bir conic-gradient dairesi dugmenin ARKASINA
-          konup uzerine dugmeyle AYNI boyutta opak bir "kapak" katmani
-          bindiriliyor; halka yalniz kapaktan tasan kenarda (RIM'de)
-          gorunuyor. Hicbir mask/filtre/SVG YOK, sadece DOM sirasiyla
-          (arka->kapak->ikon) katman katman boyama -- CSS'in en temel,
-          en eski ozelligi. JS de hala gerekmiyor. */}
-      <Link
-        href="/resule-kavusmak"
-        className="glow-btn-test fixed right-4 top-[60px] z-20 flex h-9 w-9 items-center justify-center rounded-full border border-black/[.08] bg-background text-foreground transition-colors hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
-        aria-label="Resûle Kavuşmak"
-        title="Resûle Kavuşmak"
-      >
-        <span className="glow-ring" aria-hidden="true" />
-        <span className="glow-cover" aria-hidden="true" />
-        <GamepadIcon />
-      </Link>
       {/* Giris klibi ESKI HALINE dondu: kosede `fixed z-50`, dongude ve
           IntroVideo'daki olculerin aynisi. Tek fark, havuzdan sirayla
           degil yalnizca bu klip geliyor -- digerleri sayfalara
@@ -143,12 +127,7 @@ export default function Sinama() {
             {t.indexLead}
           </h2>
           <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            {[
-              { href: "/mustafa-calisiyor", ad: t.cardNetworks, alt: t.cardNetworksDesc },
-              { href: "/podcastler", ad: t.cardPodcasts, alt: t.cardPodcastsDesc },
-              { href: "/rihle", ad: t.cardRihle, alt: t.cardRihleDesc },
-              { href: "/resule-kavusmak", ad: t.cardGames, alt: t.cardGamesDesc },
-            ].map((kart) => (
+            {kartlar.map((kart) => (
               <li key={kart.href}>
                 {/* Kenar rengi `dark:border-white/[.145]` ILE VERILMIYOR. O
                     sinif sitede her yerde var ama koyu temada CALISMIYOR:
@@ -166,7 +145,8 @@ export default function Sinama() {
                   href={kart.href}
                   className="hairline flex h-full flex-col gap-1 rounded-2xl p-4 transition-colors hover:bg-foreground/[.04]"
                 >
-                  <span className="text-lg font-semibold text-black dark:text-foreground">
+                  <span className="flex items-center gap-2 text-lg font-semibold text-black dark:text-foreground">
+                    {kart.ikon}
                     {kart.ad}
                   </span>
                   <span className="text-sm leading-6 text-zinc-600 dark:text-cream-dimmer">
