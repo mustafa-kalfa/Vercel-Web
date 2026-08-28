@@ -107,22 +107,30 @@ export default function ThemeToggle() {
     <button
       type="button"
       role="switch"
+      dir="ltr"
       aria-checked={isDark}
       onClick={toggle}
       className="fixed left-4 top-4 z-20 flex h-9 w-16 items-center rounded-full border border-black/20 bg-background p-1 transition-colors hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
       aria-label={t.themeToggle}
       title={t.themeToggle}
     >
-      {/* `rtl:-translate-x-7` SART. Arapca'da <html dir="rtl"> oldugu icin
-          rayin flex baslangici SAG kenar, yani topuz sagda duruyor.
-          Yalnizca `translate-x-7` verilirse topuz oradan bir 28px daha
-          saga itiliyor ve rayin TAMAMEN DISINA cikiyor (olculdu: ray
-          16-80, topuz 75-103). Ters yone kaydirinca hareket RTL'de de
-          "obur uca git" anlamina geliyor: hilal sagda basliyor, sola
-          kayarken gunese donuyor. */}
+      {/* `dir="ltr"` SART, hem de yalnizca bu dugmede. Arapca'da sayfanin
+          tamami `dir="rtl"` ve o zaman rayin flex baslangici sag kenara
+          geciyor: topuz sagda basliyor, ikonlarin yerlesimi TR/EN'in
+          aynasi oluyordu. Once `rtl:-translate-x-7` ile kaydirma yonu
+          ters cevrilmisti (yani ayna DAVRANIS korunmustu), ama istenen
+          bu degil (Mustafa, 2026-08-29): dugme uc dilde de BIREBIR ayni
+          gorunsun -- acik temada topuz solda ay yildizla, koyu temada
+          sagda gunesle.
+
+          `dir` dugmenin ICINI LTR yapiyor, sayfanin yonune dokunmuyor.
+          Icinde metin olmadigi icin (yalnizca topuz ve iki ikon) baska
+          hicbir yan etkisi yok. Ayni yaklasim dil dugmesinde
+          `rtl:flex-row-reverse` ile cozulmustu; orada metin var, burada
+          yok. */}
       <span
         className={`relative flex h-7 w-7 items-center justify-center rounded-full bg-foreground text-background transition-transform ${gecis} ${
-          isDark ? "translate-x-7 rtl:-translate-x-7" : "translate-x-0"
+          isDark ? "translate-x-7" : "translate-x-0"
         }`}
       >
         <span
