@@ -1,9 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { useTheme } from "./ThemeContext";
 import { useLanguage } from "./LanguageContext";
-import SwapContent from "./SwapContent";
 
 /* Tombul hilal + yildiz: acik moddayken gorunur, "karanliga gec" demek.
    Hilal, buyuk dairenin icinden kaydirilmis ikinci dairenin maske ile
@@ -13,7 +11,7 @@ function CrescentIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
-      className="h-[19px] w-[19px]"
+      className="h-[15px] w-[15px]"
       aria-hidden="true"
       focusable="false"
     >
@@ -40,7 +38,7 @@ function SunIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
-      className="h-[19px] w-[19px]"
+      className="h-[15px] w-[15px]"
       aria-hidden="true"
       focusable="false"
     >
@@ -64,40 +62,60 @@ function SunIcon() {
   );
 }
 
-function iconFor(theme: string) {
-  return theme === "dark" ? <SunIcon /> : <CrescentIcon />;
-}
+/* Kaydirmali tema anahtari.
 
+   Olculer: ray 64x36 (sitedeki diger dugmelerle ayni 36px yukseklik,
+   boylece dil dugmesiyle hizali kaliyor), topuz 28px, iki yanda 4px pay
+   -> topuzun gidecegi yol tam 28px (64 - 4 - 4 - 28).
+
+   HAREKET tek bir durumdan (`isDark`) besleniyor, yani hem gidis hem
+   donus kendiliginden calisiyor: topuz saga kayarken hilal kucultup
+   dondurulerek siliniyor, ayni anda gunes buyuyerek geliyor; tekrar
+   basildiginda ayni sey ters yonde oluyor. Iki ikon da topuzun icinde
+   ust uste duruyor (`absolute inset-0`), yani biri digerini iterek yer
+   degistirmiyor -- gecis boyunca merkez sabit.
+
+   `motion-reduce:transition-none`: hareketi azalt tercihi acikken kayma
+   ve donme yok, durum aninda degisiyor. Site genelinde SwapContent'te
+   de ayni hassasiyet var. */
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
   const { t } = useLanguage();
-  // Cikan ikon tiklama aninda yakalaniyor; effect ile izlemeye gerek yok.
-  const [outgoing, setOutgoing] = useState<string | null>(null);
 
   const isDark = theme === "dark";
 
   return (
     <button
       type="button"
-      onClick={() => {
-        setOutgoing(theme);
-        toggleTheme();
-        // Temizlik zamanlayiciyla: `animationend`'e baglanirsak
-        // prefers-reduced-motion acikken olay hic gelmiyor ve cikan
-        // ikon DOM'da asili kaliyor.
-        window.setTimeout(() => setOutgoing(null), 400);
-      }}
-      className="fixed left-4 top-4 z-20 flex h-9 w-9 items-center justify-center rounded-full border border-black/[.08] bg-background text-foreground transition-colors hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+      role="switch"
+      aria-checked={isDark}
+      onClick={toggleTheme}
+      className="fixed left-4 top-4 z-20 flex h-9 w-16 items-center rounded-full border border-black/[.08] bg-background p-1 transition-colors hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
       aria-label={t.themeToggle}
-      aria-pressed={isDark}
       title={t.themeToggle}
     >
-      <SwapContent
-        className="h-[19px] w-[19px]"
-        current={theme}
-        outgoing={outgoing}
-        render={iconFor}
-      />
+      <span
+        className={`relative flex h-7 w-7 items-center justify-center rounded-full bg-foreground text-background transition-transform duration-300 ease-out motion-reduce:transition-none ${
+          isDark ? "translate-x-7" : "translate-x-0"
+        }`}
+      >
+        <span
+          aria-hidden="true"
+          className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ease-out motion-reduce:transition-none ${
+            isDark ? "scale-50 rotate-90 opacity-0" : "scale-100 rotate-0 opacity-100"
+          }`}
+        >
+          <CrescentIcon />
+        </span>
+        <span
+          aria-hidden="true"
+          className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ease-out motion-reduce:transition-none ${
+            isDark ? "scale-100 rotate-0 opacity-100" : "scale-50 -rotate-90 opacity-0"
+          }`}
+        >
+          <SunIcon />
+        </span>
+      </span>
     </button>
   );
 }

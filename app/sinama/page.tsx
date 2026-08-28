@@ -167,7 +167,12 @@ export default function Sinama() {
           320px genislikte 249px yer kapliyor ve sag ustteki dil
           dugmesine (fixed right-4) degiyordu. 104px'te 185px kaliyor,
           iki dugmeyle de arasi aciliyor. */}
-      <header className="flex w-full justify-center pt-4">
+      {/* Dar ekranda ust dolgu 56px: tema anahtari (64px genis) ve dil
+          dugmesi (ikon eklenince 71px) buyudugu icin logo 320px'lik bir
+          ekranda ikisinin arasina sigmiyordu. Logoyu kucultmek yerine
+          dugmelerin ALTINA indirildi -- boylece yatay sigma sorunu
+          tamamen ortadan kalkiyor. Genis ekranda yer bol, eski dolgu. */}
+      <header className="flex w-full justify-center pt-14 sm:pt-4">
         <span
           role="img"
           aria-label={t.brandAlt}

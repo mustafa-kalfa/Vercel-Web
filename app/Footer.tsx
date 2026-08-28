@@ -55,15 +55,23 @@ export default function Footer() {
       <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-8 py-8 sm:px-16 md:max-w-5xl">
         {sayfaListesi ? (
         <nav aria-label={t.brandAlt}>
-          <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
-            {baglantilar.map((b) => (
-              <li key={b.href}>
+          {/* Baglantilarin arasinda "·". Ayirac AYRI bir <li> degil,
+              kendinden onceki baglantiyla ayni <li> icinde: liste
+              sarildiginda nokta yeni satirin BASINA dusmesin diye. */}
+          <ul className="flex flex-wrap items-center gap-x-2 gap-y-2 text-sm">
+            {baglantilar.map((b, i) => (
+              <li key={b.href} className="flex items-center gap-x-2">
                 <Link
                   href={b.href}
                   className="text-zinc-600 transition-colors hover:text-black dark:text-cream-dimmer dark:hover:text-foreground"
                 >
                   {b.ad}
                 </Link>
+                {i < baglantilar.length - 1 ? (
+                  <span aria-hidden="true" className="text-zinc-400 dark:text-cream-dimmer">
+                    ·
+                  </span>
+                ) : null}
               </li>
             ))}
           </ul>
