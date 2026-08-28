@@ -57,7 +57,6 @@ type Translation = {
   cardRihleDesc: string;
   cardEducation: string;
   cardEducationDesc: string;
-  eduTrainings: string;
   eduVideos: string;
   eduPosts: string;
   footerRights: string;
@@ -107,7 +106,6 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     cardRihleDesc: "Bir yolculuk yaklaşıyor.",
     cardEducation: "Eğitim İçerikleri ve Diğer Hizmetler",
     cardEducationDesc: "Verilen eğitimler, rehber videoları ve paylaşımlar.",
-    eduTrainings: "Eğitimler",
     eduVideos: "Rehber videoları",
     eduPosts: "Paylaşımlar",
     footerRights: "Tüm hakları saklıdır.",
@@ -155,7 +153,6 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     cardRihleDesc: "رحلةٌ تقترب.",
     cardEducation: "المحتوى التعليمي وخدمات أخرى",
     cardEducationDesc: "دوراتٌ وفيديوهات إرشادية ومنشورات.",
-    eduTrainings: "الدورات",
     eduVideos: "الفيديوهات الإرشادية",
     eduPosts: "المنشورات",
     footerRights: "جميع الحقوق محفوظة.",
@@ -204,7 +201,6 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     cardRihleDesc: "A journey is drawing near.",
     cardEducation: "Training Content and Other Services",
     cardEducationDesc: "Courses taught, guide videos and posts.",
-    eduTrainings: "Courses",
     eduVideos: "Guide videos",
     eduPosts: "Posts",
     footerRights: "All rights reserved.",

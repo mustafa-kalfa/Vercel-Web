@@ -13,18 +13,7 @@ import { useLanguage } from "../LanguageContext";
    parametre hedefi degistirmiyor, yalnizca nereden paylasildigini
    tasiyor. */
 
-type Kalem = { ad: string; alt?: string; href?: string };
-
-const EGITIMLER: Kalem[] = [
-  {
-    ad: "Akademik Yazım Kursu",
-    alt: "İstanbul, 2021 — Türkiye İlahiyatlılar Derneği (TÜİD)",
-  },
-  {
-    ad: "Robotik Kodlama Eğitimi",
-    alt: "İstanbul, 2022-2023 — Hüdayi Vakfı Lider Eğitim Programı",
-  },
-];
+type Kalem = { ad: string; href: string };
 
 const VIDEOLAR: Kalem[] = [
   {
@@ -87,39 +76,18 @@ function Liste({ baslik, kalemler }: { baslik: string; kalemler: Kalem[] }) {
         {baslik}
       </h2>
       <ul className="flex flex-col gap-2">
-        {kalemler.map((k) => {
-          const govde = (
-            <>
-              <span className="text-base leading-6 text-black dark:text-foreground">
-                {k.ad}
-              </span>
-              {k.alt ? (
-                <span className="text-sm leading-6 text-zinc-600 dark:text-cream-dimmer">
-                  {k.alt}
-                </span>
-              ) : null}
-            </>
-          );
-
-          return (
-            <li key={k.ad}>
-              {k.href ? (
-                <a
-                  href={k.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex flex-col gap-0.5 rounded-2xl border border-solid border-black/[.08] p-4 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
-                >
-                  {govde}
-                </a>
-              ) : (
-                <div className="flex flex-col gap-0.5 rounded-2xl border border-solid border-black/[.08] p-4 dark:border-white/[.145]">
-                  {govde}
-                </div>
-              )}
-            </li>
-          );
-        })}
+        {kalemler.map((k) => (
+          <li key={k.href}>
+            <a
+              href={k.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex rounded-2xl border border-solid border-black/[.08] p-4 text-base leading-6 text-black transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:text-foreground dark:hover:bg-[#1a1a1a]"
+            >
+              {k.ad}
+            </a>
+          </li>
+        ))}
       </ul>
     </section>
   );
@@ -147,7 +115,6 @@ export default function EgitimIcerikleri() {
 
       <div className="flex w-full max-w-3xl flex-col gap-10 px-8 pb-16 pt-28 sm:px-16 sm:pt-32">
         <h1 className="sr-only">{t.cardEducation}</h1>
-        <Liste baslik={t.eduTrainings} kalemler={EGITIMLER} />
         <Liste baslik={t.eduVideos} kalemler={VIDEOLAR} />
         <Liste baslik={t.eduPosts} kalemler={PAYLASIMLAR} />
       </div>

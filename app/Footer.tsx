@@ -21,7 +21,7 @@ export default function Footer() {
   const { t } = useLanguage();
 
   const baglantilar = [
-    { href: "/mustafa-calisiyor", ad: t.cardNetworks },
+    { href: "/ravi-iliski-aglari", ad: t.cardNetworks },
     { href: "/podcastler", ad: t.cardPodcasts },
     { href: "/hadis-tarihi", ad: t.podcastHadithHistory },
     { href: "/rihle", ad: t.cardRihle },

@@ -99,14 +99,9 @@ export default function Sinama() {
     ad: string;
     alt: string;
     ikon: React.ReactNode;
-    /* Iki sutunu birden kaplar. Kart sayisi TEK oldugu icin sonuncusu
-       yarim satirda tek basina kaliyordu; basligi da uzun olan bu kart
-       satiri doldurunca hem izgara duzgun bitiyor hem baslik tek satira
-       sigiyor. */
-    genis?: boolean;
   }[] = [
     {
-      href: "/mustafa-calisiyor",
+      href: "/ravi-iliski-aglari",
       ad: t.cardNetworks,
       alt: t.cardNetworksDesc,
       ikon: <AgIcon />,
@@ -129,7 +124,6 @@ export default function Sinama() {
       ad: t.cardEducation,
       alt: t.cardEducationDesc,
       ikon: <KitapIcon />,
-      genis: true,
     },
   ];
 
@@ -212,9 +206,14 @@ export default function Sinama() {
           <h2 className="mb-4 text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-cream-dimmer">
             {t.indexLead}
           </h2>
-          <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          {/* `auto-rows-fr`: kartlarin BASLIK uzunlugu farkli ("Oyunlar" tek
+              satir, "Egitim Icerikleri ve Diger Hizmetler" iki satir).
+              Onsuz her satir kendi icerigine gore yukseklik aliyor ve
+              kartlar farkli boyda cikiyor; bununla butun satirlar en
+              uzununa esitleniyor. */}
+          <ul className="grid auto-rows-fr grid-cols-1 gap-3 sm:grid-cols-2">
             {kartlar.map((kart) => (
-              <li key={kart.href} className={kart.genis ? "sm:col-span-2" : undefined}>
+              <li key={kart.href}>
                 <Link
                   href={kart.href}
                   className="flex h-full flex-col gap-1 rounded-2xl border border-solid border-black/[.08] p-4 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
