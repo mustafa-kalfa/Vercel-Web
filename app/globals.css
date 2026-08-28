@@ -337,15 +337,10 @@ html[lang="ar"] .ar-greeting {
    koyu modda siyah uzerinde ayni vurgu goruntusu cikiyor, yazi ise her
    iki durumda da koyu kaliyor (yesil zemin uzerinde okunakli olan bu).
 
-   ::selection ve ::-moz-selection AYRI yazilmali; tek bir liste halinde
-   birlestirilirse tarayici tanimadigi yarisi yuzunden kuralin tamamini
-   atiyor. */
+   ::-moz-selection'a gerek yok: Firefox 62'den beri oneksiz ::selection'i
+   destekliyor, zaten yazilsa da derleyici (Lightning CSS) hedef tarayici
+   listesine bakip cikti dosyasindan atiyor. */
 ::selection {
-  background-color: #c9e7d4;
-  color: #171717;
-}
-
-::-moz-selection {
   background-color: #c9e7d4;
   color: #171717;
 }
