@@ -138,29 +138,31 @@
   }
   .bubble-value .placeholder{color:var(--tertiary); font-style:normal;}
   .bubble-value .step{font-weight:600;}
-  .bubble-value .sep{color:var(--hairline); margin:0 4px; opacity:.9;}
   /* Isnad tamamlanip hadis metni ortaya cikinca finish() .bubble'a
-     .glow-active sinifini ekler: donen bir isik izi belirir, "Bastan
-     baslat"ta kaldirilir. Kaynak: freefrontend.com "Glowing Border Trace
-     Button" (codepen.io/gusevdigital/pen/JjxvbEW) -- orijinali
-     :hover/:focus'ta transition ile TEK SEFERLIK bir iz cizip birakiyordu;
-     burada transition yerine "to{stroke-dashoffset:-100}" + "infinite"
-     kullanilarak sonsuz donguye alindi, tetikleyici de hover degil
-     .glow-active sinifi.
+     .glow-active sinifini ekler, "Bastan baslat"ta kaldirilir.
 
-     KAPSAM (2026-08-10 degisti): iz artik .bubble'in TAMAMINI (isnad +
-     hadis metni) degil, YALNIZCA hadis metni satirini (.metin-row)
-     sariyor -- svg o satirin icine tasindi, position:relative de oraya
-     verildi. .glow-active sinifi hala .bubble'da durdugu icin JS'e
-     dokunulmadi. */
+     PARILTI SABIT VE TAM CERCEVE (Mustafa'nin talebi, 2026-08-29).
+     Eskiden donen bir isik iziydi: `stroke-dasharray: 20 80` ile
+     cercevenin yalnizca %20'si yanik kaliyor, `stroke-dashoffset`
+     animasyonu da o parcayi kenar boyunca dolastiriyordu. Simdi
+     dasharray de animasyon da yok -- cizgi cercevenin TAMAMINI dolduruyor
+     ve oldugu yerde duruyor. `--glow-line-length` ve `--animation-speed`
+     degiskenleri bu yuzden kaldirildi.
+
+     Iki katman ust uste: `.glow-line` ince ve keskin cizgi,
+     `.glow-blur` ayni yolun kalin ve bulanik kopyasi. Parilti hissini
+     veren ikincisi; tek basina cizgi duz bir kenarlik gibi dururdu.
+
+     KAPSAM (2026-08-10): iz .bubble'in TAMAMINI (isnad + hadis metni)
+     degil, YALNIZCA hadis metni satirini (.metin-row) sariyor -- svg o
+     satirin icine tasindi, position:relative de oraya verildi.
+     .glow-active sinifi hala .bubble'da durdugu icin JS'e dokunulmadi. */
   .metin-row{ position:relative; }
   .bubble{
     --glow-line-color:var(--sparkle);
     --glow-line-thickness:2px;
-    --glow-line-length:20;
     --glow-blur-color:var(--sparkle);
     --glow-blur-size:10px;
-    --animation-speed:2400ms;
     --container-offset:100px;
     /* Metin satirinin kendi kenarligi/dolgusu yok; iz tam metnin sinir
        kutusundan gecerse yaziya yapisik durur. Bu kadar DISARI tasiniyor
@@ -188,16 +190,10 @@
     y:calc(var(--container-offset) / 2 - var(--glow-outset-top));
     rx:16px;
     fill:transparent;
-    stroke:black;
-    stroke-width:5px;
-    stroke-dasharray:var(--glow-line-length) calc(100 - var(--glow-line-length));
   }
   .glow-line{stroke:var(--glow-line-color); stroke-width:var(--glow-line-thickness);}
   .glow-blur{filter:blur(var(--glow-blur-size)); stroke:var(--glow-blur-color); stroke-width:var(--glow-blur-size);}
-  @keyframes glow-trace{ to{ stroke-dashoffset:-100; } }
   .bubble.glow-active .glow-container{opacity:1;}
-  .bubble.glow-active .glow-blur,
-  .bubble.glow-active .glow-line{animation:glow-trace var(--animation-speed) linear infinite;}
 
   .isnad-ar{
     margin-top:8px;
@@ -490,11 +486,13 @@
      hic animasyonlanmiyordu. Talimat, animasyonun guc modu dusuk
      cihazlarda da gorunmesi yonunde.
 
-     Hadis kutusu border parildamasi (.glow-active) zaten daha once ayni
-     gerekceyle sorgudan cikarilmisti: opacity:1 kaldigi icin
-     dasharray'in yalnizca 20/100'luk parcasi YANIK, SABIT bir yay olarak
-     donup kaliyordu -- masaustunde ("bilgisayar versiyonunda yarida
-     kaliyor", 2026-08-09) tam boyle goruldu. */
+     Hadis kutusu parildamasi (.glow-active) bu tartismanin ilk
+     ornegiydi: sorgudan cikarilmadan once, tercih acik olan
+     makinelerde animasyon durunca dasharray'in yalnizca 20/100'luk
+     parcasi YANIK, SABIT bir yay olarak donup kaliyordu -- masaustunde
+     ("bilgisayar versiyonunda yarida kaliyor", 2026-08-09) tam boyle
+     goruldu. O parilti artik hic animasyonlu degil (bkz. yukaridaki
+     .glow-active blogu), yani bu sorunun kaynagi da ortadan kalkti. */
 
   /* --- Tema gecisi ---------------------------------------------------
 
