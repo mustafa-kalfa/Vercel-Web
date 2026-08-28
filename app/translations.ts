@@ -55,6 +55,7 @@ type Translation = {
   cardPodcastsDesc: string;
   cardRihle: string;
   cardRihleDesc: string;
+  footerRights: string;
 };
 
 export const TRANSLATIONS: Record<Language, Translation> = {
@@ -99,6 +100,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     cardPodcastsDesc: "Hadis tarihi, usûlü ve edebiyatı üzerine ses kayıtları.",
     cardRihle: "Rihleler",
     cardRihleDesc: "Bir yolculuk yaklaşıyor.",
+    footerRights: "Tüm hakları saklıdır.",
   },
   ar: {
     brandAlt: "الحديث والديجيتالية",
@@ -141,6 +143,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     cardPodcastsDesc: "تسجيلات في تاريخ الحديث وأصوله وأدبه.",
     cardRihle: "الرحلات",
     cardRihleDesc: "رحلةٌ تقترب.",
+    footerRights: "جميع الحقوق محفوظة.",
   },
   en: {
     brandAlt: "Hadith and Digital",
@@ -184,5 +187,6 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     cardPodcastsDesc: "Recordings on hadith history, methodology and literature.",
     cardRihle: "Journeys",
     cardRihleDesc: "A journey is drawing near.",
+    footerRights: "All rights reserved.",
   },
 };

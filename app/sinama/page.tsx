@@ -2,11 +2,16 @@
 
 import Link from "next/link";
 import ChromaKeyVideo from "../ChromaKeyVideo";
+import Footer from "../Footer";
 import { useLanguage } from "../LanguageContext";
 import SwapContent from "../SwapContent";
 import { TRANSLATIONS, type Language } from "../translations";
 
-function GamepadIcon() {
+/* Kart ikonlari. Hepsi ayni kalipta: 24'luk viewBox, dolgu yok, cizgi
+   `currentColor`'dan geliyor (yani kartin metin rengini takip ediyor,
+   iki temada da ayri bir kural gerekmiyor), kalinlik 1.8.
+   `shrink-0` sart -- kart basligi uzun olunca flex ikonu eziyordu. */
+function IkonKabi({ children }: { children: React.ReactNode }) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -19,31 +24,85 @@ function GamepadIcon() {
       strokeLinecap="round"
       strokeLinejoin="round"
     >
+      {children}
+    </svg>
+  );
+}
+
+// Ravi Iliski Aglari: birbirine bagli uc dugum.
+function AgIcon() {
+  return (
+    <IkonKabi>
+      <circle cx="12" cy="5" r="2.5" />
+      <circle cx="5" cy="19" r="2.5" />
+      <circle cx="19" cy="19" r="2.5" />
+      <path d="M10.4 7.2 6.6 16.8" />
+      <path d="m13.6 7.2 3.8 9.6" />
+      <path d="M7.5 19h9" />
+    </IkonKabi>
+  );
+}
+
+// Podcastler: mikrofon.
+function MikrofonIcon() {
+  return (
+    <IkonKabi>
+      <rect x="9" y="2" width="6" height="11" rx="3" />
+      <path d="M5 11a7 7 0 0 0 14 0" />
+      <path d="M12 18v3" />
+      <path d="M8.5 21h7" />
+    </IkonKabi>
+  );
+}
+
+// Rihleler: bir noktadan digerine kivrilan yol.
+function YolIcon() {
+  return (
+    <IkonKabi>
+      <circle cx="6" cy="19" r="2" />
+      <circle cx="18" cy="5" r="2" />
+      <path d="M8 19h6a4 4 0 0 0 0-8h-4a4 4 0 0 1 0-8h6" />
+    </IkonKabi>
+  );
+}
+
+// Oyunlar: oyun kolu. Eskiden sag ustteki dugmenin icindeydi.
+function GamepadIcon() {
+  return (
+    <IkonKabi>
       <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z" />
       <path d="M6 12h4" />
       <path d="M8 10v4" />
       <path d="M15 13h.01" />
       <path d="M18 11h.01" />
-    </svg>
+    </IkonKabi>
   );
 }
 
 export default function Sinama() {
   const { t, language, outgoingLanguage } = useLanguage();
 
-  /* Kartlar. `ikon` istege bagli -- su an yalnizca "Oyunlar" tasiyor.
-     O ikon eskiden sag ustteki `glow-btn-test` dugmesindeydi; dugme
-     kaldirilinca (kartlar zaten oraya goturuyor) ikon basligin soluna
-     alindi. */
+  /* Kartlar. Her birinin kendi ikonu var, kartin SAG UST kosesinde
+     duruyor (basligin solunda denendi, koseye alindi). */
   const kartlar: {
     href: string;
     ad: string;
     alt: string;
-    ikon?: React.ReactNode;
+    ikon: React.ReactNode;
   }[] = [
-    { href: "/mustafa-calisiyor", ad: t.cardNetworks, alt: t.cardNetworksDesc },
-    { href: "/podcastler", ad: t.cardPodcasts, alt: t.cardPodcastsDesc },
-    { href: "/rihle", ad: t.cardRihle, alt: t.cardRihleDesc },
+    {
+      href: "/mustafa-calisiyor",
+      ad: t.cardNetworks,
+      alt: t.cardNetworksDesc,
+      ikon: <AgIcon />,
+    },
+    {
+      href: "/podcastler",
+      ad: t.cardPodcasts,
+      alt: t.cardPodcastsDesc,
+      ikon: <MikrofonIcon />,
+    },
+    { href: "/rihle", ad: t.cardRihle, alt: t.cardRihleDesc, ikon: <YolIcon /> },
     {
       href: "/resule-kavusmak",
       ad: t.cardGames,
@@ -93,7 +152,7 @@ export default function Sinama() {
           />
         </span>
       </header>
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-start gap-8 px-8 pt-8 pb-[35vh] sm:items-start sm:px-16 sm:pt-12 sm:pb-24">
+      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-start gap-8 px-8 pt-8 pb-8 sm:items-start sm:px-16 sm:pt-12 sm:pb-12">
         {/* Sayfada gorunur bir h1 kalmadi ("Bir Seyler Deniyorum"
             kaldirildi). Belgenin yine de tek bir ana basligi olmali --
             ekran okuyucular sayfayi basliklardan geziyor. Gorsel duzeni
@@ -129,25 +188,17 @@ export default function Sinama() {
           <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {kartlar.map((kart) => (
               <li key={kart.href}>
-                {/* Kenar rengi `dark:border-white/[.145]` ILE VERILMIYOR. O
-                    sinif sitede her yerde var ama koyu temada CALISMIYOR:
-                    `@custom-variant dark (&:where(.dark, .dark *))` ozgullugu
-                    :where() ile sifirladigi icin dark kurali
-                    `border-black/[.08]` ile ayni ozgullukte kaliyor ve
-                    siralamada kaybediyor -- koyu temada kenar, siyah zemin
-                    uzerinde %8 siyah cikiyor, yani gorunmuyor. (Yayindaki
-                    anasayfada da boyle, ayri bir is.)
-
-                    Cozum globals.css icindeki `.hairline` sinifi:
-                    duz CSS oldugu icin tema degisince gercekten donuyor.
-                    Tailwind ile denenen iki yol da donmedi, gerekcesi orada. */}
                 <Link
                   href={kart.href}
-                  className="hairline flex h-full flex-col gap-1 rounded-2xl p-4 transition-colors hover:bg-foreground/[.04]"
+                  className="flex h-full flex-col gap-1 rounded-2xl border border-solid border-black/[.08] p-4 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
                 >
-                  <span className="flex items-center gap-2 text-lg font-semibold text-black dark:text-foreground">
-                    {kart.ikon}
-                    {kart.ad}
+                  <span className="flex items-start justify-between gap-3">
+                    <span className="text-lg font-semibold text-black dark:text-foreground">
+                      {kart.ad}
+                    </span>
+                    <span className="mt-1 text-zinc-500 dark:text-cream-dimmer">
+                      {kart.ikon}
+                    </span>
                   </span>
                   <span className="text-sm leading-6 text-zinc-600 dark:text-cream-dimmer">
                     {kart.alt}
@@ -164,15 +215,12 @@ export default function Sinama() {
 
             Mutlak adres (https://www.mustafakalfa.com/selam) yerine
             goreli `/selam` ve <a> yerine <Link>: ayni hedef, ama Next
-            sayfayi bastan yuklemek yerine istemci tarafinda geciyor.
+            sayfayi bastan yuklemek yerine istemci tarafinda geciyor. */}
 
-            Kenar icin `.hairline`: buradaki eski
-            `border-black/[.08] dark:border-white/[.145]` ikilisi koyu
-            temada gorunmez kaliyordu (gerekcesi globals.css'te). */}
         <div className="site-actions flex w-full text-base font-medium">
           <Link
             href="/selam"
-            className="hairline flex h-12 w-full items-center justify-center whitespace-nowrap rounded-full px-5 text-center transition-colors hover:bg-foreground/[.04] md:w-auto md:min-w-[158px]"
+            className="flex h-12 w-full items-center justify-center whitespace-nowrap rounded-full border border-solid border-black/[.08] px-5 text-center transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-auto md:min-w-[158px]"
           >
             <SwapContent
               current={language}
@@ -182,6 +230,17 @@ export default function Sinama() {
           </Link>
         </div>
       </main>
+      <Footer />
+      {/* Kosedeki klip `fixed`, yani gorunum alaninin ALT SERIDINI her
+          zaman kapatiyor (masaustunde 22.5vh, mobilde 16.875vh). Sayfa
+          sonuna gelindiginde footer'in sag alt kosesi -- X baglantisi --
+          tam o seride denk geliyordu. Bu bos alan footer'i seridin
+          uzerine itiyor.
+
+          Bosluk FOOTER'IN ICINDE degil, cunku Footer butun sayfalarda
+          kullanilacak ve digerlerinde boyle bir klip yok. Klip hangi
+          sayfadaysa bosluk da orada duruyor. */}
+      <div aria-hidden="true" className="h-[20vh] shrink-0 md:h-[26vh]" />
     </div>
   );
 }
