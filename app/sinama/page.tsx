@@ -128,37 +128,16 @@ export default function Sinama() {
           </p>
         </div>
 
-        <div className="site-actions flex w-full flex-col gap-4 text-base font-medium sm:flex-row">
-          <Link
-            href="/selam"
-            className="flex h-12 w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-foreground px-5 text-center text-background transition-opacity hover:opacity-90 md:w-auto md:min-w-[158px]"
-          >
-            <SwapContent
-              current={language}
-              outgoing={outgoingLanguage}
-              render={(key) => TRANSLATIONS[key as Language].begin}
-            />
-          </Link>
-          <a
-            className="flex h-12 w-full items-center justify-center whitespace-nowrap rounded-full border border-solid border-black/[.08] px-5 text-center transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-auto md:min-w-[158px]"
-            href="https://x.com/mustafakalfa__"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <SwapContent
-              current={language}
-              outgoing={outgoingLanguage}
-              render={(key) => TRANSLATIONS[key as Language].about}
-            />
-          </a>
-        </div>
+        {/* "Burada neler var" izgarasi. Sayfanin govdesi bu: anasayfadan
+            hic baglanti almayan /podcastler nihayet ulasilabilir oluyor.
+            Arama tarafi icin de onemli -- Google ic baglantiyla geziyor,
+            sitemap'te olmak tek basina yetmiyor.
 
-        {/* "Burada neler var" izgarasi. Iki isi birden goruyor: sayfa iki
-            dugmeyle bitmedigi icin daha bitmis duruyor, VE anasayfadan
-            hic baglanti almayan sayfalar (/podcastler, /hadis-tarihi)
-            nihayet ulasilabilir oluyor. Ikincisi arama tarafi icin de
-            onemli -- Google ic baglantiyla geziyor, sitemap'te olmak tek
-            basina yetmiyor. */}
+            /hadis-tarihi'nin kendi karti YOK ama /podcastler ona baglanti
+            veriyor, yani zincir kopmuyor.
+
+            "Ravi Iliski Aglari"nin henuz sayfasi yok; /mustafa-calisiyor
+            ("Mustafa bu is uzerinde calisiyor") tam bunun icin duruyor. */}
         <nav aria-label={t.indexLead} className="w-full">
           <h2 className="mb-4 text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-cream-dimmer">
             {t.indexLead}
@@ -166,9 +145,9 @@ export default function Sinama() {
           <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {[
               { href: "/mustafa-calisiyor", ad: t.cardNetworks, alt: t.cardNetworksDesc },
-              { href: "/resule-kavusmak", ad: t.cardGames, alt: t.cardGamesDesc },
               { href: "/podcastler", ad: t.cardPodcasts, alt: t.cardPodcastsDesc },
               { href: "/rihle", ad: t.cardRihle, alt: t.cardRihleDesc },
+              { href: "/resule-kavusmak", ad: t.cardGames, alt: t.cardGamesDesc },
             ].map((kart) => (
               <li key={kart.href}>
                 {/* Kenar rengi `dark:border-white/[.145]` ILE VERILMIYOR. O
@@ -180,12 +159,12 @@ export default function Sinama() {
                     uzerinde %8 siyah cikiyor, yani gorunmuyor. (Yayindaki
                     anasayfada da boyle, ayri bir is.)
 
-                    Cozum globals.css icindeki `.hairline-card` sinifi:
+                    Cozum globals.css icindeki `.hairline` sinifi:
                     duz CSS oldugu icin tema degisince gercekten donuyor.
                     Tailwind ile denenen iki yol da donmedi, gerekcesi orada. */}
                 <Link
                   href={kart.href}
-                  className="hairline-card flex h-full flex-col gap-1 rounded-2xl p-4 transition-colors hover:bg-foreground/[.04]"
+                  className="hairline flex h-full flex-col gap-1 rounded-2xl p-4 transition-colors hover:bg-foreground/[.04]"
                 >
                   <span className="text-lg font-semibold text-black dark:text-foreground">
                     {kart.ad}
@@ -198,6 +177,30 @@ export default function Sinama() {
             ))}
           </ul>
         </nav>
+
+        {/* Tek dugme, kartlarin ALTINDA. "Baslayalim" kaldirildi; geriye
+            kalan "Mustafa Hakkinda" da artik X profiline degil /selam'a
+            gidiyor.
+
+            Mutlak adres (https://www.mustafakalfa.com/selam) yerine
+            goreli `/selam` ve <a> yerine <Link>: ayni hedef, ama Next
+            sayfayi bastan yuklemek yerine istemci tarafinda geciyor.
+
+            Kenar icin `.hairline`: buradaki eski
+            `border-black/[.08] dark:border-white/[.145]` ikilisi koyu
+            temada gorunmez kaliyordu (gerekcesi globals.css'te). */}
+        <div className="site-actions flex w-full text-base font-medium">
+          <Link
+            href="/selam"
+            className="hairline flex h-12 w-full items-center justify-center whitespace-nowrap rounded-full px-5 text-center transition-colors hover:bg-foreground/[.04] md:w-auto md:min-w-[158px]"
+          >
+            <SwapContent
+              current={language}
+              outgoing={outgoingLanguage}
+              render={(key) => TRANSLATIONS[key as Language].about}
+            />
+          </Link>
+        </div>
       </main>
     </div>
   );

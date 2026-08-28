@@ -367,7 +367,7 @@ html[lang="ar"] .ar-greeting {
    ise duzgun donuyor (olculdu). Yani sorun degiskende degil, sinifi
    ureten yolda. Bu yuzden duz CSS.
 
-   Su an yalnizca /sinama'daki kartlar kullaniyor. Duzen onaylanirsa
+   Su an /sinama'daki kartlar ve alttaki dugme kullaniyor. Duzen onaylanirsa
    sitedeki diger `dark:border-white` kullanimlari da buraya cevrilmeli;
    hepsi ayni sessiz hatayi tasiyor. */
 :root {
@@ -380,10 +380,10 @@ html[lang="ar"] .ar-greeting {
   --hairline-strong: rgba(255, 255, 255, 0.4);
 }
 
-.hairline-card {
+.hairline {
   border: 1px solid var(--hairline);
 }
 
-.hairline-card:hover {
+.hairline:hover {
   border-color: var(--hairline-strong);
 }
