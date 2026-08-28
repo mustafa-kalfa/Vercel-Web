@@ -19,15 +19,18 @@ const YIL = 2026;
 
    Hangi sayfada ne yapacagini da kendisi biliyor. Iki liste var: */
 
-// Footer'in HIC gorunmedigi yollar. Anasayfa: tasarimi tek ekrana
-// kurulmus, altina bir seyler eklemek istenmiyor.
-const FOOTERSIZ = ["/"];
+// Footer'in HIC gorunmedigi yollar. 2026-08-29'a kadar burada "/" vardi:
+// anasayfa o zaman tek ekranlik eski duzendi ve altina bir sey eklemek
+// istenmiyordu. Anasayfa /sinama duzenine gecince (kart izgarasi + uzun
+// govde) footer da onun bir parcasi oldu, liste bosaldi. Yeni bir sayfa
+// footer istemezse yolu buraya eklemek yeterli.
+const FOOTERSIZ: string[] = [];
 
 // Footer'in gorundugu ama ust siradaki SAYFA LISTESININ gizlendigi
-// yollar. Bu sayfalar govdesinde zaten ayni yerlere goturen kart
-// izgarasini tasiyor; footer'da tekrarlamak ayni listeyi tek ekranda
-// iki kez gostermek olur. Diger sayfalarda kart izgarasi yok, orada bu
-// liste sitede gezinmenin tek yolu.
+// yollar. Anasayfa ve onun kopyasi /sinama govdesinde zaten ayni
+// yerlere goturen kart izgarasini tasiyor; footer'da tekrarlamak ayni
+// listeyi tek ekranda iki kez gostermek olur. Diger sayfalarda kart
+// izgarasi yok, orada bu liste sitede gezinmenin tek yolu.
 const LISTESIZ = ["/", "/sinama"];
 
 export default function Footer() {

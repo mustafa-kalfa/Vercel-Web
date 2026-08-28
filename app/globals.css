@@ -342,8 +342,9 @@ html[lang="ar"] .ar-greeting {
 /* Fare ile secilen yazinin rengi. Tarayici varsayilani (Chrome'da parlak
    mavi) sitenin sicak bej/krem paletiyle carpisiyordu; yerine turkuaza
    calan canli bir acik yesil konuldu, sonra bir tik daha yesile cekildi
-   (ton 163 -> 139 derece). Zemin ikisinde de ayni: acik modda bej
-   uzerinde, koyu modda siyah uzerinde ayni vurgu cikiyor, yazi ise her
+   (ton 163 -> 139), sonra cok az turkuaza geri getirildi (139 -> 145).
+   Zemin ikisinde de ayni: acik modda bej uzerinde, koyu modda siyah
+   uzerinde ayni vurgu cikiyor, yazi ise her
    iki durumda da koyu kaliyor (yesil zemin uzerinde okunakli olan bu).
 
    ::-moz-selection'a gerek yok: Firefox 62'den beri oneksiz ::selection'i
@@ -355,7 +356,7 @@ html[lang="ar"] .ar-greeting {
    kural oraya HIC ulasmiyor. Rengi degistirirsen ikisini birden
    degistir. */
 ::selection {
-  background-color: #6FE795;
+  background-color: #6FE7A0;
   color: #171717;
 }
 
