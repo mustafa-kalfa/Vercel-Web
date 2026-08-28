@@ -134,7 +134,15 @@ export default function Footer() {
                 >
                   <path d="M9.527 18.95q2.116-5.301 4.098-10.653l4.261 10.653zM28.538 27.472l-10.326-25.894h-7.374l1.311 3.278-8.85 22.616c-0.327 1.147-1.311 1.312-2.294 1.476v1.475h8.523v-1.475c-2.294-0.164-3.606-0.492-2.623-2.95 0.531-1.125 1.086-2.536 1.56-3.983l0.079-0.278h10.488l1.475 3.769c0.161 0.479 0.277 1.036 0.326 1.612l0.002 0.026c0 1.311-1.147 1.803-3.278 1.803v1.475h13.441v-1.475c-1.147-0.163-2.131-0.491-2.458-1.475z" />
                 </svg>
-                academia.edu/MustafaKalfa
+                {/* <bdi>: Arapca'da sayfa RTL oldugu icin adresin SONUNDAKI
+                    alt cizgiler (yonu olmayan karakterler) paragrafin
+                    yonune uyup gorsel olarak BASA kayiyordu --
+                    "__x.com/mustafakalfa" gibi goruluyordu. <bdi>
+                    tarayicida ontanimli olarak `unicode-bidi: isolate` ve
+                    `dir="auto"` demek: yon ilk guclu karakterden ("a" /
+                    "x") belirleniyor, adres kendi icinde soldan saga
+                    kaliyor ve alt cizgiler sonda duruyor. */}
+                <bdi>academia.edu/MustafaKalfa</bdi>
               </a>
             </li>
             <li>
@@ -156,7 +164,7 @@ export default function Footer() {
                 >
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
-                x.com/mustafakalfa__
+                <bdi>x.com/mustafakalfa__</bdi>
               </a>
             </li>
           </ul>
