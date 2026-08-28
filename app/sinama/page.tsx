@@ -126,9 +126,17 @@ export default function Sinama() {
     },
   ];
 
+  /* Kok div'de `overflow-x-clip`: klibin `right-[-4.5vh]` negatif payi
+     (karakterin sagindaki seffaf boslugu kapatiyor) artik akisin icinde
+     oldugu icin sayfaya yatay kaydirma cubugu ekliyordu. `clip` secildi,
+     `hidden` DEGIL: overflow-x:hidden overflow-y'yi de auto'ya cevirip
+     istenmeyen bir kaydirma kabi olusturuyor, clip ise sadece kirpiyor. */
   return (
-    <div className="flex flex-col flex-1 items-center justify-center font-sans">
-      {/* Giris klibi kosede `fixed`, dongude. Yukseklik IntroVideo'daki
+    <div className="relative flex flex-col flex-1 items-center justify-center overflow-x-clip font-sans">
+      {/* Giris klibi kosede, dongude. KONUM `absolute`: fixed iken
+          gorunum alaninin dibine yapisip footer'in uzerini ortuyordu;
+          absolute olunca kok div'in (relative) dibine, yani footer'in
+          hemen USTUNE oturuyor. Yukseklik IntroVideo'daki
           degerlerin 0.75 kati: once yarilandi, sonra 1.5 kat buyutuldu
           (masaustu 22.5 -> 11.25 -> 16.875vh, mobil 16.875 -> 8.4375 ->
           12.65625vh).
@@ -143,7 +151,7 @@ export default function Sinama() {
           kapatiyor ve icerige degmiyor (olculdu). */}
       <ChromaKeyVideo
         src="/Mustafa%20Thinking%20Green_seffaf.mp4"
-        className="fixed bottom-0 right-[-3vh] z-50 h-[12.65625vh] w-auto max-w-none md:right-[-4.5vh] md:h-[16.875vh]"
+        className="absolute bottom-0 right-[-3vh] z-50 h-[12.65625vh] w-auto max-w-none md:right-[-4.5vh] md:h-[16.875vh]"
       />
       {/* Logo artik main'in ICINDE degil, ustte kendi header'inda: sitenin
           diger sayfalarindaki (/mustafa-calisiyor, /podcastler ...) ust

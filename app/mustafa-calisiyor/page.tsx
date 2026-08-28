@@ -34,9 +34,15 @@ export default function MustafaCalisiyor() {
 
       <div aria-hidden="true" className="h-[60vh] shrink-0 sm:h-0" />
 
+      {/* KONUM `absolute`, `fixed` DEGIL. fixed iken klip gorunum
+          alaninin dibine yapisiyor ve sayfa sonuna gelindiginde
+          footer'in uzerini ortuyordu. absolute olunca sarmalayici
+          <main>'in (relative) dibine yapisiyor, yani tam footer'in
+          USTUNE -- footer layout.tsx'ten geldigi ve bu ogenin disinda
+          kaldigi icin ortusme artik imkansiz. */}
       <ChromaKeyVideo
         src="/Mustafa%20Karsilama_seffaf.mp4"
-        className="fixed bottom-0 right-0 h-[50vh] w-auto max-w-none"
+        className="absolute bottom-0 right-0 h-[50vh] w-auto max-w-none"
       />
     </main>
   );

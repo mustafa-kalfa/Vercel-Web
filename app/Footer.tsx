@@ -30,28 +30,6 @@ const FOOTERSIZ = ["/"];
 // liste sitede gezinmenin tek yolu.
 const LISTESIZ = ["/", "/sinama"];
 
-/* Bazi sayfalar sag alt kosede `fixed` bir karakter klibi tasiyor. Klip
-   GORUNUM ALANINA yapisik oldugu icin, sayfa sonuna gelindiginde her
-   zaman alttaki seridi kapatiyor -- footer da tam oraya dusuyordu ve
-   yazilar karakterin altinda kaliyordu (olculdu).
-
-   Cozum, footer'in ICINE klip yuksekligi kadar alt bosluk koymak:
-   metin yukari cikiyor, karakter altta kendi bos alaninda kaliyor.
-   Bosluk footer'in disina konulamaz, cunku klip sayfanin degil
-   gorunum alaninin dibine yapisik.
-
-   Olculen klip yukseklikleri (mobil / masaustu):
-     /rihle              26vh / 45vh
-     /mustafa-calisiyor  50vh / 50vh
-     /selam              25vh / 25vh
-   Degerler bunlarin biraz ustunde. YENI BIR SAYFAYA fixed klip
-   eklersen buraya da bir satir ekle. */
-const KLIP_BOSLUGU: Record<string, string> = {
-  "/rihle": "pb-[30vh] sm:pb-[48vh]",
-  "/mustafa-calisiyor": "pb-[53vh]",
-  "/selam": "pb-[28vh]",
-};
-
 export default function Footer() {
   const { t } = useLanguage();
   const yol = usePathname();
@@ -59,7 +37,6 @@ export default function Footer() {
   if (FOOTERSIZ.includes(yol)) return null;
 
   const sayfaListesi = !LISTESIZ.includes(yol);
-  const altBosluk = KLIP_BOSLUGU[yol] ?? "pb-8";
 
   const baglantilar = [
     { href: "/ravi-iliski-aglari", ad: t.cardNetworks },
@@ -75,7 +52,7 @@ export default function Footer() {
     /* `mt-auto`: govde kisa kalan sayfalarda (ornegin /rihle) footer
        ekranin ortasinda asili kalmasin, dibe otursun. */
     <footer className="mt-auto w-full border-t border-black/[.08] dark:border-white/[.145]">
-      <div className={`mx-auto flex w-full max-w-3xl flex-col gap-6 px-8 pt-8 sm:px-16 md:max-w-5xl ${altBosluk}`}>
+      <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-8 py-8 sm:px-16 md:max-w-5xl">
         {sayfaListesi ? (
         <nav aria-label={t.brandAlt}>
           <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm">

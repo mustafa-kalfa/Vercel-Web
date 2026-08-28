@@ -48,9 +48,15 @@ export default function Rihle() {
           bir kose susu.
           Olculer px degil vh/w-full: tarayici yakinlastirmasinda klip
           ekranda ayni kalmali. */}
+      {/* KONUM `absolute`, `fixed` DEGIL. fixed iken klip gorunum
+          alaninin dibine yapisiyor ve sayfa sonuna gelindiginde
+          footer'in uzerini ortuyordu. absolute olunca sarmalayici
+          <main>'in (relative) dibine yapisiyor, yani tam footer'in
+          USTUNE -- footer layout.tsx'ten geldigi ve bu ogenin disinda
+          kaldigi icin ortusme artik imkansiz. */}
       <ChromaKeyVideo
         src="/Mustafa%20Rihle_seffaf.mp4"
-        className="fixed bottom-0 left-0 h-auto w-full sm:left-auto sm:right-0 sm:h-[45vh] sm:w-auto sm:max-w-none"
+        className="absolute bottom-0 left-0 h-auto w-full sm:left-auto sm:right-0 sm:h-[45vh] sm:w-auto sm:max-w-none"
       />
     </main>
   );

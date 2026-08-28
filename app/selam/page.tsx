@@ -74,9 +74,15 @@ export default function Selam() {
       {/* Yuksekligi ekranin CEYREGI (once yarisiydi, 2026-08-28'de
           yarilandi); genislik klibin kendi oranindan geliyor (canvas'in
           ic olcusu 720x722). */}
+      {/* KONUM `absolute`, `fixed` DEGIL. fixed iken klip gorunum
+          alaninin dibine yapisiyor ve sayfa sonuna gelindiginde
+          footer'in uzerini ortuyordu. absolute olunca sarmalayici
+          <main>'in (relative) dibine yapisiyor, yani tam footer'in
+          USTUNE -- footer layout.tsx'ten geldigi ve bu ogenin disinda
+          kaldigi icin ortusme artik imkansiz. */}
       <ChromaKeyVideo
         src="/Mustafa%20Karsilama_seffaf.mp4"
-        className="fixed bottom-0 right-0 h-[25vh] w-auto max-w-none"
+        className="absolute bottom-0 right-0 h-[25vh] w-auto max-w-none"
       />
     </main>
   );
