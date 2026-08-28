@@ -1,6 +1,12 @@
 import type { MetadataRoute } from "next";
 
-const SITE = "https://mustafakalfa.com";
+/* ADRES www'LU YAZILIYOR, bu kasitli. Vercel apex adresi (mustafakalfa.com)
+   308 ile www'ye yonlendiriyor, yani sitenin gercek adresi www'lu olan.
+   Burayi www'siz birakirsak sitemap'teki her adres bir yonlendirmeye
+   dusuyor ve Google'in kanonik sectigi adresle celisiyoruz. Ayni sabit
+   robots.ts ve layout.tsx'teki metadataBase icinde de gecer -- birini
+   degistirirsen ucunu birden degistir. */
+const SITE = "https://www.mustafakalfa.com";
 
 /* Arama motorlarina verilen adres listesi. Yayinda /sitemap.xml olarak
    cikiyor, build sirasinda uretiliyor -- calisan bir program yok.

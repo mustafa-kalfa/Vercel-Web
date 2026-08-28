@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   // bu olmadan Next.js goreli bir yol uretiyor ve harici botlar goruntuyu
   // hic cekemiyor, onizleme bos/beyaz kaliyordu. Goruntunun kendisi
   // app/opengraph-image.tsx'te.
-  metadataBase: new URL("https://mustafakalfa.com"),
+  metadataBase: new URL("https://www.mustafakalfa.com"),
   // Sablon: alt sayfalar yalnizca kendi adini veriyor, sonuna site adi
   // otomatik ekleniyor ("Podcastler — Hadis ve Dijital"). Anasayfa
   // sablonu kullanmiyor, default'i oldugu gibi aliyor.

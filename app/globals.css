@@ -330,3 +330,22 @@ html[lang="ar"] .ar-greeting {
   transform: scale(0.96);
   opacity: 0.6;
 }
+
+/* Fare ile secilen yazinin rengi. Tarayici varsayilani (Chrome'da parlak
+   mavi) sitenin sicak bej/krem paletiyle carpisiyordu; yerine solgun bir
+   nane yesili konuldu. Zemin ikisinde de ayni: acik modda bej uzerinde,
+   koyu modda siyah uzerinde ayni vurgu goruntusu cikiyor, yazi ise her
+   iki durumda da koyu kaliyor (yesil zemin uzerinde okunakli olan bu).
+
+   ::selection ve ::-moz-selection AYRI yazilmali; tek bir liste halinde
+   birlestirilirse tarayici tanimadigi yarisi yuzunden kuralin tamamini
+   atiyor. */
+::selection {
+  background-color: #c9e7d4;
+  color: #171717;
+}
+
+::-moz-selection {
+  background-color: #c9e7d4;
+  color: #171717;
+}
