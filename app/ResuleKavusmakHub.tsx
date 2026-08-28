@@ -465,7 +465,7 @@ export default function ResuleKavusmakHub() {
                 const cardClass =
                   "press-go relative flex aspect-square flex-col items-center justify-center gap-1.5 rounded-2xl border border-solid px-3 text-center sm:px-5 " +
                   (unlocked
-                    ? "border-black/[.08] hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+                    ? "border-black/20 hover:border-transparent hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
                     : "cursor-not-allowed border-dashed border-black/[.12] text-black/25 dark:border-white/[.12] dark:text-cream-dimmer/40");
                 // Zorluk rozeti: kilitli kutuda da duruyor, yalnizca
                 // biraz daha soluk. `whitespace-normal` uzun etiket
@@ -540,7 +540,7 @@ export default function ResuleKavusmakHub() {
             <button
               type="button"
               onClick={(e) => pressThenGo(e, false, null)}
-              className="press-go rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+              className="press-go rounded-full border border-solid border-black/20 px-4 py-2 text-sm hover:border-transparent hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
             >
               {ui.backToSections}
             </button>
@@ -572,7 +572,7 @@ export default function ResuleKavusmakHub() {
                     className={
                       "press-go flex aspect-square flex-col items-center justify-center gap-1.5 rounded-2xl border border-solid px-2 text-center sm:px-4 " +
                       (unlocked
-                        ? "border-black/[.08] hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+                        ? "border-black/20 hover:border-transparent hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
                         : "cursor-not-allowed border-dashed border-black/[.12] text-black/25 dark:border-white/[.12] dark:text-cream-dimmer/40")
                     }
                   >
@@ -611,7 +611,7 @@ export default function ResuleKavusmakHub() {
             <button
               type="button"
               onClick={(e) => pressThenGo(e, true, null)}
-              className="press-go rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+              className="press-go rounded-full border border-solid border-black/20 px-4 py-2 text-sm hover:border-transparent hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
             >
               {ui.back}
             </button>
@@ -647,7 +647,7 @@ export default function ResuleKavusmakHub() {
                dugmelerin uzerine binmesin diye asagida yer aciliyor.
                `overflow-hidden` karakterin yuvarlak koseden tasmasini
                engelliyor. */
-            className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-solid border-black/[.08] bg-background px-6 py-6 text-center shadow-xl dark:border-white/[.145]"
+            className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-solid border-black/20 bg-background px-6 py-6 text-center shadow-xl dark:border-white/70"
           >
             {/* Kavusmayi karsilayan Mustafa. Oyunun icindeki ile ayni
                 klip; burada React bileseni kullanilabiliyor cunku bu
@@ -666,7 +666,7 @@ export default function ResuleKavusmakHub() {
                   setShowCongrats(false);
                   go(false, null);
                 }}
-                className="press-go rounded-full border border-solid border-black/[.08] px-4 py-2 text-sm hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+                className="press-go rounded-full border border-solid border-black/20 px-4 py-2 text-sm hover:border-transparent hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
               >
                 {ui.backToSections}
               </button>

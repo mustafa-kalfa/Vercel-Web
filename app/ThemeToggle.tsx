@@ -108,7 +108,7 @@ export default function ThemeToggle() {
       role="switch"
       aria-checked={isDark}
       onClick={toggle}
-      className="fixed left-4 top-4 z-20 flex h-9 w-16 items-center rounded-full border border-black/[.08] bg-background p-1 transition-colors hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+      className="fixed left-4 top-4 z-20 flex h-9 w-16 items-center rounded-full border border-black/20 bg-background p-1 transition-colors hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
       aria-label={t.themeToggle}
       title={t.themeToggle}
     >

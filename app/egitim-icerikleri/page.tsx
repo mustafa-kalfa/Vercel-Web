@@ -82,7 +82,7 @@ function Liste({ baslik, kalemler }: { baslik: string; kalemler: Kalem[] }) {
               href={k.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex rounded-2xl border border-solid border-black/[.08] p-4 text-base leading-6 text-black transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:text-foreground dark:hover:bg-[#1a1a1a]"
+              className="flex rounded-2xl border border-solid border-black/20 p-4 text-base leading-6 text-black transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/70 dark:text-foreground dark:hover:bg-[#1a1a1a]"
             >
               {k.ad}
             </a>

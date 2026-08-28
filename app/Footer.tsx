@@ -51,7 +51,7 @@ export default function Footer() {
   return (
     /* `mt-auto`: govde kisa kalan sayfalarda (ornegin /rihle) footer
        ekranin ortasinda asili kalmasin, dibe otursun. */
-    <footer className="mt-auto w-full border-t border-black/[.08] dark:border-white/[.145]">
+    <footer className="mt-auto w-full border-t border-black/20 dark:border-white/70">
       <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-8 py-8 sm:px-16 md:max-w-5xl">
         {sayfaListesi ? (
         <nav aria-label={t.brandAlt}>

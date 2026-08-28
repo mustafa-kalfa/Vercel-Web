@@ -49,7 +49,7 @@ export default function Selam() {
         {/* Kuyruk: 45 derece dondurulmus bir kare. Kendi zemini balonunkiyle
             ayni oldugu icin altta kalan kenarligi kapatiyor, kendi iki
             kenarligi da cizgiyi surduruyor. */}
-        <div className="relative ml-auto max-w-md rounded-3xl border border-black/[.08] bg-background px-6 py-5 dark:border-white/[.145]">
+        <div className="relative ml-auto max-w-md rounded-3xl border border-black/20 bg-background px-6 py-5 dark:border-white/70">
           <p className="text-base leading-7 text-zinc-700 sm:text-lg sm:leading-8 dark:text-cream-dim ar-greeting">
             {t.greetingLead}
             <br />
@@ -57,7 +57,7 @@ export default function Selam() {
           </p>
           <span
             aria-hidden="true"
-            className="absolute -bottom-2 right-12 h-4 w-4 rotate-45 border-b border-r border-black/[.08] bg-background dark:border-white/[.145]"
+            className="absolute -bottom-2 right-12 h-4 w-4 rotate-45 border-b border-r border-black/20 bg-background dark:border-white/70"
           />
         </div>
       </div>

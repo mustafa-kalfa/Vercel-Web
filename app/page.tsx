@@ -40,7 +40,7 @@ export default function Home() {
           onaylandiktan sonra buraya da tasindi. */}
       <Link
         href="/resule-kavusmak"
-        className="glow-btn fixed right-4 top-[60px] z-20 flex h-9 w-9 items-center justify-center rounded-full border border-black/[.08] bg-background text-foreground transition-colors hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+        className="glow-btn fixed right-4 top-[60px] z-20 flex h-9 w-9 items-center justify-center rounded-full border border-black/20 bg-background text-foreground transition-colors hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
         aria-label="Resûle Kavuşmak"
         title="Resûle Kavuşmak"
       >
@@ -122,7 +122,7 @@ export default function Home() {
           </Link>
           <Link
             href="/selam"
-            className="flex h-12 w-full items-center justify-center whitespace-nowrap rounded-full border border-solid border-black/[.08] px-5 text-center transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-auto md:min-w-[158px]"
+            className="flex h-12 w-full items-center justify-center whitespace-nowrap rounded-full border border-solid border-black/20 px-5 text-center transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a] md:w-auto md:min-w-[158px]"
           >
             <SwapContent
               current={language}

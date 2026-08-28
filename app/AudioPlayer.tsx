@@ -120,7 +120,7 @@ export default function AudioPlayer({
   const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
 
   return (
-    <div className="w-full max-w-md rounded-3xl border border-black/[.08] bg-background px-6 py-5 dark:border-white/[.145]">
+    <div className="w-full max-w-md rounded-3xl border border-black/20 bg-background px-6 py-5 dark:border-white/70">
       {title && (
         <p className="mb-4 text-center text-base font-medium">{title}</p>
       )}
@@ -170,7 +170,7 @@ export default function AudioPlayer({
             onClick={() => skip(-SKIP_SECONDS)}
             aria-label={t.playerBack5}
             title={t.playerBack5}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-black/[.08] transition-colors hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-black/20 transition-colors hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
           >
             <SkipIcon />
           </button>
@@ -190,7 +190,7 @@ export default function AudioPlayer({
             onClick={() => skip(SKIP_SECONDS)}
             aria-label={t.playerForward5}
             title={t.playerForward5}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-black/[.08] transition-colors hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-black/20 transition-colors hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
           >
             <SkipIcon flip />
           </button>
@@ -202,7 +202,7 @@ export default function AudioPlayer({
             onClick={() => setSpeedIndex((i) => (i + 1) % SPEEDS.length)}
             aria-label={t.playerSpeed}
             title={t.playerSpeed}
-            className="flex h-10 w-14 items-center justify-center rounded-full border border-black/[.08] font-mono text-sm tabular-nums transition-colors hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+            className="flex h-10 w-14 items-center justify-center rounded-full border border-black/20 font-mono text-sm tabular-nums transition-colors hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
           >
             {speed}×
           </button>

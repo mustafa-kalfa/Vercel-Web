@@ -228,7 +228,7 @@ export default function Sinama() {
               <li key={kart.href}>
                 <Link
                   href={kart.href}
-                  className="flex h-full flex-col gap-1 rounded-2xl border border-solid border-black/[.08] p-4 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+                  className="flex h-full flex-col gap-1 rounded-2xl border border-solid border-black/20 p-4 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
                 >
                   <span className="flex items-start justify-between gap-3">
                     <span className="text-lg font-semibold text-black dark:text-foreground">
@@ -258,7 +258,7 @@ export default function Sinama() {
         <div className="site-actions flex w-full text-base font-medium">
           <Link
             href="/selam"
-            className="flex h-12 w-full items-center justify-center whitespace-nowrap rounded-full border border-solid border-black/[.08] px-5 text-center transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-auto md:min-w-[158px]"
+            className="flex h-12 w-full items-center justify-center whitespace-nowrap rounded-full border border-solid border-black/20 px-5 text-center transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a] md:w-auto md:min-w-[158px]"
           >
             <SwapContent
               current={language}
