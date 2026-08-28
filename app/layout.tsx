@@ -84,7 +84,23 @@ export default function RootLayout({
           <ThemeProvider>
             <ThemeToggle />
             <LanguageSwitcher />
-            {children}
+            {/* Sayfa govdesi TAM BIR EKRAN yuksekliginde. Onceden yalnizca
+                `flex-1` idi: govde, footer'dan ARTAN yeri dolduruyordu,
+                yani kisa sayfalarda footer hic kaydirmadan goruntude
+                kaliyordu. `min-h-dvh` ile govde her zaman bir ekran
+                kapliyor ve footer altina, katlanma cizgisinin ASAGISINA
+                dusuyor -- ancak kaydirinca ortaya cikiyor.
+
+                Sayfalarin koku (`main` ya da kok div) `flex-1` tasidigi
+                icin bu kabin icini dolduruyor; bu yuzden sayfalara tek
+                tek dokunmak gerekmedi.
+
+                `dvh`, `vh` DEGIL: mobil tarayicilarda adres cubugu
+                gizlenip gorunurken kullanilabilir yukseklik degisiyor ve
+                `vh` en buyuk degeri sabitledigi icin sayfa acilisinda
+                gereginden uzun oluyor. `dvh` o anki gercek yuksekligi
+                veriyor. */}
+            <div className="flex min-h-dvh flex-col">{children}</div>
             {/* Footer BURADA, yani her sayfada. Hangi yolda gorunecegine
                 kendisi karar veriyor (bkz. Footer.tsx, FOOTERSIZ).
                 LanguageProvider'in ICINDE olmali -- metinlerini
