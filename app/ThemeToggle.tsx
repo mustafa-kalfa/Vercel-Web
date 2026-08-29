@@ -129,38 +129,46 @@ export default function ThemeToggle() {
           `rtl:flex-row-reverse` ile cozulmustu; orada metin var, burada
           yok. */}
       <span
-        className={`relative flex h-7 w-7 items-center justify-center rounded-full bg-foreground text-background transition-transform ${gecis} ${
+        className={`relative flex h-7 w-7 items-center justify-center overflow-hidden rounded-full bg-foreground text-background transition-transform ${gecis} ${
           isDark ? "translate-x-7" : "translate-x-0"
         }`}
       >
-        {/* Ikonlar donerken YATAYDA da kayiyor.
+        {/* Ikonlar topuzun KENARINDAN cikip kayboluyor, donme aciyla
+            degil KIRPMA ile "yuvarlaniyor" hissi veriyor.
 
-            Sebep: gunes ikonunun sekli 8 esit isindan olusuyor, yani 45
-            derecelik bir simetrisi var ve 90 derece dondurulunce
-            KENDISIYLE birebir ayni goruntuyu veriyor. Donusu her zaman
-            vardi ama gorunmuyordu; sonucta yalnizca hilal (asimetrik,
-            uzerinde yildiz var) yuvarlaniyormus gibi okunuyordu -- iki
-            yonde de.
+            NEDEN: gunes ikonu 8 esit isindan olusuyor, yani 45
+            derecelik bir donme simetrisi var. 90 derecelik donus sekli
+            KENDISIYLE ortustuurdugu icin bitis pozu baslangictan
+            ayirt edilemiyor -- gunes hep donuyordu ama donduku
+            gorunmuyordu. Bu sekilde hicbir aci ise yaramaz: 45, 90,
+            135 ve 180 derecenin hepsi gorsel olarak sifira esit,
+            arada kalan aciler ise en fazla 22.5 derecelik bir egiklik
+            birakir. Yani "yuvarlandi" hissini DONUS uretemez.
 
-            Kaydirma bunu simetriden bagimsiz cozuyor. Yuvarlanan bir
-            topun yuzeyindeki isaret hangi yone gidiyorsa o kenardan
-            cikar, yenisi karsi kenardan girer:
-              acik -> koyu   topuz SAGA gider, hilal sagdan cikar,
-                             gunes soldan girer, ikisi de saat yonunde
-              koyu -> acik   topuz SOLA gider, gunes soldan cikar,
-                             hilal sagdan girer, ikisi de saat yonunun
-                             tersine
+            COZUM: topuza `overflow-hidden`, ikonlara buyuk bir yatay
+            kaydirma (20px, topuz 28px). Cikan ikon topuzun kenarindan
+            disari kayip kirpiliyor, giren ikon karsi kenardan
+            beliriyor -- yuvarlanan bir topun yuzeyindeki isaret gibi.
+            Bu, ikonun sekline ve simetrisine hic bagli degil.
 
-            Negatif deger `translate-x-[-10px]` diye yaziliyor,
-            `-translate-x-[10px]` diye DEGIL: bu Tailwind surumunde tire
-            onde yazilinca kural hic uretilmiyor (ayni tuzak
-            app/page.tsx'teki logonun `my-[-38px]` degerinde de var). */}
+            Donus KORUNDU: yolculuk sirasinda sekil gorunur sekilde
+            savruluyor, yalnizca bitis pozu ayni kaliyor. Kaydirmayla
+            birlikte hareket tamamlaniyor.
+
+            acik -> koyu  topuz saga, hilal sag kenardan cikar, gunes
+                          sol kenardan girer
+            koyu -> acik  topuz sola, gunes SOL KENARDAN CIKAR, hilal
+                          sag kenardan girer
+
+            Negatif deger `translate-x-[-20px]` diye yaziliyor,
+            `-translate-x-[20px]` diye DEGIL: bu Tailwind surumunde
+            tire onde yazilinca kural hic uretilmiyor. */}
         <span
           aria-hidden="true"
           className={`absolute inset-0 flex items-center justify-center transition-all ${gecis} ${
             isDark
-              ? "translate-x-[10px] scale-50 rotate-90 opacity-0"
-              : "translate-x-0 scale-100 rotate-0 opacity-100"
+              ? "translate-x-[20px] rotate-90 opacity-0"
+              : "translate-x-0 rotate-0 opacity-100"
           }`}
         >
           <CrescentIcon />
@@ -169,8 +177,8 @@ export default function ThemeToggle() {
           aria-hidden="true"
           className={`absolute inset-0 flex items-center justify-center transition-all ${gecis} ${
             isDark
-              ? "translate-x-0 scale-100 rotate-0 opacity-100"
-              : "translate-x-[-10px] scale-50 -rotate-90 opacity-0"
+              ? "translate-x-0 rotate-0 opacity-100"
+              : "translate-x-[-20px] -rotate-90 opacity-0"
           }`}
         >
           <SunIcon />
