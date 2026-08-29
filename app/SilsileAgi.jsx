@@ -2282,6 +2282,7 @@ export default function SilsileAgi() {
        (Mustafa, 2026-08-29). Burada iki bant da BEYAZ, yalnizca
        saydamliklari farkli -- yani dama bir aydinlik basamagi.
        Renksiz oldugu icin ravi noktalarinin rengiyle yarismiyor. */
+    kenarCanli: "#9C8F5A", okVurgu: "#A9603F",
     damaA: "#FFFFFF", damaAOp: 0.040, damaB: "#FFFFFF", damaBOp: 0.014,
     satirA: "#FFFFFF", satirAOp: 0.030, satirB: "#FFFFFF", satirBOp: 0.010,
   } : {
@@ -2291,6 +2292,7 @@ export default function SilsileAgi() {
     okSonuk: "#C9BFA8", dugumCerceve: "white", etiketHale: "#FFFFFF",
     etiketAna: "#2B2721", etiketAlt: "#8C8676", sonucVurgu: "#F5F1E6",
     kesikCerceve: "#E0D8C6",
+    kenarCanli: "#8A7A34", okVurgu: "#B5462B",
     damaA: "#8A7A34", damaAOp: 0.05, damaB: "#2E7D6E", damaBOp: 0.026,
     satirA: "#8A7A34", satirAOp: 0.055, satirB: "#2E7D6E", satirBOp: 0.028,
   };
@@ -2718,10 +2720,14 @@ export default function SilsileAgi() {
       const p = POS[n.id];
       const cx = durgun.x + p.x * durgun.k;
       const cy = durgun.y + p.y * durgun.k;
-      // görüş alanı dışındakiler yer kaplamasın
-      // düğümün kendisi görüş alanında değilse etiket yazılmaz;
-      // aksi halde kenarda isim yığılması oluşuyor
-      if (cx < SOL_BANT + 4 || cx > box.w - 4 || cy < UST_BANT + 4 || cy > box.h - 4) return;
+      /* Dugumun kendisi gorus alaninin epeyce disindaysa etiket
+         yazilmiyor -- yoksa ekranda hic gorunmeyen noktalarin isimleri
+         kenarda yigiliyor. PAY var: bir ekranin besde biri kadar
+         disarida olan dugum hala isimlensin ki kenardaki noktalar
+         cıplak kalmasin. */
+      const etiketPay = Math.min(box.w, box.h) * 0.2;
+      if (cx < SOL_BANT - etiketPay || cx > box.w + etiketPay ||
+          cy < UST_BANT - etiketPay || cy > box.h + etiketPay) return;
       if (!zorla && durgun.k < ESIK[kad]) return;
 
       const punto = Math.max(EKRAN_PUNTO[kad], rEkranOf(n.id, durgun.k) * 0.42);
@@ -2732,10 +2738,15 @@ export default function SilsileAgi() {
       const kutuAlt = { x1: cx - g / 2, x2: cx + g / 2, y1: cy + r + 2, y2: cy + r + 2 + y };
       const kutuUst = { x1: cx - g / 2, x2: cx + g / 2, y1: cy - r - 2 - y, y2: cy - r - 2 };
 
-      // görüş alanının sağından veya solundan taşarsa yatayda kaydırılır
-      // Etiket görüş alanına sığmıyorsa hiç yazılmaz. İçeri çekmek
-      // kenarlarda isim yığılmasına yol açıyordu.
-      if (cx - g / 2 < SOL_BANT + 4 || cx + g / 2 > box.w - 4) return;
+      /* KENARDAN TASAN ETIKET ARTIK GIZLENMIYOR. Eskiden isim bir
+         harfiyle bile gorus alanindan tasiyorsa hic yazilmiyordu;
+         ekranin kenarindaki noktalar isimsiz kaliyordu (Mustafa,
+         2026-08-29). Simdi yaziliyor ve kenarda kirpiliyor -- yarim
+         okunan bir isim, hic olmayandan iyi.
+
+         Iceri CEKILMIYOR: bir zamanlar denenmis ve kenarda isimler
+         ust uste yiğilmisti. Kirpma bu sorunu dogurmuyor cunku
+         etiketin yeri degismiyor, yalnizca gorunen kismi kisaliyor. */
       const kay = 0;
 
       /* CARPISMA TESTI VURGULU ISIMLERDE DE GECERLI.
@@ -2902,13 +2913,16 @@ export default function SilsileAgi() {
      gorus alani, pencerenin hesaplandigi olcege gore buyuyor. Pay
      olmasa "Tamami"ye basildiginda gorunum genislerken tuvalin bir
      kismi 140 ms boyunca bos kalirdi. */
-  /* Pay dar ekranda YARIM ekran, genis ekranda bir ekran. Telefonda
-     her fazladan ekranlik pay uc kat daha cok eleman demek ve
-     tarayicinin isi o oranda artiyor; masaustunde bedeli
-     hissedilmiyor, orada genis pay kaydirmayi daha akici yapiyor. */
+  /* Pay HER EKRANDA BIR EKRAN. Bir sure dar ekranda yariya
+     indirilmisti (eleman sayisini dusurmek icin); sonuc, hizli
+     kaydirmada kullanicinin penceresinin disina cikip noktalarin
+     kaybolmasiydi (Mustafa, 2026-08-29). Pencere bir ekranlik
+     izgaraya yuvarlandigi icin pay da en az bir ekran olmali, yoksa
+     iki yenilenme arasinda bosluk kaliyor. Eleman sayisi zaten
+     kenarlarin tek yolda birlestirilmesiyle dustu; payi kismaya
+     gerek kalmadi. */
   const zoomPay = Math.max(1, kg / view.k);
-  const payOran = dar ? 0.5 : 1;
-  const gw = (box.w / kg) * zoomPay * payOran, gh = (box.h / kg) * zoomPay * payOran;
+  const gw = (box.w / kg) * zoomPay, gh = (box.h / kg) * zoomPay;
   const qx = olculdu && gw > 0 ? Math.floor(-view.x / kg / gw) : 0;
   const qy = olculdu && gh > 0 ? Math.floor(-view.y / kg / gh) : 0;
   const pencere = useMemo(() => (olculdu
@@ -3043,11 +3057,17 @@ export default function SilsileAgi() {
                   )}
                   <path d={d} fill="none"
                     className={"kenar" + (canli && susAnimasyon ? " kenar-v" : "")}
-                    stroke={secili ? C.kenarSecili : canli ? C.vurguInk : dim ? C.kenarSonuk : C.kenar}
+                    stroke={secili ? C.kenarSecili : canli ? C.kenarCanli : dim ? C.kenarSonuk : C.kenar}
                     vectorEffect="non-scaling-stroke"
-                    strokeWidth={(secili ? 2.6 : canli ? 2 : dim ? 0.7 : 1.2) *
-                                 (secili || canli ? 1 : cizgiCarpani)}
-                    opacity={secili ? 1 : canli ? 0.95
+                    /* Vurgulu kenarlar da uzaklastikca inceliyor.
+                       Sabit kalinlikta birakildiginda bir raviye
+                       tiklaninca 60 kenar tam kalinlikta ciziliyor ve
+                       ekrani kapliyordu (Mustafa'nin ekran goruntusu,
+                       2026-08-29). Secili TEK kenar sabit kaliyor --
+                       o zaten bir tane. */
+                    strokeWidth={(secili ? 2.6 : canli ? 1.7 : dim ? 0.7 : 1.2) *
+                                 (secili ? 1 : Math.max(canli ? 0.55 : 0, cizgiCarpani))}
+                    opacity={secili ? 1 : canli ? 0.85
                              : (dim ? 0.5 : 0.85) * cizgiSaydam}
                     markerEnd={secili || canli ? "url(#okVurgu)"
                                : !yakin ? undefined
@@ -3254,8 +3274,8 @@ export default function SilsileAgi() {
               <path d="M 0 0 L 10 5 L 0 10 z" fill={C.okSonuk} />
             </marker>
             <marker id="okVurgu" viewBox="0 0 10 10" refX="9" refY="5"
-              markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-              <path d="M 0 0 L 10 5 L 0 10 z" fill={C.kenarSecili} />
+              markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill={C.okVurgu} />
             </marker>
           </defs>
 
@@ -3334,15 +3354,22 @@ export default function SilsileAgi() {
             `data-ustlik`: tekerlek isleyicisi (bkz. tekerlek) bu
             isareti tasiyan bir seyin uzerindeyse olayi ag'a
             gecirmiyor, kutu kendi kaydirmasini yapiyor. */}
+        {/* DAR EKRANDA KUME KARTIN USTUNDE ve tam genislikte; yan yana
+            dizilis telefonda karti okunmaz hale getiriyordu. Kart
+            acikken kume onun ustune cikiyor (kart 130 + 12 pay + 12
+            aralik), kapaliyken en alta iniyor. Genis ekranda eskisi
+            gibi sag altta, %15. */}
         <div className="absolute z-20" data-ustlik
-          style={{ bottom: 12, right: 12, width: "15%", minWidth: 132 }}
+          style={dar
+            ? { bottom: (secRavi || secKenar) ? 166 : 12, left: 12, right: 12 }
+            : { bottom: 12, right: 12, width: "15%", minWidth: 132 }}
           onPointerDown={(e) => e.stopPropagation()}
           onPointerUp={(e) => e.stopPropagation()}
           onWheel={(e) => e.stopPropagation()}>
           {acikArama && arama.trim() && (
             /* Sonuc listesi kumeden GENIS: isimler 132 px'e sigmaz.
                Saga yaslanip sola dogru tasiyor. */
-            <div className="shadow" style={{ marginBottom: 6, maxHeight: 260, overflowY: "auto", background: C.tuval, border: "1px solid " + C.cizgi, borderRadius: 2, width: dar ? "calc(100vw - 24px)" : 300, marginLeft: "auto", position: "relative", right: 0 }}>
+            <div className="shadow" style={{ marginBottom: 6, maxHeight: 260, overflowY: "auto", background: C.tuval, border: "1px solid " + C.cizgi, borderRadius: 2, width: dar ? "100%" : 300, marginLeft: "auto", position: "relative", right: 0 }}>
               {sonuclar.length ? sonuclar.map((n) => (
                 <button key={n.id}
                   onClick={() => { odaklan(n.id); setAcikArama(false); }}
@@ -3388,15 +3415,15 @@ export default function SilsileAgi() {
                  telefonda karti 95 px'e dusuruyordu. Genis ekranda
                  eskisi gibi solda, yalnizca kumeye ayrilan pay 280'den
                  200'e indi -- kume daraldi. */
-              /* Kart sayfa genisliginin YARISI, yukseklik 188'den
-                 130'a indi (Mustafa, 2026-08-29). Kume artik %15
-                 oldugu icin ikisi rahat siğiyor; yine de dar
-                 telefonlarda kumenin 132 px'lik tabani devreye
-                 girebildiginden `maxWidth` ile carpisma kesin olarak
-                 onleniyor. */
-              left: 12, bottom: 12,
-              width: "50%", minWidth: 180,
-              maxWidth: "calc(100% - 36px - max(15%, 132px))",
+              /* Genis ekranda kart sayfa genisliginin YARISI ve kume
+                 yaninda duruyor. DAR EKRANDA TAM GENISLIK: yan yana
+                 dizilisde karta 180-200 px kaliyordu ve hoca/talebe
+                 cipleri okunmuyordu (Mustafa, 2026-08-29). Kume o
+                 zaman kartin ustune cikiyor. */
+              left: 12, bottom: 12, right: dar ? 12 : undefined,
+              width: dar ? undefined : "50%",
+              minWidth: dar ? undefined : 180,
+              maxWidth: dar ? undefined : "calc(100% - 36px - max(15%, 132px))",
               height: 130, overflowY: "auto", overflowX: "hidden",
               background: C.kart, border: "1px solid " + C.cizgi,
               borderRadius: 2, padding: 16,
@@ -3455,9 +3482,10 @@ export default function SilsileAgi() {
           return (
             <div className="absolute z-20 shadow-lg select-text"
               style={{
-                left: 12, bottom: 12,
-                width: "50%", minWidth: 180,
-                maxWidth: "calc(100% - 36px - max(15%, 132px))",
+                left: 12, bottom: 12, right: dar ? 12 : undefined,
+                width: dar ? undefined : "50%",
+                minWidth: dar ? undefined : 180,
+                maxWidth: dar ? undefined : "calc(100% - 36px - max(15%, 132px))",
                 maxHeight: 130, overflowY: "auto",
                 background: C.kart, border: "1px solid " + C.cizgi,
                 borderRadius: 2, padding: 16,
