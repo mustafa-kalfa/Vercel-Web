@@ -133,10 +133,34 @@ export default function ThemeToggle() {
           isDark ? "translate-x-7" : "translate-x-0"
         }`}
       >
+        {/* Ikonlar donerken YATAYDA da kayiyor.
+
+            Sebep: gunes ikonunun sekli 8 esit isindan olusuyor, yani 45
+            derecelik bir simetrisi var ve 90 derece dondurulunce
+            KENDISIYLE birebir ayni goruntuyu veriyor. Donusu her zaman
+            vardi ama gorunmuyordu; sonucta yalnizca hilal (asimetrik,
+            uzerinde yildiz var) yuvarlaniyormus gibi okunuyordu -- iki
+            yonde de.
+
+            Kaydirma bunu simetriden bagimsiz cozuyor. Yuvarlanan bir
+            topun yuzeyindeki isaret hangi yone gidiyorsa o kenardan
+            cikar, yenisi karsi kenardan girer:
+              acik -> koyu   topuz SAGA gider, hilal sagdan cikar,
+                             gunes soldan girer, ikisi de saat yonunde
+              koyu -> acik   topuz SOLA gider, gunes soldan cikar,
+                             hilal sagdan girer, ikisi de saat yonunun
+                             tersine
+
+            Negatif deger `translate-x-[-10px]` diye yaziliyor,
+            `-translate-x-[10px]` diye DEGIL: bu Tailwind surumunde tire
+            onde yazilinca kural hic uretilmiyor (ayni tuzak
+            app/page.tsx'teki logonun `my-[-38px]` degerinde de var). */}
         <span
           aria-hidden="true"
           className={`absolute inset-0 flex items-center justify-center transition-all ${gecis} ${
-            isDark ? "scale-50 rotate-90 opacity-0" : "scale-100 rotate-0 opacity-100"
+            isDark
+              ? "translate-x-[10px] scale-50 rotate-90 opacity-0"
+              : "translate-x-0 scale-100 rotate-0 opacity-100"
           }`}
         >
           <CrescentIcon />
@@ -144,7 +168,9 @@ export default function ThemeToggle() {
         <span
           aria-hidden="true"
           className={`absolute inset-0 flex items-center justify-center transition-all ${gecis} ${
-            isDark ? "scale-100 rotate-0 opacity-100" : "scale-50 -rotate-90 opacity-0"
+            isDark
+              ? "translate-x-0 scale-100 rotate-0 opacity-100"
+              : "translate-x-[-10px] scale-50 -rotate-90 opacity-0"
           }`}
         >
           <SunIcon />
