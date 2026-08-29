@@ -30,6 +30,7 @@ const YOLLAR = [
   "/podcastler",
   "/hadis-tarihi",
   "/rihle",
+  "/oyunlar",
   "/resule-kavusmak",
   "/mustafa-calisiyor",
   "/egitim-icerikleri",

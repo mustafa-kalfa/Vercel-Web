@@ -125,7 +125,7 @@ export default function Home() {
       ikon: <YolIcon />,
     },
     {
-      href: "/resule-kavusmak",
+      href: "/oyunlar",
       adAnahtar: "cardGames",
       altAnahtar: "cardGamesDesc",
       ikon: <GamepadIcon />,

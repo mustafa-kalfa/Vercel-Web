@@ -50,7 +50,7 @@ export default function Footer() {
     { href: "/ravi-iliski-aglari", ad: t.cardNetworks },
     { href: "/podcastler", ad: t.cardPodcasts },
     { href: "/rihle", ad: t.cardRihle },
-    { href: "/resule-kavusmak", ad: t.cardGames },
+    { href: "/oyunlar", ad: t.cardGames },
     { href: "/egitim-icerikleri", ad: t.cardEducation },
     { href: "/selam", ad: t.about },
   ];
