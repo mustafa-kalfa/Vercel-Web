@@ -27,9 +27,15 @@ import { useTheme } from "./ThemeContext";
 export default function ResuleKavusmakGame({
   hadis,
   nextUnlocked,
+  dosya = "/resule-kavusmak-game.html",
 }: {
   hadis?: string;
   nextUnlocked?: boolean;
+  /* Oynatilacak oyun dosyasi. Ontanimli yayindaki surum;
+     /resule-kavusmak-sinama yeni akisi denemek icin kendi kopyasini
+     (resule-kavusmak-game-sinama.html) veriyor. Boylece yayindaki oyun
+     denemelerden hic etkilenmiyor. */
+  dosya?: string;
 }) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [height, setHeight] = useState(1200);
@@ -50,9 +56,8 @@ export default function ResuleKavusmakGame({
   // vermesiyle saglaniyor (asagidaki nota bkz.), `src` degisimiyle degil.
   const [src] = useState(() =>
     hadis
-      ? `/resule-kavusmak-game.html?h=${encodeURIComponent(hadis)}` +
-        (nextUnlocked ? "&u=1" : "")
-      : "/resule-kavusmak-game.html",
+      ? `${dosya}?h=${encodeURIComponent(hadis)}` + (nextUnlocked ? "&u=1" : "")
+      : dosya,
   );
 
   useEffect(() => {

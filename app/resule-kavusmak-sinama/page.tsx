@@ -11,11 +11,18 @@ export const metadata: Metadata = {
   alternates: { canonical: "/resule-kavusmak" },
 };
 
-// Eski SINAMA adresi. Icerik 2026-08-19'da gercek sayfaya
-// (/resule-kavusmak) tasindi; bu rota, daha once paylasilmis
-// baglantilar kirilmasin diye AYNI bileseni render etmeye devam
-// ediyor. Artik ayri bir "deneme surumu" degil -- iki adres birebir
-// ayni sayfayi gosterir. Gerek kalmadiginda bu klasor silinebilir.
+/* SINAMA adresi -- 2026-08-29'da yeniden gercek bir deneme surumu oldu.
+
+   Bir sure /resule-kavusmak ile birebir ayni sayfayi gosteriyordu (icerik
+   2026-08-19'da gercek sayfaya tasinmisti, bu rota yalnizca eski
+   baglantilar kirilmasin diye duruyordu). Simdi yeni oyun akisi burada
+   deneniyor: hadis gelir, oyuncu isnadi ezberler, "Ezberledim" dedikten
+   sonra Arapca isnad kaybolur ve oyun baslar.
+
+   Fark tek bir yerde: oynatilan HTML dosyasi. Hub ve oyun bileseni ayni,
+   yalnizca `oyunDosyasi` farkli. Boylece yayindaki oyun
+   (/resule-kavusmak) denemelerden hic etkilenmiyor. Akis onaylanirsa
+   iki dosya birlestirilir. */
 export default function ResuleKavusmakSinama() {
-  return <ResuleKavusmakHub />;
+  return <ResuleKavusmakHub oyunDosyasi="/resule-kavusmak-game-sinama.html" />;
 }

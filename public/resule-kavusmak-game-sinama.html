@@ -1,0 +1,1775 @@
+<title>Mustafâ'nın İsnad Yolculuğu — v4</title>
+<!-- "Traditional Arabic" ve "Arabic Typesetting" yalnizca Windows'ta
+     yukludur; "Noto Naskh Arabic" da hicbir isletim sisteminde SISTEM
+     fontu olarak gelmez -- bu dosya app/layout.tsx'teki next/font/google
+     mekanizmasindan (kendi barindirdigi font, ayrica bkz. globals.css
+     `.lang-ar{font-family:var(--font-naskh)...}`) YARARLANAMIYOR, cunku
+     `/resule-kavusmak` sayfasina bir <iframe> icinde gomulu, AYRI bir
+     document -- CSS degiskenleri iframe sinirini gecmiyor. Bu yuzden
+     Google Fonts'tan KENDI basina yukluyor; iPhone'da (ve Windows/Android
+     disinda her yerde) Arapca metin gercek Naskh yerine sistemin
+     varsayilan Arapca fontuna dusuyordu, sebebi buydu. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --background:#d2ccbe;
+    --foreground:#171717;
+    --secondary:#3f3f46;
+    --tertiary:#52525b;
+    --hairline:rgba(0,0,0,.2);
+    --hover:rgba(0,0,0,.04);
+    --rose:#a13b2e;
+    --green:#3f7d4f;
+    --sparkle:#ffffff;
+  }
+  :root[data-theme="dark"]{
+    --background:#000000;
+    --foreground:#e5dfd0;
+    --secondary:#cdc6b4;
+    --tertiary:#ada693;
+    --hairline:rgba(255,255,255,.7);
+    --hover:#1a1a1a;
+    --rose:#d97b6c;
+    --green:#6fc27f;
+    --sparkle:#ffffff;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --background:#000000;
+      --foreground:#e5dfd0;
+      --secondary:#cdc6b4;
+      --tertiary:#ada693;
+      --hairline:rgba(255,255,255,.7);
+      --hover:#1a1a1a;
+      --rose:#d97b6c;
+      --green:#6fc27f;
+      --sparkle:#ffffff;
+    }
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0;}
+
+  /* Secim rengi burada TEKRAR tanimlanmali. Bu dosya iframe icinde
+     acildigi icin ayri bir belge sayilir ve app/globals.css'teki
+     ::selection kurali buraya HIC ulasmiyor -- oyun sayfalarinda secim
+     tarayicinin mavi varsayilanina donuyordu. Deger globals.css ile ayni
+     tutulmali, birini degistirirsen digerini de degistir. */
+  ::selection{background-color:#6FE7A0; color:#171717;}
+  .page{
+    min-height:100%;
+    background:var(--background);
+    color:var(--foreground);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    position:relative;
+    padding-bottom:40px;
+    /* Butonlar tam genislikte kalsin diye board'da sag tarafa yer
+       AYRILMIYOR; Mustafa en sagdaki butonun yaninda dururken sayfanin
+       gercek kenarinin biraz disina tasabilir. overflow-x:hidden bunu
+       gorunmez kirpiyor -- sayfada yatay kaydirma cubugu hic cikmiyor,
+       ama hicbir buton kaymiyor/kuculmuyor. */
+    overflow-x:hidden;
+  }
+  /* Dil Arapca'ya gecince applyLanguage() bu sinifi #pageRoot'a ekler:
+     tum sayfa (baslik, etiketler, butonlar, toast, hadis metni) ayni
+     geleneksel nesih (Traditional Arabic / Noto Naskh Arabic) fontuna
+     gecer -- yalnizca isnad-ar degil, GORUNEN HER Arapca yazi. */
+  .lang-ar{
+    font-family:"Noto Naskh Arabic","Traditional Arabic","Arabic Typesetting","Segoe UI",serif;
+  }
+  /* Kural: ayni ifadenin arapcasi, turkcesinin punto degerinden +4px
+     buyuk olmali (isnad-ar'in kendi buyuklugu -- Arapca disinda karsiligi
+     olmadigindan -- ustteki temel kuralda zaten +4 uygulanmis halde). */
+  .lang-ar h1{font-size:28px;}                 /* tr 24px (1.5rem) +4 */
+  .lang-ar .lede{font-size:20px;}               /* tr 16px (1rem) +4 */
+  .lang-ar .bubble-label{font-size:15px;}        /* tr 11px +4 */
+  .lang-ar .bubble-value{font-size:18px;}        /* tr 14px (bubble-row'dan miras) +4 */
+  .lang-ar .goal-pill{font-size:17px;}           /* tr 13px +4 */
+  .lang-ar .goal-pill small{font-size:15px;}     /* tr 11px +4 */
+  .lang-ar .reset-btn, .lang-ar .next-btn, .lang-ar .prev-btn{font-size:17px;}  /* tr 13px +4 */
+  .lang-ar .progress{font-size:16px;}            /* tr 12px +4 */
+  .lang-ar .toast{font-size:16px;}               /* tr 12px +4 */
+  .lang-ar .node{font-size:17px;}                /* tr 13px +4 */
+
+  .wrap{
+    max-width:640px;
+    margin:0 auto;
+    /* Ust bosluk kucuk: bu sayfa /resule-kavusmak icinde bir iframe'e
+       gomuluyor ve gercek site basligi (marka logosu, tema/dil
+       dugmeleri) zaten DISARIDA, kendi HTML'inde duruyor -- burada
+       onlarin bir kopyasini tekrar cizmiyoruz. */
+    padding:24px 24px 0;
+  }
+
+  h1{
+    font-size:1.5rem;
+    line-height:2rem;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0 0 6px;
+  }
+  .lede{
+    font-size:1rem;
+    line-height:1.6rem;
+    color:var(--secondary);
+    margin:0 0 22px;
+    max-width:46ch;
+  }
+
+  .bubble{
+    position:relative;
+    border:1px solid var(--hairline);
+    background:var(--background);
+    border-radius:22px;
+    padding:16px 18px;
+    margin-bottom:28px;
+  }
+  .bubble .progress{
+    position:absolute;
+    top:14px; right:18px;
+  }
+  .bubble-row{font-size:14px; line-height:1.6;}
+  .bubble-row + .bubble-row{margin-top:8px; padding-top:8px; border-top:1px solid var(--hairline);}
+  .bubble-label{
+    font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--tertiary); margin-right:8px;
+  }
+  .bubble-value .placeholder{color:var(--tertiary); font-style:normal;}
+  .bubble-value .step{font-weight:600;}
+  /* Isnad tamamlanip hadis metni ortaya cikinca finish() .bubble'a
+     .glow-active sinifini ekler, "Bastan baslat"ta kaldirilir.
+
+     PARILTI SABIT VE TAM CERCEVE (Mustafa'nin talebi, 2026-08-29).
+     Eskiden donen bir isik iziydi: `stroke-dasharray: 20 80` ile
+     cercevenin yalnizca %20'si yanik kaliyor, `stroke-dashoffset`
+     animasyonu da o parcayi kenar boyunca dolastiriyordu. Simdi
+     dasharray de animasyon da yok -- cizgi cercevenin TAMAMINI dolduruyor
+     ve oldugu yerde duruyor. `--glow-line-length` ve `--animation-speed`
+     degiskenleri bu yuzden kaldirildi.
+
+     Iki katman ust uste: `.glow-line` ince ve keskin cizgi,
+     `.glow-blur` ayni yolun kalin ve bulanik kopyasi. Parilti hissini
+     veren ikincisi; tek basina cizgi duz bir kenarlik gibi dururdu.
+
+     KAPSAM (2026-08-10): iz .bubble'in TAMAMINI (isnad + hadis metni)
+     degil, YALNIZCA hadis metni satirini (.metin-row) sariyor -- svg o
+     satirin icine tasindi, position:relative de oraya verildi.
+     .glow-active sinifi hala .bubble'da durdugu icin JS'e dokunulmadi. */
+  .metin-row{ position:relative; }
+  .bubble{
+    --glow-line-color:var(--sparkle);
+    --glow-line-thickness:2px;
+    --glow-blur-color:var(--sparkle);
+    --glow-blur-size:10px;
+    --container-offset:100px;
+    /* Metin satirinin kendi kenarligi/dolgusu yok; iz tam metnin sinir
+       kutusundan gecerse yaziya yapisik durur. Bu kadar DISARI tasiniyor
+       (yerlesimi degistirmez, yalnizca cizimi kaydirir). */
+    --glow-outset:10px;
+    /* UST kenar AYRI: satirin ustunde isnad'dan ayiran ince bir bolucu
+       cizgi var (`.bubble-row + .bubble-row`in border-top'u) ve satirin
+       border-box'i tam O CIZGIDEN basliyor. Ustte de digerleri gibi 10px
+       tasilirsa iz cizginin YUKARISINDAN gecip cizgiyi kendi icine
+       aliyordu; 0 verilince iz tam cizginin UZERINDEN geciyor. */
+    --glow-outset-top:0px;
+  }
+  .glow-container{
+    pointer-events:none;
+    position:absolute;
+    inset:calc(var(--container-offset) / -2);
+    width:calc(100% + var(--container-offset));
+    height:calc(100% + var(--container-offset));
+    opacity:0;
+  }
+  .glow-blur, .glow-line{
+    width:calc(100% - var(--container-offset) + var(--glow-outset) * 2);
+    height:calc(100% - var(--container-offset) + var(--glow-outset-top) + var(--glow-outset));
+    x:calc(var(--container-offset) / 2 - var(--glow-outset));
+    y:calc(var(--container-offset) / 2 - var(--glow-outset-top));
+    rx:16px;
+    fill:transparent;
+  }
+  .glow-line{stroke:var(--glow-line-color); stroke-width:var(--glow-line-thickness);}
+  .glow-blur{filter:blur(var(--glow-blur-size)); stroke:var(--glow-blur-color); stroke-width:var(--glow-blur-size);}
+  .bubble.glow-active .glow-container{opacity:1;}
+
+  .isnad-ar{
+    margin-top:8px;
+    font-size:19px;
+    line-height:2.1;
+    text-align:right;
+    color:var(--tertiary);
+    font-family:"Noto Naskh Arabic","Traditional Arabic","Arabic Typesetting","Segoe UI",serif;
+  }
+  .ravi-name{
+    color:var(--tertiary);
+    font-weight:700;
+    transition:color .4s;
+  }
+  .ravi-name.lit{color:#fff; font-weight:700;}
+  .ravi-name.lit-flash{animation:ravi-glow .9s ease;}
+  @keyframes ravi-glow{
+    0%{text-shadow:0 0 0 transparent;}
+    35%{text-shadow:0 0 8px var(--foreground);}
+    100%{text-shadow:0 0 0 transparent;}
+  }
+
+  .board{
+    position:relative;
+    /* Yukseklik artik icerikten geliyor (kat sayisi kadar). Alttaki
+       dolgu, Mustafa'nin videosu Buhari satirinin altina tastigi icin
+       var. Butonlar TAM GENISLIKTE kalir -- Mustafa'ya yer acmak icin
+       sagdan kisilmiyor; en sagdaki butonun yaninda durabilmesi icin
+       gerekirse .page'in overflow-x:hidden'i icinde board'un disina
+       tasabiliyor (bkz. rightEdgePct). */
+    padding-bottom:52px;
+    margin-bottom:22px;
+  }
+
+  .goal-row{display:flex; justify-content:center; margin-bottom:20px;}
+  .author-row{display:flex; justify-content:center; margin-top:4px;}
+  .author-row .node{flex:0 0 auto; width:auto; min-width:104px;}
+
+  /* Her ravi kendi KATINI alir: hadiste Buhari disinda kac ravi varsa
+     o kadar kat var, kat sayisi asagidan (Buhari) yukariya (Hz. Nebi)
+     dogru artar. Katlar DOM'da tersten dizilir (en ustteki kat en son
+     bulunacak ravi), ki dikey siralama gorsel olarak da tirmanisi
+     yansitsin. */
+  .node-grid{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:18px;
+  }
+  .floor{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    margin-bottom:12px;
+  }
+  .floor .node{flex:1 1 0; min-width:0; max-width:190px;}
+
+  .goal-pill{
+    display:flex; flex-direction:column; align-items:center;
+    gap:1px;
+    background:var(--background);
+    border:1px solid var(--foreground);
+    color:var(--foreground);
+    border-radius:9999px;
+    padding:10px 20px;
+    font-size:13px; font-weight:600;
+    z-index:5;
+    transition:background .3s, color .3s, box-shadow .3s;
+  }
+  .goal-pill small{font-weight:400; font-size:11px; opacity:.75;}
+  .goal-pill.reached{
+    background:var(--foreground);
+    color:var(--background);
+    box-shadow:0 0 0 6px var(--hover);
+  }
+
+  .path-layer{position:absolute; inset:0; width:100%; height:100%; overflow:visible; z-index:1; pointer-events:none;}
+  .path-layer polyline{fill:none; stroke:var(--foreground); stroke-width:1.5; stroke-dasharray:1 6; stroke-linecap:round; opacity:.35;}
+
+  .node{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:36px;
+    width:100%;
+    background:var(--background);
+    border:1px solid var(--hairline);
+    color:var(--foreground);
+    border-radius:9999px;
+    padding:6px 10px;
+    font-size:13px;
+    font-weight:500;
+    font-family:inherit;
+    cursor:pointer;
+    z-index:3;
+    text-align:center;
+    line-height:1.2;
+    transition:transform .15s, border-color .2s, background .2s, color .2s;
+  }
+  .node:hover{border-color:var(--foreground);}
+
+  .node:focus-visible{outline:2px solid var(--foreground); outline-offset:2px;}
+  .node .badge{
+    position:absolute; top:-7px; left:-7px;
+    width:17px; height:17px; border-radius:50%;
+    background:var(--foreground); color:var(--background);
+    font-size:9.5px; font-weight:700;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .node.visited{
+    background:var(--foreground);
+    color:var(--background);
+    border-color:var(--foreground);
+    cursor:default;
+  }
+  .node.visited:hover{transform:none;}
+  .node.wrong{
+    animation:shake .38s ease;
+    border-color:var(--rose);
+    color:var(--rose);
+  }
+
+  @keyframes shake{
+    10%,90%{transform:translateX(-1px);}
+    20%,80%{transform:translateX(2px);}
+    30%,50%,70%{transform:translateX(-4px);}
+    40%,60%{transform:translateX(4px);}
+  }
+
+  /* --- Mustafâ: gercek karsilama videosu, 50px yukseklik, surekli oynuyor --- */
+  .mustafa{
+    position:absolute;
+    left:0; top:0;
+    /* Merkez hizasi = hedefin ortasi: Mustafa'nin merkezi
+       butonun merkezinde hizalanir, saginda durmaya devam eder. */
+    transform:translate(-50%,-50%);
+    z-index:6;
+    transition:left .9s cubic-bezier(.4,0,.2,1), top .9s cubic-bezier(.4,0,.2,1);
+  }
+  /* CSS'teki baslangic konumu left:0/top:0, yani sol UST kose. JS ilk
+     konumu atadiginda yukaridaki transition devreye girip Mustafa'yi
+     koseden Buhari'nin yanina KAYDIRIYORDU (sayfa her acilista gorunen
+     "soldan gelme"). Ayni sey video yuklenince yapilan yeniden hizalamada
+     da oluyordu. Bu sinif ilk yerlestirme ve yeniden hizalamalarda
+     gecisi kapatir; oyun ICI hamleler (moveMustafaTo) animasyonlu kalir. */
+  .mustafa.anim-yok{ transition:none; }
+  .mustafa canvas{
+    display:block;
+    height:75px;
+    width:auto;
+    pointer-events:none;
+  }
+
+  .toast{
+    /* Sayfaya degil viewport'a sabit: board uzun oldugunda (cok
+       buton + capiyon) eski mutlak konum sayfanin cok altinda kalip
+       kullanicinin kaydirmadan gormedigi bir yere dusuyordu.
+       NOT: bu sayfa /resule-kavusmak'ta yuksekligi ICERIGE esitlenmis
+       (kaydirmasiz) bir iframe icine gomuluyor; o zaman "viewport" burada
+       kendi document'imizin TAMAMI demek, disaridaki tarayici penceresi
+       degil -- yani fixed tek basina yetersiz kalip toast'u sayfanin en
+       altina sabitliyordu. JS, ust pencereden gelen kaydirma bilgisiyle
+       (bkz. asagida "resule-kavusmak-viewport" mesaji) bunu duzeltip
+       position:absolute + hesaplanmis bottom'a geciriyor; mesaj hic
+       gelmezse (sayfa dogrudan/iframe'siz aciliyorsa) bu fixed hali
+       zaten dogru calisir. */
+    position:fixed;
+    left:50%; bottom:24px;
+    transform:translate(-50%,8px);
+    background:var(--foreground);
+    color:var(--background);
+    font-size:12px;
+    font-weight:500;
+    padding:8px 16px;
+    border-radius:9999px;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .25s, transform .25s;
+    z-index:30;
+    max-width:90%;
+    text-align:center;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    box-shadow:0 6px 20px rgba(0,0,0,0.25);
+  }
+  .toast.rose{background:var(--rose); color:#fff;}
+  .toast.green{background:var(--green); color:#fff;}
+  /* Kavusma mesaji gibi bazi toast'lar UST'te gosterilir (bkz.
+     showToast'un 4. parametresi): yukaridan asagi kayar, bottom yerine
+     top kullanir. applyToastPosition() bunu iframe icinde de dogru
+     konuma tasir. */
+  .toast.top-pos{
+    bottom:auto; top:24px;
+    transform:translate(-50%,-8px);
+  }
+  .toast.show{opacity:1; transform:translate(-50%,0);}
+
+  /* --- Uyari penceresi (3 yanlis) --------------------------------
+     Iframe'in kendi kaydirma cubugu yok, yani "position:fixed" burada
+     TARAYICI penceresine degil bu belgenin TAMAMINA gore sabitlenir --
+     toast ile ayni tuzak. Bu yuzden overlay "absolute" ve konumu
+     positionModal() tarafindan lastViewportData'dan hesaplaniyor. */
+  .modal{
+    display:none;
+    position:absolute; left:0; right:0;
+    z-index:60;
+    align-items:center; justify-content:center;
+    padding:0 20px;
+    background:rgba(0,0,0,.5);
+  }
+  .modal.show{ display:flex; }
+  .modal-card{
+    position:relative;
+    width:100%; max-width:360px;
+    background:var(--background);
+    color:var(--foreground);
+    border:1px solid var(--hairline);
+    border-radius:22px;
+    /* Mustafa akisin DISINDA (absolute) ve kendisi icin yer
+       AYRILMIYOR: alt bosluk eklemek kartin boyunu gereksiz uzatiyordu.
+       Gerekirse dugmenin uzerine biner (z-index:2). */
+    padding:26px 24px 22px;
+    text-align:center;
+    box-shadow:0 18px 40px rgba(0,0,0,.28);
+  }
+  .modal-text{
+    margin:0 0 18px;
+    font-size:15px; line-height:1.5;
+  }
+  .modal-mustafa{
+    position:absolute; right:6px; bottom:0;
+    width:104px; height:auto;
+    z-index:2;
+    pointer-events:none;
+  }
+  .lang-ar .modal-text{ font-size:19px; }  /* tr 15px +4 */
+
+  /* Uc dugme tek satirda: Onceki SOLDA, Bastan Basla ORTADA, Sonraki
+     SAGDA. Grid kullaniliyor (flex + space-between degil) cunku orta
+     dugmenin, yanindakiler gizliyken bile TAM ORTADA kalmasi gerekiyor:
+     1fr | auto | 1fr sutunlari bunu kendiliginden saglıyor. */
+  .footer-row{
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+    gap:10px;
+    padding:0 2px;
+  }
+  .footer-row .prev-btn{ justify-self:start; }
+  .footer-row .reset-btn{ justify-self:center; }
+  .footer-row .next-btn{ justify-self:end; }
+  .reset-btn, .next-btn, .prev-btn{
+    font-size:13px; font-weight:500;
+    font-family:inherit;
+    color:var(--foreground);
+    background:none;
+    border:1px solid var(--hairline);
+    border-radius:9999px;
+    padding:8px 16px;
+    cursor:pointer;
+    transition:background .2s, border-color .2s;
+    text-decoration:none;
+    display:inline-block;
+  }
+  .reset-btn:hover, .next-btn:hover, .prev-btn:hover{background:var(--hover); border-color:var(--foreground);}
+
+  /* Isnad dogru tamamlanmadan "Sonraki"nin bir anlami yok; ilk hadiste
+     de "Onceki" yok. Gizleme "display:none" DEGIL "visibility:hidden":
+     gizli dugme grid hucresini BIRAKMAMALI, yoksa "Bastan Basla"
+     ortadan kayar. */
+  .next-btn, .prev-btn{visibility:hidden;}
+  .next-btn.visible, .prev-btn.visible{visibility:visible;}
+  /* Isnad tamamlanip hadis metni acilinca artik secilecek ravi
+     kalmadi: Hz. Nebi'nin altindaki katlar ve muellif satiri gizlenir,
+     ekranda yalnizca kavusma ve alt bilgi dugmeleri kalir.
+     "Bastan Basla" bu sinifi kaldirir. */
+  .board.finished .node-grid,
+  .board.finished .author-row{ display:none; }
+
+  .progress{
+    font-size:12px;
+    color:var(--tertiary);
+    font-variant-numeric:tabular-nums;
+  }
+
+  /* NOT: bu dosyada `prefers-reduced-motion` sorgusu KALMADI (Mustafa'nin
+     acik talimati, 2026-08-29). Eskiden .goal-pill ve .node icin bir
+     `reduce` blogu vardi ve o tercihi acik olan makinelerde bu ogeler
+     hic animasyonlanmiyordu. Talimat, animasyonun guc modu dusuk
+     cihazlarda da gorunmesi yonunde.
+
+     Hadis kutusu parildamasi (.glow-active) bu tartismanin ilk
+     ornegiydi: sorgudan cikarilmadan once, tercih acik olan
+     makinelerde animasyon durunca dasharray'in yalnizca 20/100'luk
+     parcasi YANIK, SABIT bir yay olarak donup kaliyordu -- masaustunde
+     ("bilgisayar versiyonunda yarida kaliyor", 2026-08-09) tam boyle
+     goruldu. O parilti artik hic animasyonlu degil (bkz. yukaridaki
+     .glow-active blogu), yani bu sorunun kaynagi da ortadan kalkti. */
+
+  /* --- Tema gecisi ---------------------------------------------------
+
+     Bu dosya bir IFRAME icinde acildigi icin ayri bir belge sayiliyor ve
+     sitenin globals.css'indeki tema gecisi buraya HIC ulasmiyor. Sonuc:
+     dis kabuk yumusak donerken oyunun govdesi aninda ziplyordu (rapor
+     edildi, 2026-08-29). Ayni kural burada tekrar ediliyor.
+
+     `tema-gecisi` sinifini asagidaki 'message' dinleyicisi, YALNIZCA
+     tema gercekten degistiginde ve yalnizca 450ms boyunca <html>'e
+     ekliyor. Ilk yuklemede eklenmiyor, yoksa sayfa acilirken bir
+     renk gecisi caktirirdi.
+
+     Neden `transition-property` de veriliyor: sitenin kendisinde ogeler
+     zaten Tailwind'in `transition-colors` sinifini tasiyor, orada sure
+     esitlemek yetiyordu. Burada oyle bir sinif yok -- `background:
+     var(--background)` tasiyan ogelerin hicbir gecisi yok, sadece sure
+     vermek animasyon uretmez.
+
+     Kural gecici oldugu icin oyunun kendi gecislerine (.node,
+     .goal-pill) kalici bir zarari yok; yalnizca tema tam o 450ms
+     icinde degistirilirse onlarin gecisi bir kez kesilir. */
+  html.tema-gecisi,
+  html.tema-gecisi *,
+  html.tema-gecisi *::before,
+  html.tema-gecisi *::after {
+    transition-property: background-color, border-color, color, fill, stroke !important;
+    transition-duration: 450ms !important;
+    transition-timing-function: ease !important;
+  }
+  /* --- Asamalar (YALNIZCA bu sinama surumunde) -------------------
+
+     Akis uce bolundu, nitelik `#pageRoot[data-asama]` uzerinde:
+
+       ezber  Arapca isnad ve "ezberle" yonergesi gorunur. Tahta,
+              denetimler, ilerleme sayaci ve hadis metni satiri gizli --
+              oyuncunun tek isi isnadi ezberlemek.
+       oyun   Arapca isnad GIZLI (ezberden oynanacak), tahta gorunur.
+       bitti  Isnad geri gelir, hadis metni de gorunur; parilti zaten
+              .glow-active ile metin satirini sariyor.
+
+     display:none secildi (visibility degil): gizli katlar yer de
+     kaplamasin, iframe'in yuksekligi icerige gore kucululsun. Yukseklik
+     zaten body'yi izleyen bir ResizeObserver ile ust pencereye
+     bildiriliyor, yani asama degisince kendiliginden guncelleniyor. */
+  .ezber-btn{
+    display:none;
+    margin:16px auto 0;
+    padding:0 20px;
+    height:48px;
+    align-items:center;
+    justify-content:center;
+    border:1px solid var(--hairline);
+    border-radius:999px;
+    background:var(--foreground);
+    color:var(--background);
+    font:inherit;
+    font-weight:600;
+    cursor:pointer;
+    transition:opacity .2s ease;
+  }
+  .ezber-btn:hover{ opacity:.9; }
+
+  #pageRoot[data-asama="ezber"] .ezber-btn{ display:flex; }
+  #pageRoot[data-asama="ezber"] #board,
+  #pageRoot[data-asama="ezber"] .footer-row,
+  #pageRoot[data-asama="ezber"] .progress,
+  #pageRoot[data-asama="ezber"] .metin-row{ display:none; }
+
+  #pageRoot[data-asama="oyun"] .isnad-row,
+  #pageRoot[data-asama="oyun"] .metin-row{ display:none; }
+</style>
+
+<div class="page" id="pageRoot" data-asama="ezber">
+  <div class="wrap">
+    <h1 id="h1Text">Mustafâ'yı Peygamberine kavuşturabilir misin?</h1>
+    <p class="lede" id="ledeText">İsnâdı doğru şekilde tamamla. Râvileri, Mustafâ'ya en yakın olandan başlayarak sırayla seç.</p>
+
+    <div class="bubble" id="hadithBubble">
+      <span class="progress" id="progress">0 / 6 râvi</span>
+      <div class="bubble-row isnad-row">
+        <span class="bubble-label" id="isnadLabel">İsnad</span>
+        <div class="isnad-ar" id="isnadAr" dir="rtl" lang="ar">حَدَّثَنَا <span class="ravi-name" data-ravi="humeydi">الْحُمَيْدِيُّ عَبْدُ اللهِ بْنُ الزُّبَيْرِ</span>، قَالَ: حَدَّثَنَا <span class="ravi-name" data-ravi="sufyan">سُفْيَانُ</span>، قَالَ: حَدَّثَنَا <span class="ravi-name" data-ravi="yahya">يَحْيَى بْنُ سَعِيدٍ الْأَنْصَارِيُّ</span>، قَالَ: أَخْبَرَنِي <span class="ravi-name" data-ravi="muhammed">مُحَمَّدُ بْنُ إِبْرَاهِيمَ التَّيْمِيُّ</span> أَنَّهُ سَمِعَ <span class="ravi-name" data-ravi="alkame">عَلْقَمَةَ بْنَ وَقَّاصٍ اللَّيْثِيَّ</span>، يَقُولُ: سَمِعْتُ <span class="ravi-name" data-ravi="omer">عُمَرَ بْنَ الْخَطَّابِ</span> عَلَى الْمِنْبَرِ، قَالَ: سَمِعْتُ <span class="ravi-name" data-ravi="nebi">رَسُولَ اللهِ ﷺ</span></div>
+      </div>
+      <div class="bubble-row metin-row">
+        <span class="bubble-label" id="hadithLabel">HADİSİN METNİ</span>
+        <span class="bubble-value" id="metinValue"><span class="placeholder">Râvileri tamamla. Hadis metni ortaya çıksın.</span></span>
+        <!-- Parilti YALNIZCA hadis metni satirini sariyor (2026-08-10):
+             eskiden .bubble'in en sonunda durup isnad + metni birlikte
+             saran KOCA kutuyu ciziyordu. Buraya tasindi; .glow-active
+             sinifi hala .bubble'da durdugu icin JS'e dokunulmadi. -->
+        <svg class="glow-container" aria-hidden="true" focusable="false">
+          <rect pathLength="100" stroke-linecap="round" class="glow-blur"></rect>
+          <rect pathLength="100" stroke-linecap="round" class="glow-line"></rect>
+        </svg>
+      </div>
+    </div>
+
+    <button class="ezber-btn" id="ezberBtn" type="button">Ezberledim, hadi başlayalım.</button>
+
+    <div class="board" id="board">
+      <svg class="path-layer" id="pathLayer"></svg>
+      <div class="goal-row">
+        <div class="goal-pill" id="goalNode"><span id="goalLabel">Hz. Nebî</span> <small id="goalSub">(s.a.v.)</small></div>
+      </div>
+      <div class="node-grid" id="nodeGrid"></div>
+      <div class="author-row" id="authorRow"></div>
+      <div class="mustafa" id="mustafa">
+        <video
+          id="karsilamaVideo"
+          src="/Mustafa%20Karsilama_seffaf.mp4"
+          autoplay muted loop playsinline preload="auto"
+          style="position:fixed; width:1px; height:1px; opacity:0; pointer-events:none; left:0; bottom:0;"
+        ></video>
+        <canvas id="karsilamaCanvas"></canvas>
+      </div>
+    </div>
+    <div class="toast" id="toast"></div>
+
+    <div class="modal" id="wrongModal" role="dialog" aria-modal="true">
+      <div class="modal-card">
+        <p class="modal-text" id="wrongModalText">3 kez yanlış râviyi seçtin. Haydi baştan başlayalım.</p>
+        <button class="reset-btn" id="wrongModalBtn" type="button">Baştan Başla</button>
+        <canvas class="modal-mustafa" id="wrongCanvas"></canvas>
+      </div>
+    </div>
+
+    <div class="footer-row">
+      <button class="prev-btn" id="prevBtn" type="button">Önceki</button>
+      <button class="reset-btn" id="resetBtn" type="button">Baştan Başla</button>
+      <a class="next-btn" id="nextBtn" href="/mustafa-calisiyor" target="_top">Sonraki</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // --- ChromaKeyVideo'nun ayni WebGL cozumu (app/ChromaKeyVideo.tsx) ---
+  var VERTEX_SHADER = "attribute vec2 position;\nvarying vec2 uv;\nvoid main() {\n  uv = vec2((position.x + 1.0) * 0.5, (1.0 - position.y) * 0.5);\n  gl_Position = vec4(position, 0.0, 1.0);\n}";
+  var FRAGMENT_SHADER = "precision mediump float;\nvarying vec2 uv;\nuniform sampler2D frame;\nvoid main() {\n  vec3 color = texture2D(frame, vec2(uv.x, uv.y * 0.5)).rgb;\n  float alpha = texture2D(frame, vec2(uv.x, uv.y * 0.5 + 0.5)).r;\n  gl_FragColor = vec4(color, alpha);\n}";
+
+  function createProgram(gl){
+    function compile(type, source){
+      var shader = gl.createShader(type);
+      gl.shaderSource(shader, source);
+      gl.compileShader(shader);
+      return shader;
+    }
+    var vertex = compile(gl.VERTEX_SHADER, VERTEX_SHADER);
+    var fragment = compile(gl.FRAGMENT_SHADER, FRAGMENT_SHADER);
+    var program = gl.createProgram();
+    gl.attachShader(program, vertex);
+    gl.attachShader(program, fragment);
+    gl.linkProgram(program);
+    return program;
+  }
+
+  function initChromaKey(video, canvas){
+    var gl = canvas.getContext('webgl', { alpha:true, premultipliedAlpha:true, antialias:false });
+    if(!gl) return;
+    var program = createProgram(gl);
+    gl.useProgram(program);
+
+    var buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+    var position = gl.getAttribLocation(program, 'position');
+    gl.enableVertexAttribArray(position);
+    gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
+
+    var texture = gl.createTexture();
+    gl.bindTexture(gl.TEXTURE_2D, texture);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+
+    function draw(){
+      if(video.readyState >= 2 && video.videoWidth > 0){
+        var width = video.videoWidth;
+        var height = Math.floor(video.videoHeight / 2);
+        if(canvas.width !== width || canvas.height !== height){
+          canvas.width = width;
+          canvas.height = height;
+          gl.viewport(0, 0, width, height);
+        }
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, video);
+        gl.clearColor(0,0,0,0);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      }
+      if('requestVideoFrameCallback' in video){
+        video.requestVideoFrameCallback(draw);
+      } else {
+        requestAnimationFrame(draw);
+      }
+    }
+    draw();
+  }
+
+  var video = document.getElementById('karsilamaVideo');
+  var canvas = document.getElementById('karsilamaCanvas');
+  video.addEventListener('loadeddata', function(){ initChromaKey(video, canvas); }, { once:true });
+  video.play().catch(function(){});
+
+  // Ust pencereden (ayni origin) tema/dili SENKRON okuyoruz. postMessage
+  // ile gelen "resule-kavusmak-appearance" mesaji (asagida) ust
+  // pencerenin React effect'i CALISTIKTAN sonra gelir -- bu da bu
+  // sayfanin once kendi varsayilan Turkce/acik hâliyle cizilip HEMEN
+  // ARDINDAN dogru dile gecmesine, yani kisa bir "once Turkce gorunup
+  // sonra degisiyor" yanip sonmesine sebep oluyordu. Ayni origin
+  // oldugumuz icin parent.document'a dogrudan erisebiliyoruz; asagida
+  // buildNodes()+initState()'ten hemen sonra, TEK bir senkron script
+  // calismasi icinde applyLanguage() cagirilarak dogru dil DAHA ILK
+  // boyanan karede uygulaniyor. postMessage mekanizmasi yalnizca
+  // SONRAKI degisiklikler (kullanici dugmeye basinca) icin kalir.
+  var initialAppearance = (function(){
+    try {
+      if(window.parent && window.parent !== window){
+        var doc = window.parent.document;
+        return {
+          theme: doc.documentElement.classList.contains('dark') ? 'dark' : 'light',
+          language: doc.documentElement.lang
+        };
+      }
+    } catch(e){}
+    return null;
+  })();
+  if(initialAppearance && (initialAppearance.theme === 'dark' || initialAppearance.theme === 'light')){
+    document.documentElement.setAttribute('data-theme', initialAppearance.theme);
+  }
+
+  // --- Kisi kutugu (butun hadislerin ravileri + celdiriciler) ---------
+  // Her kisi TEK bir yerde, uc dille birlikte tanimli: isnad zincirleri
+  // ve celdirici havuzu buraya id ile bakar. Ayni kisi birden fazla
+  // isnadda gectigi icin tekrar yazilmiyor (Ebu Hureyre 5, el-Evzai 2,
+  // Ahmed b. Hanbel hem Musned'in MUELLIFI hem Ebu Davud'un HOCASI...).
+  // YENI BIR KISI EKLERKEN ucunu de (tr/ar/en) doldur, yoksa
+  // Arapca/Ingilizce modda sessizce Turkce kalir (nameFor() fallback'i
+  // entry.tr'ye duser, hata vermez).
+  var PEOPLE = {
+    // --- Muellifler (Kutub-i Tis'a). Oyuna zaten secili gelir, kat almaz.
+    buhari:        {tr:'Buhârî',                            ar:'البخاري',                         en:'Al-Bukhari'},
+    muslim:        {tr:'Müslim',                            ar:'مسلم',                            en:'Muslim'},
+    ebudavud:      {tr:'Ebû Dâvûd',                         ar:'أبو داود',                        en:'Abu Dawud'},
+    tirmizi:       {tr:'et-Tirmizî',                        ar:'الترمذي',                         en:'Al-Tirmidhi'},
+    nesai:         {tr:'en-Nesâî',                          ar:'النسائي',                         en:'Al-Nasa’i'},
+    ibnmace:       {tr:'İbn Mâce',                          ar:'ابن ماجه',                        en:'Ibn Majah'},
+    malik:         {tr:'İmam Mâlik b. Enes',                ar:'الإمام مالك بن أنس',              en:'Imam Malik ibn Anas'},
+    hanbal:        {tr:'Ahmed b. Hanbel',                   ar:'أحمد بن حنبل',                    en:'Ahmad ibn Hanbal'},
+    darimi:        {tr:'ed-Dârimî',                         ar:'الدارمي',                         en:'Al-Darimi'},
+
+    // --- 1) Niyet hadisi (Buhârî 1)
+    humeydi:       {tr:'Humeydî',                           ar:'الحميدي عبد الله بن الزبير',      en:'Al-Humaydi'},
+    sufyan:        {tr:'Süfyân b. Uyeyne',                  ar:'سفيان بن عيينة',                  en:'Sufyan ibn Uyaynah'},
+    yahya:         {tr:'Yahyâ b. Saîd el-Ensârî',           ar:'يحيى بن سعيد الأنصاري',           en:'Yahya ibn Sa’id al-Ansari'},
+    muhammed:      {tr:'Muhammed b. İbrâhim et-Teymî',      ar:'محمد بن إبراهيم التيمي',          en:'Muhammad ibn Ibrahim al-Taymi'},
+    alkame:        {tr:'Alkame b. Vakkâs el-Leysî',         ar:'علقمة بن وقاص الليثي',            en:'Alqamah ibn Waqqas al-Laythi'},
+    omer:          {tr:'Ömer b. el-Hattâb (r.a.)',          ar:'عمر بن الخطاب رضي الله عنه',      en:'Umar ibn al-Khattab (r.a.)'},
+
+    // --- 2) Helâl ve harâm (Buhârî 52)
+    ebunuaym:      {tr:'Ebû Nuaym el-Fazl b. Dükeyn',       ar:'أبو نعيم الفضل بن دكين',          en:'Abu Nu’aym al-Fazl ibn Dukayn'},
+    zekeriyya:     {tr:'Zekeriyyâ b. Ebî Zâide',            ar:'زكرياء بن أبي زائدة',             en:'Zakariyya ibn Abi Za’idah'},
+    numan:         {tr:'Nu’mân b. Beşîr (r.a.)',            ar:'النعمان بن بشير رضي الله عنه',    en:'Al-Nu’man ibn Bashir (r.a.)'},
+
+    // --- 3) Kalplere bakar (Müslim 2564)
+    amrunnakid:    {tr:'Amr en-Nâkıd',                      ar:'عمرو الناقد',                     en:'Amr al-Naqid'},
+    kesirhisam:    {tr:'Kesîr b. Hişâm',                    ar:'كثير بن هشام',                    en:'Kathir ibn Hisham'},
+    caferburkan:   {tr:'Ca‘fer b. Burkān',                  ar:'جعفر بن برقان',                   en:'Ja’far ibn Burqan'},
+    yezidesam:     {tr:'Yezîd b. el-Esamm',                 ar:'يزيد بن الأصم',                   en:'Yazid ibn al-Asamm'},
+
+    // --- 4) Güzel ahlâk ve îmân (Ebû Dâvûd 4682)
+    yahyakattan:   {tr:'Yahyâ b. Saîd el-Kattân',           ar:'يحيى بن سعيد القطان',             en:'Yahya ibn Sa’id al-Qattan'},
+    muhammedamr:   {tr:'Muhammed b. Amr b. Alkame',         ar:'محمد بن عمرو بن علقمة',           en:'Muhammad ibn Amr ibn Alqamah'},
+
+    // --- 5) Takvâ (Tirmizî 1987)
+    ibnbessar:     {tr:'Muhammed b. Beşşâr (Bündâr)',       ar:'محمد بن بشار بندار',              en:'Muhammad ibn Bashshar'},
+    ibnmehdi:      {tr:'Abdurrahman b. Mehdî',              ar:'عبد الرحمن بن مهدي',              en:'Abd al-Rahman ibn Mahdi'},
+    sufyansevri:   {tr:'Süfyân es-Sevrî',                   ar:'سفيان الثوري',                    en:'Sufyan al-Thawri'},
+    habibsabit:    {tr:'Habîb b. Ebî Sâbit',                ar:'حبيب بن أبي ثابت',                en:'Habib ibn Abi Thabit'},
+    meymun:        {tr:'Meymûn b. Ebî Şebîb',               ar:'ميمون بن أبي شبيب',               en:'Maymun ibn Abi Shabib'},
+    ebuzer:        {tr:'Ebû Zer el-Gıfârî (r.a.)',          ar:'أبو ذر الغفاري رضي الله عنه',     en:'Abu Dharr al-Ghifari (r.a.)'},
+
+    // --- 6) Gözümün nûru namaz (Nesâî 3939)
+    huseyinkumesi: {tr:'Hüseyin b. Îsâ el-Kūmesî',          ar:'الحسين بن عيسى القومسي',          en:'Al-Husayn ibn Isa al-Qumasi'},
+    affan:         {tr:'Affân b. Müslim',                   ar:'عفان بن مسلم',                    en:'Affan ibn Muslim'},
+    sellam:        {tr:'Sellâm Ebü’l-Münzir',               ar:'سلام أبو المنذر',                 en:'Sallam Abu al-Mundhir'},
+    sabitbunani:   {tr:'Sâbit el-Bünânî',                   ar:'ثابت البناني',                    en:'Thabit al-Bunani'},
+
+    // --- 7) Mâlâyâniyi terk (İbn Mâce 3976)
+    hisamammar:    {tr:'Hişâm b. Ammâr',                    ar:'هشام بن عمار',                    en:'Hisham ibn Ammar'},
+    ibnsuayb:      {tr:'Muhammed b. Şuayb b. Şâbûr',        ar:'محمد بن شعيب بن شابور',           en:'Muhammad ibn Shu’ayb ibn Shabur'},
+    evzai:         {tr:'el-Evzâî',                          ar:'الأوزاعي',                        en:'Al-Awza’i'},
+    kurre:         {tr:'Kurre b. Abdirrahman',              ar:'قرة بن عبد الرحمن',               en:'Qurrah ibn Abd al-Rahman'},
+
+    // --- 8) Deniz suyu (Muvatta’, Tahâret 12)
+    safvan:        {tr:'Safvân b. Süleym',                  ar:'صفوان بن سليم',                   en:'Safwan ibn Sulaym'},
+    saidseleme:    {tr:'Saîd b. Seleme',                    ar:'سعيد بن سلمة',                    en:'Sa’id ibn Salamah'},
+    mugire:        {tr:'el-Mugîre b. Ebî Bürde',            ar:'المغيرة بن أبي بردة',             en:'Al-Mughirah ibn Abi Burdah'},
+
+    // --- 9) Güzel ahlâkı tamamlamak (Müsned 8952)
+    saidmansur:    {tr:'Saîd b. Mansûr',                    ar:'سعيد بن منصور',                   en:'Sa’id ibn Mansur'},
+    deraverdi:     {tr:'Abdülazîz ed-Derâverdî',            ar:'عبد العزيز بن محمد الدراوردي',    en:'Abd al-Aziz al-Darawardi'},
+    ibnaclan:      {tr:'Muhammed b. Aclân',                 ar:'محمد بن عجلان',                   en:'Muhammad ibn Ajlan'},
+    kakaa:         {tr:'el-Ka‘kā‘ b. Hakîm',                ar:'القعقاع بن حكيم',                 en:'Al-Qa’qa’ ibn Hakim'},
+
+    // --- 10) Tebliğ (Dârimî 559)
+    ebulmugire:    {tr:'Ebü’l-Mugīre el-Havlânî',           ar:'أبو المغيرة الخولاني',            en:'Abu al-Mughirah al-Khawlani'},
+    hassan:        {tr:'Hassân b. Atiyye',                  ar:'حسان بن عطية',                    en:'Hassan ibn Atiyyah'},
+    ebukebse:      {tr:'Ebû Kebşe es-Selûlî',               ar:'أبو كبشة السلولي',                en:'Abu Kabshah al-Saluli'},
+
+    // --- 11) Din nasihattir (Müslim 55)
+    ibnabbadmekki: {tr:'Muhammed b. Abbâd el-Mekkî',        ar:'محمد بن عباد المكي',              en:'Muhammad ibn Abbad al-Makki'},
+    suheyl:        {tr:'Süheyl b. Ebî Sâlih',               ar:'سهيل بن أبي صالح',                en:'Suhayl ibn Abi Salih'},
+    atayezid:      {tr:'Atâ b. Yezîd el-Leysî',             ar:'عطاء بن يزيد الليثي',             en:'Ata ibn Yazid al-Laythi'},
+    temim:         {tr:'Temîm ed-Dârî (r.a.)',              ar:'تميم الداري رضي الله عنه',        en:'Tamim al-Dari (r.a.)'},
+
+    // --- 12) Komşu ve misafir (Buhârî 6018)
+    kuteybe:       {tr:'Kuteybe b. Saîd',                   ar:'قتيبة بن سعيد',                   en:'Qutaybah ibn Sa’id'},
+    ebulahvas:     {tr:'Ebü’l-Ahvas Sellâm b. Süleym',      ar:'أبو الأحوص سلام بن سليم',         en:'Abu al-Ahwas Sallam ibn Sulaym'},
+    ebuhasin:      {tr:'Ebû Hasîn Osmân b. Âsım',           ar:'أبو حصين عثمان بن عاصم',          en:'Abu Hasin Uthman ibn Asim'},
+
+    // --- Birden fazla isnadda gecen raviler/sahabiler. Bunlar AYNI
+    // ZAMANDA celdirici havuzunda da yer alir; kendi isnadinda celdirici
+    // olarak cikarilirlar (bkz. DECOY_POOL).
+    shuba:         {tr:'Şu’be b. el-Haccâc',                ar:'شعبة بن الحجاج',                  en:'Shu’bah ibn al-Hajjaj'},
+    zuhri:         {tr:'İbn Şihâb ez-Zührî',                ar:'ابن شهاب الزهري',                 en:'Ibn Shihab al-Zuhri'},
+    ebuseleme:     {tr:'Ebû Seleme b. Abdirrahmân',         ar:'أبو سلمة بن عبد الرحمن',          en:'Abu Salamah ibn Abd al-Rahman'},
+    ebusalih:      {tr:'Ebû Sâlih es-Semmân',               ar:'أبو صالح السمان',                 en:'Abu Salih al-Samman'},
+    huraira:       {tr:'Ebû Hüreyre (r.a.)',                ar:'أبو هريرة رضي الله عنه',          en:'Abu Hurairah (r.a.)'},
+    enes:          {tr:'Enes b. Mâlik (r.a.)',              ar:'أنس بن مالك رضي الله عنه',        en:'Anas ibn Malik (r.a.)'},
+    abdullahamr:   {tr:'Abdullah b. Amr (r.a.)',            ar:'عبد الله بن عمرو رضي الله عنهما', en:'Abdullah ibn Amr (r.a.)'},
+
+    // --- Yalnizca celdirici olarak kullanilanlar
+    adem:          {tr:'Âdem b. Ebî İyâs',                  ar:'آدم بن أبي إياس',                 en:'Adam ibn Abi Iyas'},
+    katade:        {tr:'Katâde b. Diâme',                   ar:'قتادة بن دعامة',                  en:'Qatadah ibn Di’amah'},
+    sabi:          {tr:'Âmir eş-Şa’bî',                     ar:'عامر الشعبي',                     en:'Amir al-Sha’bi'},
+    musedded:      {tr:'Müsedded',                          ar:'مسدد',                            en:'Musaddad'},
+    amesh:         {tr:'Süleyman el-A’meş',                 ar:'سليمان الأعمش',                   en:'Sulayman al-A’mash'},
+    ibnabbas:      {tr:'İbn Abbâs (r.a.)',                  ar:'ابن عباس رضي الله عنه',           en:'Ibn Abbas (r.a.)'},
+    ibnomer:       {tr:'İbn Ömer (r.a.)',                   ar:'ابن عمر رضي الله عنه',            en:'Ibn Umar (r.a.)'},
+    ebusaid:       {tr:'Ebû Saîd el-Hudrî (r.a.)',          ar:'أبو سعيد الخدري رضي الله عنه',    en:'Abu Sa’id al-Khudri (r.a.)'},
+    aise:          {tr:'Âişe (r.anhâ)',                     ar:'عائشة رضي الله عنها',             en:'Aisha (r.anha)'},
+    zeyd:          {tr:'Zeyd b. Sâbit (r.a.)',              ar:'زيد بن ثابت رضي الله عنه',        en:'Zayd ibn Thabit (r.a.)'},
+    cabir:         {tr:'Câbir b. Abdullah (r.a.)',          ar:'جابر بن عبد الله رضي الله عنه',   en:'Jabir ibn Abdullah (r.a.)'},
+    darekutni:     {tr:'ed-Dârekutnî',                      ar:'الدارقطني',                       en:'Al-Daraqutni'},
+    hakim:         {tr:'el-Hâkim',                          ar:'الحاكم',                          en:'Al-Hakim'},
+    beyheki:       {tr:'el-Beyhekî',                        ar:'البيهقي',                         en:'Al-Bayhaqi'},
+    taberani:      {tr:'et-Taberânî',                       ar:'الطبراني',                        en:'Al-Tabarani'},
+    veki:          {tr:'Vekî‘ b. el-Cerrâh',                ar:'وكيع بن الجراح',                  en:'Waki ibn al-Jarrah'},
+    ibnfudayl:     {tr:'Muhammed b. Fudayl',                ar:'محمد بن فضيل',                    en:'Muhammad ibn Fudayl'},
+    hammad:        {tr:'Hammâd b. Zeyd',                    ar:'حماد بن زيد',                     en:'Hammad ibn Zayd'},
+    leys:          {tr:'el-Leys b. Sa‘d',                   ar:'الليث بن سعد',                    en:'Al-Layth ibn Sa’d'},
+    nafi:          {tr:'Nâfi‘ (İbn Ömer’in mevlâsı)',       ar:'نافع مولى ابن عمر',               en:'Nafi, the client of Ibn Umar'},
+    hasanbasri:    {tr:'Hasan-ı Basrî',                     ar:'الحسن البصري',                    en:'Al-Hasan al-Basri'},
+    ibnmubarek:    {tr:'Abdullah b. el-Mübârek',            ar:'عبد الله بن المبارك',             en:'Abdullah ibn al-Mubarak'}
+  };
+  // Her kisiye kendi id'sini de yaz: makeNode/handleCorrect node.id'ye,
+  // applyLanguage ise butonun data-id'sine bakiyor.
+  Object.keys(PEOPLE).forEach(function(id){ PEOPLE[id].id = id; });
+  // Her ravi/celdirici id'sinden nesnesine hizli erisim (dil degisince
+  // ekrandaki butonlari yeniden adlandirmak icin kullanilir).
+  var NAME_BY_ID = PEOPLE;
+  // Bir ravi butonunun adini yazar. "textContent = ..." KULLANMIYORUZ:
+  // o, butonun BUTUN cocuklarini siler -- dogru cevaplara eklenen sira
+  // rozeti (".badge") dahil. Oyunun ortasinda dili ya da temayi
+  // degistirmek (ikisi de applyLanguage cagiriyor) o yuzden rozetleri
+  // siliyordu (2026-08-19'da fark edildi). Artik yalnizca bastaki
+  // metin dugumu guncelleniyor, cocuklar yerinde kaliyor.
+  function setNodeLabel(btn, text){
+    var first = btn.firstChild;
+    if(first && first.nodeType === 3){ first.nodeValue = text; }
+    else { btn.insertBefore(document.createTextNode(text), btn.firstChild); }
+  }
+
+  function nameFor(entry){
+    return entry[currentLang] || entry.tr;
+  }
+
+  // Celdirici havuzu (id listesi). Aktif hadisin KENDI isnadinda gecen
+  // kisiler asagida buradan cikarilir, yoksa ayni isim hem dogru cevap
+  // hem celdirici olarak iki kez ekrana gelebilirdi. En uzun isnad
+  // 7 kat x 2 celdirici = 14 kisi ister; cikarmalardan sonra da havuzda
+  // bundan fazlasi kalacak sekilde genis tutuldu.
+  var DECOY_IDS = [
+    'malik','huraira','zuhri','shuba','hanbal','ibnabbas','katade','amesh',
+    'tirmizi','nesai','ibnmace','ebudavud','darekutni','hakim','beyheki',
+    'taberani','enes','aise','ibnomer','zeyd','ebusaid','cabir','sabi',
+    'musedded','veki','ebunuaym','ibnfudayl','hammad','leys','nafi',
+    'hasanbasri','ibnmubarek','sufyan','yahya','kuteybe','adem','evzai',
+    'ebusalih','abdullahamr','darimi'
+  ];
+
+  // --- 12 hadis -------------------------------------------------------
+  // KUTUB-I TIS'A'nin DOKUZUNDAN da secildi (Buhari 3, Muslim 2, Ebu
+  // Davud, Tirmizi, Nesai, Ibn Mace, Muvatta', Musned-i Ahmed, Darimi
+  // birer). Secim olcutleri (2026-08-19, Mustafa'nin kurallari):
+  //  - isnadda TAHVÎL (ح) YOK,
+  //  - bir tabakada IKI RAVI YOK ("filan ve filan", "kilahuma", iki
+  //    ayri hoca...) -- her kat tek kisi, zincir tek serit.
+  // Yeni hadis eklerken bu iki kurala uy; uymayan rivayet (ornegin
+  // Muslim'in cok hocali senedleri) bu bolume ALINMAZ -- onlar ayri bir
+  // bolumun ("Tahvîl Iceren Hadisler") konusu.
+  //
+  // Her kayit:
+  //  - chain[0]  = MUELLIF (oyuna zaten secili gelir, kat almaz)
+  //  - chain[1..]= tirmanilacak raviler; kat sayisi = chain.length - 1
+  //                (bu secimde 4-7 arasi degisiyor)
+  //  - isnad     = isnadin Arapca ALINTI metni. Icindeki
+  //                `.ravi-name[data-ravi]` id'leri chain ile eslesmeli,
+  //                yoksa ravi bulununca o parca parlamaz (sessiz hata).
+  //  - text      = hadisin metni uc dilde (isnad metni HICBIR dilde
+  //                cevrilmez, o dogrudan alinti).
+  //
+  // HADITHS[0] BILEREK niyet hadisi: parametresiz acilan
+  // /resule-kavusmak sayfasi bunu gosteriyor, sirasi degistirilmemeli.
+  var HADITHS = [
+    {
+      id:'niyet',
+      chain:['buhari','humeydi','sufyan','yahya','muhammed','alkame','omer'],
+      isnad:'حَدَّثَنَا <span class="ravi-name" data-ravi="humeydi">الْحُمَيْدِيُّ عَبْدُ اللهِ بْنُ الزُّبَيْرِ</span>، قَالَ: حَدَّثَنَا <span class="ravi-name" data-ravi="sufyan">سُفْيَانُ</span>، قَالَ: حَدَّثَنَا <span class="ravi-name" data-ravi="yahya">يَحْيَى بْنُ سَعِيدٍ الْأَنْصَارِيُّ</span>، قَالَ: أَخْبَرَنِي <span class="ravi-name" data-ravi="muhammed">مُحَمَّدُ بْنُ إِبْرَاهِيمَ التَّيْمِيُّ</span> أَنَّهُ سَمِعَ <span class="ravi-name" data-ravi="alkame">عَلْقَمَةَ بْنَ وَقَّاصٍ اللَّيْثِيَّ</span>، يَقُولُ: سَمِعْتُ <span class="ravi-name" data-ravi="omer">عُمَرَ بْنَ الْخَطَّابِ</span> عَلَى الْمِنْبَرِ، قَالَ: سَمِعْتُ <span class="ravi-name" data-ravi="nebi">رَسُولَ اللهِ ﷺ</span>',
+      text:{
+        tr:'Ameller ancak niyetlere göredir. Herkese, niyet ettiği şey vardır. Kimin hicreti dünyalık elde etmek veya bir kadınla evlenmek içinse, hicreti o yöneldiği şeyedir.',
+        ar:'إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ، وَلِكُلِّ امْرِئٍ مَا نَوَى، فَمَنْ كَانَتْ هِجْرَتُهُ إِلَى دُنْيَا يُصِيبُهَا أَوِ امْرَأَةٍ يَنْكِحُهَا فَهِجْرَتُهُ إِلَى مَا هَاجَرَ إِلَيْهِ.',
+        en:'Actions are only according to intentions, and everyone will have only what he intended. Whoever’s emigration was for worldly gain or to marry a woman, his emigration was for that which he emigrated for.'
+      }
+    },
+    {
+      id:'helal-haram',
+      chain:['buhari','ebunuaym','zekeriyya','sabi','numan'],
+      isnad:'حَدَّثَنَا <span class="ravi-name" data-ravi="ebunuaym">أَبُو نُعَيْمٍ</span>، حَدَّثَنَا <span class="ravi-name" data-ravi="zekeriyya">زَكَرِيَّاءُ</span>، عَنْ <span class="ravi-name" data-ravi="sabi">عَامِرٍ</span> قَالَ: سَمِعْتُ <span class="ravi-name" data-ravi="numan">النُّعْمَانَ بْنَ بَشِيرٍ</span> يَقُولُ: سَمِعْتُ <span class="ravi-name" data-ravi="nebi">رَسُولَ اللهِ ﷺ</span> يَقُولُ',
+      text:{
+        tr:'Helâl bellidir, harâm da bellidir. İkisi arasında, insanların çoğunun bilmediği şüpheli şeyler vardır. Kim şüpheli şeylerden sakınırsa dinini ve ırzını korumuş olur… Dikkat edin! Bedende bir et parçası vardır: o düzelirse bütün beden düzelir, o bozulursa bütün beden bozulur. Dikkat edin, o kalptir.',
+        ar:'الْحَلَالُ بَيِّنٌ وَالْحَرَامُ بَيِّنٌ، وَبَيْنَهُمَا مُشَبَّهَاتٌ لَا يَعْلَمُهَا كَثِيرٌ مِنَ النَّاسِ، فَمَنِ اتَّقَى الْمُشَبَّهَاتِ اسْتَبْرَأَ لِدِينِهِ وَعِرْضِهِ… أَلَا وَإِنَّ فِي الْجَسَدِ مُضْغَةً إِذَا صَلَحَتْ صَلَحَ الْجَسَدُ كُلُّهُ، وَإِذَا فَسَدَتْ فَسَدَ الْجَسَدُ كُلُّهُ، أَلَا وَهِيَ الْقَلْبُ.',
+        en:'The lawful is clear and the unlawful is clear, and between them are doubtful matters that many people do not know. Whoever guards against the doubtful protects his religion and his honour… Truly, in the body there is a morsel of flesh: if it is sound the whole body is sound, and if it is corrupt the whole body is corrupt. Truly, it is the heart.'
+      }
+    },
+    {
+      id:'kalpler',
+      chain:['muslim','amrunnakid','kesirhisam','caferburkan','yezidesam','huraira'],
+      isnad:'حَدَّثَنَا <span class="ravi-name" data-ravi="amrunnakid">عَمْرٌو النَّاقِدُ</span>، حَدَّثَنَا <span class="ravi-name" data-ravi="kesirhisam">كَثِيرُ بْنُ هِشَامٍ</span>، حَدَّثَنَا <span class="ravi-name" data-ravi="caferburkan">جَعْفَرُ بْنُ بُرْقَانَ</span>، عَنْ <span class="ravi-name" data-ravi="yezidesam">يَزِيدَ بْنِ الْأَصَمِّ</span>، عَنْ <span class="ravi-name" data-ravi="huraira">أَبِي هُرَيْرَةَ</span> قَالَ: قَالَ <span class="ravi-name" data-ravi="nebi">رَسُولُ اللهِ ﷺ</span>',
+      text:{
+        tr:'Allah sizin sûretlerinize ve mallarınıza bakmaz; fakat kalplerinize ve amellerinize bakar.',
+        ar:'إِنَّ اللهَ لَا يَنْظُرُ إِلَى صُوَرِكُمْ وَأَمْوَالِكُمْ، وَلَكِنْ يَنْظُرُ إِلَى قُلُوبِكُمْ وَأَعْمَالِكُمْ.',
+        en:'Allah does not look at your outward forms and your wealth; rather, He looks at your hearts and your deeds.'
+      }
+    },
+    {
+      id:'ahlak-iman',
+      chain:['ebudavud','hanbal','yahyakattan','muhammedamr','ebuseleme','huraira'],
+      isnad:'حَدَّثَنَا <span class="ravi-name" data-ravi="hanbal">أَحْمَدُ بْنُ حَنْبَلٍ</span>، حَدَّثَنَا <span class="ravi-name" data-ravi="yahyakattan">يَحْيَى بْنُ سَعِيدٍ</span>، عَنْ <span class="ravi-name" data-ravi="muhammedamr">مُحَمَّدِ بْنِ عَمْرٍو</span>، عَنْ <span class="ravi-name" data-ravi="ebuseleme">أَبِي سَلَمَةَ</span>، عَنْ <span class="ravi-name" data-ravi="huraira">أَبِي هُرَيْرَةَ</span> قَالَ: قَالَ <span class="ravi-name" data-ravi="nebi">رَسُولُ اللَّهِ ﷺ</span>',
+      text:{
+        tr:'Mü’minlerin îmân bakımından en olgunu, ahlâkı en güzel olanıdır.',
+        ar:'أَكْمَلُ الْمُؤْمِنِينَ إِيمَانًا أَحْسَنُهُمْ خُلُقًا.',
+        en:'The most complete of the believers in faith is the best of them in character.'
+      }
+    },
+    {
+      id:'takva',
+      chain:['tirmizi','ibnbessar','ibnmehdi','sufyansevri','habibsabit','meymun','ebuzer'],
+      isnad:'حَدَّثَنَا <span class="ravi-name" data-ravi="ibnbessar">مُحَمَّدُ بْنُ بَشَّارٍ</span> قَالَ: حَدَّثَنَا <span class="ravi-name" data-ravi="ibnmehdi">عَبْدُ الرَّحْمَنِ بْنُ مَهْدِيٍّ</span> قَالَ: حَدَّثَنَا <span class="ravi-name" data-ravi="sufyansevri">سُفْيَانُ</span>، عَنْ <span class="ravi-name" data-ravi="habibsabit">حَبِيبِ بْنِ أَبِي ثَابِتٍ</span>، عَنْ <span class="ravi-name" data-ravi="meymun">مَيْمُونِ بْنِ أَبِي شَبِيبٍ</span>، عَنْ <span class="ravi-name" data-ravi="ebuzer">أَبِي ذَرٍّ</span> قَالَ: قَالَ لِي <span class="ravi-name" data-ravi="nebi">رَسُولُ اللَّهِ ﷺ</span>',
+      text:{
+        tr:'Nerede olursan ol Allah’tan sakın. Kötülüğün ardından bir iyilik yap ki onu silsin. İnsanlara da güzel ahlâkla davran.',
+        ar:'اتَّقِ اللَّهَ حَيْثُمَا كُنْتَ، وَأَتْبِعِ السَّيِّئَةَ الْحَسَنَةَ تَمْحُهَا، وَخَالِقِ النَّاسَ بِخُلُقٍ حَسَنٍ.',
+        en:'Fear Allah wherever you are; follow a bad deed with a good one and it will wipe it out; and treat people with good character.'
+      }
+    },
+    {
+      id:'gozumun-nuru',
+      chain:['nesai','huseyinkumesi','affan','sellam','sabitbunani','enes'],
+      isnad:'أَخْبَرَنَا <span class="ravi-name" data-ravi="huseyinkumesi">الْحُسَيْنُ بْنُ عِيسَى الْقُومَسِيُّ</span> قَالَ: حَدَّثَنَا <span class="ravi-name" data-ravi="affan">عَفَّانُ بْنُ مُسْلِمٍ</span> قَالَ: حَدَّثَنَا <span class="ravi-name" data-ravi="sellam">سَلَّامٌ أَبُو الْمُنْذِرِ</span>، عَنْ <span class="ravi-name" data-ravi="sabitbunani">ثَابِتٍ</span>، عَنْ <span class="ravi-name" data-ravi="enes">أَنَسٍ</span> قَالَ: قَالَ <span class="ravi-name" data-ravi="nebi">رَسُولُ اللَّهِ ﷺ</span>',
+      text:{
+        tr:'Bana dünyadan kadınlar ve güzel koku sevdirildi; gözümün nûru ise namazda kılındı.',
+        ar:'حُبِّبَ إِلَيَّ مِنَ الدُّنْيَا النِّسَاءُ وَالطِّيبُ، وَجُعِلَتْ قُرَّةُ عَيْنِي فِي الصَّلَاةِ.',
+        en:'Of this world, women and perfume were made dear to me, and the delight of my eye was placed in prayer.'
+      }
+    },
+    {
+      id:'malayani',
+      chain:['ibnmace','hisamammar','ibnsuayb','evzai','kurre','zuhri','ebuseleme','huraira'],
+      isnad:'حَدَّثَنَا <span class="ravi-name" data-ravi="hisamammar">هِشَامُ بْنُ عَمَّارٍ</span> قَالَ: حَدَّثَنَا <span class="ravi-name" data-ravi="ibnsuayb">مُحَمَّدُ بْنُ شُعَيْبِ بْنِ شَابُورَ</span> قَالَ: حَدَّثَنَا <span class="ravi-name" data-ravi="evzai">الْأَوْزَاعِيُّ</span>، عَنْ <span class="ravi-name" data-ravi="kurre">قُرَّةَ بْنِ عَبْدِ الرَّحْمَنِ</span>، عَنِ <span class="ravi-name" data-ravi="zuhri">الزُّهْرِيِّ</span>، عَنْ <span class="ravi-name" data-ravi="ebuseleme">أَبِي سَلَمَةَ</span>، عَنْ <span class="ravi-name" data-ravi="huraira">أَبِي هُرَيْرَةَ</span> قَالَ: قَالَ <span class="ravi-name" data-ravi="nebi">رَسُولُ اللَّهِ ﷺ</span>',
+      text:{
+        tr:'Kişinin kendisini ilgilendirmeyen şeyleri terk etmesi, İslâm’ını güzel yaşamasındandır.',
+        ar:'مِنْ حُسْنِ إِسْلَامِ الْمَرْءِ تَرْكُهُ مَا لَا يَعْنِيهِ.',
+        en:'Part of a person’s excellence in Islam is his leaving what does not concern him.'
+      }
+    },
+    {
+      id:'deniz-suyu',
+      chain:['malik','safvan','saidseleme','mugire','huraira'],
+      isnad:'عَنْ <span class="ravi-name" data-ravi="safvan">صَفْوَانَ بْنِ سُلَيْمٍ</span>، عَنْ <span class="ravi-name" data-ravi="saidseleme">سَعِيدِ بْنِ سَلَمَةَ</span>، عَنِ <span class="ravi-name" data-ravi="mugire">الْمُغِيرَةِ بْنِ أَبِي بُرْدَةَ</span> أَنَّهُ سَمِعَ <span class="ravi-name" data-ravi="huraira">أَبَا هُرَيْرَةَ</span> يَقُولُ: جَاءَ رَجُلٌ إِلَى <span class="ravi-name" data-ravi="nebi">رَسُولِ اللَّهِ ﷺ</span>',
+      text:{
+        tr:'Bir adam Resûlullah’a (s.a.v.) gelip: “Ey Allah’ın Resûlü! Biz denize açılıyoruz ve yanımızda az su taşıyoruz; onunla abdest alırsak susuz kalırız. Deniz suyuyla abdest alabilir miyiz?” diye sordu. O da: “Onun suyu temizleyicidir, ölüsü de helâldir” buyurdu.',
+        ar:'جَاءَ رَجُلٌ إِلَى رَسُولِ اللَّهِ ﷺ فَقَالَ: يَا رَسُولَ اللَّهِ، إِنَّا نَرْكَبُ الْبَحْرَ وَنَحْمِلُ مَعَنَا الْقَلِيلَ مِنَ الْمَاءِ، فَإِنْ تَوَضَّأْنَا بِهِ عَطِشْنَا، أَفَنَتَوَضَّأُ بِهِ؟ فَقَالَ: هُوَ الطَّهُورُ مَاؤُهُ، الْحِلُّ مَيْتَتُهُ.',
+        en:'A man came to the Messenger of Allah ﷺ and said: “O Messenger of Allah, we sail the sea and carry little water with us; if we use it for ablution we go thirsty. May we perform ablution with sea water?” He said: “Its water is purifying and its dead are lawful.”'
+      }
+    },
+    {
+      id:'guzel-ahlak',
+      chain:['hanbal','saidmansur','deraverdi','ibnaclan','kakaa','ebusalih','huraira'],
+      isnad:'حَدَّثَنَا <span class="ravi-name" data-ravi="saidmansur">سَعِيدُ بْنُ مَنْصُورٍ</span>، قَالَ: حَدَّثَنَا <span class="ravi-name" data-ravi="deraverdi">عَبْدُ الْعَزِيزِ بْنُ مُحَمَّدٍ</span>، عَنْ <span class="ravi-name" data-ravi="ibnaclan">مُحَمَّدِ بْنِ عَجْلَانَ</span>، عَنِ <span class="ravi-name" data-ravi="kakaa">الْقَعْقَاعِ بْنِ حَكِيمٍ</span>، عَنْ <span class="ravi-name" data-ravi="ebusalih">أَبِي صَالِحٍ</span>، عَنْ <span class="ravi-name" data-ravi="huraira">أَبِي هُرَيْرَةَ</span> قَالَ: قَالَ <span class="ravi-name" data-ravi="nebi">رَسُولُ اللهِ ﷺ</span>',
+      text:{
+        tr:'Ben ancak güzel ahlâkı tamamlamak için gönderildim.',
+        ar:'إِنَّمَا بُعِثْتُ لِأُتَمِّمَ صَالِحَ الْأَخْلَاقِ.',
+        en:'I was sent only to perfect good character.'
+      }
+    },
+    {
+      id:'teblig',
+      chain:['darimi','ebulmugire','evzai','hassan','ebukebse','abdullahamr'],
+      isnad:'أَخْبَرَنَا <span class="ravi-name" data-ravi="ebulmugire">أَبُو الْمُغِيرَةِ</span>، حَدَّثَنَا <span class="ravi-name" data-ravi="evzai">الْأَوْزَاعِيُّ</span>، عَنْ <span class="ravi-name" data-ravi="hassan">حَسَّانَ</span>، عَنْ <span class="ravi-name" data-ravi="ebukebse">أَبِي كَبْشَةَ</span> قَالَ: سَمِعْتُ <span class="ravi-name" data-ravi="abdullahamr">عَبْدَ اللَّهِ بْنَ عَمْرٍو</span> رَضِيَ اللهُ عَنْهُمَا قَالَ: سَمِعْتُ <span class="ravi-name" data-ravi="nebi">رَسُولَ اللَّهِ ﷺ</span> يَقُولُ',
+      text:{
+        tr:'Benden bir âyet de olsa tebliğ edin. İsrâiloğulları’ndan nakletmenizde de bir sakınca yoktur. Ama kim bile bile bana yalan isnâd ederse cehennemdeki yerine hazırlansın.',
+        ar:'بَلِّغُوا عَنِّي وَلَوْ آيَةً، وَحَدِّثُوا عَنْ بَنِي إِسْرَائِيلَ وَلَا حَرَجَ، وَمَنْ كَذَبَ عَلَيَّ مُتَعَمِّدًا فَلْيَتَبَوَّأْ مَقْعَدَهُ مِنَ النَّارِ.',
+        en:'Convey from me, even a single verse. Narrate from the Children of Israel, there is no harm in it. But whoever lies about me deliberately, let him take his seat in the Fire.'
+      }
+    },
+    {
+      id:'nasihat',
+      chain:['muslim','ibnabbadmekki','sufyan','suheyl','atayezid','temim'],
+      isnad:'حَدَّثَنَا <span class="ravi-name" data-ravi="ibnabbadmekki">مُحَمَّدُ بْنُ عَبَّادٍ الْمَكِّيُّ</span>، حَدَّثَنَا <span class="ravi-name" data-ravi="sufyan">سُفْيَانُ</span>، عَنْ <span class="ravi-name" data-ravi="suheyl">سُهَيْلٍ</span>، عَنْ <span class="ravi-name" data-ravi="atayezid">عَطَاءِ بْنِ يَزِيدَ</span>، عَنْ <span class="ravi-name" data-ravi="temim">تَمِيمٍ الدَّارِيِّ</span> رَضِيَ اللهُ عَنْهُ؛ أَنَّ <span class="ravi-name" data-ravi="nebi">النَّبِيَّ ﷺ</span> قَالَ',
+      text:{
+        tr:'“Din nasihattir.” “Kimin için?” diye sorduk. Şöyle buyurdu: “Allah için, Kitabı için, Resûlü için, Müslümanların yöneticileri ve bütün Müslümanlar için.”',
+        ar:'الدِّينُ النَّصِيحَةُ. قُلْنَا: لِمَنْ؟ قَالَ: لِلَّهِ، وَلِكِتَابِهِ، وَلِرَسُولِهِ، وَلِأَئِمَّةِ الْمُسْلِمِينَ وَعَامَّتِهِمْ.',
+        en:'“Religion is sincere counsel.” We said: “To whom?” He said: “To Allah, to His Book, to His Messenger, to the leaders of the Muslims and to their common folk.”'
+      }
+    },
+    {
+      id:'komsu',
+      chain:['buhari','kuteybe','ebulahvas','ebuhasin','ebusalih','huraira'],
+      isnad:'حَدَّثَنَا <span class="ravi-name" data-ravi="kuteybe">قُتَيْبَةُ بْنُ سَعِيدٍ</span>: حَدَّثَنَا <span class="ravi-name" data-ravi="ebulahvas">أَبُو الْأَحْوَصِ</span>، عَنْ <span class="ravi-name" data-ravi="ebuhasin">أَبِي حَصِينٍ</span>، عَنْ <span class="ravi-name" data-ravi="ebusalih">أَبِي صَالِحٍ</span>، عَنْ <span class="ravi-name" data-ravi="huraira">أَبِي هُرَيْرَةَ</span> قَالَ: قَالَ <span class="ravi-name" data-ravi="nebi">رَسُولُ اللهِ ﷺ</span>',
+      text:{
+        tr:'Allah’a ve âhiret gününe iman eden komşusuna eziyet etmesin. Allah’a ve âhiret gününe iman eden misafirine ikram etsin. Allah’a ve âhiret gününe iman eden ya hayır söylesin ya da sussun.',
+        ar:'مَنْ كَانَ يُؤْمِنُ بِاللهِ وَالْيَوْمِ الْآخِرِ فَلَا يُؤْذِ جَارَهُ، وَمَنْ كَانَ يُؤْمِنُ بِاللهِ وَالْيَوْمِ الْآخِرِ فَلْيُكْرِمْ ضَيْفَهُ، وَمَنْ كَانَ يُؤْمِنُ بِاللهِ وَالْيَوْمِ الْآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ.',
+        en:'Whoever believes in Allah and the Last Day, let him not harm his neighbour. Whoever believes in Allah and the Last Day, let him honour his guest. Whoever believes in Allah and the Last Day, let him speak good or remain silent.'
+      }
+    }
+  ];
+
+  // Hangi hadis oynanacak? `?h=<id>` ile secilir; parametre yoksa ya da
+  // tanimsizsa HADITHS[0] (niyet hadisi) -- boylece /resule-kavusmak
+  // (parametresiz) ESKISIYLE BIREBIR ayni davranir, yalnizca
+  // /resule-kavusmak-sinama sayfasi parametre gonderir.
+  var hadithParam = (function(){
+    var m = /[?&]h=([^&]+)/.exec(window.location.search);
+    return m ? decodeURIComponent(m[1]) : null;
+  })();
+  var activeHadith = (function(){
+    for(var i = 0; i < HADITHS.length; i++){
+      if(HADITHS[i].id === hadithParam) return HADITHS[i];
+    }
+    return HADITHS[0];
+  })();
+
+  // Aktif hadisin isnad zinciri: CORRECT[0] muellif (oyuna zaten secili
+  // gelir, kat almaz), gerisi asagidan yukari tirmanilacak raviler.
+  var CORRECT = activeHadith.chain.map(function(id){ return PEOPLE[id]; });
+  // Celdiriciler: aktif isnadda GECEN kisiler havuzdan cikarilir.
+  var DECOY_POOL = (function(){
+    var inChain = {};
+    activeHadith.chain.forEach(function(id){ inChain[id] = true; });
+    return DECOY_IDS
+      .filter(function(id){ return !inChain[id]; })
+      .map(function(id){ return PEOPLE[id]; });
+  })();
+  // Kat basina 1 dogru + 2 celdirici -- yanlis sayisi dogru sayisinin
+  // her katta (ve toplamda) 2 kati oluyor.
+  var DECOYS_PER_FLOOR = 2;
+  // Sayaç ve kat sayisi: muellif ve kaynak (Hz. Nebi) birer ravi olarak
+  // SAYILMIYOR, yalnizca aralarindaki CORRECT.slice(1) kadar ravi var
+  // (bu secimde hadise gore 4-7).
+  var FLOOR_COUNT = CORRECT.length - 1;
+  // Muellifin id'si sabit degil (dokuz kitaptan biri): "oyuna zaten
+  // secili gelen" butonu arayan yerler bunu kullanir.
+  var AUTHOR_ID = CORRECT[0].id;
+  // Hadisin metni de dile gore degisir (icerik cevirisi); yalnizca
+  // isnad'in Arapca metni HER dilde sabit kalir, o dogrudan alinti.
+  var HADITH_TEXT_BY_LANG = activeHadith.text;
+  // `?h=` ile acildiysa (yani /resule-kavusmak-sinama izgarasindan
+  // gelindiyse) ve sirada baska bir hadis varsa: "Sonraki" dugmesi
+  // /mustafa-calisiyor yerine SIRADAKI HADISE gotursun. Parametresiz
+  // acilan /resule-kavusmak'ta `nextHadith` null kalir, dugme eski
+  // hedefinde (ve eski etiketinde) durur.
+  // Izgaradan gelindiyse (?h=) alt bilgideki "Onceki"/"Sonraki"
+  // dugmeleri komsu hadislere goturur. Parametresiz acilan
+  // /resule-kavusmak'ta ikisi de null kalir: orada "Onceki" hic
+  // gorunmez, "Sonraki" ise eskisi gibi /mustafa-calisiyor'a gider.
+  var hadithIndex = HADITHS.indexOf(activeHadith);
+  var prevHadith = hadithParam && hadithIndex > 0 ? HADITHS[hadithIndex - 1] : null;
+  var nextHadith = hadithParam && hadithIndex >= 0 && hadithIndex + 1 < HADITHS.length
+    ? HADITHS[hadithIndex + 1]
+    : null;
+  // `&u=1`: siradaki hadis ZATEN acik (kullanici bunu daha once
+  // bitirmis, simdi tekrar oynuyor). O zaman "Sonraki" bastan
+  // gorunur; aksi halde ancak isnad tamamlaninca belirir.
+  var nextUnlocked = /[?&]u=1(&|$)/.test(window.location.search);
+  var MOVE_MS = 900;
+
+  // Site-genelindeki dil dugmesi (TR/AR/EN) bu oyunu da etkiler: arapça
+  // secilince isimler dahil HER SEY arapça, ingilizce secilince isnad
+  // HARIC her sey ingilizce olur. isnad'in Arapca metni (data-ravi
+  // span'lari) tek istisna -- o dogrudan alinti, HER dilde sabit kalir.
+  // dir yalnizca metin iceren paragraflara uygulanir (h1, lede, toast),
+  // butonlarin/board'un fiziksel duzenine (Mustafa'nin konumlama
+  // matematigi vb.) dokunulmuyor.
+  /* --- Asama yonetimi (yalnizca bu sinama surumu) ---------------
+
+     'ezber' -> 'oyun' -> 'bitti'. Gorunurluk tamamen CSS'te
+     (#pageRoot[data-asama=...]); buradaki is yalnizca nitelig~i
+     degistirmek ve yonerge metnini tazelemek. */
+  var pageRootEl = document.getElementById('pageRoot');
+  var ezberBtnEl = document.getElementById('ezberBtn');
+
+  function asamaAyarla(asama){
+    pageRootEl.setAttribute('data-asama', asama);
+    // Yonerge metni asamaya bagli, dil degismese de yenilenmeli.
+    if(typeof currentLang !== 'undefined' && STRINGS[currentLang]){
+      applyLanguage(currentLang);
+    }
+  }
+
+  var STRINGS = {
+    tr: {
+      dir: 'ltr',
+      title: 'Mustafâ\'nın İsnad Yolculuğu',
+      h1: 'Mustafâ\'yı Peygamberine kavuşturabilir misin?',
+      lede: 'İsnâdı doğru şekilde tamamla. Râvileri, Mustafâ\'ya en yakın olandan başlayarak sırayla seç.',
+      isnadLabel: 'İsnad',
+      hadithLabel: 'HADİSİN METNİ',
+      placeholder: 'Râvileri tamamla. Hadis metni ortaya çıksın.',
+      goalLabel: 'Hz. Nebî',
+      goalSub: '(s.a.v.)',
+      resetBtn: 'Baştan Başla',
+      nextBtn: 'Sonraki',
+      prevBtn: 'Önceki',
+      progressUnit: 'râvi',
+      toastFinalStep: 'Son adım: Hz. Nebî’ye (s.a.v.) ulaş!',
+      toastCorrectSuffix: ' doğru — sıradaki râviyi bul.',
+      toastDone: 'Elhamdülillah! Mustafâ Peygamberine kavuştu.',
+      toastWrong: 'Sırada bu râvi yok — tekrar dene.',
+      wrongModal: '3 kez yanlış râviyi seçtin. Haydi baştan başlayalım.',
+      ezberLede: 'Önce isnâdı ezberle. Râvileri, en yakınından başlayarak sırayla hatırlaman gerekecek.',
+      ezberBtn: 'Ezberledim, hadi başlayalım.'
+    },
+    en: {
+      dir: 'ltr',
+      title: 'Mustafâ\'s Isnād Journey',
+      h1: 'Can you reunite Mustafâ with his Prophet?',
+      lede: 'Complete the isnād correctly. Choose the narrators in order, starting with the one closest to Mustafâ.',
+      isnadLabel: 'Isnād',
+      hadithLabel: 'TEXT OF THE HADITH',
+      placeholder: 'Complete the narrators. The hadith text will appear.',
+      goalLabel: 'The Prophet',
+      goalSub: '(ﷺ)',
+      resetBtn: 'Start Over',
+      nextBtn: 'Next',
+      prevBtn: 'Previous',
+      progressUnit: 'narrators',
+      toastFinalStep: 'Last step: reach the Prophet ﷺ!',
+      toastCorrectSuffix: ' is correct — find the next narrator.',
+      toastDone: 'Alhamdulillah! Mustafâ has reunited with his Prophet.',
+      toastWrong: 'That narrator isn’t next — try again.',
+      wrongModal: 'You picked the wrong narrator three times. Let’s start over.',
+      ezberLede: 'First memorise the isnād. You will need to recall the narrators in order, starting with the one closest to Mustafâ.',
+      ezberBtn: 'I have memorised it, let us begin.'
+    },
+    ar: {
+      dir: 'rtl',
+      title: 'رحلة مصطفى في الإسناد',
+      h1: 'هل تستطيع أن توصل مصطفى إلى نبيّه؟',
+      lede: 'أكمل الإسناد بالترتيب الصحيح. اختر الرواة بدءًا بالأقرب إلى مصطفى.',
+      isnadLabel: 'الإسناد',
+      hadithLabel: 'نص الحديث',
+      placeholder: 'أكمل الرواة. سيظهر نص الحديث.',
+      goalLabel: 'النبي',
+      goalSub: '(ﷺ)',
+      resetBtn: 'ابدأ من جديد',
+      nextBtn: 'التالي',
+      prevBtn: 'السابق',
+      progressUnit: 'راوٍ',
+      toastFinalStep: 'الخطوة الأخيرة: صِل إلى النبي ﷺ!',
+      toastCorrectSuffix: ' صحيح — ابحث عن الراوي التالي.',
+      toastDone: 'الحمد لله! وصل مصطفى إلى نبيّه.',
+      toastWrong: 'هذا ليس الراوي التالي — حاول مرة أخرى.',
+      wrongModal: 'اخترت الراوي الخطأ ثلاث مرات. لنبدأ من جديد.',
+      ezberLede: 'احفظ الإسناد أولاً. ستحتاج إلى تذكُّر الرواة بالترتيب، بدءًا بالأقرب إلى مصطفى.',
+      ezberBtn: 'حفظتُه، هيّا نبدأ.'
+    }
+  };
+  var currentLang = 'tr';
+
+  var board = document.getElementById('board');
+  var nodeGrid = document.getElementById('nodeGrid');
+  var authorRow = document.getElementById('authorRow');
+  var pathLayer = document.getElementById('pathLayer');
+  var mustafa = document.getElementById('mustafa');
+  var goalNode = document.getElementById('goalNode');
+  var goalLabelEl = document.getElementById('goalLabel');
+  var goalSubEl = document.getElementById('goalSub');
+  var toast = document.getElementById('toast');
+  var metinValue = document.getElementById('metinValue');
+  var hadithBubble = document.getElementById('hadithBubble');
+  var nextBtn = document.getElementById('nextBtn');
+  var prevBtn = document.getElementById('prevBtn');
+  var progress = document.getElementById('progress');
+  var wrongModal = document.getElementById('wrongModal');
+  var wrongModalText = document.getElementById('wrongModalText');
+  var wrongModalBtn = document.getElementById('wrongModalBtn');
+  var wrongCanvas = document.getElementById('wrongCanvas');
+  var h1El = document.getElementById('h1Text');
+  var ledeEl = document.getElementById('ledeText');
+  var isnadLabelEl = document.getElementById('isnadLabel');
+  var hadithLabelEl = document.getElementById('hadithLabel');
+  var resetBtnEl = document.getElementById('resetBtn');
+
+  // Site-genelindeki dil dugmesinden gelen degeri uygular: STRINGS'teki
+  // arayuz metinlerinin yaninda, ekrandaki HER ravi butonunu (NAME_BY_ID
+  // uzerinden) ve -hadis acilmissa- hadisin kendisini de yeni dile
+  // gore yeniden yazar. Yalnizca isnad'in Arapca metni (data-ravi
+  // span'lari) HER dilde sabit kalir -- o dogrudan alinti.
+  function applyLanguage(lang){
+    if(!STRINGS[lang]) return;
+    currentLang = lang;
+    var s = STRINGS[lang];
+    document.getElementById('pageRoot').classList.toggle('lang-ar', lang === 'ar');
+    document.title = s.title;
+    h1El.textContent = s.h1;
+    h1El.setAttribute('dir', s.dir);
+    // Ezber asamasinda yonerge farkli: "ezberle" diyor, "tamamla" degil.
+    ledeEl.textContent =
+      pageRootEl.getAttribute('data-asama') === 'ezber' ? s.ezberLede : s.lede;
+    ledeEl.setAttribute('dir', s.dir);
+    isnadLabelEl.textContent = s.isnadLabel;
+    hadithLabelEl.textContent = s.hadithLabel;
+    goalLabelEl.textContent = s.goalLabel;
+    goalSubEl.textContent = s.goalSub;
+    resetBtnEl.textContent = s.resetBtn;
+    ezberBtnEl.textContent = s.ezberBtn;
+    wrongModalText.textContent = s.wrongModal;
+    wrongModalBtn.textContent = s.resetBtn;
+    nextBtn.textContent = s.nextBtn;
+    prevBtn.textContent = s.prevBtn;
+    Array.prototype.forEach.call(document.querySelectorAll('.node'), function(btn){
+      var entry = NAME_BY_ID[btn.dataset.id];
+      if(entry) setNodeLabel(btn, nameFor(entry));
+    });
+    if(goalNode.classList.contains('reached')){
+      metinValue.innerHTML = HADITH_TEXT_BY_LANG[lang];
+    } else {
+      var placeholderEl = metinValue.querySelector('.placeholder');
+      if(placeholderEl) placeholderEl.textContent = s.placeholder;
+    }
+    updateProgress();
+  }
+
+  var step = 0;
+  // Iz cizgisi artik piksel degil KUTU tutuyor; koordinat her cizimde
+  // yeniden hesaplaniyor (yeniden boyutlandirmada iz kaymasin diye).
+  var pathAnchors = [];
+  var toastTimer = null;
+
+  function pctToPx(xPct, yPct){
+    var r = board.getBoundingClientRect();
+    return {x: xPct/100*r.width, y: yPct/100*r.height};
+  }
+
+  // Bir kutunun sag kenari + dikey ortasini, board'a gore yuzde olarak
+  // verir. Mustafa'nin ortasi bu noktaya gelecek sekilde konumlanir --
+  // yani DAIMA butonun saginda durur, hangi butonun secildiginden
+  // (Buhari dahil) bagimsiz olarak ayni kucuk bosluk kullanilir. Butonlar
+  // tam genislikte kaldigi icin BILEREK kirpma yapmiyoruz: en sagdaki
+  // butonun yaninda Mustafa board'un (hatta sayfanin) disina birkac
+  // piksel tasabilir; bu .page'in overflow-x:hidden'i tarafindan
+  // gorunmez sekilde kirpilir, yatay kaydirma cubugu hic cikmaz.
+  var RIGHT_EDGE_GAP = 8; // px, kutuya yapismasin diye kucuk bir bosluk
+  function rightEdgePct(el){
+    var rect = el.getBoundingClientRect();
+    var boardRect = board.getBoundingClientRect();
+    var x = rect.right + RIGHT_EDGE_GAP - boardRect.left;
+    return {
+      x: x / boardRect.width * 100,
+      y: (rect.top + rect.height/2 - boardRect.top) / boardRect.height * 100
+    };
+  }
+
+  // animasyonsuz=true ise gecis kapatilarak konumlanir (ilk yerlestirme,
+  // yeniden hizalama). Reflow'u zorlamak SART: sinifi ekleyip konumu atayip
+  // ayni karede kaldirsak tarayici ikisini birlestirip yine animasyon
+  // yapardi.
+  function placeMustafa(xPct, yPct, animasyonsuz){
+    if(animasyonsuz) mustafa.classList.add('anim-yok');
+    mustafa.style.left = xPct + '%';
+    mustafa.style.top = yPct + '%';
+    if(animasyonsuz){
+      void mustafa.offsetWidth;
+      mustafa.classList.remove('anim-yok');
+    }
+  }
+
+  // Mustafa'nin su an yaslandigi kutu. Buhari zaten secili geldigi icin
+  // oyun HER ZAMAN bir anchor ile baslar (bkz. initState).
+  var currentAnchor = null;
+
+  // Hep animasyonsuz: bu fonksiyon oyun HAMLESI degil, mevcut konumu
+  // yeniden hesaplama (ilk kurulum, pencere boyutu degisimi, video
+  // yuklenince canvas olcusunun belli olmasi). Hamleler moveMustafaTo'dan.
+  function syncMustafa(){
+    if(!currentAnchor) return;
+    var p = rightEdgePct(currentAnchor);
+    placeMustafa(p.x, p.y, true);
+  }
+
+  // Toast varsayilan olarak ALTTA gosterilir; position:'top' verilirse
+  // (kavusma mesaji gibi) USTTE gosterilir. applyToastPosition() bu
+  // sinifa gore, iframe icindeyken en son alinan kaydirma bilgisiyle
+  // (lastViewportData) dogru "top"/"bottom" degerini hesaplar; hic
+  // mesaj gelmediyse (sayfa dogrudan aciliyorsa) CSS'teki sabit
+  // top:24px / bottom:24px degerleri zaten dogrudur.
+  var lastViewportData = null;
+  function applyToastPosition(){
+    if(!lastViewportData) return;
+    toast.style.position = 'absolute';
+    if(toast.classList.contains('top-pos')){
+      var visibleTop = Math.max(0, -lastViewportData.frameTop);
+      toast.style.bottom = 'auto';
+      toast.style.top = Math.round(visibleTop + 24) + 'px';
+    } else {
+      var docHeight = document.documentElement.scrollHeight;
+      var visibleBottom = lastViewportData.viewportHeight - lastViewportData.frameTop;
+      var fromPageBottom = docHeight - visibleBottom;
+      toast.style.top = 'auto';
+      toast.style.bottom = Math.max(24, Math.round(fromPageBottom + 24)) + 'px';
+    }
+  }
+
+  function showToast(msg, variant, duration, position){
+    clearTimeout(toastTimer);
+    toast.textContent = msg;
+    toast.classList.toggle('rose', variant === 'rose');
+    toast.classList.toggle('green', variant === 'green');
+    toast.classList.toggle('top-pos', position === 'top');
+    applyToastPosition();
+    toast.classList.add('show');
+    toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, duration || 1600);
+  }
+
+  function drawPath(){
+    var pts = pathAnchors.map(function(el){
+      var pct = rightEdgePct(el);
+      var px = pctToPx(pct.x, pct.y);
+      return px.x.toFixed(1)+','+px.y.toFixed(1);
+    }).join(' ');
+    pathLayer.innerHTML = pts ? '<polyline points="'+pts+'"></polyline>' : '';
+  }
+
+  // Alt bilgideki gezinme dugmelerinin gorunurlugu:
+  //  - "Onceki": komsu hadis varsa DAIMA acik (oraya zaten ulasilmis).
+  //  - "Sonraki": siradaki hadis ya zaten acik (`&u=1`) ya da bu
+  //    isnad SIMDI tamamlanmis olmali -- yoksa kilit atlanabilirdi.
+  //  - Parametresiz mod (/resule-kavusmak): "Onceki" yok, "Sonraki"
+  //    eskisi gibi yalnizca bitirince cikar ve /mustafa-calisiyor'a gider.
+  function syncNavButtons(){
+    var finished = goalNode.classList.contains('reached');
+    var showPrev = !!prevHadith;
+    var showNext = hadithParam
+      ? (!!nextHadith && (nextUnlocked || finished))
+      : finished;
+    prevBtn.classList.toggle('visible', showPrev);
+    nextBtn.classList.toggle('visible', showNext);
+  }
+
+  function lightUpRavi(id){
+    var span = document.querySelector('.ravi-name[data-ravi="'+id+'"]');
+    if(!span) return;
+    span.classList.add('lit');
+    span.classList.remove('lit-flash');
+    void span.offsetWidth;
+    span.classList.add('lit-flash');
+  }
+
+  function updateProgress(){
+    // step=1 -> henuz hic ravi bulunmadi (Buhari zaten secili sayilir,
+    // sayaca dahil degil); step=7 (omer bulundugunda) -> 6/6.
+    var found = Math.max(0, Math.min(step - 1, FLOOR_COUNT));
+    progress.textContent = found + ' / ' + FLOOR_COUNT + ' ' + STRINGS[currentLang].progressUnit;
+  }
+
+  function moveMustafaTo(xPct, yPct, onDone){
+    placeMustafa(xPct, yPct);
+    setTimeout(function(){ if(onDone) onDone(); }, MOVE_MS);
+  }
+
+  function handleCorrect(node, el){
+    el.classList.add('visited');
+    // Buhari (adim 0) sayaca dahil degil, rakamlandirma ondan sonra 1'den baslar.
+    var badgeNum = step;
+    if(step > 0){
+      var badge = document.createElement('span');
+      badge.className = 'badge';
+      badge.textContent = badgeNum;
+      el.appendChild(badge);
+    }
+
+    currentAnchor = el;
+    pathAnchors.push(el);
+    drawPath();
+
+    // step HEMEN ilerler, 900ms'lik hareket animasyonunu BEKLEMEZ.
+    // Eskiden step yalnizca moveMustafaTo'nun callback'inde (animasyon
+    // bitince) artiyordu; kullanici bir sonraki dogru butona hizlica
+    // basinca step hala ESKI degerdeydi, correctIndex ile eslesmeyip
+    // YANLIS sayiliyordu (kirmizi titreme). Gorsel/toast tarafi yine
+    // animasyonu bekler, ama oyunun DOGRU/YANLIS mantigi artik tiklama
+    // aninda senkron guncelleniyor.
+    step++;
+    updateProgress();
+    var isLast = (step === CORRECT.length);
+
+    var landing = rightEdgePct(el);
+    moveMustafaTo(landing.x, landing.y, function(){
+      lightUpRavi(node.id);
+      if(isLast){
+        showToast(STRINGS[currentLang].toastFinalStep);
+        setTimeout(finish, 400);
+      } else {
+        showToast(nameFor(node) + STRINGS[currentLang].toastCorrectSuffix);
+      }
+    });
+  }
+
+  // Kavusma animasyonu ve hadis metnine kaydirma bittikten SONRA
+  // artik secilecek ravi kalmadigi icin katlari ve muellif satirini
+  // kaldiriyoruz; ekranda kavusma ve alt bilgi dugmeleri kaliyor.
+  // Gecikme bilerek: kullanici once Mustafa'nin Hz. Nebi'ye ulastigini
+  // gorsun, tahta ondan sonra toparlansin.
+  var tidyTimer = null;
+  function tidyBoardAfterFinish(){
+    clearTimeout(tidyTimer);
+    tidyTimer = setTimeout(function(){
+      board.classList.add('finished');
+      // Iz cizgisinin dayanaklari (kat butonlari) artik DOM'da yok;
+      // birakirsak drawPath() kopmus elemanlardan sifir koordinat
+      // okuyup tahtanin kosesine tuhaf bir cizgi cizerdi.
+      pathAnchors = [];
+      drawPath();
+      // Katlar kalkinca tahta kisaliyor: Mustafa'yi Hz. Nebi'nin
+      // yanindaki yeni konumuna tekrar oturt.
+      syncMustafa();
+    }, 1300);
+  }
+
+  function finish(){
+    currentAnchor = goalNode;
+    pathAnchors.push(goalNode);
+    drawPath();
+    var landing = rightEdgePct(goalNode);
+    moveMustafaTo(landing.x, landing.y, function(){
+      goalNode.classList.add('reached');
+      lightUpRavi('nebi');
+      metinValue.innerHTML = HADITH_TEXT_BY_LANG[currentLang];
+      hadithBubble.classList.add('glow-active');
+      // Isnad geri gelir, hadis metni gorunur.
+      asamaAyarla('bitti');
+      syncNavButtons();
+      // Ust pencereye "bu hadis bitti" haberi. /resule-kavusmak-sinama
+      // sirali kilit icin bunu dinliyor (bir sonraki hadisi aciyor ve
+      // ilerlemeyi localStorage'a yaziyor). Iframe disinda acildiginda
+      // (dogrudan game.html) kimse dinlemez, zararsizdir.
+      if(window.parent !== window){
+        window.parent.postMessage(
+          { type:'resule-kavusmak-completed', hadis: activeHadith.id },
+          '*'
+        );
+      }
+      // Kavusma anini kutlayan mesaj digerlerinden (1.6s) daha uzun
+      // kalsin diye 5 saniye gosteriliyor; ASAGIDA (varsayilan konum).
+      showToast(STRINGS[currentLang].toastDone, 'green', 5000);
+      // Oyun bitince kullanici ASAGIDA (son ravi butonlarinin oldugu
+      // yerde) duruyor; hadis kutusu ise sayfanin EN USTUNDE. Metin ortaya
+      // ciktigi halde gorunmuyor, elle yukari kaydirmak gerekiyordu.
+      scrollToHadith();
+      tidyBoardAfterFinish();
+    });
+  }
+
+  // Isnad tamamlaninca hadis metnini gorunur kilar.
+  // IKI FARKLI DURUM var:
+  //  - iframe icinde (/resule-kavusmak): bu belgenin kendi kaydirma
+  //    cubugu YOK (yukseklik icerige esitleniyor), yani buradan
+  //    scrollTo cagirmak HICBIR SEY yapmaz. Kaydirmasi gereken UST
+  //    pencere; ona hadis kutusunun bu belge icindeki Y konumunu
+  //    bildiriyoruz, gerisini page.tsx hesapliyor.
+  //  - dogrudan acildiginda (/resule-kavusmak-game.html): kendi
+  //    penceremizi kaydiriyoruz.
+  function scrollToHadith(){
+    var y = hadithBubble.getBoundingClientRect().top + (window.scrollY || 0);
+    if(window.parent !== window){
+      window.parent.postMessage(
+        { type:'resule-kavusmak-scroll-to', top: y },
+        '*'
+      );
+    } else {
+      window.scrollTo({ top: Math.max(0, y - 24), behavior:'smooth' });
+    }
+  }
+
+  // Ust uste UC yanlis secimden sonra kucuk bir uyari penceresi cikip
+  // oyunu bastan aldiriyor. Sayac dogru cevapta da sifirlanmiyor
+  // BILEREK: "3 kez yanlis ravi sectin" ifadesi hadis boyunca toplam
+  // yanlisi anlatiyor. resetGame() sifirliyor.
+  var wrongCount = 0;
+  function handleWrong(el){
+    el.classList.remove('wrong');
+    void el.offsetWidth;
+    el.classList.add('wrong');
+    wrongCount++;
+    if(wrongCount >= 3){
+      showWrongModal();
+    } else {
+      showToast(STRINGS[currentLang].toastWrong, 'rose');
+    }
+  }
+
+  // Pencere iframe'in KENDI belgesinde duruyor ve bu belgenin kendi
+  // kaydirma cubugu yok -- yani "position:fixed" burada tarayici
+  // penceresine gore calismaz (toast ile ayni tuzak). Ust pencereden
+  // gelen kaydirma bilgisiyle (lastViewportData) overlay'i tam
+  // GORUNEN alanin uzerine oturtuyoruz. Bilgi hic gelmediyse (sayfa
+  // dogrudan aciliyorsa) belgenin tamamini kaplamasi yeterli.
+  function positionWrongModal(){
+    if(!lastViewportData){
+      wrongModal.style.top = '0px';
+      wrongModal.style.height = document.documentElement.scrollHeight + 'px';
+      return;
+    }
+    wrongModal.style.top = Math.max(0, -lastViewportData.frameTop) + 'px';
+    wrongModal.style.height = lastViewportData.viewportHeight + 'px';
+  }
+
+  // Mustafa karakteri penceredeki ikinci bir canvas'a ciziliyor. Ayni
+  // <video> elemani iki WebGL baglamini birden besleyebiliyor; ikinci
+  // baglami ancak pencere ILK acildiginda kuruyoruz ki hic acilmazsa
+  // bosuna GPU isi olmasin.
+  var wrongCanvasReady = false;
+  function showWrongModal(){
+    positionWrongModal();
+    wrongModal.classList.add('show');
+    if(!wrongCanvasReady && video.readyState >= 2){
+      wrongCanvasReady = true;
+      initChromaKey(video, wrongCanvas);
+    }
+  }
+  function hideWrongModal(){
+    wrongModal.classList.remove('show');
+  }
+
+  function shuffle(list){
+    for(var i = list.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = list[i]; list[i] = list[j]; list[j] = tmp;
+    }
+    return list;
+  }
+
+  function makeNode(node){
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'node';
+    btn.dataset.id = node.id;
+    setNodeLabel(btn, nameFor(node));
+    btn.addEventListener('click', function(){
+      if(btn.classList.contains('visited')) return;
+      if(node.correctIndex === step){
+        handleCorrect(node, btn);
+      } else {
+        handleWrong(btn);
+      }
+    });
+    return btn;
+  }
+
+  function buildNodes(){
+    // Buhari (muellif) oyuna zaten secili gelir: bir kat ya da tiklama
+    // gerektirmez, Mustafa basindan onun yanindadir.
+    var buhariBtn = makeNode(Object.assign({}, CORRECT[0], {correctIndex:0}));
+    buhariBtn.classList.add('visited');
+    authorRow.appendChild(buhariBtn);
+
+    // Geri kalan her ravi kendi KATINI alir: hadiste Buhari disinda kac
+    // ravi varsa o kadar kat olusur, her katta 1 dogru + 2 celdirici
+    // (DECOYS_PER_FLOOR) bulunur. Katlar DOM'a Hz. Nebi'ye en yakindan
+    // (en son bulunacak ravi) baslayarak yazilir ki gorsel siralama en
+    // ustten en alta, tirmanis sirasinin TERSini yansitsin.
+    var remaining = CORRECT.slice(1).map(function(r, i){
+      return { ravi:r, correctIndex:i+1 };
+    });
+    var decoyPool = shuffle(DECOY_POOL.slice());
+    var floorsTopDown = remaining.slice().reverse();
+
+    floorsTopDown.forEach(function(pair){
+      var floorEl = document.createElement('div');
+      floorEl.className = 'floor';
+      var decoys = decoyPool.splice(0, DECOYS_PER_FLOOR).map(function(entry){
+        return Object.assign({}, entry, {correctIndex:-1});
+      });
+      var items = shuffle([Object.assign({}, pair.ravi, {correctIndex:pair.correctIndex})].concat(decoys));
+      items.forEach(function(item){ floorEl.appendChild(makeNode(item)); });
+      nodeGrid.appendChild(floorEl);
+    });
+  }
+
+  // Oyunun basindaki (ve "Bastan baslat" sonrasindaki) durum: Buhari
+  // zaten secili, step 1'den baslar (CORRECT[0] zaten bulunmus sayilir),
+  // Mustafa ve iz onun yanindan baslar.
+  function initState(){
+    step = 1;
+    currentAnchor = board.querySelector('.node[data-id="' + AUTHOR_ID + '"]');
+    pathAnchors = currentAnchor ? [currentAnchor] : [];
+    drawPath();
+    syncMustafa();
+    updateProgress();
+  }
+
+  // isnad'in Arapca ALINTI metni aktif hadisten gelir (HTML'deki sabit
+  // icerik yalnizca varsayilan/niyet hadisi icin bir yedektir).
+  document.getElementById('isnadAr').innerHTML = activeHadith.isnad;
+  syncNavButtons();
+
+  buildNodes();
+  initState();
+  // Yukarida senkron okunan dil gecerliyse (STRINGS'te varsa) hemen
+  // uygula -- hala aynı senkron script calismasi icindeyiz, yani
+  // tarayici Turkce halini hic BOYAMADAN dogru dille devam ediyor.
+  if(initialAppearance && STRINGS[initialAppearance.language]){
+    applyLanguage(initialAppearance.language);
+  } else {
+    // Dil mesaji hic gelmese bile applyLanguage BIR KEZ calismali:
+    // yonerge metni asamaya bagli ve HTML'deki duragan hali "tamamla"
+    // diyor, oysa acilista "ezberle" demesi gerekiyor.
+    applyLanguage(currentLang);
+  }
+
+  // Kat genislikleri (pencere/yakinlastirma) degistiginde Mustafa ve iz
+  // cizgisi kutulardan yeniden hesaplanir.
+  var relayoutTimer = null;
+  function relayout(){
+    clearTimeout(relayoutTimer);
+    relayoutTimer = setTimeout(function(){
+      syncMustafa();
+      drawPath();
+    }, 80);
+  }
+  window.addEventListener('resize', relayout);
+  if('ResizeObserver' in window){
+    new ResizeObserver(relayout).observe(board);
+  }
+  // Canvas olcusu ancak video yuklenince belli oluyor; kistirma hesabi
+  // (rightEdgePct) Mustafa'nin genisligini kullandigi icin o anda bir kez
+  // daha hizala.
+  video.addEventListener('loadeddata', relayout);
+
+  prevBtn.addEventListener('click', function(){
+    if(!prevHadith || window.parent === window) return;
+    window.parent.postMessage(
+      { type:'resule-kavusmak-prev', hadis: prevHadith.id },
+      '*'
+    );
+  });
+
+  // "Sonraki" dugmesi: izgaradan gelindiyse gezinmeyi IPTAL edip ust
+  // pencereye siradaki hadisin id'sini yolluyoruz -- oyun ayni sayfada,
+  // ayni iframe'de yeni hadisle yeniden kuruluyor (bkz.
+  // app/resule-kavusmak-sinama/page.tsx). Aksi halde <a href> kendi
+  // isini yapar ve /mustafa-calisiyor acilir.
+  nextBtn.addEventListener('click', function(e){
+    if(!nextHadith || window.parent === window) return;
+    e.preventDefault();
+    window.parent.postMessage(
+      { type:'resule-kavusmak-next', hadis: nextHadith.id },
+      '*'
+    );
+  });
+
+  // Hem "Bastan Basla" dugmesi hem 3-yanlis penceresi bunu cagiriyor.
+  function resetGame(){
+    goalNode.classList.remove('reached');
+    hadithBubble.classList.remove('glow-active');
+    asamaAyarla('ezber');
+    syncNavButtons();
+    // finish() gizledigi katlari geri getir.
+    board.classList.remove('finished');
+    clearTimeout(tidyTimer);
+    wrongCount = 0;
+    hideWrongModal();
+    metinValue.innerHTML = '<span class="placeholder"></span>';
+    metinValue.querySelector('.placeholder').textContent = STRINGS[currentLang].placeholder;
+    Array.prototype.forEach.call(board.querySelectorAll('.node'), function(el){
+      el.classList.remove('visited','wrong');
+      var b = el.querySelector('.badge');
+      if(b) b.remove();
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('.ravi-name'), function(s){
+      s.classList.remove('lit','lit-flash');
+    });
+    // Muellif (Buhari/Muslim) yeniden secili baslar; digerleri
+    // initState() ile bosa doner.
+    var buhariEl = board.querySelector('.node[data-id="' + AUTHOR_ID + '"]');
+    if(buhariEl) buhariEl.classList.add('visited');
+    initState();
+  }
+  document.getElementById('resetBtn').addEventListener('click', resetGame);
+  wrongModalBtn.addEventListener('click', resetGame);
+
+  // Bu sayfanin kendi tema/dil dugmesi yok: gercek site basligindaki
+  // karanlik/aydinlik ve dil dugmeleri DISARIDA, page.tsx'te duruyor.
+  // Ust pencere o dugmelere her basildiginda (ve iframe ilk
+  // yuklendiginde) bize "resule-kavusmak-appearance" mesajiyla guncel
+  // tema ve dili bildiriyor; biz de 'data-theme' niteligini (CSS
+  // degiskenleri siteyle birebir eslessin diye) ve arayuz metinlerini
+  // (applyLanguage) buna gore guncelliyoruz. Mesaj hic gelmezse (sayfa
+  // dogrudan aciliyorsa) CSS'teki prefers-color-scheme ve varsayilan
+  // 'tr' dili zaten makul bir varsayilan verir.
+  window.addEventListener('message', function(e){
+    var data = e.data;
+    if(!data || data.type !== 'resule-kavusmak-appearance') return;
+    if(data.theme === 'dark' || data.theme === 'light'){
+      var kok = document.documentElement;
+      // Gecis sinifi YALNIZCA tema gercekten degisince: ilk mesajda
+      // (nitelik henuz yokken) eklenirse sayfa acilirken bir renk
+      // gecisi caktirir.
+      var oncekiTema = kok.getAttribute('data-theme');
+      if(oncekiTema && oncekiTema !== data.theme){
+        kok.classList.add('tema-gecisi');
+        window.setTimeout(function(){ kok.classList.remove('tema-gecisi'); }, 450);
+      }
+      kok.setAttribute('data-theme', data.theme);
+    }
+    if(STRINGS[data.language]){
+      applyLanguage(data.language);
+    }
+  });
+
+  // Bu sayfa bir iframe icinde gomulu kullanildiginda (resule-kavusmak
+  // sayfasi), ust pencereye kendi yuksekligini bildirir ki iframe sabit
+  // bir tahmin yerine gercek icerige gore boyutlansin.
+  function reportHeight(){
+    if(window.parent !== window){
+      window.parent.postMessage(
+        { type:'resule-kavusmak-height', height: document.documentElement.scrollHeight },
+        '*'
+      );
+    }
+  }
+  ezberBtnEl.addEventListener('click', function(){ asamaAyarla('oyun'); });
+
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  if('ResizeObserver' in window){
+    new ResizeObserver(reportHeight).observe(document.body);
+  }
+  setTimeout(reportHeight, 300);
+
+  // Iframe'in kendi yuksekligi icerige esitlendigi icin hic kaydirma
+  // cubugu yok -- "position:fixed" burada tarayici penceresine degil,
+  // bu document'in TAMAMINA gore sabitleniyor, o yuzden toast eskiden
+  // sayfanin en altina yapisip kaliyordu. Ust pencere (page.tsx) bize
+  // kendi kaydirma konumunu ve pencere yuksekligini bildiriyor; bunlardan
+  // "goruntudeki gercek alt kenarin" bu document icindeki Y konumunu
+  // hesaplayip toast'u position:absolute + bottom ile oraya sabitliyoruz.
+  // Mesaj hic gelmezse (sayfa dogrudan aciliyorsa) CSS'teki varsayilan
+  // fixed hali zaten dogru calisir.
+  window.addEventListener('message', function(e){
+    var data = e.data;
+    if(!data || data.type !== 'resule-kavusmak-viewport') return;
+    lastViewportData = data;
+    applyToastPosition();
+    if(wrongModal.classList.contains('show')) positionWrongModal();
+  });
+})();
+</script>

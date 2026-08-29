@@ -289,7 +289,14 @@ function writeProgress(next: string[]) {
   progressListeners.forEach((listener) => listener());
 }
 
-export default function ResuleKavusmakHub() {
+export default function ResuleKavusmakHub({
+  oyunDosyasi,
+}: {
+  /* Hangi oyun dosyasinin oynatilacagi. Verilmezse ResuleKavusmakGame
+     kendi ontanimlisini (yayindaki surum) kullanir.
+     /resule-kavusmak-sinama buraya deneme kopyasini geciriyor. */
+  oyunDosyasi?: string;
+} = {}) {
   const { t, language } = useLanguage();
   // Uc katman: bolumler -> hadis listesi -> oyun.
   //  - inList false, selected null  -> bolum izgarasi (acilis)
@@ -623,6 +630,7 @@ export default function ResuleKavusmakHub() {
             key={selected}
             hadis={selected}
             nextUnlocked={isNextUnlocked(selected)}
+            dosya={oyunDosyasi}
           />
         </div>
       )}
