@@ -88,7 +88,46 @@ const renkOf = (id) => {
 /* Tabaka 6 icin 308: bu isimlerin cogu 280-360 arasinda vefat etti ama
    YIL_MAX 315, yani 320 ekseni tasardi. Gercek tarihler islenene kadar
    dikey konumlari yalnizca "en altta" demek. */
-const TAHMIN = { 0: 11, 1: 55, 2: 90, 3: 105, 4: 135, 5: 175, 6: 308 };
+/* Tabaka 6'nin merkezi 308 degil 300: 30 yillik bant (285-315) ekseni
+   tasmadan sigsin. 308 iken bandin ust yarisi YIL_MAX'a kirpiliyor ve
+   isimler yeniden yigiliyordu. */
+const TAHMIN = { 0: 11, 1: 55, 2: 90, 3: 105, 4: 135, 5: 175, 6: 300 };
+
+/* Vefat yili bilinmeyen ravinin yerlesim yili.
+
+   TEK BIR DEGERE YIGMIYOR, 30 YILLIK BIR BANDA DAGITIYOR. Onceden
+   tarihsiz herkes tabakanin varsayilan yilina oturuyordu ve sonuc
+   tabloda yatay bir boncuk dizisiydi: onlarca nokta tam ayni yukseklikte,
+   isimleri de birbirine giriyordu (Mustafa'nin ekran goruntuleri,
+   2026-08-29). Dagitim ravinin kendi kimliginden turetiliyor, yani
+   rastgele degil -- her calistirmada ayni yere dusuyor.
+
+   BU BIR TARIH IDDIASI DEGIL: nokta zaten "ö. ?/?" yaziyor. Bandin
+   tek isi ayni tabakadaki tarihsizleri birbirinden ayirmak. Gercek
+   tarih islenince `olum` dolar ve bant devreden cikar.
+
+   Bant eksenin disina tasmasin diye kirpiliyor. */
+const BANT = 30;
+
+/* Karmayi DAGITAN son islem. `salSayi` ardisik harflerde ardisik
+   sonuclar veriyor; "ms01".."ms29" gibi birbirine cok benzeyen id'ler
+   mod 1000 alininca birkac degere yigiliyordu -- olculdu: 21 dugum 2.5
+   yillik bir arali ga dusuyordu, 30 yillik degil. Asagidaki adimlar
+   (xor-kaydir + carp) biti tabana yayiyor. Sonuc yine SABIT: ayni id
+   her zaman ayni yere dusuyor. */
+const dagit = (h) => {
+  h ^= h >>> 16; h = Math.imul(h, 2246822507);
+  h ^= h >>> 13; h = Math.imul(h, 3266489909);
+  h ^= h >>> 16;
+  return (h >>> 0) % 10000 / 10000;
+};
+
+const tahminiYil = (n) => {
+  if (n.olum != null) return n.olum;
+  const merkez = TAHMIN[n.tab];
+  const kay = (dagit(salSayi(n.id)) - 0.5) * BANT;
+  return Math.min(YIL_MAX - 2, Math.max(YIL_MIN + 2, merkez + kay));
+};
 
 // DİA'dan alınan hicrî/milâdî vefat yılları (madde tanıtım cümlelerinden)
 const DIA = {"ali": [40, "661"], "ebuhureyre": [58, "678"], "ebubekir": [13, "634"], "omer": [23, "644"], "aise": [58, "678"], "enes": [93, "711"], "cabir": [78, "697"], "ibnabbas": [68, "687"], "ibnomer": [73, "693"], "ibnmesud": [32, "652"], "ibnzubeyr": [73, "692"], "bera": [71, "690"], "zeydarkam": [68, "688"], "suhayb": [38, "659"], "hasanbali": [49, "669"], "huseyn": [61, "680"], "ibncafer": [80, "699"], "mikdad": [33, "653"], "fatima": [11, "632"], "ubey": [33, "654"], "usame": [54, "674"], "kabahbar": [32, "652"], "ahnef": [67, "686"], "esvedyezid": [75, "694"], "alkame": [62, "682"], "suveydgafle": [80, "699"], "ebuvail": [82, "701"], "zirhubeys": [82, "701"], "saidmusayyeb": [94, "713"], "hasanbasri": [110, "728"], "rebihiras": [101, "719"], "zeydvehb": [83, "702"], "ebutufeyl": [100, "718"], "sabi": [104, "722"], "urve": [94, "713"], "ikrime": [105, "723"], "zeynelabidin": [94, "712"], "zeydeslem": [136, "754"], "salimibnomer": [106, "725"], "amrhurays": [85, "704"], "zeydsabit": [45, "665"], "kayshazim": [97, "715"], "abdrahmanebubekir": [53, "673"], "abdrahmanavf": [32, "652"], "osman": [35, "656"], "ukbeamir": [58, "678"], "ebumusa": [42, "662"], "ebusaid": [74, "693"], "huzeyfe": [36, "656"], "ebusalih": [101, "719"], "esaskays": [40, "661"], "cerirbecelî": [51, "671"], "sadvakkas": [55, "675"], "talha": [36, "656"], "asimomer": [70, "689"], "ebanosman": [105, "723"], "ibnhanefiyye": [81, "700"], "ataebirebah": [114, "732"], "ubeydullahadi": [58, "678"], "abdrahmanyezid": [198, "813"], "ebuabdrahmansulemi": [73, "692"], "selemeekva": [74, "693"], "imranhusayn": [52, "672"], "mugirasube": [50, "670"], "abdrahmanabza": [70, "689"], "amrdinar": [126, "744"], "ebuishaksebii": [127, "745"], "amess": [148, "765"], "malik": [179, "795"], "ibncureyc": [150, "767"], "ibnuyeyne": [198, "814"], "hammadseleme": [167, "784"], "mamer": [153, "770"], "sevri": [161, "778"], "evzai": [157, "774"], "huseym": [183, "799"], "yahyaadem": [203, "818"], "kattan": [198, "813"], "ibnmehdi": [198, "813"], "rafihadic": [73, "692"], "eyyubsahtiyani": [131, "749"], "haccacertat": [145, "762"], "ebulaliye": [90, "709"], "ibrahimteymi": [92, "710"], "hafsgiyas": [194, "810"], "leysbsad": [175, "791"], "ibnidris": [192, "807"], "alimushir": [189, "805"], "saidcubeyr": [94, "713"], "tavus": [106, "725"], "mucahid": [103, "721"], "suleymanyesar": [107, "725"], "vehbmunebbih": [114, "732"], "hammadzeyd": [179, "795"], "numanbesir": [64, "684"], "zuhayrmuaviye": [173, "789"], "temimdari": [40, "661"], "bilal": [20, "641"], "amirrebia": [35, "656"], "sabitbunani": [127, "744"], "dahhak": [105, "723"], "ebukilabe": [104, "722"], "yahyasaidensari": [143, "760"], "katade": [117, "735"], "yahyaebikesir": [129, "747"], "ibnishak": [151, "768"], "ibnebiaruba": [156, "773"], "ebuavane": [176, "792"], "sube": [160, "776"], "veki": [197, "812"], "ibnmubarek": [181, "797"], "cerirabdulhamid": [188, "804"], "ebucafermuhbakir": [114, "733"], "ebuselemeavf": [94, "712"], "mesruk": [63, "683"], "amrmeymun": [74, "693"], "hamzazeyyat": [156, "773"], "halidvelid": [21, "642"], "bureyde": [63, "682"], "hafsa": [45, "665"], "ibnebimuleyke": [117, "735"], "ebunadra": [108, "726"], "haricezeyd": [100, "718"], "ubeydullahutbe": [98, "716"], "arac": [117, "735"], "ibrahimsad": [183, "799"], "suaybebihamza": [162, "779"], "ibnsihab": [124, "742"], "hisamdestuvai": [153, "770"], "misersukdam": [155, "772"], "suleymanteymi": [143, "761"], "serikkadi": [177, "794"], "sureyh": [80, "699"], "ibnebizaide": [182, "798"], "nebi": [11, "632"], "buhari": [256, "870"], "muslim": [261, "875"], "ebudavud": [275, "889"], "tirmizi": [279, "892"], "nesai": [303, "915"], "ibnmace": [273, "887"]};
@@ -1740,7 +1779,7 @@ const { POS, SUTUNLAR, W, MEDINE } = (() => {
   const plan = {};
   BELDELER.forEach((belde) => {
     const grup = NODES.filter((n) => n.belde === belde && n.id !== "nebi")
-      .map((n) => ({ n, y: yOf(n.olum ?? TAHMIN[n.tab]) }))
+      .map((n) => ({ n, y: yOf(tahminiYil(n)) }))
       .sort((a, b) => a.y - b.y);
     // İki geçiş. Birincisi kaç şerit gerektiğini bulur (ilk boş şerit yöntemi),
     // ikincisi o kadar şeridi baştan açıp râvileri aralarında dengeli dağıtır.
@@ -1890,6 +1929,17 @@ const ESIK = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 };
 const buyuk = (t) => t.replace(/i/g, "\u0130").toUpperCase();
 
 const YILLAR = Array.from({ length: 31 }, (_, i) => 10 + i * 10);
+
+/* Yatay damali satirlar: 25'er yillik bantlar (Mustafa, 2026-08-29).
+   Sutunlardaki damali zeminin dikey karsiligi -- goz, bir ismin hangi
+   ceyrek yuzyila dustugunu cizgileri saymadan gorebilsin diye.
+   Sutunlarla AYNI iki ton kullaniliyor ama daha soluk: ikisi ust uste
+   binince renk birikip zemini kirletmesin. */
+const SATIR_YIL = 25;
+const SATIRLAR = Array.from(
+  { length: Math.ceil((YIL_MAX - YIL_MIN) / SATIR_YIL) },
+  (_, i) => YIL_MIN + i * SATIR_YIL,
+);
 /* Sabit bantlar: solda yil ekseni, ustte belde isimleri. Ikisi de
    2026-08-29'da daraltildi (44 -> 26 ve 58 -> 36). Bantlar tuvalden
    yer caliyor; ozellikle telefonda 58 px'lik sol bant ekranin altida
@@ -2136,6 +2186,12 @@ export default function SilsileAgi() {
       return;
     }
 
+    /* YUKARI GIDERKEN ONCE SAYFAYI GERI SAR. Footer gorunur haldeyken
+       tekerlegi yukari cevirince ag kayiyor ve footer ekranda asili
+       kaliyordu (Mustafa, 2026-08-29). Sayfa tepeye donmeden ag'a
+       dokunulmuyor -- asagi inerken isleyen kuralin aynadaki hali. */
+    if (ev.deltaY < 0 && window.scrollY > 0) return;
+
     const hedef = { ...view, y: view.y - ev.deltaY };
     const sonuc = sinirla(hedef);
     // sinir yuzunden hic kimildamadiysak tekerlek sayfaya kalsin
@@ -2235,6 +2291,13 @@ export default function SilsileAgi() {
      isim arayip secince kamera hic kimildamazsa arama iseyaramaz hale
      gelir. */
   const odaklan = (id) => {
+    /* Hover durumu BURADA temizleniyor. Bir dugume tiklayip baskasina
+       gecince eski dugumun kenarlari yanik kaliyordu: `uzerinde`
+       ancak `onMouseLeave` ile temizleniyor, ama dugum eleme
+       (gorus alani disinda kalma) ya da yeniden cizim yuzunden
+       DOM'dan kalkarsa o olay hic gelmiyor ve deger takili kaliyor.
+       Iki secimin kenarlari birlikte gorunuyordu (Mustafa, 2026-08-29). */
+    setUzerinde(null);
     if (secim && secim.tur === "ravi" && secim.id === id) { setSecim(null); return; }
     setSecim({ tur: "ravi", id });
     const p = POS[id];
@@ -2467,6 +2530,16 @@ export default function SilsileAgi() {
                 </g>
               );
             })}
+            {/* 25'er yillik damali satirlar. Sutun seritlerinin USTUNE
+                cizilliyor ki iki desen carpisip birbirini bozmasin;
+                ikisi de cok soluk oldugu icin ust uste gelen yerde
+                yalnizca bir tik koyulasiyor. */}
+            {SATIRLAR.map((y, i) => (
+              <rect key={"s" + y} x={-W} y={yOf(y)} width={W * 3}
+                height={yOf(Math.min(y + SATIR_YIL, YIL_MAX)) - yOf(y)}
+                fill={i % 2 === 0 ? "#8A7A34" : "#2E7D6E"}
+                opacity={i % 2 === 0 ? 0.055 : 0.028} />
+            ))}
             {YILLAR.map((y) => (
               <line key={y} x1="0" y1={yOf(y)} x2={W} y2={yOf(y)}
                 stroke="#D8D0BF" strokeWidth="1" opacity={y % 50 === 0 ? 0.85 : 0.28} />
@@ -2675,7 +2748,7 @@ export default function SilsileAgi() {
           if (sonParmak && !tasindiRef.current) { setSecim(null); setAcikArama(false); }
         }}
         onPointerCancel={pointerBirak}
-        onPointerLeave={pointerBirak}>
+        onPointerLeave={(e) => { pointerBirak(e); setUzerinde(null); }}>
 
         {/* ---- ana tuval ---- */}
         <svg width="100%" height="100%" style={{ position: "absolute", inset: 0 }}>
@@ -2878,6 +2951,7 @@ export default function SilsileAgi() {
               background: "rgba(255,255,255,0.97)", border: "1px solid #D8D0BF",
               borderRadius: 2, padding: 16,
             }}
+            data-ustlik
             onPointerDown={(e) => e.stopPropagation()} onPointerUp={(e) => e.stopPropagation()}
             onWheel={(e) => e.stopPropagation()}>
             <button onClick={() => setSecim(null)}
