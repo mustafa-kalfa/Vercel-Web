@@ -6,8 +6,13 @@ import { useLanguage } from "./LanguageContext";
 /* 0.75 KALDIRILDI (Mustafa, 2026-08-29): yavaslatma istenmiyordu ve
    "0.75×" bes karakterle dugmenin en genis halini belirliyordu. Kalan
    en uzun etiket "1.75×", o da kucultulmus punto ile 40px cembere
-   sigiyor. */
-const SPEEDS = [1, 1.25, 1.5, 1.75, 2];
+   sigiyor.
+
+   2.25 / 2.5 / 3 EKLENDI (Mustafa, 2026-08-30). Dugme olcusune
+   dokunmak gerekmedi: en uzun yeni etiket "2.25×" yine bes karakter,
+   yani mevcut en genis halden daha genis degil. Ust sinir 3x, cunku
+   tarayicilar `playbackRate` 4'un ustunde sesi susturuyor. */
+const SPEEDS = [1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 3];
 const SKIP_SECONDS = 5;
 
 function formatTime(seconds: number) {
