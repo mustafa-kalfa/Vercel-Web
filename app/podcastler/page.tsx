@@ -10,8 +10,11 @@ export default function Podcastler() {
   const buttonClass =
     "flex h-12 w-full max-w-xs items-center justify-center whitespace-nowrap rounded-full border border-solid border-black/20 px-5 text-center text-base font-medium transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]";
 
-  // Yalnizca Hadis Tarihi'nin kendi sayfasi var; digerleri bolum
-  // eklendikce ayni sekilde `href` alacak.
+  /* Yalnizca Hadis Tarihi'nin kendi sayfasi var. Digerleri simdilik
+     /mustafa-calisiyor'a gidiyor (Mustafa'nin talebi, 2026-08-29): o
+     sayfa "Mustafa bu is uzerinde calisiyor" diyor, yani ziyaretci
+     tiklayinca bos bir yere degil, durumu anlatan bir yere dusuyor.
+     Bolum eklendikce buradaki `href` kendi sayfasiyla degistirilecek. */
   const categories = [
     t.podcastHadithMethodology,
     t.podcastHadithLiterature,
@@ -38,9 +41,9 @@ export default function Podcastler() {
         </Link>
 
         {categories.map((label) => (
-          <button key={label} type="button" className={buttonClass}>
+          <Link key={label} href="/mustafa-calisiyor" className={buttonClass}>
             {label}
-          </button>
+          </Link>
         ))}
       </div>
     </main>

@@ -32,17 +32,25 @@ export default function MustafaCalisiyor() {
         </div>
       </div>
 
-      <div aria-hidden="true" className="h-[60vh] shrink-0 sm:h-0" />
+      {/* Karakter ve pay /selam ile AYNI (Mustafa'nin talebi,
+          2026-08-29): klip 25vh, pay 30vh. Ikisi de once iki katiydi
+          (50vh / 60vh).
 
-      {/* KONUM `absolute`, `fixed` DEGIL. fixed iken klip gorunum
-          alaninin dibine yapisiyor ve sayfa sonuna gelindiginde
-          footer'in uzerini ortuyordu. absolute olunca sarmalayici
-          <main>'in (relative) dibine yapisiyor, yani tam footer'in
-          USTUNE -- footer layout.tsx'ten geldigi ve bu ogenin disinda
-          kaldigi icin ortusme artik imkansiz. */}
+          Pay'in isi: karakter dar ekranda balonun alt kismini ortuyor,
+          bu bos alan sayfayi kaydirilabilir yapiyor ve asagi kaydirinca
+          balon karakterin onunden yukari cikip tamamen okunuyor. Genis
+          ekranda ortusme olmadigi icin pay kapatiliyor. Klip yarilandigi
+          icin pay da yarilandi.
+
+          KONUM `absolute`, `fixed` DEGIL: fixed iken klip gorunum
+          alaninin dibine yapisip sayfa sonunda footer'in uzerini
+          ortuyor. absolute olunca sarmalayici <main>'in (relative)
+          dibine, yani footer'in tam ustune oturuyor. */}
+      <div aria-hidden="true" className="h-[30vh] shrink-0 sm:h-0" />
+
       <ChromaKeyVideo
         src="/Mustafa%20Karsilama_seffaf.mp4"
-        className="absolute bottom-0 right-0 h-[50vh] w-auto max-w-none"
+        className="absolute bottom-0 right-0 h-[25vh] w-auto max-w-none"
       />
     </main>
   );
