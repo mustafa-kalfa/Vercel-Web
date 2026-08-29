@@ -46,7 +46,7 @@ export default function LanguageSwitcher() {
     <button
       type="button"
       onClick={cycleLanguage}
-      className="lang-switcher fixed right-4 top-4 z-20 flex h-9 items-center justify-center gap-1.5 rounded-full border border-black/20 bg-background px-3 text-sm font-medium text-foreground transition-colors hover:bg-black/[.04] rtl:flex-row-reverse dark:border-white/70 dark:hover:bg-[#1a1a1a]"
+      className="lang-switcher fixed right-4 top-[9px] z-20 flex h-9 items-center justify-center gap-1.5 rounded-full border border-black/20 bg-background px-3 text-sm font-medium text-foreground transition-colors hover:bg-black/[.04] rtl:flex-row-reverse dark:border-white/70 dark:hover:bg-[#1a1a1a]"
       aria-label={t.languageToggle}
       title={t.languageToggle}
     >

@@ -23,12 +23,12 @@ export default function Oyunlar() {
       <Link
         href="/"
         aria-label={t.brandAlt}
-        className="absolute left-1/2 top-1 z-20 flex h-[72px] -translate-x-1/2 items-center transition-opacity hover:opacity-70"
+        className="absolute left-1/2 top-1 z-20 flex h-[48px] -translate-x-1/2 items-center transition-opacity hover:opacity-70"
       >
         <ChromaKeyVideo
           src="/HD-Mini.mp4"
           loop={false}
-          className="h-[72px] w-auto max-w-none brightness-0 dark:brightness-100"
+          className="h-[48px] w-auto max-w-none brightness-0 dark:brightness-100"
         />
       </Link>
 

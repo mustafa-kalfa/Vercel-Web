@@ -172,12 +172,12 @@ const tarihYaz = (n) => {
 
 const NODES = [
   N("nebi", "النبي صلى الله عليه وسلم", "Hz. Peygamber", 0, 11, "Medine", "Bütün rivayetin kaynağı. Tehzîb tercemelerinde sahâbenin hocası olarak «روى عن النبي ﷺ» kaydıyla geçer."),
-  N("ali", "علي بن أبي طالب", "Ali b. Ebî Tâlib", 1, 40, "Kûfe", "Tehzîb terceme 4089, rumûz ع. Tercemesi 18 sayfa, ilk 3 sayfası işlendi."),
+  N("ali", "علي بن أبي طالب", "Ali b. Ebî Tâlib", 1, 40, "Kûfe", "Tehzîb terceme 4089, rumûz ع."),
   N("ebuhureyre", "أبو هريرة الدوسي", "Ebû Hüreyre", 1, 57, "Medine", "Tehzîb terceme 7681. Sahâbenin hâfızı. Mizzî talebeleri arasında 338 isim sayar, Buhârî'den naklen «روى عنه نحو من ثمان مئة رجل أو أكثر» der. Semâ kaydı düşülenler bağ olarak çizilmedi: Zührî «ولم يسمع منه»; Yezîd b. Rûmân ve Mekhûl «مرسل»; Zeyd b. Eslem «قيل لم يسمع منه»."),
-  N("ebubekir", "أبو بكر الصديق", "Ebû Bekir es-Sıddîk", 1, 13, "Medine", "Tehzîb'de «عبد الله بن عثمان وهو أبو قحافة» adıyla, bâbü'l-ayn içinde. Şu an yalnız hoca konumunda."),
+  N("ebubekir", "أبو بكر الصديق", "Ebû Bekir es-Sıddîk", 1, 13, "Medine", "Tehzîb'de «عبد الله بن عثمان وهو أبو قحافة» adıyla, bâbü'l-ayn içinde."),
   N("omer", "عمر بن الخطاب", "Ömer b. el-Hattâb", 1, 23, "Medine"),
   N("mikdad", "المقداد بن الأسود", "Mikdâd b. el-Esved", 1, 33, "Medine"),
-  N("fatima", "فاطمة بنت رسول الله", "Fâtıma bint Resûlillâh", 1, 11, "Medine", "Mizzî, Hz. Ali’nin hocaları arasında zevcesi olarak zikreder. Kendi tercemesi Kitâbü’n-nisâ’da, henüz işlenmedi."),
+  N("fatima", "فاطمة بنت رسول الله", "Fâtıma bint Resûlillâh", 1, 11, "Medine", "Mizzî, Hz. Ali’nin hocaları arasında zevcesi olarak zikreder. Kendi tercemesi Kitâbü’n-nisâ’dadır."),
   N("ubey", "أبي بن كعب", "Übey b. Kâ‘b", 1, 30, "Medine"),
   N("usame", "أسامة بن زيد", "Üsâme b. Zeyd", 1, 54, "Medine"),
   N("basra", "بصرة بن أبي بصرة الغفاري", "Basra b. Ebû Basra el-Gıfârî", 1, null, "Mısır"),
@@ -236,7 +236,7 @@ const NODES = [
 
   N("sabi", "عامر بن شراحيل الشعبي", "Âmir b. Şerâhîl eş-Şa‘bî", 3, 104, "Kûfe"),
   N("ibnebileyla", "عبد الرحمن بن أبي ليلى", "Abdurrahman b. Ebî Leylâ", 3, 83, "Kûfe"),
-  N("urve", "عروة بن الزبير", "Urve b. ez-Zübeyr", 3, 94, "Medine", "Zührî'nin başlıca hocası. Ağ genişleyince Zührî halkasının bağlantı noktası olacak."),
+  N("urve", "عروة بن الزبير", "Urve b. ez-Zübeyr", 3, 94, "Medine", "Zührî'nin başlıca hocası; Medine'nin yedi fakıhından."),
   N("ikrime", "عكرمة مولى ابن عباس", "İkrime mevlâ İbn Abbâs", 3, 105, "Medine"),
   N("zeynelabidin", "علي بن الحسين", "Ali b. el-Hüseyin (Zeynelâbidîn)", 3, 94, "Medine", "Ali'den rivayeti mürseldir."),
   N("ubeydullaherafi", "عبيد الله بن أبي رافع", "Ubeydullah b. Ebî Râfi‘", 3, null, "Medine", "Hz. Ali'nin kâtibi («وكان كاتبه»)."),
@@ -748,7 +748,7 @@ const NODES = [
   N("muslim", "مسلم بن الحجاج القشيري", "Müslim b. el-Haccâc", 5, 261, "Horasan", "es-Sahîh sahibi. Tehzîb 6245, Nîsâbûrî."),
   N("ebudavud", "أبو داود السجستاني", "Ebû Dâvûd es-Sicistânî", 5, 275, "Basra", "es-Sünen sahibi."),
   N("tirmizi", "محمد بن عيسى الترمذي", "Tirmizî", 5, 279, "Horasan", "el-Câmi‘ ve el-İlel sahibi."),
-  N("nesai", "أحمد بن شعيب النسائي", "Nesâî", 5, 303, "Mısır", "es-Sünen sahibi. MISIR SUTUNUNDA OLMASININ KAYNAGI: Zehebî, Siyer 14/127 — «جال في طلب العلم في خراسان والحجاز ومصر والعراق والجزيرة والشام والثغور، ثم استوطن مصر، ورحل الحفاظ إليه». Nisbesi Horasan'daki Nesâ'ya ait, ikameti Mısır; projenin ölçütü ikamet."),
+  N("nesai", "أحمد بن شعيب النسائي", "Nesâî", 5, 303, "Mısır", "es-Sünen sahibi. Nisbesi Horasan'daki Nesâ'ya ait; Zehebî, Siyer 14/127: «Horasan, Hicaz, Mısır, Irak, Cezîre, Şam ve serhat boylarında ilim için dolaştı, sonra Mısır'a yerleşti ve hâfızlar ona rihle etti» — «ثم استوطن مصر، ورحل الحفاظ إليه»."),
 
   /* ---- Muslim'in talebeleri — Tehzîb 5923 (Samile 3722, s. 27/504-505) ----
 
@@ -895,6 +895,27 @@ const NODES = [
   N("im03", "أبو عمرو أحمد بن محمد بن حكيم المديني", "Ebû Amr Ahmed b. Muhammed b. Hakîm el-Medînî", 6, null, "Cibâl"),
   N("im04", "أبو الحسن علي بن إبراهيم القطان", "Ebü'l-Hasen Ali b. İbrâhim el-Kattân", 6, null, "Basra"),
   N("im05", "سليمان بن يزيد الفامي", "Süleymân b. Yezîd el-Fâmî", 6, null, "Cibâl"),
+
+  /* ---- Buhârî'nin talebeleri — Siyer 12/397 ----
+     Zehebî'nin «روى عنه خلق كثير، منهم» listesi. Ağda zaten düğümü olan
+     isimler (Tirmizî, Müslim, Ebû Hâtim, Cezere, İbn Sâid, İbn Ebî
+     Dâvûd, İbn Ebi'd-Dünyâ) yeniden açılmadı. */
+  N("bh03", "إبراهيم بن إسحاق الحربي", "İbrâhim b. İshak el-Harbî", 6, null, "Basra"),
+  N("bh05", "أبو بكر أحمد بن عمرو بن أبي عاصم", "Ebû Bekir Ahmed b. Amr İbn Ebî Âsım", 6, null, "Basra"),
+  N("bh06", "صالح بن محمد جزرة", "Sâlih b. Muhammed (Cezere)", 6, null, "Basra"),
+  N("bh07", "محمد بن عبد الله الحضرمي مطين", "Muhammed b. Abdillâh el-Hadramî (Mutayyen)", 6, null, "Vâsıt"),
+  N("bh08", "إبراهيم بن معقل النسفي", "İbrâhim b. Ma‘kıl en-Nesefî", 6, null, "Mâverâünnehir"),
+  N("bh09", "عبد الله بن ناجية", "Abdullah b. Nâciye", 6, null, "Basra"),
+  N("bh10", "أبو بكر محمد بن إسحاق بن خزيمة", "Ebû Bekir Muhammed b. İshak İbn Huzeyme", 6, null, "Basra"),
+  N("bh11", "عمر بن محمد بن بجير", "Ömer b. Muhammed b. Büceyr", 6, null, "Basra"),
+  N("bh12", "أبو قريش محمد بن جمعة", "Ebû Kureyş Muhammed b. Cum‘a", 6, null, "Basra"),
+  N("bh14", "محمد بن يوسف الفربري", "Muhammed b. Yûsuf el-Firebrî", 6, null, "Mâverâünnehir"),
+  N("bh15", "منصور بن محمد مزبزدة", "Mansûr b. Muhammed (Mizbezde)", 6, null, "Basra"),
+  N("bh17", "الحسين بن إسماعيل المحاملي", "Hüseyin b. İsmâîl el-Mehâmilî", 6, null, "Basra"),
+  N("bh18", "القاسم بن إسماعيل المحاملي", "Kāsım b. İsmâîl el-Mehâmilî", 6, null, "Basra"),
+  N("bh19", "عبد الله بن محمد بن الأشقر", "Abdullah b. Muhammed İbnü'l-Eşkar", 6, null, "Basra"),
+  N("bh20", "محمد بن سليمان بن فارس", "Muhammed b. Süleymân b. Fâris", 6, null, "Basra"),
+  N("bh21", "محمود بن عنبر النسفي", "Mahmûd b. Anber en-Nesefî", 6, null, "Mâverâünnehir"),
 
   N("ibnmace", "محمد بن يزيد ابن ماجه", "İbn Mâce", 5, 273, "Cibâl", "es-Sünen sahibi."),
   N("darimi", "عبد الله بن عبد الرحمن الدارمي", "Dârimî", 5, 255, "Horasan"),
@@ -1155,6 +1176,17 @@ const EDGES = [
       ["im01","—"],["im02","—"],["im03","—"],
       ["im04","—"],["im05","—"],
      ].map(([b, r]) => E("ibnmace", b, r, "Siyer 13/278")),
+  /* Buhârî'nin talebeleri — Siyer 12/397 */
+  ...[
+      ["tirmizi","—"],["ebuhatimrazi","—"],["bh03","—"],
+      ["ed20","—"],["bh05","—"],["bh06","—"],
+      ["bh07","—"],["bh08","—"],["bh09","—"],
+      ["bh10","—"],["bh11","—"],["bh12","—"],
+      ["ms28","—"],["bh14","—"],["bh15","—"],
+      ["ed19","—"],["bh17","—"],["bh18","—"],
+      ["bh19","—"],["bh20","—"],["bh21","—"],
+      ["muslim","—"],
+     ].map(([b, r]) => E("buhari", b, r, "Siyer 12/397")),
   /* Ebû Hüreyre'nin talebeleri — Tehzîb 7681 (Şâmile 3722, s. 34/367-377).
      Mizzî 338 isim sayıyor; Buhârî'den naklen «روى عنه نحو من ثمان مئة رجل
      أو أكثر» der. Buradaki 46 bağ, o listenin AĞDA ZATEN BULUNAN
@@ -2087,7 +2119,17 @@ export default function SilsileAgi() {
   const [acikArama, setAcikArama] = useState(false);
   const [view, setView] = useState({ x: 0, y: 0, k: 0.4 });
   const [suruk, setSuruk] = useState(null);
-  const [uzerinde, setUzerinde] = useState(null);
+  /* HOVER JS'TE TUTULMUYOR. Eskiden `uzerinde` diye bir state vardi:
+     imlec bir dugumun uzerine gelince o dugum buyuyor ve kenarlari akan
+     kesik cizgiye donusuyordu. Bedeli agirdi -- `uzerinde` ag govdesini
+     donduran useMemo'nun bagimliliklarindaydi, yani FARE HER DUGUMUN
+     USTUNDEN GECTIGINDE 4700 SVG elemani bastan kuruluyordu. Bilgisayarin
+     fani bundan calisiyordu (Mustafa, 2026-08-29).
+
+     Yerine: vurgu artik yalnizca TIKLAMAYLA (secim) geliyor; imlecin
+     uzerinde oldugu dugum ise saf CSS ile isaretleniyor
+     (`.dugum:hover circle.ana`, asagidaki stil blogu) -- React'in
+     hicbir sey yeniden cizmesine gerek kalmadan. */
   const [acildi, setAcildi] = useState(false);
   const tweenRef = useRef(null);
   /* `tasindi` REF, state degil. Iki sebep: (1) hicbir yerde
@@ -2455,13 +2497,6 @@ export default function SilsileAgi() {
      isim arayip secince kamera hic kimildamazsa arama iseyaramaz hale
      gelir. */
   const odaklan = (id) => {
-    /* Hover durumu BURADA temizleniyor. Bir dugume tiklayip baskasina
-       gecince eski dugumun kenarlari yanik kaliyordu: `uzerinde`
-       ancak `onMouseLeave` ile temizleniyor, ama dugum eleme
-       (gorus alani disinda kalma) ya da yeniden cizim yuzunden
-       DOM'dan kalkarsa o olay hic gelmiyor ve deger takili kaliyor.
-       Iki secimin kenarlari birlikte gorunuyordu (Mustafa, 2026-08-29). */
-    setUzerinde(null);
     if (secim && secim.tur === "ravi" && secim.id === id) { setSecim(null); return; }
     setSecim({ tur: "ravi", id });
     const p = POS[id];
@@ -2724,7 +2759,7 @@ export default function SilsileAgi() {
               // odaktaki râvinin kendi bağlarında rivayet yönü akış olarak görünür
               const canli = !secili && ((secim && secim.tur === "ravi" &&
                 (e.a === secim.id || e.b === secim.id)) ||
-                uzerinde === e.a || uzerinde === e.b);
+                false);
               const dy = pb.y - pa.y;
               /* KAVIS tablosu SERIT_W = 620 iken uretilmis sabit bir
                  tablo (1381 kayit). Serit genisligi 1240'a cikinca
@@ -2809,8 +2844,6 @@ export default function SilsileAgi() {
               return (
                 <g key={n.id} className="dugum" transform={`translate(${p.x},${p.y})`}
                   onPointerUp={(ev) => { ev.stopPropagation(); pointerBirak(ev); if (!tasindiRef.current) odaklan(n.id); }}
-                  onMouseEnter={() => setUzerinde(n.id)}
-                  onMouseLeave={() => setUzerinde((ö) => (ö === n.id ? null : ö))}
                   style={{ cursor: "pointer", opacity: d ? 0.38 : 1 }}>
                   {/* SALINIM YALNIZCA ONE CIKAN DUGUMLERDE (halesi
                       olanlar: Hz. Peygamber, muksirun, medar, muellif --
@@ -2852,7 +2885,7 @@ export default function SilsileAgi() {
                       transform="rotate(45)" />
                   )}
                   <circle className={"ana" + (acildi ? "" : " acilis")}
-                    r={uzerinde === n.id ? r * 1.14 : r}
+                    r={r}
                     style={acildi ? undefined : { animationDelay: `${Math.min(p.y / H, 1) * 1500}ms` }}
                     fill={n.id === "nebi" ? NEBI_RENK : renkOf(n.id)}
                     stroke={secili ? "#23201B" : "white"} strokeWidth={secili ? 3.4 : 2} />
@@ -2897,12 +2930,16 @@ export default function SilsileAgi() {
               );
             })}
     </g>
-  ), [kg, box, olculdu, pencere, secim, secRavi, secKenar, uzerinde, acildi,
+  ), [kg, box, olculdu, pencere, secim, secRavi, secKenar, acildi,
       vurgu, etiketliler, yakin, cizgiCarpani, cizgiSaydam, MEDINE_I, adi]);
 
   return (
     <div className="w-full h-full bg-[#FBF9F4] text-[#23201B] flex flex-col overflow-hidden"
          style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>
+      {/* `select-none` tuvalde: surukleyerek gezerken tarayici metin
+          secmeye kalkmasin. Bilgi kartlari bunun DISINDA tutuluyor
+          (`select-text`), yoksa karttaki Arapca ad, tarih ve Mizzî
+          nakli kopyalanamiyordu (Mustafa, 2026-08-29). */}
       <div ref={boxRef} className="relative flex-1 bg-white overflow-hidden select-none"
         /* `touchAction: none`: tarayici parmak hareketini KENDI kaydirma
            ve yakinlastirmasi icin kapmasin, olaylar bize gelsin. Bu
@@ -2917,7 +2954,7 @@ export default function SilsileAgi() {
           if (sonParmak && !tasindiRef.current) { setSecim(null); setAcikArama(false); }
         }}
         onPointerCancel={pointerBirak}
-        onPointerLeave={(e) => { pointerBirak(e); setUzerinde(null); }}>
+        onPointerLeave={pointerBirak}>
 
         {/* ---- ana tuval ---- */}
         <svg width="100%" height="100%" style={{ position: "absolute", inset: 0 }}>
@@ -2951,6 +2988,8 @@ export default function SilsileAgi() {
             .kenar-v { stroke-dasharray: 14 8; animation: akis 1.1s linear infinite; }
             .dugum   { transition: opacity .35s ease; }
             .dugum circle.ana { transition: r .28s cubic-bezier(.34,1.4,.5,1), stroke-width .2s ease; }
+            /* Imlec geri bildirimi SAF CSS. React'e hic ugramiyor,
+               dolayisiyla hicbir sey yeniden cizilmiyor. */
             .dugum:hover circle.ana { stroke: #23201B; stroke-width: 3; }
             .etiket  { transition: opacity .3s ease; }
             .acilis  { animation: belir .85s cubic-bezier(.22,1,.36,1) backwards; transform-box: fill-box; transform-origin: center; }
@@ -3100,7 +3139,7 @@ export default function SilsileAgi() {
 
         {/* ---- sabit bilgi paneli ---- */}
         {secRavi && (
-          <div className="absolute z-20 shadow-lg"
+          <div className="absolute z-20 shadow-lg select-text"
             style={{
               /* Dar ekranda kart TAM GENISLIK ve kontrol kumesinin
                  USTUNDE (kume ~106 px + 12 pay). Yan yana koymak
@@ -3172,7 +3211,7 @@ export default function SilsileAgi() {
           const hoca = NODES.find((n) => n.id === secKenar.a);
           const talebe = NODES.find((n) => n.id === secKenar.b);
           return (
-            <div className="absolute z-20 shadow-lg"
+            <div className="absolute z-20 shadow-lg select-text"
               style={{
                 left: 12, bottom: 12,
                 width: "50%", minWidth: 180,

@@ -122,7 +122,11 @@ export default function ThemeToggle() {
       dir="ltr"
       aria-checked={isDark}
       onClick={toggle}
-      className="fixed left-4 top-4 z-20 flex h-9 w-16 items-center rounded-full border border-black/20 bg-background p-1 transition-colors hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
+      /* top-[9px]: ust bant 54 px, dugme 36 px -> (54-36)/2 = 9.
+         Dugme bandin dikey ortasinda duruyor. Bant olculeri 2026-08-29da
+         %33 kuculdu (logo 72 -> 48, bant 80 -> 54) ve butun sayfalara
+         uygulandi. */
+      className="fixed left-4 top-[9px] z-20 flex h-9 w-16 items-center rounded-full border border-black/20 bg-background p-1 transition-colors hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
       aria-label={t.themeToggle}
       title={t.themeToggle}
     >
