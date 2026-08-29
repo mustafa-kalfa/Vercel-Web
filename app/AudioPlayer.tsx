@@ -3,7 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "./LanguageContext";
 
-const SPEEDS = [0.75, 1, 1.25, 1.5, 1.75, 2];
+/* 0.75 KALDIRILDI (Mustafa, 2026-08-29): yavaslatma istenmiyordu ve
+   "0.75×" bes karakterle dugmenin en genis halini belirliyordu. Kalan
+   en uzun etiket "1.75×", o da kucultulmus punto ile 40px cembere
+   sigiyor. */
+const SPEEDS = [1, 1.25, 1.5, 1.75, 2];
 const SKIP_SECONDS = 5;
 
 function formatTime(seconds: number) {
@@ -32,7 +36,14 @@ function PauseIcon() {
 }
 
 /* Geri/ileri: ok basi ile 5 rakami ayni ikonda. Ok yonu `flip` ile
-   aynalaniyor, rakam aynalanmasin diye ayri bir <text> olarak duruyor. */
+   aynalaniyor, rakam aynalanmasin diye ayri bir <text> olarak duruyor.
+
+   RAKAMIN OLCUSU VE YERI (2026-08-29): once fontSize 9 ve y 18.5 idi;
+   rakam hem buyuk hem asagida duruyor, yayin alt kenarina biniyordu.
+   Yayin cemberi merkezi (12,13), yaricap 6 -- yol `M12 5V2L8 6l4 4V7`
+   ile (12,7)ye cikip oradan 6 yaricapli yay ciziyor. Rakam artik
+   fontSize 7 ve baseline 15.4, yani gorsel merkezi tam (12,13)te:
+   13 + 7*0.35 = 15.45. Cemberin icinde, hicbir kenara degmiyor. */
 function SkipIcon({ flip }: { flip?: boolean }) {
   return (
     <svg
@@ -50,9 +61,9 @@ function SkipIcon({ flip }: { flip?: boolean }) {
       </g>
       <text
         x="12"
-        y="18.5"
+        y="15.4"
         textAnchor="middle"
-        fontSize="9"
+        fontSize="7"
         fontWeight="600"
         stroke="none"
         fill="currentColor"
@@ -200,19 +211,24 @@ export default function AudioPlayer({
             5 sn ileri, bastan cal.
 
             Iki yandaki gruplar `flex-1`: oynat dugmesi satirin TAM
-            ortasinda kalsin diye. Duz bir `justify-center` satirinda
-            hiz dugmesi digerlerinden genis (w-14, "1.75×" sigsin diye)
-            oldugu icin oynat dugmesi 8px saga kayiyordu. */}
+            ortasinda kalsin diye. Hiz dugmesi bir ara digerlerinden
+            genisti (w-14) ve oynat dugmesini 8px saga kaydiriyordu;
+            simdi hepsi ayni cember ama gruplama yerinde birakildi --
+            ileride yan dugmelerden biri genisletilirse ortalama yine
+            kendiliginden dogru kalir. */}
         <div className="mt-4 flex items-center justify-center gap-3">
           <div className="flex flex-1 items-center justify-end gap-3">
-            {/* Sabit genislik: 0.75x -> 1x gecisinde dugme daralip
-                komsularini kaydirmasin. */}
+            {/* Digerleriyle ayni cember: h-10 w-10. Punto `text-[11px]`
+               cunku en uzun etiket "1.75×" bes karakter ve text-sm ile
+               40px cembere sigmiyordu. `tabular-nums` rakamlarin esit
+               genislikte olmasini sagliyor, boylece 1× -> 1.25× gecisinde
+               yazi ziplamiyor. */}
             <button
               type="button"
               onClick={() => setSpeedIndex((i) => (i + 1) % SPEEDS.length)}
               aria-label={t.playerSpeed}
               title={t.playerSpeed}
-              className="flex h-10 w-14 shrink-0 items-center justify-center rounded-full border border-black/20 font-mono text-sm tabular-nums transition-colors hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-black/20 font-mono text-[11px] tabular-nums transition-colors hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
             >
               {speed}×
             </button>
@@ -264,7 +280,7 @@ export default function AudioPlayer({
 
       {failed && (
         <p className="mt-4 text-center text-sm text-zinc-600 dark:text-cream-dimmer">
-          Ses dosyası yüklenemedi.
+          {t.playerFailed}
         </p>
       )}
     </div>
