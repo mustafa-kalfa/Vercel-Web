@@ -60,6 +60,38 @@ export default function Selam() {
             className="absolute -bottom-2 right-12 h-4 w-4 rotate-45 border-b border-r border-black/20 bg-background dark:border-white/70"
           />
         </div>
+
+        {/* Academia profiline giden dugme. Balonun DISINDA: kuyruk balonun
+            alt kenarina oturuyor, ic bir dugme kuyrugun ustune binerdi.
+
+            `ml-auto` mantiksal degil fiziksel -- tipki balonun kendisi
+            gibi. Arapca'da (rtl) `me-auto` dugmeyi sola atar, balon ise
+            sagda kalirdi; ikisinin de sag kenari hizali kalsin diye ayni
+            fiziksel hizalama kullaniliyor. */}
+        <a
+          href="https://ibnhaldun.academia.edu/MustafaKalfa"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-3 ml-auto flex w-fit max-w-md items-center gap-2 rounded-full border border-solid border-black/20 px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
+        >
+          {t.greetingMore}
+          {/* Siteden cikildigini belli eden ok. `rtl:-scale-x-100` ile
+              Arapca'da ok da ters cevriliyor, yoksa metnin akisina karsi
+              bakiyor. */}
+          <svg
+            viewBox="0 0 24 24"
+            className="h-3.5 w-3.5 shrink-0 rtl:-scale-x-100"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M7 17 17 7" />
+            <path d="M8 7h9v9" />
+          </svg>
+        </a>
       </div>
 
       {/* Karakter dar ekranda balonun alt kismini ortuyor. Bu bos pay
