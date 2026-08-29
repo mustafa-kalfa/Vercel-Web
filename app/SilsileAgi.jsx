@@ -2810,6 +2810,25 @@ export default function SilsileAgi() {
   const azHareket = typeof window !== "undefined" &&
     window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const susAnimasyon = !dar && !azHareket;
+  /* Kenar akisi telefonda da acik -- salinim/hale ise degil.
+     Ikisi ayri: salinim 38 dugume 38 birlestirme katmani aciyordu
+     (pahali olan buydu), akis ise tek katmani adimli boyuyor. */
+  const akisAnim = !azHareket;
+
+  /* Kartin gercek yuksekligi: dar ekranda arama kumesi kartin hemen
+     ustune oturuyor. Sabit sayi tutmuyordu -- ravi karti 130,
+     kenar karti degisken (maxHeight 130). */
+  const [kartYuk, setKartYuk] = useState(0);
+  const kartGozRef = useRef(null);
+  const kartRef = useCallback((el) => {
+    kartGozRef.current?.disconnect();
+    kartGozRef.current = null;
+    if (!el) { setKartYuk(0); return; }
+    setKartYuk(el.offsetHeight);
+    const go = new ResizeObserver(() => setKartYuk(el.offsetHeight));
+    go.observe(el);
+    kartGozRef.current = go;
+  }, []);
 
   /* Kenar kalinligi carpani. Kalinlik artik ekran pikseli olarak sabit
      (vectorEffect), ama 1382 kenarin tamami uzaktan tam kalinlikta
@@ -3056,7 +3075,7 @@ export default function SilsileAgi() {
                       }} />
                   )}
                   <path d={d} fill="none"
-                    className={"kenar" + (canli && susAnimasyon ? " kenar-v" : "")}
+                    className={"kenar" + (canli && akisAnim ? (dar ? " kenar-y" : " kenar-v") : "")}
                     stroke={secili ? C.kenarSecili : canli ? C.kenarCanli : dim ? C.kenarSonuk : C.kenar}
                     vectorEffect="non-scaling-stroke"
                     /* Vurgulu kenarlar da uzaklastikca inceliyor.
@@ -3065,10 +3084,15 @@ export default function SilsileAgi() {
                        ekrani kapliyordu (Mustafa'nin ekran goruntusu,
                        2026-08-29). Secili TEK kenar sabit kaliyor --
                        o zaten bir tane. */
-                    strokeWidth={(secili ? 2.6 : canli ? 1.7 : dim ? 0.7 : 1.2) *
-                                 (secili ? 1 : Math.max(canli ? 0.55 : 0, cizgiCarpani))}
-                    opacity={secili ? 1 : canli ? 0.85
-                             : (dim ? 0.5 : 0.85) * cizgiSaydam}
+                    /* Vurgulu kenar uzaklikla bir miktar inceliyor ama
+                       tabani yuksek: 0.55'te birakilinca telefonda
+                       cizgiler secilemiyordu (Mustafa, 2026-08-29).
+                       Sonuk kenarlar ise iyice geri cekildi -- vurgu
+                       kalinliktan cok KARSITLIKTAN dogsun. */
+                    strokeWidth={(secili ? 2.6 : canli ? 2 : dim ? 0.6 : 1.2) *
+                                 (secili ? 1 : Math.max(canli ? 0.9 : 0, cizgiCarpani))}
+                    opacity={secili ? 1 : canli ? 0.95
+                             : (dim ? 0.22 : 0.85) * cizgiSaydam}
                     markerEnd={secili || canli ? "url(#okVurgu)"
                                : !yakin ? undefined
                                : dim ? "url(#okSonuk)" : "url(#ok)"}
@@ -3092,7 +3116,7 @@ export default function SilsileAgi() {
               return (
                 <g key={n.id} className="dugum" transform={`translate(${p.x},${p.y})`}
                   onPointerUp={(ev) => { ev.stopPropagation(); pointerBirak(ev); if (!tasindiRef.current) odaklan(n.id); }}
-                  style={{ cursor: "pointer", opacity: d ? 0.38 : 1 }}>
+                  style={{ cursor: "pointer", opacity: d ? 0.14 : 1 }}>
                   {/* SALINIM YALNIZCA ONE CIKAN DUGUMLERDE (halesi
                       olanlar: Hz. Peygamber, muksirun, medar, muellif --
                       541 dugumun 38'i). Eskiden HEPSI salinirdi.
@@ -3164,7 +3188,7 @@ export default function SilsileAgi() {
               return (
                 <g key={n.id} className="etiket" pointerEvents="none"
                    style={{ paintOrder: "stroke", stroke: C.etiketHale, strokeWidth: punto * 0.32,
-                            opacity: sonuk(n.id) ? 0.38 : 1 }}
+                            opacity: sonuk(n.id) ? 0.12 : 1 }}
                    transform={`translate(${p.x + etiketBilgi.kay / kg},${
                      p.y + (etiketBilgi.yon === "ust"
                        ? -(2 * r + punto + altPunto + 8) : 0)})`}>
@@ -3184,7 +3208,7 @@ export default function SilsileAgi() {
      cikarirdi -- yerine tek bir mantiksal deger. */
   ), [kg, box, olculdu, pencere, secim, secRavi, secKenar, acildi,
       vurgu, etiketliler, yakin, cizgiCarpani, cizgiSaydam, MEDINE_I, adi, koyu,
-      susAnimasyon, t]);
+      susAnimasyon, akisAnim, dar, t]);
 
   return (
     <div className="w-full h-full flex flex-col overflow-hidden"
@@ -3221,6 +3245,7 @@ export default function SilsileAgi() {
         <svg width="100%" height="100%" style={{ position: "absolute", inset: 0 }}>
           <style>{`
             @keyframes akis   { to { stroke-dashoffset: -46; } }
+            @keyframes akisY  { to { stroke-dashoffset: -44; } }
             @keyframes belir  { from { opacity: 0; transform: scale(0.4); }
                                 to   { opacity: 1; transform: scale(1); } }
             @keyframes salin1 { 0%   { transform: translate(0,0); }
@@ -3247,6 +3272,19 @@ export default function SilsileAgi() {
                                 50%     { opacity: .06; transform: scale(1.55); } }
             .kenar   { transition: stroke .35s ease, stroke-width .35s ease, opacity .35s ease; }
             .kenar-v { stroke-dasharray: 14 8; animation: akis 1.1s linear infinite; }
+            /* AKISIN UCUZ SURUMU (telefon). Suresi uzun degil, ADIMLI:
+               steps(12) ile tarayici saniyede 60 kez degil ~5 kez
+               boyuyor. Kasmanin sebebi hizin kendisi degil, her
+               karede kocaman bir SVG katmaninin gecersiz olmasiydi;
+               adim sayisini dusurmek maliyeti dogrudan bolüyor.
+               Dasharray 14+8=22, bir tur -44 -> baslangica dikissiz
+               doner (duz surumdeki -46 her turda 2 px zipliyordu). */
+            .kenar-y { stroke-dasharray: 14 8; animation: akisY 2.6s steps(12) infinite; }
+            /* Bilgi kartlarinin kaydirma cubugu gizli: kutu kaydiriliyor
+               ama Windows'un ok basli gri cubugu tuvalin uzerinde
+               yamalik duruyordu (Mustafa'nin eki, 2026-08-29). */
+            .gizli-kaydirma { scrollbar-width: none; -ms-overflow-style: none; }
+            .gizli-kaydirma::-webkit-scrollbar { width: 0; height: 0; display: none; }
             .dugum   { transition: opacity .35s ease; }
             .dugum circle.ana { transition: r .28s cubic-bezier(.34,1.4,.5,1), stroke-width .2s ease; }
             /* Imlec geri bildirimi SAF CSS. React'e hic ugramiyor,
@@ -3360,16 +3398,15 @@ export default function SilsileAgi() {
             aralik), kapaliyken en alta iniyor. Genis ekranda eskisi
             gibi sag altta, %15. */}
         <div className="absolute z-20" data-ustlik
-          style={dar
-            ? { bottom: (secRavi || secKenar) ? 166 : 12, left: 12, right: 12 }
-            : { bottom: 12, right: 12, width: "15%", minWidth: 132 }}
+          style={{ bottom: dar ? 12 + kartYuk + (kartYuk ? 6 : 0) : 12,
+                   right: 12, width: "15%", minWidth: 132 }}
           onPointerDown={(e) => e.stopPropagation()}
           onPointerUp={(e) => e.stopPropagation()}
           onWheel={(e) => e.stopPropagation()}>
           {acikArama && arama.trim() && (
             /* Sonuc listesi kumeden GENIS: isimler 132 px'e sigmaz.
                Saga yaslanip sola dogru tasiyor. */
-            <div className="shadow" style={{ marginBottom: 6, maxHeight: 260, overflowY: "auto", background: C.tuval, border: "1px solid " + C.cizgi, borderRadius: 2, width: dar ? "100%" : 300, marginLeft: "auto", position: "relative", right: 0 }}>
+            <div className="shadow gizli-kaydirma" style={{ marginBottom: 6, maxHeight: 260, overflowY: "auto", background: C.tuval, border: "1px solid " + C.cizgi, borderRadius: 2, width: dar ? "calc(100vw - 24px)" : 300, marginLeft: "auto", position: "relative", right: 0 }}>
               {sonuclar.length ? sonuclar.map((n) => (
                 <button key={n.id}
                   onClick={() => { odaklan(n.id); setAcikArama(false); }}
@@ -3408,7 +3445,7 @@ export default function SilsileAgi() {
 
         {/* ---- sabit bilgi paneli ---- */}
         {secRavi && (
-          <div className="absolute z-20 shadow-lg select-text"
+          <div ref={kartRef} className="absolute z-20 shadow-lg select-text gizli-kaydirma"
             style={{
               /* Dar ekranda kart TAM GENISLIK ve kontrol kumesinin
                  USTUNDE (kume ~106 px + 12 pay). Yan yana koymak
@@ -3480,7 +3517,7 @@ export default function SilsileAgi() {
           const hoca = NODES.find((n) => n.id === secKenar.a);
           const talebe = NODES.find((n) => n.id === secKenar.b);
           return (
-            <div className="absolute z-20 shadow-lg select-text"
+            <div ref={kartRef} className="absolute z-20 shadow-lg select-text gizli-kaydirma"
               style={{
                 left: 12, bottom: 12, right: dar ? 12 : undefined,
                 width: dar ? undefined : "50%",
