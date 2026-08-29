@@ -748,7 +748,7 @@ const NODES = [
   N("muslim", "مسلم بن الحجاج القشيري", "Müslim b. el-Haccâc", 5, 261, "Horasan", "es-Sahîh sahibi. Tehzîb 6245, Nîsâbûrî."),
   N("ebudavud", "أبو داود السجستاني", "Ebû Dâvûd es-Sicistânî", 5, 275, "Basra", "es-Sünen sahibi."),
   N("tirmizi", "محمد بن عيسى الترمذي", "Tirmizî", 5, 279, "Horasan", "el-Câmi‘ ve el-İlel sahibi."),
-  N("nesai", "أحمد بن شعيب النسائي", "Nesâî", 5, 303, "Mısır", "es-Sünen sahibi."),
+  N("nesai", "أحمد بن شعيب النسائي", "Nesâî", 5, 303, "Mısır", "es-Sünen sahibi. MISIR SUTUNUNDA OLMASININ KAYNAGI: Zehebî, Siyer 14/127 — «جال في طلب العلم في خراسان والحجاز ومصر والعراق والجزيرة والشام والثغور، ثم استوطن مصر، ورحل الحفاظ إليه». Nisbesi Horasan'daki Nesâ'ya ait, ikameti Mısır; projenin ölçütü ikamet."),
 
   /* ---- Muslim'in talebeleri — Tehzîb 5923 (Samile 3722, s. 27/504-505) ----
 
@@ -809,6 +809,92 @@ const NODES = [
   N("ms27", "أبو محمد نصر بن أحمد بن نصر الحافظ المعروف بنصرك", "Ebû Muhammed Nasr b. Ahmed (Nasrek)", 6, 293, "Horasan", "Buhârâ'ya yerleşti, el-Müsned'i tasnif etti. Siyer 13/538: «توفي سنة ثلاث وتسعين ومئتين»."),
   N("ms28", "يحيى بن محمد بن صاعد", "Yahyâ b. Muhammed b. Sâid", 6, 318, "Kûfe", "Bağdatlı; sünenleri ahkâma göre tasnif etti. Siyer 14/505, İbn Şâhîn'den: «توفي ابن صاعد بالكوفة في ذي القعدة سنة ثمان عشرة وثلاث مئة عن تسعين سنة وأشهر». Ağda Bağdat sütunu olmadığı için vefat ettiği yere, Kûfe'ye konuldu."),
   N("ms29", "أبو عوانة الإسفراييني", "Ebû Avâne el-İsferâyînî", 6, null, "Horasan"),
+
+  /* ---- Ebû Dâvûd, Tirmizî, Nesâî ve İbn Mâce'nin talebeleri ----
+
+     Kaynak MIZZI DEGIL, ZEHEBI: Tehzîb Kütüb-i Sitte râvilerini
+     kapsıyor, bu isimler bir tabaka sonrası ve orada tercemeleri yok.
+     Siyeru a'lâmi'n-nübelâ'nın müellif tercemelerindeki «حدث عنه»
+     listeleri kullanıldı; her kenarın kaynak alanında cilt/sayfa var.
+
+     Müslim'in talebeleriyle aynı kurallar: tabaka 6 (ağın son sınırı),
+     Türkçe adlar çeviri yazı işaretleri titizlikle uygulanmadan,
+     Arapça asılları `ar` alanında, vefat yılı YOK (Zehebî bu
+     listelerde tarih vermiyor), belde nisbeden türetildi.
+
+     Listede zaten düğümü olan isimler (Tirmizî, Nesâî, Ebû Avâne
+     el-İsferâyînî) yeniden açılmadı, yalnızca kenarları eklendi. */
+  N("ed01", "إبراهيم بن حمدان العاقولي", "İbrâhim b. Hamdân el-Âkūlî", 6, null, "Horasan"),
+  N("ed02", "أبو الطيب أحمد بن إبراهيم الأشناني", "Ebü't-Tayyib Ahmed b. İbrâhim el-Üşnânî", 6, null, "Basra"),
+  N("ed03", "أبو حامد أحمد بن جعفر الأشعري", "Ebû Hâmid Ahmed b. Ca‘fer el-Eş‘arî el-Isfahânî", 6, null, "Basra"),
+  N("ed04", "أبو بكر النجاد", "Ebû Bekir en-Neccâd", 6, null, "Basra"),
+  N("ed05", "أبو عمرو أحمد بن علي البصري", "Ebû Amr Ahmed b. Ali el-Basrî", 6, null, "Basra"),
+  N("ed06", "أحمد بن داود بن سليم", "Ahmed b. Dâvûd b. Süleym", 6, null, "Basra"),
+  N("ed07", "أبو سعيد بن الأعرابي", "Ebû Saîd İbnü'l-A‘râbî", 6, null, "Basra"),
+  N("ed08", "أبو بكر أحمد بن محمد الخلال", "Ebû Bekir Ahmed b. Muhammed el-Hallâl", 6, null, "Basra"),
+  N("ed09", "أحمد بن محمد بن ياسين الهروي", "Ahmed b. Muhammed b. Yâsîn el-Herevî", 6, null, "Horasan"),
+  N("ed10", "أحمد بن المعلى الدمشقي", "Ahmed b. el-Muallâ ed-Dımaşkī", 6, null, "Şam"),
+  N("ed11", "إسحاق بن موسى الرملي الوراق", "İshak b. Mûsâ er-Remlî el-Verrâk", 6, null, "Şam"),
+  N("ed12", "إسماعيل بن محمد الصفار", "İsmâîl b. Muhammed es-Saffâr", 6, null, "Basra"),
+  N("ed13", "حرب بن إسماعيل الكرماني", "Harb b. İsmâîl el-Kirmânî", 6, null, "Cibâl"),
+  N("ed14", "الحسن بن صاحب الشاشي", "Hasan b. Sâhib eş-Şâşî", 6, null, "Mâverâünnehir"),
+  N("ed15", "الحسن بن عبد الله الذارع", "Hasan b. Abdillâh ez-Zâri‘", 6, null, "Basra"),
+  N("ed16", "الحسين بن إدريس الهروي", "Hüseyin b. İdrîs el-Herevî", 6, null, "Horasan"),
+  N("ed17", "زكريا بن يحيى الساجي", "Zekeriyyâ b. Yahyâ es-Sâcî", 6, null, "Basra"),
+  N("ed18", "عبدان عبد الله بن أحمد الأهوازي", "Abdân Abdullah b. Ahmed el-Ahvâzî", 6, null, "Cibâl"),
+  N("ed19", "أبو بكر بن أبي داود", "Ebû Bekir b. Ebî Dâvûd", 6, null, "Basra"),
+  N("ed20", "أبو بكر بن أبي الدنيا", "Ebû Bekir İbn Ebi'd-Dünyâ", 6, null, "Basra"),
+  N("ed21", "عبد الرحمن بن خلاد الرامهرمزي", "Abdurrahman b. Hallâd er-Râmhürmüzî", 6, null, "Cibâl"),
+  N("ed22", "علي بن الحسن بن العبد الأنصاري", "Ali b. el-Hasen b. el-Abd el-Ensârî", 6, null, "Basra"),
+  N("ed23", "الفضل بن العباس بن أبي الشوارب", "Fazl b. el-Abbâs b. Ebi'ş-Şevârib", 6, null, "Basra"),
+  N("ed24", "أبو بشر الدولابي", "Ebû Bişr ed-Dûlâbî", 6, null, "Mısır"),
+  N("ed25", "أبو علي محمد بن أحمد اللؤلؤي", "Ebû Ali Muhammed b. Ahmed el-Lü'lüî", 6, null, "Basra"),
+  N("ed26", "محمد بن بكر بن داسة التمار", "Muhammed b. Bekir b. Dâse et-Temmâr", 6, null, "Basra"),
+  N("ed27", "محمد بن جعفر الفريابي", "Muhammed b. Ca‘fer el-Firyâbî", 6, null, "Basra"),
+  N("ed28", "محمد بن مخلد العطار", "Muhammed b. Mahled el-Attâr", 6, null, "Basra"),
+  N("ed29", "أبو عبيد محمد بن علي الآجري", "Ebû Ubeyd Muhammed b. Ali el-Âcurrî", 6, null, "Basra"),
+  N("tr01", "أبو بكر أحمد بن إسماعيل السمرقندي", "Ebû Bekir Ahmed b. İsmâîl es-Semerkandî", 6, null, "Mâverâünnehir"),
+  N("tr02", "أبو حامد أحمد بن عبد الله المروزي", "Ebû Hâmid Ahmed b. Abdillâh el-Mervezî", 6, null, "Horasan"),
+  N("tr03", "أحمد بن علي بن حسنويه المقرئ", "Ahmed b. Ali b. Hasneveyh el-Mukrî", 6, null, "Mâverâünnehir"),
+  N("tr04", "أحمد بن يوسف النسفي", "Ahmed b. Yûsuf en-Nesefî", 6, null, "Mâverâünnehir"),
+  N("tr05", "أسد بن حمدويه النسفي", "Esed b. Hamdeveyh en-Nesefî", 6, null, "Mâverâünnehir"),
+  N("tr06", "الحسين بن يوسف الفربري", "Hüseyin b. Yûsuf el-Firebrî", 6, null, "Mâverâünnehir"),
+  N("tr07", "حماد بن شاكر الوراق", "Hammâd b. Şâkir el-Verrâk", 6, null, "Mâverâünnehir"),
+  N("tr08", "داود بن نصر البزدوي", "Dâvûd b. Nasr el-Bezdevî", 6, null, "Mâverâünnehir"),
+  N("tr09", "الربيع بن حيان الباهلي", "Rebî‘ b. Hayyân el-Bâhilî", 6, null, "Mâverâünnehir"),
+  N("tr10", "عبد الله بن نصر أخو البزدوي", "Abdullah b. Nasr (Bezdevî'nin kardeşi)", 6, null, "Mâverâünnehir"),
+  N("tr11", "عبد بن محمد بن محمود النسفي", "Abd b. Muhammed b. Mahmûd en-Nesefî", 6, null, "Mâverâünnehir"),
+  N("tr12", "علي بن عمر بن كلثوم السمرقندي", "Ali b. Ömer b. Külsûm es-Semerkandî", 6, null, "Mâverâünnehir"),
+  N("tr13", "الفضل بن عمار الصرام", "Fazl b. Ammâr es-Sarrâm", 6, null, "Mâverâünnehir"),
+  N("tr14", "أبو العباس محمد بن أحمد بن محبوب", "Ebü'l-Abbâs Muhammed b. Ahmed b. Mahbûb", 6, null, "Mâverâünnehir"),
+  N("tr15", "أبو جعفر محمد بن أحمد النسفي", "Ebû Ca‘fer Muhammed b. Ahmed en-Nesefî", 6, null, "Mâverâünnehir"),
+  N("tr16", "أبو جعفر محمد بن سفيان النسفي", "Ebû Ca‘fer Muhammed b. Süfyân en-Nesefî", 6, null, "Mâverâünnehir"),
+  N("tr17", "محمد بن محمد بن يحيى الهروي القراب", "Muhammed b. Muhammed el-Herevî el-Karrâb", 6, null, "Horasan"),
+  N("tr18", "محمد بن محمود بن عنبر النسفي", "Muhammed b. Mahmûd b. Anber en-Nesefî", 6, null, "Mâverâünnehir"),
+  N("tr19", "محمد بن مكي بن نوح النسفي", "Muhammed b. Mekkî b. Nûh en-Nesefî", 6, null, "Mâverâünnehir"),
+  N("tr20", "مسبح بن أبي موسى الكاجري", "Müsebbih b. Ebî Mûsâ el-Kâcerî", 6, null, "Mâverâünnehir"),
+  N("tr21", "مكحول بن الفضل النسفي", "Mekhûl b. el-Fazl en-Nesefî", 6, null, "Mâverâünnehir"),
+  N("tr22", "نصر بن محمد بن سبرة", "Nasr b. Muhammed b. Sebre", 6, null, "Mâverâünnehir"),
+  N("tr23", "الهيثم بن كليب الشاشي", "Heysem b. Küleyb eş-Şâşî", 6, null, "Mâverâünnehir"),
+  N("ns02", "أبو جعفر الطحاوي", "Ebû Ca‘fer et-Tahâvî", 6, null, "Mısır"),
+  N("ns03", "أبو علي النيسابوري", "Ebû Ali en-Nîsâbûrî", 6, null, "Horasan"),
+  N("ns04", "حمزة بن محمد الكناني", "Hamza b. Muhammed el-Kinânî", 6, null, "Mısır"),
+  N("ns05", "أبو جعفر أحمد بن محمد النحاس", "Ebû Ca‘fer Ahmed b. Muhammed en-Nehhâs", 6, null, "Mısır"),
+  N("ns06", "أبو بكر محمد بن أحمد بن الحداد", "Ebû Bekir Muhammed b. Ahmed İbnü'l-Haddâd", 6, null, "Mısır"),
+  N("ns07", "عبد الكريم بن أبي عبد الرحمن النسائي", "Abdülkerîm b. Ebî Abdirrahman en-Nesâî", 6, null, "Mısır"),
+  N("ns08", "الحسن بن الخضر الأسيوطي", "Hasan b. el-Hıdr el-Üsyûtî", 6, null, "Mısır"),
+  N("ns09", "أبو بكر أحمد بن محمد بن السني", "Ebû Bekir Ahmed b. Muhammed İbnü's-Sünnî", 6, null, "Mısır"),
+  N("ns10", "أبو القاسم سليمان بن أحمد الطبراني", "Ebü'l-Kāsım Süleymân b. Ahmed et-Taberânî", 6, null, "Mısır"),
+  N("ns11", "محمد بن معاوية بن الأحمر الأندلسي", "Muhammed b. Muâviye İbnü'l-Ahmer el-Endelüsî", 6, null, "Mısır"),
+  N("ns12", "الحسن بن رشيق", "Hasan b. Rüşeyk", 6, null, "Mısır"),
+  N("ns13", "محمد بن عبد الله بن حيويه النيسابوري", "Muhammed b. Abdillâh b. Hayyeveyh en-Nîsâbûrî", 6, null, "Horasan"),
+  N("ns14", "محمد بن موسى المأموني", "Muhammed b. Mûsâ el-Me'mûnî", 6, null, "Mısır"),
+  N("ns15", "أبيض بن محمد بن أبيض", "Ebyaz b. Muhammed b. Ebyaz", 6, null, "Mısır"),
+  N("im01", "محمد بن عيسى الأبهري", "Muhammed b. Îsâ el-Ebherî", 6, null, "Cibâl"),
+  N("im02", "أبو الطيب أحمد بن روح البغدادي", "Ebü't-Tayyib Ahmed b. Ravh el-Bağdâdî", 6, null, "Basra"),
+  N("im03", "أبو عمرو أحمد بن محمد بن حكيم المديني", "Ebû Amr Ahmed b. Muhammed b. Hakîm el-Medînî", 6, null, "Cibâl"),
+  N("im04", "أبو الحسن علي بن إبراهيم القطان", "Ebü'l-Hasen Ali b. İbrâhim el-Kattân", 6, null, "Basra"),
+  N("im05", "سليمان بن يزيد الفامي", "Süleymân b. Yezîd el-Fâmî", 6, null, "Cibâl"),
 
   N("ibnmace", "محمد بن يزيد ابن ماجه", "İbn Mâce", 5, 273, "Cibâl", "es-Sünen sahibi."),
   N("darimi", "عبد الله بن عبد الرحمن الدارمي", "Dârimî", 5, 255, "Horasan"),
@@ -1029,6 +1115,46 @@ const EDGES = [
       ["ms25","—"],["ms26","—"],["ms27","—"],
       ["ms28","—"],["ms29","—"],
      ].map(([b, r]) => E("muslim", b, r, "Tehzîb 5923")),
+  /* Ebû Dâvûd'in talebeleri — Siyer 13/205-206 */
+  ...[
+      ["ed01","—"],["ed02","—"],["ed03","—"],
+      ["ed04","—"],["ed05","—"],["ed06","—"],
+      ["ed07","—"],["ed08","—"],["ed09","—"],
+      ["ed10","—"],["ed11","—"],["ed12","—"],
+      ["ed13","—"],["ed14","—"],["ed15","—"],
+      ["ed16","—"],["ed17","—"],["ed18","—"],
+      ["ed19","—"],["ed20","—"],["ed21","—"],
+      ["ed22","—"],["ed23","—"],["ed24","—"],
+      ["ed25","—"],["ed26","—"],["ed27","—"],
+      ["ed28","—"],["ed29","—"],
+     ].map(([b, r]) => E("ebudavud", b, r, "Siyer 13/205-206")),
+
+  /* Tirmizî'in talebeleri — Siyer 13/272 */
+  ...[
+      ["tr01","—"],["tr02","—"],["tr03","—"],
+      ["tr04","—"],["tr05","—"],["tr06","—"],
+      ["tr07","—"],["tr08","—"],["tr09","—"],
+      ["tr10","—"],["tr11","—"],["tr12","—"],
+      ["tr13","—"],["tr14","—"],["tr15","—"],
+      ["tr16","—"],["tr17","—"],["tr18","—"],
+      ["tr19","—"],["tr20","—"],["tr21","—"],
+      ["tr22","—"],["tr23","—"],
+     ].map(([b, r]) => E("tirmizi", b, r, "Siyer 13/272")),
+
+  /* Nesâî'in talebeleri — Siyer 14/127 */
+  ...[
+      ["ed24","—"],["ns02","—"],["ns03","—"],
+      ["ns04","—"],["ns05","—"],["ns06","—"],
+      ["ns07","—"],["ns08","—"],["ns09","—"],
+      ["ns10","—"],["ns11","—"],["ns12","—"],
+      ["ns13","—"],["ns14","—"],["ns15","—"],
+     ].map(([b, r]) => E("nesai", b, r, "Siyer 14/127")),
+
+  /* İbn Mâce'in talebeleri — Siyer 13/278 */
+  ...[
+      ["im01","—"],["im02","—"],["im03","—"],
+      ["im04","—"],["im05","—"],
+     ].map(([b, r]) => E("ibnmace", b, r, "Siyer 13/278")),
   /* Ebû Hüreyre'nin talebeleri — Tehzîb 7681 (Şâmile 3722, s. 34/367-377).
      Mizzî 338 isim sayıyor; Buhârî'den naklen «روى عنه نحو من ثمان مئة رجل
      أو أكثر» der. Buradaki 46 bağ, o listenin AĞDA ZATEN BULUNAN
