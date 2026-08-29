@@ -39,6 +39,7 @@
       dusebilir; cozmuyorsa tekrar uygulanmali. */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import { useLanguage } from "./LanguageContext";
+import { useTheme } from "./ThemeContext";
 
 /* ==================================================================
    SİLSİLE AĞI — v3
@@ -1216,6 +1217,23 @@ const EDGES = [
       ["suleymanhabib","ق"],["saddadebuammar","ت ق"],["mutallibhantab","س ق"],["ammarebiammar","د ت س"],
       ["ibrahimkariz","م س"],["hakemmina","م"],
      ].map(([b, r]) => E("ebuhureyre", b, r, "Tehzîb 7681")),
+  /* Şa‘bî'nin talebeleri — Tehzîb 3042 (Şâmile 3722, s. 14/32-33).
+     Şa‘bî ağda dört hocasıyla duruyordu ama HİÇ TALEBESİ YOKTU: kendi
+     tercemesi işlenmemişti, yalnızca başkalarının listelerinde talebe
+     olarak geçiyordu (Mustafa fark etti, 2026-08-29). Kûfe'nin merkezî
+     halkalarından biri için bu büyük bir boşluktu.
+     Buradaki 27 bağ, Mizzî'nin «روى عنه» listesinin ağda zaten
+     bulunan isimlerle kesişimi; eşleştirme Ebû Hüreyre'dekiyle aynı
+     yöntemle, kayıt sınırına göre yapıldı. */
+  ...[
+      ["hakemuteybe","م"],["beyanbisr","خ م د س ق"],["ismailebihalid","خ م ت س"],["davudebihind","خت م ٤"],
+      ["husaynabdrahman","خ م ت س ق"],["zubeydyami","خ م س"],["zekeriyyaebizaide","ع"],["ebuhasin","م ت س"],
+      ["cabircufi","ق"],["mansurmutemir","ع"],["muhammedsuka","—"],["mutarriftarif","ع"],
+      ["mekhul","—"],["rebiayezid","—"],["simakharb","م سي"],["selemekuheyl","خ م د س"],
+      ["abdullahavn","خ م د س"],["ataisaib","س"],["asimahvel","ع"],["mugirmiksem","ع"],
+      ["firasyahya","ع"],["saidmesrukhsevri","م د س"],["abdullahsubrume","د"],["mucalidsaid","م ٤"],
+      ["salihhayy","ع"],["siyarebilhakem","خ م د س"],["halidselememahzumi","عس"],
+     ].map(([b, r]) => E("sabi", b, r, "Tehzîb 3042")),
   ...[["ahnef","ص"],["esvedyezid","—"],["alkame","عس"],["ubeydesel","ع"],["suveydgafle","خ م ت س"],
       ["ebuvail","ت عس"],["zirhubeys","م ٤"],["sureyh","س"],["saidmusayyeb","ت س ق"],["hasanbasri","ت س"],
       ["rebihiras","خ مق ٤"],["zeydvehb","خ م د س"],["zadan","د ص ق"],["ebutufeyl","خ م د س"],
@@ -1851,6 +1869,27 @@ NODES.filter((n) => n.tab === 1 && n.id !== "nebi").forEach((n) => {
 const BELDELER = ["Medine", "Mekke", "Kûfe", "Basra", "Şam", "Vâsıt", "Mısır", "Humus",
                   "Yemen", "Horasan", "Mâverâünnehir", "Cibâl"];
 
+/* Belde adlarinin dil karsiliklari. translations.ts'te DEGIL, burada:
+   bunlar arayuz metni degil VERI -- dugumun `belde` alani bu Turkce
+   adlari anahtar olarak kullaniyor ve tablo disinda bir yerde
+   gecmiyorlar. Site geneli ceviri dosyasina 12 x 3 anahtar eklemek
+   orayi bu sayfanin verisiyle doldururdu.
+   Eksik bir dil olursa Turkce ad kullaniliyor. */
+const BELDE_AD = {
+  ar: { "Medine": "المدينة", "Mekke": "مكة", "Kûfe": "الكوفة", "Basra": "البصرة",
+        "Şam": "الشام", "Vâsıt": "واسط", "Mısır": "مصر", "Humus": "حمص",
+        "Yemen": "اليمن", "Horasan": "خراسان", "Mâverâünnehir": "ما وراء النهر",
+        "Cibâl": "الجبال" },
+  en: { "Medine": "MEDINA", "Mekke": "MECCA", "Kûfe": "KUFA", "Basra": "BASRA",
+        "Şam": "SYRIA", "Vâsıt": "WASIT", "Mısır": "EGYPT", "Humus": "HIMS",
+        "Yemen": "YEMEN", "Horasan": "KHURASAN", "Mâverâünnehir": "TRANSOXIANA",
+        "Cibâl": "JIBAL" },
+};
+
+/* Hicri yil eki. Arapca'da rakamlar da Arap-Hint rakamlariyla yazilmiyor
+   -- eksen dar ve latin rakamlar her uc dilde de okunuyor. */
+const YIL_EKI = { tr: "h.", ar: "هـ", en: "AH" };
+
 /* ---------- dünya koordinatları ----------
    Dikey eksen: vefat yılı. Yatay eksen: belde sütunları.
    Medine ortada durur, diğer beldeler iki yana dengeli dağıtılır.
@@ -2085,8 +2124,8 @@ const EKRAN_PUNTO = { 0: 15, 1: 12.5, 2: 11, 3: 10.5, 4: 10, 5: 9.5, 6: 9 };
    alt kademeler kendiliğinden görünür olur.                        */
 const ESIK = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 };
 
-// Türkçe büyük harf (i → İ), sütun başlıkları için
-const buyuk = (t) => t.replace(/i/g, "\u0130").toUpperCase();
+// Turkce buyuk harf (i -> I). Arapca metinde buyuk/kucuk harf ayrimi yok, oldugu gibi doner.
+const buyuk = (t) => (/[\u0621-\u064A]/.test(t) ? t : t.replace(/i/g, "\u0130").toUpperCase());
 
 const YILLAR = Array.from({ length: 31 }, (_, i) => 10 + i * 10);
 
@@ -2140,6 +2179,37 @@ export default function SilsileAgi() {
      degerini gorurdu, ref her zaman guncel. */
   const tasindiRef = useRef(false);
   const { t, language } = useLanguage();
+  const { theme } = useTheme();
+  const koyu = theme === "dark";
+
+  /* KARANLIK MOD DENEMESI (2026-08-29).
+
+     Artifact tek bir acik palete gore yazilmisti; renkler koda gomulu
+     onlarca sabitti. Hepsi buraya toplandi ve koyu icin bir esi
+     yazildi. RAVI NOKTALARININ RENKLERI DEGISMIYOR -- onlar ayirt
+     etmeye yariyor ve iki zeminde de okunuyor; degistirmek 24 tonu
+     yeniden dengelemek olurdu.
+
+     Koyu paletin mantigi: kagit yerine murekkep. Zemin sicak bir
+     koyu kahve (siyah degil -- siyah zeminde renkli noktalar
+     titriyor), yazi kirik beyaz, bantlar ayni iki ton ama daha
+     dusuk saydamlikta, kenarlar aciga cekildi cunku koyu zeminde
+     koyu cizgi kayboluyor. */
+  const C = koyu ? {
+    zemin: "#1C1A17", tuval: "#232019", kart: "rgba(35,32,25,0.97)",
+    cizgi: "#4A4438", ink: "#EDE7DA", solukInk: "#A79E8C", vurguInk: "#D9C77A",
+    kenar: "#8A7F55", kenarSonuk: "#5A5340", kenarSecili: "#E0785A",
+    okSonuk: "#4A4433", dugumCerceve: "#232019", etiketHale: "#1C1A17",
+    etiketAna: "#EDE7DA", etiketAlt: "#8F8878", sonucVurgu: "#2E2A22",
+    kesikCerceve: "#4A4438",
+  } : {
+    zemin: "#FBF9F4", tuval: "#FFFFFF", kart: "rgba(255,255,255,0.97)",
+    cizgi: "#D8D0BF", ink: "#23201B", solukInk: "#8C8676", vurguInk: "#8A7A34",
+    kenar: "#6F6438", kenarSonuk: "#B3A88E", kenarSecili: "#B5462B",
+    okSonuk: "#C9BFA8", dugumCerceve: "white", etiketHale: "#FFFFFF",
+    etiketAna: "#2B2721", etiketAlt: "#8C8676", sonucVurgu: "#F5F1E6",
+    kesikCerceve: "#E0D8C6",
+  };
 
   /* RAVI ADI DILE GORE. Arapca'da dugumun kendi `ar` alani, digerinde
      `tr`. Ingilizce icin AYRI BIR AD YOK: 570 ismin latinize
@@ -2148,6 +2218,9 @@ export default function SilsileAgi() {
      literaturunde zaten alisildik bir cozum. Arayuz metinleri uc dilde
      (bkz. translations.ts, ag* anahtarlari). */
   const adi = useCallback((n) => (language === "ar" ? n.ar : n.tr), [language]);
+  /* Belde adi da dile bagli. Sutun basliklarinda buyuk harfe
+     ceviriliyor, kartta oldugu gibi. */
+  const beldeAdi = useCallback((b) => BELDE_AD[language]?.[b] ?? b, [language]);
   const TAB_AD = useMemo(() => [t.agTabaka0, t.agTabaka1, t.agTabaka2,
     t.agTabaka3, t.agTabaka4, t.agTabaka5, t.agTabaka6], [t]);
 
@@ -2704,7 +2777,7 @@ export default function SilsileAgi() {
 
   const agGovdesi = useMemo(() => (
     <g transform={`scale(${kg})`}>
-            <rect x={-W} y={-H} width={W * 3} height={H * 3} fill="#FFFFFF" />
+            <rect x={-W} y={-H} width={W * 3} height={H * 3} fill={C.tuval} />
             {SUTUNLAR.map((c, i) => {
               const ilk = i === 0, son = i === SUTUNLAR.length - 1;
               // taşma payında beyaz alan görünmesin diye uç sütunlar yanlara uzatılır
@@ -2720,11 +2793,11 @@ export default function SilsileAgi() {
                       Parite indise degil MEDINE'YE gore: araya yeni bir
                       belde girse (Yemen girdi) Medine tonunu kaybetmesin. */}
                   <rect x={zx} y={-H} width={zw} height={H * 3}
-                    fill={(i - MEDINE_I) % 2 === 0 ? "#8A7A34" : "#2E7D6E"}
+                    fill={(i - MEDINE_I) % 2 === 0 ? C.vurguInk : "#2E7D6E"}
                     opacity={(i - MEDINE_I) % 2 === 0 ? 0.05 : 0.026} />
                   {!ilk && (
                     <line x1={c.x} y1={-H} x2={c.x} y2={H * 2}
-                      stroke="#D8D0BF" strokeWidth="1.2" opacity="0.7" />
+                      stroke={C.cizgi} strokeWidth="1.2" opacity="0.7" />
                   )}
                 </g>
               );
@@ -2734,19 +2807,26 @@ export default function SilsileAgi() {
                 ikisi de cok soluk oldugu icin ust uste gelen yerde
                 yalnizca bir tik koyulasiyor. */}
             {SATIRLAR.map((y, i) => {
-              // eksenin disina tasan uclar kirpiliyor
-              const ust = Math.max(y, YIL_MIN), alt = Math.min(y + SATIR_YIL, YIL_MAX);
+              /* UC BANTLAR TUVALIN DISINA UZATILIYOR, tipki sutunlarda
+                 oldugu gibi. Eskiden bantlar eksenin sinirlarinda
+                 (YIL_MIN / YIL_MAX) kesiliyordu; ust sinirin YUKARISI
+                 -- Hz. Peygamber'in durdugu pay -- hicbir banda
+                 girmediginden orada renksiz bir serit kaliyordu
+                 (Mustafa'nin ekran goruntusu, 2026-08-29). Ilk bant
+                 yukari, son bant asagi tasiyor. */
+              const ilk = i === 0, son = i === SATIRLAR.length - 1;
+              const ust = ilk ? -H : yOf(y);
+              const alt = son ? H * 2 : yOf(Math.min(y + SATIR_YIL, YIL_MAX));
               if (alt <= ust) return null;
               return (
-                <rect key={"s" + y} x={-W} y={yOf(ust)} width={W * 3}
-                  height={yOf(alt) - yOf(ust)}
-                  fill={i % 2 === 0 ? "#8A7A34" : "#2E7D6E"}
+                <rect key={"s" + y} x={-W} y={ust} width={W * 3} height={alt - ust}
+                  fill={i % 2 === 0 ? C.vurguInk : "#2E7D6E"}
                   opacity={i % 2 === 0 ? 0.055 : 0.028} />
               );
             })}
             {YILLAR.map((y) => (
               <line key={y} x1="0" y1={yOf(y)} x2={W} y2={yOf(y)}
-                stroke="#D8D0BF" strokeWidth="1" opacity={y % 50 === 0 ? 0.85 : 0.28} />
+                stroke={C.cizgi} strokeWidth="1" opacity={y % 50 === 0 ? 0.85 : 0.28} />
             ))}
 
             {/* kenarlar */}
@@ -2806,7 +2886,7 @@ export default function SilsileAgi() {
                   )}
                   <path d={d} fill="none"
                     className={"kenar" + (canli ? " kenar-v" : "")}
-                    stroke={secili ? "#B5462B" : canli ? "#8A7A34" : dim ? "#B3A88E" : "#6F6438"}
+                    stroke={secili ? C.kenarSecili : canli ? C.vurguInk : dim ? C.kenarSonuk : C.kenar}
                     /* `vectorEffect="non-scaling-stroke"`: kalinlik
                        EKRAN PIKSELI olarak sabit kaliyor, tuvalin
                        olcegiyle kuculmuyor. Cizgilerin silik
@@ -2888,7 +2968,7 @@ export default function SilsileAgi() {
                     r={r}
                     style={acildi ? undefined : { animationDelay: `${Math.min(p.y / H, 1) * 1500}ms` }}
                     fill={n.id === "nebi" ? NEBI_RENK : renkOf(n.id)}
-                    stroke={secili ? "#23201B" : "white"} strokeWidth={secili ? 3.4 : 2} />
+                    stroke={secili ? C.ink : "white"} strokeWidth={secili ? 3.4 : 2} />
                   </g>
                 </g>
               );
@@ -2915,37 +2995,43 @@ export default function SilsileAgi() {
               const altPunto = punto * 0.8;
               return (
                 <g key={n.id} className="etiket" pointerEvents="none"
-                   style={{ paintOrder: "stroke", stroke: "#FFFFFF", strokeWidth: punto * 0.32,
+                   style={{ paintOrder: "stroke", stroke: C.etiketHale, strokeWidth: punto * 0.32,
                             opacity: sonuk(n.id) ? 0.38 : 1 }}
                    transform={`translate(${p.x + etiketBilgi.kay / kg},${
                      p.y + (etiketBilgi.yon === "ust"
                        ? -(2 * r + punto + altPunto + 8) : 0)})`}>
                   <text y={r + punto} textAnchor="middle" fontSize={punto}
-                    fontWeight={kad <= 1 ? 600 : 400} fill="#2B2721">
+                    fontWeight={kad <= 1 ? 600 : 400} fill={C.etiketAna}>
                     {adi(n).length > 26 ? adi(n).slice(0, 25) + "…" : adi(n)}
                   </text>
                   <text y={r + punto + altPunto + 3} textAnchor="middle"
-                    fontSize={altPunto} fill="#8C8676">{tarihYaz(n)}</text>
+                    fontSize={altPunto} fill={C.solukInk}>{tarihYaz(n)}</text>
                 </g>
               );
             })}
     </g>
+  /* `koyu` bagimlilikta: tema degisince govde bastan kurulmali,
+     yoksa donmus agac eski paletle kalir. Palet nesnesi `C` her
+     render'da yeniden uretildigi icin onu koymak memo'yu bosa
+     cikarirdi -- yerine tek bir mantiksal deger. */
   ), [kg, box, olculdu, pencere, secim, secRavi, secKenar, acildi,
-      vurgu, etiketliler, yakin, cizgiCarpani, cizgiSaydam, MEDINE_I, adi]);
+      vurgu, etiketliler, yakin, cizgiCarpani, cizgiSaydam, MEDINE_I, adi, koyu]);
 
   return (
-    <div className="w-full h-full bg-[#FBF9F4] text-[#23201B] flex flex-col overflow-hidden"
-         style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>
+    <div className="w-full h-full flex flex-col overflow-hidden"
+         style={{ fontFamily: "Georgia, 'Times New Roman', serif",
+                  background: C.zemin, color: C.ink }}>
       {/* `select-none` tuvalde: surukleyerek gezerken tarayici metin
           secmeye kalkmasin. Bilgi kartlari bunun DISINDA tutuluyor
           (`select-text`), yoksa karttaki Arapca ad, tarih ve Mizzî
           nakli kopyalanamiyordu (Mustafa, 2026-08-29). */}
-      <div ref={boxRef} className="relative flex-1 bg-white overflow-hidden select-none"
+      <div ref={boxRef} className="relative flex-1 overflow-hidden select-none"
+        data-tuval
         /* `touchAction: none`: tarayici parmak hareketini KENDI kaydirma
            ve yakinlastirmasi icin kapmasin, olaylar bize gelsin. Bu
            olmadan dokunma isleyicileri yazilsa bile telefonda hicbir
            sey olmaz. */
-        style={{ cursor: suruk ? "grabbing" : "grab", touchAction: "none" }}
+        style={{ cursor: suruk ? "grabbing" : "grab", touchAction: "none", background: C.tuval }}
         onPointerDown={pointerBas}
         onPointerMove={pointerKimilda}
         onPointerUp={(e) => {
@@ -3006,15 +3092,15 @@ export default function SilsileAgi() {
           <defs>
             <marker id="ok" viewBox="0 0 10 10" refX="9" refY="5"
               markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-              <path d="M 0 0 L 10 5 L 0 10 z" fill="#8A7A34" />
+              <path d="M 0 0 L 10 5 L 0 10 z" fill={C.vurguInk} />
             </marker>
             <marker id="okSonuk" viewBox="0 0 10 10" refX="9" refY="5"
               markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-              <path d="M 0 0 L 10 5 L 0 10 z" fill="#C9BFA8" />
+              <path d="M 0 0 L 10 5 L 0 10 z" fill={C.okSonuk} />
             </marker>
             <marker id="okVurgu" viewBox="0 0 10 10" refX="9" refY="5"
               markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-              <path d="M 0 0 L 10 5 L 0 10 z" fill="#B5462B" />
+              <path d="M 0 0 L 10 5 L 0 10 z" fill={C.kenarSecili} />
             </marker>
           </defs>
 
@@ -3029,15 +3115,15 @@ export default function SilsileAgi() {
         {/* ---- sabit yıl ekseni (sol) ---- */}
         <svg width={SOL_BANT} height="100%"
           style={{ position: "absolute", left: 0, top: 0, pointerEvents: "none" }}>
-          <rect x="0" y="0" width={SOL_BANT} height="100%" fill="#FBF9F4" />
+          <rect x="0" y="0" width={SOL_BANT} height="100%" fill={C.zemin} />
           <line x1={SOL_BANT - 0.5} y1="0" x2={SOL_BANT - 0.5} y2="100%"
-            stroke="#D8D0BF" strokeWidth="1" />
+            stroke={C.cizgi} strokeWidth="1" />
           {YILLAR.map((y) => {
             const ky = view.y + yOf(y) * view.k;
             if (ky < UST_BANT + 6 || ky > box.h - 4) return null;
             return (
               <text key={y} x={SOL_BANT - 5} y={ky + 3} textAnchor="end"
-                fontSize="9" fill={y % 50 === 0 ? "#5F594E" : "#9C9382"}>{y} h.</text>
+                fontSize="9" fill={y % 50 === 0 ? C.ink : C.solukInk}>{y} {YIL_EKI[language] ?? "h."}</text>
             );
           })}
         </svg>
@@ -3045,9 +3131,9 @@ export default function SilsileAgi() {
         {/* ---- sabit şehir bandı (üst) ---- */}
         <svg width="100%" height={UST_BANT}
           style={{ position: "absolute", left: 0, top: 0, pointerEvents: "none" }}>
-          <rect x="0" y="0" width="100%" height={UST_BANT} fill="#FBF9F4" />
+          <rect x="0" y="0" width="100%" height={UST_BANT} fill={C.zemin} />
           <line x1="0" y1={UST_BANT - 0.5} x2="100%" y2={UST_BANT - 0.5}
-            stroke="#D8D0BF" strokeWidth="1" />
+            stroke={C.cizgi} strokeWidth="1" />
           {SUTUNLAR.map((c) => {
             const kx = view.x + (c.x + c.genislik / 2) * view.k;
             const sol = view.x + c.x * view.k;
@@ -3057,7 +3143,7 @@ export default function SilsileAgi() {
             const gorunurSol = Math.max(sol, SOL_BANT);
             const gorunurSag = Math.min(sag, box.w);
             const alan = Math.max(0, gorunurSag - gorunurSol) - 10;
-            const tam = buyuk(c.belde);
+            const tam = buyuk(BELDE_AD[language]?.[c.belde] ?? c.belde);
             const harfW = 8.6;                        // 10.5px + 1.6px harf araligi
             const sigan = Math.floor(alan / harfW);
             if (sigan < 1) return null;
@@ -3069,15 +3155,15 @@ export default function SilsileAgi() {
             return (
               <g key={c.belde}>
                 <line x1={sol} y1={UST_BANT - 5} x2={sol} y2={UST_BANT}
-                  stroke="#D8D0BF" strokeWidth="1" />
+                  stroke={C.cizgi} strokeWidth="1" />
                 <text x={gx + 0.8} y={16} textAnchor="middle" fontSize="10.5" letterSpacing="1.6"
-                  fill={c.belde === "Medine" ? "#8A7A34" : "#7A7263"}>
+                  fill={c.belde === "Medine" ? C.vurguInk : C.solukInk}>
                   {yazi}
                 </text>
               </g>
             );
           })}
-          <rect x="0" y="0" width={SOL_BANT} height={UST_BANT} fill="#FBF9F4" />
+          <rect x="0" y="0" width={SOL_BANT} height={UST_BANT} fill={C.zemin} />
         </svg>
 
         {/* ---- sağ üst: râvi bul + yakınlaştırma ---- */}
@@ -3101,17 +3187,18 @@ export default function SilsileAgi() {
           {acikArama && arama.trim() && (
             /* Sonuc listesi kumeden GENIS: isimler 132 px'e sigmaz.
                Saga yaslanip sola dogru tasiyor. */
-            <div className="shadow" style={{ marginBottom: 6, maxHeight: 260, overflowY: "auto", background: "#fff", border: "1px solid #D8D0BF", borderRadius: 2, width: dar ? "calc(100vw - 24px)" : 300, marginLeft: "auto", position: "relative", right: 0 }}>
+            <div className="shadow" style={{ marginBottom: 6, maxHeight: 260, overflowY: "auto", background: C.tuval, border: "1px solid " + C.cizgi, borderRadius: 2, width: dar ? "calc(100vw - 24px)" : 300, marginLeft: "auto", position: "relative", right: 0 }}>
               {sonuclar.length ? sonuclar.map((n) => (
                 <button key={n.id}
                   onClick={() => { odaklan(n.id); setAcikArama(false); }}
-                  className="w-full text-left px-3 py-1.5 text-sm hover:bg-[#F5F1E6] flex items-center gap-2 border-b border-[#F0EAD9] last:border-0">
+                  className="w-full text-left px-3 py-1.5 text-sm flex items-center gap-2 border-b last:border-0"
+                  style={{ borderColor: C.cizgi, color: C.ink }}>
                   <span className="w-2.5 h-2.5 rounded-full shrink-0"
                     style={{ background: n.id === "nebi" ? NEBI_RENK : renkOf(n.id) }} />
                   <span className="flex-1 truncate">{adi(n)}</span>
-                  <span className="text-[11px] text-[#8C8676] shrink-0">{tarihYaz(n)}</span>
+                  <span className="text-[11px] shrink-0" style={{ color: C.solukInk }}>{tarihYaz(n)}</span>
                 </button>
-              )) : <div className="px-3 py-2 text-sm text-[#8C8676]">Bu isimde râvi yok.</div>}
+              )) : <div className="px-3 py-2 text-sm" style={{ color: C.solukInk }}>{t.agKayitYok}</div>}
             </div>
           )}
 
@@ -3123,7 +3210,7 @@ export default function SilsileAgi() {
             <svg viewBox="0 0 16 16" aria-hidden="true"
               style={{ position: "absolute", left: 8, top: "50%", marginTop: -7,
                        width: 14, height: 14, pointerEvents: "none" }}
-              fill="none" stroke="#8C8676" strokeWidth="1.6"
+              fill="none" stroke={C.solukInk} strokeWidth="1.6"
               strokeLinecap="round" strokeLinejoin="round">
               <circle cx="7" cy="7" r="4.5" />
               <path d="M10.5 10.5 L14 14" />
@@ -3132,8 +3219,8 @@ export default function SilsileAgi() {
               onChange={(e) => { setArama(e.target.value); setAcikArama(true); }}
               onFocus={() => setAcikArama(true)}
               placeholder={t.agAra}
-              className="w-full py-1.5 pr-3 text-sm bg-white border border-[#D8D0BF] rounded-sm shadow-sm outline-none focus:border-[#8A7A34]"
-              style={{ paddingLeft: 28 }} />
+              className="w-full py-1.5 pr-3 text-sm border rounded-sm shadow-sm outline-none"
+              style={{ paddingLeft: 28, background: C.tuval, borderColor: C.cizgi, color: C.ink }} />
           </div>
         </div>
 
@@ -3156,22 +3243,22 @@ export default function SilsileAgi() {
               width: "50%", minWidth: 180,
               maxWidth: "calc(100% - 36px - max(15%, 132px))",
               height: 130, overflowY: "auto", overflowX: "hidden",
-              background: "rgba(255,255,255,0.97)", border: "1px solid #D8D0BF",
+              background: C.kart, border: "1px solid " + C.cizgi,
               borderRadius: 2, padding: 16,
             }}
             data-ustlik
             onPointerDown={(e) => e.stopPropagation()} onPointerUp={(e) => e.stopPropagation()}
             onWheel={(e) => e.stopPropagation()}>
             <button onClick={() => setSecim(null)}
-              className="absolute top-2 right-3 text-[#8C8676] hover:text-[#23201B]">×</button>
+              className="absolute top-2 right-3" style={{ color: C.solukInk }}>×</button>
             <div className="flex items-baseline gap-3 flex-wrap pr-6">
               <h2 className="text-xl">{adi(secRavi)}</h2>
-              <span className="text-lg text-[#5F594E]" dir="rtl">{secRavi.ar}</span>
-              <span className="text-xs text-[#8A7A34]">
-                {tarihYaz(secRavi)} · {secRavi.belde} · {TAB_AD[secRavi.tab]}{MUKSIRUN.has(secRavi.id) ? " · " + t.agMuksirun : ""}{MEDAR[secRavi.id] ? " · " + MEDAR_AD[MEDAR[secRavi.id]] : ""}{MUELLIF.has(secRavi.id) ? " · " + t.agMuellif : ""}
+              <span className="text-lg" style={{ color: C.ink }} dir="rtl">{secRavi.ar}</span>
+              <span className="text-xs" style={{ color: C.vurguInk }}>
+                {tarihYaz(secRavi)} · {beldeAdi(secRavi.belde)} · {TAB_AD[secRavi.tab]}{MUKSIRUN.has(secRavi.id) ? " · " + t.agMuksirun : ""}{MEDAR[secRavi.id] ? " · " + MEDAR_AD[MEDAR[secRavi.id]] : ""}{MUELLIF.has(secRavi.id) ? " · " + t.agMuellif : ""}
               </span>
             </div>
-            {secRavi.not && <p className="text-sm text-[#5F594E] mt-2 leading-relaxed">{secRavi.not}</p>}
+            {secRavi.not && <p className="text-sm mt-2 leading-relaxed" style={{ color: C.ink }}>{secRavi.not}</p>}
             <div className="grid md:grid-cols-2 gap-5 mt-3 text-sm">
               {[[t.agHocalari, hocalar, disKayit.hoca], [t.agTalebeleri, talebeler, disKayit.talebe]]
                 .map(([baslik, liste, disListe]) => (
@@ -3179,26 +3266,26 @@ export default function SilsileAgi() {
                   {/* Sayi TERCEMEDEKI toplam: agda cizili olanlar + ag
                       disinda kalanlar. Parantez ici yalnizca cizili
                       olani sayarsa kart tercemeyi eksik gosterir. */}
-                  <div className="text-[11px] uppercase tracking-wider text-[#8A7A34] mb-1.5">
+                  <div className="text-[11px] uppercase tracking-wider mb-1.5" style={{ color: C.vurguInk }}>
                     {baslik} ({liste.length + disListe.length})
                   </div>
                   <div className="flex flex-wrap gap-1.5">
                     {liste.map((h) => (
                       <button key={h.n.id} onClick={() => odaklan(h.n.id)} title={h.k}
-                        className="px-2 py-0.5 border border-[#D8D0BF] rounded-sm hover:border-[#8A7A34]">
-                        {adi(h.n)} <span className="text-[#A2966F] text-xs" dir="rtl">{h.r}</span>
+                        className="px-2 py-0.5 border rounded-sm" style={{ borderColor: C.cizgi, color: C.ink }}>
+                        {adi(h.n)} <span className="text-xs" style={{ color: C.solukInk }} dir="rtl">{h.r}</span>
                       </button>
                     ))}
                     {/* Ag disindakiler: kesikli cerceve ve solgun renk --
                         tiklanabilir olmadiklari bakinca anlasilsin. */}
                     {disListe.map(([ad, r], i) => (
                       <span key={"d" + i} dir="rtl"
-                        className="px-2 py-0.5 border border-dashed border-[#E0D8C6] rounded-sm text-[#8C8676]">
+                        className="px-2 py-0.5 border border-dashed rounded-sm" style={{ borderColor: C.kesikCerceve, color: C.solukInk }}>
                         {ad} {r !== "—" && <span className="text-[#B5AC93] text-xs">{r}</span>}
                       </span>
                     ))}
                     {!liste.length && !disListe.length && (
-                      <span className="text-[#8C8676]">{t.agKayitYok}</span>
+                      <span style={{ color: C.solukInk }}>{t.agKayitYok}</span>
                     )}
                   </div>
                 </div>
@@ -3217,25 +3304,25 @@ export default function SilsileAgi() {
                 width: "50%", minWidth: 180,
                 maxWidth: "calc(100% - 36px - max(15%, 132px))",
                 maxHeight: 130, overflowY: "auto",
-                background: "rgba(255,255,255,0.97)", border: "1px solid #D8D0BF",
+                background: C.kart, border: "1px solid " + C.cizgi,
                 borderRadius: 2, padding: 16,
               }}
               data-ustlik onPointerDown={(e) => e.stopPropagation()} onPointerUp={(e) => e.stopPropagation()}>
               <button onClick={() => setSecim(null)}
-                className="absolute top-2 right-3 text-[#8C8676] hover:text-[#23201B]">×</button>
-              <div className="text-[11px] uppercase tracking-wider text-[#B5462B] mb-2">{t.agRivayetBagi}</div>
+                className="absolute top-2 right-3" style={{ color: C.solukInk }}>×</button>
+              <div className="text-[11px] uppercase tracking-wider mb-2" style={{ color: C.kenarSecili }}>{t.agRivayetBagi}</div>
               <div className="flex items-center gap-3 flex-wrap pr-6">
                 <button onClick={() => odaklan(hoca.id)} className="text-left hover:underline">
                   <div className="text-base">{adi(hoca)}</div>
-                  <div className="text-xs text-[#8C8676]">{tarihYaz(hoca)} · {hoca.belde}</div>
+                  <div className="text-xs" style={{ color: C.solukInk }}>{tarihYaz(hoca)} · {beldeAdi(hoca.belde)}</div>
                 </button>
-                <span className="text-[#B5462B] text-lg">→</span>
+                <span className="text-lg" style={{ color: C.kenarSecili }}>→</span>
                 <button onClick={() => odaklan(talebe.id)} className="text-left hover:underline">
                   <div className="text-base">{adi(talebe)}</div>
-                  <div className="text-xs text-[#8C8676]">{tarihYaz(talebe)} · {talebe.belde}</div>
+                  <div className="text-xs" style={{ color: C.solukInk }}>{tarihYaz(talebe)} · {beldeAdi(talebe.belde)}</div>
                 </button>
               </div>
-              <p className="text-xs text-[#5F594E] mt-3">
+              <p className="text-xs mt-3" style={{ color: C.ink }}>
                 {t.agKaynak} {secKenar.k}. {t.agTahricRumuzu} <span dir="rtl" className="text-sm">{secKenar.r}</span>.
               </p>
             </div>
