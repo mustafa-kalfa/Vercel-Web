@@ -507,7 +507,7 @@ const NODES = [
   // ---- Ma'mer cevresinde aga giren raviler ----
   N("hemmammunebbih", "همام بن منبه", "Hemmâm b. Münebbih", 4, 132, "Yemen", "es-Sahîfetu's-sahîha sahibi. Rumûz ع."),
   N("matarverrak", "مطر الوراق", "Matar el-Verrâk", 5, 129, "Basra"),
-  N("hisamyusufsanani", "هشام بن يوسف الصنعاني", "Hişâm b. Yûsuf es-San‘ânî", 5, 197, "Mekke"),
+  N("hisamyusufsanani", "هشام بن يوسف الصنعاني", "Hişâm b. Yûsuf es-San‘ânî", 5, 197, "Yemen"),
   N("mutemirsuleyman", "معتمر بن سليمان", "Mu‘temir b. Süleymân", 5, 187, "Basra"),
   N("abdulalaabdulala", "عبد الأعلى بن عبد الأعلى", "Abdül'alâ b. Abdil'alâ", 5, 189, "Basra"),
   N("vuheybhalid", "وهيب بن خالد", "Vüheyb b. Hâlid", 5, 165, "Basra"),
@@ -678,7 +678,7 @@ const NODES = [
   N("ebukureyb", "أبو كريب محمد بن العلاء", "Ebû Küreyb Muhammed b. el-Alâ", 5, 248, "Kûfe"),
   N("muhammedrafi", "محمد بن رافع النيسابوري", "Muhammed b. Râfi‘ en-Nîsâbûrî", 5, 245, "Horasan"),
   N("zuhli", "محمد بن يحيى الذهلي", "Muhammed b. Yahyâ ez-Zühlî", 5, 258, "Horasan"),
-  N("muhammedabdulalasanani", "محمد بن عبد الأعلى الصنعاني", "Muhammed b. Abdil'alâ es-San‘ânî", 5, 245, "Basra"),
+  N("muhammedabdulalasanani", "محمد بن عبد الأعلى الصنعاني", "Muhammed b. Abdil'alâ es-San‘ânî", 5, 245, "Yemen"),
   N("mucahidmusa", "مجاهد بن موسى", "Mücâhid b. Mûsâ", 5, 244, "Basra"),
   N("ebubekirayyas", "أبو بكر بن عياش", "Ebû Bekir b. Ayyâş", 5, 193, "Kûfe"),
   N("ebumuaviyedarir", "أبو معاوية الضرير", "Ebû Muâviye ed-Darîr", 5, 195, "Kûfe"),
@@ -719,43 +719,53 @@ const NODES = [
      cogunun DIA'da maddesi yok; ceviri yazi her biri icin ayri bir
      karar demek olurdu.
 
-     VEFAT YILI YOK. Mizzi bu listede tarih vermiyor; dugumler
-     tabakanin varsayilan yilina (TAHMIN[6] = 320) oturuyor, yani
-     dikey konumlari KESIN DEGIL. Tarihler ayrica islenmeli.
+     ADLAR TURKCE, ceviri yazi isaretleri titizlikle uygulanmadan
+     (Mustafa'nin karari, 2026-08-29). Arapca asillari `ar` alaninda.
+
+     VEFAT YILLARI KAYNAKTAN GELIYOR ama HENUZ EKSIK. Mizzi bu listede
+     tarih vermiyor -- Tehzîb Kutub-i Sitte ravilerini kapsiyor, bu
+     isimler bir tabaka sonrasi. Dogru kaynak ZEHEBI, SIYERU
+     A'LAMI'N-NUBELA (Samile 10906): tabakalari olum onyillarina gore
+     dizili ve fihristi makineyle okunabiliyor, yani terceme aramak
+     yerine dogrudan bulunuyor. Ayni bilgi Tezkiretu'l-huffaz'da
+     (Samile 1583) daha kisa haliyle var.
+     Su an yalnizca Ahmed b. Seleme'nin tarihi islendi (Siyer 13/373).
+     Tarihi olmayanlar tabakanin varsayilan yilina (TAHMIN[6])
+     oturuyor, yani dikey konumlari KESIN DEGIL.
 
      BELDE nisbeden turetildi (النيسابوري/البلخي/السرخسي -> Horasan,
      البخاري -> Maveraunnehir, الرازي -> Cibal...). Nisbesi olmayanlar
      Muslim'in beldesine kondu; bunlarin cogu zaten Nisabur halkasi.
      Kesin degil, tercemelerinden teyit edilmeli. */
-  N("ms01", "إبراهيم بن إسحاق الصيرفي", "إبراهيم بن إسحاق الصيرفي", 6, null, "Horasan"),
-  N("ms02", "إبراهيم بن أبي طالب", "إبراهيم بن أبي طالب", 6, null, "Horasan"),
-  N("ms03", "إبراهيم بن محمد بن حمزة", "إبراهيم بن محمد بن حمزة", 6, null, "Horasan"),
-  N("ms04", "إبراهيم بن محمد بن سفيان الفقيه", "إبراهيم بن محمد بن سفيان الفقيه", 6, null, "Horasan"),
-  N("ms05", "أبو حامد أحمد بن حمدون بن رستم الأعمشي", "أبو حامد أحمد بن حمدون بن رستم الأعمشي", 6, null, "Horasan"),
-  N("ms06", "أبو الفضل أحمد بن سلمة الحافظ", "أبو الفضل أحمد بن سلمة الحافظ", 6, null, "Horasan"),
-  N("ms07", "أبو حامد أحمد بن علي بن الحسن بن حسنويه المقرئ", "أبو حامد أحمد بن علي بن الحسن بن حسنويه المقرئ", 6, null, "Horasan"),
-  N("ms08", "أبو عمرو أحمد بن المبارك المستملي", "أبو عمرو أحمد بن المبارك المستملي", 6, null, "Horasan"),
-  N("ms09", "أبو حامد أحمد بن محمد بن الحسن بن الشرقي", "أبو حامد أحمد بن محمد بن الحسن بن الشرقي", 6, null, "Horasan"),
-  N("ms10", "أبو عمرو أحمد بن نصر الخفاف الحافظ", "أبو عمرو أحمد بن نصر الخفاف الحافظ", 6, null, "Horasan"),
-  N("ms11", "أبو سعيد حاتم بن أحمد بن محمود الكندي البخاري", "أبو سعيد حاتم بن أحمد بن محمود الكندي البخاري", 6, null, "Mâverâünnehir"),
-  N("ms12", "الحسين بن محمد بن زياد القباني", "الحسين بن محمد بن زياد القباني", 6, null, "Horasan"),
-  N("ms13", "أبو يحيى زكريا بن داود الخفاف", "أبو يحيى زكريا بن داود الخفاف", 6, null, "Horasan"),
-  N("ms14", "سعيد بن عمرو البرذعي الحافظ", "سعيد بن عمرو البرذعي الحافظ", 6, null, "Horasan"),
-  N("ms15", "صالح بن محمد البغدادي الحافظ", "صالح بن محمد البغدادي الحافظ", 6, null, "Horasan"),
-  N("ms16", "أبو محمد عبد الله بن أحمد بن عبد السلام الخفاف النيسابوري", "أبو محمد عبد الله بن أحمد بن عبد السلام الخفاف النيسابوري", 6, null, "Horasan"),
-  N("ms17", "أبو محمد عبد الله بن محمد بن الحسن بن الشرقي", "أبو محمد عبد الله بن محمد بن الحسن بن الشرقي", 6, null, "Horasan"),
-  N("ms18", "أبو علي عبد الله بن محمد بن علي البلخي الحافظ", "أبو علي عبد الله بن محمد بن علي البلخي الحافظ", 6, null, "Horasan"),
-  N("ms19", "عبد الله بن يحيى السرخسي القاضي", "عبد الله بن يحيى السرخسي القاضي", 6, null, "Horasan"),
-  N("ms20", "عبد الرحمن بن أبي حاتم الرازي", "عبد الرحمن بن أبي حاتم الرازي", 6, null, "Cibâl"),
-  N("ms21", "علي بن إسماعيل الصفار", "علي بن إسماعيل الصفار", 6, null, "Horasan"),
-  N("ms22", "علي بن الحسن بن أبي عيسى الهلالي", "علي بن الحسن بن أبي عيسى الهلالي", 6, null, "Horasan"),
-  N("ms23", "علي بن الحسين بن الجنيد الرازي", "علي بن الحسين بن الجنيد الرازي", 6, null, "Cibâl"),
-  N("ms24", "الفضل بن محمد بن علي البلخي", "الفضل بن محمد بن علي البلخي", 6, null, "Horasan"),
-  N("ms25", "أبو بكر محمد بن النضر بن سلمة بن الجارود الجارودي", "أبو بكر محمد بن النضر بن سلمة بن الجارود الجارودي", 6, null, "Horasan"),
-  N("ms26", "أبو حاتم مكي بن عبدان التميمي", "أبو حاتم مكي بن عبدان التميمي", 6, null, "Horasan"),
-  N("ms27", "أبو محمد نصر بن أحمد بن نصر الحافظ المعروف بنصرك", "أبو محمد نصر بن أحمد بن نصر الحافظ المعروف بنصرك", 6, null, "Horasan"),
-  N("ms28", "يحيى بن محمد بن صاعد", "يحيى بن محمد بن صاعد", 6, null, "Horasan"),
-  N("ms29", "أبو عوانة الإسفراييني", "أبو عوانة الإسفراييني", 6, null, "Horasan"),
+  N("ms01", "إبراهيم بن إسحاق الصيرفي", "İbrâhim b. İshak es-Sayrafî", 6, null, "Horasan"),
+  N("ms02", "إبراهيم بن أبي طالب", "İbrâhim b. Ebî Tâlib", 6, null, "Horasan"),
+  N("ms03", "إبراهيم بن محمد بن حمزة", "İbrâhim b. Muhammed b. Hamza", 6, null, "Horasan"),
+  N("ms04", "إبراهيم بن محمد بن سفيان الفقيه", "İbrâhim b. Muhammed b. Süfyân el-Fakīh", 6, null, "Horasan"),
+  N("ms05", "أبو حامد أحمد بن حمدون بن رستم الأعمشي", "Ebû Hâmid Ahmed b. Hamdûn el-A‘meşî", 6, null, "Horasan"),
+  N("ms06", "أبو الفضل أحمد بن سلمة الحافظ", "Ebü'l-Fazl Ahmed b. Seleme", 6, 286, "Horasan", "Müslim'in rihlede yol arkadaşı. Zehebî, Siyer 13/373: «تُوُفِّيَ ابن سلمة في غرة جمادى الآخرة سنة ست وثمانين ومئتين»."),
+  N("ms07", "أبو حامد أحمد بن علي بن الحسن بن حسنويه المقرئ", "Ebû Hâmid Ahmed b. Ali b. Hasneveyh el-Mukrî", 6, null, "Horasan"),
+  N("ms08", "أبو عمرو أحمد بن المبارك المستملي", "Ebû Amr Ahmed b. el-Mübârek el-Müstemlî", 6, null, "Horasan"),
+  N("ms09", "أبو حامد أحمد بن محمد بن الحسن بن الشرقي", "Ebû Hâmid Ahmed b. Muhammed b. eş-Şarkī", 6, null, "Horasan"),
+  N("ms10", "أبو عمرو أحمد بن نصر الخفاف الحافظ", "Ebû Amr Ahmed b. Nasr el-Haffâf", 6, null, "Horasan"),
+  N("ms11", "أبو سعيد حاتم بن أحمد بن محمود الكندي البخاري", "Ebû Saîd Hâtim b. Ahmed el-Kindî el-Buhârî", 6, null, "Mâverâünnehir"),
+  N("ms12", "الحسين بن محمد بن زياد القباني", "Hüseyin b. Muhammed el-Kabbânî", 6, null, "Horasan"),
+  N("ms13", "أبو يحيى زكريا بن داود الخفاف", "Ebû Yahyâ Zekeriyyâ b. Dâvûd el-Haffâf", 6, null, "Horasan"),
+  N("ms14", "سعيد بن عمرو البرذعي الحافظ", "Saîd b. Amr el-Berzaî", 6, null, "Horasan"),
+  N("ms15", "صالح بن محمد البغدادي الحافظ", "Sâlih b. Muhammed el-Bağdâdî", 6, null, "Horasan"),
+  N("ms16", "أبو محمد عبد الله بن أحمد بن عبد السلام الخفاف النيسابوري", "Ebû Muhammed Abdullah b. Ahmed el-Haffâf", 6, null, "Horasan"),
+  N("ms17", "أبو محمد عبد الله بن محمد بن الحسن بن الشرقي", "Ebû Muhammed Abdullah b. Muhammed b. eş-Şarkī", 6, null, "Horasan"),
+  N("ms18", "أبو علي عبد الله بن محمد بن علي البلخي الحافظ", "Ebû Ali Abdullah b. Muhammed el-Belhî", 6, null, "Horasan"),
+  N("ms19", "عبد الله بن يحيى السرخسي القاضي", "Abdullah b. Yahyâ es-Serahsî", 6, null, "Horasan"),
+  N("ms20", "عبد الرحمن بن أبي حاتم الرازي", "Abdurrahman b. Ebî Hâtim er-Râzî", 6, null, "Cibâl"),
+  N("ms21", "علي بن إسماعيل الصفار", "Ali b. İsmâîl es-Saffâr", 6, null, "Horasan"),
+  N("ms22", "علي بن الحسن بن أبي عيسى الهلالي", "Ali b. el-Hasen el-Hilâlî", 6, null, "Horasan"),
+  N("ms23", "علي بن الحسين بن الجنيد الرازي", "Ali b. el-Hüseyin b. el-Cüneyd er-Râzî", 6, null, "Cibâl"),
+  N("ms24", "الفضل بن محمد بن علي البلخي", "Fazl b. Muhammed el-Belhî", 6, null, "Horasan"),
+  N("ms25", "أبو بكر محمد بن النضر بن سلمة بن الجارود الجارودي", "Ebû Bekir Muhammed b. en-Nadr el-Cârûdî", 6, null, "Horasan"),
+  N("ms26", "أبو حاتم مكي بن عبدان التميمي", "Ebû Hâtim Mekkî b. Abdân et-Temîmî", 6, null, "Horasan"),
+  N("ms27", "أبو محمد نصر بن أحمد بن نصر الحافظ المعروف بنصرك", "Ebû Muhammed Nasr b. Ahmed (Nasrek)", 6, null, "Horasan"),
+  N("ms28", "يحيى بن محمد بن صاعد", "Yahyâ b. Muhammed b. Sâid", 6, null, "Horasan"),
+  N("ms29", "أبو عوانة الإسفراييني", "Ebû Avâne el-İsferâyînî", 6, null, "Horasan"),
 
   N("ibnmace", "محمد بن يزيد ابن ماجه", "İbn Mâce", 5, 273, "Cibâl", "es-Sünen sahibi."),
   N("darimi", "عبد الله بن عبد الرحمن الدارمي", "Dârimî", 5, 255, "Horasan"),
@@ -2248,8 +2258,21 @@ export default function SilsileAgi() {
       if (cx - g / 2 < SOL_BANT + 4 || cx + g / 2 > box.w - 4) return;
       const kay = 0;
 
+      /* CARPISMA TESTI VURGULU ISIMLERDE DE GECERLI.
+
+         Eskiden `zorla` burada da devredeydi: bir raviye tiklaninca
+         butun hoca ve talebelerinin etiketi carpisma testine hic
+         girmeden yaziliyordu. Ebû Hüreyre gibi 60'tan fazla bagi olan
+         bir isimde sonuc okunmaz bir yigin oluyordu (Mustafa'nin
+         ekran goruntusu, 2026-08-29).
+
+         `zorla` artik yalnizca OLCEK ESIGINI (yukarida) atlatiyor,
+         yani vurgulu isimler uzaktan da yazilmaya CALISILIYOR -- ama
+         yer yoksa yine eleniyorlar. Yigilma yerine eksik isim tercih
+         edildi; vurgulular zaten ONCE yerlestigi icin yeri onlar
+         kapiyor, elenenler kenardaki kalabalik olanlar oluyor. */
       let kutu = null, yon = null;
-      if (zorla || bos(kutuAlt)) { kutu = kutuAlt; yon = "alt"; }
+      if (bos(kutuAlt)) { kutu = kutuAlt; yon = "alt"; }
       else if (bos(kutuUst)) { kutu = kutuUst; yon = "ust"; }
       if (!kutu) return;
 
