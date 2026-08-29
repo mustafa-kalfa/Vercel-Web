@@ -729,16 +729,19 @@ const NODES = [
      dizili ve fihristi makineyle okunabiliyor, yani terceme aramak
      yerine dogrudan bulunuyor. Ayni bilgi Tezkiretu'l-huffaz'da
      (Samile 1583) daha kisa haliyle var.
-     Su an yalnizca Ahmed b. Seleme'nin tarihi islendi (Siyer 13/373).
-     Tarihi olmayanlar tabakanin varsayilan yilina (TAHMIN[6])
-     oturuyor, yani dikey konumlari KESIN DEGIL.
+     29 isimden 8'inin tarihi Siyer'den alindi ve dugum notlarinda
+     Arapca nakliyle duruyor. Kalan 21'i tabakanin varsayilan yilina
+     (TAHMIN[6]) oturuyor, yani DIKEY KONUMLARI KESIN DEGIL --
+     bakarken bu akilda tutulmali. Yontem kurulu: Siyer'in tabaka
+     fihristinden isim bulunuyor, tercemenin son sayfasindaki vefat
+     kaydi okunuyor. Isim basina 2-4 cagri.
 
      BELDE nisbeden turetildi (النيسابوري/البلخي/السرخسي -> Horasan,
      البخاري -> Maveraunnehir, الرازي -> Cibal...). Nisbesi olmayanlar
      Muslim'in beldesine kondu; bunlarin cogu zaten Nisabur halkasi.
      Kesin degil, tercemelerinden teyit edilmeli. */
   N("ms01", "إبراهيم بن إسحاق الصيرفي", "İbrâhim b. İshak es-Sayrafî", 6, null, "Horasan"),
-  N("ms02", "إبراهيم بن أبي طالب", "İbrâhim b. Ebî Tâlib", 6, null, "Horasan"),
+  N("ms02", "إبراهيم بن أبي طالب", "İbrâhim b. Ebî Tâlib", 6, 295, "Horasan", "Siyer 13/551: «تُوُفِّيَ إبراهيم في ثاني رجب سنة خمس وتسعين ومئتين»."),
   N("ms03", "إبراهيم بن محمد بن حمزة", "İbrâhim b. Muhammed b. Hamza", 6, null, "Horasan"),
   N("ms04", "إبراهيم بن محمد بن سفيان الفقيه", "İbrâhim b. Muhammed b. Süfyân el-Fakīh", 6, null, "Horasan"),
   N("ms05", "أبو حامد أحمد بن حمدون بن رستم الأعمشي", "Ebû Hâmid Ahmed b. Hamdûn el-A‘meşî", 6, null, "Horasan"),
@@ -746,11 +749,11 @@ const NODES = [
   N("ms07", "أبو حامد أحمد بن علي بن الحسن بن حسنويه المقرئ", "Ebû Hâmid Ahmed b. Ali b. Hasneveyh el-Mukrî", 6, null, "Horasan"),
   N("ms08", "أبو عمرو أحمد بن المبارك المستملي", "Ebû Amr Ahmed b. el-Mübârek el-Müstemlî", 6, null, "Horasan"),
   N("ms09", "أبو حامد أحمد بن محمد بن الحسن بن الشرقي", "Ebû Hâmid Ahmed b. Muhammed b. eş-Şarkī", 6, null, "Horasan"),
-  N("ms10", "أبو عمرو أحمد بن نصر الخفاف الحافظ", "Ebû Amr Ahmed b. Nasr el-Haffâf", 6, null, "Horasan"),
+  N("ms10", "أبو عمرو أحمد بن نصر الخفاف الحافظ", "Ebû Amr Ahmed b. Nasr el-Haffâf", 6, 299, "Horasan", "Nîsâbûr'un reisi, «zeynü'l-eşrâf» lakabıyla anılırdı. Siyer 13/562: «وكانت وفاته في شهر شعبان سنة تسع وتسعين ومئتين من أبناء الثمانين»."),
   N("ms11", "أبو سعيد حاتم بن أحمد بن محمود الكندي البخاري", "Ebû Saîd Hâtim b. Ahmed el-Kindî el-Buhârî", 6, null, "Mâverâünnehir"),
-  N("ms12", "الحسين بن محمد بن زياد القباني", "Hüseyin b. Muhammed el-Kabbânî", 6, null, "Horasan"),
+  N("ms12", "الحسين بن محمد بن زياد القباني", "Hüseyin b. Muhammed el-Kabbânî", 6, 289, "Horasan", "Siyer 13/502, torunu Abdullah b. Ali'den: «توفي جدي الحسين بن محمد سنة تسع وثمانين ومئتين»."),
   N("ms13", "أبو يحيى زكريا بن داود الخفاف", "Ebû Yahyâ Zekeriyyâ b. Dâvûd el-Haffâf", 6, null, "Horasan"),
-  N("ms14", "سعيد بن عمرو البرذعي الحافظ", "Saîd b. Amr el-Berzaî", 6, null, "Horasan"),
+  N("ms14", "سعيد بن عمرو البرذعي الحافظ", "Saîd b. Amr el-Berzaî", 6, 292, "Horasan", "Siyer 14/78, İbn Ukde'den: «توفي سنة اثنتين وتسعين ومئتين»."),
   N("ms15", "صالح بن محمد البغدادي الحافظ", "Sâlih b. Muhammed el-Bağdâdî", 6, null, "Horasan"),
   N("ms16", "أبو محمد عبد الله بن أحمد بن عبد السلام الخفاف النيسابوري", "Ebû Muhammed Abdullah b. Ahmed el-Haffâf", 6, null, "Horasan"),
   N("ms17", "أبو محمد عبد الله بن محمد بن الحسن بن الشرقي", "Ebû Muhammed Abdullah b. Muhammed b. eş-Şarkī", 6, null, "Horasan"),
@@ -759,11 +762,11 @@ const NODES = [
   N("ms20", "عبد الرحمن بن أبي حاتم الرازي", "Abdurrahman b. Ebî Hâtim er-Râzî", 6, null, "Cibâl"),
   N("ms21", "علي بن إسماعيل الصفار", "Ali b. İsmâîl es-Saffâr", 6, null, "Horasan"),
   N("ms22", "علي بن الحسن بن أبي عيسى الهلالي", "Ali b. el-Hasen el-Hilâlî", 6, null, "Horasan"),
-  N("ms23", "علي بن الحسين بن الجنيد الرازي", "Ali b. el-Hüseyin b. el-Cüneyd er-Râzî", 6, null, "Cibâl"),
+  N("ms23", "علي بن الحسين بن الجنيد الرازي", "Ali b. el-Hüseyin b. el-Cüneyd er-Râzî", 6, 291, "Cibâl", "Rey'de Mâlik'in hadisini derlediği için «el-Mâlikî» diye bilinirdi. Vefatında ihtilâf var: Ebü'ş-Şeyh 291, Halîlî 288. Zehebî 291'i tercih eder — Siyer 14/17: «الأصح وفاته في آخر سنة إحدى وتسعين ومئتين»."),
   N("ms24", "الفضل بن محمد بن علي البلخي", "Fazl b. Muhammed el-Belhî", 6, null, "Horasan"),
-  N("ms25", "أبو بكر محمد بن النضر بن سلمة بن الجارود الجارودي", "Ebû Bekir Muhammed b. en-Nadr el-Cârûdî", 6, null, "Horasan"),
+  N("ms25", "أبو بكر محمد بن النضر بن سلمة بن الجارود الجارودي", "Ebû Bekir Muhammed b. en-Nadr el-Cârûdî", 6, 291, "Horasan", "Müslim'in rihlede yol arkadaşı; Hâkim onu «şeyhu vaktihî» sayar. Siyer 13/543: «فدفن عشية الخميس السابع عشر من شهر ربيع الأول سنة إحدى وتسعين ومئتين»."),
   N("ms26", "أبو حاتم مكي بن عبدان التميمي", "Ebû Hâtim Mekkî b. Abdân et-Temîmî", 6, null, "Horasan"),
-  N("ms27", "أبو محمد نصر بن أحمد بن نصر الحافظ المعروف بنصرك", "Ebû Muhammed Nasr b. Ahmed (Nasrek)", 6, null, "Horasan"),
+  N("ms27", "أبو محمد نصر بن أحمد بن نصر الحافظ المعروف بنصرك", "Ebû Muhammed Nasr b. Ahmed (Nasrek)", 6, 293, "Horasan", "Buhârâ'ya yerleşti, el-Müsned'i tasnif etti. Siyer 13/538: «توفي سنة ثلاث وتسعين ومئتين»."),
   N("ms28", "يحيى بن محمد بن صاعد", "Yahyâ b. Muhammed b. Sâid", 6, null, "Horasan"),
   N("ms29", "أبو عوانة الإسفراييني", "Ebû Avâne el-İsferâyînî", 6, null, "Horasan"),
 
