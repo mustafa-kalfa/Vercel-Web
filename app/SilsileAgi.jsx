@@ -85,14 +85,44 @@ const renkOf = (id) => {
 const TAHMIN = { 0: 11, 1: 55, 2: 90, 3: 105, 4: 135, 5: 175 };
 
 // DİA'dan alınan hicrî/milâdî vefat yılları (madde tanıtım cümlelerinden)
-const DIA = {"ali": [40, "661"], "ebuhureyre": [58, "678"], "ebubekir": [13, "634"], "omer": [23, "644"], "aise": [58, "678"], "enes": [93, "711"], "cabir": [78, "697"], "ibnabbas": [68, "687"], "ibnomer": [73, "693"], "ibnmesud": [32, "652"], "ibnzubeyr": [73, "692"], "bera": [71, "690"], "zeydarkam": [68, "688"], "suhayb": [38, "659"], "hasanbali": [49, "669"], "huseyn": [61, "680"], "ibncafer": [80, "699"], "mikdad": [33, "653"], "fatima": [11, "632"], "ubey": [33, "654"], "usame": [54, "674"], "kabahbar": [32, "652"], "ahnef": [67, "686"], "esvedyezid": [75, "694"], "alkame": [62, "682"], "suveydgafle": [80, "699"], "ebuvail": [82, "701"], "zirhubeys": [82, "701"], "saidmusayyeb": [94, "713"], "hasanbasri": [110, "728"], "rebihiras": [101, "719"], "zeydvehb": [83, "702"], "ebutufeyl": [100, "718"], "sabi": [104, "722"], "urve": [94, "713"], "ikrime": [105, "723"], "zeynelabidin": [94, "712"], "zeydeslem": [136, "754"], "salimibnomer": [106, "725"], "amrhurays": [85, "704"], "zeydsabit": [45, "665"], "kayshazim": [97, "715"], "abdrahmanebubekir": [53, "673"], "abdrahmanavf": [32, "652"], "osman": [35, "656"], "ukbeamir": [58, "678"], "ebumusa": [42, "662"], "ebusaid": [74, "693"], "huzeyfe": [36, "656"], "ebusalih": [101, "719"], "esaskays": [40, "661"], "cerirbecelî": [51, "671"], "sadvakkas": [55, "675"], "talha": [36, "656"], "asimomer": [70, "689"], "ebanosman": [105, "723"], "ibnhanefiyye": [81, "700"], "ataebirebah": [114, "732"], "ubeydullahadi": [58, "678"], "abdrahmanyezid": [198, "813"], "ebuabdrahmansulemi": [73, "692"], "selemeekva": [74, "693"], "imranhusayn": [52, "672"], "mugirasube": [50, "670"], "abdrahmanabza": [70, "689"], "amrdinar": [126, "744"], "ebuishaksebii": [127, "745"], "amess": [148, "765"], "malik": [179, "795"], "ibncureyc": [150, "767"], "ibnuyeyne": [198, "814"], "hammadseleme": [167, "784"], "mamer": [153, "770"], "sevri": [161, "778"], "evzai": [157, "774"], "huseym": [183, "799"], "yahyaadem": [203, "818"], "kattan": [198, "813"], "ibnmehdi": [198, "813"], "rafihadic": [73, "692"], "eyyubsahtiyani": [131, "749"], "haccacertat": [145, "762"], "ebulaliye": [90, "709"], "ibrahimteymi": [92, "710"], "hafsgiyas": [194, "810"], "leysbsad": [175, "791"], "ibnidris": [192, "807"], "alimushir": [189, "805"], "saidcubeyr": [94, "713"], "tavus": [106, "725"], "mucahid": [103, "721"], "suleymanyesar": [107, "725"], "vehbmunebbih": [114, "732"], "hammadzeyd": [179, "795"], "numanbesir": [64, "684"], "zuhayrmuaviye": [173, "789"], "temimdari": [40, "661"], "bilal": [20, "641"], "amirrebia": [35, "656"], "sabitbunani": [127, "744"], "dahhak": [105, "723"], "ebukilabe": [104, "722"], "yahyasaidensari": [143, "760"], "katade": [117, "735"], "yahyaebikesir": [129, "747"], "ibnishak": [151, "768"], "ibnebiaruba": [156, "773"], "ebuavane": [176, "792"], "sube": [160, "776"], "veki": [197, "812"], "ibnmubarek": [181, "797"], "cerirabdulhamid": [188, "804"], "ebucafermuhbakir": [114, "733"], "ebuselemeavf": [94, "712"], "mesruk": [63, "683"], "amrmeymun": [74, "693"], "hamzazeyyat": [156, "773"], "halidvelid": [21, "642"], "bureyde": [63, "682"], "hafsa": [45, "665"], "ibnebimuleyke": [117, "735"], "ebunadra": [108, "726"], "haricezeyd": [100, "718"], "ubeydullahutbe": [98, "716"], "arac": [117, "735"], "ibrahimsad": [183, "799"], "suaybebihamza": [162, "779"], "ibnsihab": [124, "742"], "hisamdestuvai": [153, "770"], "misersukdam": [155, "772"], "suleymanteymi": [143, "761"], "serikkadi": [177, "794"], "sureyh": [80, "699"], "ibnebizaide": [182, "798"], "nebi": [11, "632"]};
+const DIA = {"ali": [40, "661"], "ebuhureyre": [58, "678"], "ebubekir": [13, "634"], "omer": [23, "644"], "aise": [58, "678"], "enes": [93, "711"], "cabir": [78, "697"], "ibnabbas": [68, "687"], "ibnomer": [73, "693"], "ibnmesud": [32, "652"], "ibnzubeyr": [73, "692"], "bera": [71, "690"], "zeydarkam": [68, "688"], "suhayb": [38, "659"], "hasanbali": [49, "669"], "huseyn": [61, "680"], "ibncafer": [80, "699"], "mikdad": [33, "653"], "fatima": [11, "632"], "ubey": [33, "654"], "usame": [54, "674"], "kabahbar": [32, "652"], "ahnef": [67, "686"], "esvedyezid": [75, "694"], "alkame": [62, "682"], "suveydgafle": [80, "699"], "ebuvail": [82, "701"], "zirhubeys": [82, "701"], "saidmusayyeb": [94, "713"], "hasanbasri": [110, "728"], "rebihiras": [101, "719"], "zeydvehb": [83, "702"], "ebutufeyl": [100, "718"], "sabi": [104, "722"], "urve": [94, "713"], "ikrime": [105, "723"], "zeynelabidin": [94, "712"], "zeydeslem": [136, "754"], "salimibnomer": [106, "725"], "amrhurays": [85, "704"], "zeydsabit": [45, "665"], "kayshazim": [97, "715"], "abdrahmanebubekir": [53, "673"], "abdrahmanavf": [32, "652"], "osman": [35, "656"], "ukbeamir": [58, "678"], "ebumusa": [42, "662"], "ebusaid": [74, "693"], "huzeyfe": [36, "656"], "ebusalih": [101, "719"], "esaskays": [40, "661"], "cerirbecelî": [51, "671"], "sadvakkas": [55, "675"], "talha": [36, "656"], "asimomer": [70, "689"], "ebanosman": [105, "723"], "ibnhanefiyye": [81, "700"], "ataebirebah": [114, "732"], "ubeydullahadi": [58, "678"], "abdrahmanyezid": [198, "813"], "ebuabdrahmansulemi": [73, "692"], "selemeekva": [74, "693"], "imranhusayn": [52, "672"], "mugirasube": [50, "670"], "abdrahmanabza": [70, "689"], "amrdinar": [126, "744"], "ebuishaksebii": [127, "745"], "amess": [148, "765"], "malik": [179, "795"], "ibncureyc": [150, "767"], "ibnuyeyne": [198, "814"], "hammadseleme": [167, "784"], "mamer": [153, "770"], "sevri": [161, "778"], "evzai": [157, "774"], "huseym": [183, "799"], "yahyaadem": [203, "818"], "kattan": [198, "813"], "ibnmehdi": [198, "813"], "rafihadic": [73, "692"], "eyyubsahtiyani": [131, "749"], "haccacertat": [145, "762"], "ebulaliye": [90, "709"], "ibrahimteymi": [92, "710"], "hafsgiyas": [194, "810"], "leysbsad": [175, "791"], "ibnidris": [192, "807"], "alimushir": [189, "805"], "saidcubeyr": [94, "713"], "tavus": [106, "725"], "mucahid": [103, "721"], "suleymanyesar": [107, "725"], "vehbmunebbih": [114, "732"], "hammadzeyd": [179, "795"], "numanbesir": [64, "684"], "zuhayrmuaviye": [173, "789"], "temimdari": [40, "661"], "bilal": [20, "641"], "amirrebia": [35, "656"], "sabitbunani": [127, "744"], "dahhak": [105, "723"], "ebukilabe": [104, "722"], "yahyasaidensari": [143, "760"], "katade": [117, "735"], "yahyaebikesir": [129, "747"], "ibnishak": [151, "768"], "ibnebiaruba": [156, "773"], "ebuavane": [176, "792"], "sube": [160, "776"], "veki": [197, "812"], "ibnmubarek": [181, "797"], "cerirabdulhamid": [188, "804"], "ebucafermuhbakir": [114, "733"], "ebuselemeavf": [94, "712"], "mesruk": [63, "683"], "amrmeymun": [74, "693"], "hamzazeyyat": [156, "773"], "halidvelid": [21, "642"], "bureyde": [63, "682"], "hafsa": [45, "665"], "ibnebimuleyke": [117, "735"], "ebunadra": [108, "726"], "haricezeyd": [100, "718"], "ubeydullahutbe": [98, "716"], "arac": [117, "735"], "ibrahimsad": [183, "799"], "suaybebihamza": [162, "779"], "ibnsihab": [124, "742"], "hisamdestuvai": [153, "770"], "misersukdam": [155, "772"], "suleymanteymi": [143, "761"], "serikkadi": [177, "794"], "sureyh": [80, "699"], "ibnebizaide": [182, "798"], "nebi": [11, "632"], "buhari": [256, "870"], "muslim": [261, "875"], "ebudavud": [275, "889"], "tirmizi": [279, "892"], "nesai": [303, "915"], "ibnmace": [273, "887"]};
+
+/* Veri denetimi. Sessiz veri hatalarini gelistirme sirasinda yuze
+   cikarir: bir ravinin beldesi sutun listesinde yoksa o ravi ag'da hic
+   gorunmez ve bunu fark etmek zordur. Uretimde calismaz. */
+function veriyiDenetle(nodes, edges) {
+  const bilinen = new Set(BELDELER);
+  const kayipBelde = nodes.filter((n) => !bilinen.has(n.belde));
+  const idler = new Set(nodes.map((n) => n.id));
+  const kayipUc = edges.filter((e) => !idler.has(e.a) || !idler.has(e.b));
+  if (kayipBelde.length) console.warn("[silsile] BELDELER'de olmayan belde -- bu raviler cizilmeyecek:",
+    kayipBelde.map((n) => n.tr + " (" + n.belde + ")"));
+  if (kayipUc.length) console.warn("[silsile] ucu tanimsiz kenar:",
+    kayipUc.map((e) => e.a + " -> " + e.b));
+}
 
 const N = (id, ar, tr, tab, olum, belde, not) => {
   const d = DIA[id];
   return { id, ar, tr, tab, olum: d ? d[0] : olum, mil: d ? d[1] : null, belde, not };
 };
-// "ö. 40/661", "ö. 83/?" veya "ö. ?/?"
-const tarihYaz = (n) => `ö. ${n.olum ?? "?"}/${n.mil ?? "?"}`;
+/* Hicri yildan milâdî yil kestirimi. Hicri yil kamerî oldugu icin
+   milâdîye gore her 33 yilda bir yil kayiyor; formul bunu veriyor ve
+   sonuc genellikle bir yil hata payinda. */
+const miladiKestirim = (h) => Math.round(622 + h - h / 33);
+
+/* "ö. 40/661" (DIA'dan), "ö. 256/~870" (kestirim) veya "ö. ?/?".
+
+   TILDE BILEREK: 541 ravinin 402'sinde milâdî yil DIA'dan gelmiyor --
+   DIA'da mustakil maddesi olmayan tabiin ravileri. Once bu sayfalarda
+   "?" yaziyordu, Buhârî gibi temel bir isimde bile (Mustafa fark etti,
+   2026-08-29). Bos birakmak yerine kestirim yaziliyor ama tilde ile:
+   okuyucu hangi tarihin KAYNAKLI hangisinin HESAPLANMIS oldugunu
+   ayirt edebilsin. Bir isme DIA tarihi eklendiginde tilde
+   kendiliginden kalkiyor. */
+const tarihYaz = (n) => {
+  if (n.olum == null) return "ö. ?/?";
+  return `ö. ${n.olum}/${n.mil ?? "~" + miladiKestirim(n.olum)}`;
+};
 
 const NODES = [
   N("nebi", "النبي صلى الله عليه وسلم", "Hz. Peygamber", 0, 11, "Medine", "Bütün rivayetin kaynağı. Tehzîb tercemelerinde sahâbenin hocası olarak «روى عن النبي ﷺ» kaydıyla geçer."),
@@ -223,7 +253,7 @@ const NODES = [
   N("hammadseleme", "حماد بن سلمة", "Hammâd b. Seleme", 5, 167, "Basra", "Basra'nın dört medârından. Mizzî, İbn Cüreyc ve İbn İshak için «ve hüve min şuyûhihî», Mâlik için «min akrânihî» kaydını düşer."),
   N("ebuavane", "الوضاح بن عبد الله اليشكري", "Ebû Avâne el-Vâsıtî", 5, 176, "Basra", "Vâsıt asıllı, Basra'ya yerleşti. Mizzî: Şu‘be ondan rivayet etti ve ondan önce vefat etti."),
   N("sube", "شعبة بن الحجاج", "Şu‘be b. el-Haccâc", 5, 160, "Basra"),
-  N("mamer", "معمر بن راشد", "Ma‘mer b. Râşid", 5, 153, "Basra", "İbnü'l-Medînî, el-İlel: «künyesi Ebû Urve, Haddânî'nin mevlâsı, Yemen'de 154'te vefat etti, İbn Şihâb'dan işitti.» Vefat yılında kaynaklar arasında ihtilâf var."),
+  N("mamer", "معمر بن راشد", "Ma‘mer b. Râşid", 5, 153, "Yemen", "İbnü'l-Medînî, el-İlel: «künyesi Ebû Urve, Haddânî'nin mevlâsı, Yemen'de 154'te vefat etti, İbn Şihâb'dan işitti.» Vefat yılında kaynaklar arasında ihtilâf var."),
   N("sevri", "سفيان الثوري", "Süfyân es-Sevrî", 5, 161, "Kûfe"),
   N("evzai", "الأوزاعي", "Evzâî", 5, 157, "Şam", "Şam'ın imâmı. Mizzî, Dârekutnî ve İbn Ma‘în'den şu kayıtları nakleder: Atâ’dan rivayeti mürseldir, İbn Sîrîn'i hastalığında ziyaret etti fakat ondan işitmedi, Nâfi‘den de işitmedi."),
   N("huseym", "هشيم بن بشير", "Hüşeym b. Beşîr", 5, 183, "Vâsıt", "Tedlîsiyle bilinir. Mizzî'nin naklettikleri: Eyyûb'dan yalnız bir hadis işitti (İbn Ma‘în), Hâlid el-Hazzâ ve Mugīre'den hiç işitmedi (Ahmed b. Hanbel), Mücâlid'den hiçbir şey işitmedi, Zâzân'dan tedlîs yaptı."),
@@ -288,7 +318,7 @@ const NODES = [
   N("ebucafermuhbakir", "محمد بن علي الباقر", "Muhammed b. Ali el-Bâkır", 4, 114, "Medine"),
   N("suleymanyesar", "سليمان بن يسار", "Süleymân b. Yesâr", 3, 107, "Medine", "Medine'nin yedi fakıhından."),
   N("ebuselemeavf", "أبو سلمة بن عبد الرحمن", "Ebû Seleme b. Abdirrahman", 3, 94, "Medine", "Medine'nin yedi fakıhından."),
-  N("vehbmunebbih", "وهب بن منبه", "Vehb b. Münebbih", 4, 114, "Mekke"),
+  N("vehbmunebbih", "وهب بن منبه", "Vehb b. Münebbih", 4, 114, "Yemen"),
   N("hammadzeyd", "حماد بن زيد", "Hammâd b. Zeyd", 5, 179, "Basra", "Rumûz خ م د ت س."),
   N("varkaomer", "ورقاء بن عمر", "Varkā b. Ömer", 5, null, "Kûfe"),
   N("davudattar", "داود بن عبد الرحمن العطار", "Dâvûd b. Abdirrahman el-Attâr", 5, null, "Mekke", "Rumûz ع."),
@@ -431,7 +461,7 @@ const NODES = [
   N("caferavn", "جعفر بن عون", "Ca‘fer b. Avn", 5, 207, "Kûfe"),
   N("halidharis", "خالد بن الحارث الهجيمي", "Hâlid b. el-Hâris el-Hüceyî", 5, 186, "Basra"),
   N("ruhubade", "روح بن عبادة", "Ruh b. Ubâde", 5, 205, "Basra"),
-  N("abdurrezzak", "عبد الرزاق بن همام", "Abdürrezzâk b. Hemmâm", 5, 211, "Mekke", "Ma‘mer'in başlıca râvisi, el-Musannef sahibi."),
+  N("abdurrezzak", "عبد الرزاق بن همام", "Abdürrezzâk b. Hemmâm", 5, 211, "Yemen", "Ma‘mer'in başlıca râvisi, el-Musannef sahibi."),
   N("damrarebia", "ضمرة بن ربيعة", "Damra b. Rabîa", 5, 202, "Şam"),
   N("suleymanbilal", "سليمان بن بلال", "Süleymân b. Bilâl", 5, 172, "Medine"),
   N("bisrsari", "بشر بن السري", "Bişr b. es-Serî", 5, 195, "Basra"),
@@ -469,7 +499,7 @@ const NODES = [
   N("enesiyaz", "أنس بن عياض", "Enes b. İyâz", 5, 200, "Medine"),
 
   // ---- Ma'mer cevresinde aga giren raviler ----
-  N("hemmammunebbih", "همام بن منبه", "Hemmâm b. Münebbih", 4, 132, "Mekke", "es-Sahîfetu's-sahîha sahibi. Rumûz ع."),
+  N("hemmammunebbih", "همام بن منبه", "Hemmâm b. Münebbih", 4, 132, "Yemen", "es-Sahîfetu's-sahîha sahibi. Rumûz ع."),
   N("matarverrak", "مطر الوراق", "Matar el-Verrâk", 5, 129, "Basra"),
   N("hisamyusufsanani", "هشام بن يوسف الصنعاني", "Hişâm b. Yûsuf es-San‘ânî", 5, 197, "Mekke"),
   N("mutemirsuleyman", "معتمر بن سليمان", "Mu‘temir b. Süleymân", 5, 187, "Basra"),
@@ -1340,8 +1370,15 @@ NODES.filter((n) => n.tab === 1 && n.id !== "nebi").forEach((n) => {
    geçmişinde en çok anıldığı beldeye konur. Sonradan yerleştiği yerler
    düğüm notunda belirtilir. Örnek: Mizzî, Zührî için «el-Medenî, sekene'ş-Şâm»
    der; ağda Medine sütununda durur, çünkü talebe halkasının ağırlığı oradadır. */
+/* Sutun olarak cizilen beldeler. IKI LISTE VAR ve ikisi de guncellenmeli:
+   burasi hangi beldelerin sutun oldugunu, asagidaki COGRAFI ise
+   sutunlarin batidan doguya sirasini soyluyor. Yemen 2026-08-29'da
+   once yalnizca COGRAFI'ye eklendi ve o beldeye tasinan dort ravi
+   (Abdurrezzak, Ma'mer, Hemmam ve Vehb b. Munebbih) sessizce ag'dan
+   dustu -- yerleri hesaplanmadigi icin hicbir yerde cizilmediler.
+   Asagidaki denetim ayni hatanin bir daha sessiz kalmamasi icin. */
 const BELDELER = ["Medine", "Mekke", "Kûfe", "Basra", "Şam", "Vâsıt", "Mısır", "Humus",
-                  "Horasan", "Mâverâünnehir", "Cibâl"];
+                  "Yemen", "Horasan", "Mâverâünnehir", "Cibâl"];
 
 /* ---------- dünya koordinatları ----------
    Dikey eksen: vefat yılı. Yatay eksen: belde sütunları.
@@ -1359,11 +1396,12 @@ const YIL_MIN = 5, YIL_MAX = 315;
      -- olcek ayni oranda kuculur, ekranda gorulen ayni kalir. Nokta
      yaricapi 2 kat buyudugu icin dikeyde AYRILMA istendiginde H'nin
      2 kattan FAZLA buyumesi gerekiyordu.
-     H         55000 -> 150000  2.7 kat. Yaricapin 2 katina karsi
-                                1.35 kat fazla, ayrilma bu farktan
-                                geliyor.
-     ASGARI_DY   580 -> 1566    ayni seritteki iki nokta arasi en az
-                                mesafe; H ile ayni oranda (2.7) buyudu,
+     H         55000 -> 300000  Once 2.7 kat (yaricap 2 kat buyurken
+                                dikeyde ayrilma icin), sonra sutunlar
+                                esitlenip tuval yayvanlasinca bir kat
+                                daha (Mustafa, 2026-08-29).
+     ASGARI_DY   580 -> 3132    ayni seritteki iki nokta arasi en az
+                                mesafe; H ile ayni oranda buyudu,
                                 boylece serit SAYISI degismedi.
                                 Buyutulmeseydi ayni yil araligi daha
                                 cok birime denk gelecegi icin serit
@@ -1378,9 +1416,9 @@ const YIL_MIN = 5, YIL_MAX = 315;
                                 192'ye cikinca eski payla ust kenardan
                                 tasiyordu. */
 const UST = 460, ALT = 160, SOL_PAY = 60;
-const H = 150000;
+const H = 300000;
 const SERIT_W = 1240;
-const ASGARI_DY = 1566;
+const ASGARI_DY = 3132;
 const yOf = (yil) => UST + ((yil - YIL_MIN) / (YIL_MAX - YIL_MIN)) * (H - UST - ALT);
 
 const DERECE = (() => {
@@ -1476,7 +1514,14 @@ const { POS, SUTUNLAR, W, MEDINE } = (() => {
 
   /* 2) Sütun sırası coğrafidır, batıdan doğuya. Medine tuvalın tam
      ortasına, aşağıdaki simetri kaydırmasıyla getirilir.            */
-  const COGRAFI = ["Mısır", "Humus", "Şam", "Mekke", "Medine",
+  /* Yemen 2026-08-29'da eklendi. Abdurrezzak b. Hemmam es-San'ani
+     Mekke sutununda duruyordu; San'a'da dogup orada ders veren ve orada
+     olen biri icin yanlisti (Mustafa fark etti). Ayni sebeple Hemmam ve
+     Vehb b. Munebbih ile -- Basra'da dogup San'a'ya yerlesen ve
+     talebe halkasini orada kuran -- Ma'mer b. Rasid de tasindi.
+     Cografi sirada Mekke ile Medine arasina degil, Mekke'nin
+     GUNEYINE, yani Mekke'den sonraya konuldu. */
+  const COGRAFI = ["Mısır", "Humus", "Şam", "Mekke", "Yemen", "Medine",
                    "Basra", "Vâsıt", "Kûfe", "Cibâl", "Horasan", "Mâverâünnehir"];
   const sira = COGRAFI.filter((b) => plan[b]);
 
@@ -1531,6 +1576,9 @@ const { POS, SUTUNLAR, W, MEDINE } = (() => {
    [yanal kavis, dikey açılım oranı] çifti olarak saklanır.
    Yerleşim sabitleri (SERIT_W, ASGARI_DY, H, YIL_MAX) değişirse bu
    tablo yeniden üretilmelidir.                                       */
+if (process.env.NODE_ENV !== "production") veriyiDenetle(NODES, EDGES);
+
+const KAVIS_OLCEK = SERIT_W / 620;   // tablo SERIT_W=620 iken uretildi
 const KAVIS = {"omer|ali":[187.5,0.3],"mikdad|ali":[187.5,0.3],"fatima|ali":[187.5,0.3],"ubey|ebuhureyre":[187.5,0.3],"usame|ebuhureyre":[187.5,0.3],"basra|ebuhureyre":[187.5,0.3],"omer|ebuhureyre":[187.5,0.3],"fadl|ebuhureyre":[187.5,0.3],"kabahbar|ebuhureyre":[187.5,0.3],"aise|ebuhureyre":[74,0.3],"ali|ahnef":[187.5,0.3],"ali|esvedyezid":[187.5,0.3],"ali|alkame":[187.5,0.3],"ali|ubeydesel":[187.5,0.3],"ali|suveydgafle":[187.5,0.3],"ali|ebuvail":[187.5,0.3],"ali|zirhubeys":[187.5,0.3],"ali|sureyh":[187.5,0.3],"ali|saidmusayyeb":[187.5,0.3],"ali|hasanbasri":[187.5,0.3],"ali|rebihiras":[187.5,0.3],"ali|zeydvehb":[187.5,0.3],"ali|zadan":[187.5,0.3],"ali|ebutufeyl":[187.5,0.3],"ali|harissuveyd":[187.5,0.3],"ali|harisemudarrib":[187.5,0.3],"ali|salimcad":[187.5,0.45],"ali|hayseme":[187.5,0.3],"ali|ibrhunayn":[187.5,0.3],"ali|abdhayr":[187.5,0.3],"ali|harisaver":[187.5,0.3],"ali|asimdamra":[187.5,0.3],"ali|sabi":[187.5,0.3],"ali|ibnebileyla":[187.5,0.3],"ali|urve":[187.5,0.3],"ali|ikrime":[187.5,0.3],"ali|zeynelabidin":[187.5,0.3],"ali|ubeydullaherafi":[187.5,0.15],"ali|umerbali":[187.5,0.3],"ali|abdrahmanharis":[187.5,0.3],"ali|ubeydumeyr":[187.5,0.3],"ali|saidzuhadan":[187.5,0.15],"ali|ibnabbas":[187.5,0.3],"ali|ibnomer":[187.5,0.3],"ali|ibnmesud":[168.3,0.3],"ali|ibnzubeyr":[187.5,0.3],"ali|bera":[187.5,0.3],"ali|zeydarkam":[187.5,0.3],"ali|cabirsemura":[187.5,0.3],"ali|cabir":[187.5,0.3],"ali|suhayb":[187.5,0.3],"ali|sefine":[187.5,0.3],"ali|hasanbali":[187.5,0.3],"ali|huseyn":[187.5,0.3],"ali|amrhurays":[187.5,0.3],"ali|tariksihab":[187.5,0.3],"ali|besrsuhaym":[187.5,0.3],"ali|ibncafer":[187.5,0.3],"ali|enes":[187.5,0.3],"ebuhureyre|enes":[187.5,0.3],"ebuhureyre|cabir":[187.5,0.3],"ebuhureyre|hasanbasri":[187.5,0.45],"ebuhureyre|salimibnomer":[187.5,0.3],"ebuhureyre|hafsasim":[187.5,0.15],"ebuhureyre|humeydavf":[187.5,0.3],"ebuhureyre|esvedhilal":[187.5,0.3],"ebuhureyre|zurareevfa":[187.5,0.3],"ebuhureyre|busrsaid":[187.5,0.3],"ebuhureyre|hilas":[187.5,0.3],"ebuhureyre|besirnehik":[187.5,0.3],"ebuhureyre|ibrhunayn":[375,0.3],"ebuhureyre|hayseme":[187.5,0.3],"ebuhureyre|zeydeslem":[187.5,0.3],"ebuhureyre|salimcad":[187.5,0.3],"ebuhureyre|bece":[187.5,0.3],"ebuhureyre|saidmusayyeb":[187.5,0.3],"ebubekir|enes":[187.5,0.3],"ebubekir|bera":[187.5,0.3],"ebubekir|cabir":[187.5,0.3],"ebubekir|zeydarkam":[187.5,0.3],"ebubekir|zeydsabit":[187.5,0.3],"ebubekir|suveydgafle":[187.5,0.3],"ebubekir|tariksihab":[187.5,0.15],"ebubekir|ibnzubeyr":[187.5,0.3],"ebubekir|ibnabbas":[187.5,0.3],"ebubekir|ibnomer":[187.5,0.3],"ebubekir|ibnmesud":[187.5,0.3],"ebubekir|ali":[187.5,0.3],"ebubekir|omer":[187.5,0.3],"ebubekir|amrhurays":[187.5,0.3],"ebubekir|ebutufeyl":[187.5,0.3],"ebubekir|ebuhureyre":[187.5,0.3],"ebubekir|aise":[187.5,0.3],"ebubekir|saidmusayyeb":[187.5,0.3],"ebubekir|ebusalih":[187.5,0.3],"ebubekir|kayshazim":[187.5,0.3],"ebubekir|abdrahmanebubekir":[187.5,0.3],"ebubekir|abdrahmanavf":[187.5,0.15],"ebubekir|osman":[187.5,0.15],"ebubekir|ukbeamir":[187.5,0.3],"ebubekir|ebumusa":[187.5,0.3],"ebubekir|ebusaid":[187.5,0.3],"ebubekir|huzeyfe":[187.5,0.3],"ebubekir|rifaazuraki":[187.5,0.3],"ebubekir|aizamr":[187.5,0.15],"ebubekir|murreserahil":[187.5,0.3],"ebubekir|abdrahmanyerbu":[187.5,0.15],"ebubekir|abdrahmanabza":[187.5,0.3],"nebi|ali":[187.5,0.3],"nebi|ebuhureyre":[187.5,0.3],"nebi|ebubekir":[187.5,0.3],"nebi|fatima":[187.5,0.3],"nebi|omer":[187.5,0.3],"ubey|omer":[187.5,0.3],"omer|eslem":[187.5,0.3],"omer|esvedyezid":[187.5,0.3],"omer|esaskays":[187.5,0.3],"omer|enes":[187.5,0.3],"omer|bera":[187.5,0.3],"omer|cabirsemura":[187.5,0.3],"omer|cabir":[187.5,0.3],"omer|cerirbecel\u00ee":[187.5,0.3],"omer|huzeyfe":[187.5,0.3],"omer|hasanbasri":[187.5,0.45],"omer|humeydavf":[187.5,0.3],"omer|zeydsabit":[187.5,0.3],"omer|salimcad":[187.5,0.3],"omer|saibyezid":[187.5,0.3],"omer|sadvakkas":[187.5,0.3],"omer|saidmusayyeb":[187.5,0.3],"omer|suveydgafle":[187.5,0.3],"omer|sureyh":[187.5,0.15],"omer|tariksihab":[187.5,0.3],"omer|talha":[187.5,0.3],"omer|abisrebia":[187.5,0.3],"omer|asimomer":[187.5,0.3],"nebi|osman":[187.5,0.3],"omer|osman":[187.5,0.3],"osman|ebanosman":[187.5,0.3],"osman|ahnef":[187.5,0.15],"osman|enes":[187.5,0.3],"osman|busrsaid":[187.5,0.15],"osman|hasanbasri":[187.5,0.3],"osman|hamranaban":[187.5,0.3],"osman|zeydsabit":[187.5,0.3],"osman|zeydhalid":[187.5,0.3],"osman|saibyezid":[187.5,0.3],"osman|saidmusayyeb":[187.5,0.3],"osman|ebuvail":[187.5,0.3],"osman|ebuumame":[187.5,0.3],"osman|tariksihab":[187.5,0.3],"osman|ibncafer":[187.5,0.3],"osman|ibnzubeyr":[187.5,0.3],"osman|ibnabbas":[187.5,0.3],"osman|ibnomer":[187.5,0.3],"osman|abdrahmanharis":[187.5,0.3],"osman|abdrahmanyezidnehai":[187.5,0.3],"osman|alkame":[187.5,0.3],"osman|kayshazim":[187.5,0.3],"osman|malikevs":[187.5,0.3],"osman|ibnhanefiyye":[187.5,0.3],"osman|mervan":[187.5,0.3],"osman|mugirasube":[187.5,0.3],"osman|imranhusayn":[187.5,0.3],"osman|selemeekva":[187.5,0.3],"osman|ataebirebah":[187.5,0.3],"osman|ebuabdrahmansulemi":[187.5,0.3],"ebanosman|ibnsihab":[187.5,0.3],"ibrhunayn|ibnsihab":[187.5,0.3],"ibrahimavf|ibnsihab":[187.5,0.3],"enes|ibnsihab":[187.5,0.3],"sabitkayszuraki|ibnsihab":[187.5,0.3],"cabir|ibnsihab":[187.5,0.3],"hasanhanefiyye|ibnsihab":[187.5,0.3],"hafsasim|ibnsihab":[187.5,0.3],"hamzaibnomer|ibnsihab":[187.5,0.3],"humeydavf|ibnsihab":[187.5,0.3],"haricezeyd|ibnsihab":[187.5,0.3],"rafihadic|ibnsihab":[187.5,0.3],"ibnomer|ibnsihab":[187.5,0.3],"abdullahkab|ibnsihab":[187.5,0.3],"arac|ibnsihab":[187.5,0.45],"ubeydullahutbe|ibnsihab":[187.5,0.15],"ubeydullaherafi|ibnsihab":[187.5,0.3],"urve|ibnsihab":[187.5,0.3],"ataebirebah|ibnsihab":[187.5,0.3],"zeynelabidin|ibnsihab":[187.5,0.3],"alkamevakkas|ibnsihab":[187.5,0.3],"ibnsihab|ibrahimsad":[187.5,0.3],"ibnsihab|usamezeydleysi":[187.5,0.3],"ibnsihab|eyyubsahtiyani":[187.5,0.15],"ibnsihab|haccacertat":[187.5,0.3],"ibnsihab|ibnuyeyne":[187.5,0.3],"ibnsihab|zeydeslem":[187.5,0.3],"ibnsihab|salihkeysan":[187.5,0.3],"ibnsihab|suaybebihamza":[187.5,0.3],"enes|katade":[187.5,0.3],"hasanbasri|katade":[158.7,0.3],"cabirzeyd|katade":[187.5,0.3],"ebulaliye|katade":[187.5,0.3],"bekirmuzeni|katade":[187.5,0.3],"zurareevfa|katade":[187.5,0.3],"salimcad|katade":[187.5,0.3],"saidmusayyeb|katade":[187.5,0.3],"hayseme|katade":[187.5,0.3],"hilas|katade":[187.5,0.3],"humeydavf|katade":[187.5,0.3],"sefine|katade":[187.5,0.3],"katade|eyyubsahtiyani":[187.5,0.3],"katade|haccacertat":[187.5,0.3],"katade|hammadseleme":[187.5,0.3],"katade|ibnebiaruba":[187.5,0.3],"katade|amess":[187.5,0.3],"katade|sube":[187.5,0.3],"katade|evzai":[187.5,0.3],"katade|mamer":[187.5,0.3],"katade|hisamdestuvai":[187.5,0.3],"katade|hemmamyahya":[187.5,0.3],"katade|ebuavane":[187.5,0.3],"katade|cerirhazim":[187.5,0.3],"katade|misersukdam":[187.5,0.3],"katade|leysbsad":[187.5,0.3],"katade|amrharis":[187.5,0.3],"katade|suleymanteymi":[187.5,0.3],"nehai|amess":[187.5,0.45],"ibrahimteymi|amess":[187.5,0.3],"habibebisabit|amess":[187.5,0.3],"enes|amess":[187.5,0.3],"ebuduha|amess":[187.5,0.3],"yahyavessab|amess":[187.5,0.3],"mearrursuveyd|amess":[187.5,0.3],"hakemuteybe|amess":[187.5,0.3],"amess|sevri":[187.5,0.3],"amess|ibnuyeyne":[187.5,0.3],"amess|sube":[187.5,0.3],"amess|ibnmubarek":[187.5,0.3],"amess|hafsgiyas":[187.5,0.3],"amess|cerirabdulhamid":[187.5,0.3],"amess|cerirhazim":[187.5,0.3],"amess|ibnnumeyr":[187.5,0.3],"amess|ibnidris":[187.5,0.3],"amess|alimushir":[187.5,0.3],"amess|suleymanteymi":[187.5,0.3],"amess|hakemuteybe":[187.5,0.3],"cabirzeyd|amrdinar":[187.5,0.3],"cabir|amrdinar":[187.5,0.3],"hasanhanefiyye|amrdinar":[187.5,0.3],"ebusalih|amrdinar":[187.5,0.3],"salimibnomer|amrdinar":[187.5,0.3],"saibyezid|amrdinar":[187.5,0.3],"saidcubeyr|amrdinar":[187.5,0.3],"saidmusayyeb|amrdinar":[187.5,0.3],"suleymanyesar|amrdinar":[187.5,0.3],"tavus|amrdinar":[187.5,0.3],"ibnzubeyr|amrdinar":[187.5,0.3],"ibnabbas|amrdinar":[187.5,0.3],"ibnomer|amrdinar":[187.5,0.3],"ubeydumeyr|amrdinar":[187.5,0.3],"urve|amrdinar":[187.5,0.3],"ataebirebah|amrdinar":[187.5,0.3],"ikrime|amrdinar":[187.5,0.3],"kureyb|amrdinar":[187.5,0.15],"mucahid|amrdinar":[187.5,0.3],"ebucafermuhbakir|amrdinar":[187.5,0.3],"ibnsihab|amrdinar":[187.5,0.3],"vehbmunebbih|amrdinar":[187.5,0.3],"ebutufeyl|amrdinar":[187.5,0.3],"ebuselemeavf|amrdinar":[187.5,0.3],"ebuhureyre|amrdinar":[187.5,0.3],"amrdinar|eyyubsahtiyani":[187.5,0.3],"amrdinar|hammadzeyd":[187.5,0.3],"amrdinar|hammadseleme":[187.5,0.3],"amrdinar|davudattar":[187.5,0.3],"amrdinar|zekeriyyaishak":[187.5,0.3],"amrdinar|sevri":[187.5,0.3],"amrdinar|ibnuyeyne":[187.5,0.3],"amrdinar|sube":[187.5,0.3],"amrdinar|ibncureyc":[187.5,0.15],"amrdinar|katade":[187.5,0.3],"amrdinar|malik":[187.5,0.3],"amrdinar|misersukdam":[187.5,0.45],"amrdinar|huseym":[187.5,0.45],"amrdinar|ebuavane":[187.5,0.45],"amrdinar|varkaomer":[187.5,0.3],"amrdinar|amrharis":[187.5,0.3],"esaskays|ebuishaksebii":[187.5,0.3],"esvedyezid|ebuishaksebii":[187.5,0.3],"enes|ebuishaksebii":[187.5,0.3],"bera|ebuishaksebii":[187.5,0.3],"egarebumuslim|ebuishaksebii":[187.5,0.3],"usame|ebuishaksebii":[187.5,0.3],"amrmeymun|ebuishaksebii":[187.5,0.3],"mesruk|ebuishaksebii":[187.5,0.15],"kayshazim|ebuishaksebii":[187.5,0.3],"mucahid|ebuishaksebii":[187.5,0.45],"ebucafermuhbakir|ebuishaksebii":[187.5,0.15],"musatalha|ebuishaksebii":[187.5,0.3],"nafiibnomer|ebuishaksebii":[187.5,0.3],"numanbesir|ebuishaksebii":[187.5,0.3],"mugirasube|ebuishaksebii":[187.5,0.3],"ebuishaksebii|sevri":[187.5,0.3],"ebuishaksebii|ibnuyeyne":[187.5,0.45],"ebuishaksebii|amess":[187.5,0.3],"ebuishaksebii|sube":[187.5,0.3],"ebuishaksebii|suleymanteymi":[187.5,0.3],"ebuishaksebii|zuhayrmuaviye":[187.5,0.3],"ebuishaksebii|zaidekudame":[187.5,0.15],"ebuishaksebii|ibnebizaide":[187.5,0.3],"ebuishaksebii|ebulahvess":[187.5,0.3],"ebuishaksebii|serikkadi":[187.5,0.3],"ebuishaksebii|hamzazeyyat":[187.5,0.3],"ebuishaksebii|katade":[187.5,0.3],"ibrahimkariz|yahyaebikesir":[187.5,0.3],"ishaktalha|yahyaebikesir":[187.5,0.3],"enes|yahyaebikesir":[187.5,0.3],"bece|yahyaebikesir":[187.5,0.15],"cabir|yahyaebikesir":[187.5,0.3],"hafsasim|yahyaebikesir":[187.5,0.3],"hakemmina|yahyaebikesir":[187.5,0.3],"saibyezid|yahyaebikesir":[187.5,0.3],"suleymanyesar|yahyaebikesir":[187.5,0.3],"abdullahebikatade|yahyaebikesir":[187.5,0.3],"evzai|yahyaebikesir":[187.5,0.3],"ubeydullahmiksem|yahyaebikesir":[187.5,0.3],"urve|yahyaebikesir":[187.5,0.3],"ataebirebah|yahyaebikesir":[187.5,0.3],"ikrime|yahyaebikesir":[187.5,0.3],"muhammedibrahimteymi|yahyaebikesir":[187.5,0.3],"nafiibnomer|yahyaebikesir":[187.5,0.3],"hilalebimeymune|yahyaebikesir":[187.5,0.3],"ebuselemeavf|yahyaebikesir":[187.5,0.3],"ebukilabe|yahyaebikesir":[187.5,0.3],"ebunadra|yahyaebikesir":[187.5,0.3],"ebuumame|yahyaebikesir":[187.5,0.15],"yahyaebikesir|eyyubsahtiyani":[-169.5,0.3],"yahyaebikesir|cerirhazim":[187.5,0.3],"yahyaebikesir|haccacsavvaf":[187.5,0.3],"yahyaebikesir|huseynmuallim":[187.5,0.3],"yahyaebikesir|seybannahvi":[187.5,0.3],"yahyaebikesir|evzai":[187.5,0.3],"yahyaebikesir|ikrimeammar":[187.5,0.3],"yahyaebikesir|alimubarek":[187.5,0.3],"yahyaebikesir|muaviyesellam":[187.5,0.3],"yahyaebikesir|mamer":[187.5,0.3],"yahyaebikesir|hisamhassan":[187.5,0.3],"yahyaebikesir|hisamdestuvai":[187.5,0.3],"yahyaebikesir|hemmamyahya":[187.5,0.3],"yahyaebikesir|yahyasaidensari":[187.5,0.3],"ubey|ibnabbas":[187.5,0.3],"usame|ibnabbas":[187.5,0.3],"bureyde|ibnabbas":[187.5,0.3],"temimdari|ibnabbas":[187.5,0.3],"halidvelid|ibnabbas":[187.5,0.3],"ibnabbas|hasanbasri":[187.5,0.3],"ibnabbas|hakemmina":[187.5,0.3],"ibnabbas|humeydavf":[187.5,0.3],"ibnabbas|ebusalih":[187.5,0.3],"ibnabbas|ebulaliye":[187.5,0.3],"ibnabbas|zurareevfa":[187.5,0.3],"ibnabbas|salimcad":[187.5,0.45],"ibnabbas|saidcubeyr":[187.5,0.3],"ibnabbas|saidmusayyeb":[187.5,0.3],"ibnabbas|saidyesar":[187.5,0.3],"ibnabbas|suleymanyesar":[187.5,0.15],"ibnabbas|sehrhavseb":[187.5,0.3],"ibnabbas|dahhak":[187.5,0.3],"ibnabbas|tavus":[187.5,0.3],"ibnabbas|sabi":[187.5,0.3],"ibnabbas|ebutufeyl":[187.5,0.3],"ibnabbas|ibnebimuleyke":[187.5,0.3],"ibnabbas|ubeydullahebiyezid":[187.5,0.3],"ibnabbas|ubeydullahutbe":[187.5,0.3],"ibnabbas|abdullahmabed":[187.5,0.15],"ibnabbas|ebulminhal":[187.5,0.3],"ibnabbas|hakemarac":[187.5,0.3],"ibnabbas|ebuzabyan":[187.5,0.3],"ibnabbas|ikrime":[187.5,0.3],"ibnabbas|mucahid":[187.5,0.3],"ibnabbas|ataebirebah":[187.5,0.3],"ibnabbas|kureyb":[187.5,0.3],"ibnabbas|ibnsihab":[187.5,0.3],"bilal|ibnomer":[187.5,0.3],"rafihadic|ibnomer":[74,0.3],"zeydsabit|ibnomer":[187.5,0.3],"sadvakkas|ibnomer":[187.5,0.3],"suhayb|ibnomer":[187.5,0.3],"amirrebia|ibnomer":[187.5,0.3],"ibnmesud|ibnomer":[187.5,0.3],"omer|ibnomer":[187.5,0.3],"ebusaid|ibnomer":[121.4,0.3],"hafsa|ibnomer":[187.5,0.3],"aise|ibnomer":[187.5,0.3],"ebulubabe|ibnomer":[187.5,0.3],"ibnomer|eslem":[187.5,0.3],"ibnomer|enessirin":[187.5,0.15],"ibnomer|busrsaid":[187.5,0.3],"ibnomer|sabitbunani":[187.5,0.3],"ibnomer|cebeleshim":[187.5,0.3],"ibnomer|habibebisabit":[187.5,0.3],"ibnomer|hasanbasri":[187.5,0.3],"ibnomer|hafsasim":[187.5,0.3],"ibnomer|hakemmina":[187.5,0.3],"ibnomer|hamzaibnomerogul":[187.5,0.3],"ibnomer|humeydavf":[187.5,0.3],"ibnomer|ebusalih":[187.5,0.3],"ibnomer|zadan":[187.5,0.6],"ibnomer|zeydeslem":[187.5,0.3],"ibnomer|salimcad":[187.5,0.15],"ibnomer|salimibnomer":[187.5,0.3],"ibnomer|sadubeyde":[187.5,0.3],"ibnomer|saidcubeyr":[187.5,0.3],"ibnomer|saidmusayyeb":[187.5,0.3],"ibnomer|saidyesar":[187.5,0.3],"ibnomer|suleymanyesar":[187.5,0.3],"ibnomer|safvanmuhriz":[187.5,0.3],"ibnomer|tavus":[187.5,0.3],"ibnomer|abdullahdinar":[187.5,0.3],"ibnomer|nafiibnomer":[187.5,0.3],"ibnomer|ataebirebah":[187.5,0.3],"enes|sumameenes":[187.5,0.3],"enes|sabitbunani":[187.5,0.3],"enes|hasanbasri":[187.5,0.3],"enes|bekirmuzeni":[187.5,0.3],"enes|humeydtavil":[187.5,0.3],"enes|hafsubeydullahenes":[187.5,0.3],"enes|cadebuosman":[187.5,0.3],"enes|enessirin":[187.5,0.3],"enes|rebiaebiabdrahman":[187.5,0.3],"enes|ebulaliye":[88.6,0.3],"enes|habibebisabit":[187.5,0.3],"enes|bekirahnes":[187.5,0.3],"enes|zubeyradi":[187.5,0.3],"enes|beyanbisr":[187.5,0.15],"enes|bisryesar":[187.5,0.3],"enes|salimcad":[187.5,0.3],"enes|zeydeslem":[187.5,0.3],"enes|ibnomer":[187.5,0.3],"cabir|ebuzubeyrmekki":[187.5,0.3],"cabir|ibnmunkedir":[187.5,0.3],"cabir|vehbkeysan":[187.5,0.3],"cabir|ebucafermuhbakir":[187.5,0.3],"cabir|muhammedabbadcafer":[187.5,0.3],"cabir|muhammedsevban":[187.5,0.3],"cabir|mahmudlebid":[187.5,0.3],"cabir|ebunadra":[187.5,0.3],"cabir|ebuselemeavf":[187.5,0.3],"cabir|yezidsuheybfakir":[187.5,0.15],"cabir|vehbmunebbih":[187.5,0.3],"cabir|ataebirebah":[187.5,0.3],"cabir|saidcubeyr":[187.5,0.3],"ebusaid|kasimmuhaymire":[187.5,0.3],"ebusaid|katade":[187.5,0.3],"ebusaid|kazaayahya":[187.5,0.3],"ebusaid|mucahid":[187.5,0.3],"ebusaid|ibnsirin":[187.5,0.3],"ebusaid|muhammedsevban":[187.5,0.3],"ebusaid|ebucafermuhbakir":[187.5,0.3],"ebusaid|mahmudlebid":[187.5,0.3],"ebusaid|mabedsirin":[187.5,0.3],"ebusaid|nafiibnomer":[187.5,0.3],"ebusaid|numanebiayyas":[187.5,0.3],"ebusaid|yahyaumare":[187.5,0.3],"ebusaid|ebuumamesehl":[187.5,0.3],"ebusaid|ebusaidmakburi":[187.5,0.3],"ebusaid|ebuselemeavf":[187.5,0.3],"ebusaid|ebusalih":[187.5,0.3],"ebusaid|ebussiddiknaci":[187.5,0.3],"ebusaid|ebulaliye":[187.5,0.15],"ebusaid|ebuidrishavlani":[187.5,0.3],"ebusaid|ebunadra":[187.5,0.3],"ebusaid|muhammedibrahimteymi":[187.5,0.3],"aise|nehai":[187.5,0.3],"aise|ibrahimteymi":[187.5,0.3],"aise|esvedyezid":[187.5,0.3],"aise|hasanbasri":[187.5,0.3],"aise|hamzaibnomerogul":[187.5,0.3],"aise|hilas":[187.5,0.3],"aise|hayseme":[187.5,0.3],"aise|ebusalih":[187.5,0.3],"aise|zekvanmevlaaise":[187.5,0.3],"aise|zadan":[187.5,0.3],"aise|zurareevfa":[187.5,0.3],"aise|zirhubeys":[187.5,0.3],"aise|zeydeslem":[187.5,0.3],"aise|zeydhalid":[172.5,0.3],"aise|salimcad":[187.5,0.3],"aise|salimibnomer":[187.5,0.3],"aise|saibyezid":[187.5,0.3],"aise|sadhisam":[187.5,0.3],"aise|saidcubeyr":[187.5,0.3],"aise|ebusaidmakburi":[187.5,0.3],"aise|saidmusayyeb":[187.5,0.3],"aise|suleymanyesar":[187.5,0.3],"aise|sureyhhani":[187.5,0.3],"aise|ebuvail":[187.5,0.3],"aise|sehrhavseb":[187.5,0.3],"aise|tavus":[187.5,0.3],"aise|abisrebia":[187.5,0.15],"aise|sabi":[187.5,0.3],"aise|abbadabdullahzubeyr":[187.5,0.15],"aise|ibnzubeyr":[187.5,0.3],"aise|abdullahsedddad":[187.5,0.3],"aise|abdullahsakik":[187.5,0.15],"aise|ibnabbas":[187.5,0.3],"aise|ibnebimuleyke":[187.5,0.3],"aise|amrabdrahmanzurara":[187.5,0.15],"aise|kasimmuhammed":[187.5,0.3],"ishaktalha|malik":[187.5,0.3],"eyyubsahtiyani|malik":[187.5,0.3],"caferisadik|malik":[187.5,0.3],"humeyskaysarac|malik":[187.5,0.3],"humeydtavil|malik":[187.5,0.3],"hubeybabdrahman|malik":[187.5,0.3],"davudhusayn|malik":[187.5,0.3],"rebiaebiabdrahman|malik":[187.5,0.3],"ziyadsad|malik":[187.5,0.3],"zeydeslem|malik":[187.5,0.3],"salimebinadr|malik":[187.5,0.3],"nafiibnomer|malik":[187.5,0.3],"yahyasaidensari|malik":[187.5,0.3],"yezidrouman|malik":[187.5,0.3],"yezidkusayt|malik":[187.5,0.3],"yezidhad|malik":[187.5,0.3],"ataihorasani|malik":[187.5,0.3],"abdulmecidsuheyl|malik":[187.5,0.3],"ibnsihab|malik":[187.5,0.3],"ibnmunkedir|malik":[187.5,0.3],"ebuzubeyrmekki|malik":[187.5,0.3],"abdullahdinar|malik":[187.5,0.3],"malik|ibnuyeyne":[187.5,0.3],"malik|sube":[187.5,0.3],"malik|sevri":[187.5,0.3],"malik|ibnmubarek":[187.5,0.3],"malik|ibnidris":[187.5,0.3],"malik|ibnvehb":[187.5,0.3],"malik|kanebi":[187.5,0.3],"malik|ibnkasimmisri":[187.5,0.3],"malik|ibnmehdi":[187.5,0.3],"malik|safii":[187.5,0.3],"malik|kuteybesaid":[187.5,0.3],"malik|ibnebiuveys":[187.5,0.3],"malik|ibnuleyye":[187.5,0.3],"malik|velidmuslim":[187.5,0.3],"malik|ebunuaymfadl":[187.5,0.3],"malik|ebuasimnebil":[187.5,0.15],"malik|veki":[187.5,0.3],"malik|kattan":[187.5,0.3],"malik|ibnebizaide":[187.5,0.3],"malik|leysbsad":[187.5,0.3],"malik|evzai":[187.5,0.3],"malik|ibncureyc":[187.5,0.3],"ismailebihalid|sube":[187.5,0.3],"enessirin|sube":[187.5,0.3],"eyyubsahtiyani|sube":[187.5,0.3],"sabitbunani|sube":[187.5,0.3],"cebeleshim|sube":[187.5,0.3],"cameseddad|sube":[187.5,0.15],"caferisadik|sube":[187.5,0.6],"habibebisabit|sube":[187.5,0.3],"hakemuteybe|sube":[187.5,0.3],"hammadebisuleyman|sube":[187.5,0.3],"huseynmuallim|sube":[187.5,0.3],"husaynabdrahman|sube":[187.5,0.3],"humeydtavil|sube":[187.5,0.3],"halidhazza|sube":[187.5,0.3],"hubeybabdrahman|sube":[187.5,0.3],"davudebihind|sube":[187.5,0.3],"rebiaebiabdrahman|sube":[187.5,0.3],"zubeydyami|sube":[187.5,0.3],"zekeriyyaebizaide|sube":[187.5,0.3],"sadibrahim|sube":[187.5,0.3],"ibnsihab|sube":[187.5,0.3],"ibnishak|sube":[187.5,0.3],"sube|gunder":[187.5,0.3],"sube|kattan":[187.5,0.3],"sube|ibnmehdi":[187.5,0.3],"sube|veki":[187.5,0.3],"sube|ibnmubarek":[187.5,0.45],"sube|ibnidris":[187.5,0.15],"sube|ibnebizaide":[187.5,0.15],"sube|yezidharun":[187.5,0.3],"sube|yezidzurey":[187.5,0.15],"sube|nadrsumeyl":[187.5,0.3],"sube|ebudavudtayalisi":[187.5,0.3],"sube|muazmuaz":[187.5,0.3],"sube|affanmuslim":[187.5,0.3],"sube|alicad":[187.5,0.3],"sube|abdussamed":[187.5,0.3],"sube|isabyunus":[187.5,0.3],"sube|huseym":[187.5,0.3],"sube|ebunuaymfadl":[187.5,0.3],"sube|ebuasimnebil":[187.5,0.3],"sube|kanebi":[187.5,0.3],"sube|ibnuleyye":[187.5,0.3],"sube|varkaomer":[187.5,0.3],"ibrahimukbe|sevri":[187.5,0.3],"ismailumeyye|sevri":[187.5,0.3],"ismailebihalid|sevri":[187.5,0.45],"suddi|sevri":[187.5,0.3],"esvedkays|sevri":[187.5,0.3],"eyyubsahtiyani|sevri":[187.5,0.3],"sevryezid|sevri":[187.5,0.3],"cabircufi|sevri":[187.5,0.3],"cameseddad|sevri":[187.5,0.3],"cebeleshim|sevri":[187.5,0.3],"caferisadik|sevri":[187.5,0.3],"habibebisabit|sevri":[187.5,0.3],"hasanubeydullah|sevri":[187.5,0.3],"hasanamrfukaymi|sevri":[187.5,0.3],"husaynabdrahman|sevri":[187.5,0.3],"hammadebisuleyman|sevri":[187.5,0.3],"ebuhasin|sevri":[187.5,0.3],"katade|sevri":[187.5,0.3],"ibnsihab|sevri":[187.5,0.3],"sevri|ishakyusufezrak":[187.5,0.3],"sevri|ibnuleyye":[187.5,0.15],"sevri|cerirabdulhamid":[187.5,0.3],"sevri|caferavn":[187.5,0.3],"sevri|hafsgiyas":[187.5,0.3],"sevri|ebuusamehammad":[187.5,0.3],"sevri|halidharis":[187.5,0.3],"sevri|ruhubade":[187.5,0.15],"sevri|zaidekudame":[74,0.3],"sevri|zuhayrmuaviye":[187.5,0.3],"sevri|ibnuyeyne":[187.5,0.3],"sevri|suleymanbilal":[187.5,0.3],"sevri|ebudavudtayalisi":[187.5,0.3],"sevri|ebulahvess":[187.5,0.3],"sevri|ebuasimnebil":[187.5,0.3],"sevri|damrarebia":[187.5,0.3],"sevri|bisrsari":[187.5,0.3],"sevri|abdurrezzak":[187.5,0.3],"sevri|veki":[187.5,0.3],"sevri|ibnmubarek":[187.5,0.3],"sevri|ibnmehdi":[187.5,0.3],"sevri|kattan":[187.5,0.3],"sevri|malik":[187.5,0.3],"sevri|yahyaadem":[187.5,0.3],"ibnmunkedir|ibnuyeyne":[187.5,0.3],"hisamurve|ibnuyeyne":[187.5,0.3],"yahyasaidensari|ibnuyeyne":[187.5,0.3],"mansurmutemir|ibnuyeyne":[187.5,0.3],"mansursafiyye|ibnuyeyne":[187.5,0.3],"mamer|ibnuyeyne":[187.5,0.3],"misersukdam|ibnuyeyne":[187.5,0.3],"musaukbe|ibnuyeyne":[187.5,0.3],"muhammedacilan|ibnuyeyne":[187.5,0.3],"muhammedamralkame|ibnuyeyne":[187.5,0.3],"muhammedsuka|ibnuyeyne":[187.5,0.3],"mutarriftarif|ibnuyeyne":[187.5,0.3],"ismailebiislamsibani|ibnuyeyne":[187.5,0.3],"velidkesir|ibnuyeyne":[187.5,0.6],"yezidhusayfe|ibnuyeyne":[187.5,0.3],"yezidhad|ibnuyeyne":[187.5,0.3],"hisamhassan|ibnuyeyne":[187.5,0.3],"ebuzubeyrmekki|ibnuyeyne":[187.5,0.3],"ataebirebah|ibnuyeyne":[187.5,0.3],"ibnuyeyne|ahmedhanbel":[187.5,0.3],"ibnuyeyne|ibnrahuye":[187.5,0.3],"ibnuyeyne|ahmedsalihmisri":[187.5,0.3],"ibnuyeyne|ahmedmeni":[187.5,0.3],"ibnuyeyne|ibrahimfezari":[187.5,0.3],"ibnuyeyne|safii":[187.5,0.3],"ibnuyeyne|kattan":[187.5,0.3],"ibnuyeyne|ibnmehdi":[-2250,0.3],"ibnuyeyne|kuteybesaid":[187.5,0.3],"abdullahtavus|ibncureyc":[187.5,0.3],"ibnebimuleyke|ibncureyc":[187.5,0.3],"ibnhuseymkhaysem|ibncureyc":[187.5,0.3],"abdulhamidcubeyr|ibncureyc":[187.5,0.3],"abdulkerimcezeri|ibncureyc":[187.5,0.3],"ataebirebah|ibncureyc":[187.5,0.3],"ataihorasani|ibncureyc":[187.5,0.3],"ikrimehalid|ibncureyc":[187.5,0.3],"ikrime|ibncureyc":[187.5,0.3],"amrsuayb|ibncureyc":[187.5,0.3],"kasimebibezze|ibncureyc":[187.5,0.3],"alaabdrahman|ibncureyc":[187.5,0.3],"mucahid|ibncureyc":[187.5,0.3],"muhammedabbadcafer|ibncureyc":[187.5,0.3],"yahyasaidensari|ibncureyc":[187.5,0.3],"ubeydullahomeri|ibncureyc":[187.5,0.3],"ubeydullahebiyezid|ibncureyc":[187.5,0.3],"ibnsihab|ibncureyc":[187.5,0.3],"hisamurve|ibncureyc":[187.5,0.3],"nafiibnomer|ibncureyc":[187.5,0.3],"ibncureyc|haccacmuhammed":[187.5,0.3],"ibncureyc|ibnuleyye":[187.5,0.3],"ibncureyc|ismailayyas":[187.5,0.3],"ibncureyc|enesiyaz":[187.5,0.3],"ibncureyc|sevryezid":[174.1,0.3],"ibncureyc|caferavn":[187.5,0.3],"ibncureyc|hafsgiyas":[187.5,0.3],"ibncureyc|ebuusamehammad":[187.5,0.3],"ibncureyc|hammadzeyd":[187.5,0.3],"ibncureyc|hammadseleme":[187.5,0.3],"ibncureyc|halidharis":[187.5,0.15],"ibncureyc|ruhubade":[187.5,0.3],"ibncureyc|davudattar":[187.5,0.3],"ibncureyc|sevri":[187.5,0.3],"ibncureyc|ibnuyeyne":[187.5,0.15],"ibncureyc|abdurrezzak":[187.5,0.3],"ibnsihab|mamer":[187.5,0.3],"ibnmunkedir|mamer":[187.5,0.15],"hisamurve|mamer":[187.5,0.15],"hemmammunebbih|mamer":[187.5,0.3],"matarverrak|mamer":[187.5,0.3],"mansurmutemir|mamer":[187.5,0.3],"ebuishaksebii|mamer":[187.5,0.3],"amrdinar|mamer":[187.5,0.3],"eyyubsahtiyani|mamer":[187.5,0.3],"mamer|abdurrezzak":[187.5,0.3],"mamer|hisamyusufsanani":[187.5,0.15],"mamer|ibnmubarek":[187.5,0.3],"mamer|ibnuleyye":[187.5,0.3],"mamer|sevri":[187.5,0.3],"mamer|mutemirsuleyman":[187.5,0.3],"mamer|abdulalaabdulala":[187.5,0.3],"mamer|isabyunus":[187.5,0.3],"mamer|yezidzurey":[187.5,0.3],"mamer|gunder":[187.5,0.3],"mamer|hammadzeyd":[187.5,0.3],"mamer|vuheybhalid":[187.5,0.3],"mamer|ebansattar":[187.5,0.3],"mamer|mervanfezari":[187.5,0.3],"mamer|vakidi":[187.5,0.3],"mamer|ibncureyc":[187.5,0.3],"mamer|ibnebiaruba":[187.5,0.3],"mamer|sube":[187.5,0.3],"mamer|hisamdestuvai":[74,0.3],"mamer|davudattar":[187.5,0.15],"ishaktalha|evzai":[187.5,0.3],"hassanatiyye|evzai":[187.5,0.3],"rebiaebiabdrahman|evzai":[187.5,0.3],"rebiayezid|evzai":[187.5,0.3],"suleymanhabib|evzai":[187.5,0.3],"amess|evzai":[187.5,0.3],"suleymanmusadimaski|evzai":[187.5,0.3],"saddadebuammar|evzai":[187.5,0.3],"hakemuteybe|evzai":[187.5,0.3],"abdelubabe|evzai":[187.5,0.6],"ataebirebah|evzai":[187.5,0.3],"ataihorasani|evzai":[187.5,0.3],"ikrimehalid|evzai":[187.5,0.3],"amrsuayb|evzai":[187.5,0.3],"umeyrhani|evzai":[187.5,0.3],"kasimmuhaymire|evzai":[187.5,0.3],"kurrahayvil|evzai":[187.5,0.3],"muhammedibrahimteymi|evzai":[187.5,0.3],"ibnsirin|evzai":[187.5,0.3],"muhammedabbadcafer|evzai":[187.5,0.3],"ebucafermuhbakir|evzai":[187.5,0.45],"ibnsihab|evzai":[187.5,0.3],"ibnmunkedir|evzai":[187.5,0.3],"muhammedvelidzubeydi|evzai":[133.2,0.3],"mutallibhantab|evzai":[187.5,0.3],"mekhul|evzai":[187.5,0.3],"nafiibnomer|evzai":[187.5,0.3],"yahyasaidensari|evzai":[187.5,0.3],"meymunmihran|evzai":[187.5,0.3],"ibncureyc|evzai":[187.5,0.3],"evzai|ibrahimfezari":[187.5,0.3],"evzai|ismailayyas":[187.5,0.3],"evzai|enesiyaz":[187.5,0.3],"evzai|bakiyyevelid":[187.5,0.3],"evzai|ibnmubarek":[187.5,0.3],"evzai|ibnnumeyr":[187.5,0.3],"evzai|abdurrezzak":[187.5,0.3],"evzai|ebulmugirehavlani":[187.5,0.3],"evzai|ubeydullahmusa":[187.5,0.3],"evzai|isabyunus":[187.5,0.3],"evzai|suaybishakdimaski":[187.5,0.3],"evzai|muhammedharbhavlani":[187.5,0.3],"evzai|muhammedsuaybsabur":[187.5,0.3],"evzai|firyabi":[187.5,0.3],"evzai|hikalziyad":[187.5,0.3],"evzai|veki":[187.5,0.3],"evzai|mafairan":[187.5,0.3],"evzai|amrebiselemetennisi":[187.5,0.3],"evzai|bisrbekirtennisi":[187.5,0.3],"evzai|damrarebia":[187.5,0.3],"evzai|saidabdulaziz":[187.5,0.3],"evzai|sevri":[187.5,0.3],"evzai|sube":[187.5,0.3],"evzai|malik":[187.5,0.3],"evzai|ebuasimnebil":[187.5,0.15],"eyyubsahtiyani|ibnebiaruba":[187.5,0.3],"hasanbasri|ibnebiaruba":[187.5,0.3],"amess|ibnebiaruba":[187.5,0.3],"asimbehdele|ibnebiaruba":[187.5,0.15],"alizeydcudan|ibnebiaruba":[187.5,0.15],"amiralhavl|ibnebiaruba":[187.5,0.3],"ikrimeammar|ibnebiaruba":[88.6,0.3],"ibnebiaruba|abdulvarissaid":[187.5,0.3],"ibnebiaruba|abdulvehhabata":[187.5,0.3],"ibnebiaruba|abdesuleyman":[187.5,0.3],"ibnebiaruba|alimushir":[187.5,0.3],"ibnebiaruba|isabyunus":[187.5,0.3],"ibnebiaruba|muhammedbisrabdi":[187.5,0.15],"ibnebiaruba|gunder":[187.5,0.3],"ibnebiaruba|muhammedebiadi":[187.5,0.3],"ibnebiaruba|muazmuaz":[187.5,0.3],"ibnebiaruba|nadrsumeyl":[187.5,0.3],"ibnebiaruba|kattan":[187.5,0.3],"ibnebiaruba|yezidzurey":[187.5,0.3],"ibnebiaruba|yezidharun":[187.5,0.3],"ibnebiaruba|ruhubade":[187.5,0.3],"ibnebiaruba|halidharis":[187.5,0.3],"ishaktalha|hammadseleme":[187.5,0.3],"enessirin|hammadseleme":[187.5,0.3],"eyyubsahtiyani|hammadseleme":[187.5,0.3],"sabitbunani|hammadseleme":[187.5,0.3],"sumameenes|hammadseleme":[187.5,0.3],"haccacertat|hammadseleme":[187.5,0.3],"hammadebisuleyman|hammadseleme":[187.5,0.3],"humeydtavil|hammadseleme":[187.5,0.3],"halidhazza|hammadseleme":[187.5,0.3],"davudebihind|hammadseleme":[187.5,0.3],"rebiaebiabdrahman|hammadseleme":[187.5,0.3],"zeydeslem|hammadseleme":[187.5,0.45],"sadibrahim|hammadseleme":[187.5,0.3],"cureyri|hammadseleme":[187.5,0.3],"selemekuheyl|hammadseleme":[187.5,0.3],"suleymanteymi|hammadseleme":[187.5,0.3],"simakharb|hammadseleme":[187.5,0.3],"suheylebisalih|hammadseleme":[187.5,0.3],"asimbehdele|hammadseleme":[187.5,0.3],"amiralhavl|hammadseleme":[187.5,0.3],"ibnebimuleyke|hammadseleme":[187.5,0.3],"ibnhuseymkhaysem|hammadseleme":[187.5,0.45],"abdullahavn|hammadseleme":[187.5,0.3],"ubeydullahomeri2|hammadseleme":[187.5,0.3],"ebuimrancevni|hammadseleme":[187.5,0.3],"abdulmelikumeyr|hammadseleme":[187.5,0.45],"ubeydullahomeri|hammadseleme":[187.5,0.3],"ataisaib|hammadseleme":[187.5,0.3],"ataihorasani|hammadseleme":[187.5,0.3],"ikrimehalid|hammadseleme":[187.5,0.3],"alizeydcudan|hammadseleme":[187.5,0.15],"ammarebiammar|hammadseleme":[187.5,0.3],"amryahyamazini|hammadseleme":[187.5,0.3],"ibnishak|hammadseleme":[187.5,0.3],"hammadseleme|ibnmehdi":[187.5,0.3],"hammadseleme|abdussamed":[187.5,0.3],"hammadseleme|affanmuslim":[187.5,0.3],"hammadseleme|ebunuaymfadl":[187.5,0.3],"hammadseleme|hebbanhilal":[187.5,0.3],"hammadseleme|musaismailtebuzeki":[187.5,0.15],"hammadseleme|hisamtayalisi":[187.5,0.3],"hammadseleme|muslimibrahim":[187.5,0.3],"hammadseleme|amrmerzuk":[187.5,0.3],"hammadseleme|ebunasrtemmar":[187.5,0.3],"hammadseleme|nadrsumeyl":[187.5,0.3],"hammadseleme|muazmuaz":[187.5,0.3],"hammadseleme|malik":[187.5,0.3],"hammadseleme|ibnuleyye":[187.5,0.3],"caferebivahsiyye|ebuavane":[-187.5,0.3],"husaynabdrahman|ebuavane":[187.5,0.3],"hakemuteybe|ebuavane":[187.5,0.3],"hammadebisuleyman|ebuavane":[187.5,0.3],"davudebihind|ebuavane":[187.5,0.3],"sadibrahim|ebuavane":[187.5,0.3],"saidmesrukhsevri|ebuavane":[187.5,0.3],"amess|ebuavane":[187.5,0.3],"simakharb|ebuavane":[187.5,0.3],"suheylebisalih|ebuavane":[187.5,0.3],"asimbehdele|ebuavane":[187.5,0.3],"asimahvel|ebuavane":[187.5,0.3],"abdullahavn|ebuavane":[187.5,0.3],"abdulazizsuheyb|ebuavane":[187.5,0.3],"abdulmelikebisuleyman|ebuavane":[187.5,0.3],"abdulmelikumeyr|ebuavane":[187.5,0.3],"ataisaib|ebuavane":[187.5,0.3],"firasyahya|ebuavane":[187.5,0.3],"ibnishak|ebuavane":[187.5,0.3],"ibnmunkedir|ebuavane":[187.5,0.3],"mutarriftarif|ebuavane":[187.5,0.3],"mugirmiksem|ebuavane":[187.5,0.3],"mansurzazan|ebuavane":[187.5,0.3],"mansurmutemir|ebuavane":[187.5,0.3],"ismailebiislamsibani|ebuavane":[187.5,0.3],"ebuzubeyrmekki|ebuavane":[187.5,0.3],"ebuhasin|ebuavane":[187.5,0.3],"hilalvezzan|ebuavane":[187.5,0.45],"yalaata|ebuavane":[187.5,0.3],"ebuavane|ibnuleyye":[187.5,0.3],"ebuavane|ibnmehdi":[187.5,0.3],"ebuavane|said_mansur":[187.5,0.3],"ebuavane|kavariri":[187.5,0.3],"ebuavane|seybanferruh":[187.5,0.3],"ebuavane|haccacminhal":[187.5,0.3],"ebuavane|halefhisam":[187.5,0.3],"ebuavane|affanmuslim":[187.5,0.3],"ebuavane|musaismailtebuzeki":[187.5,0.3],"ebuavane|hisamtayalisi":[187.5,0.3],"eyyubsahtiyani|huseym":[187.5,0.3],"caferebivahsiyye|huseym":[187.5,0.45],"haccacertat|huseym":[187.5,0.15],"haccacsavvaf|huseym":[187.5,0.3],"husaynabdrahman|huseym":[187.5,0.3],"humeydtavil|huseym":[187.5,0.3],"halidhazza|huseym":[187.5,0.15],"davudebihind|huseym":[187.5,0.3],"sufyanhusayn|huseym":[142,0.3],"amess|huseym":[187.5,0.3],"suleymanteymi|huseym":[187.5,0.3],"siyarebilhakem|huseym":[187.5,0.3],"salihhayy|huseym":[187.5,0.3],"asimahvel|huseym":[187.5,0.3],"amiralhavl|huseym":[187.5,0.3],"abdullahsubrume|huseym":[187.5,0.3],"ebusalih|huseym":[187.5,0.3],"abdullahavn|huseym":[187.5,0.3],"abdulhamidcafer|huseym":[187.5,0.3],"abdulazizsuheyb|huseym":[187.5,0.3],"abdulmelikebisuleyman|huseym":[187.5,0.3],"abdulmelikumeyr|huseym":[187.5,0.15],"ubeydullahomeri|huseym":[187.5,0.3],"ataisaib|huseym":[187.5,0.3],"alizeydcudan|huseym":[187.5,0.3],"avvamhavseb|huseym":[187.5,0.3],"avfarabi|huseym":[187.5,0.3],"kasimmihran|huseym":[187.5,0.3],"leysbsad|huseym":[187.5,0.3],"mucalidsaid|huseym":[187.5,0.3],"ibnishak|huseym":[187.5,0.3],"ibnsihab|huseym":[187.5,0.15],"mutarriftarif|huseym":[187.5,0.3],"mugirmiksem|huseym":[187.5,0.3],"mansurzazan|huseym":[187.5,0.3],"hisamhassan|huseym":[187.5,0.6],"hisamyusufsanani|huseym":[187.5,0.3],"yahyasaidensari|huseym":[187.5,0.3],"huseym|ahmedhanbel":[187.5,0.3],"huseym|ahmedmeni":[187.5,0.3],"huseym|ibnebiseybe":[187.5,0.3],"huseym|osmanebiseybe":[187.5,0.3],"huseym|zuheyrharb":[187.5,0.3],"huseym|alimedini":[187.5,0.3],"huseym|alihucr":[187.5,0.3],"huseym|amrnakid":[187.5,0.3],"huseym|ahmeddevraki":[187.5,0.15],"huseym|saidsuleymansadeviye":[187.5,0.3],"huseym|muhammedisataba":[187.5,0.3],"huseym|said_mansur":[187.5,0.3],"huseym|kuteybesaid":[187.5,0.3],"huseym|gunder":[187.5,0.3],"huseym|ibnmubarek":[187.5,0.3],"huseym|ibnmehdi":[187.5,0.3],"huseym|sevri":[187.5,0.3],"huseym|sube":[187.5,0.3],"huseym|malik":[187.5,0.3],"huseym|ibnuyeyne":[187.5,0.3],"ebanosman|ibnishak":[187.5,0.3],"ataebirebah|ibnishak":[187.5,0.3],"ebuselemeavf|ibnishak":[187.5,0.3],"kasimmuhammed|ibnishak":[187.5,0.3],"mekhul|ibnishak":[187.5,0.15],"abdrahmanesved|ibnishak":[187.5,0.3],"ibnsihab|ibnishak":[187.5,0.3],"yezidebihabib|ibnishak":[187.5,0.3],"enes|ibnishak":[187.5,0.3],"ibnishak|yezidharun":[187.5,0.3],"ibnishak|yezidzurey":[187.5,0.3],"ibnishak|yalaubeyd":[187.5,0.3],"ibnishak|yunusbukeyr":[187.5,0.3],"ibnishak|ibnuleyye":[187.5,0.3],"zekeriyyaishak|veki":[187.5,0.3],"zekeriyyaebizaide|veki":[187.5,0.3],"ibnuyeyne|veki":[187.5,0.3],"amess|veki":[187.5,0.3],"serikkadi|veki":[187.5,0.3],"abdullahavn|veki":[187.5,0.15],"abdulhamidcafer|veki":[187.5,0.3],"mesudi|veki":[187.5,0.3],"ibncureyc|veki":[187.5,0.15],"ubeydullahomeri|veki":[187.5,0.3],"ikrimeammar|veki":[187.5,0.3],"aliebisalihhayy|veki":[187.5,0.3],"alimubarekhinai|veki":[187.5,0.3],"omerzerr|veki":[187.5,0.3],"hanzalasufyan|veki":[187.5,0.3],"suleymanmugire|veki":[187.5,0.45],"saidubeydtai|veki":[187.5,0.3],"davudkaysferra|veki":[187.5,0.3],"saidabdulaziz|veki":[187.5,0.3],"abdulazizomer|veki":[187.5,0.3],"hisamurve|veki":[187.5,0.3],"hammadzeyd|veki":[187.5,0.3],"ibnishak|veki":[187.5,0.3],"veki|ahmedhanbel":[187.5,0.3],"veki|ibnmain":[187.5,0.3],"veki|alimedini":[187.5,0.3],"veki|ibnebiseybe":[187.5,0.3],"veki|osmanebiseybe":[187.5,0.3],"veki|misned":[187.5,0.45],"veki|hennadseri":[187.5,0.3],"veki|yahyayahyanisaburi":[187.5,0.3],"veki|mahmudgaylan":[187.5,0.3],"veki|ibnebiomeradeni":[187.5,0.3],"veki|nasralicehdami":[187.5,0.15],"veki|yahyaadem":[375,0.3],"veki|yezidharun":[178.5,0.3],"veki|kuteybesaid":[187.5,0.3],"veki|ibnrahuye":[187.5,0.3],"ibrahimsad|ibnmubarek":[187.5,0.3],"ibrahimtahman|ibnmubarek":[187.5,0.3],"ibrahimebiable|ibnmubarek":[187.5,0.3],"ibrahimfezari|ibnmubarek":[187.5,0.3],"ibrahimukbe|ibnmubarek":[187.5,0.3],"usamezeydeslem|ibnmubarek":[187.5,0.3],"usamezeydleysi|ibnmubarek":[187.5,0.3],"ismailebihalid|ibnmubarek":[187.5,0.3],"ismailayyas|ibnmubarek":[187.5,0.3],"ebuburde|ibnmubarek":[187.5,0.3],"cerirhazim|ibnmubarek":[187.5,0.3],"caferburkan|ibnmubarek":[187.5,0.3],"haccacertat|ibnmubarek":[187.5,0.3],"harmalaimran|ibnmubarek":[187.5,0.3],"huseynmuallim|ibnmubarek":[375,0.15],"hammadzeyd|ibnmubarek":[187.5,0.3],"hammadseleme|ibnmubarek":[187.5,0.3],"hamzazeyyat|ibnmubarek":[187.5,0.3],"humeydtavil|ibnmubarek":[187.5,0.3],"hanzalasufyan|ibnmubarek":[187.5,0.3],"hayveseri|ibnmubarek":[187.5,0.3],"halidhazza|ibnmubarek":[187.5,0.3],"davudattar|ibnmubarek":[187.5,0.3],"davudkaysferra|ibnmubarek":[187.5,0.3],"zaidekudame|ibnmubarek":[187.5,0.3],"zekeriyyaishak|ibnmubarek":[187.5,0.3],"zekeriyyaebizaide|ibnmubarek":[187.5,0.3],"zuhayrmuaviye|ibnmubarek":[187.5,0.3],"rebiaebiabdrahman|ibnmubarek":[187.5,0.3],"rebiuenes|ibnmubarek":[-187.5,0.3],"serieyyahya|ibnmubarek":[187.5,0.15],"sadsaidensari|ibnmubarek":[187.5,0.3],"cureyri|ibnmubarek":[187.5,0.3],"saidebiyyubmisri|ibnmubarek":[187.5,0.3],"saidabdulaziz|ibnmubarek":[187.5,0.3],"ibnebiaruba|ibnmubarek":[187.5,0.3],"ibnuyeyne|ibnmubarek":[187.5,0.3],"hasanamrfukaymi|ibnmubarek":[187.5,0.3],"ibnmubarek|abdan":[187.5,0.3],"ibnmubarek|ibnebiseybe":[187.5,0.3],"ibnmubarek|osmanebiseybe":[187.5,0.3],"ibnmubarek|ibnvehb":[187.5,0.3],"ibnmubarek|ibnmehdi":[187.5,0.3],"ibnmubarek|abdurrezzak":[187.5,0.3],"ibnmubarek|affanmuslim":[187.5,0.3],"ibnmubarek|alihasansakik":[187.5,0.3],"ibnmubarek|alihucr":[187.5,0.3],"ibnmubarek|kuteybesaid":[187.5,0.3],"ibnmubarek|suveydnasr":[187.5,0.3],"ibnmubarek|ibnmain":[187.5,0.3],"ibnmubarek|yahyaadem":[187.5,0.3],"ibnmubarek|ebulahvess":[187.5,0.3],"ismailebihalid|kattan":[187.5,0.15],"usamezeydleysi|kattan":[187.5,0.3],"esaseabdulmelik|kattan":[187.5,0.15],"behzhakim|kattan":[187.5,0.3],"sevryezid|kattan":[187.5,0.3],"caferisadik|kattan":[187.5,0.3],"hasanisad|kattan":[187.5,0.3],"hatimebisagire|kattan":[187.5,0.3],"haccacsavvaf|kattan":[187.5,0.3],"hasanzekvan|kattan":[187.5,0.3],"huseynmuallim|kattan":[187.5,0.3],"hammadseleme|kattan":[187.5,0.3],"humeydtavil|kattan":[187.5,0.15],"hanzalasufyan|kattan":[187.5,0.6],"halidhazza|kattan":[187.5,0.3],"husaymirak|kattan":[187.5,0.3],"davudkaysferra|kattan":[187.5,0.3],"zekeriyyaebizaide|kattan":[187.5,0.3],"sadibrahim|kattan":[187.5,0.3],"selimhayyan|kattan":[187.5,0.3],"amess|kattan":[187.5,0.15],"suleymanteymi|kattan":[187.5,0.3],"seyfsuleymanmekki|kattan":[187.5,0.3],"kattan|ibnmehdi":[74,0.3],"kattan|ahmedhanbel":[187.5,0.3],"kattan|alimedini":[187.5,0.3],"kattan|ibnmain":[187.5,0.3],"kattan|ibnebiseybe":[187.5,0.15],"kattan|kavariri":[187.5,0.3],"kattan|ubeydullahmuazanberi":[187.5,0.3],"kattan|affanmuslim":[187.5,0.3],"kattan|misned":[187.5,0.3],"kattan|bundar":[187.5,0.3],"kattan|ibnmusenna":[187.5,0.3],"kattan|amrbnalisayrafi":[187.5,0.3],"kattan|abbasanberi":[187.5,0.45],"kattan|yakubdevraki":[187.5,0.3],"kattan|nasralicehdami":[187.5,0.3],"kattan|mutemirsuleyman":[187.5,0.3],"kattan|sube":[187.5,0.3],"ebansattar|ibnmehdi":[187.5,0.3],"ibrahimsad|ibnmehdi":[187.5,0.3],"israilyunus|ibnmehdi":[187.5,0.3],"cerirhazim|ibnmehdi":[187.5,0.3],"harbseddad|ibnmehdi":[187.5,0.3],"hammadzeyd|ibnmehdi":[187.5,0.3],"davudkaysferra|ibnmehdi":[187.5,0.3],"zaidekudame|ibnmehdi":[187.5,0.3],"zuhayrmuaviye|ibnmehdi":[187.5,0.3],"selimhayyan|ibnmehdi":[187.5,0.3],"sallamebimuti|ibnmehdi":[187.5,0.3],"serikkadi|ibnmehdi":[187.5,0.45],"mesudi|ibnmehdi":[187.5,0.3],"macisun|ibnmehdi":[187.5,0.3],"darevardi|ibnmehdi":[187.5,0.3],"abdulvahidziyad|ibnmehdi":[187.5,0.3],"ikrimeammar|ibnmehdi":[187.5,0.3],"omerzerr|ibnmehdi":[187.5,0.3],"malikmigvel|ibnmehdi":[187.5,0.3],"muaviyesalih|ibnmehdi":[187.5,0.3],"ibnmehdi|ahmedhanbel":[187.5,0.3],"ibnmehdi|alimedini":[187.5,0.3],"ibnmehdi|ibnmain":[187.5,0.15],"ibnmehdi|kavariri":[187.5,0.3],"ibnmehdi|osmanebiseybe":[187.5,0.3],"ibnmehdi|ibnvehb":[-750,0.3],"ibnmehdi|amrbnalisayrafi":[187.5,0.3],"ibnmehdi|bundar":[187.5,0.3],"ibnmehdi|ibnmusenna":[187.5,0.3],"ibnmehdi|muhammedabdulalasanani":[187.5,0.3],"ibnmehdi|zuhli":[187.5,0.3],"ibnmehdi|mucahidmusa":[187.5,0.3],"ibnmehdi|nasralicehdami":[187.5,0.3],"ibnmehdi|yahyayahyanisaburi":[187.5,0.3],"ibnmehdi|yakubdevraki":[187.5,0.3],"ibnmehdi|ebuasimnebil":[187.5,0.3],"ibnidris|yahyaadem":[187.5,0.3],"abdusselamharb|yahyaadem":[187.5,0.3],"fudaylibnayaz|yahyaadem":[187.5,0.3],"kaysrebi|yahyaadem":[187.5,0.3],"fitrhalife|yahyaadem":[187.5,0.3],"malikmigvel|yahyaadem":[187.5,0.3],"misersukdam|yahyaadem":[187.5,0.3],"muhammedfudayl|yahyaadem":[187.5,0.3],"huseym|yahyaadem":[187.5,0.3],"varkaomer|yahyaadem":[187.5,0.3],"ebuavane|yahyaadem":[187.5,0.3],"ibnebizaide|yahyaadem":[187.5,0.3],"ebubekirayyas|yahyaadem":[187.5,0.3],"ebumuaviyedarir|yahyaadem":[187.5,0.3],"yahyaadem|ahmedhanbel":[187.5,0.3],"yahyaadem|ibnrahuye":[187.5,0.3],"yahyaadem|ibnebiseybe":[187.5,0.3],"yahyaadem|osmanebiseybe":[187.5,0.3],"yahyaadem|alimedini":[187.5,0.3],"yahyaadem|ibnmain":[187.5,0.3],"yahyaadem|abdhumeyd":[187.5,0.3],"yahyaadem|ebukureyb":[187.5,0.3],"yahyaadem|muhammedrafi":[187.5,0.3],"yahyaadem|mahmudgaylan":[187.5,0.3],"israilyunus|ibnebizaide":[187.5,0.3],"ismailebihalid|ibnebizaide":[187.5,0.15],"haccacertat|ibnebizaide":[187.5,0.3],"hasanamrfukaymi|ibnebizaide":[187.5,0.3],"halidselememahzumi|ibnebizaide":[187.5,0.3],"davudebihind|ibnebizaide":[187.5,0.3],"zekeriyyaebizaide|ibnebizaide":[187.5,0.3],"ibnuyeyne|ibnebizaide":[187.5,0.3],"amess|ibnebizaide":[187.5,0.3],"salihhayy|ibnebizaide":[187.5,0.3],"asimahvel|ibnebizaide":[187.5,0.15],"abdullahavn|ibnebizaide":[187.5,0.3],"abdulazizomer|ibnebizaide":[187.5,0.3],"abdulmelikhumeyd|ibnebizaide":[187.5,0.3],"abdulmelikebisuleyman|ibnebizaide":[187.5,0.3],"ibncureyc|ibnebizaide":[187.5,0.45],"ubeydullahomeri|ibnebizaide":[187.5,0.3],"ikrimeammar|ibnebizaide":[187.5,0.3],"amrmeymunmihran|ibnebizaide":[187.5,0.3],"leysebisuleym|ibnebizaide":[187.5,0.3],"mucalidsaid|ibnebizaide":[187.5,0.15],"ibnishak|ibnebizaide":[187.5,0.3],"misersukdam|ibnebizaide":[187.5,0.3],"musacuheni|ibnebizaide":[187.5,0.3],"nafiomercumahi|ibnebizaide":[187.5,0.3],"hasimhasim|ibnebizaide":[187.5,0.3],"hisamurve|ibnebizaide":[187.5,0.3],"varkaomer|ibnebizaide":[132.2,0.3],"yahyasaidensari|ibnebizaide":[187.5,0.3],"ebumalikesceyi|ibnebizaide":[-187.5,0.3],"ibnebizaide|ibrahimmusaferra":[187.5,0.3],"ibnebizaide|ahmedhanbel":[187.5,0.15],"ibnebizaide|ahmedmeni":[187.5,0.3],"ibnebizaide|hasanarafe":[187.5,0.3],"ibnebizaide|sericyunus":[187.5,0.3],"ibnebizaide|ibnebiseybe":[187.5,0.3],"ibnebizaide|osmanebiseybe":[187.5,0.3],"ibnebizaide|kavariri":[187.5,0.15],"ibnebizaide|alimedini":[187.5,0.15],"ibnebizaide|kuteybesaid":[187.5,0.3],"ibnebizaide|ebukureyb":[187.5,0.3],"ibnebizaide|muhammedubeydmuharibi":[187.5,0.3],"ibnebizaide|muhammedisataba":[187.5,0.3],"ibnebizaide|harunmaruf":[187.5,0.3],"ibnebizaide|hennadseri":[187.5,0.15],"ibnebizaide|ibnmain":[187.5,0.3],"ibnebizaide|yahyayahyanisaburi":[187.5,0.3],"ibnebizaide|yakubdevraki":[187.5,0.45],"ahmedhanbel|buhari":[187.5,0.3],"ahmedsalihmisri|buhari":[187.5,0.3],"ibnrahuye|buhari":[187.5,0.3],"ibnebiuveys|buhari":[187.5,0.3],"ibrahimmusaferra|buhari":[187.5,0.3],"ibrahimmunzirhizami|buhari":[187.5,0.15],"ademebiiyas|buhari":[187.5,0.3],"alimedini|buhari":[187.5,0.15],"ibnmain|buhari":[187.5,0.3],"kanebi|buhari":[187.5,0.3],"kuteybesaid|buhari":[187.5,0.3],"misned|buhari":[187.5,0.3],"bundar|buhari":[187.5,0.3],"ibnmusenna|buhari":[187.5,0.3],"amrbnalisayrafi|buhari":[187.5,0.15],"ebunuaymfadl|buhari":[187.5,0.3],"ebuasimnebil|buhari":[187.5,0.3],"affanmuslim|buhari":[187.5,0.3],"muslimibrahim|buhari":[187.5,0.3],"musaismailtebuzeki|buhari":[187.5,0.3],"hisamtayalisi|buhari":[187.5,0.3],"haccacminhal|buhari":[187.5,0.3],"alicad|buhari":[187.5,0.3],"saidsuleymansadeviye|buhari":[187.5,0.3],"ibnebiseybe|buhari":[187.5,0.3],"muhammedisataba|buhari":[187.5,0.3],"zuhli|buhari":[170.3,0.3],"mahmudgaylan|buhari":[187.5,0.3],"ibnebiomeradeni|buhari":[187.5,0.15],"buhari|tirmizi":[187.5,0.3],"buhari|ebuzuraraazi":[187.5,0.3],"buhari|ebuhatimrazi":[187.5,0.3],"buhari|muslim":[142.3,0.3],"ahmedhanbel|muslim":[187.5,0.3],"ahmeddevraki|muslim":[187.5,0.3],"ahmedmeni|muslim":[187.5,0.3],"ibrahimmusaferra|muslim":[187.5,0.3],"ibnrahuye|muslim":[187.5,0.45],"ishakkevsec|muslim":[187.5,0.45],"ibnebiuveys|muslim":[187.5,0.3],"zuheyrharb|muslim":[187.5,0.3],"said_mansur|muslim":[187.5,0.3],"sericyunus|muslim":[187.5,0.15],"seybanferruh|muslim":[187.5,0.15],"halefhisam|muslim":[187.5,0.3],"kanebi|muslim":[187.5,0.3],"abbasanberi|muslim":[187.5,0.3],"abdhumeyd|muslim":[186.1,0.3],"darimi|muslim":[120.3,0.3],"harmalayahya|muslim":[187.5,0.3],"hasanaliayyal|muslim":[187.5,0.3],"suveydsaidhadesani|muslim":[187.5,0.3],"ibnebiseybe|muslim":[187.5,0.3],"osmanebiseybe|muslim":[187.5,0.3],"kavariri|muslim":[187.5,0.3],"ebukureyb|muslim":[187.5,0.3],"muhammedrafi|muslim":[187.5,0.3],"yahyayahyanisaburi|muslim":[187.5,0.3],"kuteybesaid|muslim":[187.5,0.3],"bundar|muslim":[187.5,0.3],"ibnmusenna|muslim":[187.5,0.3],"hennadseri|muslim":[187.5,0.3],"harunmaruf|muslim":[187.5,0.3],"nasralicehdami|muslim":[187.5,0.15],"yakubdevraki|muslim":[187.5,0.3],"ubeydullahmuazanberi|muslim":[187.5,0.15],"ahmedhanbel|ebudavud":[187.5,0.3],"ibnebiseybe|ebudavud":[187.5,0.3],"osmanebiseybe|ebudavud":[187.5,0.3],"misned|ebudavud":[187.5,0.3],"zuheyrharb|ebudavud":[187.5,0.3],"kanebi|ebudavud":[187.5,0.3],"said_mansur|ebudavud":[187.5,0.3],"ahmeddevraki|ebudavud":[187.5,0.3],"muslimibrahim|ebudavud":[187.5,0.3],"musaismailtebuzeki|ebudavud":[187.5,0.3],"hisamtayalisi|ebudavud":[187.5,0.3],"kuteybesaid|ebudavud":[187.5,0.3],"ahmedsalihmisri|ebudavud":[187.5,0.3],"halefhisam|ebudavud":[187.5,0.3],"yahyaadem|ebudavud":[187.5,0.3],"bundar|tirmizi":[187.5,0.15],"ibnmusenna|tirmizi":[187.5,0.3],"kuteybesaid|tirmizi":[187.5,0.3],"hennadseri|tirmizi":[187.5,0.3],"mahmudgaylan|tirmizi":[187.5,0.3],"ebukureyb|tirmizi":[187.5,0.3],"ibnebiomeradeni|tirmizi":[187.5,0.3],"muhammedubeydmuharibi|tirmizi":[187.5,0.3],"ahmedmeni|tirmizi":[187.5,0.3],"alihucr|tirmizi":[187.5,0.3],"muhammedabdulalasanani|tirmizi":[187.5,0.3],"kuteybesaid|nesai":[187.5,0.15],"ishakkevsec|nesai":[187.5,0.3],"ibnrahuye|nesai":[187.5,0.3],"amrbnalisayrafi|nesai":[187.5,0.3],"muhammedrafi|nesai":[187.5,0.3],"muhammedabdulalasanani|nesai":[187.5,0.3],"abbasanberi|nesai":[187.5,0.3],"harmalayahya|nesai":[187.5,0.3],"ahmedsalihmisri|nesai":[187.5,0.3],"yakubdevraki|nesai":[187.5,0.3],"nasralicehdami|nesai":[187.5,0.3],"hasanarafe|nesai":[187.5,0.3],"ibnebiseybe|ibnmace":[187.5,0.3],"osmanebiseybe|ibnmace":[187.5,0.3],"hennadseri|ibnmace":[187.5,0.15],"suveydsaidhadesani|ibnmace":[187.5,0.3],"ebukureyb|ibnmace":[187.5,0.3],"muhammedubeydmuharibi|ibnmace":[187.5,0.3],"ibnebiomeradeni|ibnmace":[187.5,0.3],"amrnakid|ibnmace":[187.5,0.15],"ibrahimmusaferra|ibnmace":[187.5,0.15],"hasanarafe|ibnmace":[187.5,0.3],"zuhli|ibnmace":[187.5,0.3],"ibnrahuye|darimi":[187.5,0.3],"ahmedhanbel|darimi":[187.5,0.3],"yahyaadem|darimi":[187.5,0.3],"ebunuaymfadl|darimi":[187.5,0.3],"ebuasimnebil|darimi":[187.5,0.3],"ibnmain|darimi":[187.5,0.3],"nebi|mikdad":[187.5,0.3],"nebi|ubey":[187.5,0.3],"nebi|usame":[187.5,0.3],"nebi|basra":[187.5,0.3],"nebi|fadl":[187.5,0.3],"nebi|kabahbar":[187.5,0.3],"nebi|aise":[187.5,0.6],"nebi|enes":[187.5,0.3],"nebi|cabir":[187.5,0.3],"nebi|ibnabbas":[187.5,0.3],"nebi|ibnomer":[187.5,0.3],"nebi|ibnmesud":[187.5,0.3],"nebi|ibnzubeyr":[187.5,0.3],"nebi|bera":[187.5,0.3],"nebi|zeydarkam":[187.5,0.3],"nebi|cabirsemura":[187.5,0.3],"nebi|suhayb":[187.5,0.3],"nebi|sefine":[187.5,0.3],"nebi|hasanbali":[187.5,0.3],"nebi|huseyn":[187.5,0.3],"nebi|amrhurays":[187.5,0.3],"nebi|tariksihab":[187.5,0.3],"nebi|besrsuhaym":[187.5,0.3],"nebi|ibncafer":[187.5,0.3],"nebi|zeydsabit":[187.5,0.3],"nebi|abdrahmanebubekir":[187.5,0.3],"nebi|abdrahmanavf":[187.5,0.3],"nebi|ukbeamir":[187.5,0.3],"nebi|ebumusa":[187.5,0.3],"nebi|ebusaid":[187.5,0.3],"nebi|huzeyfe":[187.5,0.3],"nebi|rifaazuraki":[187.5,0.3],"nebi|aizamr":[187.5,0.3],"nebi|abdrahmanabza":[187.5,0.3],"nebi|esaskays":[187.5,0.3],"nebi|cerirbecel\u00ee":[187.5,0.3],"nebi|saibyezid":[187.5,0.3],"nebi|sadvakkas":[187.5,0.3],"nebi|talha":[187.5,0.3],"nebi|asimomer":[187.5,0.3],"nebi|mervan":[187.5,0.3],"nebi|mugirasube":[187.5,0.3],"nebi|imranhusayn":[187.5,0.3],"nebi|selemeekva":[187.5,0.3],"nebi|zeydhalid":[187.5,0.3],"nebi|ebuumame":[187.5,0.3],"nebi|rafihadic":[187.5,0.3],"nebi|numanbesir":[187.5,0.3],"nebi|halidvelid":[187.5,0.3],"nebi|bureyde":[187.5,0.3],"nebi|temimdari":[187.5,0.3],"nebi|hafsa":[187.5,0.3],"nebi|bilal":[187.5,0.3],"nebi|amirrebia":[187.5,0.3],"nebi|ebulubabe":[187.5,0.3]};
 
 /* ---------- etiket kademeleri ----------
@@ -1585,7 +1633,13 @@ export default function SilsileAgi() {
   const [uzerinde, setUzerinde] = useState(null);
   const [acildi, setAcildi] = useState(false);
   const tweenRef = useRef(null);
-  const [tasindi, setTasindi] = useState(false);
+  /* `tasindi` REF, state degil. Iki sebep: (1) hicbir yerde
+     cizilmiyor, yalnizca "bu bir dokunus muydu yoksa surukleme mi"
+     sorusuna cevap veriyor -- state olmasi her surukleme basinda bir
+     yeniden cizim demekti; (2) asagida ag'in govdesi useMemo ile
+     dondurulunun icinde kalan olay isleyicileri ESKI bir state
+     degerini gorurdu, ref her zaman guncel. */
+  const tasindiRef = useRef(false);
   const boxRef = useRef(null);
   /* Ekrandaki parmaklarin (ve farenin) defteri: pointerId -> {x,y}.
      Kiskac (iki parmakla yakinlastirma) basladiginda baslangic
@@ -1806,7 +1860,7 @@ export default function SilsileAgi() {
     isaretler.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
     if (isaretler.current.size === 1) {
       setSuruk({ mx: e.clientX, my: e.clientY, vx: view.x, vy: view.y });
-      setTasindi(false);
+      tasindiRef.current = false;
       return;
     }
     if (isaretler.current.size === 2) {
@@ -1824,7 +1878,7 @@ export default function SilsileAgi() {
         view: { ...view },
       };
       setSuruk(null);
-      setTasindi(true);
+      tasindiRef.current = true;
     }
   };
 
@@ -1850,7 +1904,7 @@ export default function SilsileAgi() {
 
     if (!suruk) return;
     const dx = e.clientX - suruk.mx, dy = e.clientY - suruk.my;
-    if (Math.abs(dx) + Math.abs(dy) > 4) setTasindi(true);
+    if (Math.abs(dx) + Math.abs(dy) > 4) tasindiRef.current = true;
     gitView({ ...view, x: suruk.vx + dx, y: suruk.vy + dy });
   };
 
@@ -1953,7 +2007,7 @@ export default function SilsileAgi() {
   /* Kenarlarin tiklama seritleri bu esigin ustunde uretiliyor (bkz.
      kenar cizimi). 0.05, agin tamami ekrana sigmis haldeki olcegin
      (~0.006-0.014) belirgin ustunde; yani "biraz yakinlastim" demek. */
-  const yakin = view.k > 0.05;
+  const yakin = durgun.k > 0.05;
 
   /* Dar ekran esigi. Kontrol kutulari ve bilgi karti bu esigin altinda
      farkli diziliyor (bkz. asagisi): telefonda ikisi yan yana
@@ -1973,9 +2027,11 @@ export default function SilsileAgi() {
      de olsalar birikip dolu bir kutle olusturuyor ve noktalari
      yutuyorlar (denendi). Ikisi birlikte, uzakta ag'in genel dokusunu,
      yakinda tek tek baglari veriyor. */
-  const cizgiCarpani = Math.min(1, 0.3 + view.k * 7);
-  const cizgiSaydam = Math.min(1, 0.3 + view.k * 6);
+  const cizgiCarpani = Math.min(1, 0.3 + durgun.k * 7);
+  const cizgiSaydam = Math.min(1, 0.3 + durgun.k * 6);
 
+
+  const MEDINE_I = SUTUNLAR.findIndex((c) => c.belde === "Medine");
 
   const secRavi = secim && secim.tur === "ravi" ? NODES.find((n) => n.id === secim.id) : null;
   const secKenar = secim && secim.tur === "kenar" ? secim.e : null;
@@ -1986,88 +2042,79 @@ export default function SilsileAgi() {
     ? EDGES.filter((e) => e.a === secRavi.id).map((e) => ({ ...e, n: NODES.find((x) => x.id === e.b) }))
     : [];
 
-  return (
-    <div className="w-full h-full bg-[#FBF9F4] text-[#23201B] flex flex-col overflow-hidden"
-         style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>
-      <div ref={boxRef} className="relative flex-1 bg-white overflow-hidden select-none"
-        /* `touchAction: none`: tarayici parmak hareketini KENDI kaydirma
-           ve yakinlastirmasi icin kapmasin, olaylar bize gelsin. Bu
-           olmadan dokunma isleyicileri yazilsa bile telefonda hicbir
-           sey olmaz. */
-        style={{ cursor: suruk ? "grabbing" : "grab", touchAction: "none" }}
-        onWheel={tekerlek}
-        onPointerDown={pointerBas}
-        onPointerMove={pointerKimilda}
-        onPointerUp={(e) => {
-          const sonParmak = isaretler.current.size <= 1;
-          pointerBirak(e);
-          if (sonParmak && !tasindi) { setSecim(null); setAcikArama(false); }
-        }}
-        onPointerCancel={pointerBirak}
-        onPointerLeave={pointerBirak}>
+  /* AGIN GOVDESI DONDURULMUS BIR AGAC.
 
-        {/* ---- ana tuval ---- */}
-        <svg width="100%" height="100%" style={{ position: "absolute", inset: 0 }}>
-          <style>{`
-            @keyframes akis   { to { stroke-dashoffset: -46; } }
-            @keyframes belir  { from { opacity: 0; transform: scale(0.4); }
-                                to   { opacity: 1; transform: scale(1); } }
-            @keyframes salin1 { 0%   { transform: translate(0,0); }
-                                25%  { transform: translate(19px,-13px); }
-                                50%  { transform: translate(9px,17px); }
-                                75%  { transform: translate(-17px,8px); }
-                                100% { transform: translate(0,0); } }
-            @keyframes salin2 { 0%   { transform: translate(0,0); }
-                                25%  { transform: translate(-15px,-16px); }
-                                50%  { transform: translate(14px,-6px); }
-                                75%  { transform: translate(6px,18px); }
-                                100% { transform: translate(0,0); } }
-            @keyframes salin3 { 0%   { transform: translate(0,0); }
-                                20%  { transform: translate(13px,14px); }
-                                45%  { transform: translate(-11px,17px); }
-                                70%  { transform: translate(-18px,-9px); }
-                                100% { transform: translate(0,0); } }
-            @keyframes salin4 { 0%   { transform: translate(0,0); }
-                                30%  { transform: translate(-20px,6px); }
-                                55%  { transform: translate(-4px,-17px); }
-                                80%  { transform: translate(16px,11px); }
-                                100% { transform: translate(0,0); } }
-            @keyframes hale   { 0%,100% { opacity: .30; transform: scale(1); }
-                                50%     { opacity: .06; transform: scale(1.55); } }
-            .kenar   { transition: stroke .35s ease, stroke-width .35s ease, opacity .35s ease; }
-            .kenar-v { stroke-dasharray: 14 8; animation: akis 1.1s linear infinite; }
-            .dugum   { transition: opacity .35s ease; }
-            .dugum circle.ana { transition: r .28s cubic-bezier(.34,1.4,.5,1), stroke-width .2s ease; }
-            .dugum:hover circle.ana { stroke: #23201B; stroke-width: 3; }
-            .etiket  { transition: opacity .3s ease; }
-            .acilis  { animation: belir .85s cubic-bezier(.22,1,.36,1) backwards; transform-box: fill-box; transform-origin: center; }
-            .salinim { animation-duration: var(--sure); animation-timing-function: linear;
-                       animation-iteration-count: infinite; animation-delay: var(--gec);
-                       will-change: transform; }
-            .sal1 { animation-name: salin1; }
-            .sal2 { animation-name: salin2; }
-            .sal3 { animation-name: salin3; }
-            .sal4 { animation-name: salin4; }
-            .hale    { animation: hale 1.8s ease-in-out infinite;
-                       transform-box: fill-box; transform-origin: center; }
-          `}</style>
-          <defs>
-            <marker id="ok" viewBox="0 0 10 10" refX="9" refY="5"
-              markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-              <path d="M 0 0 L 10 5 L 0 10 z" fill="#8A7A34" />
-            </marker>
-            <marker id="okSonuk" viewBox="0 0 10 10" refX="9" refY="5"
-              markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-              <path d="M 0 0 L 10 5 L 0 10 z" fill="#C9BFA8" />
-            </marker>
-            <marker id="okVurgu" viewBox="0 0 10 10" refX="9" refY="5"
-              markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-              <path d="M 0 0 L 10 5 L 0 10 z" fill="#B5462B" />
-            </marker>
-          </defs>
+     Kaydirma sirasinda `view.x` / `view.y` saniyede ~60 kez
+     degisiyordu ve her degisimde React butun agaci -- 541 dugum,
+     1381 kenar, ~4700 SVG elemani -- bastan kuruyordu: her kenarin
+     yol dizgisi yeniden hesaplaniyor, her dugumun yaricapi ve
+     kademesi yeniden bulunuyordu. Kalan kasmanin buyuk kismi buydu.
 
-          <g transform={`translate(${view.x},${view.y}) scale(${view.k})`}
-             style={{ visibility: olculdu ? undefined : "hidden" }}>
+     Oysa govdenin KAYDIRMAYLA hicbir isi yok: konum, disaridaki
+     `<g transform="translate(...)">` ile veriliyor. Govde yalnizca
+     OLCEGE ve vurgu durumuna bagli. Bu useMemo tam da bunu soyluyor:
+     x/y degisince yeniden kurulma, sadece transform niteligi
+     guncellensin. Yakinlastirma hala bastan kuruyor ama o surekli
+     degil, kesik kesik oluyor.
+
+     Bagimlilik listesine DIKKAT: govdenin okudugu her sey burada
+     olmali, yoksa ekran gercekten eskimis bir hal gosterir. Olay
+     isleyicilerinin okudugu `tasindi` bu yuzden ref'e cevrildi. */
+  /* Govdenin cizildigi olcek: CANLI olcek degil, DURGUN olcek.
+
+     Kaydirma cozuldukten sonra geriye yakinlastirma kaldi ve olculdu:
+     govdenin bastan kuruldugu bir kare ~49 ms, kurulmadigi bir kare
+     ~4.9 ms. Yani parmak acilip kapanirken saniyede ~20 kare
+     duselebiliyordu. Cozum kaydirmadakinin ayni: govde durgun olcekte
+     bir kez kuruluyor, aradaki fark disaridaki <g>'ye bir ORAN olarak
+     veriliyor. Iki donusum birleince net sonuc yine scale(view.k).
+
+     Bedeli: parmak hareket ederken yazi puntolari ve nokta yaricaplari
+     -- ekran biriminde hesaplandiklari icin -- oranla birlikte bir
+     miktar buyuyup kuculuyor, parmak kalkinca yerine oturuyor. Kenar
+     kalinliklari etkilenmiyor (non-scaling-stroke ekran pikselinde).
+     Harita uygulamalarinin yaptigi da budur. */
+  const kg = durgun.k;
+
+  /* GORUS PENCERESI (grafik biriminde). Disinda kalan dugum ve kenar
+     hic uretilmiyor.
+
+     Tuvalin tamami her zaman DOM'da duruyordu: 541 dugum, 1381 kenar,
+     ~4500 SVG elemani. Yakinlasilmis bir gorunumde bunlarin buyuk
+     cogunlugu ekranin disinda ama tarayici yine de her kaydirmada
+     hepsini yeniden cizmek zorunda -- React tarafi dondurulduktan
+     sonra kalan kasmanin kaynagi buydu. Elemeyle ~4500 eleman ~1800'e
+     iniyor (olculdu, acilis gorunumunde).
+
+     PENCERE BIR EKRANLIK IZGARAYA YUVARLANIYOR. Canli gorunume birebir
+     baglansa her karede degisir, govdenin dondurulmus olmasi da bir ise
+     yaramazdi. Yuvarlanmis hali ancak kullanici bir ekran boyu
+     kaydirinca degisiyor; arada kalan uc ekranlik pay (birer yandan)
+     bu sirada gozukecek her seyi zaten iceriyor.
+
+     `zoomPay`: uzaklasirken (view.k, kg'nin altina duserken) gercek
+     gorus alani, pencerenin hesaplandigi olcege gore buyuyor. Pay
+     olmasa "Tamami"ye basildiginda gorunum genislerken tuvalin bir
+     kismi 140 ms boyunca bos kalirdi. */
+  const zoomPay = Math.max(1, kg / view.k);
+  const gw = (box.w / kg) * zoomPay, gh = (box.h / kg) * zoomPay;
+  const qx = olculdu && gw > 0 ? Math.floor(-view.x / kg / gw) : 0;
+  const qy = olculdu && gh > 0 ? Math.floor(-view.y / kg / gh) : 0;
+  const pencere = useMemo(() => (olculdu
+    ? { x1: (qx - 1) * gw, x2: (qx + 2) * gw, y1: (qy - 1) * gh, y2: (qy + 2) * gh }
+    : null), [qx, qy, gw, gh, olculdu]);
+
+  /* Bir noktanin pencereye girip girmedigi. Kenar icin iki ucun
+     KUTUSU pencereyle kesisiyorsa ciziliyor -- uzun bir kenarin iki
+     ucu disarida ama govdesi iceride olabilir. */
+  const icerde = (p) => !pencere ||
+    (p.x >= pencere.x1 && p.x <= pencere.x2 && p.y >= pencere.y1 && p.y <= pencere.y2);
+  const kenarIcerde = (pa, pb) => !pencere ||
+    (Math.min(pa.x, pb.x) <= pencere.x2 && Math.max(pa.x, pb.x) >= pencere.x1 &&
+     Math.min(pa.y, pb.y) <= pencere.y2 && Math.max(pa.y, pb.y) >= pencere.y1);
+
+  const agGovdesi = useMemo(() => (
+    <g transform={`scale(${kg})`}>
             <rect x={-W} y={-H} width={W * 3} height={H * 3} fill="#FFFFFF" />
             {SUTUNLAR.map((c, i) => {
               const ilk = i === 0, son = i === SUTUNLAR.length - 1;
@@ -2076,9 +2123,16 @@ export default function SilsileAgi() {
               const zw = (son ? W * 2 : c.x + c.genislik) - zx;
               return (
                 <g key={c.belde}>
+                  {/* Serit rengi Medine'den baslayip BIRER ATLAYARAK
+                      tekrar ediyor: Misir, Sam, Medine, Vasit, Cibal,
+                      Maveraunnehir ayni ton. Onceden yalnizca Medine
+                      ayriydi, digerleri birbirinin ayniydi ve sutun
+                      sinirlari zor secikiyordu (Mustafa, 2026-08-29).
+                      Parite indise degil MEDINE'YE gore: araya yeni bir
+                      belde girse (Yemen girdi) Medine tonunu kaybetmesin. */}
                   <rect x={zx} y={-H} width={zw} height={H * 3}
-                    fill={c.belde === "Medine" ? "#8A7A34" : i % 2 ? "#1F4E5F" : "#2E7D6E"}
-                    opacity={c.belde === "Medine" ? 0.05 : 0.026} />
+                    fill={(i - MEDINE_I) % 2 === 0 ? "#8A7A34" : "#2E7D6E"}
+                    opacity={(i - MEDINE_I) % 2 === 0 ? 0.05 : 0.026} />
                   {!ilk && (
                     <line x1={c.x} y1={-H} x2={c.x} y2={H * 2}
                       stroke="#D8D0BF" strokeWidth="1.2" opacity="0.7" />
@@ -2095,6 +2149,7 @@ export default function SilsileAgi() {
             {EDGES.map((e, i) => {
               const pa = POS[e.a], pb = POS[e.b];
               if (!pa || !pb) return null;
+              if (!kenarIcerde(pa, pb)) return null;
               const dim = kenarSonuk(e);
               const secili = secKenar && secKenar.a === e.a && secKenar.b === e.b;
               // odaktaki râvinin kendi bağlarında rivayet yönü akış olarak görünür
@@ -2102,7 +2157,19 @@ export default function SilsileAgi() {
                 (e.a === secim.id || e.b === secim.id)) ||
                 uzerinde === e.a || uzerinde === e.b);
               const dy = pb.y - pa.y;
-              const [kavis, kf] = KAVIS[e.a + "|" + e.b] || [0, 0.3];
+              /* KAVIS tablosu SERIT_W = 620 iken uretilmis sabit bir
+                 tablo (1381 kayit). Serit genisligi 1240'a cikinca
+                 tablodaki yanal kayma degerleri yarim kaldi ve kavisler
+                 oldugundan duz gorunuyordu. Oran KAVIS_OLCEK ile
+                 duzeltiliyor.
+                 UYARI: bu yalnizca ORANI duzeltir. Tablonun asil isi
+                 her kavisi dugumlere DEGMEYECEK sekilde secmekti; sutun
+                 duzeni degistigi (esit genislik, seritlerin yayilmasi,
+                 serit atamasinin degismesi) icin o carpisma bilgisi
+                 artik gecerli degil. Tablonun yeni yerlesime gore
+                 yeniden uretilmesi gerekiyor. */
+              const [kavisHam, kf] = KAVIS[e.a + "|" + e.b] || [0, 0.3];
+              const kavis = kavisHam * KAVIS_OLCEK;
               const k1x = pa.x + kavis, k1y = pa.y + dy * kf;
               const k2x = pb.x + kavis, k2y = pb.y - dy * kf;
               const vx = pb.x - k2x, vy = pb.y - k2y;
@@ -2130,7 +2197,7 @@ export default function SilsileAgi() {
                       style={{ cursor: "pointer", pointerEvents: "stroke" }}
                       onPointerUp={(ev) => {
                         ev.stopPropagation(); pointerBirak(ev);
-                        if (!tasindi) setSecim({ tur: "kenar", e });
+                        if (!tasindiRef.current) setSecim({ tur: "kenar", e });
                       }} />
                   )}
                   <path d={d} fill="none"
@@ -2162,16 +2229,17 @@ export default function SilsileAgi() {
             {NODES.map((n) => {
               const p = POS[n.id];
               if (!p) return null;
+              if (!icerde(p)) return null;
               const d = sonuk(n.id);
               const dg = DERECE[n.id] || 0;
-              const r = rEkranOf(n.id, view.k) / view.k;
+              const r = rEkranOf(n.id, kg) / kg;
               const secili = secRavi && secRavi.id === n.id;
               // halesi olan = one cikan dugum (salinim ve hale bunlara ozel)
               const onCikan = !!(MEDAR[n.id] || MUKSIRUN.has(n.id) ||
                                  MUELLIF.has(n.id) || n.id === "nebi");
               return (
                 <g key={n.id} className="dugum" transform={`translate(${p.x},${p.y})`}
-                  onPointerUp={(ev) => { ev.stopPropagation(); pointerBirak(ev); if (!tasindi) odaklan(n.id); }}
+                  onPointerUp={(ev) => { ev.stopPropagation(); pointerBirak(ev); if (!tasindiRef.current) odaklan(n.id); }}
                   onMouseEnter={() => setUzerinde(n.id)}
                   onMouseLeave={() => setUzerinde((ö) => (ö === n.id ? null : ö))}
                   style={{ cursor: "pointer", opacity: d ? 0.38 : 1 }}>
@@ -2239,15 +2307,15 @@ export default function SilsileAgi() {
               const etiketBilgi = etiketliler.get(n.id);
               if (!etiketBilgi || !POS[n.id]) return null;
               const p = POS[n.id];
-              const r = rEkranOf(n.id, view.k) / view.k;
+              const r = rEkranOf(n.id, kg) / kg;
               const kad = KADEME(n.id);
-              const punto = Math.max(EKRAN_PUNTO[kad] / view.k, r * 0.42);
+              const punto = Math.max(EKRAN_PUNTO[kad] / kg, r * 0.42);
               const altPunto = punto * 0.8;
               return (
                 <g key={n.id} className="etiket" pointerEvents="none"
                    style={{ paintOrder: "stroke", stroke: "#FFFFFF", strokeWidth: punto * 0.32,
                             opacity: sonuk(n.id) ? 0.38 : 1 }}
-                   transform={`translate(${p.x + etiketBilgi.kay / view.k},${
+                   transform={`translate(${p.x + etiketBilgi.kay / kg},${
                      p.y + (etiketBilgi.yon === "ust"
                        ? -(2 * r + punto + altPunto + 8) : 0)})`}>
                   <text y={r + punto} textAnchor="middle" fontSize={punto}
@@ -2259,6 +2327,95 @@ export default function SilsileAgi() {
                 </g>
               );
             })}
+    </g>
+  ), [kg, box, olculdu, pencere, secim, secRavi, secKenar, uzerinde, acildi,
+      vurgu, etiketliler, yakin, cizgiCarpani, cizgiSaydam, MEDINE_I]);
+
+  return (
+    <div className="w-full h-full bg-[#FBF9F4] text-[#23201B] flex flex-col overflow-hidden"
+         style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>
+      <div ref={boxRef} className="relative flex-1 bg-white overflow-hidden select-none"
+        /* `touchAction: none`: tarayici parmak hareketini KENDI kaydirma
+           ve yakinlastirmasi icin kapmasin, olaylar bize gelsin. Bu
+           olmadan dokunma isleyicileri yazilsa bile telefonda hicbir
+           sey olmaz. */
+        style={{ cursor: suruk ? "grabbing" : "grab", touchAction: "none" }}
+        onWheel={tekerlek}
+        onPointerDown={pointerBas}
+        onPointerMove={pointerKimilda}
+        onPointerUp={(e) => {
+          const sonParmak = isaretler.current.size <= 1;
+          pointerBirak(e);
+          if (sonParmak && !tasindiRef.current) { setSecim(null); setAcikArama(false); }
+        }}
+        onPointerCancel={pointerBirak}
+        onPointerLeave={pointerBirak}>
+
+        {/* ---- ana tuval ---- */}
+        <svg width="100%" height="100%" style={{ position: "absolute", inset: 0 }}>
+          <style>{`
+            @keyframes akis   { to { stroke-dashoffset: -46; } }
+            @keyframes belir  { from { opacity: 0; transform: scale(0.4); }
+                                to   { opacity: 1; transform: scale(1); } }
+            @keyframes salin1 { 0%   { transform: translate(0,0); }
+                                25%  { transform: translate(19px,-13px); }
+                                50%  { transform: translate(9px,17px); }
+                                75%  { transform: translate(-17px,8px); }
+                                100% { transform: translate(0,0); } }
+            @keyframes salin2 { 0%   { transform: translate(0,0); }
+                                25%  { transform: translate(-15px,-16px); }
+                                50%  { transform: translate(14px,-6px); }
+                                75%  { transform: translate(6px,18px); }
+                                100% { transform: translate(0,0); } }
+            @keyframes salin3 { 0%   { transform: translate(0,0); }
+                                20%  { transform: translate(13px,14px); }
+                                45%  { transform: translate(-11px,17px); }
+                                70%  { transform: translate(-18px,-9px); }
+                                100% { transform: translate(0,0); } }
+            @keyframes salin4 { 0%   { transform: translate(0,0); }
+                                30%  { transform: translate(-20px,6px); }
+                                55%  { transform: translate(-4px,-17px); }
+                                80%  { transform: translate(16px,11px); }
+                                100% { transform: translate(0,0); } }
+            @keyframes hale   { 0%,100% { opacity: .30; transform: scale(1); }
+                                50%     { opacity: .06; transform: scale(1.55); } }
+            .kenar   { transition: stroke .35s ease, stroke-width .35s ease, opacity .35s ease; }
+            .kenar-v { stroke-dasharray: 14 8; animation: akis 1.1s linear infinite; }
+            .dugum   { transition: opacity .35s ease; }
+            .dugum circle.ana { transition: r .28s cubic-bezier(.34,1.4,.5,1), stroke-width .2s ease; }
+            .dugum:hover circle.ana { stroke: #23201B; stroke-width: 3; }
+            .etiket  { transition: opacity .3s ease; }
+            .acilis  { animation: belir .85s cubic-bezier(.22,1,.36,1) backwards; transform-box: fill-box; transform-origin: center; }
+            .salinim { animation-duration: var(--sure); animation-timing-function: linear;
+                       animation-iteration-count: infinite; animation-delay: var(--gec);
+                       will-change: transform; }
+            .sal1 { animation-name: salin1; }
+            .sal2 { animation-name: salin2; }
+            .sal3 { animation-name: salin3; }
+            .sal4 { animation-name: salin4; }
+            .hale    { animation: hale 1.8s ease-in-out infinite;
+                       transform-box: fill-box; transform-origin: center; }
+          `}</style>
+          <defs>
+            <marker id="ok" viewBox="0 0 10 10" refX="9" refY="5"
+              markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#8A7A34" />
+            </marker>
+            <marker id="okSonuk" viewBox="0 0 10 10" refX="9" refY="5"
+              markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#C9BFA8" />
+            </marker>
+            <marker id="okVurgu" viewBox="0 0 10 10" refX="9" refY="5"
+              markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#B5462B" />
+            </marker>
+          </defs>
+
+          {/* Konum burada, govde disarida (bkz. agGovdesi): kaydirinca
+              yalnizca bu nitelik degisiyor, altindaki agac degil. */}
+          <g transform={`translate(${view.x},${view.y}) scale(${view.k / kg})`}
+             style={{ visibility: olculdu ? undefined : "hidden" }}>
+            {agGovdesi}
           </g>
         </svg>
 
@@ -2378,8 +2535,13 @@ export default function SilsileAgi() {
                  telefonda karti 95 px'e dusuruyordu. Genis ekranda
                  eskisi gibi solda, yalnizca kumeye ayrilan pay 280'den
                  200'e indi -- kume daraldi. */
+              /* Genislik kumeye gore hesaplaniyor, sabit bir yuzdeyle
+                 degil. Kume %20 ama 104 px'lik bir tabani var (dar
+                 telefon); sabit %80 verilince o tabanin devreye
+                 girdigi ekranlarda kart kumenin altina giriyordu
+                 (Mustafa fark etti). max() ikisini de karsiliyor. */
               left: 12, bottom: 12,
-              width: "calc(80% - 36px)", minWidth: 180,
+              width: "calc(100% - 36px - max(20%, 104px))", minWidth: 180,
               height: 188, overflowY: "auto", overflowX: "hidden",
               background: "rgba(255,255,255,0.97)", border: "1px solid #D8D0BF",
               borderRadius: 2, padding: 16,
@@ -2423,7 +2585,7 @@ export default function SilsileAgi() {
             <div className="absolute z-20 shadow-lg"
               style={{
                 left: 12, bottom: 12,
-                width: "calc(80% - 36px)", minWidth: 180,
+                width: "calc(100% - 36px - max(20%, 104px))", minWidth: 180,
                 maxHeight: 188, overflowY: "auto",
                 background: "rgba(255,255,255,0.97)", border: "1px solid #D8D0BF",
                 borderRadius: 2, padding: 16,
