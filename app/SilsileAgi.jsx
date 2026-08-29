@@ -1908,11 +1908,10 @@ const MEDAR = {
   ebuavane: 2, sube: 2, mamer: 2, sevri: 2, evzai: 2, huseym: 2,
   yahyaadem: 3, ibnebizaide: 3, veki: 3, ibnmubarek: 3, kattan: 3, ibnmehdi: 3,
 };
-const MEDAR_AD = {
-  1: "I. tabaka — müdevvinler",
-  2: "II. tabaka — musannifler",
-  3: "III. tabaka — münekkit ve fakîh muhaddisler",
-};
+/* MEDAR_AD artik burada DEGIL -- metinler ceviri dosyasina tasindi
+   (t.agMedar1..3) ve bilesenin icinde TAB_AD gibi useMemo ile
+   kuruluyor. Sabit halde kaldigi surece kart Ingilizce ve Arapca
+   modda bu satiri Turkce gosteriyordu (Mustafa, 2026-08-30). */
 
 // Kütüb-i Sitte müellifleri
 const MUELLIF = new Set(["buhari", "muslim", "ebudavud", "tirmizi", "nesai", "ibnmace"]);
@@ -2224,7 +2223,15 @@ const SATIRLAR = Array.from(
    birine denk geliyordu. Puntolar da birlikte kucultuldu, yoksa yazi
    dar banda sigmaz. */
 const UST_BANT = 26;    // şehir isimleri bandı
-const SOL_BANT = 36;    // yıl ekseni bandı
+/* Yil ekseni bandi 2026-08-30'da 36'dan 24'e indi: "175 h." tek satir
+   yerine iki satir yaziliyor (sayi ustte, "h./هـ/AH" altta), boylece
+   agdan calinan yatay serit ucte bir daraldi. */
+const SOL_BANT = 24;    // yıl ekseni bandı
+/* Arama kutusunun taban genisligi. Kutu ekranin %15'i; dar bir pencerede
+   bu 132 px'e dusuyordu ve Ingilizce yer tutucu ("Find a Narrator")
+   sigmiyordu -- buyutec ikonu 28 px sol dolgu aliyor, geriye 92 px
+   kaliyor, yazi ise ~105 px istiyor. 152 hepsini alir. */
+const KUME_EN_AZ = 152;
 
 export default function SilsileAgi() {
   const [secim, setSecim] = useState(null);   // {tur:"ravi",id} | {tur:"kenar",e}
@@ -2312,6 +2319,9 @@ export default function SilsileAgi() {
   const beldeAdi = useCallback((b) => BELDE_AD[language]?.[b] ?? b, [language]);
   const TAB_AD = useMemo(() => [t.agTabaka0, t.agTabaka1, t.agTabaka2,
     t.agTabaka3, t.agTabaka4, t.agTabaka5, t.agTabaka6], [t]);
+  // Medar tabakalari (I: mudevvinler, II: musannifler, III: munekkit
+  // ve fakih muhaddisler). Anahtarlar 1-3, MEDAR degerleriyle ayni.
+  const MEDAR_AD = useMemo(() => ({ 1: t.agMedar1, 2: t.agMedar2, 3: t.agMedar3 }), [t]);
 
   const boxRef = useRef(null);
   /* Ekrandaki parmaklarin (ve farenin) defteri: pointerId -> {x,y}.
@@ -3331,14 +3341,36 @@ export default function SilsileAgi() {
           <rect x="0" y="0" width={SOL_BANT} height="100%" fill={C.zemin} />
           <line x1={SOL_BANT - 0.5} y1="0" x2={SOL_BANT - 0.5} y2="100%"
             stroke={C.cizgi} strokeWidth="1" />
-          {YILLAR.map((y) => {
+          {/* Once GORUNUR yillar suzuluyor, sonra ciziliyor. Suzgecte
+              iki is var:
+                - bant disinda kalanlari at,
+                - birbirine 22 px'den yakin olanlari at. Etiket artik
+                  iki satir; uzaklasilinca on yillik araliklar birkac
+                  piksele dusuyor ve satirlar ust uste biniyordu. */}
+          {YILLAR.reduce((liste, y) => {
             const ky = view.y + yOf(y) * view.k;
-            if (ky < UST_BANT + 6 || ky > box.h - 4) return null;
-            return (
-              <text key={y} x={SOL_BANT - 5} y={ky + 3} textAnchor="end"
-                fontSize="9" fill={y % 50 === 0 ? C.ink : C.solukInk}>{y} {YIL_EKI[language] ?? "h."}</text>
-            );
-          })}
+            if (ky < UST_BANT + 10 || ky > box.h - 10) return liste;
+            const onceki = liste[liste.length - 1];
+            if (onceki && ky - onceki.ky < 22) return liste;
+            liste.push({ y, ky });
+            return liste;
+          }, []).map(({ y, ky }) => (
+            /* SAYI USTTE, EK ALTTA. Tek satirken ("175 h.") bant 36 px
+               istiyordu; iki satir 24 px'e siginca ag o kadar genisledi.
+
+               `direction: ltr` SART: Arapcada kok ogeye dir="rtl"
+               veriliyor ve SVG'de `text-anchor` yon duyarli -- "end"
+               RTL'de SOL kenari isaret ediyor, yazi saga dogru uzayip
+               24 px'lik svg'nin disinda kaliyor ve HIC GORUNMUYORDU
+               (Mustafa, 2026-08-30). Sayilar her dilde soldan saga. */
+            <text key={y} x={SOL_BANT - 4} textAnchor="end"
+              style={{ direction: "ltr" }}>
+              <tspan x={SOL_BANT - 4} y={ky - 1} fontSize="9"
+                fill={y % 50 === 0 ? C.ink : C.solukInk}>{y}</tspan>
+              <tspan x={SOL_BANT - 4} y={ky + 7} fontSize="7"
+                fill={C.solukInk}>{YIL_EKI[language] ?? "h."}</tspan>
+            </text>
+          ))}
         </svg>
 
         {/* ---- sabit şehir bandı (üst) ---- */}
@@ -3399,7 +3431,7 @@ export default function SilsileAgi() {
             gibi sag altta, %15. */}
         <div className="absolute z-20" data-ustlik
           style={{ bottom: dar ? 12 + kartYuk + (kartYuk ? 6 : 0) : 12,
-                   right: 12, width: "15%", minWidth: 132 }}
+                   right: 12, width: "15%", minWidth: KUME_EN_AZ }}
           onPointerDown={(e) => e.stopPropagation()}
           onPointerUp={(e) => e.stopPropagation()}
           onWheel={(e) => e.stopPropagation()}>
@@ -3460,7 +3492,7 @@ export default function SilsileAgi() {
               left: 12, bottom: 12, right: dar ? 12 : undefined,
               width: dar ? undefined : "50%",
               minWidth: dar ? undefined : 180,
-              maxWidth: dar ? undefined : "calc(100% - 36px - max(15%, 132px))",
+              maxWidth: dar ? undefined : "calc(100% - 36px - max(15%, 152px))",
               height: 130, overflowY: "auto", overflowX: "hidden",
               background: C.kart, border: "1px solid " + C.cizgi,
               borderRadius: 2, padding: 16,
@@ -3522,7 +3554,7 @@ export default function SilsileAgi() {
                 left: 12, bottom: 12, right: dar ? 12 : undefined,
                 width: dar ? undefined : "50%",
                 minWidth: dar ? undefined : 180,
-                maxWidth: dar ? undefined : "calc(100% - 36px - max(15%, 132px))",
+                maxWidth: dar ? undefined : "calc(100% - 36px - max(15%, 152px))",
                 maxHeight: 130, overflowY: "auto",
                 background: C.kart, border: "1px solid " + C.cizgi,
                 borderRadius: 2, padding: 16,

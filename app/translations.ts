@@ -95,6 +95,9 @@ type Translation = {
   agTabaka4: string;
   agTabaka5: string;
   agTabaka6: string;
+  agMedar1: string;
+  agMedar2: string;
+  agMedar3: string;
 };
 
 export const TRANSLATIONS: Record<Language, Translation> = {
@@ -185,6 +188,9 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     agTabaka4: "Sigār-ı tâbiîn",
     agTabaka5: "Etbâu't-tâbiîn",
     agTabaka6: "Müellif sonrası",
+    agMedar1: "I. tabaka — müdevvinler",
+    agMedar2: "II. tabaka — musannifler",
+    agMedar3: "III. tabaka — münekkit ve fakîh muhaddisler",
   },
   ar: {
     brandAlt: "الحديث والديجيتالية",
@@ -269,6 +275,9 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     agTabaka4: "صغار التابعين",
     agTabaka5: "أتباع التابعين",
     agTabaka6: "ما بعد المؤلفين",
+    agMedar1: "الطبقة الأولى — المدوِّنون",
+    agMedar2: "الطبقة الثانية — المصنِّفون",
+    agMedar3: "الطبقة الثالثة — النقاد والفقهاء من المحدِّثين",
   },
   en: {
     brandAlt: "Hadith and Digital",
@@ -355,5 +364,8 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     agTabaka4: "Junior successors",
     agTabaka5: "Followers of the successors",
     agTabaka6: "After the authors",
+    agMedar1: "Tier I — recorders (tadwīn)",
+    agMedar2: "Tier II — arrangers (taṣnīf)",
+    agMedar3: "Tier III — critic and jurist traditionists",
   },
 };
