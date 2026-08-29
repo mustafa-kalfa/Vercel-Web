@@ -65,11 +65,14 @@ export default function Oyunlar() {
           uzerini ortuyor. absolute olunca sarmalayici <main>'in dibinde,
           yani tam footer'in ustunde duruyor.
 
+          Telefonda klip ekranin TAM genisligi (`w-full`, yukseklik orandan
+          geliyor); masaustunde saga yaslanip yuksekligiyle olculuyor.
           Klibin sol ~%43'u bos (kediler ve karakter sag yarida), o yuzden
-          saga yaslandiginda konu ekranin kosesine oturuyor. */}
+          saga yaslandiginda konu ekranin kosesine oturuyor -- dar ekranda
+          ise bos payin da isi var, konuyu ekran kenarina degdirmiyor. */}
       <ChromaKeyVideo
         src="/Kediler_seffaf.mp4"
-        className="absolute bottom-0 right-0 h-[25vh] w-auto max-w-none"
+        className="absolute bottom-0 left-0 h-auto w-full md:left-auto md:right-0 md:h-[25vh] md:w-auto md:max-w-none"
       />
     </main>
   );

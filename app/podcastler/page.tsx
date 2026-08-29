@@ -46,6 +46,24 @@ export default function Podcastler() {
           </Link>
         ))}
       </div>
+
+      {/* Yagmur klibi. Kediler gibi bu da eskiden anasayfanin acilis
+          videolarindan biriydi (bkz. IntroVideo); orasi tek klibe
+          indirilince sayfalara dagitildi.
+
+          Konum `absolute`, `fixed` DEGIL -- /selam'daki ile ayni gerekce:
+          fixed iken klip gorunum alaninin dibine yapisip footer'in
+          uzerini ortuyor. absolute olunca sarmalayici <main>'in dibinde,
+          yani tam footer'in ustunde duruyor.
+
+          Olculer IntroVideo'daki ayarindan geliyor: telefonda tam ekran
+          genisligi, masaustunde sola yasli 22.5vh. Gokyuzu yesil cekilip
+          seffaflastirildigi icin klibin kendi kenari yok, maske
+          gerekmiyor. */}
+      <ChromaKeyVideo
+        src="/Mustafa%20Yagmur_seffaf.mp4"
+        className="absolute bottom-0 left-0 h-auto w-full object-contain md:h-[22.5vh] md:w-auto md:max-w-none"
+      />
     </main>
   );
 }
