@@ -540,7 +540,7 @@
      bildiriliyor, yani asama degisince kendiliginden guncelleniyor. */
   .ezber-btn{
     display:none;
-    margin:16px auto 0;
+    margin:0;
     padding:0 20px;
     height:48px;
     align-items:center;
@@ -556,14 +556,39 @@
   }
   .ezber-btn:hover{ opacity:.9; }
 
+  /* Ezber asamasinda dugme ile Mustafa YAN YANA. Mustafa normalde
+     tahtanin icinde `position:absolute` ve yeri JS ile yuzde olarak
+     hesaplaniyor; burada JS onu bu satira TASIYOR (bkz. asamaAyarla) ve
+     asagidaki kural konumlandirmayi kapatiyor, yani akista dugmenin
+     yanina oturuyor. Asama degisince geri tahtaya tasiniyor ve
+     relayout() konumu yeniden hesapliyor. */
+  .ezber-satir{
+    display:none;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    margin-top:16px;
+  }
+  #pageRoot[data-asama="ezber"] .ezber-satir{ display:flex; }
   #pageRoot[data-asama="ezber"] .ezber-btn{ display:flex; }
+  #pageRoot[data-asama="ezber"] .mustafa{
+    position:static;
+    transform:none;
+    transition:none;
+    width:96px;
+    flex:none;
+  }
+
   #pageRoot[data-asama="ezber"] #board,
   #pageRoot[data-asama="ezber"] .footer-row,
   #pageRoot[data-asama="ezber"] .progress,
   #pageRoot[data-asama="ezber"] .metin-row{ display:none; }
 
-  #pageRoot[data-asama="oyun"] .isnad-row,
-  #pageRoot[data-asama="oyun"] .metin-row{ display:none; }
+  /* Oyun asamasinda kutu KOMPLE gizli. Isnad zaten ezberlendi, hadis
+     metni de henuz yok; geriye yalnizca bos bir cerceve kaliyordu.
+     Yonerge de gizli -- oyuncu ne yapacagini ezber asamasinda okudu. */
+  #pageRoot[data-asama="oyun"] .bubble,
+  #pageRoot[data-asama="oyun"] .lede{ display:none; }
 </style>
 
 <div class="page" id="pageRoot" data-asama="ezber">
@@ -572,7 +597,6 @@
     <p class="lede" id="ledeText">İsnâdı doğru şekilde tamamla. Râvileri, Mustafâ'ya en yakın olandan başlayarak sırayla seç.</p>
 
     <div class="bubble" id="hadithBubble">
-      <span class="progress" id="progress">0 / 6 râvi</span>
       <div class="bubble-row isnad-row">
         <span class="bubble-label" id="isnadLabel">İsnad</span>
         <div class="isnad-ar" id="isnadAr" dir="rtl" lang="ar">حَدَّثَنَا <span class="ravi-name" data-ravi="humeydi">الْحُمَيْدِيُّ عَبْدُ اللهِ بْنُ الزُّبَيْرِ</span>، قَالَ: حَدَّثَنَا <span class="ravi-name" data-ravi="sufyan">سُفْيَانُ</span>، قَالَ: حَدَّثَنَا <span class="ravi-name" data-ravi="yahya">يَحْيَى بْنُ سَعِيدٍ الْأَنْصَارِيُّ</span>، قَالَ: أَخْبَرَنِي <span class="ravi-name" data-ravi="muhammed">مُحَمَّدُ بْنُ إِبْرَاهِيمَ التَّيْمِيُّ</span> أَنَّهُ سَمِعَ <span class="ravi-name" data-ravi="alkame">عَلْقَمَةَ بْنَ وَقَّاصٍ اللَّيْثِيَّ</span>، يَقُولُ: سَمِعْتُ <span class="ravi-name" data-ravi="omer">عُمَرَ بْنَ الْخَطَّابِ</span> عَلَى الْمِنْبَرِ، قَالَ: سَمِعْتُ <span class="ravi-name" data-ravi="nebi">رَسُولَ اللهِ ﷺ</span></div>
@@ -591,7 +615,11 @@
       </div>
     </div>
 
-    <button class="ezber-btn" id="ezberBtn" type="button">Ezberledim, hadi başlayalım.</button>
+    <div class="ezber-satir" id="ezberSatir">
+      <button class="ezber-btn" id="ezberBtn" type="button">Ezberledim, hadi başlayalım.</button>
+    </div>
+
+    <span class="progress" id="progress">0 / 6 râvi</span>
 
     <div class="board" id="board">
       <svg class="path-layer" id="pathLayer"></svg>
@@ -1108,6 +1136,16 @@
 
   function asamaAyarla(asama){
     pageRootEl.setAttribute('data-asama', asama);
+    // Mustafa ezber asamasinda dugmenin yaninda, digerlerinde tahtada.
+    // DOM'da tasimak canvas'in WebGL baglamini bozmuyor.
+    var ezberSatir = document.getElementById('ezberSatir');
+    if(asama === 'ezber'){
+      if(mustafa.parentNode !== ezberSatir) ezberSatir.appendChild(mustafa);
+    } else if(mustafa.parentNode !== board){
+      board.appendChild(mustafa);
+      // Tahtaya donunce yeri yeniden hesaplanmali, yoksa sol ust kosede kalir.
+      relayout();
+    }
     // Yonerge metni asamaya bagli, dil degismese de yenilenmeli.
     if(typeof currentLang !== 'undefined' && STRINGS[currentLang]){
       applyLanguage(currentLang);
@@ -1747,6 +1785,8 @@
     }
   }
   ezberBtnEl.addEventListener('click', function(){ asamaAyarla('oyun'); });
+  // Acilista Mustafa'yi dugmenin yanina tasi (nitelik HTML'de zaten 'ezber').
+  asamaAyarla('ezber');
 
   window.addEventListener('load', reportHeight);
   window.addEventListener('resize', reportHeight);

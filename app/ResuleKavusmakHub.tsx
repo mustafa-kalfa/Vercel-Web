@@ -383,11 +383,23 @@ export default function ResuleKavusmakHub({
       if (e.data.type === "resule-kavusmak-completed") {
         const id = String(e.data.hadis);
         if (!HADITHS.some((h) => h.id === id)) return;
+        /* Tebrik pop-up'i YALNIZCA 12'nin sonuncusu ILK KEZ bitince.
+
+           Eskiden yalnizca "kayittan sonra hepsi tamam mi" diye
+           bakiliyordu; hepsini bitirmis bir kullanici herhangi bir
+           hadisi TEKRAR oynadiginda kosul yine dogru cikiyor ve pop-up
+           her seferinde aciliyordu (rapor edildi, 2026-08-29).
+
+           Simdi ONCESI ile SONRASI karsilastiriliyor: pop-up ancak
+           "eksik vardi -> artik yok" gecisinde aciliyor. Ekstra bir
+           bayrak/localStorage kaydina gerek yok, ilerlemenin kendisi
+           zaten yeterli bilgiyi tasiyor. */
+        const once = getProgressSnapshot();
         markCompleted(id);
-        // 12'nin sonuncusu SIMDI mi bitti? Kayda bu hadis eklendikten
-        // sonraki hale bakiyoruz; oyle ise tebrik pop-up'ini aciyoruz.
-        const after = getProgressSnapshot();
-        if (HADITHS.every((h) => after.includes(h.id))) setShowCongrats(true);
+        const sonra = getProgressSnapshot();
+        const hepsiOnceTamamdi = HADITHS.every((h) => once.includes(h.id));
+        const hepsiSimdiTamam = HADITHS.every((h) => sonra.includes(h.id));
+        if (!hepsiOnceTamamdi && hepsiSimdiTamam) setShowCongrats(true);
       }
       // Oyunun alt bilgisindeki "Onceki"/"Sonraki": listeye ugramadan
       // dogrudan komsu hadise geciyoruz. "Sonraki" zaten ancak siradaki
