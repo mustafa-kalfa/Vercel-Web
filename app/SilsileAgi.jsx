@@ -2005,9 +2005,6 @@ export default function SilsileAgi() {
     [box]
   );
 
-  const sigdir = useCallback(() => {
-    setView(sinirla({ k: enAzOlcek(), x: 0, y: 0 }));
-  }, [sinirla, enAzOlcek]);
 
   /* Acilis gorunumu: HZ. PEYGAMBER'E ODAKLI.
 
@@ -2099,14 +2096,60 @@ export default function SilsileAgi() {
     return false;
   };
 
-  const tekerlek = (ev) => {
-    ev.preventDefault();
+  /* TEKERLEK. Ucu birden:
+       ctrl (ya da Mac'te cmd) + tekerlek -> yakinlastir/uzaklastir
+       duz tekerlek                       -> yukari/asagi kaydir
+       shift + tekerlek                   -> saga/sola kaydir
+     Eskiden duz tekerlek yakinlastiriyordu; harita disindaki hicbir
+     arayuz boyle davranmadigi icin degistirildi (Mustafa, 2026-08-29).
+
+     SAYFA KAYDIRMASINA YOL VERME: ag dikeyde son sinirina dayanmissa
+     ve kullanici hala asagi kaydiriyorsa olayi ENGELLEMIYORUZ -- o
+     zaman sayfa kayiyor ve altta duran footer goruntuye giriyor.
+     Bu olmadan ag tekerlegi bastan sona yutar, footer'a hic
+     ulasilamazdi.
+
+     Isleyici REACT'IN onWheel'i DEGIL, elle baglanan bir olay
+     dinleyicisi (asagidaki effect). Sebep: React 17'den beri wheel
+     kok kapsayiciya PASIF baglaniyor ve pasif bir dinleyicide
+     preventDefault sessizce hicbir sey yapmiyor -- sayfa `fixed`
+     oldugu surece fark edilmiyordu, footer eklenince edilir. */
+  const tekerlek = useCallback((ev) => {
+    // kontrol kutulari ve bilgi karti kendi kaydirmasini yapsin
+    if (ev.target.closest && ev.target.closest("[data-ustlik]")) return;
     const r = boxRef.current.getBoundingClientRect();
-    const mx = ev.clientX - r.left, my = ev.clientY - r.top;
-    const asgari = enAzOlcek();
-    const yeni = Math.max(asgari, Math.min(4, view.k * (ev.deltaY < 0 ? 1.13 : 1 / 1.13)));
-    gitView({ k: yeni, x: mx - ((mx - view.x) / view.k) * yeni, y: my - ((my - view.y) / view.k) * yeni });
-  };
+
+    if (ev.ctrlKey || ev.metaKey) {
+      ev.preventDefault();
+      const mx = ev.clientX - r.left, my = ev.clientY - r.top;
+      const asgari = enAzOlcek();
+      const yeni = Math.max(asgari, Math.min(4, view.k * (ev.deltaY < 0 ? 1.13 : 1 / 1.13)));
+      gitView({ k: yeni, x: mx - ((mx - view.x) / view.k) * yeni, y: my - ((my - view.y) / view.k) * yeni });
+      return;
+    }
+
+    if (ev.shiftKey) {
+      ev.preventDefault();
+      // bazi fareler shift ile deltaX uretir, bazilari deltaY'de birakir
+      const dx = ev.deltaX || ev.deltaY;
+      gitView({ ...view, x: view.x - dx });
+      return;
+    }
+
+    const hedef = { ...view, y: view.y - ev.deltaY };
+    const sonuc = sinirla(hedef);
+    // sinir yuzunden hic kimildamadiysak tekerlek sayfaya kalsin
+    if (ev.deltaY > 0 && Math.abs(sonuc.y - view.y) < 0.5) return;
+    ev.preventDefault();
+    setView(sonuc);
+  }, [view, sinirla, gitView, enAzOlcek]);
+
+  useEffect(() => {
+    const el = boxRef.current;
+    if (!el) return;
+    el.addEventListener("wheel", tekerlek, { passive: false });
+    return () => el.removeEventListener("wheel", tekerlek);
+  }, [tekerlek]);
 
   /* ---------- imlec/parmak isleyicileri ----------
 
@@ -2182,12 +2225,6 @@ export default function SilsileAgi() {
     gitView({ ...view, x: suruk.vx + dx, y: suruk.vy + dy });
   };
 
-  const zoomla = (carpan) => {
-    const cx = (box.w + SOL_BANT) / 2, cy = (box.h + UST_BANT) / 2;
-    const asgari = enAzOlcek();
-    const yeni = Math.max(asgari, Math.min(4, view.k * carpan));
-    kaydir({ k: yeni, x: cx - ((cx - view.x) / view.k) * yeni, y: cy - ((cy - view.y) / view.k) * yeni }, 340);
-  };
 
   /* Bir raviye tiklanmasi. OLCEK DEGISMIYOR -- kamera yalnizca o
      noktayi ortaya aliyor. Eskiden `Math.max(view.k, 0.9)` ile
@@ -2630,7 +2667,6 @@ export default function SilsileAgi() {
            olmadan dokunma isleyicileri yazilsa bile telefonda hicbir
            sey olmaz. */
         style={{ cursor: suruk ? "grabbing" : "grab", touchAction: "none" }}
-        onWheel={tekerlek}
         onPointerDown={pointerBas}
         onPointerMove={pointerKimilda}
         onPointerUp={(e) => {
@@ -2764,17 +2800,20 @@ export default function SilsileAgi() {
         </svg>
 
         {/* ---- sağ üst: râvi bul + yakınlaştırma ---- */}
-        {/* Kontroller DIKEY SIRALI: arama kutusu, altinda yakinlastirma,
-            en altta "Tamami". Kume EKRANIN %20'si, bilgi karti %80
-            (Mustafa'nin karari, 2026-08-29) -- ikisi altta yan yana
-            duruyor ve ekrani paylasiyor.
+        {/* Sag altta yalnizca ARAMA KUTUSU kaldi. Yakinlastirma
+            dugmeleri ve "Tamami" 2026-08-29'da kaldirildi: olcek artik
+            ctrl+tekerlek ve iki parmakla ayarlaniyor, dugmelere gerek
+            kalmadi.
 
-            `minWidth` bilerek var: dar bir telefonda %20 yaklasik 75
-            piksel eder, o genislikte "Râvi bul" yazisi da "Tamami"
-            dugmesi de sigmiyor. Taban yalnizca en dar ekranlarda
-            devreye giriyor, digerlerinde %20 gecerli. */}
-        <div className="absolute z-20"
-          style={{ bottom: 12, right: 12, width: "20%", minWidth: 104 }}
+            Kume EKRANIN %15'i. `minWidth` bilerek var: dar bir
+            telefonda %15 yaklasik 56 piksel eder, o genislige yazi
+            sigmiyor. Taban yalnizca en dar ekranlarda devreye giriyor.
+
+            `data-ustlik`: tekerlek isleyicisi (bkz. tekerlek) bu
+            isareti tasiyan bir seyin uzerindeyse olayi ag'a
+            gecirmiyor, kutu kendi kaydirmasini yapiyor. */}
+        <div className="absolute z-20" data-ustlik
+          style={{ bottom: 12, right: 12, width: "15%", minWidth: 132 }}
           onPointerDown={(e) => e.stopPropagation()}
           onPointerUp={(e) => e.stopPropagation()}
           onWheel={(e) => e.stopPropagation()}>
@@ -2795,25 +2834,26 @@ export default function SilsileAgi() {
             </div>
           )}
 
-          <input value={arama}
-            onChange={(e) => { setArama(e.target.value); setAcikArama(true); }}
-            onFocus={() => setAcikArama(true)}
-            placeholder="Râvi bul"
-            className="w-full px-3 py-1.5 text-sm bg-white border border-[#D8D0BF] rounded-sm shadow-sm outline-none focus:border-[#8A7A34]" />
-
-          <div className="flex border border-[#D8D0BF] bg-white rounded-sm overflow-hidden shadow-sm"
-            style={{ marginTop: 6 }}>
-            <button onClick={() => zoomla(1 / 1.3)} className="flex-1 py-1 text-sm hover:bg-[#F1EDE2]">−</button>
-            <span className="px-2 py-1 text-[11px] text-[#8C8676] border-x border-[#E6DFCF] self-center">
-              {Math.round(view.k * 100)}%
-            </span>
-            <button onClick={() => zoomla(1.3)} className="flex-1 py-1 text-sm hover:bg-[#F1EDE2]">+</button>
+          {/* Buyutec ikonu kutunun ICINDE, mutlak konumlu; yazi
+              alani ona yer acmak icin soldan paylı. Ikon
+              `pointerEvents: none` -- ustune tiklayinca da kutu
+              odaklansin. */}
+          <div className="relative">
+            <svg viewBox="0 0 16 16" aria-hidden="true"
+              style={{ position: "absolute", left: 8, top: "50%", marginTop: -7,
+                       width: 14, height: 14, pointerEvents: "none" }}
+              fill="none" stroke="#8C8676" strokeWidth="1.6"
+              strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="7" cy="7" r="4.5" />
+              <path d="M10.5 10.5 L14 14" />
+            </svg>
+            <input value={arama}
+              onChange={(e) => { setArama(e.target.value); setAcikArama(true); }}
+              onFocus={() => setAcikArama(true)}
+              placeholder="Râvi Ara"
+              className="w-full py-1.5 pr-3 text-sm bg-white border border-[#D8D0BF] rounded-sm shadow-sm outline-none focus:border-[#8A7A34]"
+              style={{ paddingLeft: 28 }} />
           </div>
-          <button onClick={sigdir}
-            className="w-full py-1 text-sm border border-[#D8D0BF] bg-white rounded-sm shadow-sm hover:bg-[#F1EDE2]"
-            style={{ marginTop: 6 }}>
-            Tamamı
-          </button>
         </div>
 
         {/* ---- sabit bilgi paneli ---- */}
@@ -2825,14 +2865,16 @@ export default function SilsileAgi() {
                  telefonda karti 95 px'e dusuruyordu. Genis ekranda
                  eskisi gibi solda, yalnizca kumeye ayrilan pay 280'den
                  200'e indi -- kume daraldi. */
-              /* Genislik kumeye gore hesaplaniyor, sabit bir yuzdeyle
-                 degil. Kume %20 ama 104 px'lik bir tabani var (dar
-                 telefon); sabit %80 verilince o tabanin devreye
-                 girdigi ekranlarda kart kumenin altina giriyordu
-                 (Mustafa fark etti). max() ikisini de karsiliyor. */
+              /* Kart sayfa genisliginin YARISI, yukseklik 188'den
+                 130'a indi (Mustafa, 2026-08-29). Kume artik %15
+                 oldugu icin ikisi rahat siğiyor; yine de dar
+                 telefonlarda kumenin 132 px'lik tabani devreye
+                 girebildiginden `maxWidth` ile carpisma kesin olarak
+                 onleniyor. */
               left: 12, bottom: 12,
-              width: "calc(100% - 36px - max(20%, 104px))", minWidth: 180,
-              height: 188, overflowY: "auto", overflowX: "hidden",
+              width: "50%", minWidth: 180,
+              maxWidth: "calc(100% - 36px - max(15%, 132px))",
+              height: 130, overflowY: "auto", overflowX: "hidden",
               background: "rgba(255,255,255,0.97)", border: "1px solid #D8D0BF",
               borderRadius: 2, padding: 16,
             }}
@@ -2890,12 +2932,13 @@ export default function SilsileAgi() {
             <div className="absolute z-20 shadow-lg"
               style={{
                 left: 12, bottom: 12,
-                width: "calc(100% - 36px - max(20%, 104px))", minWidth: 180,
-                maxHeight: 188, overflowY: "auto",
+                width: "50%", minWidth: 180,
+                maxWidth: "calc(100% - 36px - max(15%, 132px))",
+                maxHeight: 130, overflowY: "auto",
                 background: "rgba(255,255,255,0.97)", border: "1px solid #D8D0BF",
                 borderRadius: 2, padding: 16,
               }}
-              onPointerDown={(e) => e.stopPropagation()} onPointerUp={(e) => e.stopPropagation()}>
+              data-ustlik onPointerDown={(e) => e.stopPropagation()} onPointerUp={(e) => e.stopPropagation()}>
               <button onClick={() => setSecim(null)}
                 className="absolute top-2 right-3 text-[#8C8676] hover:text-[#23201B]">×</button>
               <div className="text-[11px] uppercase tracking-wider text-[#B5462B] mb-2">Rivayet bağı</div>

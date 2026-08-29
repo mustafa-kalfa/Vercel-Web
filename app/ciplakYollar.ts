@@ -14,9 +14,8 @@
    gidiyor ve tek liste hangi sayfanin cercevesiz oldugunu tek bakista
    gosteriyor.
 
-   /ag-sinamasi: bastan asaga bir gorsellestirme ve ekranin tamamini
-   istiyor. Dar ekranda site basligi + agin kendi basligi + footer
-   birlikte yuksekligin yarisina yakinini yiyordu. Agin kendi ust
-   basligi da ayni sebeple kaldirildi (bkz. SilsileAgi.jsx basindaki
-   not, madde 3). */
-export const CIPLAK_YOLLAR = ["/ag-sinamasi"];
+   LISTE SU AN BOS. /ag-sinamasi bir sure burada durdu (ag ekranin
+   tamamini istiyordu); 2026-08-29'da site basligi ve footer geri
+   istendi, o da cikti. Yapi duruyor -- yeni bir cercevesiz sayfa
+   gerekirse yolu buraya yazmak yetiyor. */
+export const CIPLAK_YOLLAR: string[] = [];
