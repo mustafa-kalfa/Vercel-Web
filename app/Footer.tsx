@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "./LanguageContext";
+import { CIPLAK_YOLLAR } from "./ciplakYollar";
 
 /* Sitenin alt bilgisi. app/layout.tsx'te bir kez cagriliyor, yani
    ANASAYFA DISINDA her sayfada var (asagidaki FOOTERSIZ listesine bkz.).
@@ -22,9 +23,13 @@ const YIL = 2026;
 // Footer'in HIC gorunmedigi yollar. 2026-08-29'a kadar burada "/" vardi:
 // anasayfa o zaman tek ekranlik eski duzendi ve altina bir sey eklemek
 // istenmiyordu. Anasayfa /sinama duzenine gecince (kart izgarasi + uzun
-// govde) footer da onun bir parcasi oldu, liste bosaldi. Yeni bir sayfa
-// footer istemezse yolu buraya eklemek yeterli.
-const FOOTERSIZ: string[] = [];
+// govde) footer da onun bir parcasi oldu, liste bosaldi.
+//
+// Bugun liste, cercevesi hic olmayan sayfalarin ortak listesi: tema ve
+// dil dugmeleri de ayni yollarda gizleniyor, o yuzden liste tek bir
+// yerde duruyor (bkz. ciplakYollar.ts). Yalnizca footer'i olmayan ama
+// dugmeleri duran bir sayfa gerekirse buraya ayrica yol eklenebilir.
+const FOOTERSIZ: string[] = CIPLAK_YOLLAR;
 
 // Footer'in gorundugu ama ust siradaki SAYFA LISTESININ gizlendigi
 // yollar. Anasayfa ve onun kopyasi /sinama govdesinde zaten ayni

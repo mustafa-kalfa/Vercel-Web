@@ -3,24 +3,33 @@
 /* SILSILE AGI GORSELLESTIRMESI. Bu dosya bir artifact'ten OLDUGU GIBI
    alindi; icerigi hala hizla degistigi icin site tarafinda elle yapilan
    degisiklikler EN AZDA tutuluyor. Yeni surum gelince dosyanin ustune
-   yazip yalnizca asagidaki uc noktayi tekrar uygulamak yetiyor:
+   yazip yalnizca asagidaki dort noktayi tekrar uygulamak yetiyor:
 
    1) Bu "use client" satiri. App Router'da bir dosya varsayilan olarak
       SUNUCU bileseni; useState/useEffect ve fare olaylari orada
       calismaz. Artifact tarayicida durdugu icin bunu bilmiyor.
    2) Kok div'de `h-screen` DEGIL `h-full`. Artifact tek basina bir
-      sayfaydi, tam ekran kapliyordu; burada ustunde site basligi
-      (HD logosu, tema/dil dugmeleri) var. `h-full` ile kapsayicinin
-      -- yani /ag-sinamasi sayfasinin ona ayirdigi yerin -- boyunu
-      aliyor, yoksa o basligin yuksekligi kadar tasip footer'i
-      asagi itiyor.
-   3) `.jsx` uzanti, `.tsx` DEGIL. Proje TypeScript ama tsconfig'in
+      sayfaydi, tam ekran kapliyordu; burada kapsayicinin -- yani
+      /ag-sinamasi sayfasinin ona ayirdigi yerin -- boyunu almasi
+      gerekiyor.
+   3) KOK DIV'IN HEMEN ICINDEKI <header> SILINDI. Artifact'te ustte
+      iki satirlik bir baslik vardi ("MIZZI, TEHZIBU'L-KEMAL ..." ve
+      "Silsile Agi"). Mustafa'nin karari, 2026-08-29: sayfa tamamen
+      gorsellestirmeden ibaret olsun, ne site basligi ne agin kendi
+      basligi dursun. Dar ekranda o baslik iki satira sariyor ve
+      ekranin besde birini yiyordu.
+   4) `.jsx` uzanti, `.tsx` DEGIL. Proje TypeScript ama tsconfig'in
       `include` listesi yalnizca .ts/.tsx tariyor, yani bu dosya tip
       denetiminden gecmiyor -- Next.js `allowJs` ile derliyor.
       Artifact tip bilgisi tasimadigi icin (`useState(null)` gibi)
       .tsx yapmak her surumde bastan tip yazmak demek olurdu.
-      Gorsellestirme oturdugunda .tsx'e cevrilebilir. */
+      Gorsellestirme oturdugunda .tsx'e cevrilebilir.
 
+   BILINEN EKSIK, artifact tarafinda: dokunma yok. Tuval yalnizca fare
+   olaylarini (onMouseDown/Move/Up, onWheel) dinliyor; onTouch* ya da
+   onPointer* hic yok. Bu yuzden TELEFONDA agi surukleyip
+   yakinlastirmak calismiyor. Sayfa tarafindan cozulemez, bilesenin
+   kendi olay isleyicilerine dokunma destegi eklenmeli. */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
 
 /* ==================================================================
@@ -1680,13 +1689,6 @@ export default function SilsileAgi() {
   return (
     <div className="w-full h-full bg-[#FBF9F4] text-[#23201B] flex flex-col overflow-hidden"
          style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>
-      <header className="px-5 pt-4 pb-3 border-b border-[#D8D0BF] shrink-0">
-        <div className="text-[10.5px] tracking-[0.22em] uppercase text-[#8A7A34] mb-0.5">
-          Mizzî, Tehzîbü'l-Kemâl · Ali b. el-Medînî, el-İlel
-        </div>
-        <h1 className="text-2xl leading-tight">Silsile Ağı</h1>
-      </header>
-
       <div ref={boxRef} className="relative flex-1 bg-white overflow-hidden select-none"
         style={{ cursor: suruk ? "grabbing" : "grab" }}
         onWheel={tekerlek}

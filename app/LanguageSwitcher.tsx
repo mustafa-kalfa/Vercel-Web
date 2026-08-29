@@ -1,8 +1,10 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { LANGUAGE_LABELS, type Language } from "./translations";
 import { useLanguage } from "./LanguageContext";
 import SwapContent from "./SwapContent";
+import { CIPLAK_YOLLAR } from "./ciplakYollar";
 
 /* Ceviri isareti: Material Symbols'un `translate` glifi (Apache 2.0).
 
@@ -28,6 +30,13 @@ function TranslateIcon() {
 
 export default function LanguageSwitcher() {
   const { language, outgoingLanguage, cycleLanguage, t } = useLanguage();
+  const yol = usePathname();
+
+  /* Cercevesiz sayfalarda dugme hic cizilmiyor (bkz. ciplakYollar.ts).
+     Kancalar YUKARIDA cagrildi, cikis burada: React kancalarin her
+     render'da ayni sirayla calismasini istiyor, erken donus onlarin
+     ustunde olamaz. */
+  if (CIPLAK_YOLLAR.includes(yol)) return null;
 
   /* `rtl:flex-row-reverse` SART. Arapca'da <html dir="rtl"> oldugu icin
      flex satiri sagdan sola diziliyor ve ceviri glifi (DOM'da ikinci

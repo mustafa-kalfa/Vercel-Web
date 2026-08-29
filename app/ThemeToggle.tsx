@@ -1,7 +1,9 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useTheme } from "./ThemeContext";
 import { useLanguage } from "./LanguageContext";
+import { CIPLAK_YOLLAR } from "./ciplakYollar";
 
 /* Tombul hilal + yildiz: acik moddayken gorunur, "karanliga gec" demek.
    Hilal, buyuk dairenin icinden kaydirilmis ikinci dairenin maske ile
@@ -82,8 +84,15 @@ function SunIcon() {
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
   const { t } = useLanguage();
+  const yol = usePathname();
 
   const isDark = theme === "dark";
+
+  /* Cercevesiz sayfalarda dugme hic cizilmiyor (bkz. ciplakYollar.ts).
+     Kancalar YUKARIDA cagrildi, cikis burada: React kancalarin her
+     render'da ayni sirayla calismasini istiyor, erken donus onlarin
+     ustunde olamaz. */
+  if (CIPLAK_YOLLAR.includes(yol)) return null;
 
   /* Gecis suresi globals.css'teki `.tema-gecisi` ile AYNI (450ms):
      topuz kayarken sayfa renkleri de doniyor, ikisi ayni anda bitsin.
