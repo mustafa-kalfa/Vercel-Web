@@ -21,16 +21,16 @@ export default function AgSinamasi() {
       <Link
         href="/"
         aria-label={t.brandAlt}
-        className="absolute left-1/2 top-1 z-20 flex h-[72px] -translate-x-1/2 items-center transition-opacity hover:opacity-70"
+        className="absolute left-1/2 top-1 z-20 flex h-[48px] -translate-x-1/2 items-center transition-opacity hover:opacity-70"
       >
         <ChromaKeyVideo
           src="/HD-Mini.mp4"
           loop={false}
-          className="h-[72px] w-auto max-w-none brightness-0 dark:brightness-100"
+          className="h-[48px] w-auto max-w-none brightness-0 dark:brightness-100"
         />
       </Link>
 
-      {/* Ag TAM BIR EKRAN: ust bantla (80px) birlikte 100dvh ediyor,
+      {/* Ag TAM BIR EKRAN: ust bantla (54px) birlikte 100dvh ediyor,
           boylece footer tam katlanma cizgisinin altina dusuyor.
 
           Yukseklik KESIN bir deger (`calc`), yuzde degil: bilesenin
@@ -38,9 +38,11 @@ export default function AgSinamasi() {
           kapsayicinin boyu kesinse cozuluyor. Kok layout govdeye
           `min-h-dvh` veriyor, `height` degil.
 
-          `mt-20`: ag, logonun (72px) ve iki yandaki tema/dil
-          dugmelerinin altindan basliyor. */}
-      <div className="mt-20 h-[calc(100dvh-80px)]">
+          Ust bant 2026-08-29'da %33 kuculdu: logo 72 -> 48 px, bant
+          80 -> 54 px. Sayfanin ust seridi ag'dan cok yer aliyordu.
+          SIMDILIK YALNIZCA BU SAYFADA -- begenilirse diger sayfalara
+          da tasinacak. */}
+      <div className="mt-[54px] h-[calc(100dvh-54px)]">
         <SilsileAgi />
       </div>
     </main>

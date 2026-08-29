@@ -73,6 +73,25 @@ type Translation = {
   eduPostYdsCards: string;
   eduPostDataPrivacy: string;
   footerRights: string;
+  /* Silsile ağı (/ag-sinamasi). Râvi ADLARI burada değil: onlar
+     düğümün kendisinde duruyor (Türkçe `tr`, Arapça `ar` alanı) ve
+     dile göre orada seçiliyor. Burada yalnızca arayüz metinleri var. */
+  agAra: string;
+  agHocalari: string;
+  agTalebeleri: string;
+  agKayitYok: string;
+  agRivayetBagi: string;
+  agKaynak: string;
+  agTahricRumuzu: string;
+  agMuksirun: string;
+  agMuellif: string;
+  agTabaka0: string;
+  agTabaka1: string;
+  agTabaka2: string;
+  agTabaka3: string;
+  agTabaka4: string;
+  agTabaka5: string;
+  agTabaka6: string;
 };
 
 export const TRANSLATIONS: Record<Language, Translation> = {
@@ -144,6 +163,22 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     eduPostDataPrivacy:
       "Dil modellerine verilen akademik metinlerin ve kişisel verilerin şirketlerce kullanımını önlemek (ChatGPT, Gemini, Claude)",
     footerRights: "Tüm hakları saklıdır.",
+    agAra: "Râvi Ara",
+    agHocalari: "Hocaları",
+    agTalebeleri: "Talebeleri",
+    agKayitYok: "kayıt yok",
+    agRivayetBagi: "Rivayet bağı",
+    agKaynak: "Kaynak",
+    agTahricRumuzu: "Tahrîc rumuzu",
+    agMuksirun: "müksirûndan",
+    agMuellif: "Kütüb-i Sitte müellifi",
+    agTabaka0: "Kaynak",
+    agTabaka1: "Sahâbe",
+    agTabaka2: "Kibâr-ı tâbiîn",
+    agTabaka3: "Vustâ",
+    agTabaka4: "Sigār-ı tâbiîn",
+    agTabaka5: "Etbâu't-tâbiîn",
+    agTabaka6: "Müellif sonrası",
   },
   ar: {
     brandAlt: "الحديث والديجيتالية",
@@ -209,6 +244,22 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     eduPostDataPrivacy:
       "منع الشركات من استخدام النصوص الأكاديمية والبيانات الشخصية التي تُعطى لنماذج اللغة (ChatGPT وGemini وClaude)",
     footerRights: "جميع الحقوق محفوظة.",
+    agAra: "ابحث عن راوٍ",
+    agHocalari: "شيوخه",
+    agTalebeleri: "تلاميذه",
+    agKayitYok: "لا يوجد",
+    agRivayetBagi: "صلة الرواية",
+    agKaynak: "المصدر",
+    agTahricRumuzu: "رمز التخريج",
+    agMuksirun: "من المكثرين",
+    agMuellif: "من مؤلفي الكتب الستة",
+    agTabaka0: "الأصل",
+    agTabaka1: "الصحابة",
+    agTabaka2: "كبار التابعين",
+    agTabaka3: "الوسطى",
+    agTabaka4: "صغار التابعين",
+    agTabaka5: "أتباع التابعين",
+    agTabaka6: "ما بعد المؤلفين",
   },
   en: {
     brandAlt: "Hadith and Digital",
@@ -276,5 +327,21 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     eduPostDataPrivacy:
       "Stopping companies from using the academic texts and personal data you give to language models (ChatGPT, Gemini, Claude)",
     footerRights: "All rights reserved.",
+    agAra: "Find a narrator",
+    agHocalari: "Teachers",
+    agTalebeleri: "Students",
+    agKayitYok: "no record",
+    agRivayetBagi: "Transmission link",
+    agKaynak: "Source",
+    agTahricRumuzu: "Collection symbol",
+    agMuksirun: "among the muksirūn",
+    agMuellif: "author of the Six Books",
+    agTabaka0: "Source",
+    agTabaka1: "Companions",
+    agTabaka2: "Senior successors",
+    agTabaka3: "Middle successors",
+    agTabaka4: "Junior successors",
+    agTabaka5: "Followers of the successors",
+    agTabaka6: "After the authors",
   },
 };

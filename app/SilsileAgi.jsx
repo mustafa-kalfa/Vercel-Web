@@ -38,6 +38,7 @@
       Yeni artifact surumu bunlari kendi icinde cozuyorsa bu madde
       dusebilir; cozmuyorsa tekrar uygulanmali. */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
+import { useLanguage } from "./LanguageContext";
 
 /* ==================================================================
    SİLSİLE AĞI — v3
@@ -1719,18 +1720,19 @@ const YIL_MIN = 5, YIL_MAX = 315;
                                 Buyutulmeseydi ayni yil araligi daha
                                 cok birime denk gelecegi icin serit
                                 sayisi duser, sutunlar daralirdi.
-     SERIT_W     620 -> 1240    yatayda tam 2 kat, yani yaricapla ayni
-                                oranda: yatay sikisiklik oldugu gibi
-                                kaliyor. Dusuk tutulsaydi noktalar
-                                buyurken serit ayni kalacagi icin yan
-                                yana girerlerdi.
+     SERIT_W     620 -> 2480    once yaricapla ayni oranda 2 kat
+                                (yatay sikisiklik artmasin diye),
+                                2026-08-29'da bir kat daha (sutunlar
+                                dar geliyordu). KAVIS_OLCEK bu sayiya
+                                bagli oldugu icin kavisler kendiliginden
+                                olcekleniyor.
      UST         210 -> 460     Hz. Peygamber dugumu tuvalin ustunde,
                                 "UST - ..." konumunda duruyor; yaricapi
                                 192'ye cikinca eski payla ust kenardan
                                 tasiyordu. */
 const UST = 460, ALT = 160, SOL_PAY = 60;
 const H = 600000;
-const SERIT_W = 1240;
+const SERIT_W = 2480;
 const ASGARI_DY = 6264;
 const yOf = (yil) => UST + ((yil - YIL_MIN) / (YIL_MAX - YIL_MIN)) * (H - UST - ALT);
 
@@ -1936,9 +1938,14 @@ const YILLAR = Array.from({ length: 31 }, (_, i) => 10 + i * 10);
    Sutunlarla AYNI iki ton kullaniliyor ama daha soluk: ikisi ust uste
    binince renk birikip zemini kirletmesin. */
 const SATIR_YIL = 25;
+/* Bantlar YUVARLAK YILLARA oturuyor: 0-25, 25-50, 50-75... Onceden
+   YIL_MIN'den (5) baslayip 25'er gidiyordu, yani sinirlar 30/55/80'e
+   dusuyor ve eksendeki 25/50/75 cizgileriyle tutmuyordu (Mustafa,
+   2026-08-29). Bant 0'dan basliyor; cizim sirasinda eksenin disinda
+   kalan kisim zaten kirpiliyor. */
 const SATIRLAR = Array.from(
-  { length: Math.ceil((YIL_MAX - YIL_MIN) / SATIR_YIL) },
-  (_, i) => YIL_MIN + i * SATIR_YIL,
+  { length: Math.ceil(YIL_MAX / SATIR_YIL) },
+  (_, i) => i * SATIR_YIL,
 );
 /* Sabit bantlar: solda yil ekseni, ustte belde isimleri. Ikisi de
    2026-08-29'da daraltildi (44 -> 26 ve 58 -> 36). Bantlar tuvalden
@@ -1964,6 +1971,18 @@ export default function SilsileAgi() {
      dondurulunun icinde kalan olay isleyicileri ESKI bir state
      degerini gorurdu, ref her zaman guncel. */
   const tasindiRef = useRef(false);
+  const { t, language } = useLanguage();
+
+  /* RAVI ADI DILE GORE. Arapca'da dugumun kendi `ar` alani, digerinde
+     `tr`. Ingilizce icin AYRI BIR AD YOK: 570 ismin latinize
+     karsiligini yazmak ayri bir is ve Mustafa ceviri yazi istemiyor;
+     Ingilizce'de Turkce latinizasyon kullaniliyor -- hadis
+     literaturunde zaten alisildik bir cozum. Arayuz metinleri uc dilde
+     (bkz. translations.ts, ag* anahtarlari). */
+  const adi = useCallback((n) => (language === "ar" ? n.ar : n.tr), [language]);
+  const TAB_AD = useMemo(() => [t.agTabaka0, t.agTabaka1, t.agTabaka2,
+    t.agTabaka3, t.agTabaka4, t.agTabaka5, t.agTabaka6], [t]);
+
   const boxRef = useRef(null);
   /* Ekrandaki parmaklarin (ve farenin) defteri: pointerId -> {x,y}.
      Kiskac (iki parmakla yakinlastirma) basladiginda baslangic
@@ -2278,7 +2297,26 @@ export default function SilsileAgi() {
     if (!suruk) return;
     const dx = e.clientX - suruk.mx, dy = e.clientY - suruk.my;
     if (Math.abs(dx) + Math.abs(dy) > 4) tasindiRef.current = true;
-    gitView({ ...view, x: suruk.vx + dx, y: suruk.vy + dy });
+
+    /* SAYFA KAYDIRMASINA YOL VERME -- dokunmanin karsiligi.
+
+       Masaustunde bunu tekerlek isleyicisi yapiyor: ag sinira
+       dayaninca olayi engellemiyoruz, sayfa kayiyor ve footer
+       gelip gidiyor. TELEFONDA ayni is kendiliginden olmuyor,
+       cunku tuval `touchAction: none` tasiyor -- tarayici parmak
+       hareketini kaydirma icin hic degerlendirmiyor (bu bilerek:
+       olmazsa ag surukleneMEZ). Sonuc: footer bir kez cikinca geri
+       gitmiyordu (Mustafa, 2026-08-29).
+
+       Cozum, artan mesafeyi ELLE sayfaya devretmek: istenen konum
+       ile sinirlanmis konum arasindaki fark ne kadarsa sayfa o kadar
+       kaydiriliyor. Isaret ters: icerik yukari giderse (ag'da asagi
+       inersek) sayfa asagi kayar. */
+    const istenen = { ...view, x: suruk.vx + dx, y: suruk.vy + dy };
+    const sonuc = sinirla(istenen);
+    const artan = istenen.y - sonuc.y;
+    if (Math.abs(artan) > 0.5) window.scrollBy(0, -artan);
+    setView(sonuc);
   };
 
 
@@ -2348,7 +2386,7 @@ export default function SilsileAgi() {
       if (!zorla && durgun.k < ESIK[kad]) return;
 
       const punto = Math.max(EKRAN_PUNTO[kad], rEkranOf(n.id, durgun.k) * 0.42);
-      const ad = Math.min(n.tr.length, 26);
+      const ad = Math.min(adi(n).length, 26);
       const g = Math.max(ad * punto * 0.5, 48);          // etiket genişliği
       const y = punto * 2.1 + 4;                          // iki satır
       const r = rEkranOf(n.id, durgun.k);
@@ -2389,7 +2427,7 @@ export default function SilsileAgi() {
     }
     sirali.forEach((x) => { if (!secilenler.has(x.n.id)) dene(x, false); });
     return secilenler;
-  }, [durgun, box, secim, vurgu]);
+  }, [durgun, box, secim, vurgu, adi]);
 
   /* Kenarlarin tiklama seritleri bu esigin ustunde uretiliyor (bkz.
      kenar cizimi). 0.05, agin tamami ekrana sigmis haldeki olcegin
@@ -2534,12 +2572,17 @@ export default function SilsileAgi() {
                 cizilliyor ki iki desen carpisip birbirini bozmasin;
                 ikisi de cok soluk oldugu icin ust uste gelen yerde
                 yalnizca bir tik koyulasiyor. */}
-            {SATIRLAR.map((y, i) => (
-              <rect key={"s" + y} x={-W} y={yOf(y)} width={W * 3}
-                height={yOf(Math.min(y + SATIR_YIL, YIL_MAX)) - yOf(y)}
-                fill={i % 2 === 0 ? "#8A7A34" : "#2E7D6E"}
-                opacity={i % 2 === 0 ? 0.055 : 0.028} />
-            ))}
+            {SATIRLAR.map((y, i) => {
+              // eksenin disina tasan uclar kirpiliyor
+              const ust = Math.max(y, YIL_MIN), alt = Math.min(y + SATIR_YIL, YIL_MAX);
+              if (alt <= ust) return null;
+              return (
+                <rect key={"s" + y} x={-W} y={yOf(ust)} width={W * 3}
+                  height={yOf(alt) - yOf(ust)}
+                  fill={i % 2 === 0 ? "#8A7A34" : "#2E7D6E"}
+                  opacity={i % 2 === 0 ? 0.055 : 0.028} />
+              );
+            })}
             {YILLAR.map((y) => (
               <line key={y} x1="0" y1={yOf(y)} x2={W} y2={yOf(y)}
                 stroke="#D8D0BF" strokeWidth="1" opacity={y % 50 === 0 ? 0.85 : 0.28} />
@@ -2720,7 +2763,7 @@ export default function SilsileAgi() {
                        ? -(2 * r + punto + altPunto + 8) : 0)})`}>
                   <text y={r + punto} textAnchor="middle" fontSize={punto}
                     fontWeight={kad <= 1 ? 600 : 400} fill="#2B2721">
-                    {n.tr.length > 26 ? n.tr.slice(0, 25) + "…" : n.tr}
+                    {adi(n).length > 26 ? adi(n).slice(0, 25) + "…" : adi(n)}
                   </text>
                   <text y={r + punto + altPunto + 3} textAnchor="middle"
                     fontSize={altPunto} fill="#8C8676">{tarihYaz(n)}</text>
@@ -2729,7 +2772,7 @@ export default function SilsileAgi() {
             })}
     </g>
   ), [kg, box, olculdu, pencere, secim, secRavi, secKenar, uzerinde, acildi,
-      vurgu, etiketliler, yakin, cizgiCarpani, cizgiSaydam, MEDINE_I]);
+      vurgu, etiketliler, yakin, cizgiCarpani, cizgiSaydam, MEDINE_I, adi]);
 
   return (
     <div className="w-full h-full bg-[#FBF9F4] text-[#23201B] flex flex-col overflow-hidden"
@@ -2900,7 +2943,7 @@ export default function SilsileAgi() {
                   className="w-full text-left px-3 py-1.5 text-sm hover:bg-[#F5F1E6] flex items-center gap-2 border-b border-[#F0EAD9] last:border-0">
                   <span className="w-2.5 h-2.5 rounded-full shrink-0"
                     style={{ background: n.id === "nebi" ? NEBI_RENK : renkOf(n.id) }} />
-                  <span className="flex-1 truncate">{n.tr}</span>
+                  <span className="flex-1 truncate">{adi(n)}</span>
                   <span className="text-[11px] text-[#8C8676] shrink-0">{tarihYaz(n)}</span>
                 </button>
               )) : <div className="px-3 py-2 text-sm text-[#8C8676]">Bu isimde râvi yok.</div>}
@@ -2923,7 +2966,7 @@ export default function SilsileAgi() {
             <input value={arama}
               onChange={(e) => { setArama(e.target.value); setAcikArama(true); }}
               onFocus={() => setAcikArama(true)}
-              placeholder="Râvi Ara"
+              placeholder={t.agAra}
               className="w-full py-1.5 pr-3 text-sm bg-white border border-[#D8D0BF] rounded-sm shadow-sm outline-none focus:border-[#8A7A34]"
               style={{ paddingLeft: 28 }} />
           </div>
@@ -2957,15 +3000,15 @@ export default function SilsileAgi() {
             <button onClick={() => setSecim(null)}
               className="absolute top-2 right-3 text-[#8C8676] hover:text-[#23201B]">×</button>
             <div className="flex items-baseline gap-3 flex-wrap pr-6">
-              <h2 className="text-xl">{secRavi.tr}</h2>
+              <h2 className="text-xl">{adi(secRavi)}</h2>
               <span className="text-lg text-[#5F594E]" dir="rtl">{secRavi.ar}</span>
               <span className="text-xs text-[#8A7A34]">
-                {tarihYaz(secRavi)} · {secRavi.belde} · {TAB[secRavi.tab].ad}{MUKSIRUN.has(secRavi.id) ? " · müksirûndan" : ""}{MEDAR[secRavi.id] ? " · " + MEDAR_AD[MEDAR[secRavi.id]] : ""}{MUELLIF.has(secRavi.id) ? " · Kütüb-i Sitte müellifi" : ""}
+                {tarihYaz(secRavi)} · {secRavi.belde} · {TAB_AD[secRavi.tab]}{MUKSIRUN.has(secRavi.id) ? " · " + t.agMuksirun : ""}{MEDAR[secRavi.id] ? " · " + MEDAR_AD[MEDAR[secRavi.id]] : ""}{MUELLIF.has(secRavi.id) ? " · " + t.agMuellif : ""}
               </span>
             </div>
             {secRavi.not && <p className="text-sm text-[#5F594E] mt-2 leading-relaxed">{secRavi.not}</p>}
             <div className="grid md:grid-cols-2 gap-5 mt-3 text-sm">
-              {[["Hocaları", hocalar, disKayit.hoca], ["Talebeleri", talebeler, disKayit.talebe]]
+              {[[t.agHocalari, hocalar, disKayit.hoca], [t.agTalebeleri, talebeler, disKayit.talebe]]
                 .map(([baslik, liste, disListe]) => (
                 <div key={baslik}>
                   {/* Sayi TERCEMEDEKI toplam: agda cizili olanlar + ag
@@ -2978,7 +3021,7 @@ export default function SilsileAgi() {
                     {liste.map((h) => (
                       <button key={h.n.id} onClick={() => odaklan(h.n.id)} title={h.k}
                         className="px-2 py-0.5 border border-[#D8D0BF] rounded-sm hover:border-[#8A7A34]">
-                        {h.n.tr} <span className="text-[#A2966F] text-xs" dir="rtl">{h.r}</span>
+                        {adi(h.n)} <span className="text-[#A2966F] text-xs" dir="rtl">{h.r}</span>
                       </button>
                     ))}
                     {/* Ag disindakiler: kesikli cerceve ve solgun renk --
@@ -2990,7 +3033,7 @@ export default function SilsileAgi() {
                       </span>
                     ))}
                     {!liste.length && !disListe.length && (
-                      <span className="text-[#8C8676]">kayıt yok</span>
+                      <span className="text-[#8C8676]">{t.agKayitYok}</span>
                     )}
                   </div>
                 </div>
@@ -3015,20 +3058,20 @@ export default function SilsileAgi() {
               data-ustlik onPointerDown={(e) => e.stopPropagation()} onPointerUp={(e) => e.stopPropagation()}>
               <button onClick={() => setSecim(null)}
                 className="absolute top-2 right-3 text-[#8C8676] hover:text-[#23201B]">×</button>
-              <div className="text-[11px] uppercase tracking-wider text-[#B5462B] mb-2">Rivayet bağı</div>
+              <div className="text-[11px] uppercase tracking-wider text-[#B5462B] mb-2">{t.agRivayetBagi}</div>
               <div className="flex items-center gap-3 flex-wrap pr-6">
                 <button onClick={() => odaklan(hoca.id)} className="text-left hover:underline">
-                  <div className="text-base">{hoca.tr}</div>
+                  <div className="text-base">{adi(hoca)}</div>
                   <div className="text-xs text-[#8C8676]">{tarihYaz(hoca)} · {hoca.belde}</div>
                 </button>
                 <span className="text-[#B5462B] text-lg">→</span>
                 <button onClick={() => odaklan(talebe.id)} className="text-left hover:underline">
-                  <div className="text-base">{talebe.tr}</div>
+                  <div className="text-base">{adi(talebe)}</div>
                   <div className="text-xs text-[#8C8676]">{tarihYaz(talebe)} · {talebe.belde}</div>
                 </button>
               </div>
               <p className="text-xs text-[#5F594E] mt-3">
-                Kaynak {secKenar.k}. Tahrîc rumuzu <span dir="rtl" className="text-sm">{secKenar.r}</span>.
+                {t.agKaynak} {secKenar.k}. {t.agTahricRumuzu} <span dir="rtl" className="text-sm">{secKenar.r}</span>.
               </p>
             </div>
           );
