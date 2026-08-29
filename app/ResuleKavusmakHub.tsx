@@ -217,11 +217,17 @@ const UI: Record<
 };
 
 // Ilerleme tarayici hafizasinda: tamamlanan hadislerin id listesi.
-// Anahtar SURUMLU: HADITHS'in sirasi/id'leri degisirse eski kayit
-// YANLIS kutulari acar. 2026-08-19'da 12 hadis bastan secilince (artik
-// Kutub-i Tis'a'nin dokuzundan) -v1→-v2 yapildi ve herkesin ilerlemesi
-// bilerek sifirlandi. Bir dahaki listede -v3 yap.
-const PROGRESS_KEY = "resule-kavusmak-sinama-progress-v2";
+// Anahtar SURUMLU: eski kayitlarin gecersiz olmasi gerektiginde numara
+// artiriliyor, tarayicilar eski anahtari hic okumadigi icin herkes
+// bastan basliyor.
+//   -v1 -> -v2  2026-08-19, 12 hadis bastan secildi (artik Kutub-i
+//               Tis'a'nin dokuzundan); eski kayit YANLIS kutulari
+//               aciyordu.
+//   -v2 -> -v3  2026-08-29, oyunun bicimi degisti (once isnadi ezberle,
+//               sonra oyna). Mustafa'nin acik talebi: eskiden oynayanlar
+//               yeni bicimi bastan gorsun.
+// Bir dahaki seferde -v4 yap.
+const PROGRESS_KEY = "resule-kavusmak-sinama-progress-v3";
 
 // Kayit `useSyncExternalStore` ile okunuyor (sitedeki tema/dil ile ayni
 // desen): localStorage sunucuda YOK, effect icinde setState ise

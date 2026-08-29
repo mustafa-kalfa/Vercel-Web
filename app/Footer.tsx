@@ -186,6 +186,31 @@ export default function Footer() {
                 <bdi>x.com/mustafakalfa__</bdi>
               </a>
             </li>
+            <li>
+              <a
+                href="mailto:mustafakalfa98@gmail.com"
+                className="inline-flex items-center gap-1.5 transition-colors hover:text-black dark:hover:text-foreground"
+              >
+                {/* Zarf: ust kenari kapak cizgisi olan basit bir dikdortgen.
+                    Diger iki baglantinin aksine `mailto:` bir dis site
+                    acmiyor, o yuzden `target="_blank"` ve `rel` yok. */}
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-3.5 w-3.5"
+                  aria-hidden="true"
+                  focusable="false"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <rect x="2.5" y="5" width="19" height="14" rx="2.5" />
+                  <path d="m3.5 7 8.5 6 8.5-6" />
+                </svg>
+                <bdi>mustafakalfa98@gmail.com</bdi>
+              </a>
+            </li>
           </ul>
         </div>
       </div>

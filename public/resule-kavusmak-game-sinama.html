@@ -1146,6 +1146,14 @@
       // Tahtaya donunce yeri yeniden hesaplanmali, yoksa sol ust kosede kalir.
       relayout();
     }
+    /* Asama degisince icerik boyu da degisiyor. Hemen bir kez bildir,
+       sonra iki kez daha: 'bitti' asamasinda Mustafa'nin hedefe
+       yurumesi 0.9sn suruyor ve o sirada tahtanin boyu gecici olarak
+       bambaska bir degerde kaliyor. Gozlemci o ara degeri yakalayip
+       bildiriyor, animasyon oturunca ise .wrap'in boyu bir daha
+       degismedigi icin tekrar tetiklenmiyordu -- iframe olcusu o ara
+       degerde donup kaliyordu (996px olculdu, dogrusu 645px). */
+    if(typeof yukseklikOturana === 'function') yukseklikOturana();
     // Yonerge metni asamaya bagli, dil degismese de yenilenmeli.
     if(typeof currentLang !== 'undefined' && STRINGS[currentLang]){
       applyLanguage(currentLang);
@@ -1776,22 +1784,71 @@
   // Bu sayfa bir iframe icinde gomulu kullanildiginda (resule-kavusmak
   // sayfasi), ust pencereye kendi yuksekligini bildirir ki iframe sabit
   // bir tahmin yerine gercek icerige gore boyutlansin.
+  /* Yukseklik ICERIKTEN olculuyor, belgeden DEGIL.
+
+     `document.documentElement.scrollHeight` burada ise yaramiyor, cunku
+     .page'in `min-height:100%` degeri sayfayi her zaman iframe'in
+     boyuna esitliyor. Sonuc bir kisir dongu: bildirilen yukseklik
+     iframe'in mevcut yuksekligine esit cikiyor, iframe hic kuculmuyor
+     ve React'teki baslangic degeri (1200px) oldugu gibi kaliyor.
+     Eski akista icerik zaten uzun oldugu icin fark edilmiyordu; yeni
+     akista ezber asamasi cok kisa ve altta kocaman bir bosluk
+     olusuyordu (rapor edildi, 2026-08-29).
+
+     `.wrap` butun icerigi sariyor (baslik, kutu, ezber satiri, sayac,
+     tahta, alt dugmeler). Onun alt kenari + .page'in alt dolgusu
+     gercek yukseklik. Mustafa tahtanin icinde `absolute` durup asagi
+     tasabiliyor ama tahtanin `padding-bottom:52px`i onu zaten
+     hesaba katiyor. */
   function reportHeight(){
-    if(window.parent !== window){
-      window.parent.postMessage(
-        { type:'resule-kavusmak-height', height: document.documentElement.scrollHeight },
-        '*'
-      );
-    }
+    if(window.parent === window) return;
+    var wrap = document.querySelector('.wrap');
+    var altDolgu = parseFloat(getComputedStyle(pageRootEl).paddingBottom) || 0;
+    var yukseklik = Math.ceil(
+      wrap.getBoundingClientRect().bottom + window.scrollY + altDolgu
+    );
+    window.parent.postMessage(
+      { type:'resule-kavusmak-height', height: Math.max(yukseklik, 200) },
+      '*'
+    );
   }
   ezberBtnEl.addEventListener('click', function(){ asamaAyarla('oyun'); });
   // Acilista Mustafa'yi dugmenin yanina tasi (nitelik HTML'de zaten 'ezber').
   asamaAyarla('ezber');
 
+  /* Asama degisiminden sonra yukseklik OTURANA KADAR olcum.
+
+     Tek seferlik bildirim yetmiyor: 'bitti' asamasinda Mustafa hedefe
+     0.9sn yuruyor, ardindan bir "toparlama" zamanlayicisi daha kat
+     gizliyor. Bu sure boyunca .wrap'in boyu birkac kez degisiyor;
+     ResizeObserver ara degerlerden birini bildirip susuyor ve iframe o
+     ara degerde donup kaliyordu (1005px olculdu, dogrusu 645px).
+     Sabit gecikmeler de tutmadi -- animasyon 1.2sn'den uzun surebiliyor.
+
+     Bu yuzden 100ms araliklarla 3 saniye boyunca olculuyor. Bildirim
+     yalnizca bir postMessage, maliyeti yok; ust pencere ayni degeri
+     alirsa React zaten yeniden cizmiyor. */
+  var oturmaSayaci = null;
+  function yukseklikOturana(){
+    clearInterval(oturmaSayaci);
+    var kalan = 30;
+    reportHeight();
+    oturmaSayaci = setInterval(function(){
+      reportHeight();
+      if(--kalan <= 0) clearInterval(oturmaSayaci);
+    }, 100);
+  }
+
   window.addEventListener('load', reportHeight);
   window.addEventListener('resize', reportHeight);
   if('ResizeObserver' in window){
-    new ResizeObserver(reportHeight).observe(document.body);
+    /* `.wrap` izleniyor, `document.body` DEGIL. body'nin yuksekligi
+       .page'in `min-height:100%`i yuzunden her zaman iframe'e esit --
+       yani icerik buyuse de kucultse de body HIC degismiyor ve gozlemci
+       hic tetiklenmiyordu. Asama degistiginde iframe eski boyunda
+       kaliyor, icerik ya kirpiliyor ya altta bosluk birakiyordu.
+       `.wrap` gercek icerigi sardigi icin dogru olcu ondan geliyor. */
+    new ResizeObserver(reportHeight).observe(document.querySelector('.wrap'));
   }
   setTimeout(reportHeight, 300);
 
