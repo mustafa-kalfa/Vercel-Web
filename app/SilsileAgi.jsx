@@ -1345,10 +1345,39 @@ const BELDELER = ["Medine", "Mekke", "Kûfe", "Basra", "Şam", "Vâsıt", "Mıs�
    Medine ortada durur, diğer beldeler iki yana dengeli dağıtılır.
    Her sütun çakışmayı önlemek için gerektiği kadar şeride bölünür.   */
 const YIL_MIN = 5, YIL_MAX = 315;
-const UST = 210, ALT = 160, SOL_PAY = 60;
-const H = 55000;
-const SERIT_W = 620;
-const ASGARI_DY = 580;
+/* Tuvalin ic olculeri (grafik birimi, ekran pikseli DEGIL).
+
+   2026-08-29'da hepsi buyutuldu: noktalarin yaricapi iki katina
+   cikarildi (bkz. rOf) ve o boyda noktalar eski araliklara sigmiyor,
+   birbirine giriyordu.
+     ONEMLI: burada onemli olan mutlak sayilar DEGIL, sayilarin nokta
+     yaricapina ORANI. Tuval her zaman ekrana sigacak sekilde
+     olceklendigi icin H'yi tek basina buyutmek hicbir sey degistirmez
+     -- olcek ayni oranda kuculur, ekranda gorulen ayni kalir. Nokta
+     yaricapi 2 kat buyudugu icin dikeyde AYRILMA istendiginde H'nin
+     2 kattan FAZLA buyumesi gerekiyordu.
+     H         55000 -> 150000  2.7 kat. Yaricapin 2 katina karsi
+                                1.35 kat fazla, ayrilma bu farktan
+                                geliyor.
+     ASGARI_DY   580 -> 1566    ayni seritteki iki nokta arasi en az
+                                mesafe; H ile ayni oranda (2.7) buyudu,
+                                boylece serit SAYISI degismedi.
+                                Buyutulmeseydi ayni yil araligi daha
+                                cok birime denk gelecegi icin serit
+                                sayisi duser, sutunlar daralirdi.
+     SERIT_W     620 -> 1240    yatayda tam 2 kat, yani yaricapla ayni
+                                oranda: yatay sikisiklik oldugu gibi
+                                kaliyor. Dusuk tutulsaydi noktalar
+                                buyurken serit ayni kalacagi icin yan
+                                yana girerlerdi.
+     UST         210 -> 460     Hz. Peygamber dugumu tuvalin ustunde,
+                                "UST - ..." konumunda duruyor; yaricapi
+                                192'ye cikinca eski payla ust kenardan
+                                tasiyordu. */
+const UST = 460, ALT = 160, SOL_PAY = 60;
+const H = 150000;
+const SERIT_W = 1240;
+const ASGARI_DY = 1566;
 const yOf = (yil) => UST + ((yil - YIL_MIN) / (YIL_MAX - YIL_MIN)) * (H - UST - ALT);
 
 const DERECE = (() => {
@@ -1356,11 +1385,15 @@ const DERECE = (() => {
   EDGES.forEach((e) => { d[e.a] = (d[e.a] || 0) + 1; d[e.b] = (d[e.b] || 0) + 1; });
   return d;
 })();
+/* Nokta yaricapi. Butun degerler 2026-08-29'da IKI KATINA cikarildi
+   (Mustafa'nin talebi): 96->192, taban 13->26, katsayi 11.5->23,
+   tavan 86->172. Tuval olculeri de birlikte buyudu, yoksa noktalar
+   birbirine girerdi (bkz. H / SERIT_W / ASGARI_DY). */
 const rOf = (id) => {
-  if (id === "nebi") return 96;
+  if (id === "nebi") return 192;
   const d = DERECE[id] || 0;
-  // taban 10 piksel, bağ sayısıyla belirgin şekilde büyür
-  return Math.min(13 + Math.sqrt(d) * 11.5, 86);
+  // taban 26 birim, bağ sayısıyla belirgin şekilde büyür
+  return Math.min(26 + Math.sqrt(d) * 23, 172);
 };
 
 
@@ -1436,7 +1469,7 @@ const { POS, SUTUNLAR, W, MEDINE } = (() => {
   }
   W0 = gerekli * 2;
   medine = sutunlar.find((c) => c.belde === "Medine");
-  pos["nebi"] = { x: medine.x + medine.genislik / 2, y: UST - 110 };
+  pos["nebi"] = { x: medine.x + medine.genislik / 2, y: UST - 240 };
   return { POS: pos, SUTUNLAR: sutunlar, W: W0, MEDINE: medine };
 })();
 
@@ -1484,8 +1517,13 @@ const ESIK = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 };
 const buyuk = (t) => t.replace(/i/g, "\u0130").toUpperCase();
 
 const YILLAR = Array.from({ length: 31 }, (_, i) => 10 + i * 10);
-const UST_BANT = 44;    // şehir isimleri bandı
-const SOL_BANT = 58;    // yıl ekseni bandı
+/* Sabit bantlar: solda yil ekseni, ustte belde isimleri. Ikisi de
+   2026-08-29'da daraltildi (44 -> 26 ve 58 -> 36). Bantlar tuvalden
+   yer caliyor; ozellikle telefonda 58 px'lik sol bant ekranin altida
+   birine denk geliyordu. Puntolar da birlikte kucultuldu, yoksa yazi
+   dar banda sigmaz. */
+const UST_BANT = 26;    // şehir isimleri bandı
+const SOL_BANT = 36;    // yıl ekseni bandı
 
 export default function SilsileAgi() {
   const [secim, setSecim] = useState(null);   // {tur:"ravi",id} | {tur:"kenar",e}
@@ -1505,7 +1543,14 @@ export default function SilsileAgi() {
      gerekmiyor, yalnizca gorunum degisirse gerekiyor. */
   const isaretler = useRef(new Map());
   const kiskac = useRef(null);
-  const [box, setBox] = useState({ w: 1000, h: 640 });
+  /* Kapsayicinin olculeri. SIFIRDAN basliyor, bir tahminden degil:
+     acilis gorunumu (bkz. `baslangic`) bir kez kuruluyor ve "hic
+     olculmedi" halini tanimasi gerekiyor. Eskiden burada {1000, 640}
+     yaziyordu; bu gecerli bir olcum gibi gorundugu icin acilis o
+     uydurma boya gore kuruluyor, gercek olcum gelince bir daha
+     duzelmiyordu. Telefonda sonuc: yanlis olcek ve Medine sutunu
+     ortalanacagi yerde ekranin disinda kaliyordu (olculdu). */
+  const [box, setBox] = useState({ w: 0, h: 0 });
 
   useEffect(() => {
     const el = boxRef.current;
@@ -1735,11 +1780,19 @@ export default function SilsileAgi() {
     kaydir({ k: yeni, x: cx - ((cx - view.x) / view.k) * yeni, y: cy - ((cy - view.y) / view.k) * yeni }, 340);
   };
 
+  /* Bir raviye tiklanmasi. OLCEK DEGISMIYOR -- kamera yalnizca o
+     noktayi ortaya aliyor. Eskiden `Math.max(view.k, 0.9)` ile
+     yakinlasiyordu ve nokta ekrani kaplayacak kadar buyuyordu; istenen
+     bu degildi (Mustafa, 2026-08-29).
+
+     Ortalama KALIYOR: bu islev arama sonucundan da cagriliyor, bir
+     isim arayip secince kamera hic kimildamazsa arama iseyaramaz hale
+     gelir. */
   const odaklan = (id) => {
     if (secim && secim.tur === "ravi" && secim.id === id) { setSecim(null); return; }
     setSecim({ tur: "ravi", id });
     const p = POS[id];
-    const k = Math.max(view.k, 0.9);
+    const k = view.k;
     kaydir({ k, x: (box.w + SOL_BANT) / 2 - p.x * k, y: (box.h + UST_BANT) / 2 - p.y * k }, 620);
   };
 
@@ -1748,7 +1801,22 @@ export default function SilsileAgi() {
   /* Etiket yerleştirme. Etiketler ekranda sabit puntoda çizildiği için
      uzaklaşıldıkça kutuları çakışır. Burada önem sırasına göre
      (kademe, sonra bağ sayısı) tek tek yerleştirilir; yeri dolu olan
-     eleni r. Böylece önemli isimler her zaman önce yer kapar. */
+     eleni r. Böylece önemli isimler her zaman önce yer kapar.
+
+     HESAP CANLI GORUNUME DEGIL, DURGUN GORUNUME BAGLI. Kaydirma
+     sirasinda `view` saniyede ~60 kez degisiyor ve bu blok her
+     seferinde 541 dugumu suzup siralayip birbirine karsi carpisma
+     testinden geciriyordu -- kaydirmanin agir gelmesinin ikinci
+     sebebi buydu. Simdi hareket durduktan 140 ms sonra bir kez
+     hesaplaniyor. Hareket sirasinda etiket KUMESI sabit kaliyor, ama
+     etiketler icerikle birlikte kaydigi icin bu disaridan fark
+     edilmiyor; punto hala canli `view.k`ya bagli. */
+  const [durgun, setDurgun] = useState(view);
+  useEffect(() => {
+    const z = setTimeout(() => setDurgun(view), 140);
+    return () => clearTimeout(z);
+  }, [view]);
+
   const etiketliler = useMemo(() => {
     const sirali = NODES
       .filter((n) => POS[n.id])
@@ -1762,19 +1830,19 @@ export default function SilsileAgi() {
 
     const dene = ({ n, kad }, zorla) => {
       const p = POS[n.id];
-      const cx = view.x + p.x * view.k;
-      const cy = view.y + p.y * view.k;
+      const cx = durgun.x + p.x * durgun.k;
+      const cy = durgun.y + p.y * durgun.k;
       // görüş alanı dışındakiler yer kaplamasın
       // düğümün kendisi görüş alanında değilse etiket yazılmaz;
       // aksi halde kenarda isim yığılması oluşuyor
       if (cx < SOL_BANT + 4 || cx > box.w - 4 || cy < UST_BANT + 4 || cy > box.h - 4) return;
-      if (!zorla && view.k < ESIK[kad]) return;
+      if (!zorla && durgun.k < ESIK[kad]) return;
 
-      const punto = Math.max(EKRAN_PUNTO[kad], rOf(n.id) * 0.42 * view.k);
+      const punto = Math.max(EKRAN_PUNTO[kad], rOf(n.id) * 0.42 * durgun.k);
       const ad = Math.min(n.tr.length, 26);
       const g = Math.max(ad * punto * 0.5, 48);          // etiket genişliği
       const y = punto * 2.1 + 4;                          // iki satır
-      const r = rOf(n.id) * view.k;
+      const r = rOf(n.id) * durgun.k;
       const kutuAlt = { x1: cx - g / 2, x2: cx + g / 2, y1: cy + r + 2, y2: cy + r + 2 + y };
       const kutuUst = { x1: cx - g / 2, x2: cx + g / 2, y1: cy - r - 2 - y, y2: cy - r - 2 };
 
@@ -1799,7 +1867,12 @@ export default function SilsileAgi() {
     }
     sirali.forEach((x) => { if (!secilenler.has(x.n.id)) dene(x, false); });
     return secilenler;
-  }, [view, box, secim, vurgu]);
+  }, [durgun, box, secim, vurgu]);
+
+  /* Kenarlarin tiklama seritleri bu esigin ustunde uretiliyor (bkz.
+     kenar cizimi). 0.05, agin tamami ekrana sigmis haldeki olcegin
+     (~0.006-0.014) belirgin ustunde; yani "biraz yakinlastim" demek. */
+  const yakin = view.k > 0.05;
 
   const secRavi = secim && secim.tur === "ravi" ? NODES.find((n) => n.id === secim.id) : null;
   const secKenar = secim && secim.tur === "kenar" ? secim.e : null;
@@ -1936,12 +2009,25 @@ export default function SilsileAgi() {
               const d = `M ${pa.x} ${pa.y} C ${k1x} ${k1y}, ${k2x} ${k2y}, ${sonX} ${sonY}`;
               return (
                 <g key={i}>
-                  <path d={d} fill="none" stroke="transparent" strokeWidth="16"
-                    style={{ cursor: "pointer", pointerEvents: "stroke" }}
-                    onPointerUp={(ev) => {
-                      ev.stopPropagation(); pointerBirak(ev);
-                      if (!tasindi) setSecim({ tur: "kenar", e });
-                    }} />
+                  {/* Gorunmez tiklama seridi. Her kenarin altinda 16 px
+                      kalinliginda ikinci bir yol var; kenarlar ince
+                      cizildigi icin tiklamayi bu yakaliyor.
+
+                      YAKINDA CIZILIYOR, uzakta degil: 1382 kenarin
+                      1382 serit yolu, her fare/parmak hareketinde
+                      isabet sinamasindan geciyordu. Uzaklasilmis bir
+                      ag'da kenarlar zaten ayirt edilemedigi icin
+                      tiklanacak bir sey de yok; esigin altinda bu
+                      yollar hic uretilmiyor ve sinanacak eleman sayisi
+                      yariya iniyor. */}
+                  {yakin && (
+                    <path d={d} fill="none" stroke="transparent" strokeWidth="16"
+                      style={{ cursor: "pointer", pointerEvents: "stroke" }}
+                      onPointerUp={(ev) => {
+                        ev.stopPropagation(); pointerBirak(ev);
+                        if (!tasindi) setSecim({ tur: "kenar", e });
+                      }} />
+                  )}
                   <path d={d} fill="none"
                     className={"kenar" + (canli ? " kenar-v" : "")}
                     stroke={secili ? "#B5462B" : canli ? "#8A7A34" : dim ? "#C4B99E" : "#8F8256"}
@@ -1972,16 +2058,36 @@ export default function SilsileAgi() {
               const punto = Math.max(EKRAN_PUNTO[kad] / view.k, r * 0.42);
               const altPunto = punto * 0.8;
               const secili = secRavi && secRavi.id === n.id;
+              // halesi olan = one cikan dugum (salinim ve hale bunlara ozel)
+              const onCikan = !!(MEDAR[n.id] || MUKSIRUN.has(n.id) ||
+                                 MUELLIF.has(n.id) || n.id === "nebi");
               return (
                 <g key={n.id} className="dugum" transform={`translate(${p.x},${p.y})`}
                   onPointerUp={(ev) => { ev.stopPropagation(); pointerBirak(ev); if (!tasindi) odaklan(n.id); }}
                   onMouseEnter={() => setUzerinde(n.id)}
                   onMouseLeave={() => setUzerinde((ö) => (ö === n.id ? null : ö))}
                   style={{ cursor: "pointer", opacity: d ? 0.38 : 1 }}>
-                  <g className={`salinim sal${(salSayi(n.id) % 4) + 1}`}
-                     style={{ "--sure": `${3.4 + (salSayi(n.id) % 26) / 10}s`,
-                              "--gec": `${-(salSayi(n.id) % 60) / 10}s` }}>
-                  {(MEDAR[n.id] || MUKSIRUN.has(n.id) || MUELLIF.has(n.id) || n.id === "nebi") && (
+                  {/* SALINIM YALNIZCA ONE CIKAN DUGUMLERDE (halesi
+                      olanlar: Hz. Peygamber, muksirun, medar, muellif --
+                      541 dugumun 38'i). Eskiden HEPSI salinirdi.
+
+                      Sebep, olculdu: salinan her dugum surekli isleyen
+                      bir transform animasyonu demek ve tarayici bunlarin
+                      her birine ayri bir birlestirme katmani acar. 541
+                      katman telefonu dize getiriyordu -- kullanicinin
+                      "asiri kasma" dedigi sey buydu. 38 katman rahat.
+
+                      Sahnenin nefes almasi korunuyor: goz zaten bu
+                      isimlerde. Hepsine geri istenirse asagidaki kosul
+                      kaldirilir. */}
+                  <g className={onCikan
+                        ? `salinim sal${(salSayi(n.id) % 4) + 1}`
+                        : undefined}
+                     style={onCikan
+                        ? { "--sure": `${3.4 + (salSayi(n.id) % 26) / 10}s`,
+                            "--gec": `${-(salSayi(n.id) % 60) / 10}s` }
+                        : undefined}>
+                  {onCikan && (
                     <circle className="hale" r={r + 14} fill="none"
                       stroke={n.id === "nebi" ? NEBI_RENK : renkOf(n.id)} strokeWidth="3"
                       style={{ animationDelay: `${(salSayi(n.id) % 30) / 10}s` }} />
@@ -2030,8 +2136,8 @@ export default function SilsileAgi() {
             const ky = view.y + yOf(y) * view.k;
             if (ky < UST_BANT + 6 || ky > box.h - 4) return null;
             return (
-              <text key={y} x={SOL_BANT - 8} y={ky + 4} textAnchor="end"
-                fontSize="11" fill={y % 50 === 0 ? "#5F594E" : "#9C9382"}>{y} h.</text>
+              <text key={y} x={SOL_BANT - 5} y={ky + 3} textAnchor="end"
+                fontSize="9" fill={y % 50 === 0 ? "#5F594E" : "#9C9382"}>{y} h.</text>
             );
           })}
         </svg>
@@ -2052,7 +2158,7 @@ export default function SilsileAgi() {
             const gorunurSag = Math.min(sag, box.w);
             const alan = Math.max(0, gorunurSag - gorunurSol) - 10;
             const tam = buyuk(c.belde);
-            const harfW = 10.6;                       // 12.5px + 2.5px harf araligi
+            const harfW = 8.6;                        // 10.5px + 1.6px harf araligi
             const sigan = Math.floor(alan / harfW);
             if (sigan < 1) return null;
             const yazi = sigan >= tam.length ? tam : tam.slice(0, Math.max(1, sigan - 1)) + "\u2026";
@@ -2062,9 +2168,9 @@ export default function SilsileAgi() {
             const gx = Math.min(Math.max(kx, gorunurSol + yariGen), gorunurSag - yariGen);
             return (
               <g key={c.belde}>
-                <line x1={sol} y1={UST_BANT - 8} x2={sol} y2={UST_BANT}
+                <line x1={sol} y1={UST_BANT - 5} x2={sol} y2={UST_BANT}
                   stroke="#D8D0BF" strokeWidth="1" />
-                <text x={gx + 1.25} y={25} textAnchor="middle" fontSize="12.5" letterSpacing="2.5"
+                <text x={gx + 0.8} y={16} textAnchor="middle" fontSize="10.5" letterSpacing="1.6"
                   fill={c.belde === "Medine" ? "#8A7A34" : "#7A7263"}>
                   {yazi}
                 </text>
