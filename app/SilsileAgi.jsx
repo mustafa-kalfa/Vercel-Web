@@ -768,8 +768,8 @@ const NODES = [
      dizili ve fihristi makineyle okunabiliyor, yani terceme aramak
      yerine dogrudan bulunuyor. Ayni bilgi Tezkiretu'l-huffaz'da
      (Samile 1583) daha kisa haliyle var.
-     29 isimden 8'inin tarihi Siyer'den alindi ve dugum notlarinda
-     Arapca nakliyle duruyor. Kalan 21'i tabakanin varsayilan yilina
+     29 isimden 11'inin tarihi Siyer'den alindi ve dugum notlarinda
+     Arapca nakliyle duruyor. Kalan 18'i tabakanin varsayilan yilina
      (TAHMIN[6]) oturuyor, yani DIKEY KONUMLARI KESIN DEGIL --
      bakarken bu akilda tutulmali. Yontem kurulu: Siyer'in tabaka
      fihristinden isim bulunuyor, tercemenin son sayfasindaki vefat
@@ -782,8 +782,8 @@ const NODES = [
   N("ms01", "إبراهيم بن إسحاق الصيرفي", "İbrâhim b. İshak es-Sayrafî", 6, null, "Horasan"),
   N("ms02", "إبراهيم بن أبي طالب", "İbrâhim b. Ebî Tâlib", 6, 295, "Horasan", "Siyer 13/551: «تُوُفِّيَ إبراهيم في ثاني رجب سنة خمس وتسعين ومئتين»."),
   N("ms03", "إبراهيم بن محمد بن حمزة", "İbrâhim b. Muhammed b. Hamza", 6, null, "Horasan"),
-  N("ms04", "إبراهيم بن محمد بن سفيان الفقيه", "İbrâhim b. Muhammed b. Süfyân el-Fakīh", 6, null, "Horasan"),
-  N("ms05", "أبو حامد أحمد بن حمدون بن رستم الأعمشي", "Ebû Hâmid Ahmed b. Hamdûn el-A‘meşî", 6, null, "Horasan"),
+  N("ms04", "إبراهيم بن محمد بن سفيان الفقيه", "İbrâhim b. Muhammed b. Süfyân el-Fakīh", 6, 308, "Horasan", "Sahîh-i Müslim'in râvisi; Mizzî'nin listesinde «إبراهيم بن محمد بن سفيان الفقيه» diye geçer. Hâkim: «Müslim'e ayrılmayan âbid müctehidlerden.» Siyer 14/312: «توفي ابن سفيان عشية الاثنين ودفن يومئذ في رجب سنة ثمان وثلاث مئة»."),
+  N("ms05", "أبو حامد أحمد بن حمدون بن رستم الأعمشي", "Ebû Hâmid Ahmed b. Hamdûn el-A‘meşî", 6, 321, "Horasan", "Hamdûn el-Kassâr'ın oğlu olduğu söylenir. İbn Huzeyme onu A'meş'in rivayetleri konusunda sınamış, ezberine hayran kalmıştır. Siyer 14/554: «مات أبو حامد في ربيع الأول سنة إحدى وعشرين وثلاث مئة وقد قارب التسعين»."),
   N("ms06", "أبو الفضل أحمد بن سلمة الحافظ", "Ebü'l-Fazl Ahmed b. Seleme", 6, 286, "Horasan", "Müslim'in rihlede yol arkadaşı. Zehebî, Siyer 13/373: «تُوُفِّيَ ابن سلمة في غرة جمادى الآخرة سنة ست وثمانين ومئتين»."),
   N("ms07", "أبو حامد أحمد بن علي بن الحسن بن حسنويه المقرئ", "Ebû Hâmid Ahmed b. Ali b. Hasneveyh el-Mukrî", 6, null, "Horasan"),
   N("ms08", "أبو عمرو أحمد بن المبارك المستملي", "Ebû Amr Ahmed b. el-Mübârek el-Müstemlî", 6, null, "Horasan"),
@@ -806,7 +806,7 @@ const NODES = [
   N("ms25", "أبو بكر محمد بن النضر بن سلمة بن الجارود الجارودي", "Ebû Bekir Muhammed b. en-Nadr el-Cârûdî", 6, 291, "Horasan", "Müslim'in rihlede yol arkadaşı; Hâkim onu «şeyhu vaktihî» sayar. Siyer 13/543: «فدفن عشية الخميس السابع عشر من شهر ربيع الأول سنة إحدى وتسعين ومئتين»."),
   N("ms26", "أبو حاتم مكي بن عبدان التميمي", "Ebû Hâtim Mekkî b. Abdân et-Temîmî", 6, null, "Horasan"),
   N("ms27", "أبو محمد نصر بن أحمد بن نصر الحافظ المعروف بنصرك", "Ebû Muhammed Nasr b. Ahmed (Nasrek)", 6, 293, "Horasan", "Buhârâ'ya yerleşti, el-Müsned'i tasnif etti. Siyer 13/538: «توفي سنة ثلاث وتسعين ومئتين»."),
-  N("ms28", "يحيى بن محمد بن صاعد", "Yahyâ b. Muhammed b. Sâid", 6, null, "Horasan"),
+  N("ms28", "يحيى بن محمد بن صاعد", "Yahyâ b. Muhammed b. Sâid", 6, 318, "Kûfe", "Bağdatlı; sünenleri ahkâma göre tasnif etti. Siyer 14/505, İbn Şâhîn'den: «توفي ابن صاعد بالكوفة في ذي القعدة سنة ثمان عشرة وثلاث مئة عن تسعين سنة وأشهر». Ağda Bağdat sütunu olmadığı için vefat ettiği yere, Kûfe'ye konuldu."),
   N("ms29", "أبو عوانة الإسفراييني", "Ebû Avâne el-İsferâyînî", 6, null, "Horasan"),
 
   N("ibnmace", "محمد بن يزيد ابن ماجه", "İbn Mâce", 5, 273, "Cibâl", "es-Sünen sahibi."),
