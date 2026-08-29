@@ -78,6 +78,7 @@ type Translation = {
   /* Silsile ağı (/ag-sinamasi). Râvi ADLARI burada değil: onlar
      düğümün kendisinde duruyor (Türkçe `tr`, Arapça `ar` alanı) ve
      dile göre orada seçiliyor. Burada yalnızca arayüz metinleri var. */
+  agOlum: string;
   agAra: string;
   agHocalari: string;
   agTalebeleri: string;
@@ -167,6 +168,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     eduPostDataPrivacy:
       "Dil modellerine verilen akademik metinlerin ve kişisel verilerin şirketlerce kullanımını önlemek (ChatGPT, Gemini, Claude)",
     footerRights: "Tüm hakları saklıdır.",
+    agOlum: "ö.",
     agAra: "Râvi Ara",
     agHocalari: "Hocaları",
     agTalebeleri: "Talebeleri",
@@ -250,6 +252,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     eduPostDataPrivacy:
       "منع الشركات من استخدام النصوص الأكاديمية والبيانات الشخصية التي تُعطى لنماذج اللغة (ChatGPT وGemini وClaude)",
     footerRights: "جميع الحقوق محفوظة.",
+    agOlum: "ت",
     agAra: "ابحث عن راوٍ",
     agHocalari: "شيوخه",
     agTalebeleri: "تلاميذه",
@@ -335,7 +338,8 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     eduPostDataPrivacy:
       "Stopping companies from using the academic texts and personal data you give to language models (ChatGPT, Gemini, Claude)",
     footerRights: "All rights reserved.",
-    agAra: "Find a narrator",
+    agOlum: "d.",
+    agAra: "Find a Narrator",
     agHocalari: "Teachers",
     agTalebeleri: "Students",
     agKayitYok: "no record",

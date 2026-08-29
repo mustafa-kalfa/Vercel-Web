@@ -148,6 +148,80 @@ function veriyiDenetle(nodes, edges) {
     kayipUc.map((e) => e.a + " -> " + e.b));
 }
 
+
+/* ---------- Ingilizce ad ----------
+
+   570'ten fazla ravinin ayri bir Ingilizce adi YOK ve elle yazilmasi
+   istenmedi. Burada iki katmanli, MEKANIK bir cozum var:
+
+   1) SOZLUK. En cok karsilasilan isimler icin literaturde yerlesik
+      Ingilizce bicim yaziliyor (Abu Hurayra, Umar b. al-Khattab,
+      al-Bukhari...). Bunlar ag'in omurgasi -- kartin en cok acildigi
+      isimler.
+   2) KURAL. Sozlukte olmayanlar icin Turkce yazimdan mekanik cevrim:
+      Turkce'ye ozgu harfler (s, g, c, o, u, i) ve uzatma isaretleri
+      cozuluyor, tanimliklar Arapca'daki gibi yaziliyor (el- -> al-,
+      es- -> as-...), Ebu/Ebi one aliniyor.
+
+   BU BIR ILMI CEVIRI YAZI DEGIL, okunabilirlik icin bir yaklastirma.
+   Kuralin goremedigi seyler var: Turkce `k` hem ك hem ق'i karsiliyor,
+   uzun unluler kayboluyor, "Hüseyin" gibi yerlesik bicimler ancak
+   sozlukten gelirse dogru cikiyor. Bir isim yanlis gorunuyorsa cozum
+   onu SOZLUGE eklemek -- kural tablosunu zorlamak degil. */
+const ING_SOZLUK = {
+  "Hz. Peygamber": "The Prophet", "Ebû Hüreyre": "Abu Hurayra",
+  "Ebû Bekir es-Sıddîk": "Abu Bakr al-Siddiq", "Ömer b. el-Hattâb": "Umar b. al-Khattab",
+  "Osman b. Affân": "Uthman b. Affan", "Ali b. Ebî Tâlib": "Ali b. Abi Talib",
+  "Âişe bint Ebî Bekir": "Aisha bint Abi Bakr", "Abdullah b. Ömer": "Abd Allah b. Umar",
+  "Abdullah b. Abbâs": "Abd Allah b. Abbas", "Abdullah b. Mes‘ûd": "Abd Allah b. Mas'ud",
+  "Enes b. Mâlik": "Anas b. Malik", "Câbir b. Abdullah": "Jabir b. Abd Allah",
+  "Ebû Saîd el-Hudrî": "Abu Sa'id al-Khudri", "Zeyd b. Sâbit": "Zayd b. Thabit",
+  "Saîd b. el-Müseyyeb": "Sa'id b. al-Musayyab", "Hasan-ı Basrî": "al-Hasan al-Basri",
+  "İbn Şihâb ez-Zührî": "Ibn Shihab al-Zuhri", "Urve b. ez-Zübeyr": "Urwa b. al-Zubayr",
+  "Âmir b. Şerâhîl eş-Şa‘bî": "Amir b. Sharahil al-Sha'bi", "Mücâhid b. Cebr": "Mujahid b. Jabr",
+  "İkrime mevlâ İbn Abbâs": "Ikrima, mawla of Ibn Abbas", "Tâvûs b. Keysân": "Tawus b. Kaysan",
+  "Atâ b. Ebî Rebâh": "Ata b. Abi Rabah", "Katâde": "Qatada",
+  "Amr b. Dînâr": "Amr b. Dinar", "Ebû İshak es-Sebîî": "Abu Ishaq al-Sabi'i",
+  "Yahyâ b. Ebî Kesîr": "Yahya b. Abi Kathir", "A‘meş": "al-A'mash",
+  "Mâlik b. Enes": "Malik b. Anas", "İbn Cüreyc": "Ibn Jurayj",
+  "Süfyân b. Uyeyne": "Sufyan b. Uyayna", "Süfyân es-Sevrî": "Sufyan al-Thawri",
+  "Şu‘be b. el-Haccâc": "Shu'ba b. al-Hajjaj", "Ma‘mer b. Râşid": "Ma'mar b. Rashid",
+  "Evzâî": "al-Awza'i", "Hammâd b. Seleme": "Hammad b. Salama",
+  "İbn Ebî Arûbe": "Ibn Abi Aruba", "Ebû Avâne": "Abu Awana",
+  "Hüşeym b. Beşîr": "Hushaym b. Bashir", "İbn İshak": "Ibn Ishaq",
+  "Abdullah b. el-Mübârek": "Abd Allah b. al-Mubarak", "Vekī‘ b. el-Cerrâh": "Waki' b. al-Jarrah",
+  "Yahyâ b. Saîd el-Kattân": "Yahya b. Sa'id al-Qattan", "Abdurrahman b. Mehdî": "Abd al-Rahman b. Mahdi",
+  "Yahyâ b. Âdem": "Yahya b. Adam", "İbn Ebî Zâide": "Ibn Abi Za'ida",
+  "Buhârî": "al-Bukhari", "Müslim b. el-Haccâc": "Muslim b. al-Hajjaj",
+  "Ebû Dâvûd es-Sicistânî": "Abu Dawud al-Sijistani", "Tirmizî": "al-Tirmidhi",
+  "Nesâî": "al-Nasa'i", "İbn Mâce": "Ibn Maja",
+  "Ahmed b. Hanbel": "Ahmad b. Hanbal", "Dârimî": "al-Darimi",
+  "Ali b. el-Medînî": "Ali b. al-Madini", "Abdürrezzâk b. Hemmâm": "Abd al-Razzaq b. Hammam",
+  "Hemmâm b. Münebbih": "Hammam b. Munabbih", "Ebû Seleme b. Abdirrahman": "Abu Salama b. Abd al-Rahman",
+};
+
+const ING_HARF = [
+  [/Ebü'l-/g, "Abu'l-"], [/Ebî'l-/g, "Abi'l-"], [/Ebû/g, "Abu"], [/Ebî/g, "Abi"],
+  [/eş-/g, "al-"], [/es-/g, "al-"], [/ed-/g, "al-"], [/et-/g, "al-"], [/ez-/g, "al-"],
+  [/en-/g, "al-"], [/er-/g, "al-"], [/el-/g, "al-"], [/ü'l-/g, "u'l-"],
+  [/â/g, "a"], [/î/g, "i"], [/û/g, "u"], [/Â/g, "A"], [/Î/g, "I"], [/Û/g, "U"],
+  /* `ç` once bir yer tutucuya cekiliyor: Turkce `c` = ج, yani `j`
+     olmali; sirasiz yapilirsa `ç`nin urettigi "ch" ikinci adimda
+     "jh" olur. */
+  [/ç/g, ""], [/Ç/g, ""],
+  [/c/g, "j"], [/C/g, "J"],
+  [//g, "ch"], [//g, "Ch"],
+  [/ş/g, "sh"], [/Ş/g, "Sh"], [/ğ/g, "gh"], [/Ğ/g, "Gh"],
+  [/ı/g, "i"], [/İ/g, "I"], [/ö/g, "o"], [/Ö/g, "O"], [/ü/g, "u"], [/Ü/g, "U"],
+  [/[‘’]/g, "'"],
+];
+const ingAd = (tr) => {
+  if (ING_SOZLUK[tr]) return ING_SOZLUK[tr];
+  let s = tr;
+  for (const [re, x] of ING_HARF) s = s.replace(re, x);
+  return s;
+};
+
 const N = (id, ar, tr, tab, olum, belde, not) => {
   const d = DIA[id];
   return { id, ar, tr, tab, olum: d ? d[0] : olum, mil: d ? d[1] : null, belde, not };
@@ -166,9 +240,9 @@ const miladiKestirim = (h) => Math.round(622 + h - h / 33);
    okuyucu hangi tarihin KAYNAKLI hangisinin HESAPLANMIS oldugunu
    ayirt edebilsin. Bir isme DIA tarihi eklendiginde tilde
    kendiliginden kalkiyor. */
-const tarihYaz = (n) => {
-  if (n.olum == null) return "ö. ?/?";
-  return `ö. ${n.olum}/${n.mil ?? "~" + miladiKestirim(n.olum)}`;
+const tarihYaz = (n, ek = "ö.") => {
+  if (n.olum == null) return `${ek} ?/?`;
+  return `${ek} ${n.olum}/${n.mil ?? "~" + miladiKestirim(n.olum)}`;
 };
 
 const NODES = [
@@ -2202,6 +2276,14 @@ export default function SilsileAgi() {
     okSonuk: "#4A4433", dugumCerceve: "#232019", etiketHale: "#1C1A17",
     etiketAna: "#EDE7DA", etiketAlt: "#8F8878", sonucVurgu: "#2E2A22",
     kesikCerceve: "#4A4438",
+    /* KOYU MODDA DAMA RENK DEGIL ISIK FARKI. Acik modda iki ton
+       (altin/yesil) cok soluk oldugu icin kagit gibi duruyor; koyu
+       zeminde ayni tonlar renkli bir sis yapip rahatsiz ediyordu
+       (Mustafa, 2026-08-29). Burada iki bant da BEYAZ, yalnizca
+       saydamliklari farkli -- yani dama bir aydinlik basamagi.
+       Renksiz oldugu icin ravi noktalarinin rengiyle yarismiyor. */
+    damaA: "#FFFFFF", damaAOp: 0.040, damaB: "#FFFFFF", damaBOp: 0.014,
+    satirA: "#FFFFFF", satirAOp: 0.030, satirB: "#FFFFFF", satirBOp: 0.010,
   } : {
     zemin: "#FBF9F4", tuval: "#FFFFFF", kart: "rgba(255,255,255,0.97)",
     cizgi: "#D8D0BF", ink: "#23201B", solukInk: "#8C8676", vurguInk: "#8A7A34",
@@ -2209,6 +2291,8 @@ export default function SilsileAgi() {
     okSonuk: "#C9BFA8", dugumCerceve: "white", etiketHale: "#FFFFFF",
     etiketAna: "#2B2721", etiketAlt: "#8C8676", sonucVurgu: "#F5F1E6",
     kesikCerceve: "#E0D8C6",
+    damaA: "#8A7A34", damaAOp: 0.05, damaB: "#2E7D6E", damaBOp: 0.026,
+    satirA: "#8A7A34", satirAOp: 0.055, satirB: "#2E7D6E", satirBOp: 0.028,
   };
 
   /* RAVI ADI DILE GORE. Arapca'da dugumun kendi `ar` alani, digerinde
@@ -2217,7 +2301,10 @@ export default function SilsileAgi() {
      Ingilizce'de Turkce latinizasyon kullaniliyor -- hadis
      literaturunde zaten alisildik bir cozum. Arayuz metinleri uc dilde
      (bkz. translations.ts, ag* anahtarlari). */
-  const adi = useCallback((n) => (language === "ar" ? n.ar : n.tr), [language]);
+  const adi = useCallback(
+    (n) => (language === "ar" ? n.ar : language === "en" ? ingAd(n.tr) : n.tr),
+    [language],
+  );
   /* Belde adi da dile bagli. Sutun basliklarinda buyuk harfe
      ceviriliyor, kartta oldugu gibi. */
   const beldeAdi = useCallback((b) => BELDE_AD[language]?.[b] ?? b, [language]);
@@ -2674,6 +2761,23 @@ export default function SilsileAgi() {
      ustunde. */
   const dar = box.w < 640;
 
+  /* SUS ANIMASYONLARI DAR EKRANDA KAPALI.
+
+     Geriye kalan telefon kasmasinin kaynagi bunlar: one cikan 38
+     dugumun salinimi ve halesi kesintisiz isliyor, tarayici her biri
+     icin ayri bir birlestirme katmani tutuyor. Masaustunde bedeli
+     gorunmuyor, telefonun GPU'sunda goruluyor.
+
+     `prefers-reduced-motion` de saygi goruyor: kullanici isletim
+     sisteminde hareketi azaltmayi secmisse animasyon hic
+     baslatilmiyor -- bu zaten dogru davranis, yan faydasi performans.
+
+     Kapali olan yalnizca SUS: acilis dalgasi, secim vurgusu ve kamera
+     gecisleri yerinde duruyor, cunku onlar bilgi tasiyor. */
+  const azHareket = typeof window !== "undefined" &&
+    window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const susAnimasyon = !dar && !azHareket;
+
   /* Kenar kalinligi carpani. Kalinlik artik ekran pikseli olarak sabit
      (vectorEffect), ama 1382 kenarin tamami uzaktan tam kalinlikta
      cizilince tuval bir yumaga donuyor -- denendi, ag hic
@@ -2793,8 +2897,8 @@ export default function SilsileAgi() {
                       Parite indise degil MEDINE'YE gore: araya yeni bir
                       belde girse (Yemen girdi) Medine tonunu kaybetmesin. */}
                   <rect x={zx} y={-H} width={zw} height={H * 3}
-                    fill={(i - MEDINE_I) % 2 === 0 ? C.vurguInk : "#2E7D6E"}
-                    opacity={(i - MEDINE_I) % 2 === 0 ? 0.05 : 0.026} />
+                    fill={(i - MEDINE_I) % 2 === 0 ? C.damaA : C.damaB}
+                    opacity={(i - MEDINE_I) % 2 === 0 ? C.damaAOp : C.damaBOp} />
                   {!ilk && (
                     <line x1={c.x} y1={-H} x2={c.x} y2={H * 2}
                       stroke={C.cizgi} strokeWidth="1.2" opacity="0.7" />
@@ -2820,8 +2924,8 @@ export default function SilsileAgi() {
               if (alt <= ust) return null;
               return (
                 <rect key={"s" + y} x={-W} y={ust} width={W * 3} height={alt - ust}
-                  fill={i % 2 === 0 ? C.vurguInk : "#2E7D6E"}
-                  opacity={i % 2 === 0 ? 0.055 : 0.028} />
+                  fill={i % 2 === 0 ? C.satirA : C.satirB}
+                  opacity={i % 2 === 0 ? C.satirAOp : C.satirBOp} />
               );
             })}
             {YILLAR.map((y) => (
@@ -2919,7 +3023,7 @@ export default function SilsileAgi() {
               const r = rEkranOf(n.id, kg) / kg;
               const secili = secRavi && secRavi.id === n.id;
               // halesi olan = one cikan dugum (salinim ve hale bunlara ozel)
-              const onCikan = !!(MEDAR[n.id] || MUKSIRUN.has(n.id) ||
+              const onCikan = susAnimasyon && !!(MEDAR[n.id] || MUKSIRUN.has(n.id) ||
                                  MUELLIF.has(n.id) || n.id === "nebi");
               return (
                 <g key={n.id} className="dugum" transform={`translate(${p.x},${p.y})`}
@@ -3005,7 +3109,7 @@ export default function SilsileAgi() {
                     {adi(n).length > 26 ? adi(n).slice(0, 25) + "…" : adi(n)}
                   </text>
                   <text y={r + punto + altPunto + 3} textAnchor="middle"
-                    fontSize={altPunto} fill={C.solukInk}>{tarihYaz(n)}</text>
+                    fontSize={altPunto} fill={C.solukInk}>{tarihYaz(n, t.agOlum)}</text>
                 </g>
               );
             })}
@@ -3015,7 +3119,8 @@ export default function SilsileAgi() {
      render'da yeniden uretildigi icin onu koymak memo'yu bosa
      cikarirdi -- yerine tek bir mantiksal deger. */
   ), [kg, box, olculdu, pencere, secim, secRavi, secKenar, acildi,
-      vurgu, etiketliler, yakin, cizgiCarpani, cizgiSaydam, MEDINE_I, adi, koyu]);
+      vurgu, etiketliler, yakin, cizgiCarpani, cizgiSaydam, MEDINE_I, adi, koyu,
+      susAnimasyon, t]);
 
   return (
     <div className="w-full h-full flex flex-col overflow-hidden"
@@ -3196,7 +3301,7 @@ export default function SilsileAgi() {
                   <span className="w-2.5 h-2.5 rounded-full shrink-0"
                     style={{ background: n.id === "nebi" ? NEBI_RENK : renkOf(n.id) }} />
                   <span className="flex-1 truncate">{adi(n)}</span>
-                  <span className="text-[11px] shrink-0" style={{ color: C.solukInk }}>{tarihYaz(n)}</span>
+                  <span className="text-[11px] shrink-0" style={{ color: C.solukInk }}>{tarihYaz(n, t.agOlum)}</span>
                 </button>
               )) : <div className="px-3 py-2 text-sm" style={{ color: C.solukInk }}>{t.agKayitYok}</div>}
             </div>
@@ -3255,7 +3360,7 @@ export default function SilsileAgi() {
               <h2 className="text-xl">{adi(secRavi)}</h2>
               <span className="text-lg" style={{ color: C.ink }} dir="rtl">{secRavi.ar}</span>
               <span className="text-xs" style={{ color: C.vurguInk }}>
-                {tarihYaz(secRavi)} · {beldeAdi(secRavi.belde)} · {TAB_AD[secRavi.tab]}{MUKSIRUN.has(secRavi.id) ? " · " + t.agMuksirun : ""}{MEDAR[secRavi.id] ? " · " + MEDAR_AD[MEDAR[secRavi.id]] : ""}{MUELLIF.has(secRavi.id) ? " · " + t.agMuellif : ""}
+                {tarihYaz(secRavi, t.agOlum)} · {beldeAdi(secRavi.belde)} · {TAB_AD[secRavi.tab]}{MUKSIRUN.has(secRavi.id) ? " · " + t.agMuksirun : ""}{MEDAR[secRavi.id] ? " · " + MEDAR_AD[MEDAR[secRavi.id]] : ""}{MUELLIF.has(secRavi.id) ? " · " + t.agMuellif : ""}
               </span>
             </div>
             {secRavi.not && <p className="text-sm mt-2 leading-relaxed" style={{ color: C.ink }}>{secRavi.not}</p>}
@@ -3314,12 +3419,12 @@ export default function SilsileAgi() {
               <div className="flex items-center gap-3 flex-wrap pr-6">
                 <button onClick={() => odaklan(hoca.id)} className="text-left hover:underline">
                   <div className="text-base">{adi(hoca)}</div>
-                  <div className="text-xs" style={{ color: C.solukInk }}>{tarihYaz(hoca)} · {beldeAdi(hoca.belde)}</div>
+                  <div className="text-xs" style={{ color: C.solukInk }}>{tarihYaz(hoca, t.agOlum)} · {beldeAdi(hoca.belde)}</div>
                 </button>
                 <span className="text-lg" style={{ color: C.kenarSecili }}>→</span>
                 <button onClick={() => odaklan(talebe.id)} className="text-left hover:underline">
                   <div className="text-base">{adi(talebe)}</div>
-                  <div className="text-xs" style={{ color: C.solukInk }}>{tarihYaz(talebe)} · {beldeAdi(talebe.belde)}</div>
+                  <div className="text-xs" style={{ color: C.solukInk }}>{tarihYaz(talebe, t.agOlum)} · {beldeAdi(talebe.belde)}</div>
                 </button>
               </div>
               <p className="text-xs mt-3" style={{ color: C.ink }}>
