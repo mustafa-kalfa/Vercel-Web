@@ -148,13 +148,24 @@ yeni `<audio>` her zaman 1x baslar ve kaynak degisince sifirlanir (efektle
 senkron tutuluyor); `autoPlay` tarayici tarafindan reddedilebilir, o
 durumda dugme duraklatilmis halde kaliyor.
 
-**ACIK EKSIK (2026-08-22): ses dosyasi YOK.** `MIHNA_SRC` =
-`/podcast/mihne-hadisesi.mp3` ama `public/podcast/` klasoru hic
-olusturulmamis; adres yayinda 404 donuyor. Oynatici hatayi yakalayip
-(`onError` -> `failed`) duzgun bir uyari gosteriyor, yani sayfa
-kirilmiyor -- ama dugmeye basan ziyaretci sesi DINLEYEMIYOR. Dosya
-`public/podcast/mihne-hadisesi.mp3` olarak eklenirse baska hicbir
-degisiklik gerekmiyor.
+**Ses dosyasi 2026-08-30'da eklendi** (o tarihe kadar eksikti, dugme 404
+yiyordu). `MIHNA_SRC` = `/podcast/mihne-hadisesi.mp3`, 29:13, 14 MB.
+
+**Podcast sesi eklerken SIKISTIR.** Kaynak kayit 56 MB / 257 kbps stereo
+AAC geldi, konusma icin bu asiri. Kural olarak **64 kbps mono MP3**
+yeterli, duyulur kayip yok ve dosya dortte birine iniyor:
+
+    ffmpeg -y -i kayit.m4a -vn -ac 1 -c:a libmp3lame -b:a 64k -ar 44100 \
+      public/podcast/bolum-adi.mp3
+
+Gerekcesi uc tane. Mobil veri -- dugmeye basan ziyaretci dosyanin
+tamamini indiriyor. GitHub 50 MB ustunu uyariyor, 100 MB'da tamamen
+reddediyor. Vercel Hobby ayda 100 GB bant genisligi veriyor, bolum
+sayisi artinca 50 MB'lik dosyalar bunu hizla yiyor.
+
+Sayfa acilis hizi bu dosyalardan **etkilenmiyor**: `AudioPlayer`
+`preload="metadata"` kullaniyor ve zaten ancak dugmeye basilinca mount
+ediliyor, yani sayfa yuklenirken sesin tek bayti inmiyor.
 
 ## Vercel Web Analytics (trafik istatistigi)
 
