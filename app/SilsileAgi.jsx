@@ -3,7 +3,7 @@
 /* SILSILE AGI GORSELLESTIRMESI. Bu dosya bir artifact'ten OLDUGU GIBI
    alindi; icerigi hala hizla degistigi icin site tarafinda elle yapilan
    degisiklikler EN AZDA tutuluyor. Yeni surum gelince dosyanin ustune
-   yazip yalnizca asagidaki dort noktayi tekrar uygulamak yetiyor:
+   yazip yalnizca asagidaki bes noktayi tekrar uygulamak yetiyor:
 
    1) Bu "use client" satiri. App Router'da bir dosya varsayilan olarak
       SUNUCU bileseni; useState/useEffect ve fare olaylari orada
@@ -25,11 +25,18 @@
       .tsx yapmak her surumde bastan tip yazmak demek olurdu.
       Gorsellestirme oturdugunda .tsx'e cevrilebilir.
 
-   BILINEN EKSIK, artifact tarafinda: dokunma yok. Tuval yalnizca fare
-   olaylarini (onMouseDown/Move/Up, onWheel) dinliyor; onTouch* ya da
-   onPointer* hic yok. Bu yuzden TELEFONDA agi surukleyip
-   yakinlastirmak calismiyor. Sayfa tarafindan cozulemez, bilesenin
-   kendi olay isleyicilerine dokunma destegi eklenmeli. */
+   5) DOKUNMA DESTEGI ve DAR EKRAN ACILISI. Artifact tuvali yalnizca
+      fare olaylarini dinliyordu, bu yuzden telefonda ag kaydirilamiyor
+      ve yakinlastirilamiyordu (2026-08-29'da fark edildi). Iki ekleme
+      yapildi, ikisi de yerinde ayrica anlatildi:
+        - Tuvalin isleyicileri pointer olaylarina cevrildi ve iki
+          parmakla yakinlastirma eklendi (bkz. pointerBas /
+          pointerKimilda / pointerBirak).
+        - Acilis gorunumu dar ekranda tuvali dolduruyor (bkz.
+          `baslangic`); eskiden agin tamami sigdiriliyordu ve telefonda
+          ekranin ucte ikisi bos kaliyordu.
+      Yeni artifact surumu bunlari kendi icinde cozuyorsa bu madde
+      dusebilir; cozmuyorsa tekrar uygulanmali. */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
 
 /* ==================================================================
@@ -1491,6 +1498,13 @@ export default function SilsileAgi() {
   const tweenRef = useRef(null);
   const [tasindi, setTasindi] = useState(false);
   const boxRef = useRef(null);
+  /* Ekrandaki parmaklarin (ve farenin) defteri: pointerId -> {x,y}.
+     Kiskac (iki parmakla yakinlastirma) basladiginda baslangic
+     mesafesi/merkezi ve o andaki görünüm burada saklaniyor. Ikisi de
+     ref, state degil: her parmak kimildadiginda yeniden cizim
+     gerekmiyor, yalnizca gorunum degisirse gerekiyor. */
+  const isaretler = useRef(new Map());
+  const kiskac = useRef(null);
   const [box, setBox] = useState({ w: 1000, h: 640 });
 
   useEffect(() => {
@@ -1556,9 +1570,14 @@ export default function SilsileAgi() {
     return () => clearTimeout(z);
   }, []);
 
-  // tuvalin görüş alanını doldurabileceği en küçük ölçek
+  /* Tuvalin görüş alanını doldurabileceği en küçük ölçek.
+
+     POZITIF TABAN sart: kapsayici henuz olculmemisse (gizli sekme,
+     kapali panel, ilk kare) genislik ve yukseklik 0 gelir, band
+     paylari cikinca oranlar EKSIYE duser ve `scale(-0.0008)` gibi bir
+     donusum ag'i aynalar. Olculdu, gercekten oluyor. */
   const enAzOlcek = useCallback(
-    () => Math.min((box.w - SOL_BANT) / W, (box.h - UST_BANT) / H),
+    () => Math.max(1e-4, Math.min((box.w - SOL_BANT) / W, (box.h - UST_BANT) / H)),
     [box]
   );
 
@@ -1566,7 +1585,38 @@ export default function SilsileAgi() {
     setView(sinirla({ k: enAzOlcek(), x: 0, y: 0 }));
   }, [sinirla, enAzOlcek]);
 
-  useEffect(() => { sigdir(); }, [sigdir]);
+  /* Açılıştaki görüntü. Geniş ekranda ağın TAMAMI sığdırılır; dar
+     ekranda tuval DOLDURULUR ve Medine sütunu ortalanır.
+
+     Neden ikisi ayrı: ağ neredeyse kare (~53500 × 55000), telefon ise
+     uzun. Tamamını sığdırmak genişliğe göre küçültmek demek, o da ağı
+     ekranın üst üçte birine hapsedip altta koca bir boşluk bırakıyordu
+     (ölçüldü: 812 px'lik ekranda ağ 326 px). Dolduran ölçekte isimler
+     okunur büyüklükte geliyor, taşan yanlar parmakla kaydırılıyor --
+     zaten bir ağda yapılacak iş de bu. "Tamamı" düğmesi hâlâ tamamını
+     sığdırıyor, yani uzaklaşma yolu kapanmıyor. */
+  const baslangic = useCallback(() => {
+    const yatay = (box.w - SOL_BANT) / W, dikey = (box.h - UST_BANT) / H;
+    if (box.w >= 768) return sinirla({ k: Math.min(yatay, dikey), x: 0, y: 0 });
+    const k = Math.min(Math.max(yatay, dikey), 4);
+    const medineMerkez = MEDINE.x + MEDINE.genislik / 2;
+    return sinirla({ k, x: (box.w + SOL_BANT) / 2 - medineMerkez * k, y: 0 });
+  }, [box, sinirla]);
+
+  /* Acilis gorunumu BIR KEZ kuruluyor, kapsayici her olculdugunde
+     degil. Eskiden bu etki `box` her degistiginde gorunumu sifirdan
+     kuruyordu: telefon yan cevrilince ya da adres cubugu girip
+     cikinca kullanicinin geldigi yer siliniyor, ag basa donuyordu.
+     Sonraki olcumlerde yalnizca sinirlar tazeleniyor -- kucuklen
+     ekranda ag'in kenarda bosluk birakmasi boyle onleniyor. */
+  const kuruldu = useRef(false);
+  useEffect(() => {
+    // 0x0 olculen kapsayici (gizli sekme) gercek bir olcum degil
+    if (box.w <= SOL_BANT || box.h <= UST_BANT) return;
+    if (kuruldu.current) { setView((o) => sinirla(o)); return; }
+    kuruldu.current = true;
+    setView(baslangic());
+  }, [box, baslangic, sinirla]);
 
   const sonuclar = useMemo(() => {
     const q = arama.trim().toLowerCase();
@@ -1602,6 +1652,80 @@ export default function SilsileAgi() {
     const asgari = enAzOlcek();
     const yeni = Math.max(asgari, Math.min(4, view.k * (ev.deltaY < 0 ? 1.13 : 1 / 1.13)));
     gitView({ k: yeni, x: mx - ((mx - view.x) / view.k) * yeni, y: my - ((my - view.y) / view.k) * yeni });
+  };
+
+  /* ---------- imlec/parmak isleyicileri ----------
+
+     Fare olaylari (onMouseDown/Move/Up) yerine POINTER olaylari
+     kullaniliyor. Sebep: fare olaylari telefonda yok. Parmak
+     `touchstart/move/end` uretir; tarayici bunlardan yalnizca TEK
+     DOKUNUS icin sahte fare olaylari turetir, SURUKLEME icin turetmez.
+     Yani eski surumde telefonda isme dokunmak calisiyor, agi
+     kaydirmak calismiyordu. Pointer olaylari fareyi, parmagi ve kalemi
+     tek arayuzde birlestirdigi icin ikisi de tek kod yoluyla
+     karsilaniyor.
+
+     setPointerCapture BILEREK kullanilmiyor: yakalama sonraki butun
+     olaylari tuvale yonlendirir, dugumlerin ve kenarlarin kendi
+     `onPointerUp`'i hic calismaz, yani isme dokunup odaklanmak
+     bozulurdu. Yakalama olmayinca imlec tuvalden cikarsa surukleme
+     birakiliyor -- eski `onMouseLeave` davranisinin aynisi. */
+  const pointerBirak = (e) => {
+    isaretler.current.delete(e.pointerId);
+    if (isaretler.current.size < 2) kiskac.current = null;
+    if (isaretler.current.size === 0) setSuruk(null);
+  };
+
+  const pointerBas = (e) => {
+    isaretler.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (isaretler.current.size === 1) {
+      setSuruk({ mx: e.clientX, my: e.clientY, vx: view.x, vy: view.y });
+      setTasindi(false);
+      return;
+    }
+    if (isaretler.current.size === 2) {
+      /* Ikinci parmak indi: kaydirmayi birak, kiskaci baslat. Baslangic
+         mesafesi ve merkezi SABITLENIYOR; her karede bir oncekiyle
+         degil, basla karsilastirmak birikimli yuvarlama hatasini
+         onluyor. `tasindi` isaretleniyor ki iki parmak kaldirilinca
+         "bos yere dokundu" sayilip secim kapanmasin. */
+      const [a, b] = [...isaretler.current.values()];
+      const r = boxRef.current.getBoundingClientRect();
+      kiskac.current = {
+        mesafe: Math.max(1, Math.hypot(a.x - b.x, a.y - b.y)),
+        mx: (a.x + b.x) / 2 - r.left,
+        my: (a.y + b.y) / 2 - r.top,
+        view: { ...view },
+      };
+      setSuruk(null);
+      setTasindi(true);
+    }
+  };
+
+  const pointerKimilda = (e) => {
+    // Defterde olmayan bir imlec: basma olayi yutulmustu (ornegin arama
+    // kutusunda basladi). Tuvali oynatmiyoruz.
+    if (!isaretler.current.has(e.pointerId)) return;
+    isaretler.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+    if (kiskac.current && isaretler.current.size >= 2) {
+      const [a, b] = [...isaretler.current.values()];
+      const bas = kiskac.current;
+      const oran = Math.hypot(a.x - b.x, a.y - b.y) / bas.mesafe;
+      const k = Math.max(enAzOlcek(), Math.min(4, bas.view.k * oran));
+      // iki parmagin ortasi hangi noktayi tutuyorsa orada kalsin
+      gitView({
+        k,
+        x: bas.mx - ((bas.mx - bas.view.x) / bas.view.k) * k,
+        y: bas.my - ((bas.my - bas.view.y) / bas.view.k) * k,
+      });
+      return;
+    }
+
+    if (!suruk) return;
+    const dx = e.clientX - suruk.mx, dy = e.clientY - suruk.my;
+    if (Math.abs(dx) + Math.abs(dy) > 4) setTasindi(true);
+    gitView({ ...view, x: suruk.vx + dx, y: suruk.vy + dy });
   };
 
   const zoomla = (carpan) => {
@@ -1690,17 +1814,21 @@ export default function SilsileAgi() {
     <div className="w-full h-full bg-[#FBF9F4] text-[#23201B] flex flex-col overflow-hidden"
          style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>
       <div ref={boxRef} className="relative flex-1 bg-white overflow-hidden select-none"
-        style={{ cursor: suruk ? "grabbing" : "grab" }}
+        /* `touchAction: none`: tarayici parmak hareketini KENDI kaydirma
+           ve yakinlastirmasi icin kapmasin, olaylar bize gelsin. Bu
+           olmadan dokunma isleyicileri yazilsa bile telefonda hicbir
+           sey olmaz. */
+        style={{ cursor: suruk ? "grabbing" : "grab", touchAction: "none" }}
         onWheel={tekerlek}
-        onMouseDown={(e) => { setSuruk({ mx: e.clientX, my: e.clientY, vx: view.x, vy: view.y }); setTasindi(false); }}
-        onMouseMove={(e) => {
-          if (!suruk) return;
-          const dx = e.clientX - suruk.mx, dy = e.clientY - suruk.my;
-          if (Math.abs(dx) + Math.abs(dy) > 4) setTasindi(true);
-          gitView({ ...view, x: suruk.vx + dx, y: suruk.vy + dy });
+        onPointerDown={pointerBas}
+        onPointerMove={pointerKimilda}
+        onPointerUp={(e) => {
+          const sonParmak = isaretler.current.size <= 1;
+          pointerBirak(e);
+          if (sonParmak && !tasindi) { setSecim(null); setAcikArama(false); }
         }}
-        onMouseUp={() => { if (!tasindi) { setSecim(null); setAcikArama(false); } setSuruk(null); }}
-        onMouseLeave={() => setSuruk(null)}>
+        onPointerCancel={pointerBirak}
+        onPointerLeave={pointerBirak}>
 
         {/* ---- ana tuval ---- */}
         <svg width="100%" height="100%" style={{ position: "absolute", inset: 0 }}>
@@ -1810,8 +1938,8 @@ export default function SilsileAgi() {
                 <g key={i}>
                   <path d={d} fill="none" stroke="transparent" strokeWidth="16"
                     style={{ cursor: "pointer", pointerEvents: "stroke" }}
-                    onMouseUp={(ev) => {
-                      ev.stopPropagation(); setSuruk(null);
+                    onPointerUp={(ev) => {
+                      ev.stopPropagation(); pointerBirak(ev);
                       if (!tasindi) setSecim({ tur: "kenar", e });
                     }} />
                   <path d={d} fill="none"
@@ -1846,7 +1974,7 @@ export default function SilsileAgi() {
               const secili = secRavi && secRavi.id === n.id;
               return (
                 <g key={n.id} className="dugum" transform={`translate(${p.x},${p.y})`}
-                  onMouseUp={(ev) => { ev.stopPropagation(); setSuruk(null); if (!tasindi) odaklan(n.id); }}
+                  onPointerUp={(ev) => { ev.stopPropagation(); pointerBirak(ev); if (!tasindi) odaklan(n.id); }}
                   onMouseEnter={() => setUzerinde(n.id)}
                   onMouseLeave={() => setUzerinde((ö) => (ö === n.id ? null : ö))}
                   style={{ cursor: "pointer", opacity: d ? 0.38 : 1 }}>
@@ -1948,8 +2076,8 @@ export default function SilsileAgi() {
 
         {/* ---- sağ üst: râvi bul + yakınlaştırma ---- */}
         <div className="absolute z-20" style={{ bottom: 12, right: 12, width: 232 }}
-          onMouseDown={(e) => e.stopPropagation()}
-          onMouseUp={(e) => e.stopPropagation()}
+          onPointerDown={(e) => e.stopPropagation()}
+          onPointerUp={(e) => e.stopPropagation()}
           onWheel={(e) => e.stopPropagation()}>
           {acikArama && arama.trim() && (
             <div className="shadow" style={{ marginBottom: 6, maxHeight: 260, overflowY: "auto", background: "#fff", border: "1px solid #D8D0BF", borderRadius: 2 }}>
@@ -1996,7 +2124,7 @@ export default function SilsileAgi() {
               background: "rgba(255,255,255,0.97)", border: "1px solid #D8D0BF",
               borderRadius: 2, padding: 16,
             }}
-            onMouseDown={(e) => e.stopPropagation()} onMouseUp={(e) => e.stopPropagation()}
+            onPointerDown={(e) => e.stopPropagation()} onPointerUp={(e) => e.stopPropagation()}
             onWheel={(e) => e.stopPropagation()}>
             <button onClick={() => setSecim(null)}
               className="absolute top-2 right-3 text-[#8C8676] hover:text-[#23201B]">×</button>
@@ -2039,7 +2167,7 @@ export default function SilsileAgi() {
                 background: "rgba(255,255,255,0.97)", border: "1px solid #D8D0BF",
                 borderRadius: 2, padding: 16,
               }}
-              onMouseDown={(e) => e.stopPropagation()} onMouseUp={(e) => e.stopPropagation()}>
+              onPointerDown={(e) => e.stopPropagation()} onPointerUp={(e) => e.stopPropagation()}>
               <button onClick={() => setSecim(null)}
                 className="absolute top-2 right-3 text-[#8C8676] hover:text-[#23201B]">×</button>
               <div className="text-[11px] uppercase tracking-wider text-[#B5462B] mb-2">Rivayet bağı</div>
