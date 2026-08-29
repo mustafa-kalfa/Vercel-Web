@@ -55,6 +55,22 @@ export default function Oyunlar() {
           </button>
         ))}
       </div>
+
+      {/* Kediler klibi. Eskiden anasayfanin acilis videolarindan biriydi
+          (bkz. IntroVideo); orasi tek klibe indirilince digerleri
+          sayfalara dagitildi, bu da oyunlara dustu.
+
+          Konum `absolute`, `fixed` DEGIL -- /selam'daki ile ayni gerekce:
+          fixed iken klip gorunum alaninin dibine yapisip footer'in
+          uzerini ortuyor. absolute olunca sarmalayici <main>'in dibinde,
+          yani tam footer'in ustunde duruyor.
+
+          Klibin sol ~%43'u bos (kediler ve karakter sag yarida), o yuzden
+          saga yaslandiginda konu ekranin kosesine oturuyor. */}
+      <ChromaKeyVideo
+        src="/Kediler_seffaf.mp4"
+        className="absolute bottom-0 right-0 h-[25vh] w-auto max-w-none"
+      />
     </main>
   );
 }

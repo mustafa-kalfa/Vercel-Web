@@ -2319,6 +2319,9 @@ export default function SilsileAgi() {
      gerekmiyor, yalnizca gorunum degisirse gerekiyor. */
   const isaretler = useRef(new Map());
   const kiskac = useRef(null);
+  /* Suruklemede sayfaya devredilen toplam mesafe (bkz. pointerKimilda).
+     Her yeni suruklemede sifirlaniyor. */
+  const artanRef = useRef(0);
   /* Kapsayicinin olculeri. SIFIRDAN basliyor, bir tahminden degil:
      acilis gorunumu (bkz. `baslangic`) bir kez kuruluyor ve "hic
      olculmedi" halini tanimasi gerekiyor. Eskiden burada {1000, 640}
@@ -2580,6 +2583,7 @@ export default function SilsileAgi() {
     isaretler.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
     if (isaretler.current.size === 1) {
       setSuruk({ mx: e.clientX, my: e.clientY, vx: view.x, vy: view.y });
+      artanRef.current = 0;
       tasindiRef.current = false;
       return;
     }
@@ -2636,14 +2640,22 @@ export default function SilsileAgi() {
        olmazsa ag surukleneMEZ). Sonuc: footer bir kez cikinca geri
        gitmiyordu (Mustafa, 2026-08-29).
 
-       Cozum, artan mesafeyi ELLE sayfaya devretmek: istenen konum
-       ile sinirlanmis konum arasindaki fark ne kadarsa sayfa o kadar
-       kaydiriliyor. Isaret ters: icerik yukari giderse (ag'da asagi
-       inersek) sayfa asagi kayar. */
+       Cozum, artan mesafeyi ELLE sayfaya devretmek: istenen konum ile
+       sinirlanmis konum arasindaki fark kadar sayfa kaydiriliyor.
+       Isaret ters: icerik yukari giderse (ag'da asagi inersek) sayfa
+       asagi kayar.
+
+       FARK, TOPLAM DEGIL. `artan` surukleme baslangicindan olculuyor
+       ve parmak sinirin otesinde kaldigi surece BUYUYOR; her
+       kimildamada onu oldugu gibi uygulamak sayfayi her karede giderek
+       daha cok kaydiriyordu. Ekranda titreme/sicrama olarak
+       goruluyordu (Mustafa, 2026-08-29). Bir onceki artan ref'te
+       tutuluyor, sayfaya yalnizca ARADAKI FARK veriliyor. */
     const istenen = { ...view, x: suruk.vx + dx, y: suruk.vy + dy };
     const sonuc = sinirla(istenen);
     const artan = istenen.y - sonuc.y;
-    if (Math.abs(artan) > 0.5) window.scrollBy(0, -artan);
+    const fark = artan - artanRef.current;
+    if (Math.abs(fark) > 0.5) { window.scrollBy(0, -fark); artanRef.current = artan; }
     setView(sonuc);
   };
 
@@ -3136,7 +3148,13 @@ export default function SilsileAgi() {
            ve yakinlastirmasi icin kapmasin, olaylar bize gelsin. Bu
            olmadan dokunma isleyicileri yazilsa bile telefonda hicbir
            sey olmaz. */
-        style={{ cursor: suruk ? "grabbing" : "grab", touchAction: "none", background: C.tuval }}
+        /* `contain: layout paint`: tarayiciya bu kutunun cizimi
+           kendi icinde biter diyor. Olmadan, buyuk SVG her yeniden
+           boyandiginda tarayici sayfanin geri kalanini da (sabit
+           konumlu ust bant dahil) gecersiz sayabiliyor ve baslikta
+           yanip sonme goruluyordu. */
+        style={{ cursor: suruk ? "grabbing" : "grab", touchAction: "none",
+                 background: C.tuval, contain: "layout paint" }}
         onPointerDown={pointerBas}
         onPointerMove={pointerKimilda}
         onPointerUp={(e) => {

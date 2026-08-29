@@ -1181,6 +1181,7 @@
       toastWrong: 'Sırada bu râvi yok — tekrar dene.',
       wrongModal: '3 kez yanlış râviyi seçtin. Haydi baştan başlayalım.',
       ezberLede: 'Önce isnâdı ezberle. Râvileri, en yakınından başlayarak sırayla hatırlaman gerekecek.',
+      oyunH1: 'İsnadı tamamla ve Mustafâ\'yı Peygamberine kavuştur. Hz. Peygamber her zaman baş üstünde olmalı. O yüzden başlamak için aşağıya inelim.',
       ezberBtn: 'Ezberledim, hadi başlayalım.'
     },
     en: {
@@ -1203,6 +1204,7 @@
       toastWrong: 'That narrator isn’t next — try again.',
       wrongModal: 'You picked the wrong narrator three times. Let’s start over.',
       ezberLede: 'First memorise the isnād. You will need to recall the narrators in order, starting with the one closest to Mustafâ.',
+      oyunH1: 'Complete the isnād and reunite Mustafâ with his Prophet. The Prophet must always be held above all, so let us go down to begin.',
       ezberBtn: 'I have memorised it, let us begin.'
     },
     ar: {
@@ -1225,6 +1227,7 @@
       toastWrong: 'هذا ليس الراوي التالي — حاول مرة أخرى.',
       wrongModal: 'اخترت الراوي الخطأ ثلاث مرات. لنبدأ من جديد.',
       ezberLede: 'احفظ الإسناد أولاً. ستحتاج إلى تذكُّر الرواة بالترتيب، بدءًا بالأقرب إلى مصطفى.',
+      oyunH1: 'أكمل الإسناد وأوصل مصطفى إلى نبيّه. النبيّ ﷺ فوق الرؤوس دائمًا، فلننزل إلى الأسفل لنبدأ.',
       ezberBtn: 'حفظتُه، هيّا نبدأ.'
     }
   };
@@ -1265,7 +1268,12 @@
     var s = STRINGS[lang];
     document.getElementById('pageRoot').classList.toggle('lang-ar', lang === 'ar');
     document.title = s.title;
-    h1El.textContent = s.h1;
+    /* Baslik asamaya bagli: oyun tahtasi acilinca soru sormayi birakip
+       yonerge veriyor -- .lede o asamada gizli oldugu icin tahtanin
+       nasil okundugunu (Hz. Nebi en ustte, oyun en altta) anlatacak
+       tek yer burasi. */
+    h1El.textContent =
+      pageRootEl.getAttribute('data-asama') === 'oyun' ? s.oyunH1 : s.h1;
     h1El.setAttribute('dir', s.dir);
     // Ezber asamasinda yonerge farkli: "ezberle" diyor, "tamamla" degil.
     ledeEl.textContent =
