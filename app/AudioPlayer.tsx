@@ -63,6 +63,27 @@ function SkipIcon({ flip }: { flip?: boolean }) {
   );
 }
 
+/* Bastan cal: tam daire olmayan bir ok. SkipIcon'un yayina benziyor ama
+   icinde rakam yok ve ok basi saat yonunun TERSINE bakiyor -- "geri
+   sar" degil "sifirla" demek. */
+function ReplayIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className="h-[22px] w-[22px]"
+      aria-hidden="true"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M3.5 12a8.5 8.5 0 1 0 2.9-6.4" />
+      <path d="M3 4.5V10h5.5" />
+    </svg>
+  );
+}
+
 export default function AudioPlayer({
   src,
   title,
@@ -117,6 +138,17 @@ export default function AudioPlayer({
     audio.currentTime = Math.min(Math.max(audio.currentTime + delta, 0), limit);
   };
 
+  /* Bastan cal: konumu sifirlayip oynatiyor. Duraklatilmis halde
+     basilirsa da CALMAYA baslar -- dugmenin adi "bastan cal", yalnizca
+     "basa sar" degil. */
+  const replay = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    audio.currentTime = 0;
+    setCurrentTime(0);
+    audio.play().catch(() => setIsPlaying(false));
+  };
+
   const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
 
   return (
@@ -164,48 +196,69 @@ export default function AudioPlayer({
           <span>{formatTime(duration)}</span>
         </div>
 
+        {/* Bes dugme, soldan saga: hiz, 5 sn geri, oynat/duraklat,
+            5 sn ileri, bastan cal.
+
+            Iki yandaki gruplar `flex-1`: oynat dugmesi satirin TAM
+            ortasinda kalsin diye. Duz bir `justify-center` satirinda
+            hiz dugmesi digerlerinden genis (w-14, "1.75×" sigsin diye)
+            oldugu icin oynat dugmesi 8px saga kayiyordu. */}
         <div className="mt-4 flex items-center justify-center gap-3">
-          <button
-            type="button"
-            onClick={() => skip(-SKIP_SECONDS)}
-            aria-label={t.playerBack5}
-            title={t.playerBack5}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-black/20 transition-colors hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
-          >
-            <SkipIcon />
-          </button>
+          <div className="flex flex-1 items-center justify-end gap-3">
+            {/* Sabit genislik: 0.75x -> 1x gecisinde dugme daralip
+                komsularini kaydirmasin. */}
+            <button
+              type="button"
+              onClick={() => setSpeedIndex((i) => (i + 1) % SPEEDS.length)}
+              aria-label={t.playerSpeed}
+              title={t.playerSpeed}
+              className="flex h-10 w-14 shrink-0 items-center justify-center rounded-full border border-black/20 font-mono text-sm tabular-nums transition-colors hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
+            >
+              {speed}×
+            </button>
+
+            <button
+              type="button"
+              onClick={() => skip(-SKIP_SECONDS)}
+              aria-label={t.playerBack5}
+              title={t.playerBack5}
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-black/20 transition-colors hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
+            >
+              <SkipIcon />
+            </button>
+          </div>
 
           <button
             type="button"
             onClick={toggle}
             aria-label={isPlaying ? t.playerPause : t.playerPlay}
             title={isPlaying ? t.playerPause : t.playerPlay}
-            className="flex h-12 w-12 items-center justify-center rounded-full bg-foreground text-background transition-opacity hover:opacity-90"
+            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-foreground text-background transition-opacity hover:opacity-90"
           >
             {isPlaying ? <PauseIcon /> : <PlayIcon />}
           </button>
 
-          <button
-            type="button"
-            onClick={() => skip(SKIP_SECONDS)}
-            aria-label={t.playerForward5}
-            title={t.playerForward5}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-black/20 transition-colors hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
-          >
-            <SkipIcon flip />
-          </button>
+          <div className="flex flex-1 items-center justify-start gap-3">
+            <button
+              type="button"
+              onClick={() => skip(SKIP_SECONDS)}
+              aria-label={t.playerForward5}
+              title={t.playerForward5}
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-black/20 transition-colors hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
+            >
+              <SkipIcon flip />
+            </button>
 
-          {/* Sabit genislik: 0.75x -> 1x gecisinde dugme daralip
-              ortadaki oynat dugmesini kaydirmasin. */}
-          <button
-            type="button"
-            onClick={() => setSpeedIndex((i) => (i + 1) % SPEEDS.length)}
-            aria-label={t.playerSpeed}
-            title={t.playerSpeed}
-            className="flex h-10 w-14 items-center justify-center rounded-full border border-black/20 font-mono text-sm tabular-nums transition-colors hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
-          >
-            {speed}×
-          </button>
+            <button
+              type="button"
+              onClick={replay}
+              aria-label={t.playerReplay}
+              title={t.playerReplay}
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-black/20 transition-colors hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
+            >
+              <ReplayIcon />
+            </button>
+          </div>
         </div>
       </div>
 

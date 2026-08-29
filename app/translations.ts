@@ -44,6 +44,7 @@ type Translation = {
   playerForward5: string;
   playerSpeed: string;
   playerSeek: string;
+  playerReplay: string;
   // /sinama'daki 'burada neler var' kart izgarasi. Anasayfa henuz
   // kullanmiyor -- duzen orada onaylanirsa oraya da tasinacak.
   indexLead: string;
@@ -106,6 +107,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     playerForward5: "5 saniye ileri",
     playerSpeed: "Oynatma hızı",
     playerSeek: "Ses konumu",
+    playerReplay: "Baştan çal",
     indexLead: "Burada neler var",
     cardNetworks: "Râvi İlişki Ağları",
     cardNetworksDesc: "Râvilerin hoca-talebe bağlarını haritalama çalışması.",
@@ -173,6 +175,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     playerForward5: "خمس ثوانٍ إلى الأمام",
     playerSpeed: "سرعة التشغيل",
     playerSeek: "موضع الصوت",
+    playerReplay: "التشغيل من البداية",
     indexLead: "ما الذي تجده هنا",
     cardNetworks: "شبكات علاقات الرواة",
     cardNetworksDesc: "محاولةٌ لرسم صلات الشيوخ والتلاميذ بين الرواة.",
@@ -237,6 +240,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     playerForward5: "Forward 5 seconds",
     playerSpeed: "Playback speed",
     playerSeek: "Seek",
+    playerReplay: "Play from start",
     indexLead: "What's here",
     cardNetworks: "Narrator Networks",
     cardNetworksDesc: "Mapping teacher-student links between hadith narrators.",
