@@ -56,13 +56,16 @@ const TAB = {
 };
 
 // Râvi noktaları için canlı palet. Renk anlam taşımaz, ayırt etmeye yarar.
+/* Renkler 2026-08-29'da acildi: her ton beyazla %30 karistirildi.
+   Noktalar buyuyunce eski doygun tonlar sayfayi agirlastiriyordu.
+   Renk ANLAM TASIMAZ, yalnizca ayirt etmeye yarar. */
 const PALET = [
-  "#E14D2A", "#2A9D8F", "#F4A261", "#6A4C93", "#0FA3B1", "#D7263D",
-  "#3D5A80", "#EE9B00", "#8AB17D", "#C2185B", "#1B998B", "#F26419",
-  "#5F0F40", "#00A6A6", "#BC4B51", "#4361EE", "#7B9E3F", "#FF7B9C",
-  "#118AB2", "#E4572E", "#2D6A4F", "#9D4EDD", "#F72585", "#06A77D",
+  "#EA826A", "#6ABAB1", "#F7BE90", "#9782B3", "#57BFC8", "#E36777",
+  "#778CA6", "#F3B94D", "#ADC8A4", "#D45D8C", "#5FB8AE", "#F6935E",
+  "#8F5779", "#4DC1C1", "#D08185", "#7B90F3", "#A3BB79", "#FFA3BA",
+  "#58ADC9", "#EC896D", "#6C9784", "#BA83E7", "#F966AA", "#51C1A4",
 ];
-const NEBI_RENK = "#49C6A6";   // turkuaza çalan açık yeşil
+const NEBI_RENK = "#80D7C1";   // turkuaza çalan açık yeşil
 
 // salınım süresi/gecikmesi için sabit sözde-rastgele sayı
 const salSayi = (id) => {
@@ -1409,10 +1412,15 @@ const rOf = (id) => {
    0.24 piksele denk geliyor, yani noktalarin cogu hic cizilmiyordu.
    "Noktalar hala kucuk" sikayetinin sebebi buydu -- yaricapi grafik
    biriminde buyutmek bunu cozmez, cunku olcek de ayni oranda kuculur.
-   Simdi uzakta her nokta en az 3.4 piksel, yakinlasinca gercek
-   oranlar devraliyor. */
-const EN_AZ_EKRAN_R = 3.4;
-const rEkranOf = (id, k) => Math.max(rOf(id) * k, EN_AZ_EKRAN_R);
+   TABAN SABIT DEGIL, bag sayisiyla birlikte artiyor. Duz bir taban
+   (once 3.4 px) en genis gorunumde HER noktayi ayni boya getiriyordu
+   ve "cok bag = buyuk nokta" okumasi tam da en cok ise yarayacagi
+   yerde kayboluyordu. Simdi en kucuk nokta ~3.4 px, Hz. Peygamber
+   ~8.1 px; aradaki fark yaricapin tavana oranindan geliyor. */
+const R_TAVAN = 384;
+const EN_AZ_EKRAN_R = 2.6, EKRAN_R_ARTIS = 5.5;
+const rEkranOf = (id, k) =>
+  Math.max(rOf(id) * k, EN_AZ_EKRAN_R + (rOf(id) / R_TAVAN) * EKRAN_R_ARTIS);
 
 
 const { POS, SUTUNLAR, W, MEDINE } = (() => {
@@ -1436,19 +1444,31 @@ const { POS, SUTUNLAR, W, MEDINE } = (() => {
       gerekli = Math.max(1, sonY.length);
     }
 
+    /* Serit secimi. Onceki surum bos seritler arasinda EN KUCUK
+       INDISLIYI seciyordu; raviler olum yilina gore sirayla geldigi
+       icin erken olenler sola, gec olenler saga yigiliyor ve tablo
+       bastan asagi bir sol-ust/sag-alt kosegeni ciziyordu. Olum yili
+       DIKEY eksenin kurali, yatayda bir karsiligi olmamali.
+
+       Denge korunuyor (en az dolu seritler tercih ediliyor) ama
+       esitlik ravinin kendi kimliginden turetilen sabit bir sayiyla
+       bozuluyor. Sonuc her calistirmada ayni -- rastgele degil,
+       yalnizca yil ile ILISKISIZ. */
     const sonY = new Array(gerekli).fill(-Infinity);
     const sayac = new Array(gerekli).fill(0);
     const atama = [];
     grup.forEach(({ n, y }) => {
-      let s = -1, enAz = Infinity, enEski = Infinity;
-      for (let i = 0; i < gerekli; i++) {
+      const bos = [];
+      let enAz = Infinity;
+      for (let i = 0; i < sonY.length; i++) {
         if (y - sonY[i] < ASGARI_DY) continue;
-        if (sayac[i] < enAz || (sayac[i] === enAz && sonY[i] < enEski)) {
-          s = i; enAz = sayac[i]; enEski = sonY[i];
-        }
+        bos.push(i);
+        if (sayac[i] < enAz) enAz = sayac[i];
       }
-      if (s === -1) { sonY.push(y); sayac.push(0); s = sonY.length - 1; }
-      else sonY[s] = y;
+      const adaylar = bos.filter((i) => sayac[i] === enAz);
+      let s;
+      if (!adaylar.length) { sonY.push(y); sayac.push(0); s = sonY.length - 1; }
+      else { s = adaylar[salSayi(n.id) % adaylar.length]; sonY[s] = y; }
       atama.push({ n, y, s, sira: sayac[s]++ });
     });
     plan[belde] = { atama, seritSayisi: Math.max(1, sonY.length) };
@@ -1460,16 +1480,29 @@ const { POS, SUTUNLAR, W, MEDINE } = (() => {
                    "Basra", "Vâsıt", "Kûfe", "Cibâl", "Horasan", "Mâverâünnehir"];
   const sira = COGRAFI.filter((b) => plan[b]);
 
-  // 3) konumlar
+  /* 3) konumlar. BUTUN SUTUNLAR AYNI GENISLIKTE -- en cok serit
+     gerektiren sutun (Medine) kadar. Onceden her sutun kendi serit
+     sayisi kadar genisti; Misir, Humus, Sam gibi az ravili beldeler
+     incecik seritlere donuyor ve seyreklikleri gorunmuyordu, hepsi
+     ayni doluluktaymis gibi duruyordu. Esit genislikte az sayida nokta
+     ayni alana yayilinca seyreklik kendiliginden okunuyor.
+
+     Seritler sutunun TAMAMINA yayiliyor (sabit SERIT_W ile yan yana
+     degil): iki seritlik bir belde sutunun 1/4 ve 3/4'unu kullaniyor,
+     tek seritlik olan tam ortasini. Kucuk kaydirma da serit araligina
+     oranli, yoksa genis sutunlarda etkisi kayboluyordu. */
+  const enGenisSerit = Math.max(...sira.map((b) => plan[b].seritSayisi));
+  const SUTUN_W = enGenisSerit * SERIT_W;
   const pos = {};
   const sutunlar = [];
   let imlec = SOL_PAY;
   sira.forEach((belde) => {
     const { atama, seritSayisi } = plan[belde];
-    const genislik = seritSayisi * SERIT_W;
+    const genislik = SUTUN_W;
+    const aralik = genislik / seritSayisi;
     atama.forEach(({ n, y, s, sira: k }) => {
-      const kaydir = [0, 22, -22, 11, -11][k % 5];
-      pos[n.id] = { x: imlec + s * SERIT_W + SERIT_W / 2 + kaydir, y };
+      const kaydir = [0, 0.035, -0.035, 0.018, -0.018][k % 5] * aralik;
+      pos[n.id] = { x: imlec + (s + 0.5) * aralik + kaydir, y };
     });
     sutunlar.push({ belde, x: imlec, genislik, seritSayisi });
     imlec += genislik;
@@ -1648,16 +1681,20 @@ export default function SilsileAgi() {
     setView(sinirla({ k: enAzOlcek(), x: 0, y: 0 }));
   }, [sinirla, enAzOlcek]);
 
-  /* Açılıştaki görüntü. Geniş ekranda ağın TAMAMI sığdırılır; dar
-     ekranda tuval DOLDURULUR ve Medine sütunu ortalanır.
+  /* Acilis gorunumu: HZ. PEYGAMBER'E ODAKLI.
 
-     Neden ikisi ayrı: ağ neredeyse kare (~53500 × 55000), telefon ise
-     uzun. Tamamını sığdırmak genişliğe göre küçültmek demek, o da ağı
-     ekranın üst üçte birine hapsedip altta koca bir boşluk bırakıyordu
-     (ölçüldü: 812 px'lik ekranda ağ 326 px). Dolduran ölçekte isimler
-     okunur büyüklükte geliyor, taşan yanlar parmakla kaydırılıyor --
-     zaten bir ağda yapılacak iş de bu. "Tamamı" düğmesi hâlâ tamamını
-     sığdırıyor, yani uzaklaşma yolu kapanmıyor. */
+     Eskiden ag'in tamami sigdiriliyordu; o gorunumde her sey birkac
+     piksellik bir kutle olarak duruyor ve sayfa "ne oldugu belirsiz
+     bir yumak" izlenimi veriyordu. Rivayetin kaynagi tuvalin en
+     ustunde ve ortasinda; oradan baslamak hem ag'in okunma yonunu
+     (yukaridan asagi, kaynaktan talebeye) hem de olceginin ne
+     oldugunu gosteriyor. "Tamami" dugmesi bir tikla eski gorunumu
+     veriyor.
+
+     Olcek: ag'in tamamini sigdiran olcegin 12 kati, ama %8'i
+     gecmiyor. Tek bir sabit sayi vermek yerine sigdirma olcegine
+     baglanmasinin sebebi, cok kucuk ve cok buyuk kapsayicilarda ayni
+     "yakinlik hissini" korumak. */
   const baslangic = useCallback(() => {
     const yatay = (box.w - SOL_BANT) / W, dikey = (box.h - UST_BANT) / H;
     /* Olcek POZITIF bir tabana bagli, tipki enAzOlcek gibi. Taban
@@ -1665,10 +1702,16 @@ export default function SilsileAgi() {
        eksi bir olcek uretiyor ve acilis gorunumu bir kez kuruldugu
        icin bu kaliciya biniyordu. */
     const kSigdir = Math.max(1e-4, Math.min(yatay, dikey));
-    if (box.w >= 768) return sinirla({ k: kSigdir, x: 0, y: 0 });
-    const k = Math.min(Math.max(1e-4, Math.max(yatay, dikey)), 4);
-    const medineMerkez = MEDINE.x + MEDINE.genislik / 2;
-    return sinirla({ k, x: (box.w + SOL_BANT) / 2 - medineMerkez * k, y: 0 });
+    const k = Math.min(kSigdir * 12, 0.08);
+    const nebi = POS["nebi"];
+    return sinirla({
+      k,
+      x: (box.w + SOL_BANT) / 2 - nebi.x * k,
+      /* Dikeyde ortalanmiyor: Hz. Peygamber tuvalin en ustunde, ustunde
+         gosterilecek bir sey yok. sinirla zaten ust kenara yasliyor,
+         boylece altta ilk tabakalar goruntuye giriyor. */
+      y: UST_BANT + 40 - nebi.y * k,
+    });
   }, [box, sinirla]);
 
   /* Kapsayici GERCEKTEN olculdu mu.
@@ -2122,17 +2165,6 @@ export default function SilsileAgi() {
               const d = sonuk(n.id);
               const dg = DERECE[n.id] || 0;
               const r = rEkranOf(n.id, view.k) / view.k;
-              const kad = KADEME(n.id);
-              const etiketBilgi = etiketliler.get(n.id);
-              const etiket = !!etiketBilgi;
-              const etiketYonu = etiketBilgi && etiketBilgi.yon;
-              const etiketKay = etiketBilgi ? etiketBilgi.kay / view.k : 0;
-              // punto ekranda sabit kalsın diye ölçeğe bölünür
-              // Ekranda sabit punto uzakta doğru, ama çok yaklaşınca nokta
-              // devleşip yazı minik kalıyordu. Bu yüzden yazı en az noktanın
-              // yarıçapıyla orantılı bir alt sınırı korur.
-              const punto = Math.max(EKRAN_PUNTO[kad] / view.k, r * 0.42);
-              const altPunto = punto * 0.8;
               const secili = secRavi && secRavi.id === n.id;
               // halesi olan = one cikan dugum (salinim ve hale bunlara ozel)
               const onCikan = !!(MEDAR[n.id] || MUKSIRUN.has(n.id) ||
@@ -2188,19 +2220,42 @@ export default function SilsileAgi() {
                     fill={n.id === "nebi" ? NEBI_RENK : renkOf(n.id)}
                     stroke={secili ? "#23201B" : "white"} strokeWidth={secili ? 3.4 : 2} />
                   </g>
-                  {/* etiket salınım grubunun dışında: yazılar sabit durur */}
-                  {etiket && (
-                    <g className="etiket" style={{ paintOrder: "stroke", stroke: "#FFFFFF", strokeWidth: punto * 0.32 }}
-                       transform={`translate(${etiketKay},${etiketYonu === "ust"
-                         ? -(2 * r + punto + altPunto + 8) : 0})`}>
-                      <text y={r + punto} textAnchor="middle" fontSize={punto}
-                        fontWeight={kad <= 1 ? 600 : 400} fill="#2B2721">
-                        {n.tr.length > 26 ? n.tr.slice(0, 25) + "…" : n.tr}
-                      </text>
-                      <text y={r + punto + altPunto + 3} textAnchor="middle"
-                        fontSize={altPunto} fill="#8C8676">{tarihYaz(n)}</text>
-                    </g>
-                  )}
+                </g>
+              );
+            })}
+
+            {/* ---- etiketler ----
+                AYRI BIR GECISTE ve butun noktalardan SONRA ciziliyor.
+                Onceden her etiket kendi dugum grubunun icindeydi; SVG
+                belge sirasina gore boyadigi icin sonra gelen bir
+                dugumun dairesi, onceki bir dugumun yazisinin uzerine
+                biniyordu. Ayri gecis butun yazilari butun dairelerin
+                ustune aliyor.
+
+                Yalnizca etiketi olan dugumler donuluyor (etiketliler
+                ~100 kayit tutuyor, 541 degil). Etiket salinim grubunun
+                da disinda: yazilar oynamiyor. */}
+            {NODES.map((n) => {
+              const etiketBilgi = etiketliler.get(n.id);
+              if (!etiketBilgi || !POS[n.id]) return null;
+              const p = POS[n.id];
+              const r = rEkranOf(n.id, view.k) / view.k;
+              const kad = KADEME(n.id);
+              const punto = Math.max(EKRAN_PUNTO[kad] / view.k, r * 0.42);
+              const altPunto = punto * 0.8;
+              return (
+                <g key={n.id} className="etiket" pointerEvents="none"
+                   style={{ paintOrder: "stroke", stroke: "#FFFFFF", strokeWidth: punto * 0.32,
+                            opacity: sonuk(n.id) ? 0.38 : 1 }}
+                   transform={`translate(${p.x + etiketBilgi.kay / view.k},${
+                     p.y + (etiketBilgi.yon === "ust"
+                       ? -(2 * r + punto + altPunto + 8) : 0)})`}>
+                  <text y={r + punto} textAnchor="middle" fontSize={punto}
+                    fontWeight={kad <= 1 ? 600 : 400} fill="#2B2721">
+                    {n.tr.length > 26 ? n.tr.slice(0, 25) + "…" : n.tr}
+                  </text>
+                  <text y={r + punto + altPunto + 3} textAnchor="middle"
+                    fontSize={altPunto} fill="#8C8676">{tarihYaz(n)}</text>
                 </g>
               );
             })}
@@ -2263,13 +2318,16 @@ export default function SilsileAgi() {
 
         {/* ---- sağ üst: râvi bul + yakınlaştırma ---- */}
         {/* Kontroller DIKEY SIRALI: arama kutusu, altinda yakinlastirma,
-            en altta "Tamami". Onceden arama kutusu tam genislikte ve
-            digerleri altinda YAN YANA idi, kume 232 px yer kapliyordu;
-            telefonda bu, bilgi kartina 95 px birakiyor ve kart
-            okunmaz hale geliyordu. Dar ekranda kume 132 px'e iniyor,
-            genis ekranda 168 -- ustelik dikey dizilis "Tamami"
-            dugmesini de tam genisligine kavusturuyor. */}
-        <div className="absolute z-20" style={{ bottom: 12, right: 12, width: dar ? 132 : 168 }}
+            en altta "Tamami". Kume EKRANIN %20'si, bilgi karti %80
+            (Mustafa'nin karari, 2026-08-29) -- ikisi altta yan yana
+            duruyor ve ekrani paylasiyor.
+
+            `minWidth` bilerek var: dar bir telefonda %20 yaklasik 75
+            piksel eder, o genislikte "Râvi bul" yazisi da "Tamami"
+            dugmesi de sigmiyor. Taban yalnizca en dar ekranlarda
+            devreye giriyor, digerlerinde %20 gecerli. */}
+        <div className="absolute z-20"
+          style={{ bottom: 12, right: 12, width: "20%", minWidth: 104 }}
           onPointerDown={(e) => e.stopPropagation()}
           onPointerUp={(e) => e.stopPropagation()}
           onWheel={(e) => e.stopPropagation()}>
@@ -2320,8 +2378,8 @@ export default function SilsileAgi() {
                  telefonda karti 95 px'e dusuruyordu. Genis ekranda
                  eskisi gibi solda, yalnizca kumeye ayrilan pay 280'den
                  200'e indi -- kume daraldi. */
-              left: 12, bottom: dar ? 130 : 12,
-              width: dar ? "calc(100% - 24px)" : "min(620px, calc(100% - 200px))",
+              left: 12, bottom: 12,
+              width: "calc(80% - 36px)", minWidth: 180,
               height: 188, overflowY: "auto", overflowX: "hidden",
               background: "rgba(255,255,255,0.97)", border: "1px solid #D8D0BF",
               borderRadius: 2, padding: 16,
@@ -2364,8 +2422,8 @@ export default function SilsileAgi() {
           return (
             <div className="absolute z-20 shadow-lg"
               style={{
-                left: 12, bottom: dar ? 130 : 12,
-                width: dar ? "calc(100% - 24px)" : "min(520px, calc(100% - 200px))",
+                left: 12, bottom: 12,
+                width: "calc(80% - 36px)", minWidth: 180,
                 maxHeight: 188, overflowY: "auto",
                 background: "rgba(255,255,255,0.97)", border: "1px solid #D8D0BF",
                 borderRadius: 2, padding: 16,
