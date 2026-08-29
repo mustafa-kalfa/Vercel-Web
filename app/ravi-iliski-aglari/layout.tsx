@@ -6,15 +6,14 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Râvi İlişki Ağları",
   description: "Hadis râvilerinin hoca-talebe bağlarını haritalama çalışması.",
-  /* SIMDILIK ARAMA MOTORLARINA KAPALI. Sayfa bos bir yer tutucu; asil
-     icerik (gorsellestirme) sonra gelecek. Bos bir sayfanin indekse
-     girmesi hem ziyaretciyi bos bir sonuca goturur hem sitenin genel
-     degerlendirmesine zarar eder.
+  /* ARAMA MOTORLARINA ACIK (2026-08-29). Sayfa bos bir yer tutucuyken
+     `robots: { index: false }` tasiyordu; silsile agi gelince o satir
+     kalkti ve yol app/sitemap.ts'teki YOLLAR listesine eklendi. Ikisi
+     birlikte yapildi -- sitemap'te olup noindex tasiyan bir sayfa kendi
+     kendiyle celisir.
 
-     ICERIK GELINCE: (1) bu satiri sil, (2) yolu app/sitemap.ts'teki
-     YOLLAR listesine ekle. Ikisi birlikte yapilmali -- sitemap'te olup
-     noindex tasiyan bir sayfa kendi kendiyle celisir. */
-  robots: { index: false, follow: true },
+     Deneme adresi /ag-sinamasi ayni bileseni gosteriyor ve KAPALI
+     kalmaya devam ediyor; ikisi indekse girseydi Google kopya sayardi. */
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

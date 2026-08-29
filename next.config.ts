@@ -1,30 +1,17 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  /* /ravi-iliski-aglari GECICI OLARAK /mustafa-calisiyor'a yonlendiriliyor
-     (Mustafa'nin talebi, 2026-08-29). Sayfa duruyor ve yerinde kalacak --
-     asil icerik (ravilerin hoca-talebe baglarini gosteren gorsellestirme)
-     hazir olunca oraya yuklenecek.
+/* Su an ozel bir ayar yok.
 
-     `permanent: false` (307) BILEREK: kalici bir yonlendirme (308)
-     tarayicilar tarafindan agresif onbellege alinir ve yonlendirme
-     kaldirildiktan sonra bile ziyaretciyi eski hedefe goturmeye devam
-     eder. Bu durum gecici oldugu icin 307 dogru olan.
+   Burada bir sure /ravi-iliski-aglari -> /mustafa-calisiyor yonlendirmesi
+   durdu (2026-08-29). Sayfa o zaman bos bir yer tutucuydu; silsile agi
+   ayni gun oraya yuklenince yonlendirme kaldirildi. Yonlendirme kasitli
+   olarak 307'ydi (kalici 308 tarayicida onbellege alinip kaldirildiktan
+   sonra bile ziyaretciyi eski hedefe goturur), bu yuzden geri donusu
+   temiz oldu.
 
-     Kartlar ve footer HALA /ravi-iliski-aglari'na baglaniyor, bilerek:
-     icerik hazir oldugunda yalnizca asagidaki blogu silmek yeterli,
-     baglantilara hic dokunmak gerekmiyor. O zaman ayrica
-     app/ravi-iliski-aglari/layout.tsx'teki `robots: index:false`
-     kaldirilip yol app/sitemap.ts'e eklenmeli. */
-  async redirects() {
-    return [
-      {
-        source: "/ravi-iliski-aglari",
-        destination: "/mustafa-calisiyor",
-        permanent: false,
-      },
-    ];
-  },
-};
+   Yonlendirmeyle birlikte kaldirilanlar: layout'taki `robots: index:false`
+   ve sitemap'e eklenen yol. Ucu birden ayni ise bakiyor -- gelecekte bir
+   sayfayi yine boyle beklemeye alirsan ucunu de kur. */
+const nextConfig: NextConfig = {};
 
 export default nextConfig;

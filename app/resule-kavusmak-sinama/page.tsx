@@ -11,18 +11,18 @@ export const metadata: Metadata = {
   alternates: { canonical: "/resule-kavusmak" },
 };
 
-/* SINAMA adresi -- 2026-08-29'da yeniden gercek bir deneme surumu oldu.
+/* SINAMA adresi. Burada denenen ezber akisi 2026-08-29'da onaylanip
+   yayina alindi, yani su an iki dosya AYNI ICERIKTE:
+   `resule-kavusmak-game-sinama.html` yayindaki dosyanin uzerine
+   kopyalandi.
 
-   Bir sure /resule-kavusmak ile birebir ayni sayfayi gosteriyordu (icerik
-   2026-08-19'da gercek sayfaya tasinmisti, bu rota yalnizca eski
-   baglantilar kirilmasin diye duruyordu). Simdi yeni oyun akisi burada
-   deneniyor: hadis gelir, oyuncu isnadi ezberler, "Ezberledim" dedikten
-   sonra Arapca isnad kaybolur ve oyun baslar.
+   Rota ve ayri dosya bilerek duruyor. Duzenek su: hub ve oyun bileseni
+   ortak, yalnizca `oyunDosyasi` farkli. Bir sonraki deneme yine
+   sinama dosyasinda yapilir, yayindaki oyun hic etkilenmez, onay gelince
+   yine uzerine kopyalanir. Dosyayi silmek bu yalitimi bozar.
 
-   Fark tek bir yerde: oynatilan HTML dosyasi. Hub ve oyun bileseni ayni,
-   yalnizca `oyunDosyasi` farkli. Boylece yayindaki oyun
-   (/resule-kavusmak) denemelerden hic etkilenmiyor. Akis onaylanirsa
-   iki dosya birlestirilir. */
+   Sirasiyla: once tek hadis (niyet), sonra coklu-hadis deneyimi
+   (2026-08-19'da yayina), sonra ezber akisi (2026-08-29'da yayina). */
 export default function ResuleKavusmakSinama() {
   return <ResuleKavusmakHub oyunDosyasi="/resule-kavusmak-game-sinama.html" />;
 }

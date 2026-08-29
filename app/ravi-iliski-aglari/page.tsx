@@ -2,20 +2,29 @@
 
 import Link from "next/link";
 import ChromaKeyVideo from "../ChromaKeyVideo";
+import SilsileAgi from "../SilsileAgi";
 import { useLanguage } from "../LanguageContext";
 
-/* YER TUTUCU. Asil icerik -- ravilerin hoca-talebe baglarini gosteren
-   gorsellestirme -- sonra buraya gelecek.
+/* Ravi iliski aglari -- silsile agi gorsellestirmesinin ASIL adresi.
 
-   Duzen /mustafa-calisiyor'un aynisi bilerek: o sayfa da "hazir degil"
-   demek icin duruyor ve ziyaretci ayni sayfayla iki farkli bicimde
-   karsilasmasin. Icerik gelince bu dosyanin govdesi degisecek, ust
-   logo ve kap ayni kalabilir. */
+   Sayfa 2026-08-29'a kadar bos bir yer tutucuydu ("hazirlaniyor" metni);
+   icerik /ag-sinamasi'nda gelistirildi ve bugun buraya alindi. Deneme
+   adresi yerinde duruyor: bileseni bozmadan denemek icin bir yer lazim
+   ve o sayfa arama motorlarina kapali.
+
+   IKI SAYFA AYNI BILESENI CAGIRIYOR, kopya kod yok. Duzeni degistirmen
+   gerekirse ikisine birden uygula, yoksa deneme yayindakini temsil
+   etmez hale gelir.
+
+   FOOTER KENDILIGINDEN KATLANMA CIZGISININ ALTINDA: kok layout govdeyi
+   `min-h-dvh` bir kaba koyup footer'i o kabin ARDINA ekliyor, asagidaki
+   ag da tam bir ekran kapladigi icin footer ancak kaydirinca goruntuye
+   giriyor -- diger sayfalarda oldugu gibi. */
 export default function RaviIliskiAglari() {
   const { t } = useLanguage();
 
   return (
-    <main className="relative flex flex-1 flex-col items-center">
+    <main className="relative flex flex-1 flex-col">
       <Link
         href="/"
         aria-label={t.brandAlt}
@@ -28,13 +37,18 @@ export default function RaviIliskiAglari() {
         />
       </Link>
 
-      <div className="flex w-full max-w-3xl flex-1 flex-col justify-center gap-3 px-8 pb-16 pt-28 sm:px-16">
-        <h1 className="text-2xl font-semibold tracking-tight text-black dark:text-foreground">
-          {t.cardNetworks}
-        </h1>
-        <p className="max-w-md text-base leading-7 text-zinc-600 dark:text-cream-dimmer">
-          {t.workingOnIt}
-        </p>
+      {/* Ag TAM BIR EKRAN: ust bantla (54px) birlikte 100dvh ediyor,
+          boylece footer tam katlanma cizgisinin altina dusuyor.
+
+          Yukseklik KESIN bir deger (`calc`), yuzde degil: bilesenin
+          kok div'i `height:100%` istiyor ve yuzde yukseklik ancak
+          kapsayicinin boyu kesinse cozuluyor. Kok layout govdeye
+          `min-h-dvh` veriyor, `height` degil.
+
+          Ust bant 2026-08-29'da %33 kuculdu: logo 72 -> 48 px, bant
+          80 -> 54 px. Sayfanin ust seridi ag'dan cok yer aliyordu. */}
+      <div className="mt-[54px] h-[calc(100dvh-54px)]">
+        <SilsileAgi />
       </div>
     </main>
   );

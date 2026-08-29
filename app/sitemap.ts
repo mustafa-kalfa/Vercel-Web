@@ -16,7 +16,7 @@ const SITE = "https://www.mustafakalfa.com";
    ve hangisinin bilerek disarida oldugu belirsizlesir.
 
    Listede OLMAYANLAR ve sebepleri:
-   - /sinama, /resule-kavusmak-sinama, /su-anda-buradasiniz
+   - /sinama, /resule-kavusmak-sinama, /ag-sinamasi, /su-anda-buradasiniz
      Bunlar `robots: { index: false }` tasiyor (bkz. AGENTS.md, "Sayfa
      basliklari"). Indekslenmesini istemedigimiz sayfayi sitemap'e koymak
      kendi kendiyle celisir.
@@ -32,6 +32,7 @@ const YOLLAR = [
   "/rihle",
   "/oyunlar",
   "/resule-kavusmak",
+  "/ravi-iliski-aglari",
   "/mustafa-calisiyor",
   "/egitim-icerikleri",
 ];

@@ -523,16 +523,81 @@
     transition-duration: 450ms !important;
     transition-timing-function: ease !important;
   }
+  /* --- Asamalar (YALNIZCA bu sinama surumunde) -------------------
+
+     Akis uce bolundu, nitelik `#pageRoot[data-asama]` uzerinde:
+
+       ezber  Arapca isnad ve "ezberle" yonergesi gorunur. Tahta,
+              denetimler, ilerleme sayaci ve hadis metni satiri gizli --
+              oyuncunun tek isi isnadi ezberlemek.
+       oyun   Arapca isnad GIZLI (ezberden oynanacak), tahta gorunur.
+       bitti  Isnad geri gelir, hadis metni de gorunur; parilti zaten
+              .glow-active ile metin satirini sariyor.
+
+     display:none secildi (visibility degil): gizli katlar yer de
+     kaplamasin, iframe'in yuksekligi icerige gore kucululsun. Yukseklik
+     zaten body'yi izleyen bir ResizeObserver ile ust pencereye
+     bildiriliyor, yani asama degisince kendiliginden guncelleniyor. */
+  .ezber-btn{
+    display:none;
+    margin:0;
+    padding:0 20px;
+    height:48px;
+    align-items:center;
+    justify-content:center;
+    border:1px solid var(--hairline);
+    border-radius:999px;
+    background:var(--foreground);
+    color:var(--background);
+    font:inherit;
+    font-weight:600;
+    cursor:pointer;
+    transition:opacity .2s ease;
+  }
+  .ezber-btn:hover{ opacity:.9; }
+
+  /* Ezber asamasinda dugme ile Mustafa YAN YANA. Mustafa normalde
+     tahtanin icinde `position:absolute` ve yeri JS ile yuzde olarak
+     hesaplaniyor; burada JS onu bu satira TASIYOR (bkz. asamaAyarla) ve
+     asagidaki kural konumlandirmayi kapatiyor, yani akista dugmenin
+     yanina oturuyor. Asama degisince geri tahtaya tasiniyor ve
+     relayout() konumu yeniden hesapliyor. */
+  .ezber-satir{
+    display:none;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    margin-top:16px;
+  }
+  #pageRoot[data-asama="ezber"] .ezber-satir{ display:flex; }
+  #pageRoot[data-asama="ezber"] .ezber-btn{ display:flex; }
+  #pageRoot[data-asama="ezber"] .mustafa{
+    position:static;
+    transform:none;
+    transition:none;
+    width:96px;
+    flex:none;
+  }
+
+  #pageRoot[data-asama="ezber"] #board,
+  #pageRoot[data-asama="ezber"] .footer-row,
+  #pageRoot[data-asama="ezber"] .progress,
+  #pageRoot[data-asama="ezber"] .metin-row{ display:none; }
+
+  /* Oyun asamasinda kutu KOMPLE gizli. Isnad zaten ezberlendi, hadis
+     metni de henuz yok; geriye yalnizca bos bir cerceve kaliyordu.
+     Yonerge de gizli -- oyuncu ne yapacagini ezber asamasinda okudu. */
+  #pageRoot[data-asama="oyun"] .bubble,
+  #pageRoot[data-asama="oyun"] .lede{ display:none; }
 </style>
 
-<div class="page" id="pageRoot">
+<div class="page" id="pageRoot" data-asama="ezber">
   <div class="wrap">
     <h1 id="h1Text">Mustafâ'yı Peygamberine kavuşturabilir misin?</h1>
     <p class="lede" id="ledeText">İsnâdı doğru şekilde tamamla. Râvileri, Mustafâ'ya en yakın olandan başlayarak sırayla seç.</p>
 
     <div class="bubble" id="hadithBubble">
-      <span class="progress" id="progress">0 / 6 râvi</span>
-      <div class="bubble-row">
+      <div class="bubble-row isnad-row">
         <span class="bubble-label" id="isnadLabel">İsnad</span>
         <div class="isnad-ar" id="isnadAr" dir="rtl" lang="ar">حَدَّثَنَا <span class="ravi-name" data-ravi="humeydi">الْحُمَيْدِيُّ عَبْدُ اللهِ بْنُ الزُّبَيْرِ</span>، قَالَ: حَدَّثَنَا <span class="ravi-name" data-ravi="sufyan">سُفْيَانُ</span>، قَالَ: حَدَّثَنَا <span class="ravi-name" data-ravi="yahya">يَحْيَى بْنُ سَعِيدٍ الْأَنْصَارِيُّ</span>، قَالَ: أَخْبَرَنِي <span class="ravi-name" data-ravi="muhammed">مُحَمَّدُ بْنُ إِبْرَاهِيمَ التَّيْمِيُّ</span> أَنَّهُ سَمِعَ <span class="ravi-name" data-ravi="alkame">عَلْقَمَةَ بْنَ وَقَّاصٍ اللَّيْثِيَّ</span>، يَقُولُ: سَمِعْتُ <span class="ravi-name" data-ravi="omer">عُمَرَ بْنَ الْخَطَّابِ</span> عَلَى الْمِنْبَرِ، قَالَ: سَمِعْتُ <span class="ravi-name" data-ravi="nebi">رَسُولَ اللهِ ﷺ</span></div>
       </div>
@@ -549,6 +614,12 @@
         </svg>
       </div>
     </div>
+
+    <div class="ezber-satir" id="ezberSatir">
+      <button class="ezber-btn" id="ezberBtn" type="button">Ezberledim, hadi başlayalım.</button>
+    </div>
+
+    <span class="progress" id="progress">0 / 6 râvi</span>
 
     <div class="board" id="board">
       <svg class="path-layer" id="pathLayer"></svg>
@@ -1055,6 +1126,40 @@
   // dir yalnizca metin iceren paragraflara uygulanir (h1, lede, toast),
   // butonlarin/board'un fiziksel duzenine (Mustafa'nin konumlama
   // matematigi vb.) dokunulmuyor.
+  /* --- Asama yonetimi (yalnizca bu sinama surumu) ---------------
+
+     'ezber' -> 'oyun' -> 'bitti'. Gorunurluk tamamen CSS'te
+     (#pageRoot[data-asama=...]); buradaki is yalnizca nitelig~i
+     degistirmek ve yonerge metnini tazelemek. */
+  var pageRootEl = document.getElementById('pageRoot');
+  var ezberBtnEl = document.getElementById('ezberBtn');
+
+  function asamaAyarla(asama){
+    pageRootEl.setAttribute('data-asama', asama);
+    // Mustafa ezber asamasinda dugmenin yaninda, digerlerinde tahtada.
+    // DOM'da tasimak canvas'in WebGL baglamini bozmuyor.
+    var ezberSatir = document.getElementById('ezberSatir');
+    if(asama === 'ezber'){
+      if(mustafa.parentNode !== ezberSatir) ezberSatir.appendChild(mustafa);
+    } else if(mustafa.parentNode !== board){
+      board.appendChild(mustafa);
+      // Tahtaya donunce yeri yeniden hesaplanmali, yoksa sol ust kosede kalir.
+      relayout();
+    }
+    /* Asama degisince icerik boyu da degisiyor. Hemen bir kez bildir,
+       sonra iki kez daha: 'bitti' asamasinda Mustafa'nin hedefe
+       yurumesi 0.9sn suruyor ve o sirada tahtanin boyu gecici olarak
+       bambaska bir degerde kaliyor. Gozlemci o ara degeri yakalayip
+       bildiriyor, animasyon oturunca ise .wrap'in boyu bir daha
+       degismedigi icin tekrar tetiklenmiyordu -- iframe olcusu o ara
+       degerde donup kaliyordu (996px olculdu, dogrusu 645px). */
+    if(typeof yukseklikOturana === 'function') yukseklikOturana();
+    // Yonerge metni asamaya bagli, dil degismese de yenilenmeli.
+    if(typeof currentLang !== 'undefined' && STRINGS[currentLang]){
+      applyLanguage(currentLang);
+    }
+  }
+
   var STRINGS = {
     tr: {
       dir: 'ltr',
@@ -1074,7 +1179,10 @@
       toastCorrectSuffix: ' doğru — sıradaki râviyi bul.',
       toastDone: 'Elhamdülillah! Mustafâ Peygamberine kavuştu.',
       toastWrong: 'Sırada bu râvi yok — tekrar dene.',
-      wrongModal: '3 kez yanlış râviyi seçtin. Haydi baştan başlayalım.'
+      wrongModal: '3 kez yanlış râviyi seçtin. Haydi baştan başlayalım.',
+      ezberLede: 'Önce isnâdı ezberle. Râvileri, en yakınından başlayarak sırayla hatırlaman gerekecek.',
+      oyunH1: 'İsnadı tamamla ve Mustafâ\'yı Peygamberine kavuştur. Hz. Peygamber her zaman baş üstünde olmalı. O yüzden başlamak için aşağıya inelim.',
+      ezberBtn: 'Ezberledim, hadi başlayalım.'
     },
     en: {
       dir: 'ltr',
@@ -1094,7 +1202,10 @@
       toastCorrectSuffix: ' is correct — find the next narrator.',
       toastDone: 'Alhamdulillah! Mustafâ has reunited with his Prophet.',
       toastWrong: 'That narrator isn’t next — try again.',
-      wrongModal: 'You picked the wrong narrator three times. Let’s start over.'
+      wrongModal: 'You picked the wrong narrator three times. Let’s start over.',
+      ezberLede: 'First memorise the isnād. You will need to recall the narrators in order, starting with the one closest to Mustafâ.',
+      oyunH1: 'Complete the isnād and reunite Mustafâ with his Prophet. The Prophet must always be held above all, so let us go down to begin.',
+      ezberBtn: 'I have memorised it, let us begin.'
     },
     ar: {
       dir: 'rtl',
@@ -1114,7 +1225,10 @@
       toastCorrectSuffix: ' صحيح — ابحث عن الراوي التالي.',
       toastDone: 'الحمد لله! وصل مصطفى إلى نبيّه.',
       toastWrong: 'هذا ليس الراوي التالي — حاول مرة أخرى.',
-      wrongModal: 'اخترت الراوي الخطأ ثلاث مرات. لنبدأ من جديد.'
+      wrongModal: 'اخترت الراوي الخطأ ثلاث مرات. لنبدأ من جديد.',
+      ezberLede: 'احفظ الإسناد أولاً. ستحتاج إلى تذكُّر الرواة بالترتيب، بدءًا بالأقرب إلى مصطفى.',
+      oyunH1: 'أكمل الإسناد وأوصل مصطفى إلى نبيّه. النبيّ ﷺ فوق الرؤوس دائمًا، فلننزل إلى الأسفل لنبدأ.',
+      ezberBtn: 'حفظتُه، هيّا نبدأ.'
     }
   };
   var currentLang = 'tr';
@@ -1154,15 +1268,23 @@
     var s = STRINGS[lang];
     document.getElementById('pageRoot').classList.toggle('lang-ar', lang === 'ar');
     document.title = s.title;
-    h1El.textContent = s.h1;
+    /* Baslik asamaya bagli: oyun tahtasi acilinca soru sormayi birakip
+       yonerge veriyor -- .lede o asamada gizli oldugu icin tahtanin
+       nasil okundugunu (Hz. Nebi en ustte, oyun en altta) anlatacak
+       tek yer burasi. */
+    h1El.textContent =
+      pageRootEl.getAttribute('data-asama') === 'oyun' ? s.oyunH1 : s.h1;
     h1El.setAttribute('dir', s.dir);
-    ledeEl.textContent = s.lede;
+    // Ezber asamasinda yonerge farkli: "ezberle" diyor, "tamamla" degil.
+    ledeEl.textContent =
+      pageRootEl.getAttribute('data-asama') === 'ezber' ? s.ezberLede : s.lede;
     ledeEl.setAttribute('dir', s.dir);
     isnadLabelEl.textContent = s.isnadLabel;
     hadithLabelEl.textContent = s.hadithLabel;
     goalLabelEl.textContent = s.goalLabel;
     goalSubEl.textContent = s.goalSub;
     resetBtnEl.textContent = s.resetBtn;
+    ezberBtnEl.textContent = s.ezberBtn;
     wrongModalText.textContent = s.wrongModal;
     wrongModalBtn.textContent = s.resetBtn;
     nextBtn.textContent = s.nextBtn;
@@ -1386,6 +1508,8 @@
       lightUpRavi('nebi');
       metinValue.innerHTML = HADITH_TEXT_BY_LANG[currentLang];
       hadithBubble.classList.add('glow-active');
+      // Isnad geri gelir, hadis metni gorunur.
+      asamaAyarla('bitti');
       syncNavButtons();
       // Ust pencereye "bu hadis bitti" haberi. /resule-kavusmak-sinama
       // sirali kilit icin bunu dinliyor (bir sonraki hadisi aciyor ve
@@ -1558,6 +1682,11 @@
   // tarayici Turkce halini hic BOYAMADAN dogru dille devam ediyor.
   if(initialAppearance && STRINGS[initialAppearance.language]){
     applyLanguage(initialAppearance.language);
+  } else {
+    // Dil mesaji hic gelmese bile applyLanguage BIR KEZ calismali:
+    // yonerge metni asamaya bagli ve HTML'deki duragan hali "tamamla"
+    // diyor, oysa acilista "ezberle" demesi gerekiyor.
+    applyLanguage(currentLang);
   }
 
   // Kat genislikleri (pencere/yakinlastirma) degistiginde Mustafa ve iz
@@ -1605,6 +1734,7 @@
   function resetGame(){
     goalNode.classList.remove('reached');
     hadithBubble.classList.remove('glow-active');
+    asamaAyarla('ezber');
     syncNavButtons();
     // finish() gizledigi katlari geri getir.
     board.classList.remove('finished');
@@ -1662,18 +1792,71 @@
   // Bu sayfa bir iframe icinde gomulu kullanildiginda (resule-kavusmak
   // sayfasi), ust pencereye kendi yuksekligini bildirir ki iframe sabit
   // bir tahmin yerine gercek icerige gore boyutlansin.
+  /* Yukseklik ICERIKTEN olculuyor, belgeden DEGIL.
+
+     `document.documentElement.scrollHeight` burada ise yaramiyor, cunku
+     .page'in `min-height:100%` degeri sayfayi her zaman iframe'in
+     boyuna esitliyor. Sonuc bir kisir dongu: bildirilen yukseklik
+     iframe'in mevcut yuksekligine esit cikiyor, iframe hic kuculmuyor
+     ve React'teki baslangic degeri (1200px) oldugu gibi kaliyor.
+     Eski akista icerik zaten uzun oldugu icin fark edilmiyordu; yeni
+     akista ezber asamasi cok kisa ve altta kocaman bir bosluk
+     olusuyordu (rapor edildi, 2026-08-29).
+
+     `.wrap` butun icerigi sariyor (baslik, kutu, ezber satiri, sayac,
+     tahta, alt dugmeler). Onun alt kenari + .page'in alt dolgusu
+     gercek yukseklik. Mustafa tahtanin icinde `absolute` durup asagi
+     tasabiliyor ama tahtanin `padding-bottom:52px`i onu zaten
+     hesaba katiyor. */
   function reportHeight(){
-    if(window.parent !== window){
-      window.parent.postMessage(
-        { type:'resule-kavusmak-height', height: document.documentElement.scrollHeight },
-        '*'
-      );
-    }
+    if(window.parent === window) return;
+    var wrap = document.querySelector('.wrap');
+    var altDolgu = parseFloat(getComputedStyle(pageRootEl).paddingBottom) || 0;
+    var yukseklik = Math.ceil(
+      wrap.getBoundingClientRect().bottom + window.scrollY + altDolgu
+    );
+    window.parent.postMessage(
+      { type:'resule-kavusmak-height', height: Math.max(yukseklik, 200) },
+      '*'
+    );
   }
+  ezberBtnEl.addEventListener('click', function(){ asamaAyarla('oyun'); });
+  // Acilista Mustafa'yi dugmenin yanina tasi (nitelik HTML'de zaten 'ezber').
+  asamaAyarla('ezber');
+
+  /* Asama degisiminden sonra yukseklik OTURANA KADAR olcum.
+
+     Tek seferlik bildirim yetmiyor: 'bitti' asamasinda Mustafa hedefe
+     0.9sn yuruyor, ardindan bir "toparlama" zamanlayicisi daha kat
+     gizliyor. Bu sure boyunca .wrap'in boyu birkac kez degisiyor;
+     ResizeObserver ara degerlerden birini bildirip susuyor ve iframe o
+     ara degerde donup kaliyordu (1005px olculdu, dogrusu 645px).
+     Sabit gecikmeler de tutmadi -- animasyon 1.2sn'den uzun surebiliyor.
+
+     Bu yuzden 100ms araliklarla 3 saniye boyunca olculuyor. Bildirim
+     yalnizca bir postMessage, maliyeti yok; ust pencere ayni degeri
+     alirsa React zaten yeniden cizmiyor. */
+  var oturmaSayaci = null;
+  function yukseklikOturana(){
+    clearInterval(oturmaSayaci);
+    var kalan = 30;
+    reportHeight();
+    oturmaSayaci = setInterval(function(){
+      reportHeight();
+      if(--kalan <= 0) clearInterval(oturmaSayaci);
+    }, 100);
+  }
+
   window.addEventListener('load', reportHeight);
   window.addEventListener('resize', reportHeight);
   if('ResizeObserver' in window){
-    new ResizeObserver(reportHeight).observe(document.body);
+    /* `.wrap` izleniyor, `document.body` DEGIL. body'nin yuksekligi
+       .page'in `min-height:100%`i yuzunden her zaman iframe'e esit --
+       yani icerik buyuse de kucultse de body HIC degismiyor ve gozlemci
+       hic tetiklenmiyordu. Asama degistiginde iframe eski boyunda
+       kaliyor, icerik ya kirpiliyor ya altta bosluk birakiyordu.
+       `.wrap` gercek icerigi sardigi icin dogru olcu ondan geliyor. */
+    new ResizeObserver(reportHeight).observe(document.querySelector('.wrap'));
   }
   setTimeout(reportHeight, 300);
 

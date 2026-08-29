@@ -6,11 +6,13 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Ağ Sınaması",
   description: "Silsile ağı görselleştirmesinin sınama sayfası.",
-  /* SINAMA SAYFASI, arama motorlarina KAPALI. Icerik (silsile agi) hala
-     deneniyor; asil yeri belli olunca -- muhtemelen /ravi-iliski-aglari --
-     bu satir silinip yol app/sitemap.ts'teki YOLLAR listesine eklenir.
-     Ikisi birlikte yapilmali: sitemap'te olup noindex tasiyan bir sayfa
-     kendi kendiyle celisir. */
+  /* SINAMA SAYFASI, arama motorlarina KAPALI KALIYOR. Icerik 2026-08-29'da
+     asil adresine tasindi (/ravi-iliski-aglari, sitemap'te). Bu adres
+     silinmedi: bileseni yayindakini bozmadan denemek icin bir yer lazim
+     ve ikisi ayni bileseni cagirdigi icin kopya kod yok.
+
+     Bu satir DURMALI -- iki sayfa da indekse girseydi Google birini kopya
+     sayip ikisini birden dusururdu. */
   robots: { index: false, follow: false },
 };
 
