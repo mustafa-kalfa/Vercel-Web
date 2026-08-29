@@ -89,8 +89,11 @@ export default function ThemeToggle() {
      topuz kayarken sayfa renkleri de doniyor, ikisi ayni anda bitsin.
      Egri easeOutQuint -- basta hizli, sonda uzun uzun yavaslayan bir
      yumusama; duz `ease-out`tan daha sakin duruyor. */
-  const gecis =
-    "duration-[450ms] ease-[cubic-bezier(0.22,1,0.36,1)]";
+  const gecis = "duration-[450ms] ease-[cubic-bezier(0.22,1,0.36,1)]";
+  /* Ikonlar 450ms'in YARISINDA hareket ediyor: biri ilk yarida cikiyor,
+     digeri ikinci yarida giriyor (asagidaki `delay` degerlerine bkz.).
+     Ikisi arka arkaya oynadigi icin toplam yine 450ms. */
+  const ikonGecis = "duration-[225ms] ease-[cubic-bezier(0.22,1,0.36,1)]";
 
   const toggle = () => {
     /* Gecis sinifi once ekleniyor, tema ONDAN SONRA degisiyor: sinif
@@ -133,52 +136,53 @@ export default function ThemeToggle() {
           isDark ? "translate-x-7" : "translate-x-0"
         }`}
       >
-        {/* Ikonlar topuzun KENARINDAN cikip kayboluyor, donme aciyla
-            degil KIRPMA ile "yuvarlaniyor" hissi veriyor.
+        {/* Ikonlar AYNI ANDA degil SIRAYLA hareket ediyor.
 
-            NEDEN: gunes ikonu 8 esit isindan olusuyor, yani 45
-            derecelik bir donme simetrisi var. 90 derecelik donus sekli
-            KENDISIYLE ortustuurdugu icin bitis pozu baslangictan
-            ayirt edilemiyor -- gunes hep donuyordu ama donduku
-            gorunmuyordu. Bu sekilde hicbir aci ise yaramaz: 45, 90,
-            135 ve 180 derecenin hepsi gorsel olarak sifira esit,
-            arada kalan aciler ise en fazla 22.5 derecelik bir egiklik
-            birakir. Yani "yuvarlandi" hissini DONUS uretemez.
+            Bu ucuncu deneme. Ilk ikisi neden tutmadi:
+            1) Kucuk bir yatay kaydirma eklendi -- yetmedi, cunku sorun
+               kaydirmanin miktari degildi.
+            2) Kaydirma buyutulup topuz kirpildi -- o da yetmedi, cunku
+               sorun ikonlarin nereye gittigi degil NE ZAMAN gittigiydi.
 
-            COZUM: topuza `overflow-hidden`, ikonlara buyuk bir yatay
-            kaydirma (20px, topuz 28px). Cikan ikon topuzun kenarindan
-            disari kayip kirpiliyor, giren ikon karsi kenardan
-            beliriyor -- yuvarlanan bir topun yuzeyindeki isaret gibi.
-            Bu, ikonun sekline ve simetrisine hic bagli degil.
+            Asil sebep: iki ikon ayni 450ms icinde birlikte hareket
+            ediyordu. Capraz gecis boyunca ikisi de yari saydam, ama
+            biri sonunda tam gorunur kaldigi icin goz hep ONU takip
+            ediyor. Sonuc: hangi yone gidilirse gidilsin "gelen ikon"
+            akilda kaliyor, giden fark edilmiyordu. Koyudan aciga
+            gecerken gelen ikon hilal oldugu icin "yine ay yildiz
+            yuvarlaniyor" goruluyordu.
 
-            Donus KORUNDU: yolculuk sirasinda sekil gorunur sekilde
-            savruluyor, yalnizca bitis pozu ayni kaliyor. Kaydirmayla
-            birlikte hareket tamamlaniyor.
+            Cozum: 450ms ikiye bolundu. Giden ikon ilk yarida sahneyi
+            tek basina kullanip cikiyor, gelen ikon ikinci yarida
+            geliyor. `delay-0` cikana, `delay-[225ms]` gelene.
 
-            acik -> koyu  topuz saga, hilal sag kenardan cikar, gunes
-                          sol kenardan girer
-            koyu -> acik  topuz sola, gunes SOL KENARDAN CIKAR, hilal
-                          sag kenardan girer
+              acik -> koyu   0-225ms hilal SAG kenardan cikar
+                             225-450ms gunes SOL kenardan girer
+              koyu -> acik   0-225ms gunes SOL kenardan cikar
+                             225-450ms hilal SAG kenardan girer
 
-            Negatif deger `translate-x-[-20px]` diye yaziliyor,
-            `-translate-x-[20px]` diye DEGIL: bu Tailwind surumunde
-            tire onde yazilinca kural hic uretilmiyor. */}
+            Toplam sure yine 450ms, yani topuzun kaymasi ve sayfa
+            renklerinin donusuyle ayni anda bitiyor.
+
+            Gunesin DONUSU hala gorunmuyor (8 esit isin, 45 derecelik
+            simetri, 90 derecelik donus sekli kendisiyle ortusuyor);
+            yuvarlanma hissini kenardan cikip kirpilma veriyor. */}
         <span
           aria-hidden="true"
-          className={`absolute inset-0 flex items-center justify-center transition-all ${gecis} ${
+          className={`absolute inset-0 flex items-center justify-center transition-all ${ikonGecis} ${
             isDark
-              ? "translate-x-[20px] rotate-90 opacity-0"
-              : "translate-x-0 rotate-0 opacity-100"
+              ? "translate-x-[20px] rotate-90 opacity-0 delay-0"
+              : "translate-x-0 rotate-0 opacity-100 delay-[225ms]"
           }`}
         >
           <CrescentIcon />
         </span>
         <span
           aria-hidden="true"
-          className={`absolute inset-0 flex items-center justify-center transition-all ${gecis} ${
+          className={`absolute inset-0 flex items-center justify-center transition-all ${ikonGecis} ${
             isDark
-              ? "translate-x-0 rotate-0 opacity-100"
-              : "translate-x-[-20px] -rotate-90 opacity-0"
+              ? "translate-x-0 rotate-0 opacity-100 delay-[225ms]"
+              : "translate-x-[-20px] -rotate-90 opacity-0 delay-0"
           }`}
         >
           <SunIcon />
