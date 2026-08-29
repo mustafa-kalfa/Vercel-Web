@@ -53,6 +53,9 @@ const TAB = {
   3: { ad: "Vustâ" },
   4: { ad: "Sigār-ı tâbiîn" },
   5: { ad: "Etbâu't-tâbiîn" },
+  /* Kutub-i Sitte muelliflerinin talebeleri. Ag'in son siniri:
+     bunlarin talebeleri artik eklenmiyor. */
+  6: { ad: "Müellif sonrası" },
 };
 
 // Râvi noktaları için canlı palet. Renk anlam taşımaz, ayırt etmeye yarar.
@@ -82,7 +85,10 @@ const renkOf = (id) => {
 
 // Kaynakta vefat yılı verilmeyen râviler için yerleşim değeri.
 // Kaynağa dayanmaz, yalnız râviyi tabakasının tipik aralığının ortasına koyar.
-const TAHMIN = { 0: 11, 1: 55, 2: 90, 3: 105, 4: 135, 5: 175 };
+/* Tabaka 6 icin 308: bu isimlerin cogu 280-360 arasinda vefat etti ama
+   YIL_MAX 315, yani 320 ekseni tasardi. Gercek tarihler islenene kadar
+   dikey konumlari yalnizca "en altta" demek. */
+const TAHMIN = { 0: 11, 1: 55, 2: 90, 3: 105, 4: 135, 5: 175, 6: 308 };
 
 // DİA'dan alınan hicrî/milâdî vefat yılları (madde tanıtım cümlelerinden)
 const DIA = {"ali": [40, "661"], "ebuhureyre": [58, "678"], "ebubekir": [13, "634"], "omer": [23, "644"], "aise": [58, "678"], "enes": [93, "711"], "cabir": [78, "697"], "ibnabbas": [68, "687"], "ibnomer": [73, "693"], "ibnmesud": [32, "652"], "ibnzubeyr": [73, "692"], "bera": [71, "690"], "zeydarkam": [68, "688"], "suhayb": [38, "659"], "hasanbali": [49, "669"], "huseyn": [61, "680"], "ibncafer": [80, "699"], "mikdad": [33, "653"], "fatima": [11, "632"], "ubey": [33, "654"], "usame": [54, "674"], "kabahbar": [32, "652"], "ahnef": [67, "686"], "esvedyezid": [75, "694"], "alkame": [62, "682"], "suveydgafle": [80, "699"], "ebuvail": [82, "701"], "zirhubeys": [82, "701"], "saidmusayyeb": [94, "713"], "hasanbasri": [110, "728"], "rebihiras": [101, "719"], "zeydvehb": [83, "702"], "ebutufeyl": [100, "718"], "sabi": [104, "722"], "urve": [94, "713"], "ikrime": [105, "723"], "zeynelabidin": [94, "712"], "zeydeslem": [136, "754"], "salimibnomer": [106, "725"], "amrhurays": [85, "704"], "zeydsabit": [45, "665"], "kayshazim": [97, "715"], "abdrahmanebubekir": [53, "673"], "abdrahmanavf": [32, "652"], "osman": [35, "656"], "ukbeamir": [58, "678"], "ebumusa": [42, "662"], "ebusaid": [74, "693"], "huzeyfe": [36, "656"], "ebusalih": [101, "719"], "esaskays": [40, "661"], "cerirbecelî": [51, "671"], "sadvakkas": [55, "675"], "talha": [36, "656"], "asimomer": [70, "689"], "ebanosman": [105, "723"], "ibnhanefiyye": [81, "700"], "ataebirebah": [114, "732"], "ubeydullahadi": [58, "678"], "abdrahmanyezid": [198, "813"], "ebuabdrahmansulemi": [73, "692"], "selemeekva": [74, "693"], "imranhusayn": [52, "672"], "mugirasube": [50, "670"], "abdrahmanabza": [70, "689"], "amrdinar": [126, "744"], "ebuishaksebii": [127, "745"], "amess": [148, "765"], "malik": [179, "795"], "ibncureyc": [150, "767"], "ibnuyeyne": [198, "814"], "hammadseleme": [167, "784"], "mamer": [153, "770"], "sevri": [161, "778"], "evzai": [157, "774"], "huseym": [183, "799"], "yahyaadem": [203, "818"], "kattan": [198, "813"], "ibnmehdi": [198, "813"], "rafihadic": [73, "692"], "eyyubsahtiyani": [131, "749"], "haccacertat": [145, "762"], "ebulaliye": [90, "709"], "ibrahimteymi": [92, "710"], "hafsgiyas": [194, "810"], "leysbsad": [175, "791"], "ibnidris": [192, "807"], "alimushir": [189, "805"], "saidcubeyr": [94, "713"], "tavus": [106, "725"], "mucahid": [103, "721"], "suleymanyesar": [107, "725"], "vehbmunebbih": [114, "732"], "hammadzeyd": [179, "795"], "numanbesir": [64, "684"], "zuhayrmuaviye": [173, "789"], "temimdari": [40, "661"], "bilal": [20, "641"], "amirrebia": [35, "656"], "sabitbunani": [127, "744"], "dahhak": [105, "723"], "ebukilabe": [104, "722"], "yahyasaidensari": [143, "760"], "katade": [117, "735"], "yahyaebikesir": [129, "747"], "ibnishak": [151, "768"], "ibnebiaruba": [156, "773"], "ebuavane": [176, "792"], "sube": [160, "776"], "veki": [197, "812"], "ibnmubarek": [181, "797"], "cerirabdulhamid": [188, "804"], "ebucafermuhbakir": [114, "733"], "ebuselemeavf": [94, "712"], "mesruk": [63, "683"], "amrmeymun": [74, "693"], "hamzazeyyat": [156, "773"], "halidvelid": [21, "642"], "bureyde": [63, "682"], "hafsa": [45, "665"], "ibnebimuleyke": [117, "735"], "ebunadra": [108, "726"], "haricezeyd": [100, "718"], "ubeydullahutbe": [98, "716"], "arac": [117, "735"], "ibrahimsad": [183, "799"], "suaybebihamza": [162, "779"], "ibnsihab": [124, "742"], "hisamdestuvai": [153, "770"], "misersukdam": [155, "772"], "suleymanteymi": [143, "761"], "serikkadi": [177, "794"], "sureyh": [80, "699"], "ibnebizaide": [182, "798"], "nebi": [11, "632"], "buhari": [256, "870"], "muslim": [261, "875"], "ebudavud": [275, "889"], "tirmizi": [279, "892"], "nesai": [303, "915"], "ibnmace": [273, "887"]};
@@ -703,6 +709,54 @@ const NODES = [
   N("ebudavud", "أبو داود السجستاني", "Ebû Dâvûd es-Sicistânî", 5, 275, "Basra", "es-Sünen sahibi."),
   N("tirmizi", "محمد بن عيسى الترمذي", "Tirmizî", 5, 279, "Horasan", "el-Câmi‘ ve el-İlel sahibi."),
   N("nesai", "أحمد بن شعيب النسائي", "Nesâî", 5, 303, "Mısır", "es-Sünen sahibi."),
+
+  /* ---- Muslim'in talebeleri — Tehzîb 5923 (Samile 3722, s. 27/504-505) ----
+
+     TABAKA 6 = "muellif sonrasi". Bunlar ag'in SON SINIRI (Mustafa'nin
+     karari, 2026-08-29): kendi talebeleri artik eklenmeyecek.
+
+     CEVIRI YAZI YOK, adlar Arapca (Mustafa'nin karari). Bu isimlerin
+     cogunun DIA'da maddesi yok; ceviri yazi her biri icin ayri bir
+     karar demek olurdu.
+
+     VEFAT YILI YOK. Mizzi bu listede tarih vermiyor; dugumler
+     tabakanin varsayilan yilina (TAHMIN[6] = 320) oturuyor, yani
+     dikey konumlari KESIN DEGIL. Tarihler ayrica islenmeli.
+
+     BELDE nisbeden turetildi (النيسابوري/البلخي/السرخسي -> Horasan,
+     البخاري -> Maveraunnehir, الرازي -> Cibal...). Nisbesi olmayanlar
+     Muslim'in beldesine kondu; bunlarin cogu zaten Nisabur halkasi.
+     Kesin degil, tercemelerinden teyit edilmeli. */
+  N("ms01", "إبراهيم بن إسحاق الصيرفي", "إبراهيم بن إسحاق الصيرفي", 6, null, "Horasan"),
+  N("ms02", "إبراهيم بن أبي طالب", "إبراهيم بن أبي طالب", 6, null, "Horasan"),
+  N("ms03", "إبراهيم بن محمد بن حمزة", "إبراهيم بن محمد بن حمزة", 6, null, "Horasan"),
+  N("ms04", "إبراهيم بن محمد بن سفيان الفقيه", "إبراهيم بن محمد بن سفيان الفقيه", 6, null, "Horasan"),
+  N("ms05", "أبو حامد أحمد بن حمدون بن رستم الأعمشي", "أبو حامد أحمد بن حمدون بن رستم الأعمشي", 6, null, "Horasan"),
+  N("ms06", "أبو الفضل أحمد بن سلمة الحافظ", "أبو الفضل أحمد بن سلمة الحافظ", 6, null, "Horasan"),
+  N("ms07", "أبو حامد أحمد بن علي بن الحسن بن حسنويه المقرئ", "أبو حامد أحمد بن علي بن الحسن بن حسنويه المقرئ", 6, null, "Horasan"),
+  N("ms08", "أبو عمرو أحمد بن المبارك المستملي", "أبو عمرو أحمد بن المبارك المستملي", 6, null, "Horasan"),
+  N("ms09", "أبو حامد أحمد بن محمد بن الحسن بن الشرقي", "أبو حامد أحمد بن محمد بن الحسن بن الشرقي", 6, null, "Horasan"),
+  N("ms10", "أبو عمرو أحمد بن نصر الخفاف الحافظ", "أبو عمرو أحمد بن نصر الخفاف الحافظ", 6, null, "Horasan"),
+  N("ms11", "أبو سعيد حاتم بن أحمد بن محمود الكندي البخاري", "أبو سعيد حاتم بن أحمد بن محمود الكندي البخاري", 6, null, "Mâverâünnehir"),
+  N("ms12", "الحسين بن محمد بن زياد القباني", "الحسين بن محمد بن زياد القباني", 6, null, "Horasan"),
+  N("ms13", "أبو يحيى زكريا بن داود الخفاف", "أبو يحيى زكريا بن داود الخفاف", 6, null, "Horasan"),
+  N("ms14", "سعيد بن عمرو البرذعي الحافظ", "سعيد بن عمرو البرذعي الحافظ", 6, null, "Horasan"),
+  N("ms15", "صالح بن محمد البغدادي الحافظ", "صالح بن محمد البغدادي الحافظ", 6, null, "Horasan"),
+  N("ms16", "أبو محمد عبد الله بن أحمد بن عبد السلام الخفاف النيسابوري", "أبو محمد عبد الله بن أحمد بن عبد السلام الخفاف النيسابوري", 6, null, "Horasan"),
+  N("ms17", "أبو محمد عبد الله بن محمد بن الحسن بن الشرقي", "أبو محمد عبد الله بن محمد بن الحسن بن الشرقي", 6, null, "Horasan"),
+  N("ms18", "أبو علي عبد الله بن محمد بن علي البلخي الحافظ", "أبو علي عبد الله بن محمد بن علي البلخي الحافظ", 6, null, "Horasan"),
+  N("ms19", "عبد الله بن يحيى السرخسي القاضي", "عبد الله بن يحيى السرخسي القاضي", 6, null, "Horasan"),
+  N("ms20", "عبد الرحمن بن أبي حاتم الرازي", "عبد الرحمن بن أبي حاتم الرازي", 6, null, "Cibâl"),
+  N("ms21", "علي بن إسماعيل الصفار", "علي بن إسماعيل الصفار", 6, null, "Horasan"),
+  N("ms22", "علي بن الحسن بن أبي عيسى الهلالي", "علي بن الحسن بن أبي عيسى الهلالي", 6, null, "Horasan"),
+  N("ms23", "علي بن الحسين بن الجنيد الرازي", "علي بن الحسين بن الجنيد الرازي", 6, null, "Cibâl"),
+  N("ms24", "الفضل بن محمد بن علي البلخي", "الفضل بن محمد بن علي البلخي", 6, null, "Horasan"),
+  N("ms25", "أبو بكر محمد بن النضر بن سلمة بن الجارود الجارودي", "أبو بكر محمد بن النضر بن سلمة بن الجارود الجارودي", 6, null, "Horasan"),
+  N("ms26", "أبو حاتم مكي بن عبدان التميمي", "أبو حاتم مكي بن عبدان التميمي", 6, null, "Horasan"),
+  N("ms27", "أبو محمد نصر بن أحمد بن نصر الحافظ المعروف بنصرك", "أبو محمد نصر بن أحمد بن نصر الحافظ المعروف بنصرك", 6, null, "Horasan"),
+  N("ms28", "يحيى بن محمد بن صاعد", "يحيى بن محمد بن صاعد", 6, null, "Horasan"),
+  N("ms29", "أبو عوانة الإسفراييني", "أبو عوانة الإسفراييني", 6, null, "Horasan"),
+
   N("ibnmace", "محمد بن يزيد ابن ماجه", "İbn Mâce", 5, 273, "Cibâl", "es-Sünen sahibi."),
   N("darimi", "عبد الله بن عبد الرحمن الدارمي", "Dârimî", 5, 255, "Horasan"),
   N("ebuzuraraazi", "أبو زرعة الرازي", "Ebû Zür‘a er-Râzî", 5, 264, "Cibâl"),
@@ -907,6 +961,21 @@ const EDGES = [
   E("fadl", "ebuhureyre", "م س", "Tehzîb 7681"),
   E("kabahbar", "ebuhureyre", "د ت س", "Tehzîb 7681"),
   E("aise", "ebuhureyre", "م د س ق", "Tehzîb 7681"),
+  /* Muslim'in talebeleri — Tehzîb 5923. Tirmizi zaten dugum, "bir hadis"
+     kaydiyla Mizzi'de ilk sirada; digerleri yeni acildi. */
+  E("muslim", "tirmizi", "—", "Tehzîb 5923 — «حديثا واحدا»"),
+  ...[
+      ["ms01","—"],["ms02","—"],["ms03","—"],
+      ["ms04","—"],["ms05","—"],["ms06","—"],
+      ["ms07","—"],["ms08","—"],["ms09","—"],
+      ["ms10","—"],["ms11","—"],["ms12","—"],
+      ["ms13","—"],["ms14","—"],["ms15","—"],
+      ["ms16","—"],["ms17","—"],["ms18","—"],
+      ["ms19","—"],["ms20","—"],["ms21","—"],
+      ["ms22","—"],["ms23","—"],["ms24","—"],
+      ["ms25","—"],["ms26","—"],["ms27","—"],
+      ["ms28","—"],["ms29","—"],
+     ].map(([b, r]) => E("muslim", b, r, "Tehzîb 5923")),
   /* Ebû Hüreyre'nin talebeleri — Tehzîb 7681 (Şâmile 3722, s. 34/367-377).
      Mizzî 338 isim sayıyor; Buhârî'den naklen «روى عنه نحو من ثمان مئة رجل
      أو أكثر» der. Buradaki 46 bağ, o listenin AĞDA ZATEN BULUNAN
