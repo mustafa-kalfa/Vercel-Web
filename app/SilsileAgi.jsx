@@ -2331,6 +2331,12 @@ export default function SilsileAgi() {
      ortalanacagi yerde ekranin disinda kaliyordu (olculdu). */
   const [box, setBox] = useState({ w: 0, h: 0 });
 
+  /* Dar ekran esigi. Kontrol kutulari ve bilgi karti bu esigin altinda
+     farkli diziliyor (bkz. asagisi): telefonda ikisi yan yana
+     sigmiyor. 640, tabletin dikey genisliginin altinda, telefonun
+     ustunde. */
+  const dar = box.w < 640;
+
   useEffect(() => {
     const el = boxRef.current;
     if (!el) return;
@@ -2758,20 +2764,24 @@ export default function SilsileAgi() {
     if (secim && vurgu) {
       sirali.filter((x) => vurgu.has(x.n.id)).forEach((x) => dene(x, true));
     }
-    sirali.forEach((x) => { if (!secilenler.has(x.n.id)) dene(x, false); });
+    sirali.forEach((x) => {
+      /* ETIKET SAYISINA UST SINIR. Carpisma testi zaten sigmayani
+         eliyor ama genis ve bos bir bolgede yuzlerce isim
+         yazilabiliyor; her etiket iki <text> ve bir kontur demek.
+         Dar ekranda sinir daha dusuk. Onem sirasina gore
+         yerlestirildigi icin elenenler her zaman en az bagli
+         olanlar. */
+      if (secilenler.size >= (dar ? 45 : 110)) return;
+      if (!secilenler.has(x.n.id)) dene(x, false);
+    });
     return secilenler;
-  }, [durgun, box, secim, vurgu, adi]);
+  }, [durgun, box, secim, vurgu, adi, dar]);
 
   /* Kenarlarin tiklama seritleri bu esigin ustunde uretiliyor (bkz.
      kenar cizimi). 0.05, agin tamami ekrana sigmis haldeki olcegin
      (~0.006-0.014) belirgin ustunde; yani "biraz yakinlastim" demek. */
   const yakin = durgun.k > 0.05;
 
-  /* Dar ekran esigi. Kontrol kutulari ve bilgi karti bu esigin altinda
-     farkli diziliyor (bkz. asagisi): telefonda ikisi yan yana
-     sigmiyor. 640, tabletin dikey genisliginin altinda, telefonun
-     ustunde. */
-  const dar = box.w < 640;
 
   /* SUS ANIMASYONLARI DAR EKRANDA KAPALI.
 
@@ -2803,6 +2813,24 @@ export default function SilsileAgi() {
      yutuyorlar (denendi). Ikisi birlikte, uzakta ag'in genel dokusunu,
      yakinda tek tek baglari veriyor. */
   const cizgiCarpani = Math.min(1, 0.3 + durgun.k * 7);
+
+  /* Bir kenarin yol dizgisi. Iki yerde lazim: tek tek cizilen
+     (vurgulu / yakin) kenarlarda ve uzakta hepsinin birlestirildigi
+     tek yolda. */
+  const kenarYolu = useCallback((e) => {
+    const pa = POS[e.a], pb = POS[e.b];
+    if (!pa || !pb) return null;
+    const dy = pb.y - pa.y;
+    const [kavisHam, kf] = KAVIS[e.a + "|" + e.b] || [0, 0.3];
+    const kavis = kavisHam * KAVIS_OLCEK;
+    const k1x = pa.x + kavis, k1y = pa.y + dy * kf;
+    const k2x = pb.x + kavis, k2y = pb.y - dy * kf;
+    const vx = pb.x - k2x, vy = pb.y - k2y;
+    const vu = Math.hypot(vx, vy) || 1;
+    const bosluk = rOf(e.b) + 10;
+    return `M ${pa.x} ${pa.y} C ${k1x} ${k1y}, ${k2x} ${k2y}, ` +
+           `${pb.x - (vx / vu) * bosluk} ${pb.y - (vy / vu) * bosluk}`;
+  }, []);
   const cizgiSaydam = Math.min(1, 0.3 + durgun.k * 6);
 
 
@@ -2874,8 +2902,13 @@ export default function SilsileAgi() {
      gorus alani, pencerenin hesaplandigi olcege gore buyuyor. Pay
      olmasa "Tamami"ye basildiginda gorunum genislerken tuvalin bir
      kismi 140 ms boyunca bos kalirdi. */
+  /* Pay dar ekranda YARIM ekran, genis ekranda bir ekran. Telefonda
+     her fazladan ekranlik pay uc kat daha cok eleman demek ve
+     tarayicinin isi o oranda artiyor; masaustunde bedeli
+     hissedilmiyor, orada genis pay kaydirmayi daha akici yapiyor. */
   const zoomPay = Math.max(1, kg / view.k);
-  const gw = (box.w / kg) * zoomPay, gh = (box.h / kg) * zoomPay;
+  const payOran = dar ? 0.5 : 1;
+  const gw = (box.w / kg) * zoomPay * payOran, gh = (box.h / kg) * zoomPay * payOran;
   const qx = olculdu && gw > 0 ? Math.floor(-view.x / kg / gw) : 0;
   const qy = olculdu && gh > 0 ? Math.floor(-view.y / kg / gh) : 0;
   const pencere = useMemo(() => (olculdu
@@ -2946,51 +2979,59 @@ export default function SilsileAgi() {
             ))}
 
             {/* kenarlar */}
+            {/* KENARLAR IKI YOLDAN CIZILIYOR.
+
+                UZAKTA (yakin degilken) vurgusuz kenarlarin hepsi TEK
+                BIR <path> icinde birlestiriliyor. Her kenar ayri bir
+                eleman oldugunda uzaklasilmis gorunumde ~1400 yol
+                olusuyor; hepsi ayni renk ve kalinlikta cizildigi icin
+                bunu tek bir yolun alt parcalari olarak vermek ayni
+                goruntuyu veriyor ve tarayicinin isini yuzlerce kat
+                azaltiyor. Tiklama seritleri ve ok uclari zaten uzakta
+                cizilmiyordu.
+
+                YAKINDA ve VURGULULARDA kenarlar tek tek: her birinin
+                kendi rengi, kalinligi, ok ucu ve tiklama seridi var. */}
+            {!yakin && (() => {
+              const dimD = [], normalD = [];
+              for (const e of EDGES) {
+                const pa = POS[e.a], pb = POS[e.b];
+                if (!pa || !pb || !kenarIcerde(pa, pb)) continue;
+                if (vurgu && (vurgu.has(e.a) || vurgu.has(e.b))) continue;
+                const yol = kenarYolu(e);
+                if (!yol) continue;
+                (kenarSonuk(e) ? dimD : normalD).push(yol);
+              }
+              const ortak = { fill: "none", vectorEffect: "non-scaling-stroke",
+                              style: { pointerEvents: "none" } };
+              return (
+                <g>
+                  {dimD.length > 0 && (
+                    <path {...ortak} d={dimD.join(" ")} stroke={C.kenarSonuk}
+                      strokeWidth={0.7 * cizgiCarpani} opacity={0.5 * cizgiSaydam} />
+                  )}
+                  {normalD.length > 0 && (
+                    <path {...ortak} d={normalD.join(" ")} stroke={C.kenar}
+                      strokeWidth={1.2 * cizgiCarpani} opacity={0.85 * cizgiSaydam} />
+                  )}
+                </g>
+              );
+            })()}
+
             {EDGES.map((e, i) => {
               const pa = POS[e.a], pb = POS[e.b];
               if (!pa || !pb) return null;
               if (!kenarIcerde(pa, pb)) return null;
               const dim = kenarSonuk(e);
               const secili = secKenar && secKenar.a === e.a && secKenar.b === e.b;
-              // odaktaki râvinin kendi bağlarında rivayet yönü akış olarak görünür
-              const canli = !secili && ((secim && secim.tur === "ravi" &&
-                (e.a === secim.id || e.b === secim.id)) ||
-                false);
-              const dy = pb.y - pa.y;
-              /* KAVIS tablosu SERIT_W = 620 iken uretilmis sabit bir
-                 tablo (1381 kayit). Serit genisligi 1240'a cikinca
-                 tablodaki yanal kayma degerleri yarim kaldi ve kavisler
-                 oldugundan duz gorunuyordu. Oran KAVIS_OLCEK ile
-                 duzeltiliyor.
-                 UYARI: bu yalnizca ORANI duzeltir. Tablonun asil isi
-                 her kavisi dugumlere DEGMEYECEK sekilde secmekti; sutun
-                 duzeni degistigi (esit genislik, seritlerin yayilmasi,
-                 serit atamasinin degismesi) icin o carpisma bilgisi
-                 artik gecerli degil. Tablonun yeni yerlesime gore
-                 yeniden uretilmesi gerekiyor. */
-              const [kavisHam, kf] = KAVIS[e.a + "|" + e.b] || [0, 0.3];
-              const kavis = kavisHam * KAVIS_OLCEK;
-              const k1x = pa.x + kavis, k1y = pa.y + dy * kf;
-              const k2x = pb.x + kavis, k2y = pb.y - dy * kf;
-              const vx = pb.x - k2x, vy = pb.y - k2y;
-              const vu = Math.hypot(vx, vy) || 1;
-              const bosluk = rOf(e.b) + 10;
-              const sonX = pb.x - (vx / vu) * bosluk;
-              const sonY = pb.y - (vy / vu) * bosluk;
-              const d = `M ${pa.x} ${pa.y} C ${k1x} ${k1y}, ${k2x} ${k2y}, ${sonX} ${sonY}`;
+              const canli = !secili && !!(secim && secim.tur === "ravi" &&
+                (e.a === secim.id || e.b === secim.id));
+              // uzakta vurgusuzler yukaridaki birlesik yola girdi
+              if (!yakin && !secili && !canli) return null;
+              const d = kenarYolu(e);
+              if (!d) return null;
               return (
                 <g key={i}>
-                  {/* Gorunmez tiklama seridi. Her kenarin altinda 16 px
-                      kalinliginda ikinci bir yol var; kenarlar ince
-                      cizildigi icin tiklamayi bu yakaliyor.
-
-                      YAKINDA CIZILIYOR, uzakta degil: 1382 kenarin
-                      1382 serit yolu, her fare/parmak hareketinde
-                      isabet sinamasindan geciyordu. Uzaklasilmis bir
-                      ag'da kenarlar zaten ayirt edilemedigi icin
-                      tiklanacak bir sey de yok; esigin altinda bu
-                      yollar hic uretilmiyor ve sinanacak eleman sayisi
-                      yariya iniyor. */}
                   {yakin && (
                     <path d={d} fill="none" stroke="transparent" strokeWidth="16"
                       vectorEffect="non-scaling-stroke"
@@ -3001,17 +3042,8 @@ export default function SilsileAgi() {
                       }} />
                   )}
                   <path d={d} fill="none"
-                    className={"kenar" + (canli ? " kenar-v" : "")}
+                    className={"kenar" + (canli && susAnimasyon ? " kenar-v" : "")}
                     stroke={secili ? C.kenarSecili : canli ? C.vurguInk : dim ? C.kenarSonuk : C.kenar}
-                    /* `vectorEffect="non-scaling-stroke"`: kalinlik
-                       EKRAN PIKSELI olarak sabit kaliyor, tuvalin
-                       olcegiyle kuculmuyor. Cizgilerin silik
-                       gorunmesinin sebebi buydu -- kalinlik grafik
-                       biriminde yaziliyor ve %1 olcekte 1.7 birim
-                       0.008 piksele iniyordu, yani tarayici cizgiyi
-                       ancak bir tonlama olarak gosterebiliyordu.
-                       Sayilar da bir miktar kalinlastirildi ve renk
-                       koyulastirildi. */
                     vectorEffect="non-scaling-stroke"
                     strokeWidth={(secili ? 2.6 : canli ? 2 : dim ? 0.7 : 1.2) *
                                  (secili || canli ? 1 : cizgiCarpani)}
