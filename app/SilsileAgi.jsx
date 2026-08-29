@@ -127,7 +127,7 @@ const tarihYaz = (n) => {
 const NODES = [
   N("nebi", "النبي صلى الله عليه وسلم", "Hz. Peygamber", 0, 11, "Medine", "Bütün rivayetin kaynağı. Tehzîb tercemelerinde sahâbenin hocası olarak «روى عن النبي ﷺ» kaydıyla geçer."),
   N("ali", "علي بن أبي طالب", "Ali b. Ebî Tâlib", 1, 40, "Kûfe", "Tehzîb terceme 4089, rumûz ع. Tercemesi 18 sayfa, ilk 3 sayfası işlendi."),
-  N("ebuhureyre", "أبو هريرة الدوسي", "Ebû Hüreyre", 1, 57, "Medine", "Tehzîb terceme 7681. Sahâbenin hâfızı."),
+  N("ebuhureyre", "أبو هريرة الدوسي", "Ebû Hüreyre", 1, 57, "Medine", "Tehzîb terceme 7681. Sahâbenin hâfızı. Mizzî talebeleri arasında 338 isim sayar, Buhârî'den naklen «روى عنه نحو من ثمان مئة رجل أو أكثر» der. Semâ kaydı düşülenler bağ olarak çizilmedi: Zührî «ولم يسمع منه»; Yezîd b. Rûmân ve Mekhûl «مرسل»; Zeyd b. Eslem «قيل لم يسمع منه»."),
   N("ebubekir", "أبو بكر الصديق", "Ebû Bekir es-Sıddîk", 1, 13, "Medine", "Tehzîb'de «عبد الله بن عثمان وهو أبو قحافة» adıyla, bâbü'l-ayn içinde. Şu an yalnız hoca konumunda."),
   N("omer", "عمر بن الخطاب", "Ömer b. el-Hattâb", 1, 23, "Medine"),
   N("mikdad", "المقداد بن الأسود", "Mikdâd b. el-Esved", 1, 33, "Medine"),
@@ -745,6 +745,35 @@ const EDGES = [
   E("fadl", "ebuhureyre", "م س", "Tehzîb 7681"),
   E("kabahbar", "ebuhureyre", "د ت س", "Tehzîb 7681"),
   E("aise", "ebuhureyre", "م د س ق", "Tehzîb 7681"),
+  /* Ebû Hüreyre'nin talebeleri — Tehzîb 7681 (Şâmile 3722, s. 34/367-377).
+     Mizzî 338 isim sayıyor; Buhârî'den naklen «روى عنه نحو من ثمان مئة رجل
+     أو أكثر» der. Buradaki 46 bağ, o listenin AĞDA ZATEN BULUNAN
+     isimlerle kesişimi -- yeni düğüm açılmadı. Listede olup ağda bulunmayan
+     isimler için önce o râvilerin kendi tercemeleri işlenmeli.
+
+     Eşleştirme elle değil, tercemenin metni üzerinde KAYIT SINIRINA göre
+     yapıldı: bir kaydın başı râvinin adıyla başlamalı. Alt dize araması
+     denendi ve yanlış pozitif üretti -- «حميد بن عبد الرحمن بن عوف» kaydını
+     Abdurrahman b. Avf düğümüyle eşleştiriyor, yani baba/dede adını talebe
+     sayıyordu.
+
+     SEMÂ KAYDI OLANLAR ALINMADI: Zührî («ولم يسمع منه»), Yezîd b. Rûmân ve
+     Mekhûl (ikisi de «مرسل»). Mizzî bunları listede sayar ama semâının
+     olmadığını aynı satırda belirtir; bağ olarak çizmek yanıltıcı olurdu. */
+  ...[
+      ["ibnabbas","ع"],["ibnomer","س"],["amrmeymun","سي"],["sureyhhani","—"],
+      ["ebuidrishavlani","خ م س ق"],["ebuvail","د"],["ebulaliye","ت"],["urve","خ م د ت سي"],
+      ["zeynelabidin","س"],["ebuselemeavf","ع"],["kayshazim","خ م ت"],["ubeydullahutbe","ع"],
+      ["ebuumamesehl","م س ق"],["musatalha","م ت س"],["sabi","ع"],["mucahid","ع"],
+      ["ebukilabe","س"],["ikrime","خ ٤"],["tavus","ع"],["suleymanyesar","ع"],
+      ["sehrhavseb","٤"],["ataebirebah","ع"],["arac","ع"],["saidyesar","ع"],
+      ["meymunmihran","ق"],["yezidkusayt","بخ د"],["ibnmunkedir","د"],["hemmammunebbih","ع"],
+      ["ubeydullaherafi","م ٤"],["abdrahmanharis","س"],["mervan","د س"],["sabitkayszuraki","بخ د سي ق"],
+      ["egarebumuslim","بخ م ٤"],["hafsubeydullahenes","ق"],["muhammedabbadcafer","عخ م ت س ق"],["muhammedsevban","م ت س ق"],
+      ["sadhisam","ق"],["ebusaidmakburi","ع"],["ikrimehalid","ت"],["umeyrhani","د"],
+      ["suleymanhabib","ق"],["saddadebuammar","ت ق"],["mutallibhantab","س ق"],["ammarebiammar","د ت س"],
+      ["ibrahimkariz","م س"],["hakemmina","م"],
+     ].map(([b, r]) => E("ebuhureyre", b, r, "Tehzîb 7681")),
   ...[["ahnef","ص"],["esvedyezid","—"],["alkame","عس"],["ubeydesel","ع"],["suveydgafle","خ م ت س"],
       ["ebuvail","ت عس"],["zirhubeys","م ٤"],["sureyh","س"],["saidmusayyeb","ت س ق"],["hasanbasri","ت س"],
       ["rebihiras","خ مق ٤"],["zeydvehb","خ م د س"],["zadan","د ص ق"],["ebutufeyl","خ م د س"],
