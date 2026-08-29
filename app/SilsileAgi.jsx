@@ -1385,16 +1385,34 @@ const DERECE = (() => {
   EDGES.forEach((e) => { d[e.a] = (d[e.a] || 0) + 1; d[e.b] = (d[e.b] || 0) + 1; });
   return d;
 })();
-/* Nokta yaricapi. Butun degerler 2026-08-29'da IKI KATINA cikarildi
-   (Mustafa'nin talebi): 96->192, taban 13->26, katsayi 11.5->23,
-   tavan 86->172. Tuval olculeri de birlikte buyudu, yoksa noktalar
-   birbirine girerdi (bkz. H / SERIT_W / ASGARI_DY). */
+/* Nokta yaricapi. 2026-08-29'da IKI KEZ buyutuldu, toplam DORT kat:
+   96 -> 384, taban 13 -> 52, katsayi 11.5 -> 46, tavan 86 -> 344.
+
+   Neden iki kez: ilk seferinde yalnizca yaricap iki katina cikarildi
+   ama ayni anda H de 2.7 kat buyudu (dikey ayrilma icin) ve tuval
+   ekrana sigacak sekilde olceklendigi icin noktalar EKRANDA aslinda
+   kuculdu. Ekranda gorulen boy r/H oranina bagli; o oran ancak
+   yaricap H'den hizli buyurse artiyor. Ikinci kattan sonra oran
+   4/2.7, yani ilk haline gore ekranda ~1.5 kat. */
 const rOf = (id) => {
-  if (id === "nebi") return 192;
+  if (id === "nebi") return 384;
   const d = DERECE[id] || 0;
-  // taban 26 birim, bağ sayısıyla belirgin şekilde büyür
-  return Math.min(26 + Math.sqrt(d) * 23, 172);
+  // taban 52 birim, bağ sayısıyla belirgin şekilde büyür
+  return Math.min(52 + Math.sqrt(d) * 46, 344);
 };
+
+/* Noktanin EKRANDAKI yaricapi (piksel). Grafik birimindeki yaricap
+   olcekle carpiliyor, ama bir TABANIN altina inmiyor.
+
+   Taban sart: tuval 150.000 birim yuksekliginde ve tamami ekrana
+   sigdirildiginda olcek %0.5 civari; o olcekte taban yaricap 52 birim
+   0.24 piksele denk geliyor, yani noktalarin cogu hic cizilmiyordu.
+   "Noktalar hala kucuk" sikayetinin sebebi buydu -- yaricapi grafik
+   biriminde buyutmek bunu cozmez, cunku olcek de ayni oranda kuculur.
+   Simdi uzakta her nokta en az 3.4 piksel, yakinlasinca gercek
+   oranlar devraliyor. */
+const EN_AZ_EKRAN_R = 3.4;
+const rEkranOf = (id, k) => Math.max(rOf(id) * k, EN_AZ_EKRAN_R);
 
 
 const { POS, SUTUNLAR, W, MEDINE } = (() => {
@@ -1642,11 +1660,28 @@ export default function SilsileAgi() {
      sığdırıyor, yani uzaklaşma yolu kapanmıyor. */
   const baslangic = useCallback(() => {
     const yatay = (box.w - SOL_BANT) / W, dikey = (box.h - UST_BANT) / H;
-    if (box.w >= 768) return sinirla({ k: Math.min(yatay, dikey), x: 0, y: 0 });
-    const k = Math.min(Math.max(yatay, dikey), 4);
+    /* Olcek POZITIF bir tabana bagli, tipki enAzOlcek gibi. Taban
+       olmadan sivri bir olcum -- kapsayici bir an cok kisa olursa --
+       eksi bir olcek uretiyor ve acilis gorunumu bir kez kuruldugu
+       icin bu kaliciya biniyordu. */
+    const kSigdir = Math.max(1e-4, Math.min(yatay, dikey));
+    if (box.w >= 768) return sinirla({ k: kSigdir, x: 0, y: 0 });
+    const k = Math.min(Math.max(1e-4, Math.max(yatay, dikey)), 4);
     const medineMerkez = MEDINE.x + MEDINE.genislik / 2;
     return sinirla({ k, x: (box.w + SOL_BANT) / 2 - medineMerkez * k, y: 0 });
   }, [box, sinirla]);
+
+  /* Kapsayici GERCEKTEN olculdu mu.
+
+     Iki isi var. Birincisi: olculmeden once `view` baslangic
+     degerinde (%40) duruyor ve o olcekte tuvalin bos bir kosesi
+     ekrani kapliyor -- sayfa acilirken bir an bos beyaz goruntu
+     cikiyordu; ag ancak bu bayrak dogruyken ciziliyor. Ikincisi:
+     acilis gorunumu bir KEZ kuruldugu icin sivri bir olcumun (panel
+     gizlenip acilirken olusan cok kisa/dar kapsayici) kaliciya
+     binmesini engelliyor. Bu yuzden esik sifir degil, bantlarin 80
+     piksel ustu. */
+  const olculdu = box.w >= SOL_BANT + 80 && box.h >= UST_BANT + 80;
 
   /* Acilis gorunumu BIR KEZ kuruluyor, kapsayici her olculdugunde
      degil. Eskiden bu etki `box` her degistiginde gorunumu sifirdan
@@ -1656,12 +1691,15 @@ export default function SilsileAgi() {
      ekranda ag'in kenarda bosluk birakmasi boyle onleniyor. */
   const kuruldu = useRef(false);
   useEffect(() => {
-    // 0x0 olculen kapsayici (gizli sekme) gercek bir olcum degil
-    if (box.w <= SOL_BANT || box.h <= UST_BANT) return;
+    /* Sivri olcumleri ELE: yalnizca 0x0 degil, bir an olusan cok
+       kisa/dar kapsayici da gercek bir olcum sayilmiyor. Acilis
+       gorunumu bir kez kuruldugu icin boyle bir olcum kaliciya
+       binerdi (olculdu: gizlenip acilan panelde oluyor). */
+    if (!olculdu) return;
     if (kuruldu.current) { setView((o) => sinirla(o)); return; }
     kuruldu.current = true;
     setView(baslangic());
-  }, [box, baslangic, sinirla]);
+  }, [box, olculdu, baslangic, sinirla]);
 
   const sonuclar = useMemo(() => {
     const q = arama.trim().toLowerCase();
@@ -1838,11 +1876,11 @@ export default function SilsileAgi() {
       if (cx < SOL_BANT + 4 || cx > box.w - 4 || cy < UST_BANT + 4 || cy > box.h - 4) return;
       if (!zorla && durgun.k < ESIK[kad]) return;
 
-      const punto = Math.max(EKRAN_PUNTO[kad], rOf(n.id) * 0.42 * durgun.k);
+      const punto = Math.max(EKRAN_PUNTO[kad], rEkranOf(n.id, durgun.k) * 0.42);
       const ad = Math.min(n.tr.length, 26);
       const g = Math.max(ad * punto * 0.5, 48);          // etiket genişliği
       const y = punto * 2.1 + 4;                          // iki satır
-      const r = rOf(n.id) * durgun.k;
+      const r = rEkranOf(n.id, durgun.k);
       const kutuAlt = { x1: cx - g / 2, x2: cx + g / 2, y1: cy + r + 2, y2: cy + r + 2 + y };
       const kutuUst = { x1: cx - g / 2, x2: cx + g / 2, y1: cy - r - 2 - y, y2: cy - r - 2 };
 
@@ -1873,6 +1911,28 @@ export default function SilsileAgi() {
      kenar cizimi). 0.05, agin tamami ekrana sigmis haldeki olcegin
      (~0.006-0.014) belirgin ustunde; yani "biraz yakinlastim" demek. */
   const yakin = view.k > 0.05;
+
+  /* Dar ekran esigi. Kontrol kutulari ve bilgi karti bu esigin altinda
+     farkli diziliyor (bkz. asagisi): telefonda ikisi yan yana
+     sigmiyor. 640, tabletin dikey genisliginin altinda, telefonun
+     ustunde. */
+  const dar = box.w < 640;
+
+  /* Kenar kalinligi carpani. Kalinlik artik ekran pikseli olarak sabit
+     (vectorEffect), ama 1382 kenarin tamami uzaktan tam kalinlikta
+     cizilince tuval bir yumaga donuyor -- denendi, ag hic
+     okunmuyordu. Uzaklastikca inceliyor: %0.5'te ~0.33, %10'da 1.
+     Ok uclari da ancak yakinda cikiyor; uzakta her kenarin ucundaki
+     ucgen cizginin kendisinden buyuk kaliyor.
+
+     KALINLIK TEK BASINA YETMIYOR, saydamlik da uzaklastikca artiyor:
+     1382 kenar tuvalin kucuk bir alaninda ust uste bindiginde, incecik
+     de olsalar birikip dolu bir kutle olusturuyor ve noktalari
+     yutuyorlar (denendi). Ikisi birlikte, uzakta ag'in genel dokusunu,
+     yakinda tek tek baglari veriyor. */
+  const cizgiCarpani = Math.min(1, 0.3 + view.k * 7);
+  const cizgiSaydam = Math.min(1, 0.3 + view.k * 6);
+
 
   const secRavi = secim && secim.tur === "ravi" ? NODES.find((n) => n.id === secim.id) : null;
   const secKenar = secim && secim.tur === "kenar" ? secim.e : null;
@@ -1945,7 +2005,7 @@ export default function SilsileAgi() {
             .sal2 { animation-name: salin2; }
             .sal3 { animation-name: salin3; }
             .sal4 { animation-name: salin4; }
-            .hale    { animation: hale 3.4s ease-in-out infinite;
+            .hale    { animation: hale 1.8s ease-in-out infinite;
                        transform-box: fill-box; transform-origin: center; }
           `}</style>
           <defs>
@@ -1963,7 +2023,8 @@ export default function SilsileAgi() {
             </marker>
           </defs>
 
-          <g transform={`translate(${view.x},${view.y}) scale(${view.k})`}>
+          <g transform={`translate(${view.x},${view.y}) scale(${view.k})`}
+             style={{ visibility: olculdu ? undefined : "hidden" }}>
             <rect x={-W} y={-H} width={W * 3} height={H * 3} fill="#FFFFFF" />
             {SUTUNLAR.map((c, i) => {
               const ilk = i === 0, son = i === SUTUNLAR.length - 1;
@@ -2022,6 +2083,7 @@ export default function SilsileAgi() {
                       yariya iniyor. */}
                   {yakin && (
                     <path d={d} fill="none" stroke="transparent" strokeWidth="16"
+                      vectorEffect="non-scaling-stroke"
                       style={{ cursor: "pointer", pointerEvents: "stroke" }}
                       onPointerUp={(ev) => {
                         ev.stopPropagation(); pointerBirak(ev);
@@ -2030,10 +2092,24 @@ export default function SilsileAgi() {
                   )}
                   <path d={d} fill="none"
                     className={"kenar" + (canli ? " kenar-v" : "")}
-                    stroke={secili ? "#B5462B" : canli ? "#8A7A34" : dim ? "#C4B99E" : "#8F8256"}
-                    strokeWidth={secili ? 2.8 : canli ? 2.2 : dim ? 0.8 : 1.7}
-                    opacity={secili ? 1 : canli ? 0.95 : dim ? 0.45 : 0.78}
-                    markerEnd={secili || canli ? "url(#okVurgu)" : dim ? "url(#okSonuk)" : "url(#ok)"}
+                    stroke={secili ? "#B5462B" : canli ? "#8A7A34" : dim ? "#B3A88E" : "#6F6438"}
+                    /* `vectorEffect="non-scaling-stroke"`: kalinlik
+                       EKRAN PIKSELI olarak sabit kaliyor, tuvalin
+                       olcegiyle kuculmuyor. Cizgilerin silik
+                       gorunmesinin sebebi buydu -- kalinlik grafik
+                       biriminde yaziliyor ve %1 olcekte 1.7 birim
+                       0.008 piksele iniyordu, yani tarayici cizgiyi
+                       ancak bir tonlama olarak gosterebiliyordu.
+                       Sayilar da bir miktar kalinlastirildi ve renk
+                       koyulastirildi. */
+                    vectorEffect="non-scaling-stroke"
+                    strokeWidth={(secili ? 2.6 : canli ? 2 : dim ? 0.7 : 1.2) *
+                                 (secili || canli ? 1 : cizgiCarpani)}
+                    opacity={secili ? 1 : canli ? 0.95
+                             : (dim ? 0.5 : 0.85) * cizgiSaydam}
+                    markerEnd={secili || canli ? "url(#okVurgu)"
+                               : !yakin ? undefined
+                               : dim ? "url(#okSonuk)" : "url(#ok)"}
                     style={{ pointerEvents: "none" }} />
                 </g>
               );
@@ -2045,7 +2121,7 @@ export default function SilsileAgi() {
               if (!p) return null;
               const d = sonuk(n.id);
               const dg = DERECE[n.id] || 0;
-              const r = rOf(n.id);
+              const r = rEkranOf(n.id, view.k) / view.k;
               const kad = KADEME(n.id);
               const etiketBilgi = etiketliler.get(n.id);
               const etiket = !!etiketBilgi;
@@ -2083,14 +2159,19 @@ export default function SilsileAgi() {
                   <g className={onCikan
                         ? `salinim sal${(salSayi(n.id) % 4) + 1}`
                         : undefined}
+                     /* Sureler 2026-08-29'da yaklasik iki kat
+                        hizlandirildi: 3.4-5.9 sn araligi 1.5-2.5 sn
+                        oldu. Dugumden dugume degismesi kasitli --
+                        hepsi ayni tempoda salinsa sahne makine gibi
+                        gorunuyor. */
                      style={onCikan
-                        ? { "--sure": `${3.4 + (salSayi(n.id) % 26) / 10}s`,
-                            "--gec": `${-(salSayi(n.id) % 60) / 10}s` }
+                        ? { "--sure": `${1.5 + (salSayi(n.id) % 26) / 25}s`,
+                            "--gec": `${-(salSayi(n.id) % 60) / 20}s` }
                         : undefined}>
                   {onCikan && (
                     <circle className="hale" r={r + 14} fill="none"
                       stroke={n.id === "nebi" ? NEBI_RENK : renkOf(n.id)} strokeWidth="3"
-                      style={{ animationDelay: `${(salSayi(n.id) % 30) / 10}s` }} />
+                      style={{ animationDelay: `${(salSayi(n.id) % 30) / 20}s` }} />
                   )}
                   {MUKSIRUN.has(n.id) && (
                     <circle r={r + 8} fill="none" stroke={renkOf(n.id)}
@@ -2181,12 +2262,21 @@ export default function SilsileAgi() {
         </svg>
 
         {/* ---- sağ üst: râvi bul + yakınlaştırma ---- */}
-        <div className="absolute z-20" style={{ bottom: 12, right: 12, width: 232 }}
+        {/* Kontroller DIKEY SIRALI: arama kutusu, altinda yakinlastirma,
+            en altta "Tamami". Onceden arama kutusu tam genislikte ve
+            digerleri altinda YAN YANA idi, kume 232 px yer kapliyordu;
+            telefonda bu, bilgi kartina 95 px birakiyor ve kart
+            okunmaz hale geliyordu. Dar ekranda kume 132 px'e iniyor,
+            genis ekranda 168 -- ustelik dikey dizilis "Tamami"
+            dugmesini de tam genisligine kavusturuyor. */}
+        <div className="absolute z-20" style={{ bottom: 12, right: 12, width: dar ? 132 : 168 }}
           onPointerDown={(e) => e.stopPropagation()}
           onPointerUp={(e) => e.stopPropagation()}
           onWheel={(e) => e.stopPropagation()}>
           {acikArama && arama.trim() && (
-            <div className="shadow" style={{ marginBottom: 6, maxHeight: 260, overflowY: "auto", background: "#fff", border: "1px solid #D8D0BF", borderRadius: 2 }}>
+            /* Sonuc listesi kumeden GENIS: isimler 132 px'e sigmaz.
+               Saga yaslanip sola dogru tasiyor. */
+            <div className="shadow" style={{ marginBottom: 6, maxHeight: 260, overflowY: "auto", background: "#fff", border: "1px solid #D8D0BF", borderRadius: 2, width: dar ? "calc(100vw - 24px)" : 300, marginLeft: "auto", position: "relative", right: 0 }}>
               {sonuclar.length ? sonuclar.map((n) => (
                 <button key={n.id}
                   onClick={() => { odaklan(n.id); setAcikArama(false); }}
@@ -2206,26 +2296,32 @@ export default function SilsileAgi() {
             placeholder="Râvi bul"
             className="w-full px-3 py-1.5 text-sm bg-white border border-[#D8D0BF] rounded-sm shadow-sm outline-none focus:border-[#8A7A34]" />
 
-          <div className="flex gap-1.5 justify-end" style={{ marginTop: 6 }}>
-            <div className="flex border border-[#D8D0BF] bg-white rounded-sm overflow-hidden shadow-sm">
-              <button onClick={() => zoomla(1 / 1.3)} className="px-2.5 py-1 text-sm hover:bg-[#F1EDE2]">−</button>
-              <span className="px-2 py-1 text-[11px] text-[#8C8676] border-x border-[#E6DFCF] self-center">
-                {Math.round(view.k * 100)}%
-              </span>
-              <button onClick={() => zoomla(1.3)} className="px-2.5 py-1 text-sm hover:bg-[#F1EDE2]">+</button>
-            </div>
-            <button onClick={sigdir}
-              className="px-2.5 py-1 text-sm border border-[#D8D0BF] bg-white rounded-sm shadow-sm hover:bg-[#F1EDE2]">
-              Tamamı
-            </button>
+          <div className="flex border border-[#D8D0BF] bg-white rounded-sm overflow-hidden shadow-sm"
+            style={{ marginTop: 6 }}>
+            <button onClick={() => zoomla(1 / 1.3)} className="flex-1 py-1 text-sm hover:bg-[#F1EDE2]">−</button>
+            <span className="px-2 py-1 text-[11px] text-[#8C8676] border-x border-[#E6DFCF] self-center">
+              {Math.round(view.k * 100)}%
+            </span>
+            <button onClick={() => zoomla(1.3)} className="flex-1 py-1 text-sm hover:bg-[#F1EDE2]">+</button>
           </div>
+          <button onClick={sigdir}
+            className="w-full py-1 text-sm border border-[#D8D0BF] bg-white rounded-sm shadow-sm hover:bg-[#F1EDE2]"
+            style={{ marginTop: 6 }}>
+            Tamamı
+          </button>
         </div>
 
         {/* ---- sabit bilgi paneli ---- */}
         {secRavi && (
           <div className="absolute z-20 shadow-lg"
             style={{
-              left: 12, bottom: 12, width: "min(620px, calc(100% - 280px))",
+              /* Dar ekranda kart TAM GENISLIK ve kontrol kumesinin
+                 USTUNDE (kume ~106 px + 12 pay). Yan yana koymak
+                 telefonda karti 95 px'e dusuruyordu. Genis ekranda
+                 eskisi gibi solda, yalnizca kumeye ayrilan pay 280'den
+                 200'e indi -- kume daraldi. */
+              left: 12, bottom: dar ? 130 : 12,
+              width: dar ? "calc(100% - 24px)" : "min(620px, calc(100% - 200px))",
               height: 188, overflowY: "auto", overflowX: "hidden",
               background: "rgba(255,255,255,0.97)", border: "1px solid #D8D0BF",
               borderRadius: 2, padding: 16,
@@ -2268,7 +2364,8 @@ export default function SilsileAgi() {
           return (
             <div className="absolute z-20 shadow-lg"
               style={{
-                left: 12, bottom: 12, width: "min(520px, calc(100% - 280px))",
+                left: 12, bottom: dar ? 130 : 12,
+                width: dar ? "calc(100% - 24px)" : "min(520px, calc(100% - 200px))",
                 maxHeight: 188, overflowY: "auto",
                 background: "rgba(255,255,255,0.97)", border: "1px solid #D8D0BF",
                 borderRadius: 2, padding: 16,
