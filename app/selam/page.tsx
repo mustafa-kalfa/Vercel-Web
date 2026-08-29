@@ -46,52 +46,60 @@ export default function Selam() {
           baslardi. `ml-auto` mantiksal degil fiziksel: Arapca'da (rtl) da
           balonu sagda, yani karakterin ustunde tutuyor. */}
       <div className="px-6 pt-24 sm:px-10 sm:pt-28">
-        {/* Kuyruk: 45 derece dondurulmus bir kare. Kendi zemini balonunkiyle
-            ayni oldugu icin altta kalan kenarligi kapatiyor, kendi iki
-            kenarligi da cizgiyi surduruyor. */}
-        <div className="relative ml-auto max-w-md rounded-3xl border border-black/20 bg-background px-6 py-5 dark:border-white/70">
-          <p className="text-base leading-7 text-zinc-700 sm:text-lg sm:leading-8 dark:text-cream-dim ar-greeting">
-            {t.greetingLead}
-            <br />
-            {t.greetingBody}
-          </p>
-          <span
-            aria-hidden="true"
-            className="absolute -bottom-2 right-12 h-4 w-4 rotate-45 border-b border-r border-black/20 bg-background dark:border-white/70"
-          />
-        </div>
+        {/* Balon ve altindaki dugme ortak bir kutuda: dugme balonun SOL
+            kenariyla hizali duruyor, bunun icin ikisinin de ayni kutuya
+            oturmasi gerekiyor. Genislik sinirlamasi (`max-w-md`) ve saga
+            yaslama (`ml-auto`) balondan buraya tasindi. */}
+        <div className="ml-auto max-w-md">
+          {/* Kuyruk: 45 derece dondurulmus bir kare. Kendi zemini balonunkiyle
+              ayni oldugu icin altta kalan kenarligi kapatiyor, kendi iki
+              kenarligi da cizgiyi surduruyor. */}
+          <div className="relative rounded-3xl border border-black/20 bg-background px-6 py-5 dark:border-white/70">
+            <p className="text-base leading-7 text-zinc-700 sm:text-lg sm:leading-8 dark:text-cream-dim ar-greeting">
+              {t.greetingLead}
+              <br />
+              {t.greetingBody}
+            </p>
+            <span
+              aria-hidden="true"
+              className="absolute -bottom-2 right-12 h-4 w-4 rotate-45 border-b border-r border-black/20 bg-background dark:border-white/70"
+            />
+          </div>
 
-        {/* Academia profiline giden dugme. Balonun DISINDA: kuyruk balonun
-            alt kenarina oturuyor, ic bir dugme kuyrugun ustune binerdi.
+          {/* Academia profiline giden dugme. Balonun DISINDA: kuyruk balonun
+              alt kenarina oturuyor, ic bir dugme kuyrugun ustune binerdi.
 
-            `ml-auto` mantiksal degil fiziksel -- tipki balonun kendisi
-            gibi. Arapca'da (rtl) `me-auto` dugmeyi sola atar, balon ise
-            sagda kalirdi; ikisinin de sag kenari hizali kalsin diye ayni
-            fiziksel hizalama kullaniliyor. */}
-        <a
-          href="https://ibnhaldun.academia.edu/MustafaKalfa"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-3 ml-auto flex w-fit max-w-md items-center gap-2 rounded-full border border-solid border-black/20 px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
-        >
-          {t.greetingMore}
-          {/* Siteden cikildigini belli eden ok. `rtl:-scale-x-100` ile
-              Arapca'da ok da ters cevriliyor, yoksa metnin akisina karsi
-              bakiyor. */}
-          <svg
-            viewBox="0 0 24 24"
-            className="h-3.5 w-3.5 shrink-0 rtl:-scale-x-100"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
+              `mr-auto` dugmeyi sarmalayicinin sol kenarina, yani balonun
+              sol kenariyla ayni hizaya yasliyor. Mantiksal degil fiziksel:
+              Arapca'da (rtl) `ms-auto` dugmeyi saga atardi, balon ise
+              fiziksel olarak sagda kaldigi icin ikisi ust uste gelirdi.
+              Kuyruk saga yakin durdugundan (`right-12`) dugme ile
+              kuyruk da birbirinin altina denk gelmiyor. */}
+          <a
+            href="https://ibnhaldun.academia.edu/MustafaKalfa"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 mr-auto flex w-fit items-center gap-2 rounded-full border border-solid border-black/20 px-4 py-2 text-sm transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
           >
-            <path d="M7 17 17 7" />
-            <path d="M8 7h9v9" />
-          </svg>
-        </a>
+            {t.greetingMore}
+            {/* Siteden cikildigini belli eden ok. `rtl:-scale-x-100` ile
+                Arapca'da ok da ters cevriliyor, yoksa metnin akisina karsi
+                bakiyor. */}
+            <svg
+              viewBox="0 0 24 24"
+              className="h-3.5 w-3.5 shrink-0 rtl:-scale-x-100"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M7 17 17 7" />
+              <path d="M8 7h9v9" />
+            </svg>
+          </a>
+        </div>
       </div>
 
       {/* Karakter dar ekranda balonun alt kismini ortuyor. Bu bos pay
