@@ -54,15 +54,19 @@ export default function Rihle() {
           <main>'in (relative) dibine yapisiyor, yani tam footer'in
           USTUNE -- footer layout.tsx'ten geldigi ve bu ogenin disinda
           kaldigi icin ortusme artik imkansiz. */}
-      {/* Masaustunde klip ne sagda ne solda: `left-1/2` sol kenarini
-          ortaya koyuyor, `-translate-x-1/2` da klibi kendi yarisi kadar
-          geri cekip gercekten ortaliyor. Yukseklik 45vh'den 25vh'ye
-          indi -- sitedeki diger karakter klipleriyle (selam,
-          mustafa-calisiyor, su-anda-buradasiniz) ayni olcu.
+      {/* Masaustunde klip SAG ALT kosede. `left-0` telefon icin; onu
+          `sm:left-auto` iptal ediyor, yoksa iki kenar birden bagli
+          kalir ve `w-auto` ise yaramaz.
+
+          Yukseklik 45vh'den 25vh'ye indi -- sitedeki diger karakter
+          klipleriyle (selam, mustafa-calisiyor, su-anda-buradasiniz)
+          ayni olcu. Klip bir ara ortalanmisti (`left-1/2` +
+          `-translate-x-1/2`), 2026-08-30'da yeniden saga yaslandi.
+
           Telefonda duzen degismiyor: tam genislik, alta yasli. */}
       <ChromaKeyVideo
         src="/Mustafa%20Rihle_seffaf.mp4"
-        className="absolute bottom-0 left-0 h-auto w-full sm:left-1/2 sm:h-[25vh] sm:w-auto sm:max-w-none sm:-translate-x-1/2"
+        className="absolute bottom-0 left-0 h-auto w-full sm:left-auto sm:right-0 sm:h-[25vh] sm:w-auto sm:max-w-none"
       />
     </main>
   );
