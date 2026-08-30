@@ -126,7 +126,8 @@ export const TRANSLATIONS: Record<Language, Translation> = {
       "İlahiyatçı ve yazılımcıyım. Ama daha çok ilahiyatçı. Akademik koşuşturmacadan bir nebze uzaklaşmak için bu sayfayı kurdum. Buraya hadis ve dijitali birleştirmeyi denediğim çalışmaları yükleyeceğim. Ne kadar malzeme çıkar ve ne kadar devam ettirebilirim bilmiyorum. Şimdilik buradayım :D",
     greetingMore: "Daha fazla bilgi için tıklayın.",
     workingOnIt: "Mustafâ bu iş üzerinde çalışıyor.",
-    journeyAhead: "Bir yolculuk yaklaşıyor. Ama önce hazırlık yapmalıyım.",
+    journeyAhead:
+      "Bir yolculuk yaklaşıyor. Ama önce hazırlık yapmalıyım. Mustafâ bu iş üzerinde çalışıyor.",
     pageNotCreated:
       "Şu anda buradasınız. Mustafâ henüz böyle bir sayfa oluşturmadı. Fakat... Neden olmasın?",
     podcastHadithHistory: "Hadis Tarihi",
@@ -225,7 +226,8 @@ export const TRANSLATIONS: Record<Language, Translation> = {
       "باحث شرعي ومبرمج، لكنني باحث شرعي أكثر. أنشأت هذه الصفحة للابتعاد قليلاً عن زحمة العمل الأكاديمي. سأرفع هنا الأعمال التي أحاول فيها الجمع بين الحديث والديجيتالية. لا أدري كم ستخرج من مادة ولا إلى متى أستطيع الاستمرار. أنا هنا في الوقت الحالي :ᗡ",
     greetingMore: "اضغط لمزيد من المعلومات.",
     workingOnIt: "مصطفى يعمل على هذا الأمر.",
-    journeyAhead: "رحلةٌ تقترب. ولكن لا بدّ لي من الاستعداد أوّلًا.",
+    journeyAhead:
+      "رحلةٌ تقترب. ولكن لا بدّ لي من الاستعداد أوّلًا. مصطفى يعمل على هذا الأمر.",
     pageNotCreated:
       "أنتم الآن هنا. لم يُنشئ مصطفى هذه الصفحة بعدُ. ولكن... لِمَ لا؟",
     podcastHadithHistory: "تاريخ الحديث",
@@ -321,7 +323,8 @@ export const TRANSLATIONS: Record<Language, Translation> = {
       "I'm a theologian and a developer. But more of a theologian. I set this page up to get some distance from the academic rush. I'll be posting the work where I try to combine hadith and digital here. I don't know how much will come of it, or how long I can keep it going. For now, I'm here :D",
     greetingMore: "Click for more information.",
     workingOnIt: "Mustafâ is working on this.",
-    journeyAhead: "A journey is drawing near. But first I must prepare.",
+    journeyAhead:
+      "A journey is drawing near. But first I must prepare. Mustafâ is working on this.",
     pageNotCreated:
       "You are here right now. Mustafâ hasn't made such a page yet. But... Why not?",
     podcastHadithHistory: "History of Hadith",
