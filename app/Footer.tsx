@@ -188,7 +188,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="mailto:mustafakalfa98@gmail.com"
+                href="mailto:mustafa.kalfa@stu.ihu.edu.tr"
                 className="inline-flex items-center gap-1.5 transition-colors hover:text-black dark:hover:text-foreground"
               >
                 {/* Zarf: ust kenari kapak cizgisi olan basit bir dikdortgen.
@@ -208,7 +208,7 @@ export default function Footer() {
                   <rect x="2.5" y="5" width="19" height="14" rx="2.5" />
                   <path d="m3.5 7 8.5 6 8.5-6" />
                 </svg>
-                <bdi>mustafakalfa98@gmail.com</bdi>
+                <bdi>mustafa.kalfa@stu.ihu.edu.tr</bdi>
               </a>
             </li>
           </ul>
