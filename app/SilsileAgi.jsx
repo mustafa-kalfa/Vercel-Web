@@ -3560,8 +3560,24 @@ export default function SilsileAgi() {
               const punto = Math.max(EKRAN_PUNTO[kad] / kg, r * 0.42);
               const altPunto = punto * 0.8;
               return (
-                <g key={n.id} className="etiket" pointerEvents="none"
-                   style={{ paintOrder: "stroke", stroke: C.etiketHale, strokeWidth: punto * 0.32,
+                /* ISIMLER DE TIKLANABILIR (2026-08-30). Onceden bu grup
+                   `pointerEvents="none"` tasiyordu, yalnizca nokta
+                   tiklanabiliyordu -- oysa gozun gittigi yer isim, hedefi
+                   de nokta degil isim. Isleyici dugumunkinin AYNISI.
+
+                   Kaydirma bozulmuyor: pointerdown burada durdurulmuyor,
+                   tuvale kadar cikip `pointerBas`i tetikliyor. Suruklendi
+                   mi diye `tasindiRef` bakiliyor, yani ismin uzerinden
+                   baslayan bir suruklemede odaklanma OLMUYOR.
+
+                   Hedef alani yazinin kendi geometrisi. Metnin altinda
+                   `paintOrder: stroke` ile cizilen kalin bir hale var ve o
+                   da BOYANMIS sayildigi icin tiklama payi harflerden biraz
+                   genis. `bounding-box` denenmedi, tarayici destegi
+                   kirilgan. */
+                <g key={n.id} className="etiket"
+                   onPointerUp={(ev) => { ev.stopPropagation(); pointerBirak(ev); if (!tasindiRef.current) odaklan(n.id); }}
+                   style={{ cursor: "pointer", paintOrder: "stroke", stroke: C.etiketHale, strokeWidth: punto * 0.32,
                             opacity: sonuk(n.id) ? 0.12 : 1 }}
                    transform={`translate(${p.x + etiketBilgi.kay / kg},${
                      p.y + (etiketBilgi.yon === "ust"
