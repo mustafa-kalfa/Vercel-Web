@@ -51,6 +51,14 @@ const PAYLASIMLAR: Kalem[] = [
     anahtar: "eduPostDataPrivacy",
     href: "https://x.com/mustafakalfa__/status/2035419172813902122",
   },
+  {
+    anahtar: "eduPostPdfDarkMode",
+    href: "https://x.com/mustafakalfa__/status/2064060099765657952",
+  },
+  {
+    anahtar: "eduPostDeepL",
+    href: "https://x.com/mustafakalfa__/status/2073120147670237655",
+  },
 ];
 
 /* Dis baglantilar YENI SEKMEDE aciliyor: hepsi YouTube ya da X, yani

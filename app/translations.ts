@@ -75,6 +75,8 @@ type Translation = {
   eduPostShamelaFeature: string;
   eduPostYdsCards: string;
   eduPostDataPrivacy: string;
+  eduPostPdfDarkMode: string;
+  eduPostDeepL: string;
   footerRights: string;
   /* Silsile ağı (/ag-sinamasi). Râvi ADLARI burada değil: onlar
      düğümün kendisinde duruyor (Türkçe `tr`, Arapça `ar` alanı) ve
@@ -176,6 +178,9 @@ export const TRANSLATIONS: Record<Language, Translation> = {
       "Gemini ve NotebookLM ile YDS kelime çalışma kartları hazırlamak",
     eduPostDataPrivacy:
       "Dil modellerine verilen akademik metinlerin ve kişisel verilerin şirketlerce kullanımını önlemek (ChatGPT, Gemini, Claude)",
+    eduPostPdfDarkMode: "PDF'leri karanlık moda çeviren siteler",
+    eduPostDeepL:
+      "Seçilen metni her programda çeviren masaüstü aracı (DeepL)",
     footerRights: "Tüm hakları saklıdır.",
     agOlum: "ö.",
     agAra: "Râvi Ara",
@@ -268,6 +273,9 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     eduPostYdsCards: "إعداد بطاقات مفردات اختبار YDS بواسطة Gemini وNotebookLM",
     eduPostDataPrivacy:
       "منع الشركات من استخدام النصوص الأكاديمية والبيانات الشخصية التي تُعطى لنماذج اللغة (ChatGPT وGemini وClaude)",
+    eduPostPdfDarkMode: "مواقع تحوّل ملفات PDF إلى الوضع الداكن",
+    eduPostDeepL:
+      "أداة سطح مكتب تترجم النصّ المحدَّد في أيّ برنامج (DeepL)",
     footerRights: "جميع الحقوق محفوظة.",
     agOlum: "ت",
     agAra: "ابحث عن راوٍ",
@@ -362,6 +370,9 @@ export const TRANSLATIONS: Record<Language, Translation> = {
       "Making YDS vocabulary cards with Gemini and NotebookLM",
     eduPostDataPrivacy:
       "Stopping companies from using the academic texts and personal data you give to language models (ChatGPT, Gemini, Claude)",
+    eduPostPdfDarkMode: "Sites that convert PDFs to dark mode",
+    eduPostDeepL:
+      "A desktop tool that translates selected text in any program (DeepL)",
     footerRights: "All rights reserved.",
     agOlum: "d.",
     agAra: "Find a Narrator",
