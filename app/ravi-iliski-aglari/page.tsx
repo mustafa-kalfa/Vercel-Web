@@ -2,29 +2,23 @@
 
 import Link from "next/link";
 import ChromaKeyVideo from "../ChromaKeyVideo";
-import SilsileAgi from "../SilsileAgi";
 import { useLanguage } from "../LanguageContext";
 
-/* Ravi iliski aglari -- silsile agi gorsellestirmesinin ASIL adresi.
+/* Haritanin TANITIM sayfasi. Harita bir alt adreste (/harita).
 
-   Sayfa 2026-08-29'a kadar bos bir yer tutucuydu ("hazirlaniyor" metni);
-   icerik /ag-sinamasi'nda gelistirildi ve bugun buraya alindi. Deneme
-   adresi yerinde duruyor: bileseni bozmadan denemek icin bir yer lazim
-   ve o sayfa arama motorlarina kapali.
+   2026-08-30'a kadar bu adres dogrudan agi aciyordu. Mustafa araya kisa
+   bir tanitim istedi: ag nedir, hangi kaynaklara dayaniyor, su an nerede
+   bitiyor. Harita alt adrese indi, bu adres -- yani sitemap'teki ve
+   kartlardaki adres -- yerinde kaldi. Yan fayda: sayfanin artik
+   indekslenecek gercek bir metni var, oncekinde yoktu.
 
-   IKI SAYFA AYNI BILESENI CAGIRIYOR, kopya kod yok. Duzeni degistirmen
-   gerekirse ikisine birden uygula, yoksa deneme yayindakini temsil
-   etmez hale gelir.
-
-   FOOTER KENDILIGINDEN KATLANMA CIZGISININ ALTINDA: kok layout govdeyi
-   `min-h-dvh` bir kaba koyup footer'i o kabin ARDINA ekliyor, asagidaki
-   ag da tam bir ekran kapladigi icin footer ancak kaydirinca goruntuye
-   giriyor -- diger sayfalarda oldugu gibi. */
+   Duzen /oyunlar ve /podcastler ile ayni iskelet: ust-orta logo, ortada
+   dikey akan icerik, altta hap dugme. */
 export default function RaviIliskiAglari() {
   const { t } = useLanguage();
 
   return (
-    <main className="relative flex flex-1 flex-col">
+    <main className="relative flex flex-1 flex-col items-center">
       <Link
         href="/"
         aria-label={t.brandAlt}
@@ -37,18 +31,45 @@ export default function RaviIliskiAglari() {
         />
       </Link>
 
-      {/* Ag TAM BIR EKRAN: ust bantla (54px) birlikte 100dvh ediyor,
-          boylece footer tam katlanma cizgisinin altina dusuyor.
+      <div className="flex w-full max-w-2xl flex-1 flex-col justify-center gap-6 px-6 pb-16 pt-28 sm:px-10 sm:pt-32">
+        <h1 className="text-xl font-semibold sm:text-2xl">{t.cardNetworks}</h1>
 
-          Yukseklik KESIN bir deger (`calc`), yuzde degil: bilesenin
-          kok div'i `height:100%` istiyor ve yuzde yukseklik ancak
-          kapsayicinin boyu kesinse cozuluyor. Kok layout govdeye
-          `min-h-dvh` veriyor, `height` degil.
+        {/* Uc paragraf, uc soru: ne, hangi kaynak, nerede bitiyor.
+            Bilerek kisa -- ziyaretci buraya haritayi gormeye geldi,
+            okumaya degil. */}
+        <div className="flex flex-col gap-4 text-base leading-7 text-zinc-700 sm:text-lg sm:leading-8 dark:text-cream-dim">
+          <p>{t.agGirisNe}</p>
+          <p>{t.agGirisKaynak}</p>
+          <p>{t.agGirisSinir}</p>
+        </div>
 
-          Ust bant 2026-08-29'da %33 kuculdu: logo 72 -> 48 px, bant
-          80 -> 54 px. Sayfanin ust seridi ag'dan cok yer aliyordu. */}
-      <div className="mt-[54px] h-[calc(100dvh-54px)]">
-        <SilsileAgi />
+        {/* `w-fit` + `mr-auto`: dugme metnin sol kenariyla hizali,
+            metnin genisligine yayilmiyor. Hizalama fiziksel degil
+            mantiksal DEGIL -- burada metin de dugme de dilin akisiyla
+            birlikte donuyor, o yuzden `me-auto` dogru olan.
+            (/selam'daki dugme fiziksel, cunku oradaki balon Arapca'da
+            da fiziksel olarak sagda kaliyor.) */}
+        <Link
+          href="/ravi-iliski-aglari/harita"
+          className="me-auto mt-2 flex w-fit items-center gap-2 rounded-full border border-solid border-black/20 px-5 py-3 text-base font-medium transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
+        >
+          {t.agHaritayaGit}
+          {/* Ileri oku. `rtl:-scale-x-100` ile Arapca'da ok da ters
+              cevriliyor, yoksa metnin akisina karsi bakiyor. */}
+          <svg
+            viewBox="0 0 24 24"
+            className="h-4 w-4 shrink-0 rtl:-scale-x-100"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M5 12h14" />
+            <path d="m12 5 7 7-7 7" />
+          </svg>
+        </Link>
       </div>
     </main>
   );

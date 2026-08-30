@@ -99,6 +99,10 @@ type Translation = {
   agMedar1: string;
   agMedar2: string;
   agMedar3: string;
+  agGirisNe: string;
+  agGirisKaynak: string;
+  agGirisSinir: string;
+  agHaritayaGit: string;
 };
 
 export const TRANSLATIONS: Record<Language, Translation> = {
@@ -193,6 +197,10 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     agMedar1: "I. tabaka — müdevvinler",
     agMedar2: "II. tabaka — musannifler",
     agMedar3: "III. tabaka — münekkit ve fakîh muhaddisler",
+    agGirisNe: "Bu harita hadis râvilerinin hoca-talebe bağlarını gösteriyor. Her nokta bir râvi, her çizgi bir rivayet bağı. Dikey eksen vefat yılı (hicrî), yatay eksen râvinin beldesi.",
+    agGirisKaynak: "Tercemeler ve bağlar Mizzî'nin Tehzîbü'l-Kemâl'inden, tabaka tasnifi İbn Hacer'in Takrîbü't-Tehzîb'inden alındı. Kütüb-i Sitte müelliflerinin talebe halkaları için Zehebî'nin Siyeru a'lâmi'n-nübelâ'sına başvuruldu.",
+    agGirisSinir: "Şimdilik 657 râvi ve on iki belde var. Ağ, Kütüb-i Sitte müelliflerinin talebeleriyle bitiyor; sonraki tabakalar henüz eklenmedi. Kaynakta semâı reddedilen bağlar bilerek çizilmedi.",
+    agHaritayaGit: "Haritaya erişmek için tıklayınız",
   },
   ar: {
     brandAlt: "الحديث والديجيتالية",
@@ -281,6 +289,10 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     agMedar1: "الطبقة الأولى — المدوِّنون",
     agMedar2: "الطبقة الثانية — المصنِّفون",
     agMedar3: "الطبقة الثالثة — النقاد والفقهاء من المحدِّثين",
+    agGirisNe: "تعرض هذه الخريطة صلات الشيوخ والتلاميذ بين رواة الحديث. كلّ نقطة راوٍ، وكلّ خطّ صلة رواية. المحور الرأسيّ سنة الوفاة (هجريّة)، والمحور الأفقيّ بلد الراوي.",
+    agGirisKaynak: "التراجم والصلات مأخوذة من تهذيب الكمال للمزّيّ، وتصنيف الطبقات من تقريب التهذيب لابن حجر. وأمّا حلقات تلاميذ أصحاب الكتب الستّة فمن سير أعلام النبلاء للذهبيّ.",
+    agGirisSinir: "فيها الآن 657 راويًا في اثنتي عشرة بلدة. وتنتهي الشبكة عند تلاميذ أصحاب الكتب الستّة، ولم تُضف الطبقات التالية بعد. والصلات التي نفت المصادر سماعها لم تُرسم عمدًا.",
+    agHaritayaGit: "اضغط للوصول إلى الخريطة",
   },
   en: {
     brandAlt: "Hadith and Digital",
@@ -371,5 +383,9 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     agMedar1: "Tier I — recorders (tadwīn)",
     agMedar2: "Tier II — arrangers (taṣnīf)",
     agMedar3: "Tier III — critic and jurist traditionists",
+    agGirisNe: "This map shows the teacher–student links between hadith narrators. Each dot is a narrator, each line a link of transmission. The vertical axis is the year of death (hijrī); the horizontal axis is the narrator's town.",
+    agGirisKaynak: "The entries and the links come from al-Mizzī's Tahdhīb al-Kamāl, and the ṭabaqāt classification from Ibn Ḥajar's Taqrīb al-Tahdhīb. For the student circles of the authors of the Six Books, al-Dhahabī's Siyar aʿlām al-nubalāʾ was consulted.",
+    agGirisSinir: "For now there are 657 narrators across twelve towns. The network stops at the students of the authors of the Six Books; the later ṭabaqāt have not been added yet. Links whose samāʿ the sources deny were deliberately left undrawn.",
+    agHaritayaGit: "Click to open the map",
   },
 };
