@@ -148,8 +148,14 @@ yeni `<audio>` her zaman 1x baslar ve kaynak degisince sifirlanir (efektle
 senkron tutuluyor); `autoPlay` tarayici tarafindan reddedilebilir, o
 durumda dugme duraklatilmis halde kaliyor.
 
-**Ses dosyasi 2026-08-30'da eklendi** (o tarihe kadar eksikti, dugme 404
-yiyordu). `MIHNA_SRC` = `/podcast/mihne-hadisesi.mp3`, 29:13, 14 MB.
+**SU AN SES DOSYASI YOK (2026-08-30).** `MIHNA_SRC` =
+`/podcast/mihne-hadisesi.mp3` ama dosya yerinde degil, adres 404
+donuyor. Dosya ayni gun eklenmis, birkac saat sonra Mustafa yerine
+baskasini koymak icin kaldirtmisti; yenisi henuz gelmedi. Oynatici
+hatayi yakalayip (`onError` -> `failed`) duzgun bir uyari gosteriyor,
+yani sayfa kirilmiyor -- ama dugmeye basan ziyaretci sesi DINLEYEMIYOR.
+Yeni dosya `public/podcast/mihne-hadisesi.mp3` olarak eklenirse baska
+hicbir degisiklik gerekmiyor.
 
 **Podcast sesi eklerken SIKISTIR.** Kaynak kayit 56 MB / 257 kbps stereo
 AAC geldi, konusma icin bu asiri. Kural olarak **64 kbps mono MP3**
