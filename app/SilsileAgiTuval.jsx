@@ -38,6 +38,10 @@ import {
   salSayi, tahminiYil, tarihYaz, veriyiDenetle, yOf
 } from "./silsileVeri";
 
+/* Akan kesik cizginin hizi, saniyede piksel. Kesik deseni 14+8=22
+   piksel, yani saniyede iki turun biraz altinda. */
+const AKIS_HIZ = 50;
+
 export default function SilsileAgiTuval() {
   const [secim, setSecim] = useState(null);   // {tur:"ravi",id} | {tur:"kenar",e}
   const [arama, setArama] = useState("");
@@ -905,6 +909,28 @@ export default function SilsileAgiTuval() {
     const vurus = { dugum: [], etiket: [], kenar: [] };
     vurusRef.current = vurus;
 
+    /* CANLANAN KENARLAR SECILEN NOKTANIN RENGINDE. Sabit bir vurgu
+       rengi yerine bu, cunku bag zaten o raviye ait -- goz cizgiyi
+       kaynagina baglayabiliyor. Hz. Peygamber'de turkuaz, Malik'te
+       Malik'in tonu.
+
+       Acik temada bir duzeltme var: palet acik zemin icin secilmis
+       oldugundan bazi tonlar krem uzerinde kayboluyor. Parlakligi
+       esigin ustunde olanlar koyulastiriliyor. */
+    const canliRenk = (() => {
+      if (!(secim && secim.tur === "ravi")) return C.kenarCanli;
+      const ham = secim.id === "nebi" ? NEBI_RENK : renkOf(secim.id);
+      if (koyu) return ham;
+      const s = ham.replace("#", "");
+      const r = parseInt(s.slice(0, 2), 16), g = parseInt(s.slice(2, 4), 16),
+            b = parseInt(s.slice(4, 6), 16);
+      const parlaklik = (r * 299 + g * 587 + b * 114) / 1000;
+      if (parlaklik < 150) return ham;
+      const o = 150 / parlaklik;
+      const iki = (v) => Math.round(v * o).toString(16).padStart(2, "0");
+      return "#" + iki(r) + iki(g) + iki(b);
+    })();
+
     // ---- zemin ----
     ctx.fillStyle = C.tuval;
     ctx.fillRect(0, 0, cw, ch);
@@ -1017,7 +1043,7 @@ export default function SilsileAgiTuval() {
          daha ince ve daha soluk bir cizgiyle elde ediliyor. Hz.
          Peygamber gibi altmis kenarli bir dugum secilince fark
          dogrudan goruluyor: eskisi ekrani kapliyordu. */
-      topluCiz(canliKenarlar, C.kenarCanli, 1.4 * Math.max(0.7, cizgiCarpani), 0.72);
+      topluCiz(canliKenarlar, canliRenk, 1.4 * Math.max(0.7, cizgiCarpani), 0.72);
       ctx.restore();
     }
     if (seciliKenar) topluCiz([seciliKenar], C.kenarSecili, 2.6, 1);
@@ -1039,7 +1065,7 @@ export default function SilsileAgiTuval() {
       ctx.closePath();
       ctx.fill();
     };
-    for (const c of canliKenarlar) okCiz(c, C.okVurgu, 7);
+    for (const c of canliKenarlar) okCiz(c, canliRenk, 7);
     if (seciliKenar) okCiz(seciliKenar, C.okVurgu, 9);
 
     // ---- dugumler ----
@@ -1213,22 +1239,26 @@ export default function SilsileAgiTuval() {
   }, [ciz]);
 
   /* Akan kesik cizgi. Yalnizca bir ravi seciliyken donuyor, cunku
-     canlanan kenar ancak o zaman var. SVG surumunde bu bir CSS
-     animasyonuydu ve steps() ile boyama sikligi dusurulmustu; tuvalde
-     kare basina maliyet zaten butun sahnenin bir kez cizilmesi, o
-     yuzden saniyede ~12 kare yetiyor. */
+     canlanan kenar ancak o zaman var.
+
+     KARE ATLAMA YOK. Onceden 40 ms'de bir 4 piksel atlaniyordu; hiz
+     dogruydu ama hareket kesik kesik gorunuyordu -- goz 4 piksellik
+     sicramalari tek tek seciyor ve sonuc "hem hizli hem yavas"
+     oluyordu (Mustafa, 2026-08-30). Simdi her karede ve GECEN SUREYE
+     gore ilerliyor, yani ekran kac hertz ise o kadar akici.
+
+     Maliyet bir tam sahne cizimi; kaydirmada da her karede ayni is
+     yapiliyor ve orada sorun yok. Faz FARKLA ilerledigi icin dongu
+     yeniden kurulsa bile (ciz kimligi degisince oluyor) hareket
+     ziplamiyor. */
   useEffect(() => {
     if (!akisAnim || !(secim && secim.tur === "ravi")) return;
-    let calisiyor = true, sonKare = 0;
+    let calisiyor = true, sonT = performance.now();
     const dongu = (t) => {
       if (!calisiyor) return;
-      /* Iki ayar: KARE ARALIGI ve ADIM. Akis hizi ikisinin orani --
-         su an 4 piksel / 40 ms, yani saniyede 100 piksel. Onceden
-         2 / 80 idi (saniyede 25) ve fazla agirdi; tuvalde bir karenin
-         maliyeti butun sahnenin bir kez cizilmesi oldugu icin
-         saniyede 25 kare rahat kaldiriliyor. Kesik deseni 14+8=22
-         piksel, yani saniyede ~4,5 tur. */
-      if (t - sonKare > 40) { akisFazRef.current -= 4; sonKare = t; ciz(); }
+      akisFazRef.current -= ((t - sonT) / 1000) * AKIS_HIZ;
+      sonT = t;
+      ciz();
       requestAnimationFrame(dongu);
     };
     const id = requestAnimationFrame(dongu);
