@@ -29,14 +29,43 @@ import { useTheme } from "./ThemeContext";
    paketlemede eleniyor, eksik ad ise sayfayi calisma aninda kiriyor. */
 import {
   ALT, ASGARI_DY, BANT, BELDELER, BELDE_AD, DERECE, DIA, DIS, E, EDGES,
-  EKRAN_PUNTO, EKRAN_R_ARTIS, EN_AZ_EKRAN_R, ESIK, H, HULEFA, ING_HARF,
-  ING_SOZLUK, KADEME, KART_TAVAN, KAVIS, KAVIS_OLCEK, KUME_EN_AZ, MEDAR,
-  MEDINE, MUELLIF, MUKSIRUN, N, NEBI_RENK, NODES, NOT_DIL, PALET, POS,
-  R_TAVAN, SATIRLAR, SATIR_YIL, SERIT_W, SOL_BANT, SOL_PAY, SUTUNLAR,
-  TAB, TAHMIN, UST, UST_BANT, W, YILLAR, YIL_EKI, YIL_MAX, YIL_MIN,
+  EKRAN_PUNTO, EKRAN_R_ARTIS, EN_AZ_EKRAN_R, ESIK, H as HAM_H, HULEFA, ING_HARF,
+  ING_SOZLUK, KADEME, KART_TAVAN, KAVIS, KAVIS_OLCEK as HAM_KAVIS_OLCEK,
+  KUME_EN_AZ, MEDAR,
+  MEDINE, MUELLIF, MUKSIRUN, N, NEBI_RENK, NODES, NOT_DIL, PALET,
+  POS as HAM_POS,
+  R_TAVAN, SATIRLAR, SATIR_YIL, SERIT_W, SOL_BANT, SOL_PAY,
+  SUTUNLAR as HAM_SUTUNLAR,
+  TAB, TAHMIN, UST, UST_BANT, W as HAM_W, YILLAR, YIL_EKI, YIL_MAX, YIL_MIN,
   buyuk, dagit, ek, ingAd, miladiKestirim, rEkranOf, rOf, renkOf,
-  salSayi, tahminiYil, tarihYaz, veriyiDenetle, yOf
+  salSayi, tahminiYil, tarihYaz, veriyiDenetle, yOf as HAM_yOf
 } from "./silsileVeri";
+
+/* YERLESIM BU SAYFADA IKI KAT SEYREK.
+
+   Yalnizca ARALIKLAR buyuyor: nokta yaricaplari ve yazi puntolari
+   ekranda oldugu gibi kaliyor. Aciliste butun ag yine ekrana
+   sigdirildigi icin olcek yariya iniyor; noktalarin kucumesin diye
+   yaricap hesabina `k * YAY` veriliyor, boylece ekrandaki boy
+   degismiyor ama iki nokta arasindaki mesafe ikiye katlaniyor.
+   Kullanicinin istedigi seyreltme bu.
+
+   Olceklenenler: konumlar, sutun seritleri, tuval boyu, yil ekseni
+   ve kavis buyuklugu. Kavis de olcekleniyor, yoksa egriler
+   duzlesirdi. Kenar ucundaki bosluk da (bkz. kenarKubik) grafik
+   birimi oldugu icin olcekleniyor.
+
+   DEGISIKLIK YALNIZCA BU DOSYADA. Yerlesim sabitleri paylasilan
+   app/silsileVeri.js icinde ve orayi degistirmek yayindaki SVG
+   sayfasini da degistirirdi. */
+const YAY = 2;
+const POS = Object.fromEntries(Object.entries(HAM_POS)
+  .map(([id, p]) => [id, { x: p.x * YAY, y: p.y * YAY }]));
+const SUTUNLAR = HAM_SUTUNLAR.map((c) => ({ ...c, x: c.x * YAY, genislik: c.genislik * YAY }));
+const W = HAM_W * YAY;
+const H = HAM_H * YAY;
+const yOf = (yil) => HAM_yOf(yil) * YAY;
+const KAVIS_OLCEK = HAM_KAVIS_OLCEK * YAY;
 
 /* Akan kesik cizginin hizi, saniyede piksel. Kesik deseni 14+8=22
    piksel, yani saniyede iki turun biraz altinda. */
@@ -261,7 +290,16 @@ export default function SilsileAgiTuval() {
        eksi bir olcek uretiyor ve acilis gorunumu bir kez kuruldugu
        icin bu kaliciya biniyordu. */
     const kSigdir = Math.max(1e-4, Math.min(yatay, dikey));
-    const k = Math.min(kSigdir * 12, 0.08);
+    /* Carpan 12 degil 12 * YAY.
+
+       Yerlesim seyreltilince (bkz. YAY) sigdirma olcegi de ayni oranda
+       kucululyor; carpan sabit birakilsaydi acilis gorunumu de
+       kuculur ve seyreltme HICBIR SEY DEGISTIRMEZDI -- ag yine ayni
+       piksellere sigardi. Carpani YAY ile buyutmek acilis olcegini
+       oldugu yerde tutuyor, boylece noktalar arasindaki mesafe
+       ekranda gercekten ikiye katlaniyor ve karsiliginda gorus
+       alanina ag'in daha az bir kismi giriyor. */
+    const k = Math.min(kSigdir * 12 * YAY, 0.08);
     const nebi = POS["nebi"];
     return sinirla({
       k,
@@ -683,7 +721,7 @@ export default function SilsileAgiTuval() {
     const k2x = pb.x + kavis, k2y = pb.y - dy * kf;
     const vx = pb.x - k2x, vy = pb.y - k2y;
     const vu = Math.hypot(vx, vy) || 1;
-    const bosluk = rOf(e.b) + 10;
+    const bosluk = (rOf(e.b) + 10) * YAY;
     return `M ${pa.x} ${pa.y} C ${k1x} ${k1y}, ${k2x} ${k2y}, ` +
            `${pb.x - (vx / vu) * bosluk} ${pb.y - (vy / vu) * bosluk}`;
   }, []);
@@ -863,7 +901,7 @@ export default function SilsileAgiTuval() {
     const k2x = pb.x + kavis, k2y = pb.y - dy * kf;
     const vx = pb.x - k2x, vy = pb.y - k2y;
     const vu = Math.hypot(vx, vy) || 1;
-    const bosluk = rOf(e.b) + 10;
+    const bosluk = (rOf(e.b) + 10) * YAY;
     return { x0: pa.x, y0: pa.y, k1x, k1y, k2x, k2y,
              x1: pb.x - (vx / vu) * bosluk, y1: pb.y - (vy / vu) * bosluk };
   }, []);
