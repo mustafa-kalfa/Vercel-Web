@@ -860,15 +860,36 @@ export default function SilsileAgiTuval() {
   const ciz = useCallback(() => {
     const cv = tuvalRef.current;
     if (!cv || !box.w || !box.h) return;
-    /* Cihaz piksel orani IKIYLE SINIRLI. Uc kat yogunluklu bir
-       telefonda tam oranda cizmek dort kat piksel demek ve kazanilan
-       keskinlik gozle secilmiyor. */
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const gw = Math.round(box.w * dpr), gh = Math.round(box.h * dpr);
-    if (cv.width !== gw || cv.height !== gh) { cv.width = gw; cv.height = gh; }
+    /* CIHAZ PIKSEL ORANI TAM KULLANILIYOR (uc kata kadar).
+
+       Once ikiyle sinirlanmisti, "gozle secilmez" diye. Yanlisti:
+       SVG cozunurlukten bagimsiz, cihaz ne veriyorsa o kadar keskin
+       cikiyor. Uc kat yogunluklu bir telefonda tuvali ikiyle
+       cizdirmek eksen basina ucte bir daha az piksel demek ve fark
+       yaziciklarda dogrudan goruluyor (Mustafa, 2026-08-30).
+
+       CSS boyu da TAM SAYIYA oturtuluyor. Kap kesirli bir genislikte
+       olcurse (375.5 gibi) arka tampon ile CSS kutusu tam ortulmuyor
+       ve tarayici araya bir yeniden orneklemye sokuyor -- bulanikligin
+       ikinci kaynagi buydu. */
+    const dprHam = Math.min(window.devicePixelRatio || 1, 3);
+    const cw = Math.round(box.w), ch = Math.round(box.h);
+    /* Tampon boyu YUVARLANIYOR, cunku devicePixelRatio kesirli
+       gelebiliyor (olculen: 1.9999999835). Yuvarlanmadan 375 * 1.9999
+       = 749.99 cikiyor, tuval bunu 749'a kirpiyor ve tarayici 749
+       pikseli 375 CSS pikseline sigdirmak icin yeniden ornekliyor --
+       yaziciklardaki bulanikligin bir kaynagi da buydu. Yuvarlayinca
+       oran tam 2 oluyor. */
+    const gw = Math.round(cw * dprHam), gh = Math.round(ch * dprHam);
+    if (cv.width !== gw || cv.height !== gh) {
+      cv.width = gw; cv.height = gh;
+      cv.style.width = cw + "px"; cv.style.height = ch + "px";
+    }
+    // Cizim olcegi TAMPONDAN turetiliyor, ham orandan degil.
+    const olcek = gw / cw;
     const ctx = cv.getContext("2d");
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.clearRect(0, 0, box.w, box.h);
+    ctx.setTransform(olcek, 0, 0, olcek, 0, 0);
+    ctx.clearRect(0, 0, cw, ch);
     if (!olculdu) return;
 
     const k = view.k;
@@ -879,7 +900,7 @@ export default function SilsileAgiTuval() {
 
     // ---- zemin ----
     ctx.fillStyle = C.tuval;
-    ctx.fillRect(0, 0, box.w, box.h);
+    ctx.fillRect(0, 0, cw, ch);
 
     // ---- sutun seritleri ----
     /* Serit rengi Medine'den baslayip BIRER ATLAYARAK tekrar ediyor.
@@ -1025,15 +1046,23 @@ export default function SilsileAgiTuval() {
          animasyonu tuvalde YOK: SVG'de bunlar CSS ile bedavaya
          yakindi, tuvalde her kare yeniden cizim demek olurdu ve
          kazanilan seyi geri verirdi. */
+      /* HALKA VE BAKLAVA PAYLARI GRAFIK BIRIMINDE, ekran degil.
+
+         SVG'de bu sekiller `scale(kg)` grubunun icindeydi: `r + 8`
+         yazildiginda ekranda `8 * kg` kadar disariya tasiyordu, yani
+         acilis gorunumunde onda bir pikselden az -- halka noktanin
+         kenarina yapisiktir. Tuvale birebir tasininca 8 GERCEK piksel
+         oldu ve noktalar birbirine girdi (Mustafa, 2026-08-30).
+         Kalemler icin de ayni sey gecerli. */
       if (MUKSIRUN.has(n.id)) {
-        ctx.strokeStyle = renk; ctx.lineWidth = 2.4;
+        ctx.strokeStyle = renk; ctx.lineWidth = 2.4 * k;
         ctx.globalAlpha = (sonukMu ? 0.14 : 1) * 0.55;
-        ctx.beginPath(); ctx.arc(px, py, r + 8, 0, Math.PI * 2); ctx.stroke();
+        ctx.beginPath(); ctx.arc(px, py, r + 8 * k, 0, Math.PI * 2); ctx.stroke();
         ctx.globalAlpha = sonukMu ? 0.14 : 1;
       }
       if (MEDAR[n.id]) {
-        const d = r + 10;
-        ctx.strokeStyle = renk; ctx.lineWidth = 2.4;
+        const d = r + 10 * k;
+        ctx.strokeStyle = renk; ctx.lineWidth = 2.4 * k;
         ctx.globalAlpha = (sonukMu ? 0.14 : 1) * 0.6;
         ctx.beginPath();
         ctx.moveTo(px, py - d); ctx.lineTo(px + d, py);
@@ -1043,8 +1072,11 @@ export default function SilsileAgiTuval() {
       }
       ctx.fillStyle = renk;
       ctx.beginPath(); ctx.arc(px, py, r, 0, Math.PI * 2); ctx.fill();
+      /* Beyaz cerceve de grafik biriminde. Ekran biriminde birakilinca
+         her nokta tam iki piksellik bir halkayla ciziliyordu ve
+         noktalar oldugundan iri gorunuyordu. */
       ctx.strokeStyle = secili ? C.ink : "#ffffff";
-      ctx.lineWidth = secili ? 3.4 : 2;
+      ctx.lineWidth = (secili ? 3.4 : 2) * k;
       ctx.stroke();
     }
     ctx.globalAlpha = 1;
@@ -1065,8 +1097,9 @@ export default function SilsileAgiTuval() {
       const punto = Math.max(EKRAN_PUNTO[kad], r * 0.42);
       const altPunto = punto * 0.8;
       const px = eX(p.x) + bilgi.kay;
+      // Buradaki 8 de grafik birimi (bkz. halka paylari).
       const py = eY(p.y) + (bilgi.yon === "ust"
-        ? -(2 * r + punto + altPunto + 8) : 0);
+        ? -(2 * r + punto + altPunto + 8 * k) : 0);
       ctx.globalAlpha = sonuk(n.id) ? 0.12 : 1;
       const ad = adi(n).length > 26 ? adi(n).slice(0, 25) + "…" : adi(n);
 
@@ -1089,9 +1122,9 @@ export default function SilsileAgiTuval() {
       const tarih = tarihYaz(n, t.agOlum);
       ctx.font = `400 ${altPunto}px Georgia, 'Times New Roman', serif`;
       ctx.lineWidth = altPunto * 0.32;
-      ctx.strokeText(tarih, px, py + r + punto + altPunto + 3);
+      ctx.strokeText(tarih, px, py + r + punto + altPunto + 3 * k);
       ctx.fillStyle = C.solukInk;
-      ctx.fillText(tarih, px, py + r + punto + altPunto + 3);
+      ctx.fillText(tarih, px, py + r + punto + altPunto + 3 * k);
     }
     ctx.globalAlpha = 1;
   }, [box, olculdu, view, pencere, secim, secRavi, secKenar, vurgu,

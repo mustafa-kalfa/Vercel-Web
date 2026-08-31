@@ -77,6 +77,14 @@ Tarayıcı paneli gizlenince `requestAnimationFrame` duruyor, `setTimeout` 1 san
 - Şekiller grafik biriminde, **yazılar ekran biriminde**. Ölçekli matris altında yazı tipi ipuçlandırılamıyor, metin bulanıklaşıyor.
 - Tıklama hedefi elle kuruldu. `ciz` her geçişte vuruş kayıtlarını dolduruyor, `tuvaldaBul` etiket → düğüm → kenar sırasıyla tarıyor. **Kenar testi yalnızca yakında** çalışıyor, yoksa uzakta boş bir yere tıklamak hep kenar seçiyor.
 - **Kaybedilenler** — salınım ve hale animasyonu, metin seçimi, ekran okuyucu erişimi.
+
+### Canvas'a taşırken düşülen tuzak
+
+SVG'de bütün gövde `scale(kg)` grubunun içindeydi, yani oradaki her sabit **grafik birimi**. `r + 8` yazıldığında ekranda `8 * kg` kadar taşıyordu — açılış görünümünde onda bir pikselden az. Canvas'a birebir taşınınca 8 **gerçek** piksel oldu. Müksirûn halkası, medar baklavası ve noktaların beyaz çerçevesi olduğundan çok kalın çıktı, noktalar birbirine girdi. Hepsi `* k` ile düzeltildi.
+
+Netlik iki kaynaktan bozuluyordu. Cihaz piksel oranı ikiyle sınırlanmıştı, üç kata çıkarıldı. Ayrıca `devicePixelRatio` kesirli gelebiliyor (ölçülen 1.9999999835), yuvarlanmadan tampon 749 piksele kırpılıp 375 CSS pikseline yeniden örnekleniyordu. Tampon yuvarlanınca oran tam 2 oldu.
+
+**Ölçüm tuzağı** — tampon boyutunu ilk çizimden önce okursanız 300×150 görürsünüz, yani canvas'ın varsayılanını. Birkaç kez yanlış teşhise götürdü.
 - Doğrulandı: açılış, yakınlaşma, kaydırma, düğüm ve etiket tıklaması, koyu mod, DPR (750×1516 tampon).
 
 Beğenilirse yayına alınır, beğenilmezse dosya silinir ve SVG sürümü hiç dokunulmamış olur.
