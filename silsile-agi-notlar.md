@@ -21,7 +21,7 @@ Son güncelleme 2026-08-30. Önceki not dosyasının yerini alır.
 - **156 boşluk kaldı** — kendi tercemesi hiç açılmamış, yani talebe tarafı boş râviler.
 - Tabakaya göre — 1'de 23, 2'de 32, 3'te 25, 4'te 9, 5'te 67.
 - 6. tabakadaki 116 kişi **bilerek** boş. Kütüb-i Sitte müelliflerinin öğrencileri son sınır.
-- İşlenenler bile derinlemesine eksik. Ebû Hüreyre'de Mizzî 338 talebe sayıyor, 64'ü çizili.
+- Ebû Hüreyre'nin tercemesi neredeyse tam işlenmiş — Mizzî'nin saydığı 338 talebeden **333'ü kartta** görünüyor. Ama bunun yalnızca **64'ü haritada çizili**; kalan 269'u `DIS` tablosunda, kesik çerçeveli ve tıklanamaz çip olarak duruyor. Fark şundan: bir ismi haritaya nokta olarak koymak belde, vefat yılı ve tabaka ister, bunlar da o kişinin **kendi tercemesinden** gelir. Yani 338'i birden çizmek 269 terceme daha işlemek demek.
 - İşlenmiş olanlar — İsmâîl İbn Uleyye, Abdürrezzâk b. Hemmâm. İş listesi `araclar/` altında üretilebiliyor.
 
 ## Terceme işleme boru hattı

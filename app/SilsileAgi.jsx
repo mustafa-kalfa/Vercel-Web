@@ -187,6 +187,10 @@ export default function SilsileAgi() {
   /* Suruklemede sayfaya devredilen toplam mesafe (bkz. pointerKimilda).
      Her yeni suruklemede sifirlaniyor. */
   const artanRef = useRef(0);
+  /* Suruklemede parmagin dikey toplam yer degistirmesi, bir onceki
+     kimildamada okunmus hali. Sayfayi geri sararken ARTISI bulmak
+     icin gerekiyor (bkz. pointerKimilda). */
+  const sayfaDyRef = useRef(0);
   /* Kapsayicinin olculeri. SIFIRDAN basliyor, bir tahminden degil:
      acilis gorunumu (bkz. `baslangic`) bir kez kuruluyor ve "hic
      olculmedi" halini tanimasi gerekiyor. Eskiden burada {1000, 640}
@@ -456,6 +460,7 @@ export default function SilsileAgi() {
     if (isaretler.current.size === 1) {
       setSuruk({ mx: e.clientX, my: e.clientY, vx: view.x, vy: view.y });
       artanRef.current = 0;
+      sayfaDyRef.current = 0;
       tasindiRef.current = false;
       return;
     }
@@ -523,6 +528,28 @@ export default function SilsileAgi() {
        daha cok kaydiriyordu. Ekranda titreme/sicrama olarak
        goruluyordu (Mustafa, 2026-08-29). Bir onceki artan ref'te
        tutuluyor, sayfaya yalnizca ARADAKI FARK veriliyor. */
+    /* FOOTER ACIKKEN ONCE SAYFAYI GERI SAR -- masaustundeki kuralin
+       dokunmadaki karsiligi.
+
+       Tekerlek isleyicisinde su var: yukari cevrildiginde ve sayfa
+       asagi kaymissa ag'a hic dokunulmuyor, once sayfa tepeye
+       donuyor (bkz. tekerlek). Telefonda bunun aynasi yoktu; footer
+       gorunur haldeyken parmagi asagi cekmek ag'i kaydiriyor, footer
+       ekranda asili kaliyordu (Mustafa, 2026-08-30).
+
+       Parmagin ASAGI gitmesi (dy artiyor) icerigin asagi kaymasi,
+       yani sayfada yukari cikmak demek -- tekerlegin yukari
+       cevrilmesiyle ayni sey. Toplam degil ARTIS uygulaniyor; toplami
+       her karede uygulamak sayfayi giderek daha cok kaydirir ve
+       titremeye yol acar (ayni hata artanRef'te bir kez yapildi). */
+    if (window.scrollY > 0) {
+      const artis = dy - sayfaDyRef.current;
+      sayfaDyRef.current = dy;
+      if (artis > 0) { window.scrollBy(0, -artis); return; }
+    } else {
+      sayfaDyRef.current = dy;
+    }
+
     const istenen = { ...view, x: suruk.vx + dx, y: suruk.vy + dy };
     const sonuc = sinirla(istenen);
     const artan = istenen.y - sonuc.y;
@@ -545,7 +572,15 @@ export default function SilsileAgi() {
     setSecim({ tur: "ravi", id });
     const p = POS[id];
     const k = view.k;
-    kaydir({ k, x: (box.w + SOL_BANT) / 2 - p.x * k, y: (box.h + UST_BANT) / 2 - p.y * k }, 620);
+    /* Dikeyde tam ORTA degil: dar ekranda bilgi karti alt seridi
+       kapliyor ve secilen ravi kartin ardinda kaliyordu (Mustafa,
+       2026-08-30). Kart 130 px + pay, arama kumesi de ustunde; geriye
+       kalan bos alanin ortasi yaklasik %35'e denk geliyor. Genis
+       ekranda kart yalnizca yarim genislik kapladigi icin orta
+       korunuyor. */
+    const oran = dar ? 0.35 : 0.5;
+    const hy = UST_BANT + (box.h - UST_BANT) * oran;
+    kaydir({ k, x: (box.w + SOL_BANT) / 2 - p.x * k, y: hy - p.y * k }, 620);
   };
 
 
