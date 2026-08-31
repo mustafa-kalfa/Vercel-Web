@@ -148,14 +148,15 @@ yeni `<audio>` her zaman 1x baslar ve kaynak degisince sifirlanir (efektle
 senkron tutuluyor); `autoPlay` tarayici tarafindan reddedilebilir, o
 durumda dugme duraklatilmis halde kaliyor.
 
-**SU AN SES DOSYASI YOK (2026-08-30).** `MIHNA_SRC` =
-`/podcast/mihne-hadisesi.mp3` ama dosya yerinde degil, adres 404
-donuyor. Dosya ayni gun eklenmis, birkac saat sonra Mustafa yerine
-baskasini koymak icin kaldirtmisti; yenisi henuz gelmedi. Oynatici
-hatayi yakalayip (`onError` -> `failed`) duzgun bir uyari gosteriyor,
-yani sayfa kirilmiyor -- ama dugmeye basan ziyaretci sesi DINLEYEMIYOR.
-Yeni dosya `public/podcast/mihne-hadisesi.mp3` olarak eklenirse baska
-hicbir degisiklik gerekmiyor.
+`MIHNA_SRC` = `/podcast/mihne-hadisesi.mp3`, 20:57, 10 MB. Kaydin kendi
+adi "Mihne Sureci ve Halku'l-Kur'an Meselesi", ama **dosya adi
+`mihne-hadisesi.mp3` olarak sabit** -- dugme etiketi (`podcastMihna`)
+ile dosya adi bilerek ayri, kayit degisince kodda hicbir sey
+degismesin diye. 2026-08-30'da baska bir kayit konmus, ertesi gun
+bununla degistirilmisti.
+
+Ham kayitlar sitenin deposunda degil, `Desktop\Vercel Projeler\
+Podcastler\` klasorunde duruyor.
 
 **Podcast sesi eklerken SIKISTIR.** Kaynak kayit 56 MB / 257 kbps stereo
 AAC geldi, konusma icin bu asiri. Kural olarak **64 kbps mono MP3**
