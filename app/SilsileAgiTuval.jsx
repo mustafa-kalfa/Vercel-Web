@@ -94,7 +94,13 @@ export default function SilsileAgiTuval() {
        (Mustafa, 2026-08-29). Burada iki bant da BEYAZ, yalnizca
        saydamliklari farkli -- yani dama bir aydinlik basamagi.
        Renksiz oldugu icin ravi noktalarinin rengiyle yarismiyor. */
-    kenarCanli: "#9C8F5A", okVurgu: "#A9603F",
+    /* Akan kenarlar Hz. Peygamber'in noktasinin rengini aliyor
+       (NEBI_RENK, #80D7C1). Onceden altin-zeytin bir tondu ve
+       zeminin kendi sarisiyla ayni ailedendi, hareket ederken goz
+       yoruyordu (Mustafa, 2026-08-30). Turkuaz zeminde hicbir seyle
+       karismiyor ve vurguyu rivayetin kaynagina bagliyor.
+       Ok uclari ayni aileden bir tik koyu. */
+    kenarCanli: "#80D7C1", okVurgu: "#4FB39C",
     damaA: "#FFFFFF", damaAOp: 0.040, damaB: "#FFFFFF", damaBOp: 0.014,
     satirA: "#FFFFFF", satirAOp: 0.030, satirB: "#FFFFFF", satirBOp: 0.010,
   } : {
@@ -104,7 +110,8 @@ export default function SilsileAgiTuval() {
     okSonuk: "#C9BFA8", dugumCerceve: "white", etiketHale: "#FFFFFF",
     etiketAna: "#2B2721", etiketAlt: "#8C8676", sonucVurgu: "#F5F1E6",
     kesikCerceve: "#E0D8C6",
-    kenarCanli: "#8A7A34", okVurgu: "#B5462B",
+    // Acik temada ayni turkuaz krem zemin uzerinde okunacak kadar koyu.
+    kenarCanli: "#2E9483", okVurgu: "#1F7767",
     damaA: "#8A7A34", damaAOp: 0.05, damaB: "#2E7D6E", damaBOp: 0.026,
     satirA: "#8A7A34", satirAOp: 0.055, satirB: "#2E7D6E", satirBOp: 0.028,
   };
@@ -1003,7 +1010,14 @@ export default function SilsileAgiTuval() {
         ctx.setLineDash([14, 8]);
         ctx.lineDashOffset = akisFazRef.current;
       }
-      topluCiz(canliKenarlar, C.kenarCanli, 2 * Math.max(0.9, cizgiCarpani), 0.95);
+      /* Kalinlik ve opaklik, renk turkuaza donunce GERI CEKILDI.
+         Eski zeytin ton zeminin sarisiyla ayni ailedendi ve
+         secilebilmesi icin kalinliga yuklenmek gerekiyordu. Turkuaz
+         zaten hicbir seyle karismiyor, dolayisiyla ayni okunurluk
+         daha ince ve daha soluk bir cizgiyle elde ediliyor. Hz.
+         Peygamber gibi altmis kenarli bir dugum secilince fark
+         dogrudan goruluyor: eskisi ekrani kapliyordu. */
+      topluCiz(canliKenarlar, C.kenarCanli, 1.4 * Math.max(0.7, cizgiCarpani), 0.72);
       ctx.restore();
     }
     if (seciliKenar) topluCiz([seciliKenar], C.kenarSecili, 2.6, 1);
@@ -1208,7 +1222,13 @@ export default function SilsileAgiTuval() {
     let calisiyor = true, sonKare = 0;
     const dongu = (t) => {
       if (!calisiyor) return;
-      if (t - sonKare > 80) { akisFazRef.current -= 2; sonKare = t; ciz(); }
+      /* Iki ayar: KARE ARALIGI ve ADIM. Akis hizi ikisinin orani --
+         su an 4 piksel / 40 ms, yani saniyede 100 piksel. Onceden
+         2 / 80 idi (saniyede 25) ve fazla agirdi; tuvalde bir karenin
+         maliyeti butun sahnenin bir kez cizilmesi oldugu icin
+         saniyede 25 kare rahat kaldiriliyor. Kesik deseni 14+8=22
+         piksel, yani saniyede ~4,5 tur. */
+      if (t - sonKare > 40) { akisFazRef.current -= 4; sonKare = t; ciz(); }
       requestAnimationFrame(dongu);
     };
     const id = requestAnimationFrame(dongu);
