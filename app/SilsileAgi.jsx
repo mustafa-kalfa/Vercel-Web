@@ -3282,7 +3282,8 @@ export default function SilsileAgi() {
      Bedeli: parmak hareket ederken yazi puntolari ve nokta yaricaplari
      -- ekran biriminde hesaplandiklari icin -- oranla birlikte bir
      miktar buyuyup kuculuyor, parmak kalkinca yerine oturuyor. Kenar
-     kalinliklari etkilenmiyor (non-scaling-stroke ekran pikselinde).
+     kalinliklari da ayni sekilde etkileniyor (kalem artik kullanici
+     uzayinda, bkz. birlesik yol).
      Harita uygulamalarinin yaptigi da budur. */
   const kg = durgun.k;
 
@@ -3423,17 +3424,32 @@ export default function SilsileAgi() {
                 if (!yol) continue;
                 (kenarSonuk(e) ? dimD : normalD).push(yol);
               }
-              const ortak = { fill: "none", vectorEffect: "non-scaling-stroke",
-                              style: { pointerEvents: "none" } };
+              /* BURADA `non-scaling-stroke` YOK, kalinlik elle olcege
+                 bolunuyor.
+
+                 Sebep: non-scaling-stroke kalemi CIHAZ uzayinda
+                 uretmek zorunda, yani donusum her degistiginde
+                 tarayici butun kenar seridini yeniden kuruyor. Tek bir
+                 yolda 188 alt parca varken bu her kaydirma karesinde
+                 tekrarlanan bir is demek ve Blink'te bilinen bir yavas
+                 yol. Govde zaten `scale(kg)` icinde durdugu icin
+                 `w / kg` ayni ekran kalinligini veriyor, kalem de
+                 kullanici uzayinda bir kez kuruluyor.
+
+                 Kucuk bedel: parmak yakinlastirirken (view.k ile kg
+                 ayrildiginda) cizgiler bir miktar kalinlasip
+                 inceliyor, parmak kalkinca yerine oturuyor. Punto ve
+                 yaricap zaten ayni sekilde davraniyordu. */
+              const ortak = { fill: "none", style: { pointerEvents: "none" } };
               return (
                 <g>
                   {dimD.length > 0 && (
                     <path {...ortak} d={dimD.join(" ")} stroke={C.kenarSonuk}
-                      strokeWidth={0.7 * cizgiCarpani} opacity={0.5 * cizgiSaydam} />
+                      strokeWidth={(0.7 * cizgiCarpani) / kg} opacity={0.5 * cizgiSaydam} />
                   )}
                   {normalD.length > 0 && (
                     <path {...ortak} d={normalD.join(" ")} stroke={C.kenar}
-                      strokeWidth={1.2 * cizgiCarpani} opacity={0.85 * cizgiSaydam} />
+                      strokeWidth={(1.2 * cizgiCarpani) / kg} opacity={0.85 * cizgiSaydam} />
                   )}
                 </g>
               );
@@ -3454,8 +3470,7 @@ export default function SilsileAgi() {
               return (
                 <g key={i}>
                   {yakin && (
-                    <path d={d} fill="none" stroke="transparent" strokeWidth="16"
-                      vectorEffect="non-scaling-stroke"
+                    <path d={d} fill="none" stroke="transparent" strokeWidth={16 / kg}
                       style={{ cursor: "pointer", pointerEvents: "stroke" }}
                       onPointerUp={(ev) => {
                         ev.stopPropagation(); pointerBirak(ev);
@@ -3464,8 +3479,15 @@ export default function SilsileAgi() {
                   )}
                   <path d={d} fill="none"
                     className={"kenar" + (canli && akisAnim ? (dar ? " kenar-y" : " kenar-v") : "")}
+                    /* Kesik deseni ve akis mesafesi de olcege bolunuyor:
+                       kalem artik kullanici uzayinda kuruldugu icin
+                       sabit 14/8 birakilsa desen uzaklastikca
+                       gorunmez, yakinlasinca devasa olurdu. */
+                    strokeDasharray={canli && akisAnim ? `${14 / kg} ${8 / kg}` : undefined}
+                    style={canli && akisAnim
+                      ? { pointerEvents: "none", "--akis": `${-44 / kg}` }
+                      : { pointerEvents: "none" }}
                     stroke={secili ? C.kenarSecili : canli ? C.kenarCanli : dim ? C.kenarSonuk : C.kenar}
-                    vectorEffect="non-scaling-stroke"
                     /* Vurgulu kenarlar da uzaklastikca inceliyor.
                        Sabit kalinlikta birakildiginda bir raviye
                        tiklaninca 60 kenar tam kalinlikta ciziliyor ve
@@ -3477,14 +3499,13 @@ export default function SilsileAgi() {
                        cizgiler secilemiyordu (Mustafa, 2026-08-29).
                        Sonuk kenarlar ise iyice geri cekildi -- vurgu
                        kalinliktan cok KARSITLIKTAN dogsun. */
-                    strokeWidth={(secili ? 2.6 : canli ? 2 : dim ? 0.6 : 1.2) *
-                                 (secili ? 1 : Math.max(canli ? 0.9 : 0, cizgiCarpani))}
+                    strokeWidth={((secili ? 2.6 : canli ? 2 : dim ? 0.6 : 1.2) *
+                                  (secili ? 1 : Math.max(canli ? 0.9 : 0, cizgiCarpani))) / kg}
                     opacity={secili ? 1 : canli ? 0.95
                              : (dim ? 0.22 : 0.85) * cizgiSaydam}
                     markerEnd={secili || canli ? "url(#okVurgu)"
                                : !yakin ? undefined
-                               : dim ? "url(#okSonuk)" : "url(#ok)"}
-                    style={{ pointerEvents: "none" }} />
+                               : dim ? "url(#okSonuk)" : "url(#ok)"} />
                 </g>
               );
             })}
@@ -3648,7 +3669,7 @@ export default function SilsileAgi() {
         {/* ---- ana tuval ---- */}
         <svg width="100%" height="100%" style={{ position: "absolute", inset: 0 }}>
           <style>{`
-            @keyframes akisY  { to { stroke-dashoffset: -44; } }
+            @keyframes akisY  { to { stroke-dashoffset: var(--akis, -44); } }
             @keyframes belir  { from { opacity: 0; transform: scale(0.4); }
                                 to   { opacity: 1; transform: scale(1); } }
             @keyframes salin1 { 0%   { transform: translate(0,0); }
@@ -3681,7 +3702,7 @@ export default function SilsileAgi() {
                yalnizca adim sinirlarinda degisiyor, arada hicbir sey
                gecersiz olmuyor: masaustu ~9, telefon ~5 boyama/sn.
                Goz akisi yine akis olarak okuyor. */
-            .kenar-v { stroke-dasharray: 14 8; animation: akisY 1.8s steps(16) infinite; }
+            .kenar-v { animation: akisY 1.8s steps(16) infinite; }
             /* AKISIN UCUZ SURUMU (telefon). Suresi uzun degil, ADIMLI:
                steps(12) ile tarayici saniyede 60 kez degil ~5 kez
                boyuyor. Kasmanin sebebi hizin kendisi degil, her
@@ -3689,7 +3710,7 @@ export default function SilsileAgi() {
                adim sayisini dusurmek maliyeti dogrudan bolüyor.
                Dasharray 14+8=22, bir tur -44 -> baslangica dikissiz
                doner (duz surumdeki -46 her turda 2 px zipliyordu). */
-            .kenar-y { stroke-dasharray: 14 8; animation: akisY 2.6s steps(12) infinite; }
+            .kenar-y { animation: akisY 2.6s steps(12) infinite; }
             /* Bilgi kartlarinin kaydirma cubugu gizli: kutu kaydiriliyor
                ama Windows'un ok basli gri cubugu tuvalin uzerinde
                yamalik duruyordu (Mustafa'nin eki, 2026-08-29). */
