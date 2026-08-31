@@ -85,6 +85,8 @@ SVG'de bütün gövde `scale(kg)` grubunun içindeydi, yani oradaki her sabit **
 Netlik iki kaynaktan bozuluyordu. Cihaz piksel oranı ikiyle sınırlanmıştı, üç kata çıkarıldı. Ayrıca `devicePixelRatio` kesirli gelebiliyor (ölçülen 1.9999999835), yuvarlanmadan tampon 749 piksele kırpılıp 375 CSS pikseline yeniden örnekleniyordu. Tampon yuvarlanınca oran tam 2 oldu.
 
 **Ölçüm tuzağı** — tampon boyutunu ilk çizimden önce okursanız 300×150 görürsünüz, yani canvas'ın varsayılanını. Birkaç kez yanlış teşhise götürdü.
+
+Bir de **öğe işleyicilerinde yaşayan davranışlar sessizce kaybolur.** SVG'de her düğümün kendi `onPointerUp`'ı vardı ve `odaklan`'ı çağırıyordu; o fonksiyon yalnızca seçmiyor, ekranı seçilen râviye **ortalıyor** ve aynı râviye tekrar tıklandığında seçimi **kaldırıyordu**. Canvas'ta tıklama tek bir yere toplanınca doğrudan `setSecim`'e bağlandı ve iki davranış birden gitti. Arama kutusu ile karttaki çipler hâlâ `odaklan`'ı çağırdığı için fark ancak haritaya tıklarken görülüyordu. Tuvalde vuruş sonucu düğümse **`odaklan`'dan geçmeli**.
 - Doğrulandı: açılış, yakınlaşma, kaydırma, düğüm ve etiket tıklaması, koyu mod, DPR (750×1516 tampon).
 
 Yerleşim `YAY = 2` ile iki kat seyrek, açılış yakınlığı `ACILIS_YAKINLIK` sabitinde. İkisi birbirine bağlı — seyreltme açılış çarpanıyla telafi edilmezse hiçbir şey değişmez, çünkü ağ yine aynı piksellere sığar.

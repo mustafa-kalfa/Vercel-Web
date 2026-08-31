@@ -1334,8 +1334,18 @@ export default function SilsileAgi() {
           if (sonParmak && !tasindiRef.current) {
             /* Tuvalde tiklanan sey ne ise o seciliyor; hicbir sey
                yoksa secim temizleniyor. SVG surumunde bu is ogelerin
-               kendi isleyicilerindeydi. */
-            setSecim(tuvaldaBul(nokta));
+               kendi isleyicilerindeydi.
+
+               DUGUM VE ETIKET `odaklan`DAN GECIYOR, dogrudan setSecim'den
+               degil. Tuvale gecerken bu atlanmisti ve iki davranis birden
+               kaybolmustu (Mustafa, 2026-08-30): secilen ravinin ekrana
+               ORTALANMASI ve ayni raviye tekrar tiklayinca secimin
+               KALKMASI. Arama kutusu ile karttaki cipler zaten odaklan'i
+               cagirdigi icin oralarda calismaya devam ediyordu, fark da
+               bu yuzden goze carpiyordu. */
+            const vurulan = tuvaldaBul(nokta);
+            if (vurulan && vurulan.tur === "ravi") odaklan(vurulan.id);
+            else setSecim(vurulan);
             setAcikArama(false);
           }
         }}
