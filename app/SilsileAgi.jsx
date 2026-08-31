@@ -3405,6 +3405,20 @@ export default function SilsileAgi() {
                 const pa = POS[e.a], pb = POS[e.b];
                 if (!pa || !pb || !kenarIcerde(pa, pb)) continue;
                 if (vurgu && (vurgu.has(e.a) || vurgu.has(e.b))) continue;
+                /* EKRANDA UC PIKSELDEN KISA KALAN KENAR CIZILMIYOR.
+
+                   Uzaklasinca butun kenarlar tek yolda birlesiyor ve o
+                   yol telefonda 434 alt parca / 52 KB'a cikiyordu
+                   (olculdu, 2026-08-30). Eleman sayisi dusuk ama
+                   BOYANAN GEOMETRI buyuk: tarayici her karede her
+                   kubigi duz parcalara bolup kenar yumusatmasiyla
+                   tariyor. Kullanicinin "ekrana daha fazla veri
+                   sigdikca kasma artiyor" dedigi sey buydu.
+
+                   Bu suzgec 434 parcayi 188'e, 52 KB'i 22 KB'a
+                   dusuruyor ve hicbir sey kaybettirmiyor -- uc piksel
+                   uzunlugundaki bir kenar zaten gorunmuyor. */
+                if (Math.hypot(pb.x - pa.x, pb.y - pa.y) * kg < 3) continue;
                 const yol = kenarYolu(e);
                 if (!yol) continue;
                 (kenarSonuk(e) ? dimD : normalD).push(yol);
@@ -3634,7 +3648,6 @@ export default function SilsileAgi() {
         {/* ---- ana tuval ---- */}
         <svg width="100%" height="100%" style={{ position: "absolute", inset: 0 }}>
           <style>{`
-            @keyframes akis   { to { stroke-dashoffset: -46; } }
             @keyframes akisY  { to { stroke-dashoffset: -44; } }
             @keyframes belir  { from { opacity: 0; transform: scale(0.4); }
                                 to   { opacity: 1; transform: scale(1); } }
@@ -3661,7 +3674,14 @@ export default function SilsileAgi() {
             @keyframes hale   { 0%,100% { opacity: .30; transform: scale(1); }
                                 50%     { opacity: .06; transform: scale(1.55); } }
             .kenar   { transition: stroke .35s ease, stroke-width .35s ease, opacity .35s ease; }
-            .kenar-v { stroke-dasharray: 14 8; animation: akis 1.1s linear infinite; }
+            /* AKIS HER IKI CIHAZDA DA ADIMLI. Duz (linear) surum
+               saniyede 60 kez boyuyordu ve bir raviye tiklaninca
+               60 kenar birden canlandigi icin masaustunde fan
+               calisiyordu (Mustafa, 2026-08-30). steps() ile deger
+               yalnizca adim sinirlarinda degisiyor, arada hicbir sey
+               gecersiz olmuyor: masaustu ~9, telefon ~5 boyama/sn.
+               Goz akisi yine akis olarak okuyor. */
+            .kenar-v { stroke-dasharray: 14 8; animation: akisY 1.8s steps(16) infinite; }
             /* AKISIN UCUZ SURUMU (telefon). Suresi uzun degil, ADIMLI:
                steps(12) ile tarayici saniyede 60 kez degil ~5 kez
                boyuyor. Kasmanin sebebi hizin kendisi degil, her
@@ -3709,8 +3729,15 @@ export default function SilsileAgi() {
 
           {/* Konum burada, govde disarida (bkz. agGovdesi): kaydirinca
               yalnizca bu nitelik degisiyor, altindaki agac degil. */}
+          {/* `will-change: transform`: bu grup kendi birlestirme
+              katmanina aliniyor. Kaydirmada nitelik degisen tek sey bu
+              transform oldugu icin tarayici altindaki devasa yolu
+              yeniden BOYAMAK yerine hazir katmani kaydiriyor. Katman
+              eleme sayesinde en fazla ucte uc ekran buyuklugunde, yani
+              bellek maliyeti sinirli. */}
           <g transform={`translate(${view.x},${view.y}) scale(${view.k / kg})`}
-             style={{ visibility: olculdu ? undefined : "hidden" }}>
+             style={{ visibility: olculdu ? undefined : "hidden",
+                      willChange: "transform" }}>
             {agGovdesi}
           </g>
         </svg>
