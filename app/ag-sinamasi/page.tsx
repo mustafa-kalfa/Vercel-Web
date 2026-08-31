@@ -2,12 +2,15 @@
 
 import Link from "next/link";
 import ChromaKeyVideo from "../ChromaKeyVideo";
-import SilsileAgi from "../SilsileAgi";
+import SilsileAgiTuval from "../SilsileAgiTuval";
 import { useLanguage } from "../LanguageContext";
 
-/* Silsile agi sayfasi. Site cercevesi (HD logosu, tema/dil dugmeleri,
-   footer) 2026-08-29'da geri geldi -- bir sure kaldirilmisti, bkz.
-   ciplakYollar.ts.
+/* CANVAS DENEMESININ SAYFASI.
+
+   Duzen /ravi-iliski-aglari/harita ile BIREBIR ayni olmali, yoksa
+   olcum karsilastirilamaz. Tek fark cagrilan bilesen: burada
+   SilsileAgiTuval, orada SilsileAgi. Ikisi de ayni veriyi
+   (app/silsileVeri.js) kullaniyor.
 
    FOOTER KENDILIGINDEN KATLANMA CIZGISININ ALTINDA: kok layout
    govdeyi `min-h-dvh` bir kaba koyup footer'i o kabin ARDINA
@@ -39,11 +42,9 @@ export default function AgSinamasi() {
           `min-h-dvh` veriyor, `height` degil.
 
           Ust bant 2026-08-29'da %33 kuculdu: logo 72 -> 48 px, bant
-          80 -> 54 px. Sayfanin ust seridi ag'dan cok yer aliyordu.
-          SIMDILIK YALNIZCA BU SAYFADA -- begenilirse diger sayfalara
-          da tasinacak. */}
+          80 -> 54 px. Sayfanin ust seridi ag'dan cok yer aliyordu. */}
       <div className="mt-[54px] h-[calc(100dvh-54px)]">
-        <SilsileAgi />
+        <SilsileAgiTuval />
       </div>
     </main>
   );
