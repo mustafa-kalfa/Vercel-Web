@@ -2596,6 +2596,8 @@ const SOL_BANT = 24;    // yıl ekseni bandı
    sigmiyordu -- buyutec ikonu 28 px sol dolgu aliyor, geriye 92 px
    kaliyor, yazi ise ~105 px istiyor. 152 hepsini alir. */
 const KUME_EN_AZ = 152;
+/* Bilgi kartinda bir baslik altinda gosterilecek en fazla isim. */
+const KART_TAVAN = 100;
 
 export default function SilsileAgi() {
   const [secim, setSecim] = useState(null);   // {tur:"ravi",id} | {tur:"kenar",e}
@@ -3242,15 +3244,57 @@ export default function SilsileAgi() {
 
   const secRavi = secim && secim.tur === "ravi" ? NODES.find((n) => n.id === secim.id) : null;
   const secKenar = secim && secim.tur === "kenar" ? secim.e : null;
-  const hocalar = secRavi
+  /* KARTTA EN COK `KART_TAVAN` ISIM. Ebu Hureyre'nin tercemesinde
+     Mizzi 338 talebe sayiyor; hepsini basmak karti okunmaz yapar ve
+     zaten kimse 338 cipin arasindan bir sey secmez. Onem sirasi:
+
+       1. Merkezilik -- Hz. Peygamber, sonra medarlar, muellifler,
+          muksirun. Bunlar isnadin dugum noktalari.
+       2. Kendi bag sayisi -- agda ne kadar cok baglantisi varsa
+          o kadar yukarida. DERECE zaten hesaplanmis durumda.
+       3. Rumuz genisligi -- ع (alti kitap) en genis, tek harf en dar.
+          Rivayeti kac kitaba girmisse o kadar merkezi sayiliyor.
+
+     Ag disinda kalanlar (DIS) her zaman agdakilerin ARDINDAN geliyor:
+     onlar tiklanamiyor, dolayisiyla listenin basini isgal etmemeliler. */
+  const RUMUZ_AGIRLIK = { "ع": 6, "٤": 4 };
+  const rumuzGenislik = (r) => {
+    if (!r || r === "—") return 0;
+    return r.trim().split(/s+/)
+      .reduce((a, h) => a + (RUMUZ_AGIRLIK[h] ?? 1), 0);
+  };
+  const merkezilik = (id) =>
+    id === "nebi" ? 400 : (MEDAR[id] ? 200 : 0) +
+    (MUELLIF.has(id) ? 120 : 0) + (MUKSIRUN.has(id) ? 80 : 0);
+  const onemSirasi = (a, b) =>
+    (merkezilik(b.n.id) - merkezilik(a.n.id)) ||
+    ((DERECE[b.n.id] || 0) - (DERECE[a.n.id] || 0)) ||
+    (rumuzGenislik(b.r) - rumuzGenislik(a.r));
+
+  const hocaTum = secRavi
     ? EDGES.filter((e) => e.b === secRavi.id).map((e) => ({ ...e, n: NODES.find((x) => x.id === e.a) }))
+        .sort(onemSirasi)
     : [];
-  const talebeler = secRavi
+  const talebeTum = secRavi
     ? EDGES.filter((e) => e.a === secRavi.id).map((e) => ({ ...e, n: NODES.find((x) => x.id === e.b) }))
+        .sort(onemSirasi)
     : [];
+  const hocalar = hocaTum.slice(0, KART_TAVAN);
+  const talebeler = talebeTum.slice(0, KART_TAVAN);
   /* Ag disindakiler (bkz. DIS): tercemede gecen ama dugumu olmayan
-     hoca/talebeler. Kartta gosteriliyor, ag'a cizilmiyor. */
-  const disKayit = (secRavi && DIS[secRavi.id]) || { hoca: [], talebe: [] };
+     hoca/talebeler. Kartta gosteriliyor, ag'a cizilmiyor. Agdakiler
+     tavani doldurduysa bunlara hic yer kalmiyor. */
+  const disHam = (secRavi && DIS[secRavi.id]) || { hoca: [], talebe: [] };
+  const disSirala = (l) => [...l].sort((a, b) => rumuzGenislik(b[1]) - rumuzGenislik(a[1]));
+  const disKayit = {
+    hoca: disSirala(disHam.hoca).slice(0, Math.max(0, KART_TAVAN - hocalar.length)),
+    talebe: disSirala(disHam.talebe).slice(0, Math.max(0, KART_TAVAN - talebeler.length)),
+  };
+  // Tercemedeki toplam (gosterilen degil) -- basliktaki sayi bu.
+  const tumSayi = {
+    hoca: hocaTum.length + disHam.hoca.length,
+    talebe: talebeTum.length + disHam.talebe.length,
+  };
 
   /* AGIN GOVDESI DONDURULMUS BIR AGAC.
 
@@ -3946,14 +3990,20 @@ export default function SilsileAgi() {
             {secRavi.not && <p className="text-sm mt-2 leading-relaxed" style={{ color: C.ink }}>
               {NOT_DIL[language]?.[secRavi.id] ?? secRavi.not}</p>}
             <div className="grid md:grid-cols-2 gap-5 mt-3 text-sm">
-              {[[t.agHocalari, hocalar, disKayit.hoca], [t.agTalebeleri, talebeler, disKayit.talebe]]
-                .map(([baslik, liste, disListe]) => (
+              {[[t.agHocalari, hocalar, disKayit.hoca, tumSayi.hoca],
+                [t.agTalebeleri, talebeler, disKayit.talebe, tumSayi.talebe]]
+                .map(([baslik, liste, disListe, toplam]) => (
                 <div key={baslik}>
                   {/* Sayi TERCEMEDEKI toplam: agda cizili olanlar + ag
                       disinda kalanlar. Parantez ici yalnizca cizili
                       olani sayarsa kart tercemeyi eksik gosterir. */}
+                  {/* Parantez ici TERCEMEDEKI toplam. Tavan asilmissa
+                      "100 / 338" gibi yaziliyor -- ziyaretci kartta
+                      gordugunun tamami olmadigini bilsin. */}
                   <div className="text-[11px] uppercase tracking-wider mb-1.5" style={{ color: C.vurguInk }}>
-                    {baslik} ({liste.length + disListe.length})
+                    {baslik} ({liste.length + disListe.length < toplam
+                      ? `${liste.length + disListe.length} / ${toplam}`
+                      : toplam})
                   </div>
                   <div className="flex flex-wrap gap-1.5">
                     {liste.map((h) => (
