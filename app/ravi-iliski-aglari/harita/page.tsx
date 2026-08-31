@@ -12,8 +12,8 @@ import { useLanguage } from "../../LanguageContext";
    tanitim o adrese gecti, harita da buraya indi. Boylece sitemap'teki
    ve kartlardaki adres degismedi, yalnizca ARDINDA ne oldugu degisti.
 
-   UC SAYFA AYNI BILESENI CAGIRIYOR (burasi, /ag-sinamasi ve gelecekte
-   eklenecekler), kopya kod yok. Duzeni degistirmen gerekirse hepsine
+   IKI SAYFA AYNI BILESENI CAGIRIYOR (burasi ve /ag-sinamasi),
+   kopya kod yok. Duzeni degistirmen gerekirse hepsine
    birden uygula, yoksa deneme yayindakini temsil etmez hale gelir.
 
    FOOTER KENDILIGINDEN KATLANMA CIZGISININ ALTINDA: kok layout govdeyi

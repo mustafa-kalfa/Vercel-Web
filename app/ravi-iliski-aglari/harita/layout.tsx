@@ -9,7 +9,7 @@ import type { Metadata } from "next";
    KONMADI -- tanitim sayfasindan buraya giden bag izlenebilir kalsin,
    Google isterse tarasin; kopya icerik riski yok cunku metin yok. */
 export const metadata: Metadata = {
-  title: "Silsile Haritası",
+  title: "Rivayet Haritası",
   description: "Hadis râvilerinin hoca-talebe bağlarının etkileşimli haritası.",
 };
 

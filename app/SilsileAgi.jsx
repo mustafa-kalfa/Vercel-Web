@@ -1,42 +1,27 @@
 "use client";
 
-/* SILSILE AGI GORSELLESTIRMESI. Bu dosya bir artifact'ten OLDUGU GIBI
-   alindi; icerigi hala hizla degistigi icin site tarafinda elle yapilan
-   degisiklikler EN AZDA tutuluyor. Yeni surum gelince dosyanin ustune
-   yazip yalnizca asagidaki bes noktayi tekrar uygulamak yetiyor:
+/* SILSILE AGI -- rivayet haritasinin cizim bileseni.
 
-   1) Bu "use client" satiri. App Router'da bir dosya varsayilan olarak
-      SUNUCU bileseni; useState/useEffect ve fare olaylari orada
-      calismaz. Artifact tarayicida durdugu icin bunu bilmiyor.
-   2) Kok div'de `h-screen` DEGIL `h-full`. Artifact tek basina bir
-      sayfaydi, tam ekran kapliyordu; burada kapsayicinin -- yani
-      /ag-sinamasi sayfasinin ona ayirdigi yerin -- boyunu almasi
-      gerekiyor.
-   3) KOK DIV'IN HEMEN ICINDEKI <header> SILINDI. Artifact'te ustte
-      iki satirlik bir baslik vardi ("MIZZI, TEHZIBU'L-KEMAL ..." ve
-      "Silsile Agi"). Mustafa'nin karari, 2026-08-29: sayfa tamamen
-      gorsellestirmeden ibaret olsun, ne site basligi ne agin kendi
-      basligi dursun. Dar ekranda o baslik iki satira sariyor ve
-      ekranin besde birini yiyordu.
-   4) `.jsx` uzanti, `.tsx` DEGIL. Proje TypeScript ama tsconfig'in
-      `include` listesi yalnizca .ts/.tsx tariyor, yani bu dosya tip
-      denetiminden gecmiyor -- Next.js `allowJs` ile derliyor.
-      Artifact tip bilgisi tasimadigi icin (`useState(null)` gibi)
-      .tsx yapmak her surumde bastan tip yazmak demek olurdu.
-      Gorsellestirme oturdugunda .tsx'e cevrilebilir.
+   Cizim katmani <canvas>. 2026-08-30'a kadar SVG idi; sahne React
+   ogelerinden kuruluyor ve kaydirmada tarayici agacin tamamini
+   yeniden boyuyordu. Dondurulmus agac, gorus elemesi, birlestirilmis
+   yol ve kullanici uzayinda kalem hep o boyamayi ucuzlatma
+   denemeleriydi. Tuvalde agac yok: grafik icin DOM'da sifir oge var,
+   sahne dogrudan piksel tamponuna ciziliyor.
 
-   5) DOKUNMA DESTEGI ve DAR EKRAN ACILISI. Artifact tuvali yalnizca
-      fare olaylarini dinliyordu, bu yuzden telefonda ag kaydirilamiyor
-      ve yakinlastirilamiyordu (2026-08-29'da fark edildi). Iki ekleme
-      yapildi, ikisi de yerinde ayrica anlatildi:
-        - Tuvalin isleyicileri pointer olaylarina cevrildi ve iki
-          parmakla yakinlastirma eklendi (bkz. pointerBas /
-          pointerKimilda / pointerBirak).
-        - Acilis gorunumu dar ekranda tuvali dolduruyor (bkz.
-          `baslangic`); eskiden agin tamami sigdiriliyordu ve telefonda
-          ekranin ucte ikisi bos kaliyordu.
-      Yeni artifact surumu bunlari kendi icinde cozuyorsa bu madde
-      dusebilir; cozmuyorsa tekrar uygulanmali. */
+   BEDELI: haritadaki isimler metin degil piksel -- secilemiyor,
+   Ctrl+F bulmuyor, ekran okuyucu gormuyor. Bilgi karti DOM oldugu
+   icin kart metni kopyalanabilir durumda. Tiklama hedefi elle
+   kuruluyor (bkz. vurusRef / tuvaldaBul).
+
+   IKI SAYFA BU BILESENI CAGIRIYOR: /ravi-iliski-aglari/harita ve
+   /ag-sinamasi. Ikisi de app/silsileVeri.js'ten besleniyor. Yeni bir
+   cizim denemesi gerekirse bu dosya kopyalanip /ag-sinamasi ona
+   baglanir; veri paylasik kaldigi icin islenen tercemeler iki
+   sayfada da gorunmeye devam eder.
+
+   Duzeni degistirmen gerekirse iki sayfaya birden uygula, yoksa
+   deneme yayindakini temsil etmez hale gelir. */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import { useLanguage } from "./LanguageContext";
 import { useTheme } from "./ThemeContext";
@@ -45,14 +30,54 @@ import { useTheme } from "./ThemeContext";
    paketlemede eleniyor, eksik ad ise sayfayi calisma aninda kiriyor. */
 import {
   ALT, ASGARI_DY, BANT, BELDELER, BELDE_AD, DERECE, DIA, DIS, E, EDGES,
-  EKRAN_PUNTO, EKRAN_R_ARTIS, EN_AZ_EKRAN_R, ESIK, H, HULEFA, ING_HARF,
-  ING_SOZLUK, KADEME, KART_TAVAN, KAVIS, KAVIS_OLCEK, KUME_EN_AZ, MEDAR,
-  MEDINE, MUELLIF, MUKSIRUN, N, NEBI_RENK, NODES, NOT_DIL, PALET, POS,
-  R_TAVAN, SATIRLAR, SATIR_YIL, SERIT_W, SOL_BANT, SOL_PAY, SUTUNLAR,
-  TAB, TAHMIN, UST, UST_BANT, W, YILLAR, YIL_EKI, YIL_MAX, YIL_MIN,
+  EKRAN_PUNTO, EKRAN_R_ARTIS, EN_AZ_EKRAN_R, ESIK, H as HAM_H, HULEFA, ING_HARF,
+  ING_SOZLUK, KADEME, KART_TAVAN, KAVIS, KAVIS_OLCEK as HAM_KAVIS_OLCEK,
+  KUME_EN_AZ, MEDAR,
+  MEDINE, MUELLIF, MUKSIRUN, N, NEBI_RENK, NODES, NOT_DIL, PALET,
+  POS as HAM_POS,
+  R_TAVAN, SATIRLAR, SATIR_YIL, SERIT_W, SOL_BANT, SOL_PAY,
+  SUTUNLAR as HAM_SUTUNLAR,
+  TAB, TAHMIN, UST, UST_BANT, W as HAM_W, YILLAR, YIL_EKI, YIL_MAX, YIL_MIN,
   buyuk, dagit, ek, ingAd, miladiKestirim, rEkranOf, rOf, renkOf,
-  salSayi, tahminiYil, tarihYaz, veriyiDenetle, yOf
+  salSayi, tahminiYil, tarihYaz, veriyiDenetle, yOf as HAM_yOf
 } from "./silsileVeri";
+
+/* YERLESIM BU SAYFADA IKI KAT SEYREK.
+
+   Yalnizca ARALIKLAR buyuyor: nokta yaricaplari ve yazi puntolari
+   ekranda oldugu gibi kaliyor. Aciliste butun ag yine ekrana
+   sigdirildigi icin olcek yariya iniyor; noktalarin kucumesin diye
+   yaricap hesabina `k * YAY` veriliyor, boylece ekrandaki boy
+   degismiyor ama iki nokta arasindaki mesafe ikiye katlaniyor.
+   Kullanicinin istedigi seyreltme bu.
+
+   Olceklenenler: konumlar, sutun seritleri, tuval boyu, yil ekseni
+   ve kavis buyuklugu. Kavis de olcekleniyor, yoksa egriler
+   duzlesirdi. Kenar ucundaki bosluk da (bkz. kenarKubik) grafik
+   birimi oldugu icin olcekleniyor.
+
+   DEGISIKLIK YALNIZCA BU DOSYADA. Yerlesim sabitleri paylasilan
+   app/silsileVeri.js icinde ve orayi degistirmek yayindaki SVG
+   sayfasini da degistirirdi. */
+const YAY = 2;
+/* Acilis yakinligi: sigdirma olceginin kac kati. Buyudukce daha
+   yakindan baslar. YAY ile carpilmasi sart, yoksa seyreltme acilisi
+   da kucultur ve birbirlerini gotururler. 12 * YAY fazla yakindi --
+   fazla yakindi. Mustafa'nin verdigi ekran goruntulerinde yil
+   ekseni yilda ~24,4 piksel; olculen deger 12 * YAY iken 39,4 idi,
+   yani 1,6 kat fazla yakin. 5,25 * YAY o oranı veriyor. */
+const ACILIS_YAKINLIK = 5.25 * YAY;
+const POS = Object.fromEntries(Object.entries(HAM_POS)
+  .map(([id, p]) => [id, { x: p.x * YAY, y: p.y * YAY }]));
+const SUTUNLAR = HAM_SUTUNLAR.map((c) => ({ ...c, x: c.x * YAY, genislik: c.genislik * YAY }));
+const W = HAM_W * YAY;
+const H = HAM_H * YAY;
+const yOf = (yil) => HAM_yOf(yil) * YAY;
+const KAVIS_OLCEK = HAM_KAVIS_OLCEK * YAY;
+
+/* Akan kesik cizginin hizi, saniyede piksel. Kesik deseni 14+8=22
+   piksel, yani saniyede iki turun biraz altinda. */
+const AKIS_HIZ = 50;
 
 export default function SilsileAgi() {
   const [secim, setSecim] = useState(null);   // {tur:"ravi",id} | {tur:"kenar",e}
@@ -110,7 +135,13 @@ export default function SilsileAgi() {
        (Mustafa, 2026-08-29). Burada iki bant da BEYAZ, yalnizca
        saydamliklari farkli -- yani dama bir aydinlik basamagi.
        Renksiz oldugu icin ravi noktalarinin rengiyle yarismiyor. */
-    kenarCanli: "#9C8F5A", okVurgu: "#A9603F",
+    /* Akan kenarlar Hz. Peygamber'in noktasinin rengini aliyor
+       (NEBI_RENK, #80D7C1). Onceden altin-zeytin bir tondu ve
+       zeminin kendi sarisiyla ayni ailedendi, hareket ederken goz
+       yoruyordu (Mustafa, 2026-08-30). Turkuaz zeminde hicbir seyle
+       karismiyor ve vurguyu rivayetin kaynagina bagliyor.
+       Ok uclari ayni aileden bir tik koyu. */
+    kenarCanli: "#80D7C1", okVurgu: "#4FB39C",
     damaA: "#FFFFFF", damaAOp: 0.040, damaB: "#FFFFFF", damaBOp: 0.014,
     satirA: "#FFFFFF", satirAOp: 0.030, satirB: "#FFFFFF", satirBOp: 0.010,
   } : {
@@ -120,7 +151,8 @@ export default function SilsileAgi() {
     okSonuk: "#C9BFA8", dugumCerceve: "white", etiketHale: "#FFFFFF",
     etiketAna: "#2B2721", etiketAlt: "#8C8676", sonucVurgu: "#F5F1E6",
     kesikCerceve: "#E0D8C6",
-    kenarCanli: "#8A7A34", okVurgu: "#B5462B",
+    // Acik temada ayni turkuaz krem zemin uzerinde okunacak kadar koyu.
+    kenarCanli: "#2E9483", okVurgu: "#1F7767",
     damaA: "#8A7A34", damaAOp: 0.05, damaB: "#2E7D6E", damaBOp: 0.026,
     satirA: "#8A7A34", satirAOp: 0.055, satirB: "#2E7D6E", satirBOp: 0.028,
   };
@@ -266,7 +298,8 @@ export default function SilsileAgi() {
        eksi bir olcek uretiyor ve acilis gorunumu bir kez kuruldugu
        icin bu kaliciya biniyordu. */
     const kSigdir = Math.max(1e-4, Math.min(yatay, dikey));
-    const k = Math.min(kSigdir * 12, 0.08);
+    // Yakinlik ACILIS_YAKINLIK sabitinde, sebebiyle birlikte.
+    const k = Math.min(kSigdir * ACILIS_YAKINLIK, 0.08);
     const nebi = POS["nebi"];
     return sinirla({
       k,
@@ -688,7 +721,7 @@ export default function SilsileAgi() {
     const k2x = pb.x + kavis, k2y = pb.y - dy * kf;
     const vx = pb.x - k2x, vy = pb.y - k2y;
     const vu = Math.hypot(vx, vy) || 1;
-    const bosluk = rOf(e.b) + 10;
+    const bosluk = (rOf(e.b) + 10) * YAY;
     return `M ${pa.x} ${pa.y} C ${k1x} ${k1y}, ${k2x} ${k2y}, ` +
            `${pb.x - (vx / vu) * bosluk} ${pb.y - (vy / vu) * bosluk}`;
   }, []);
@@ -831,308 +864,445 @@ export default function SilsileAgi() {
     (Math.min(pa.x, pb.x) <= pencere.x2 && Math.max(pa.x, pb.x) >= pencere.x1 &&
      Math.min(pa.y, pb.y) <= pencere.y2 && Math.max(pa.y, pb.y) >= pencere.y1);
 
-  const agGovdesi = useMemo(() => (
-    <g transform={`scale(${kg})`}>
-            <rect x={-W} y={-H} width={W * 3} height={H * 3} fill={C.tuval} />
-            {SUTUNLAR.map((c, i) => {
-              const ilk = i === 0, son = i === SUTUNLAR.length - 1;
-              // taşma payında beyaz alan görünmesin diye uç sütunlar yanlara uzatılır
-              const zx = ilk ? -W : c.x;
-              const zw = (son ? W * 2 : c.x + c.genislik) - zx;
-              return (
-                <g key={c.belde}>
-                  {/* Serit rengi Medine'den baslayip BIRER ATLAYARAK
-                      tekrar ediyor: Misir, Sam, Medine, Vasit, Cibal,
-                      Maveraunnehir ayni ton. Onceden yalnizca Medine
-                      ayriydi, digerleri birbirinin ayniydi ve sutun
-                      sinirlari zor secikiyordu (Mustafa, 2026-08-29).
-                      Parite indise degil MEDINE'YE gore: araya yeni bir
-                      belde girse (Yemen girdi) Medine tonunu kaybetmesin. */}
-                  <rect x={zx} y={-H} width={zw} height={H * 3}
-                    fill={(i - MEDINE_I) % 2 === 0 ? C.damaA : C.damaB}
-                    opacity={(i - MEDINE_I) % 2 === 0 ? C.damaAOp : C.damaBOp} />
-                  {!ilk && (
-                    <line x1={c.x} y1={-H} x2={c.x} y2={H * 2}
-                      stroke={C.cizgi} strokeWidth="1.2" opacity="0.7" />
-                  )}
-                </g>
-              );
-            })}
-            {/* 25'er yillik damali satirlar. Sutun seritlerinin USTUNE
-                cizilliyor ki iki desen carpisip birbirini bozmasin;
-                ikisi de cok soluk oldugu icin ust uste gelen yerde
-                yalnizca bir tik koyulasiyor. */}
-            {SATIRLAR.map((y, i) => {
-              /* UC BANTLAR TUVALIN DISINA UZATILIYOR, tipki sutunlarda
-                 oldugu gibi. Eskiden bantlar eksenin sinirlarinda
-                 (YIL_MIN / YIL_MAX) kesiliyordu; ust sinirin YUKARISI
-                 -- Hz. Peygamber'in durdugu pay -- hicbir banda
-                 girmediginden orada renksiz bir serit kaliyordu
-                 (Mustafa'nin ekran goruntusu, 2026-08-29). Ilk bant
-                 yukari, son bant asagi tasiyor. */
-              const ilk = i === 0, son = i === SATIRLAR.length - 1;
-              const ust = ilk ? -H : yOf(y);
-              const alt = son ? H * 2 : yOf(Math.min(y + SATIR_YIL, YIL_MAX));
-              if (alt <= ust) return null;
-              return (
-                <rect key={"s" + y} x={-W} y={ust} width={W * 3} height={alt - ust}
-                  fill={i % 2 === 0 ? C.satirA : C.satirB}
-                  opacity={i % 2 === 0 ? C.satirAOp : C.satirBOp} />
-              );
-            })}
-            {YILLAR.map((y) => (
-              <line key={y} x1="0" y1={yOf(y)} x2={W} y2={yOf(y)}
-                stroke={C.cizgi} strokeWidth="1" opacity={y % 50 === 0 ? 0.85 : 0.28} />
-            ))}
+  /* ---- TUVAL CIZICISI ----
 
-            {/* kenarlar */}
-            {/* KENARLAR IKI YOLDAN CIZILIYOR.
+     SVG surumunde burada `agGovdesi` adli bir useMemo vardi: butun
+     sahne React ogelerinden kuruluyor, kaydirmada dis <g>'nin
+     transform'u degisiyor ve tarayici agacin tamamini yeniden
+     boyuyordu. Donmus agac, eleme, birlestirilmis yol, kullanici
+     uzayinda kalem -- hepsi o boyamayi ucuzlatma denemeleriydi.
 
-                UZAKTA (yakin degilken) vurgusuz kenarlarin hepsi TEK
-                BIR <path> icinde birlestiriliyor. Her kenar ayri bir
-                eleman oldugunda uzaklasilmis gorunumde ~1400 yol
-                olusuyor; hepsi ayni renk ve kalinlikta cizildigi icin
-                bunu tek bir yolun alt parcalari olarak vermek ayni
-                goruntuyu veriyor ve tarayicinin isini yuzlerce kat
-                azaltiyor. Tiklama seritleri ve ok uclari zaten uzakta
-                cizilmiyordu.
+     Burada agac yok. Tek bir <canvas> var ve sahne her gorunum
+     degisiminde dogrudan piksel tamponuna ciziliyor. DOM hic
+     buyumuyor, stil hesabi ve duzen asamasi tamamen ortadan kalkiyor.
 
-                YAKINDA ve VURGULULARDA kenarlar tek tek: her birinin
-                kendi rengi, kalinligi, ok ucu ve tiklama seridi var. */}
-            {!yakin && (() => {
-              const dimD = [], normalD = [];
-              for (const e of EDGES) {
-                const pa = POS[e.a], pb = POS[e.b];
-                if (!pa || !pb || !kenarIcerde(pa, pb)) continue;
-                if (vurgu && (vurgu.has(e.a) || vurgu.has(e.b))) continue;
-                /* EKRANDA UC PIKSELDEN KISA KALAN KENAR CIZILMIYOR.
+     KOORDINAT DUZENI: sekiller GRAFIK biriminde ciziliyor (ctx'e
+     view uygulaniyor), yazilar EKRAN biriminde. Yaziyi da olcekli
+     birakmak metni bulaniklastiriyor -- tarayici yazi tipini
+     olceklenmis bir matris altinda ipuclandiramiyor. */
+  const tuvalRef = useRef(null);
+  const cizIstekRef = useRef(0);
+  const akisFazRef = useRef(0);
+  /* Vurus kayitlari. `ciz` her gecisinde dolduruyor, `tuvaldaBul`
+     okuyor. Ayri bir hesap degil -- zaten cizerken bilinen ekran
+     konumlari saklaniyor, maliyeti bir dizi doldurmak. */
+  const vurusRef = useRef({ dugum: [], etiket: [], kenar: [] });
 
-                   Uzaklasinca butun kenarlar tek yolda birlesiyor ve o
-                   yol telefonda 434 alt parca / 52 KB'a cikiyordu
-                   (olculdu, 2026-08-30). Eleman sayisi dusuk ama
-                   BOYANAN GEOMETRI buyuk: tarayici her karede her
-                   kubigi duz parcalara bolup kenar yumusatmasiyla
-                   tariyor. Kullanicinin "ekrana daha fazla veri
-                   sigdikca kasma artiyor" dedigi sey buydu.
+  /* Kenarin kubik egrisi SAYI olarak. SVG surumunde bu bir yol
+     dizgisiydi (`kenarYolu`); tuvalde dizgi uretip ayristirmak bosa is,
+     dogrudan denetim noktalari gerekiyor. Geometri birebir ayni. */
+  const kenarKubik = useCallback((e) => {
+    const pa = POS[e.a], pb = POS[e.b];
+    if (!pa || !pb) return null;
+    const dy = pb.y - pa.y;
+    const [kavisHam, kf] = KAVIS[e.a + "|" + e.b] || [0, 0.3];
+    const kavis = kavisHam * KAVIS_OLCEK;
+    const k1x = pa.x + kavis, k1y = pa.y + dy * kf;
+    const k2x = pb.x + kavis, k2y = pb.y - dy * kf;
+    const vx = pb.x - k2x, vy = pb.y - k2y;
+    const vu = Math.hypot(vx, vy) || 1;
+    const bosluk = (rOf(e.b) + 10) * YAY;
+    return { x0: pa.x, y0: pa.y, k1x, k1y, k2x, k2y,
+             x1: pb.x - (vx / vu) * bosluk, y1: pb.y - (vy / vu) * bosluk };
+  }, []);
 
-                   Bu suzgec 434 parcayi 188'e, 52 KB'i 22 KB'a
-                   dusuruyor ve hicbir sey kaybettirmiyor -- uc piksel
-                   uzunlugundaki bir kenar zaten gorunmuyor. */
-                if (Math.hypot(pb.x - pa.x, pb.y - pa.y) * kg < 3) continue;
-                const yol = kenarYolu(e);
-                if (!yol) continue;
-                (kenarSonuk(e) ? dimD : normalD).push(yol);
-              }
-              /* BURADA `non-scaling-stroke` YOK, kalinlik elle olcege
-                 bolunuyor.
+  const ciz = useCallback(() => {
+    const cv = tuvalRef.current;
+    if (!cv || !box.w || !box.h) return;
+    /* CIHAZ PIKSEL ORANI TAM KULLANILIYOR (uc kata kadar).
 
-                 Sebep: non-scaling-stroke kalemi CIHAZ uzayinda
-                 uretmek zorunda, yani donusum her degistiginde
-                 tarayici butun kenar seridini yeniden kuruyor. Tek bir
-                 yolda 188 alt parca varken bu her kaydirma karesinde
-                 tekrarlanan bir is demek ve Blink'te bilinen bir yavas
-                 yol. Govde zaten `scale(kg)` icinde durdugu icin
-                 `w / kg` ayni ekran kalinligini veriyor, kalem de
-                 kullanici uzayinda bir kez kuruluyor.
+       Once ikiyle sinirlanmisti, "gozle secilmez" diye. Yanlisti:
+       SVG cozunurlukten bagimsiz, cihaz ne veriyorsa o kadar keskin
+       cikiyor. Uc kat yogunluklu bir telefonda tuvali ikiyle
+       cizdirmek eksen basina ucte bir daha az piksel demek ve fark
+       yaziciklarda dogrudan goruluyor (Mustafa, 2026-08-30).
 
-                 Kucuk bedel: parmak yakinlastirirken (view.k ile kg
-                 ayrildiginda) cizgiler bir miktar kalinlasip
-                 inceliyor, parmak kalkinca yerine oturuyor. Punto ve
-                 yaricap zaten ayni sekilde davraniyordu. */
-              const ortak = { fill: "none", style: { pointerEvents: "none" } };
-              return (
-                <g>
-                  {dimD.length > 0 && (
-                    <path {...ortak} d={dimD.join(" ")} stroke={C.kenarSonuk}
-                      strokeWidth={(0.7 * cizgiCarpani) / kg} opacity={0.5 * cizgiSaydam} />
-                  )}
-                  {normalD.length > 0 && (
-                    <path {...ortak} d={normalD.join(" ")} stroke={C.kenar}
-                      strokeWidth={(1.2 * cizgiCarpani) / kg} opacity={0.85 * cizgiSaydam} />
-                  )}
-                </g>
-              );
-            })()}
+       CSS boyu da TAM SAYIYA oturtuluyor. Kap kesirli bir genislikte
+       olcurse (375.5 gibi) arka tampon ile CSS kutusu tam ortulmuyor
+       ve tarayici araya bir yeniden orneklemye sokuyor -- bulanikligin
+       ikinci kaynagi buydu. */
+    const dprHam = Math.min(window.devicePixelRatio || 1, 3);
+    const cw = Math.round(box.w), ch = Math.round(box.h);
+    /* Tampon boyu YUVARLANIYOR, cunku devicePixelRatio kesirli
+       gelebiliyor (olculen: 1.9999999835). Yuvarlanmadan 375 * 1.9999
+       = 749.99 cikiyor, tuval bunu 749'a kirpiyor ve tarayici 749
+       pikseli 375 CSS pikseline sigdirmak icin yeniden ornekliyor --
+       yaziciklardaki bulanikligin bir kaynagi da buydu. Yuvarlayinca
+       oran tam 2 oluyor. */
+    const gw = Math.round(cw * dprHam), gh = Math.round(ch * dprHam);
+    if (cv.width !== gw || cv.height !== gh) {
+      cv.width = gw; cv.height = gh;
+      cv.style.width = cw + "px"; cv.style.height = ch + "px";
+    }
+    // Cizim olcegi TAMPONDAN turetiliyor, ham orandan degil.
+    const olcek = gw / cw;
+    const ctx = cv.getContext("2d");
+    ctx.setTransform(olcek, 0, 0, olcek, 0, 0);
+    ctx.clearRect(0, 0, cw, ch);
+    if (!olculdu) return;
 
-            {EDGES.map((e, i) => {
-              const pa = POS[e.a], pb = POS[e.b];
-              if (!pa || !pb) return null;
-              if (!kenarIcerde(pa, pb)) return null;
-              const dim = kenarSonuk(e);
-              const secili = secKenar && secKenar.a === e.a && secKenar.b === e.b;
-              const canli = !secili && !!(secim && secim.tur === "ravi" &&
-                (e.a === secim.id || e.b === secim.id));
-              // uzakta vurgusuzler yukaridaki birlesik yola girdi
-              if (!yakin && !secili && !canli) return null;
-              const d = kenarYolu(e);
-              if (!d) return null;
-              return (
-                <g key={i}>
-                  {yakin && (
-                    <path d={d} fill="none" stroke="transparent" strokeWidth={16 / kg}
-                      style={{ cursor: "pointer", pointerEvents: "stroke" }}
-                      onPointerUp={(ev) => {
-                        ev.stopPropagation(); pointerBirak(ev);
-                        if (!tasindiRef.current) setSecim({ tur: "kenar", e });
-                      }} />
-                  )}
-                  <path d={d} fill="none"
-                    className={"kenar" + (canli && akisAnim ? (dar ? " kenar-y" : " kenar-v") : "")}
-                    /* Kesik deseni ve akis mesafesi de olcege bolunuyor:
-                       kalem artik kullanici uzayinda kuruldugu icin
-                       sabit 14/8 birakilsa desen uzaklastikca
-                       gorunmez, yakinlasinca devasa olurdu. */
-                    strokeDasharray={canli && akisAnim ? `${14 / kg} ${8 / kg}` : undefined}
-                    style={canli && akisAnim
-                      ? { pointerEvents: "none", "--akis": `${-44 / kg}` }
-                      : { pointerEvents: "none" }}
-                    stroke={secili ? C.kenarSecili : canli ? C.kenarCanli : dim ? C.kenarSonuk : C.kenar}
-                    /* Vurgulu kenarlar da uzaklastikca inceliyor.
-                       Sabit kalinlikta birakildiginda bir raviye
-                       tiklaninca 60 kenar tam kalinlikta ciziliyor ve
-                       ekrani kapliyordu (Mustafa'nin ekran goruntusu,
-                       2026-08-29). Secili TEK kenar sabit kaliyor --
-                       o zaten bir tane. */
-                    /* Vurgulu kenar uzaklikla bir miktar inceliyor ama
-                       tabani yuksek: 0.55'te birakilinca telefonda
-                       cizgiler secilemiyordu (Mustafa, 2026-08-29).
-                       Sonuk kenarlar ise iyice geri cekildi -- vurgu
-                       kalinliktan cok KARSITLIKTAN dogsun. */
-                    strokeWidth={((secili ? 2.6 : canli ? 2 : dim ? 0.6 : 1.2) *
-                                  (secili ? 1 : Math.max(canli ? 0.9 : 0, cizgiCarpani))) / kg}
-                    opacity={secili ? 1 : canli ? 0.95
-                             : (dim ? 0.22 : 0.85) * cizgiSaydam}
-                    markerEnd={secili || canli ? "url(#okVurgu)"
-                               : !yakin ? undefined
-                               : dim ? "url(#okSonuk)" : "url(#ok)"} />
-                </g>
-              );
-            })}
+    const k = view.k;
+    const eX = (gx) => view.x + gx * k;     // grafik -> ekran
+    const eY = (gy) => view.y + gy * k;
+    const vurus = { dugum: [], etiket: [], kenar: [] };
+    vurusRef.current = vurus;
 
-            {/* düğümler */}
-            {NODES.map((n) => {
-              const p = POS[n.id];
-              if (!p) return null;
-              if (!icerde(p)) return null;
-              const d = sonuk(n.id);
-              const dg = DERECE[n.id] || 0;
-              const r = rEkranOf(n.id, kg) / kg;
-              const secili = secRavi && secRavi.id === n.id;
-              // halesi olan = one cikan dugum (salinim ve hale bunlara ozel)
-              const onCikan = susAnimasyon && !!(MEDAR[n.id] || MUKSIRUN.has(n.id) ||
-                                 MUELLIF.has(n.id) || n.id === "nebi");
-              return (
-                <g key={n.id} className="dugum" transform={`translate(${p.x},${p.y})`}
-                  onPointerUp={(ev) => { ev.stopPropagation(); pointerBirak(ev); if (!tasindiRef.current) odaklan(n.id); }}
-                  style={{ cursor: "pointer", opacity: d ? 0.14 : 1 }}>
-                  {/* SALINIM YALNIZCA ONE CIKAN DUGUMLERDE (halesi
-                      olanlar: Hz. Peygamber, muksirun, medar, muellif --
-                      541 dugumun 38'i). Eskiden HEPSI salinirdi.
+    /* CANLANAN KENARLAR SECILEN NOKTANIN RENGINDE. Sabit bir vurgu
+       rengi yerine bu, cunku bag zaten o raviye ait -- goz cizgiyi
+       kaynagina baglayabiliyor. Hz. Peygamber'de turkuaz, Malik'te
+       Malik'in tonu.
 
-                      Sebep, olculdu: salinan her dugum surekli isleyen
-                      bir transform animasyonu demek ve tarayici bunlarin
-                      her birine ayri bir birlestirme katmani acar. 541
-                      katman telefonu dize getiriyordu -- kullanicinin
-                      "asiri kasma" dedigi sey buydu. 38 katman rahat.
+       Acik temada bir duzeltme var: palet acik zemin icin secilmis
+       oldugundan bazi tonlar krem uzerinde kayboluyor. Parlakligi
+       esigin ustunde olanlar koyulastiriliyor. */
+    const canliRenk = (() => {
+      if (!(secim && secim.tur === "ravi")) return C.kenarCanli;
+      const ham = secim.id === "nebi" ? NEBI_RENK : renkOf(secim.id);
+      if (koyu) return ham;
+      const s = ham.replace("#", "");
+      const r = parseInt(s.slice(0, 2), 16), g = parseInt(s.slice(2, 4), 16),
+            b = parseInt(s.slice(4, 6), 16);
+      const parlaklik = (r * 299 + g * 587 + b * 114) / 1000;
+      if (parlaklik < 150) return ham;
+      const o = 150 / parlaklik;
+      const iki = (v) => Math.round(v * o).toString(16).padStart(2, "0");
+      return "#" + iki(r) + iki(g) + iki(b);
+    })();
 
-                      Sahnenin nefes almasi korunuyor: goz zaten bu
-                      isimlerde. Hepsine geri istenirse asagidaki kosul
-                      kaldirilir. */}
-                  <g className={onCikan
-                        ? `salinim sal${(salSayi(n.id) % 4) + 1}`
-                        : undefined}
-                     /* Sureler 2026-08-29'da yaklasik iki kat
-                        hizlandirildi: 3.4-5.9 sn araligi 1.5-2.5 sn
-                        oldu. Dugumden dugume degismesi kasitli --
-                        hepsi ayni tempoda salinsa sahne makine gibi
-                        gorunuyor. */
-                     style={onCikan
-                        ? { "--sure": `${1.5 + (salSayi(n.id) % 26) / 25}s`,
-                            "--gec": `${-(salSayi(n.id) % 60) / 20}s` }
-                        : undefined}>
-                  {onCikan && (
-                    <circle className="hale" r={r + 14} fill="none"
-                      stroke={n.id === "nebi" ? NEBI_RENK : renkOf(n.id)} strokeWidth="3"
-                      style={{ animationDelay: `${(salSayi(n.id) % 30) / 20}s` }} />
-                  )}
-                  {MUKSIRUN.has(n.id) && (
-                    <circle r={r + 8} fill="none" stroke={renkOf(n.id)}
-                      strokeWidth="2.4" opacity="0.55" />
-                  )}
-                  {MEDAR[n.id] && (
-                    <rect x={-(r + 10)} y={-(r + 10)} width={(r + 10) * 2} height={(r + 10) * 2}
-                      fill="none" stroke={renkOf(n.id)} strokeWidth="2.4" opacity="0.6"
-                      transform="rotate(45)" />
-                  )}
-                  <circle className={"ana" + (acildi ? "" : " acilis")}
-                    r={r}
-                    style={acildi ? undefined : { animationDelay: `${Math.min(p.y / H, 1) * 1500}ms` }}
-                    fill={n.id === "nebi" ? NEBI_RENK : renkOf(n.id)}
-                    stroke={secili ? C.ink : "white"} strokeWidth={secili ? 3.4 : 2} />
-                  </g>
-                </g>
-              );
-            })}
+    // ---- zemin ----
+    ctx.fillStyle = C.tuval;
+    ctx.fillRect(0, 0, cw, ch);
 
-            {/* ---- etiketler ----
-                AYRI BIR GECISTE ve butun noktalardan SONRA ciziliyor.
-                Onceden her etiket kendi dugum grubunun icindeydi; SVG
-                belge sirasina gore boyadigi icin sonra gelen bir
-                dugumun dairesi, onceki bir dugumun yazisinin uzerine
-                biniyordu. Ayri gecis butun yazilari butun dairelerin
-                ustune aliyor.
+    // ---- sutun seritleri ----
+    /* Serit rengi Medine'den baslayip BIRER ATLAYARAK tekrar ediyor.
+       Parite indise degil MEDINE'ye gore: araya yeni bir belde girse
+       (Yemen girdi) Medine tonunu kaybetmesin. */
+    SUTUNLAR.forEach((c, i) => {
+      const ilk = i === 0, son = i === SUTUNLAR.length - 1;
+      const zx = ilk ? -W : c.x;
+      const zw = (son ? W * 2 : c.x + c.genislik) - zx;
+      const cift = (i - MEDINE_I) % 2 === 0;
+      ctx.globalAlpha = cift ? C.damaAOp : C.damaBOp;
+      ctx.fillStyle = cift ? C.damaA : C.damaB;
+      ctx.fillRect(eX(zx), 0, zw * k, box.h);
+    });
+    ctx.globalAlpha = 1;
 
-                Yalnizca etiketi olan dugumler donuluyor (etiketliler
-                ~100 kayit tutuyor, 541 degil). Etiket salinim grubunun
-                da disinda: yazilar oynamiyor. */}
-            {NODES.map((n) => {
-              const etiketBilgi = etiketliler.get(n.id);
-              if (!etiketBilgi || !POS[n.id]) return null;
-              const p = POS[n.id];
-              const r = rEkranOf(n.id, kg) / kg;
-              const kad = KADEME(n.id);
-              const punto = Math.max(EKRAN_PUNTO[kad] / kg, r * 0.42);
-              const altPunto = punto * 0.8;
-              return (
-                /* ISIMLER DE TIKLANABILIR (2026-08-30). Onceden bu grup
-                   `pointerEvents="none"` tasiyordu, yalnizca nokta
-                   tiklanabiliyordu -- oysa gozun gittigi yer isim, hedefi
-                   de nokta degil isim. Isleyici dugumunkinin AYNISI.
+    // ---- 25'er yillik satirlar ----
+    SATIRLAR.forEach((y, i) => {
+      const ilk = i === 0, son = i === SATIRLAR.length - 1;
+      const ust = ilk ? -H : yOf(y);
+      const alt = son ? H * 2 : yOf(Math.min(y + SATIR_YIL, YIL_MAX));
+      if (alt <= ust) return;
+      const y1 = eY(ust), y2 = eY(alt);
+      if (y2 < 0 || y1 > box.h) return;
+      ctx.globalAlpha = i % 2 === 0 ? C.satirAOp : C.satirBOp;
+      ctx.fillStyle = i % 2 === 0 ? C.satirA : C.satirB;
+      ctx.fillRect(0, y1, box.w, y2 - y1);
+    });
+    ctx.globalAlpha = 1;
 
-                   Kaydirma bozulmuyor: pointerdown burada durdurulmuyor,
-                   tuvale kadar cikip `pointerBas`i tetikliyor. Suruklendi
-                   mi diye `tasindiRef` bakiliyor, yani ismin uzerinden
-                   baslayan bir suruklemede odaklanma OLMUYOR.
+    // ---- sutun ayraclari ----
+    ctx.strokeStyle = C.cizgi;
+    ctx.lineWidth = 1.2;
+    ctx.globalAlpha = 0.7;
+    ctx.beginPath();
+    SUTUNLAR.forEach((c, i) => {
+      if (!i) return;
+      const x = Math.round(eX(c.x)) + 0.5;   // yarim piksel: cizgi keskin cikar
+      if (x < -2 || x > box.w + 2) return;
+      ctx.moveTo(x, 0); ctx.lineTo(x, box.h);
+    });
+    ctx.stroke();
 
-                   Hedef alani yazinin kendi geometrisi. Metnin altinda
-                   `paintOrder: stroke` ile cizilen kalin bir hale var ve o
-                   da BOYANMIS sayildigi icin tiklama payi harflerden biraz
-                   genis. `bounding-box` denenmedi, tarayici destegi
-                   kirilgan. */
-                <g key={n.id} className="etiket"
-                   onPointerUp={(ev) => { ev.stopPropagation(); pointerBirak(ev); if (!tasindiRef.current) odaklan(n.id); }}
-                   style={{ cursor: "pointer", paintOrder: "stroke", stroke: C.etiketHale, strokeWidth: punto * 0.32,
-                            opacity: sonuk(n.id) ? 0.12 : 1 }}
-                   transform={`translate(${p.x + etiketBilgi.kay / kg},${
-                     p.y + (etiketBilgi.yon === "ust"
-                       ? -(2 * r + punto + altPunto + 8) : 0)})`}>
-                  <text y={r + punto} textAnchor="middle" fontSize={punto}
-                    fontWeight={kad <= 1 ? 600 : 400} fill={C.etiketAna}>
-                    {adi(n).length > 26 ? adi(n).slice(0, 25) + "…" : adi(n)}
-                  </text>
-                  <text y={r + punto + altPunto + 3} textAnchor="middle"
-                    fontSize={altPunto} fill={C.solukInk}>{tarihYaz(n, t.agOlum)}</text>
-                </g>
-              );
-            })}
-    </g>
-  /* `koyu` bagimlilikta: tema degisince govde bastan kurulmali,
-     yoksa donmus agac eski paletle kalir. Palet nesnesi `C` her
-     render'da yeniden uretildigi icin onu koymak memo'yu bosa
-     cikarirdi -- yerine tek bir mantiksal deger. */
-  ), [kg, box, olculdu, pencere, secim, secRavi, secKenar, acildi,
-      vurgu, etiketliler, yakin, cizgiCarpani, cizgiSaydam, MEDINE_I, adi, koyu,
-      susAnimasyon, akisAnim, dar, t]);
+    // ---- yil cizgileri ----
+    ctx.lineWidth = 1;
+    for (const y of YILLAR) {
+      const ey = Math.round(eY(yOf(y))) + 0.5;
+      if (ey < -2 || ey > box.h + 2) continue;
+      ctx.globalAlpha = y % 50 === 0 ? 0.85 : 0.28;
+      ctx.beginPath();
+      ctx.moveTo(eX(0), ey); ctx.lineTo(eX(W), ey);
+      ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+
+    // ---- kenarlar ----
+    /* Vurgusuzler TEK YOLDA toplaniyor: tuvalde de her cizgiyi ayri
+       beginPath/stroke ile vermek her seferinde kalem kurdurur.
+       Sonuk ve normal ayri iki gecis, cunku renkleri farkli. */
+    const kubik = (ctx, c) => {
+      ctx.moveTo(eX(c.x0), eY(c.y0));
+      ctx.bezierCurveTo(eX(c.k1x), eY(c.k1y), eX(c.k2x), eY(c.k2y),
+                        eX(c.x1), eY(c.y1));
+    };
+    const canliKenarlar = [];
+    let seciliKenar = null;
+    const sonukYol = [], normalYol = [];
+    for (const e of EDGES) {
+      const pa = POS[e.a], pb = POS[e.b];
+      if (!pa || !pb || !kenarIcerde(pa, pb)) continue;
+      const secili = secKenar && secKenar.a === e.a && secKenar.b === e.b;
+      const canli = !secili && !!(secim && secim.tur === "ravi" &&
+        (e.a === secim.id || e.b === secim.id));
+      const c = kenarKubik(e);
+      if (!c) continue;
+      vurus.kenar.push({ e, c });
+      if (secili) { seciliKenar = c; continue; }
+      if (canli) { canliKenarlar.push(c); continue; }
+      // ekranda uc pikselden kisa kalan kenar gorunmuyor
+      if (Math.hypot(pb.x - pa.x, pb.y - pa.y) * k < 3) continue;
+      (kenarSonuk(e) ? sonukYol : normalYol).push(c);
+    }
+    const topluCiz = (liste, renk, kalinlik, saydam) => {
+      if (!liste.length) return;
+      ctx.strokeStyle = renk;
+      ctx.lineWidth = kalinlik;
+      ctx.globalAlpha = saydam;
+      ctx.beginPath();
+      for (const c of liste) kubik(ctx, c);
+      ctx.stroke();
+    };
+    topluCiz(sonukYol, C.kenarSonuk, 0.7 * cizgiCarpani,
+             (vurgu ? 0.22 : 0.5) * cizgiSaydam);
+    topluCiz(normalYol, C.kenar, 1.2 * cizgiCarpani, 0.85 * cizgiSaydam);
+
+    // vurgulular: akan kesik cizgi
+    if (canliKenarlar.length) {
+      ctx.save();
+      if (akisAnim) {
+        ctx.setLineDash([14, 8]);
+        ctx.lineDashOffset = akisFazRef.current;
+      }
+      /* Kalinlik ve opaklik, renk turkuaza donunce GERI CEKILDI.
+         Eski zeytin ton zeminin sarisiyla ayni ailedendi ve
+         secilebilmesi icin kalinliga yuklenmek gerekiyordu. Turkuaz
+         zaten hicbir seyle karismiyor, dolayisiyla ayni okunurluk
+         daha ince ve daha soluk bir cizgiyle elde ediliyor. Hz.
+         Peygamber gibi altmis kenarli bir dugum secilince fark
+         dogrudan goruluyor: eskisi ekrani kapliyordu. */
+      topluCiz(canliKenarlar, canliRenk, 1.4 * Math.max(0.7, cizgiCarpani), 0.72);
+      ctx.restore();
+    }
+    if (seciliKenar) topluCiz([seciliKenar], C.kenarSecili, 2.6, 1);
+    ctx.globalAlpha = 1;
+
+    // ---- ok uclari ----
+    /* Yalnizca vurgulu ve secili kenarlarda. Ucun yonu son denetim
+       noktasindan bitis noktasina bakan vektor. */
+    const okCiz = (c, renk, boy) => {
+      const ax = eX(c.x1), ay = eY(c.y1);
+      const vx = eX(c.x1) - eX(c.k2x), vy = eY(c.y1) - eY(c.k2y);
+      const u = Math.hypot(vx, vy) || 1;
+      const ux = vx / u, uy = vy / u;
+      ctx.fillStyle = renk;
+      ctx.beginPath();
+      ctx.moveTo(ax, ay);
+      ctx.lineTo(ax - ux * boy - uy * boy * 0.42, ay - uy * boy + ux * boy * 0.42);
+      ctx.lineTo(ax - ux * boy + uy * boy * 0.42, ay - uy * boy - ux * boy * 0.42);
+      ctx.closePath();
+      ctx.fill();
+    };
+    for (const c of canliKenarlar) okCiz(c, canliRenk, 7);
+    if (seciliKenar) okCiz(seciliKenar, C.okVurgu, 9);
+
+    // ---- dugumler ----
+    for (const n of NODES) {
+      const p = POS[n.id];
+      if (!p || !icerde(p)) continue;
+      const px = eX(p.x), py = eY(p.y);
+      const r = rEkranOf(n.id, k);          // dogrudan ekran yaricapi
+      if (px < -r - 20 || px > box.w + r + 20 ||
+          py < -r - 20 || py > box.h + r + 20) continue;
+      vurus.dugum.push({ id: n.id, px, py, r });
+      const sonukMu = sonuk(n.id);
+      const secili = secRavi && secRavi.id === n.id;
+      const renk = n.id === "nebi" ? NEBI_RENK : renkOf(n.id);
+      ctx.globalAlpha = sonukMu ? 0.14 : 1;
+
+      /* Muksirun halkasi ve medar baklavasi. Salinim ve hale
+         animasyonu tuvalde YOK: SVG'de bunlar CSS ile bedavaya
+         yakindi, tuvalde her kare yeniden cizim demek olurdu ve
+         kazanilan seyi geri verirdi. */
+      /* HALKA VE BAKLAVA PAYLARI GRAFIK BIRIMINDE, ekran degil.
+
+         SVG'de bu sekiller `scale(kg)` grubunun icindeydi: `r + 8`
+         yazildiginda ekranda `8 * kg` kadar disariya tasiyordu, yani
+         acilis gorunumunde onda bir pikselden az -- halka noktanin
+         kenarina yapisiktir. Tuvale birebir tasininca 8 GERCEK piksel
+         oldu ve noktalar birbirine girdi (Mustafa, 2026-08-30).
+         Kalemler icin de ayni sey gecerli. */
+      if (MUKSIRUN.has(n.id)) {
+        ctx.strokeStyle = renk; ctx.lineWidth = 2.4 * k;
+        ctx.globalAlpha = (sonukMu ? 0.14 : 1) * 0.55;
+        ctx.beginPath(); ctx.arc(px, py, r + 8 * k, 0, Math.PI * 2); ctx.stroke();
+        ctx.globalAlpha = sonukMu ? 0.14 : 1;
+      }
+      if (MEDAR[n.id]) {
+        const d = r + 10 * k;
+        ctx.strokeStyle = renk; ctx.lineWidth = 2.4 * k;
+        ctx.globalAlpha = (sonukMu ? 0.14 : 1) * 0.6;
+        ctx.beginPath();
+        ctx.moveTo(px, py - d); ctx.lineTo(px + d, py);
+        ctx.lineTo(px, py + d); ctx.lineTo(px - d, py);
+        ctx.closePath(); ctx.stroke();
+        ctx.globalAlpha = sonukMu ? 0.14 : 1;
+      }
+      ctx.fillStyle = renk;
+      ctx.beginPath(); ctx.arc(px, py, r, 0, Math.PI * 2); ctx.fill();
+      /* Beyaz cerceve de grafik biriminde. Ekran biriminde birakilinca
+         her nokta tam iki piksellik bir halkayla ciziliyordu ve
+         noktalar oldugundan iri gorunuyordu. */
+      ctx.strokeStyle = secili ? C.ink : "#ffffff";
+      ctx.lineWidth = (secili ? 3.4 : 2) * k;
+      ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+
+    // ---- etiketler ----
+    /* Butun noktalardan SONRA, ayri bir gecis: yazilar butun
+       dairelerin ustunde kalsin. Yazi EKRAN biriminde -- olcekli bir
+       matris altinda yazi tipi ipuclandirilamiyor ve metin
+       bulaniklasiyor. */
+    ctx.textAlign = "center";
+    ctx.textBaseline = "alphabetic";
+    for (const n of NODES) {
+      const bilgi = etiketliler.get(n.id);
+      const p = POS[n.id];
+      if (!bilgi || !p) continue;
+      const r = rEkranOf(n.id, k);
+      const kad = KADEME(n.id);
+      const punto = Math.max(EKRAN_PUNTO[kad], r * 0.42);
+      const altPunto = punto * 0.8;
+      const px = eX(p.x) + bilgi.kay;
+      // Buradaki 8 de grafik birimi (bkz. halka paylari).
+      const py = eY(p.y) + (bilgi.yon === "ust"
+        ? -(2 * r + punto + altPunto + 8 * k) : 0);
+      ctx.globalAlpha = sonuk(n.id) ? 0.12 : 1;
+      const ad = adi(n).length > 26 ? adi(n).slice(0, 25) + "…" : adi(n);
+
+      /* Hale: SVG'de `paintOrder: stroke` ile yapiliyordu, tuvalde
+         once kalin bir kalemle yazip sonra icini doldurmak ayni sey. */
+      ctx.font = `${kad <= 1 ? 600 : 400} ${punto}px Georgia, 'Times New Roman', serif`;
+      ctx.strokeStyle = C.etiketHale;
+      ctx.lineWidth = punto * 0.32;
+      ctx.lineJoin = "round";
+      ctx.strokeText(ad, px, py + r + punto);
+      ctx.fillStyle = C.etiketAna;
+      ctx.fillText(ad, px, py + r + punto);
+      /* Hedef alani yazinin kendi kutusu. Yaziyi zaten cizdik, o
+         yuzden olcum bedavaya yakin. Dikeyde punto kadar pay var --
+         SVG'deki hale kalinliginin karsiligi. */
+      const gen = ctx.measureText(ad).width;
+      vurus.etiket.push({ id: n.id, x0: px - gen / 2 - 2, x1: px + gen / 2 + 2,
+                          y0: py + r + 2, y1: py + r + punto * 1.15 });
+
+      const tarih = tarihYaz(n, t.agOlum);
+      ctx.font = `400 ${altPunto}px Georgia, 'Times New Roman', serif`;
+      ctx.lineWidth = altPunto * 0.32;
+      ctx.strokeText(tarih, px, py + r + punto + altPunto + 3 * k);
+      ctx.fillStyle = C.solukInk;
+      ctx.fillText(tarih, px, py + r + punto + altPunto + 3 * k);
+    }
+    ctx.globalAlpha = 1;
+  }, [box, olculdu, view, pencere, secim, secRavi, secKenar, vurgu,
+      cizgiCarpani, cizgiSaydam, MEDINE_I, adi, koyu, akisAnim, t,
+      etiketliler, kenarKubik]);
+
+  /* TUVALDA NE TIKLANDI.
+
+     Sira onemli: once etiketler, sonra dugumler, en son kenarlar.
+     Ciziliste de bu sira var (yazilar en ustte) ve tiklamada da
+     ustteki kazanmali. Kenarlar en sona kaliyor, cunku hepsi
+     birbirini kesiyor ve bir dugumun uzerindeyken kenar secilmesi
+     sasirtici olurdu.
+
+     Dugum icin pay: kucuk noktalar telefonda parmakla tutulamiyor,
+     o yuzden yaricap ne olursa olsun en az 11 piksellik bir hedef
+     veriliyor. */
+  const tuvaldaBul = useCallback((nokta) => {
+    const cv = tuvalRef.current;
+    if (!cv) return null;
+    const kutu = cv.getBoundingClientRect();
+    const x = nokta.x - kutu.left, y = nokta.y - kutu.top;
+    const v = vurusRef.current;
+
+    for (let i = v.etiket.length - 1; i >= 0; i--) {
+      const et = v.etiket[i];
+      if (x >= et.x0 && x <= et.x1 && y >= et.y0 && y <= et.y1)
+        return { tur: "ravi", id: et.id };
+    }
+    let enYakin = null, enAz = Infinity;
+    for (const dg of v.dugum) {
+      const uz = Math.hypot(x - dg.px, y - dg.py);
+      if (uz <= Math.max(dg.r, 11) && uz < enAz) { enAz = uz; enYakin = dg; }
+    }
+    if (enYakin) return { tur: "ravi", id: enYakin.id };
+
+    /* Kenar testi YALNIZCA YAKINDA. SVG surumunde kenarlarin
+       tiklama seridi de ancak `yakin` iken ciziliyordu; ayni kural
+       burada da gecerli olmali, yoksa uzaklasilmis bir gorunumde bos
+       bir yere tiklamak neredeyse her zaman bir kenar seciyor --
+       yuzlerce egri her pikselin yakininda geciyor.
+
+       Egriyi on parcaya bolup en yakin ornege bakiyoruz. Tam bir
+       egri-nokta uzakligi cozumu gereksiz, dokuz piksellik esikte on
+       ornek fazlasiyla yetiyor. */
+    if (!yakin) return null;
+    const kubikNokta = (c, u) => {
+      const m = 1 - u;
+      return [m*m*m*c.x0 + 3*m*m*u*c.k1x + 3*m*u*u*c.k2x + u*u*u*c.x1,
+              m*m*m*c.y0 + 3*m*m*u*c.k1y + 3*m*u*u*c.k2y + u*u*u*c.y1];
+    };
+    const k = view.k;
+    const eX = (gx) => view.x + gx * k, eY = (gy) => view.y + gy * k;
+    let enKenar = null, enKenarAz = 9;
+    for (const { e, c } of v.kenar) {
+      for (let i = 0; i <= 10; i++) {
+        const [gx, gy] = kubikNokta(c, i / 10);
+        const uz = Math.hypot(x - eX(gx), y - eY(gy));
+        if (uz < enKenarAz) { enKenarAz = uz; enKenar = e; }
+      }
+    }
+    if (enKenar) return { tur: "kenar", e: enKenar };
+    return null;
+  }, [view, yakin]);
+
+  /* Cizim rAF ile kisitli: bir karede birden cok durum degisirse
+     (kaydirma + secim gibi) tuval bir kez boyansin. */
+  useEffect(() => {
+    cancelAnimationFrame(cizIstekRef.current);
+    cizIstekRef.current = requestAnimationFrame(ciz);
+    return () => cancelAnimationFrame(cizIstekRef.current);
+  }, [ciz]);
+
+  /* Akan kesik cizgi. Yalnizca bir ravi seciliyken donuyor, cunku
+     canlanan kenar ancak o zaman var.
+
+     KARE ATLAMA YOK. Onceden 40 ms'de bir 4 piksel atlaniyordu; hiz
+     dogruydu ama hareket kesik kesik gorunuyordu -- goz 4 piksellik
+     sicramalari tek tek seciyor ve sonuc "hem hizli hem yavas"
+     oluyordu (Mustafa, 2026-08-30). Simdi her karede ve GECEN SUREYE
+     gore ilerliyor, yani ekran kac hertz ise o kadar akici.
+
+     Maliyet bir tam sahne cizimi; kaydirmada da her karede ayni is
+     yapiliyor ve orada sorun yok. Faz FARKLA ilerledigi icin dongu
+     yeniden kurulsa bile (ciz kimligi degisince oluyor) hareket
+     ziplamiyor. */
+  useEffect(() => {
+    if (!akisAnim || !(secim && secim.tur === "ravi")) return;
+    let calisiyor = true, sonT = performance.now();
+    const dongu = (t) => {
+      if (!calisiyor) return;
+      akisFazRef.current -= ((t - sonT) / 1000) * AKIS_HIZ;
+      sonT = t;
+      ciz();
+      requestAnimationFrame(dongu);
+    };
+    const id = requestAnimationFrame(dongu);
+    return () => { calisiyor = false; cancelAnimationFrame(id); };
+  }, [akisAnim, secim, ciz]);
+
 
   return (
     <div className="w-full h-full flex flex-col overflow-hidden"
@@ -1159,108 +1329,33 @@ export default function SilsileAgi() {
         onPointerMove={pointerKimilda}
         onPointerUp={(e) => {
           const sonParmak = isaretler.current.size <= 1;
+          const nokta = { x: e.clientX, y: e.clientY };
           pointerBirak(e);
-          if (sonParmak && !tasindiRef.current) { setSecim(null); setAcikArama(false); }
+          if (sonParmak && !tasindiRef.current) {
+            /* Tuvalde tiklanan sey ne ise o seciliyor; hicbir sey
+               yoksa secim temizleniyor. SVG surumunde bu is ogelerin
+               kendi isleyicilerindeydi. */
+            setSecim(tuvaldaBul(nokta));
+            setAcikArama(false);
+          }
         }}
         onPointerCancel={pointerBirak}
         onPointerLeave={pointerBirak}>
 
         {/* ---- ana tuval ---- */}
-        <svg width="100%" height="100%" style={{ position: "absolute", inset: 0 }}>
-          <style>{`
-            @keyframes akisY  { to { stroke-dashoffset: var(--akis, -44); } }
-            @keyframes belir  { from { opacity: 0; transform: scale(0.4); }
-                                to   { opacity: 1; transform: scale(1); } }
-            @keyframes salin1 { 0%   { transform: translate(0,0); }
-                                25%  { transform: translate(19px,-13px); }
-                                50%  { transform: translate(9px,17px); }
-                                75%  { transform: translate(-17px,8px); }
-                                100% { transform: translate(0,0); } }
-            @keyframes salin2 { 0%   { transform: translate(0,0); }
-                                25%  { transform: translate(-15px,-16px); }
-                                50%  { transform: translate(14px,-6px); }
-                                75%  { transform: translate(6px,18px); }
-                                100% { transform: translate(0,0); } }
-            @keyframes salin3 { 0%   { transform: translate(0,0); }
-                                20%  { transform: translate(13px,14px); }
-                                45%  { transform: translate(-11px,17px); }
-                                70%  { transform: translate(-18px,-9px); }
-                                100% { transform: translate(0,0); } }
-            @keyframes salin4 { 0%   { transform: translate(0,0); }
-                                30%  { transform: translate(-20px,6px); }
-                                55%  { transform: translate(-4px,-17px); }
-                                80%  { transform: translate(16px,11px); }
-                                100% { transform: translate(0,0); } }
-            @keyframes hale   { 0%,100% { opacity: .30; transform: scale(1); }
-                                50%     { opacity: .06; transform: scale(1.55); } }
-            .kenar   { transition: stroke .35s ease, stroke-width .35s ease, opacity .35s ease; }
-            /* AKIS HER IKI CIHAZDA DA ADIMLI. Duz (linear) surum
-               saniyede 60 kez boyuyordu ve bir raviye tiklaninca
-               60 kenar birden canlandigi icin masaustunde fan
-               calisiyordu (Mustafa, 2026-08-30). steps() ile deger
-               yalnizca adim sinirlarinda degisiyor, arada hicbir sey
-               gecersiz olmuyor: masaustu ~9, telefon ~5 boyama/sn.
-               Goz akisi yine akis olarak okuyor. */
-            .kenar-v { animation: akisY 1.8s steps(16) infinite; }
-            /* AKISIN UCUZ SURUMU (telefon). Suresi uzun degil, ADIMLI:
-               steps(12) ile tarayici saniyede 60 kez degil ~5 kez
-               boyuyor. Kasmanin sebebi hizin kendisi degil, her
-               karede kocaman bir SVG katmaninin gecersiz olmasiydi;
-               adim sayisini dusurmek maliyeti dogrudan bolüyor.
-               Dasharray 14+8=22, bir tur -44 -> baslangica dikissiz
-               doner (duz surumdeki -46 her turda 2 px zipliyordu). */
-            .kenar-y { animation: akisY 2.6s steps(12) infinite; }
-            /* Bilgi kartlarinin kaydirma cubugu gizli: kutu kaydiriliyor
-               ama Windows'un ok basli gri cubugu tuvalin uzerinde
-               yamalik duruyordu (Mustafa'nin eki, 2026-08-29). */
-            .gizli-kaydirma { scrollbar-width: none; -ms-overflow-style: none; }
-            .gizli-kaydirma::-webkit-scrollbar { width: 0; height: 0; display: none; }
-            .dugum   { transition: opacity .35s ease; }
-            .dugum circle.ana { transition: r .28s cubic-bezier(.34,1.4,.5,1), stroke-width .2s ease; }
-            /* Imlec geri bildirimi SAF CSS. React'e hic ugramiyor,
-               dolayisiyla hicbir sey yeniden cizilmiyor. */
-            .dugum:hover circle.ana { stroke: #23201B; stroke-width: 3; }
-            .etiket  { transition: opacity .3s ease; }
-            .acilis  { animation: belir .85s cubic-bezier(.22,1,.36,1) backwards; transform-box: fill-box; transform-origin: center; }
-            .salinim { animation-duration: var(--sure); animation-timing-function: linear;
-                       animation-iteration-count: infinite; animation-delay: var(--gec);
-                       will-change: transform; }
-            .sal1 { animation-name: salin1; }
-            .sal2 { animation-name: salin2; }
-            .sal3 { animation-name: salin3; }
-            .sal4 { animation-name: salin4; }
-            .hale    { animation: hale 1.8s ease-in-out infinite;
-                       transform-box: fill-box; transform-origin: center; }
-          `}</style>
-          <defs>
-            <marker id="ok" viewBox="0 0 10 10" refX="9" refY="5"
-              markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-              <path d="M 0 0 L 10 5 L 0 10 z" fill={C.vurguInk} />
-            </marker>
-            <marker id="okSonuk" viewBox="0 0 10 10" refX="9" refY="5"
-              markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-              <path d="M 0 0 L 10 5 L 0 10 z" fill={C.okSonuk} />
-            </marker>
-            <marker id="okVurgu" viewBox="0 0 10 10" refX="9" refY="5"
-              markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-              <path d="M 0 0 L 10 5 L 0 10 z" fill={C.okVurgu} />
-            </marker>
-          </defs>
+        {/* ---- ana tuval ----
+            SVG yerine <canvas>. Butun sahne `ciz` icinde piksel
+            tamponuna yaziliyor; burada tek bir oge var ve kaydirma
+            sirasinda DOM'da hicbir sey degismiyor.
 
-          {/* Konum burada, govde disarida (bkz. agGovdesi): kaydirinca
-              yalnizca bu nitelik degisiyor, altindaki agac degil. */}
-          {/* `will-change: transform`: bu grup kendi birlestirme
-              katmanina aliniyor. Kaydirmada nitelik degisen tek sey bu
-              transform oldugu icin tarayici altindaki devasa yolu
-              yeniden BOYAMAK yerine hazir katmani kaydiriyor. Katman
-              eleme sayesinde en fazla ucte uc ekran buyuklugunde, yani
-              bellek maliyeti sinirli. */}
-          <g transform={`translate(${view.x},${view.y}) scale(${view.k / kg})`}
-             style={{ visibility: olculdu ? undefined : "hidden",
-                      willChange: "transform" }}>
-            {agGovdesi}
-          </g>
-        </svg>
+            Tiklama hedefi kendiliginden olusmuyor: SVG'de her dugum
+            ve etiket bir ogeydi ve tarayici vurus testini kendi
+            yapiyordu. Tuvalde bunu biz yapiyoruz -- `ciz` her
+            gecisinde vurus kayitlarini `vurusRef`e dolduruyor,
+            `tuvaldaBul` de onlari geriden one dogru tariyor. */}
+        <canvas ref={tuvalRef}
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%",
+                   visibility: olculdu ? undefined : "hidden" }} />
 
         {/* ---- sabit yıl ekseni (sol) ---- */}
         <svg width={SOL_BANT} height="100%"

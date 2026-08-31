@@ -7,8 +7,8 @@ Son güncelleme 2026-08-30. Önceki not dosyasının yerini alır.
 | Adres | Dosya | Durum |
 |---|---|---|
 | `/ravi-iliski-aglari` | `app/ravi-iliski-aglari/page.tsx` | Tanıtım metni, haritaya buton. Sitemap'te, indekse açık |
-| `/ravi-iliski-aglari/harita` | `app/SilsileAgi.jsx` | **Yayındaki sürüm**, SVG |
-| `/ag-sinamasi` | `app/SilsileAgiTuval.jsx` | Canvas denemesi, `noindex`. Karar bekliyor |
+| `/ravi-iliski-aglari/harita` | `app/SilsileAgi.jsx` | **Yayındaki sürüm**, canvas. Sayfa adı "Rivayet Haritası" |
+| `/ag-sinamasi` | `app/SilsileAgi.jsx` | Deneme adresi, `noindex`. Şu an yayındakiyle birebir aynı, sıradaki deneme için boş |
 | — | `app/silsileVeri.js` | 657 râvi, 1647 bağ, çeviriler, konum hesabı |
 
 İki çizim bileşeni de aynı veri modülünden besleniyor. Terceme işlendikçe her ikisinde birden görünür. Ana sayfa kartı ve footer `/ravi-iliski-aglari`'ne bakıyor.
@@ -70,9 +70,9 @@ Ad karşılaştırması **alt dizi**, hem de iki yönde. Nesep zinciri iki taraf
 
 Tarayıcı paneli gizlenince `requestAnimationFrame` duruyor, `setTimeout` 1 saniyeye kırpılıyor. **Kare süresi bu ortamda ölçülemedi**, dört farklı yöntemde de aynı duvara çarpıldı. Eleman sayısı ve yol verisi uzunluğu güvenilir, zamanlama değil.
 
-## Canvas denemesi
+## Canvas
 
-`/ag-sinamasi`'nda. Grafik için DOM'da **sıfır öğe** (SVG'de aynı görünümde 185).
+2026-08-30'da yayına alındı ve SVG sürümü silindi. Grafik için DOM'da **sıfır öğe** (SVG'de aynı görünümde 185).
 
 - Şekiller grafik biriminde, **yazılar ekran biriminde**. Ölçekli matris altında yazı tipi ipuçlandırılamıyor, metin bulanıklaşıyor.
 - Tıklama hedefi elle kuruldu. `ciz` her geçişte vuruş kayıtlarını dolduruyor, `tuvaldaBul` etiket → düğüm → kenar sırasıyla tarıyor. **Kenar testi yalnızca yakında** çalışıyor, yoksa uzakta boş bir yere tıklamak hep kenar seçiyor.
@@ -87,7 +87,7 @@ Netlik iki kaynaktan bozuluyordu. Cihaz piksel oranı ikiyle sınırlanmıştı,
 **Ölçüm tuzağı** — tampon boyutunu ilk çizimden önce okursanız 300×150 görürsünüz, yani canvas'ın varsayılanını. Birkaç kez yanlış teşhise götürdü.
 - Doğrulandı: açılış, yakınlaşma, kaydırma, düğüm ve etiket tıklaması, koyu mod, DPR (750×1516 tampon).
 
-Beğenilirse yayına alınır, beğenilmezse dosya silinir ve SVG sürümü hiç dokunulmamış olur.
+Yerleşim `YAY = 2` ile iki kat seyrek, açılış yakınlığı `ACILIS_YAKINLIK` sabitinde. İkisi birbirine bağlı — seyreltme açılış çarpanıyla telafi edilmezse hiçbir şey değişmez, çünkü ağ yine aynı piksellere sığar.
 
 ## Açık işler
 
