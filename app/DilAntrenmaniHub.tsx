@@ -42,7 +42,8 @@ type Kume = {
   kind: "liste" | "link";
   href?: string;
   seviyeler?: Seviye[];
-  /* 2. katmanın başlığı. */
+  /* 2. katmanın başlığı. Seviye SAYISI yazılmıyor (Mustafâ, 2026-09-01)
+     -- kaç seviye olduğu zaten hemen altındaki ızgarada görünüyor. */
   listeBaslik?: Record<Language, string>;
   /* Kutunun sağ üst köşesindeki rozet. Kümenin ne kadar zor olduğunu
      söylüyor, isnâd oyunundaki zorluk rozetiyle aynı yerde. */
@@ -56,11 +57,7 @@ const KUMELER: Kume[] = [
     iri: true,
     kind: "liste",
     seviyeler: B1_SEVIYELERI,
-    listeBaslik: {
-      tr: "B1 — on iki seviye",
-      ar: "B1 — اثنا عشر مستوى",
-      en: "B1 — twelve levels",
-    },
+    listeBaslik: { tr: "B1", ar: "B1", en: "B1" },
     rozet: { tr: "Orta", ar: "متوسط", en: "Intermediate" },
   },
   {
@@ -93,9 +90,9 @@ const KUMELER: Kume[] = [
     kind: "liste",
     seviyeler: HADIS_SEVIYELERI,
     listeBaslik: {
-      tr: "Hadisle İlgili Kelimeler — üç seviye",
-      ar: "مصطلحات علم الحديث — ثلاثة مستويات",
-      en: "Hadith Terminology — three levels",
+      tr: "Hadisle İlgili Kelimeler",
+      ar: "مصطلحات علم الحديث",
+      en: "Hadith Terminology",
     },
     rozet: { tr: "Istılah", ar: "اصطلاح", en: "Technical" },
   },
