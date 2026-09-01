@@ -245,13 +245,31 @@ export default function ChromaKeyVideo({
        Kisa klip bu kisitlar devreye girmeden bitiyor, uzun olan
        ortasinda kaliyor.
 
-       `ended` HARIC tutuluyor: `loop={false}` kliplerin son karede
+       KLIBIN SONU HARIC TUTULUYOR: `loop={false}` kliplerin son karede
        donmasi KASITLI (bkz. `loop` prop'unun aciklamasi), orada
-       yeniden oynatmak animasyonu bastan baslatirdi. */
-    let bitti = false;
-    const bittiIsaretle = () => { bitti = true; };
+       yeniden oynatmak animasyonu bastan baslatir.
+
+       Burada `ended` olayina BAKMAK YETMIYOR. HTML olcunune gore video
+       dogal olarak bitince tarayici once `pause`, SONRA `ended`
+       tetikliyor. `ended`i bekleyen bir bayrak, arada gelen `pause`
+       sirasinda henuz kalkmamis oluyor ve toparlayici klibi bastan
+       baslatiyordu -- anasayfa logosu bir yerine IKI kez oynuyordu
+       (2026-08-30). O yuzden bayrak yerine oynatma KONUMUNA bakiliyor:
+       konum sona dayanmissa bu bir takilma degil, klibin normal sonu.
+       `video.ended` olcunde bir bayrak degil, konumdan HESAPLANAN bir
+       ozellik; `pause` aninda zaten true oluyor. Yine de sureye gore
+       ikinci bir esik konuldu, cunku bazi tarayicilar son karede
+       currentTime'i duration'in bir tik altinda birakiyor.
+
+       Donguye alinmis klipler (loop={true}) bu duruma hic girmiyor:
+       onlar sona varinca duraklamiyor, basa sariyor. */
+    const klibinSonuMu = () =>
+      video.ended ||
+      (Number.isFinite(video.duration) &&
+        video.duration > 0 &&
+        video.currentTime >= video.duration - 0.08);
     const takilmaToparla = () => {
-      if (stopped || bitti) return;
+      if (stopped || klibinSonuMu()) return;
       oynat();
       /* rVFC susmus olabilir; rAF'e gecmek duraklamis videonun mevcut
          karesini de cizilebilir kiliyor. */
@@ -260,7 +278,6 @@ export default function ChromaKeyVideo({
         schedule();
       }
     };
-    video.addEventListener("ended", bittiIsaretle);
     video.addEventListener("waiting", takilmaToparla);
     video.addEventListener("stalled", takilmaToparla);
     video.addEventListener("pause", takilmaToparla);
@@ -293,7 +310,6 @@ export default function ChromaKeyVideo({
       canvas.removeEventListener("webglcontextlost", contextKayboldu);
       canvas.removeEventListener("webglcontextrestored", contextGeriGeldi);
       video.removeEventListener("error", videoHatasi);
-      video.removeEventListener("ended", bittiIsaretle);
       video.removeEventListener("waiting", takilmaToparla);
       video.removeEventListener("stalled", takilmaToparla);
       video.removeEventListener("pause", takilmaToparla);
