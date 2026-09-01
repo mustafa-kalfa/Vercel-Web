@@ -323,6 +323,17 @@ export const NODES = [
   N("abdrahmanyezidnehai", "عبد الرحمن بن يزيد النخعي", "Abdurrahman b. Yezîd en-Nehaî", 2, null, "Kûfe"),
   N("mugirasube", "المغيرة بن شعبة", "Mugīre b. Şu‘be", 1, 50, "Kûfe"),
   N("imranhusayn", "عمران بن حصين", "İmrân b. Husayn", 1, 52, "Basra"),
+  /* Dort sahabi 2026-08-30'da eklendi. Kaynak Ibn Hacer, Takribu't-Tehzib
+     (Samile 8609): kisa ve formullu oldugu icin tabaka, vefat yili ve
+     rumuzu bir arada veriyor. */
+  N("abdullahamr", "عبد الله بن عمرو بن العاص", "Abdullah b. Amr b. el-Âs", 1, 63, "Mekke",
+    "Takrîb 3499: «أحد السابقين المكثرين من الصحابة وأحد العبادلة الفقهاء». İbn Hacer vefatını Harre gecelerine, yerini de tercihen Tâif'e koyar; ağda Tâif sütunu olmadığı için Mekke'ye kondu."),
+  N("muazcebel", "معاذ بن جبل", "Muâz b. Cebel", 1, 18, "Şam",
+    "Takrîb 6725: «كان إليه المنتهى في العلم بالأحكام والقرآن». Şam'da vefat etti."),
+  N("ebudderda", "عويمر بن زيد أبو الدرداء", "Ebü'd-Derdâ", 1, 32, "Şam",
+    "Takrîb 5228: «صحابي جليل ... وكان عابدا». Vefatı Hz. Osman'ın hilâfetinin sonlarında; Dımaşk kadılığı sebebiyle Şam sütununda."),
+  N("sehlsad", "سهل بن سعد الساعدي", "Sehl b. Sa‘d es-Sâidî", 1, 88, "Medine",
+    "Takrîb 2658: «له ولأبيه صحبة». Medine'de en son vefat eden sahâbîlerden, yüzü aşkın yaşadı."),
   N("selemeekva", "سلمة بن الأكوع", "Seleme b. el-Ekva‘", 1, 74, "Medine"),
   N("zeydhalid", "زيد بن خالد الجهني", "Zeyd b. Hâlid el-Cühenî", 1, null, "Medine"),
   N("ebuumame", "أبو أمامة الباهلي", "Ebû Ümâme el-Bâhilî", 1, null, "Humus"),
@@ -1310,6 +1321,10 @@ export const EDGES = [
   E("nebi", "ebuhureyre", "ع", "Tehzîb 7681"),
   E("nebi", "ebubekir", "ع", "Tehzîb 3418"),
   E("nebi", "fatima", "—", "Tehzîb, Kitâbü'n-nisâ — sayfa teyidi yapılmadı"),
+  E("nebi", "abdullahamr", "ع", "Takrîb 3499"),
+  E("nebi", "muazcebel", "ع", "Takrîb 6725"),
+  E("nebi", "ebudderda", "ع", "Takrîb 5228"),
+  E("nebi", "sehlsad", "ع", "Takrîb 2658"),
 
   // Hz. Ömer — Tehzîb 4225
   E("nebi", "omer", "بخ", "Tehzîb 4225"),
@@ -2268,6 +2283,10 @@ export const buyuk = (t) => (/[\u0621-\u064A]/.test(t) ? t : t.replace(/i/g, "\u
    medar/pivot, ihtilat/ikhtilat, tedlis/tadlis. (2026-08-30) */
 export const NOT_DIL = {
  en: {
+   "abdullahamr": "Taqrīb 3499: «أحد السابقين المكثرين من الصحابة وأحد العبادلة الفقهاء». Ibn Ḥajar places his death in the nights of al-Ḥarra and, preferably, at Ṭāʾif; as the network has no Ṭāʾif column he was put in Mecca.",
+   "muazcebel": "Taqrīb 6725: «كان إليه المنتهى في العلم بالأحكام والقرآن». He died in Syria.",
+   "ebudderda": "Taqrīb 5228: «صحابي جليل ... وكان عابدا». He died at the end of ʿUthmān's caliphate; he sits in the Syria column because of his judgeship in Damascus.",
+   "sehlsad": "Taqrīb 2658: «له ولأبيه صحبة». One of the last Companions to die in Medina; he lived past a hundred.",
    "nebi": "The source of all transmission. In the Tahdhīb entries he appears as the teacher of the Companions with the notice «روى عن النبي ﷺ».",
    "ali": "Tahdhīb, entry 4089; symbols ع.",
    "ebuhureyre": "Tahdhīb, entry 7681. The memoriser among the Companions. Al-Mizzī lists 338 names among his students and reports from al-Bukhārī: «روى عنه نحو من ثمان مئة رجل أو أكثر». Those carrying a note denying audition were not drawn as links: al-Zuhrī «ولم يسمع منه»; Yazīd b. Rūmān and Makḥūl «مرسل»; Zayd b. Aslam «قيل لم يسمع منه».",
@@ -2441,6 +2460,10 @@ export const NOT_DIL = {
    "zeydeslem": "Al-Mizzī: his audition from Abū Hurayra is disputed («قيل لم يسمع منه»).",
  },
  ar: {
+   "abdullahamr": "تقريب 3499: «أحد السابقين المكثرين من الصحابة وأحد العبادلة الفقهاء». جعل ابن حجر وفاته ليالي الحرة وموضعها الطائف على الراجح؛ ولمَّا لم يكن في الشبكة عمودٌ للطائف وُضع في مكة.",
+   "muazcebel": "تقريب 6725: «كان إليه المنتهى في العلم بالأحكام والقرآن». توفي بالشام.",
+   "ebudderda": "تقريب 5228: «صحابي جليل ... وكان عابدا». توفي في أواخر خلافة عثمان، وموضعه عمود الشام لقضائه بدمشق.",
+   "sehlsad": "تقريب 2658: «له ولأبيه صحبة». من آخر الصحابة موتًا بالمدينة، وقد جاوز المئة.",
    "nebi": "مصدر الرواية كلها. يرد في تراجم التهذيب شيخًا للصحابة بقيد «روى عن النبي ﷺ».",
    "ali": "تهذيب الكمال، ترجمة 4089، رموز ع.",
    "ebuhureyre": "تهذيب الكمال، ترجمة 7681. حافظ الصحابة. عدَّ المزي في تلاميذه 338 اسمًا، ونقل عن البخاري «روى عنه نحو من ثمان مئة رجل أو أكثر». ولم تُرسَم صلةً مَن نُصَّ على نفي سماعه: الزهري «ولم يسمع منه»؛ يزيد بن رومان ومكحول «مرسل»؛ زيد بن أسلم «قيل لم يسمع منه».",
