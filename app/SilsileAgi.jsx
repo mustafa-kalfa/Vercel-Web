@@ -76,8 +76,9 @@ const yOf = (yil) => HAM_yOf(yil) * YAY;
 const KAVIS_OLCEK = HAM_KAVIS_OLCEK * YAY;
 
 /* Akan kesik cizginin hizi, saniyede piksel. Kesik deseni 14+8=22
-   piksel, yani saniyede iki turun biraz altinda. */
-const AKIS_HIZ = 50;
+   piksel, yani saniyede bir turun biraz uzerinde. Iki kez
+   yarilandi (100 -> 50 -> 25); ilk degerler gozu yoruyordu. */
+const AKIS_HIZ = 25;
 
 export default function SilsileAgi() {
   const [secim, setSecim] = useState(null);   // {tur:"ravi",id} | {tur:"kenar",e}
