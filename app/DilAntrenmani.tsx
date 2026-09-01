@@ -14,12 +14,16 @@ import type { Language } from "./translations";
 
    - 3 kelime kartı, aynı kelime üç ayrı dilde.  Tahtadan 3 kart çıkar.
    - 2 kelime + 1 joker.  Eksik dildeki kart açılır, 4 kart çıkar.
-   - 1 kelime + 2 joker.  İki eksik dil açılır, 3 kelime kartı çıkar;
-     İKİ MUSTAFÂ KARTI TAHTADA KALIR, kapanıp yeniden oynanabilir olur.
 
-   Üç joker seçmek eşleşme DEĞİL. İki ya da üç Mustafâ'nın harcanmaması
-   Mustafâ'nın kendi kuralı (2026-09-01): sona doğru jokerlere ihtiyaç
-   oluyor.
+   BAŞKA HİÇBİR ŞEY EŞLEŞME DEĞİL. Bir turda İKİ ya da ÜÇ Mustafâ
+   seçilirse o turda hiçbir kart tamamlanmış sayılmıyor, kartlar yanlış
+   seçim gibi kapanıyor (Mustafâ'nın kuralı, 2026-09-01).
+
+   Kural bir gün "1 kelime + 2 joker" eşleşmesine de izin veriyordu ve
+   ÖLÇÜLDÜ: jokerler bedelsiz olduğu için oyuncu her turda bir kelime
+   kartı ile iki Mustafâ seçip tahtayı altı hamlede, hiçbir kartı
+   ezberlemeden bitirebiliyordu. Oyunun hafıza yönü fiilen kapanıyordu.
+   Bu yüzden kural kaldırıldı; geri getirmeden önce aynı hesabı yap.
 
    Oyun `/resule-kavusmak`taki isnâd oyunundan farklı olarak IFRAME
    DEĞİL, gerçek bir React bileşeni. Sebep: dışarıyla hiçbir alışverişi
@@ -368,14 +372,9 @@ export default function DilAntrenmani({
     }, 560);
   }, [bekle, ciz, patlatIndeks, onTamamlandi]);
 
-  /* `kaldirilacak` tahtadan çıkacak kartlar, `geriDonecek` ise turun
-     sonunda KAPANIP tahtada kalacak Mustafâ kartları. İkincisi bir
-     oyun kuralı, süs değil: bir turda iki ya da üç Mustafâ birden
-     kullanıldıysa o kartlar harcanmıyor, çünkü sona doğru jokerlere
-     ihtiyaç oluyor. Tek Mustafâ ile yapılan eşleşmede joker harcanır. */
   const eslestir = useCallback(
-    (kaldirilacak: number[], geriDonecek: number[]) => {
-      kaldirilacak.forEach((i) => {
+    (grup: number[]) => {
+      grup.forEach((i) => {
         const k = kartlarRef.current[i];
         k.bitti = true;
         k.eslesti = true;
@@ -384,12 +383,7 @@ export default function DilAntrenmani({
       setTamam((n) => n + 1);
       ciz();
       bekle(() => {
-        kaldirilacak.forEach((i) => (kartlarRef.current[i].gitti = true));
-        /* Geri dönen jokerler kapanıyor, yani yeniden oynanabilir
-           hâle geliyorlar. Kapanışı biraz geciktiriyoruz -- kartlar
-           yukarı süzülürken oyuncu jokerlerin yerinde kaldığını
-           görsün. */
-        geriDonecek.forEach((i) => (kartlarRef.current[i].acik = false));
+        grup.forEach((i) => (kartlarRef.current[i].gitti = true));
         seciliRef.current = [];
         kilitRef.current = false;
         ciz();
@@ -411,11 +405,20 @@ export default function DilAntrenmani({
 
     let uygun = false;
     let ekler: number[] = [];
-    /* Eşleşmenin üç şartı: kelimeler TEK bir kelimeye ait olacak,
-       hepsi AYRI dillerde olacak, ve eksik kalan dil sayısı elde tutulan
-       joker sayısına TAM eşit olacak. Sonuncusu olmasa iki joker ile tek
-       bir kelime kartı da "eşleşti" sayılırdı. */
-    if (sozler.length >= 1 && idler.size === 1 && dilSayisi === sozler.length) {
+    /* Eşleşmenin DÖRT şartı. Kelimeler TEK bir kelimeye ait olacak,
+       hepsi AYRI dillerde olacak, eksik kalan dil sayısı elde tutulan
+       joker sayısına TAM eşit olacak, ve elde EN FAZLA BİR joker
+       olacak.
+
+       Sonuncusu oyunun dengesini tutan şart: iki Mustafâ ile tek bir
+       kelime kartı da geçerli sayılsaydı tahta altı hamlede, hiçbir
+       kart ezberlenmeden temizlenebilirdi. */
+    if (
+      sozler.length >= 1 &&
+      idler.size === 1 &&
+      dilSayisi === sozler.length &&
+      jokerSayisi <= 1
+    ) {
       const id = kartlarRef.current[sozler[0]].kelimeId;
       const varOlan = sozler.map((i) => kartlarRef.current[i].dil);
       const eksik = DILLER.filter((d) => !varOlan.includes(d));
@@ -430,23 +433,16 @@ export default function DilAntrenmani({
     }
 
     if (uygun) {
-      const jokerler = secili.filter((i) => kartlarRef.current[i].tip === "joker");
-      /* İki ya da üç Mustafâ birden kullanıldıysa kartlar tahtada
-         kalıyor, yalnızca kelime kartları çıkıyor. Tek Mustafâ ile
-         yapılan eşleşmede joker de gidiyor. */
-      const geriDonecek = jokerler.length >= 2 ? jokerler : [];
-      const kaldirilacak = [...secili, ...ekler].filter(
-        (i) => !geriDonecek.includes(i),
-      );
+      const grup = [...secili, ...ekler];
       if (ekler.length) {
         /* Joker kullanıldıysa eksik dildeki kart önce AÇILIP gösteriliyor,
            eşleşme animasyonu ancak ondan sonra başlıyor. Oyuncu jokerin
            neyin yerine geçtiğini görmeli. */
         ekler.forEach((i) => (kartlarRef.current[i].acik = true));
         ciz();
-        bekle(() => eslestir(kaldirilacak, geriDonecek), 660);
+        bekle(() => eslestir(grup), 660);
       } else {
-        bekle(() => eslestir(kaldirilacak, geriDonecek), 360);
+        bekle(() => eslestir(grup), 360);
       }
     } else {
       secili.forEach((i) => (kartlarRef.current[i].yanlis = true));

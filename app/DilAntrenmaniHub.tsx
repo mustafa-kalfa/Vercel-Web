@@ -119,7 +119,7 @@ const UI: Record<
     kumeAlt: "Başlamak istediğin kümeyi seç.",
     seviyeAlt: "Seviyeler sırayla açılır. Her turda altı kelime dağıtılır.",
     kural:
-      "Aynı kelimenin Türkçe, İngilizce ve Arapça karşılığını art arda aç. Mustafâ kartı eksik dilin yerine geçer. İki Mustafâ birden kullanırsan kartlar tahtada kalır.",
+      "Aynı kelimenin Türkçe, İngilizce ve Arapça karşılığını art arda aç. Mustafâ kartı eksik dilin yerine geçer, ama bir turda yalnızca bir tanesi işe yarar.",
     seviye: (n) => `Seviye ${n}`,
     kumelereDon: "← Kümeler",
     seviyelereDon: "← Seviyeler",
@@ -130,7 +130,7 @@ const UI: Record<
     kumeAlt: "اختر المجموعة التي تريد أن تبدأ منها.",
     seviyeAlt: "تُفتح المستويات بالترتيب. تُوزَّع في كل جولة ست كلمات.",
     kural:
-      "افتح المقابل التركي والإنجليزي والعربي للكلمة نفسها تباعًا. بطاقة مصطفى تقوم مقام اللغة الناقصة، وإن استعملت بطاقتين معًا بقيتا في اللوح.",
+      "افتح المقابل التركي والإنجليزي والعربي للكلمة نفسها تباعًا. بطاقة مصطفى تقوم مقام اللغة الناقصة، ولا تنفع منها إلا واحدة في الجولة.",
     seviye: (n) => `المستوى ${arapcaSayi(n)}`,
     kumelereDon: "→ المجموعات",
     seviyelereDon: "→ المستويات",
@@ -141,7 +141,7 @@ const UI: Record<
     kumeAlt: "Pick the group you want to start from.",
     seviyeAlt: "The levels unlock in order. Six words are dealt each round.",
     kural:
-      "Turn over the Turkish, English and Arabic forms of the same word one after another. A Mustafâ card stands in for a missing language. Use two at once and they stay on the board.",
+      "Turn over the Turkish, English and Arabic forms of the same word one after another. A Mustafâ card stands in for a missing language, but only one of them counts per turn.",
     seviye: (n) => `Level ${n}`,
     kumelereDon: "← Groups",
     seviyelereDon: "← Levels",

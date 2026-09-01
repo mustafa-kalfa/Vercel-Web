@@ -1474,26 +1474,28 @@ seviye sayilarini bozmamak icin bu yol secildi.
 
 Oyuncu art arda UC kart acar, uc durum eslesme sayilir:
 
-| Secim | Tahtadan cikan | Joker |
-|---|---|---|
-| 3 kelime karti, ayni kelime uc dilde | 3 | — |
-| 2 kelime + 1 joker (eksik dil acilir) | 4 | joker HARCANIR |
-| 1 kelime + 2 joker (iki eksik dil acilir) | 3 | **jokerler TAHTADA KALIR** |
+| Secim | Sonuc |
+|---|---|
+| 3 kelime karti, ayni kelime uc dilde | eslesme, 3 kart cikar |
+| 2 kelime + 1 joker (eksik dil acilir) | eslesme, 4 kart cikar, joker harcanir |
+| **1 kelime + 2 joker** | eslesme DEGIL, hicbir kart cikmaz |
+| 3 joker | eslesme DEGIL |
 
-Uc joker eslesme DEGIL. **Iki ya da uc Mustafa'nin harcanmamasi
-Mustafa'nin kendi kurali** (2026-09-01: "sonlara dogru bu jokerlere
-ihtiyac oluyor"). Geri donen jokerler kapaniyor, yani yeniden
-oynanabilir hale geliyor.
+**BIR TURDA EN FAZLA BIR JOKER ISE YARAR** (Mustafa'nin kurali,
+2026-09-01: "mustafa 2 tane ya da 3 tane secildiginde o turda hicbir
+kart tamamlanmis sayilmayacak"). Kod tarafinda tek satir:
+`degerlendir()` icindeki `jokerSayisi <= 1` sarti.
 
-**BU KURALIN DENGE BEDELI OLCULDU ve Mustafa'ya soylendi.** Jokerler
-geri geldigi icin "1 kelime + 2 joker" hamlesi bedelsiz: oyuncu her
-turda bir kelime karti + iki Mustafa secerek tahtayi ALTI HAMLEDE, hic
-kart ezberlemeden bitirebiliyor (tarayicida denendi, 6 hamle). Hafiza
-yonu geri istenirse en kucuk duzeltme, geri donen jokerleri o tur
-boyunca kilitlemek ya da yalnizca UC jokerde geri vermek.
+**Bu sart oyunun dengesini tutuyor, kaldirma.** Ayni gun once "1 kelime
++ 2 joker" de eslesme sayiliyordu ve jokerler harcanmadan geri
+donuyordu; OLCULDU, oyuncu her turda bir kelime karti ile iki Mustafa
+secip tahtayi ALTI HAMLEDE, hicbir karti ezberlemeden bitirebiliyordu --
+oyunun hafiza yonu fiilen kapaniyordu. Geri getirmeden once ayni hesabi
+yap.
 
-Oyuncu jokerleri hic kullanmadan bitirirse artanlar sonda topluca
-acilip ayni animasyonla gidiyor (`bitir()`).
+7 joker var ama en fazla 6'si harcanabiliyor (tahtada 6 kelime var,
+her kelimeye bir joker). Artanlar sonda topluca acilip ayni animasyonla
+gidiyor (`bitir()`).
 
 **Ayni kelimenin uc karti UC AYRI RENK alir** (`desteKur()` icinde
 paletten uc farkli renk cekiliyor). Rastgele dagitilsaydi bir kelimenin
@@ -1524,17 +1526,16 @@ tahta iki tarafta da bos ciziliyor, uyusmazlik hic dogmuyor.
 
 ### Gorseller
 
-- **Joker kartinin ON YUZU de acik renk** (2026-09-01). Once koyu yesil
-  bir radyal zemini vardi; kart acilinca tahtada tek basina kaliyor ve
-  arka yuzle karisiyordu. Artik oteki kartlarla ayni parsomen, jokeri
-  ustteki altin serit ve altin cerceve ayiriyor. CSS'te `.joker`
-  `background` HIC vermiyor, `.on`unki miras kaliyor.
+- **Joker kartinin on yuzu KOYU YESIL**, kelime kartlarinin
+  parsomeninden ayri. Bir ara parsomene cevrilmisti (2026-09-01), ayni
+  gun geri alindi -- joker bir bakista ayri gorunmeli.
 - **Kart sirti sitenin HD logosu.** `HD-logo.png` goruntu olarak degil
   MASKE olarak kullaniliyor (globals.css'teki `.brand-logo` ile ayni
   yol): dosya siyah cizim tasidigi icin koyu yesil kartin uzerine oldugu
   gibi basilsaydi gorunmezdi, maske olunca rengini altindan aliyor.
-  Renk BEYAZ, genislik kartin %38'i. Once altin ve %58 idi; Mustafa
-  2026-09-01'de kucultup beyaza cevirtti.
+  Renk BEYAZ, genislik kartin %30'u. Once altin ve %58 idi; Mustafa
+  2026-09-01'de beyaza cevirtti ve iki kez kucultturdu (%58 -> %38 ->
+  %30).
 - **Joker kartinda gercek Mustafa karakteri var**, isnad oyununun
   kavusma sahnesindeki KLIBIN AYNISI
   (`/Mustafa Karsilama_seffaf.mp4`, `ChromaKeyVideo` ile). Karakter

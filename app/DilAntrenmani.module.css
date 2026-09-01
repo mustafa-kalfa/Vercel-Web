@@ -159,8 +159,9 @@
    basılsaydı görünmezdi, maske olunca rengini altından alıyor.
 
    Logo BEYAZ ve küçük (Mustafâ'nın isteği, 2026-09-01). Önce altın ve
-   kartın %58'i genişliğindeydi; altın koyu yeşilin üzerinde sırtı
-   fazla kalabalık gösteriyordu. */
+   kartın %58'i genişliğindeydi, altın koyu yeşilin üzerinde sırtı fazla
+   kalabalık gösteriyordu; %38'e indi, sonra bir kez daha küçültülüp
+   %30'da karar kılındı. */
 .arka {
   background: linear-gradient(160deg, #173a2e 0%, #0f2a21 55%, #143328 100%);
   border: 1px solid rgba(201, 162, 39, 0.22);
@@ -170,7 +171,7 @@
 }
 .arka::after {
   content: "";
-  width: 38%;
+  width: 30%;
   aspect-ratio: 332 / 248; /* HD-logo.png'nin kendi oranı */
   background-color: #fff;
   -webkit-mask: url("/HD-logo.png") no-repeat center / contain;
@@ -255,22 +256,22 @@
 }
 
 /* joker (Mustafâ kartı) */
-/* Ön yüz ÖTEKİ KARTLARLA AYNI parşömen (Mustafâ'nın isteği,
-   2026-09-01). Önce koyu yeşil bir radyal zemini vardı; kart açılınca
-   tahtada tek başına kalıyor ve arka yüzle karışıyordu. Jokeri artık
-   üstteki altın şerit ve altın çerçeve ayırıyor -- `.on`un parşömeni
-   olduğu gibi miras kalsın diye burada `background` HİÇ verilmiyor. */
+/* Ön yüz KOYU YEŞİL, kelime kartlarının parşömeninden ayrı. Bir ara
+   parşömene çevrilmişti (2026-09-01), aynı gün geri alındı --
+   Mustafâ'nın kararı. Joker bir bakışta ayrı görünmeli. */
 .joker {
-  border-color: rgba(201, 162, 39, 0.55);
+  background: radial-gradient(90% 70% at 50% 32%, #23704f 0%, #143a2c 68%, #0f2c21 100%);
+  border-color: rgba(227, 194, 92, 0.5);
 }
 .joker::before {
-  background: var(--altin);
+  background: var(--altin-sicak);
 }
 .joker::after {
-  border-color: rgba(201, 162, 39, 0.38);
+  border-color: rgba(227, 194, 92, 0.3);
 }
 .joker .dil {
-  color: rgba(27, 23, 18, 0.6);
+  color: var(--altin-sicak);
+  opacity: 0.9;
 }
 .joker .dil i {
   display: none;
