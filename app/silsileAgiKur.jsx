@@ -267,13 +267,31 @@ export function kur(V) {
       const cw = W * v.k, ch = H * v.k;
       let x = v.x, y = v.y;
       // Kenar payları. Etiketler düğümün altına yazıldığı için alt pay daha büyük.
-      const YAN = 130, UST_PAY = 70, ALT_PAY = 190;
+      /* ALT PAY: agin en altindaki isimler de goruntuye girebilsin.
+
+         190 piksel yetmiyordu. Ekranin alt seridinde arama kumesi ve
+         -- bir ravi secilince -- bilgi karti duruyor; dar ekranda kart
+         tam genislik ve kume onun ustune cikiyor, ikisi birlikte
+         ucyuz pikselden fazla yer kapliyor. Sonuc: son tabakanin
+         noktalari kartin ardinda kaliyor ve asagi kaydirilsa bile
+         hicbir zaman goruntuye girmiyordu (Mustafa, 2026-08-30).
+
+         Taban 260'a cikarildi, secim varken karta yer acmak icin
+         dar ekranda 320, genis ekranda 190 daha ekleniyor -- genis
+         ekranda kart yalnizca yarim genislik kapliyor, o yuzden daha
+         az pay yetiyor.
+
+         Payi buyutmek gorunumu ZIPLATMIYOR: alt sinir daha musamahakar
+         hale geliyor, mevcut konum her zaman yeni sinirin icinde
+         kaliyor. */
+      const YAN = 130, UST_PAY = 70;
+      const ALT_PAY = 260 + (secim ? (dar ? 320 : 190) : 0);
       if (cw >= gw) x = Math.min(SOL_BANT + YAN, Math.max(box.w - cw - YAN, x));
       else x = SOL_BANT + (gw - cw) / 2;
       if (ch >= gh) y = Math.min(UST_BANT + UST_PAY, Math.max(box.h - ch - ALT_PAY, y));
       else y = Math.min(UST_BANT + (gh - ch) / 2, UST_BANT + UST_PAY);
       return { k: v.k, x, y };
-    }, [box]);
+    }, [box, secim, dar]);
   
     const gitView = useCallback((v) => setView(sinirla(v)), [sinirla]);
   
