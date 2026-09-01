@@ -341,7 +341,8 @@ export const NODES = [
   N("hamranaban", "حمران بن أبان", "Humrân b. Ebân", 2, null, "Basra", "Hz. Osman'ın mevlâsı. Rumûz ع."),
   N("ebuabdrahmansulemi", "أبو عبد الرحمن السلمي", "Ebû Abdirrahman es-Sülemî", 2, 73, "Kûfe", "Rumûz خ ٤."),
   N("abdrahmanyezidnehai", "عبد الرحمن بن يزيد النخعي", "Abdurrahman b. Yezîd en-Nehaî", 2, null, "Kûfe"),
-  N("mugirasube", "المغيرة بن شعبة", "Mugīre b. Şu‘be", 1, 50, "Kûfe"),
+  N("mugirasube", "المغيرة بن شعبة", "Mugīre b. Şu‘be", 1, 50, "Kûfe",
+    "Takrîb 6840: «صحابي مشهور أسلم قبل الحديبية وولي إمرة البصرة ثم الكوفة». Sahih olan görüşe göre 50'de vefat etti."),
   N("imranhusayn", "عمران بن حصين", "İmrân b. Husayn", 1, 52, "Basra",
     "Takrîb 5150: Hayber yılı müslüman oldu, sohbete erdi. «وكان فاضلا وقضى بالكوفة» — Kûfe'de kadılık yaptı, 52'de Basra'da vefat etti."),
   /* Dort sahabi 2026-08-30'da eklendi. Kaynak Ibn Hacer, Takribu't-Tehzib
@@ -454,7 +455,8 @@ export const NODES = [
   // ---- Ebu Ishak es-Sebii cevresinde aga giren raviler ----
   N("egarebumuslim", "الأغر أبو مسلم", "Egar Ebû Müslim", 2, null, "Kûfe"),
   N("amrmeymun", "عمرو بن ميمون الأودي", "Amr b. Meymûn el-Evdî", 2, 74, "Kûfe", "Rumûz ع."),
-  N("mesruk", "مسروق بن الأجدع", "Mesrûk b. el-Ecda‘", 2, 63, "Kûfe"),
+  N("mesruk", "مسروق بن الأجدع", "Mesrûk b. el-Ecda‘", 2, 63, "Kûfe",
+    "Takrîb 6601: «ثقة فقيه عابد مخضرم». Muhadramûndan, yani Câhiliye ile İslâm'a yetişip Hz. Peygamber'i görmeyenlerden. Künyesi Ebû Âişe. 62 ya da 63'te vefat etti."),
   N("musatalha", "موسى بن طلحة", "Mûsâ b. Talha", 3, 103, "Kûfe", "Dârekutnî: Ebû İshak ondan bir hadisi işitmemiştir."),
   N("numanbesir", "النعمان بن بشير", "Nu‘mân b. Beşîr", 1, 64, "Şam"),
   N("nafiibnomer", "نافع مولى ابن عمر", "Nâfi‘ mevlâ İbn Ömer", 4, 117, "Medine"),
@@ -2310,6 +2312,8 @@ export const buyuk = (t) => (/[\u0621-\u064A]/.test(t) ? t : t.replace(/i/g, "\u
    medar/pivot, ihtilat/ikhtilat, tedlis/tadlis. (2026-08-30) */
 export const NOT_DIL = {
  en: {
+   "mugirasube": "Taqrib 6840: «صحابي مشهور أسلم قبل الحديبية وولي إمرة البصرة ثم الكوفة». He died in 50 according to the sounder view.",
+   "mesruk": "Taqrib 6601: «ثقة فقيه عابد مخضرم». One of the mukhaḍramun — those who lived through both eras without meeting the Prophet. His kunya is Abu ʿAʾisha. He died in 62 or 63.",
    "bera": "Taqrib 648: «صحابي ابن صحابي نزل الكوفة». He was judged too young at Badr. Ibn Hajar notes «وكان هو وابن عمر لدة» — he and Ibn ʿUmar were of an age. Taqrib gives his death as 72.",
    "ibnuleyye": "Taqrib 416: «ثقة حافظ». He is known as Ibn ʿUlayya after his mother. He died in 193, aged eighty-three.",
    "ubey": "Taqrib 283: «سيد القراء ... من فضلاء الصحابة». His kunya is Abu al-Mundhir, also Abu al-Tufayl. His death year is much disputed — Ibn Hajar cites 19 and 32, and notes other views.",
@@ -2506,6 +2510,8 @@ export const NOT_DIL = {
    "zeydeslem": "Al-Mizzī: his audition from Abū Hurayra is disputed («قيل لم يسمع منه»).",
  },
  ar: {
+   "mugirasube": "تقريب 6840: «صحابي مشهور أسلم قبل الحديبية وولي إمرة البصرة ثم الكوفة». مات سنة 50 على الصحيح.",
+   "mesruk": "تقريب 6601: «ثقة فقيه عابد مخضرم». كنيته أبو عائشة. مات سنة 62 ويقال 63.",
    "bera": "تقريب 648: «صحابي ابن صحابي نزل الكوفة». استُصغر يوم بدر، و«كان هو وابن عمر لدة». مات سنة 72.",
    "ibnuleyye": "تقريب 416: «ثقة حافظ». المعروف بابن علية. مات سنة 193 وهو ابن ثلاث وثمانين.",
    "ubey": "تقريب 283: «سيد القراء ... من فضلاء الصحابة». كنيته أبو المنذر ويكنى أبا الطفيل أيضًا. واختُلف في سنة موته اختلافًا كثيرًا: قيل 19 وقيل 32 وقيل غير ذلك.",
