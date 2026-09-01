@@ -283,7 +283,8 @@ export const NODES = [
   N("abdhayr", "عبد خير بن يزيد الهمداني", "Abd-i Hayr el-Hemdânî", 2, null, "Kûfe"),
   N("harisaver", "الحارث الأعور الهمداني", "Hâris el-A‘ver el-Hemdânî", 2, 65, "Kûfe", "Cerh açısından tartışmalı, Ali rivayetlerinin yoğun râvisi."),
   N("asimdamra", "عاصم بن ضمرة السلولي", "Âsım b. Damra es-Selûlî", 2, 74, "Kûfe"),
-  N("salimibnomer", "سالم بن عبد الله بن عمر", "Sâlim b. Abdillâh b. Ömer", 2, 106, "Medine"),
+  N("salimibnomer", "سالم بن عبد الله بن عمر", "Sâlim b. Abdillâh b. Ömer", 2, 106, "Medine",
+    "Takrîb 2176: «أحد الفقهاء السبعة وكان ثبتا عابدا فاضلا كان يشبه بأبيه في الهدي والسمت». Medine'nin yedi fakıhından; sahih olan görüşe göre 106'nın sonunda vefat etti."),
   N("humeydavf", "حميد بن عبد الرحمن بن عوف", "Humeyd b. Abdirrahman b. Avf", 2, 95, "Medine"),
   N("hafsasim", "حفص بن عاصم بن عمر", "Hafs b. Âsım b. Ömer", 2, null, "Medine"),
   N("zurareevfa", "زرارة بن أوفى", "Zürâre b. Evfâ", 2, 93, "Basra"),
@@ -436,7 +437,8 @@ export const NODES = [
   // ---- Amr b. Dinar cevresinde aga giren raviler ----
   N("saidcubeyr", "سعيد بن جبير", "Saîd b. Cübeyr", 4, 95, "Kûfe", "Rumûz ع."),
   N("tavus", "طاووس بن كيسان", "Tâvûs b. Keysân", 4, 106, "Mekke", "Rumûz ع."),
-  N("mucahid", "مجاهد بن جبر", "Mücâhid b. Cebr", 4, 104, "Mekke"),
+  N("mucahid", "مجاهد بن جبر", "Mücâhid b. Cebr", 4, 104, "Mekke",
+    "Takrîb 6481: «ثقة إمام في التفسير وفي العلم». Vefatında ihtilâf var — 101, 102, 103 ya da 104; seksen üç yaşındaydı."),
   N("kureyb", "كريب مولى ابن عباس", "Küreyb mevlâ İbn Abbâs", 3, 98, "Medine"),
   N("ebucafermuhbakir", "محمد بن علي الباقر", "Muhammed b. Ali el-Bâkır", 4, 114, "Medine"),
   N("suleymanyesar", "سليمان بن يسار", "Süleymân b. Yesâr", 3, 107, "Medine", "Medine'nin yedi fakıhından."),
@@ -562,7 +564,8 @@ export const NODES = [
   N("yezidharun", "يزيد بن هارون", "Yezîd b. Hârûn", 5, 206, "Vâsıt"),
   N("yezidzurey", "يزيد بن زريع", "Yezîd b. Zürey‘", 5, 182, "Basra"),
   N("nadrsumeyl", "النضر بن شميل", "Nadr b. Şümeyl", 5, 204, "Basra"),
-  N("ebudavudtayalisi", "أبو داود الطيالسي", "Ebû Dâvûd et-Tayâlisî", 5, 204, "Basra"),
+  N("ebudavudtayalisi", "أبو داود الطيالسي", "Ebû Dâvûd et-Tayâlisî", 5, 204, "Basra",
+    "Takrîb 2550: «ثقة حافظ غلط في أحاديث». İbn Hacer sikalığını teslim ederken bazı hadislerde yanıldığını da kaydediyor. 204'te vefat etti."),
   N("muazmuaz", "معاذ بن معاذ العنبري", "Muâz b. Muâz el-Anberî", 5, 196, "Basra"),
   N("affanmuslim", "عفان بن مسلم", "Affân b. Müslim", 5, 220, "Basra"),
   N("alicad", "علي بن الجعد", "Ali b. el-Ca‘d", 5, 230, "Basra"),
@@ -2304,6 +2307,9 @@ export const buyuk = (t) => (/[\u0621-\u064A]/.test(t) ? t : t.replace(/i/g, "\u
    medar/pivot, ihtilat/ikhtilat, tedlis/tadlis. (2026-08-30) */
 export const NOT_DIL = {
  en: {
+   "mucahid": "Taqrib 6481: «ثقة إمام في التفسير وفي العلم». His death year is disputed — 101, 102, 103 or 104; he was eighty-three.",
+   "ebudavudtayalisi": "Taqrib 2550: «ثقة حافظ غلط في أحاديث». Ibn Hajar grants his reliability while noting that he erred in some hadiths. He died in 204.",
+   "salimibnomer": "Taqrib 2176: «أحد الفقهاء السبعة وكان ثبتا عابدا فاضلا كان يشبه بأبيه في الهدي والسمت». One of the seven jurists of Medina; he died at the end of 106 according to the sounder view.",
    "imranhusayn": "Taqrib 5150: He accepted Islam in the year of Khaybar and kept the Prophet's company. «وكان فاضلا وقضى بالكوفة» — he served as judge in Kufa and died in Basra in 52.",
    "osman": "Taqrib 4503: «أمير المؤمنين ذو النورين أحد السابقين الأولين والخلفاء الأربعة والعشرة المبشرة». He was martyred in Dhu al-Hijja 35, just after the Feast of Sacrifice; his caliphate lasted twelve years.",
    "omer": "Taqrib 4888: «أمير المؤمنين مشهور جم المناقب». He was martyred in Dhu al-Hijja 23; his caliphate lasted ten and a half years.",
@@ -2494,6 +2500,9 @@ export const NOT_DIL = {
    "zeydeslem": "Al-Mizzī: his audition from Abū Hurayra is disputed («قيل لم يسمع منه»).",
  },
  ar: {
+   "mucahid": "تقريب 6481: «ثقة إمام في التفسير وفي العلم». وفي وفاته اختلاف: 101 أو 102 أو 103 أو 104، وله ثلاث وثمانون.",
+   "ebudavudtayalisi": "تقريب 2550: «ثقة حافظ غلط في أحاديث». مات سنة 204.",
+   "salimibnomer": "تقريب 2176: «أحد الفقهاء السبعة وكان ثبتًا عابدًا فاضلًا كان يُشبَّه بأبيه في الهدي والسمت». مات في آخر سنة 106 على الصحيح.",
    "imranhusayn": "تقريب 5150: أسلم عام خيبر وصحب. «وكان فاضلًا وقضى بالكوفة»، ومات سنة 52 بالبصرة.",
    "osman": "تقريب 4503: «أمير المؤمنين ذو النورين أحد السابقين الأولين والخلفاء الأربعة والعشرة المبشرة». استُشهد في ذي الحجة بعد عيد الأضحى سنة 35، فكانت خلافته اثنتي عشرة سنة.",
    "omer": "تقريب 4888: «أمير المؤمنين مشهور جم المناقب». استُشهد في ذي الحجة سنة 23، وولي الخلافة عشر سنين ونصفًا.",
