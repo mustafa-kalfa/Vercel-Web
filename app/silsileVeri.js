@@ -233,7 +233,8 @@ export const NODES = [
     "Takrîb 565: «خادم رسول الله ﷺ خدمه عشر سنين». Vefatı 92, bir görüşe göre 93; yüzü aşkın yaşadı."),
   N("cabir", "جابر بن عبد الله", "Câbir b. Abdullah", 1, 78, "Medine",
     "Takrîb 871: «صحابي ابن صحابي غزا تسع عشرة غزوة». Medine'de yetmişten sonra, doksan dört yaşında vefat etti."),
-  N("ibnabbas", "عبد الله بن عباس", "Abdullah b. Abbâs", 1, 68, "Mekke"),
+  N("ibnabbas", "عبد الله بن عباس", "Abdullah b. Abbâs", 1, 68, "Mekke",
+    "Takrîb 3409: Hz. Peygamber ona Kur'an'ı anlama duası etti, ilminin genişliği sebebiyle «البحر» ve «الحبر» diye anılırdı. Hz. Ömer: «لو أدرك ابن عباس أسناننا ما عشره منا أحد». Müksirûndan ve abâdileden; 68'de Tâif'te vefat etti."),
   N("ibnomer", "عبد الله بن عمر", "Abdullah b. Ömer", 1, 73, "Medine",
     "Takrîb 3490: «أحد المكثرين من الصحابة والعبادلة وكان من أشد الناس اتباعا للأثر». 73'ün sonunda ya da 74'ün başında vefat etti."),
   N("ibnmesud", "عبد الله بن مسعود", "Abdullah b. Mes‘ûd", 1, 32, "Kûfe", "Mizzî onu Ali'nin talebeleri arasında sayarken «ومات قبله» kaydını düşer. Rivayet yönü tartışmalı."),
@@ -2289,6 +2290,7 @@ export const buyuk = (t) => (/[\u0621-\u064A]/.test(t) ? t : t.replace(/i/g, "\u
    medar/pivot, ihtilat/ikhtilat, tedlis/tadlis. (2026-08-30) */
 export const NOT_DIL = {
  en: {
+   "ibnabbas": "Taqrib 3409: The Prophet prayed that he be given understanding of the Qur'an; for the breadth of his learning he was called «البحر» and «الحبر». ʿUmar said: «لو أدرك ابن عباس أسناننا ما عشره منا أحد». One of the prolific Companions and of the ʿAbādila; he died in 68 at Taif.",
    "sabi": "Taqrib 3092: «ثقة مشهور فقيه فاضل من الثالثة». Makhul said of him «ما رأيت أفقه منه». He died after the year one hundred, aged about eighty.",
    "sube": "Taqrib 2790: al-Thawri used to call him «أمير المؤمنين في الحديث». Ibn Hajar adds «أول من فتش بالعراق عن الرجال وذب عن السنة» — he was the first in Iraq to scrutinise the transmitters.",
    "sevri": "Taqrib 2445: «ثقة حافظ فقيه عابد إمام حجة من رؤوس الطبقة السابعة وكان ربما دلس». He died aged sixty-four.",
@@ -2472,6 +2474,7 @@ export const NOT_DIL = {
    "zeydeslem": "Al-Mizzī: his audition from Abū Hurayra is disputed («قيل لم يسمع منه»).",
  },
  ar: {
+   "ibnabbas": "تقريب 3409: دعا له النبي ﷺ بالفهم في القرآن، وكان يسمى «البحر» و«الحبر» لسعة علمه. وقال عمر: «لو أدرك ابن عباس أسناننا ما عشره منا أحد». من المكثرين من الصحابة ومن العبادلة، توفي سنة 68 بالطائف.",
    "sabi": "تقريب 3092: «ثقة مشهور فقيه فاضل من الثالثة». قال فيه مكحول «ما رأيت أفقه منه». مات بعد المئة وله نحو من ثمانين.",
    "sube": "تقريب 2790: كان الثوري يقول فيه «أمير المؤمنين في الحديث». وقيَّده ابن حجر بأنه «أول من فتش بالعراق عن الرجال وذب عن السنة».",
    "sevri": "تقريب 2445: «ثقة حافظ فقيه عابد إمام حجة من رؤوس الطبقة السابعة وكان ربما دلس». مات وله أربع وستون سنة.",
