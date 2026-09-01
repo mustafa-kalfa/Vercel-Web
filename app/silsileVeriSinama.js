@@ -316,7 +316,8 @@ export const NODES = [
   N("osman", "عثمان بن عفان", "Osman b. Affân", 1, 35, "Medine",
     "Takrîb 4503: «أمير المؤمنين ذو النورين أحد السابقين الأولين والخلفاء الأربعة والعشرة المبشرة». Zilhicce 35'te, kurban bayramının ardından şehid edildi; hilâfeti on iki yıl sürdü."),
   N("ukbeamir", "عقبة بن عامر الجهني", "Ukbe b. Âmir el-Cühenî", 1, 58, "Mısır"),
-  N("ebumusa", "أبو موسى الأشعري", "Ebû Mûsâ el-Eş‘arî", 1, 42, "Kûfe"),
+  N("ebumusa", "أبو موسى الأشعري", "Ebû Mûsâ el-Eş‘arî", 1, 42, "Kûfe",
+    "Takrîb 3542: «صحابي مشهور». Hz. Ömer, ardından Hz. Osman onu vali tayin etti; Sıffîn'de iki hakemden biriydi. 50'de ya da sonrasında vefat etti."),
   N("ebusaid", "أبو سعيد الخدري", "Ebû Saîd el-Hudrî", 1, 74, "Medine",
     "Takrîb 2253: «له ولأبيه صحبة واستصغر بأحد ثم شهد ما بعدها وروى الكثير». Uhud'da küçük görülüp geri çevrildi, sonraki bütün gazvelerde bulundu. Vefatında ihtilâf var — 63, 64, 65 ya da 74."),
   N("huzeyfe", "حذيفة بن اليمان", "Huzeyfe b. el-Yemân", 1, 36, "Kûfe",
@@ -517,7 +518,8 @@ export const NODES = [
   // ---- Ebu Said ve Aise cevresinde aga giren raviler ----
   N("sadhisam", "سعد بن هشام بن عامر", "Sa‘d b. Hişâm b. Âmir", 3, null, "Medine", "Rumûz ع."),
   N("kazaayahya", "قزعة بن يحيى", "Kaz‘a b. Yahyâ", 3, null, "Basra", "Rumûz ع."),
-  N("ibnsirin", "محمد بن سيرين", "Muhammed b. Sîrîn", 4, 110, "Basra"),
+  N("ibnsirin", "محمد بن سيرين", "Muhammed b. Sîrîn", 4, 110, "Basra",
+    "Takrîb 5947: «ثقة ثبت عابد كبير القدر كان لا يرى الرواية بالمعنى». Son kayıt rivayet usulü açısından belirleyici — mânen rivayete cevaz vermezdi. 110'da vefat etti."),
   N("mabedsirin", "معبد بن سيرين", "Ma‘bed b. Sîrîn", 3, null, "Basra"),
   N("kasimmuhaymire", "القاسم بن مخيمرة", "Kâsım b. Muhaymire", 4, 100, "Kûfe"),
   N("yahyaumare", "يحيى بن عمارة المازني", "Yahyâ b. Umâre el-Mâzinî", 3, null, "Medine", "Rumûz ع."),
@@ -569,7 +571,8 @@ export const NODES = [
   N("zekeriyyaebizaide", "زكريا بن أبي زائدة", "Zekeriyyâ b. Ebî Zâide", 5, 148, "Kûfe"),
   N("cameseddad", "جامع بن شداد", "Câmi‘ b. Şeddâd", 5, null, "Kûfe"),
   N("gunder", "محمد بن جعفر غندر", "Muhammed b. Ca‘fer Günder", 5, 193, "Basra", "Şu‘be'nin en meşhur râvisi. Rumûz ع."),
-  N("yezidharun", "يزيد بن هارون", "Yezîd b. Hârûn", 5, 206, "Vâsıt"),
+  N("yezidharun", "يزيد بن هارون", "Yezîd b. Hârûn", 5, 206, "Vâsıt",
+    "Takrîb 7789: «ثقة متقن عابد». Vâsıt'ın merkezî râvisi. 206'da, doksana yaklaşmış olarak vefat etti."),
   N("yezidzurey", "يزيد بن زريع", "Yezîd b. Zürey‘", 5, 182, "Basra"),
   N("nadrsumeyl", "النضر بن شميل", "Nadr b. Şümeyl", 5, 204, "Basra"),
   N("ebudavudtayalisi", "أبو داود الطيالسي", "Ebû Dâvûd et-Tayâlisî", 5, 204, "Basra",
@@ -2315,6 +2318,9 @@ export const buyuk = (t) => (/[\u0621-\u064A]/.test(t) ? t : t.replace(/i/g, "\u
    medar/pivot, ihtilat/ikhtilat, tedlis/tadlis. (2026-08-30) */
 export const NOT_DIL = {
  en: {
+   "yezidharun": "Taqrib 7789: «ثقة متقن عابد». The central transmitter of Wasit. He died in 206, close to ninety.",
+   "ibnsirin": "Taqrib 5947: «ثقة ثبت عابد كبير القدر كان لا يرى الرواية بالمعنى». That last notice matters for transmission method — he did not allow narration by sense. He died in 110.",
+   "ebumusa": "Taqrib 3542: «صحابي مشهور». ʿUmar and then ʿUthman appointed him governor; he was one of the two arbiters at Siffin. He died in 50 or later.",
    "ubeydumeyr": "Taqrib 4385: According to Muslim he was born in the Prophet's lifetime; others count him among the senior Successors. «وكان قاص أهل مكة مجمع على ثقته» — the storyteller of Mecca, agreed upon as reliable. He died before Ibn ʿUmar.",
    "nafiibnomer": "Taqrib 7086: «ثقة ثبت فقيه مشهور». He died in 117 or later. He is the middle link of Malik's chain back to Ibn ʿUmar.",
    "huzeyfe": "Taqrib 1156: «صحابي جليل من السابقين». On the strength of a sound report in Muslim, Ibn Hajar records that the Prophet informed him of «ما كان وما يكون إلى أن تقوم الساعة» — hence the fitan reports come through him. His father was also a Companion, martyred at Uhud. He died in 36, at the start of ʿAli's caliphate.",
@@ -2516,6 +2522,9 @@ export const NOT_DIL = {
    "zeydeslem": "Al-Mizzī: his audition from Abū Hurayra is disputed («قيل لم يسمع منه»).",
  },
  ar: {
+   "yezidharun": "تقريب 7789: «ثقة متقن عابد». مات سنة 206 وقد قارب التسعين.",
+   "ibnsirin": "تقريب 5947: «ثقة ثبت عابد كبير القدر كان لا يرى الرواية بالمعنى». مات سنة 110.",
+   "ebumusa": "تقريب 3542: «صحابي مشهور». أمَّره عمر ثم عثمان، وهو أحد الحكمين بصفين. مات سنة 50 وقيل بعدها.",
    "ubeydumeyr": "تقريب 4385: قال مسلم وُلد على عهد النبي ﷺ، وعدَّه غيره في كبار التابعين. «وكان قاصَّ أهل مكة مجمعٌ على ثقته». مات قبل ابن عمر.",
    "nafiibnomer": "تقريب 7086: «ثقة ثبت فقيه مشهور». مات سنة 117 أو بعد ذلك.",
    "huzeyfe": "تقريب 1156: «صحابي جليل من السابقين». وصحَّ في مسلم أن رسول الله ﷺ أعلمه «بما كان وما يكون إلى أن تقوم الساعة». وأبوه صحابي أيضًا استُشهد بأحد. مات في أول خلافة علي سنة 36.",
