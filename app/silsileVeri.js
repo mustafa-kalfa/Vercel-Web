@@ -286,7 +286,7 @@ export const NODES = [
   N("sabi", "عامر بن شراحيل الشعبي", "Âmir b. Şerâhîl eş-Şa‘bî", 3, 104, "Kûfe",
     "Takrîb 3092: «ثقة مشهور فقيه فاضل من الثالثة». Mekhûl onun için «ما رأيت أفقه منه» demiş. Yüzden sonra, seksen yaşlarında vefat etti."),
   N("ibnebileyla", "عبد الرحمن بن أبي ليلى", "Abdurrahman b. Ebî Leylâ", 3, 83, "Kûfe"),
-  N("urve", "عروة بن الزبير", "Urve b. ez-Zübeyr", 3, 94, "Medine", "Zührî'nin başlıca hocası; Medine'nin yedi fakıhından."),
+  N("urve", "عروة بن الزبير", "Urve b. ez-Zübeyr", 3, 94, "Medine", "Zührî'nin başlıca hocası; Medine'nin yedi fakihinden."),
   N("ikrime", "عكرمة مولى ابن عباس", "İkrime mevlâ İbn Abbâs", 3, 105, "Medine"),
   N("zeynelabidin", "علي بن الحسين", "Ali b. el-Hüseyin (Zeynelâbidîn)", 3, 94, "Medine", "Ali'den rivayeti mürseldir."),
   N("ubeydullaherafi", "عبيد الله بن أبي رافع", "Ubeydullah b. Ebî Râfi‘", 3, null, "Medine", "Hz. Ali'nin kâtibi («وكان كاتبه»)."),
@@ -378,8 +378,8 @@ export const NODES = [
   // ---- Zuhri'nin Tehzib'de gecen, agda henuz olmayan hocalari ----
   N("sabitkayszuraki", "ثابت بن قيس الزرقي", "Sâbit b. Kays ez-Zürakī", 2, null, "Medine"),
   N("ibrahimavf", "إبراهيم بن عبد الرحمن بن عوف", "İbrâhim b. Abdirrahman b. Avf", 3, null, "Medine"),
-  N("haricezeyd", "خارجة بن زيد بن ثابت", "Hârice b. Zeyd b. Sâbit", 3, 100, "Medine", "Medine'nin yedi fakıhından."),
-  N("ubeydullahutbe", "عبيد الله بن عبد الله بن عتبة", "Ubeydullah b. Abdillâh b. Utbe", 3, 98, "Medine", "Medine'nin yedi fakıhından. Rumûz ع."),
+  N("haricezeyd", "خارجة بن زيد بن ثابت", "Hârice b. Zeyd b. Sâbit", 3, 100, "Medine", "Medine'nin yedi fakihinden."),
+  N("ubeydullahutbe", "عبيد الله بن عبد الله بن عتبة", "Ubeydullah b. Abdillâh b. Utbe", 3, 98, "Medine", "Medine'nin yedi fakihinden. Rumûz ع."),
   N("arac", "عبد الرحمن بن هرمز الأعرج", "Abdurrahman b. Hürmüz el-A‘rec", 3, 117, "Medine", "Rumûz ع."),
   N("hamzaibnomer", "حمزة بن عبد الله بن عمر", "Hamza b. Abdillâh b. Ömer", 3, null, "Medine", "Rumûz ع."),
   N("hasanhanefiyye", "الحسن بن محمد ابن الحنفية", "Hasan b. Muhammed İbnü'l-Hanefiyye", 3, null, "Medine"),
@@ -425,8 +425,8 @@ export const NODES = [
   N("mucahid", "مجاهد بن جبر", "Mücâhid b. Cebr", 4, 104, "Mekke"),
   N("kureyb", "كريب مولى ابن عباس", "Küreyb mevlâ İbn Abbâs", 3, 98, "Medine"),
   N("ebucafermuhbakir", "محمد بن علي الباقر", "Muhammed b. Ali el-Bâkır", 4, 114, "Medine"),
-  N("suleymanyesar", "سليمان بن يسار", "Süleymân b. Yesâr", 3, 107, "Medine", "Medine'nin yedi fakıhından."),
-  N("ebuselemeavf", "أبو سلمة بن عبد الرحمن", "Ebû Seleme b. Abdirrahman", 3, 94, "Medine", "Medine'nin yedi fakıhından."),
+  N("suleymanyesar", "سليمان بن يسار", "Süleymân b. Yesâr", 3, 107, "Medine", "Medine'nin yedi fakihinden."),
+  N("ebuselemeavf", "أبو سلمة بن عبد الرحمن", "Ebû Seleme b. Abdirrahman", 3, 94, "Medine", "Medine'nin yedi fakihinden."),
   N("vehbmunebbih", "وهب بن منبه", "Vehb b. Münebbih", 4, 114, "Yemen"),
   N("hammadzeyd", "حماد بن زيد", "Hammâd b. Zeyd", 5, 179, "Basra", "Rumûz خ م د ت س."),
   N("varkaomer", "ورقاء بن عمر", "Varkā b. Ömer", 5, null, "Kûfe"),
@@ -509,7 +509,7 @@ export const NODES = [
   N("abdullahsakik", "عبد الله بن شقيق العقيلي", "Abdullah b. Şakīk el-Ukaylî", 3, 108, "Basra"),
   N("abdullahsedddad", "عبد الله بن شداد بن الهاد", "Abdullah b. Şeddâd b. el-Hâd", 2, 81, "Kûfe"),
   N("amrabdrahmanzurara", "عمرة بنت عبد الرحمن", "Amre bint Abdirrahman", 3, 98, "Medine", "Âişe'nin başlıca kadın râvisi."),
-  N("kasimmuhammed", "القاسم بن محمد بن أبي بكر", "Kâsım b. Muhammed b. Ebî Bekir", 4, 106, "Medine", "Medine'nin yedi fakıhından, Âişe'nin kardeş oğlu."),
+  N("kasimmuhammed", "القاسم بن محمد بن أبي بكر", "Kâsım b. Muhammed b. Ebî Bekir", 4, 106, "Medine", "Medine'nin yedi fakihinden, Âişe'nin kardeş oğlu."),
 
   // ---- Malik cevresinde aga giren raviler ----
   N("caferisadik", "جعفر بن محمد الصادق", "Ca‘fer b. Muhammed es-Sâdık", 5, 148, "Medine", "Rumûz م ت س ق."),
@@ -619,7 +619,7 @@ export const NODES = [
   N("vakidi", "محمد بن عمر الواقدي", "Vâkıdî, Muhammed b. Ömer", 5, 207, "Medine"),
 
   // ---- Evzai cevresinde aga giren raviler ----
-  N("mekhul", "مكحول الشامي", "Mekhûl eş-Şâmî", 4, 112, "Şam", "Şam fakıhlerinin önde geleni."),
+  N("mekhul", "مكحول الشامي", "Mekhûl eş-Şâmî", 4, 112, "Şam", "Şam fakihlerinin önde geleni."),
   N("hassanatiyye", "حسان بن عطية", "Hassân b. Atiyye", 5, 130, "Şam", "Rumûz ع."),
   N("rebiayezid", "ربيعة بن يزيد", "Rabîa b. Yezîd", 5, 123, "Şam"),
   N("umeyrhani", "عمير بن هانئ", "Umeyr b. Hâni’", 4, null, "Şam", "Rumûz ع."),
@@ -711,7 +711,7 @@ export const NODES = [
   N("osmanebiseybe", "عثمان بن أبي شيبة", "Osmân b. Ebî Şeybe", 5, 239, "Kûfe"),
   N("ahmeddevraki", "أحمد بن إبراهيم الدورقي", "Ahmed b. İbrâhim ed-Devrakī", 5, 246, "Basra"),
   N("muhammedisataba", "محمد بن عيسى ابن الطباع", "Muhammed b. Ísâ İbnü't-Tabbâ‘", 5, 224, "Basra", "Mizzî: Hüşeym'i en iyi bilen («ve hüve a‘lemühum bihî»)."),
-  N("yezidebihabib", "يزيد بن أبي حبيب", "Yezîd b. Ebî Habîb", 5, 128, "Mısır", "Mısır fakıhlerinin önde geleni. Mizzî: İbn İshak'ın hocalarından."),
+  N("yezidebihabib", "يزيد بن أبي حبيب", "Yezîd b. Ebî Habîb", 5, 128, "Mısır", "Mısır fakihlerinin önde geleni. Mizzî: İbn İshak'ın hocalarından."),
   N("yalaubeyd", "يعلى بن عبيد الطنافسي", "Ya‘lâ b. Ubeyd et-Tanâfisî", 5, 209, "Kûfe"),
   N("yunusbukeyr", "يونس بن بكير الشيباني", "Yûnus b. Bükeyr eş-Şeybânî", 5, 199, "Kûfe", "İbn İshak'ın Megâzî'sinin râvilerinden."),
   N("abdrahmanesved", "عبد الرحمن بن الأسود", "Abdurrahman b. el-Esved", 3, null, "Kûfe"),

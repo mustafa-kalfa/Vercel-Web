@@ -31,6 +31,36 @@ import { useTheme } from "./ThemeContext";
 
    Kullanimi: app/SilsileAgi.jsx (canli) ve app/SilsileAgiSinama.jsx
    (deneme) birer satirlik sarmalayici. */
+/* ARAMA ICIN HARF KATLAMA.
+
+   Kullanici "salim" yazinca "Sâlim" cikmiyordu, "firebri" yazinca
+   "Firebrî" cikmiyordu (Mustafa, 2026-08-30). Isimler ceviri yazi
+   oldugu icin sapkali harflerle dolu ve kimse arama kutusuna sapka
+   yazmaz.
+
+   NFD ile ayirip birlesen isaretleri atiyoruz (â -> a, î -> i,
+   ū -> u). Turkce'ye ozgu olanlar ayri ele aliniyor cunku onlar
+   birlesen isaret degil, tek kod noktasi (ı, ş, ğ). Ayrica ceviri
+   yazidaki kesme ve ayin/hemze isaretleri (‘ ’ ʿ ʾ) atiliyor.
+
+   TURKCE KUCUK HARF TUZAGI: "I".toLowerCase() dilden dile degisiyor.
+   Once katlayip sonra kucultuyoruz, boylece sonuc dilden bagimsiz.
+
+   Arapca tarafta da elif/ya/te merbuta cesitleri birlestiriliyor ki
+   "عبد الله" ile "عبد اللّه" ayni sayilsin. */
+const KATLA_TR = { "ı": "i", "İ": "i", "ş": "s", "Ş": "s", "ğ": "g", "Ğ": "g",
+                   "ç": "c", "Ç": "c", "ö": "o", "Ö": "o", "ü": "u", "Ü": "u" };
+function katla(s) {
+  return (s || "")
+    .replace(/[ıİşŞğĞçÇöÖüÜ]/g, (c) => KATLA_TR[c])
+    .normalize("NFD").replace(/[̀-ͯ]/g, "")
+    .replace(/[‘’ʿʾ'`´]/g, "")
+    .replace(/[أإآٱ]/g, "ا").replace(/ى/g, "ي").replace(/ة/g, "ه")
+    .replace(/[ً-ْـ]/g, "")
+    .toLowerCase()
+    .replace(/\s+/g, " ").trim();
+}
+
 export function kur(V) {
   const {
     ALT, ASGARI_DY, BANT, BELDELER, BELDE_AD, DERECE, DIA, DIS, E, EDGES,
@@ -351,11 +381,16 @@ export function kur(V) {
     }, [box, olculdu, baslangic, sinirla]);
   
     const sonuclar = useMemo(() => {
-      const q = arama.trim().toLowerCase();
+      const q = katla(arama);
       if (!q) return [];
-      return NODES.filter((n) => n.tr.toLowerCase().includes(q) || n.ar.includes(arama.trim()))
+      /* Uc ad da taraniyor: Turkce, Arapca ve GORUNEN ad. Sonuncusu
+         onemli -- Ingilizce moddayken listede "Malik b. Anas" yaziyor
+         ve kullanici onu arar, oysa n.tr "Mâlik b. Enes". */
+      return NODES.filter((n) => katla(n.tr).includes(q) ||
+                                 katla(n.ar).includes(q) ||
+                                 katla(adi(n)).includes(q))
         .sort((a, b) => (a.olum ?? 999) - (b.olum ?? 999));
-    }, [arama]);
+    }, [arama, adi]);
   
     const eslesen = useMemo(
       () => (arama.trim() ? new Set(sonuclar.map((n) => n.id)) : null),
