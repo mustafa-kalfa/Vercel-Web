@@ -7,11 +7,14 @@ Son güncelleme 2026-08-30. Önceki not dosyasının yerini alır.
 | Adres | Dosya | Durum |
 |---|---|---|
 | `/ravi-iliski-aglari` | `app/ravi-iliski-aglari/page.tsx` | Tanıtım metni, haritaya buton. Sitemap'te, indekse açık |
-| `/ravi-iliski-aglari/harita` | `app/SilsileAgi.jsx` | **Yayındaki sürüm**, canvas. Sayfa adı "Rivayet Haritası" |
-| `/ag-sinamasi` | `app/SilsileAgi.jsx` | Deneme adresi, `noindex`. Şu an yayındakiyle birebir aynı, sıradaki deneme için boş |
+| `/ravi-iliski-aglari/harita` | `app/SilsileAgi.jsx` → `silsileVeri.js` | **Yayındaki sürüm**, canvas. Sayfa adı "Rivayet Haritası" |
+| `/ag-sinamasi` | `app/SilsileAgiSinama.jsx` → `silsileVeriSinama.js` | Deneme adresi, `noindex`. **Veri çalışması burada yürüyor** |
+| — | `app/silsileAgiKur.jsx` | Çizim kodu. İki sayfa da bunu kullanıyor |
 | — | `app/silsileVeri.js` | 657 râvi, 1647 bağ, çeviriler, konum hesabı |
 
-İki çizim bileşeni de aynı veri modülünden besleniyor. Terceme işlendikçe her ikisinde birden görünür. Ana sayfa kartı ve footer `/ravi-iliski-aglari`'ne bakıyor.
+ÇİZİM KODU TEK, VERİ İKİ. `silsileAgiKur.jsx` bir fabrika — `kur(V)` bir veri modülü alıp ondan beslenen bileşen döndürüyor. İki sayfa birer satırlık sarmalayıcı. Bileşeni kopyalamak da bir seçenekti ama 1400 satır iki yerde yaşardı ve her düzeltmeyi iki kez uygulamak gerekirdi — SVG sürümü son günlerin bütün iyileştirmelerini tam da bu yüzden kaçırmıştı.
+
+**Veri çalışması `silsileVeriSinama.js` üzerinde yürüyor.** Bitince o dosya `silsileVeri.js`'in üzerine kopyalanır (başlık yorumu hariç) ve yayına geçer. Ana sayfa kartı ve footer `/ravi-iliski-aglari`'ne bakıyor.
 
 `next.config.ts`'te eskiden `/ravi-iliski-aglari → /mustafa-calisiyor` yönlendirmesi vardı, kaldırıldı.
 
