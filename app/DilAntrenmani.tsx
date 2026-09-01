@@ -8,18 +8,18 @@ import type { Language } from "./translations";
 
 /* ÜÇ DİL, TEK KELİME -- eşleştirme kart oyunu.
 
-   Tahta 6x6, 36 kart. İçinde 10 kelime × 3 dil = 30 kart ve 6 "Mustafâ"
+   Tahta 5x5, 25 kart. İçinde 6 kelime × 3 dil = 18 kart ve 7 "Mustafâ"
    kartı (joker) var. Oyuncu art arda ÜÇ kart açar, üç durum eşleşme
    sayılır:
 
    - 3 kelime kartı, aynı kelime üç ayrı dilde.  Tahtadan 3 kart çıkar.
-   - 2 kelime + 1 joker.  Eksik dildeki kart kendiliğinden açılır, 4 çıkar.
-   - 1 kelime + 2 joker.  İki eksik dil birden açılır, 5 çıkar.
+   - 2 kelime + 1 joker.  Eksik dildeki kart açılır, 4 kart çıkar.
+   - 1 kelime + 2 joker.  İki eksik dil açılır, 3 kelime kartı çıkar;
+     İKİ MUSTAFÂ KARTI TAHTADA KALIR, kapanıp yeniden oynanabilir olur.
 
-   Üç joker seçmek eşleşme DEĞİL. Joker sayısının altı ve kuralın üç
-   türlü olması birlikte kararlaştırıldı: yalnız "2 kelime + 1 joker"
-   kuralı olsaydı altı joker en fazla altı kelimeyi kapatabilirdi ve
-   artan jokerler tahtada kalırdı.
+   Üç joker seçmek eşleşme DEĞİL. İki ya da üç Mustafâ'nın harcanmaması
+   Mustafâ'nın kendi kuralı (2026-09-01): sona doğru jokerlere ihtiyaç
+   oluyor.
 
    Oyun `/resule-kavusmak`taki isnâd oyunundan farklı olarak IFRAME
    DEĞİL, gerçek bir React bileşeni. Sebep: dışarıyla hiçbir alışverişi
@@ -39,7 +39,17 @@ const NOKTALAR = [
 ];
 
 const DILLER: Dil[] = ["tr", "en", "ar"];
-const JOKER_SAYISI = 6;
+
+/* TAHTA 5x5 = 25 KART. 7'si Mustafâ kartı, kalan 18'i 6 kelimenin üç
+   dildeki karşılığı. Üç sayı birbirine bağlı, birini değiştirirsen
+   ötekileri de tut: `KART = KELIME * 3 + JOKER`.
+
+   Seviye dosyasında her seviyede ON kelime var ama tahtaya ALTISI
+   çıkıyor -- her dağıtımda seviyenin on kelimesinden rastgele altısı
+   seçiliyor. Böylece "Yeniden dağıt" aynı tahtayı tekrarlamıyor ve
+   seviye birkaç turda tümüyle görülüyor. */
+const JOKER_SAYISI = 7;
+const KELIME_SAYISI = 6;
 
 /* Joker kartındaki karakter. `/resule-kavusmak` oyununun kavuşma
    sahnesinde ve tebrik pop-up'ında kullanılan KLİBİN AYNISI -- oyunlar
@@ -75,7 +85,10 @@ function karistir<T>(a: readonly T[]): T[] {
 
 function desteKur(kelimeler: Kelime[]): Kart[] {
   const veri: Omit<Kart, "acik" | "bitti" | "gitti" | "eslesti" | "yanlis" | "egim">[] = [];
-  kelimeler.forEach((k, i) => {
+  /* Seviyenin on kelimesinden bu tura çıkacak altısı. Liste zaten
+     altı ya da daha az ise olduğu gibi alınıyor. */
+  const bugunku = karistir(kelimeler).slice(0, KELIME_SAYISI);
+  bugunku.forEach((k, i) => {
     /* AYNI KELİMENİN ÜÇ KARTI ÜÇ AYRI RENK ALIR. Renk tamamen rastgele
        dağıtılsaydı bir kelimenin kartları tesadüfen aynı rengi alabilir
        ve bu doğrudan ipucu olurdu. Bu kural bozulursa oyun kolaylaşır. */
@@ -202,16 +215,20 @@ const UI: Record<
 export default function DilAntrenmani({
   kelimeler,
   onListeyeDon,
+  onTamamlandi,
 }: {
-  /* Bu turda oynanacak on kelime. Seviyeyi `DilAntrenmaniHub` seçiyor,
-     oyun hangi seviyede olduğunu bilmiyor -- yalnızca eline verilen
-     listeyi dağıtıyor. Liste yalnızca İLK kurulumda ve "Yeniden
+  /* Seviyenin kelime listesi -- tahtaya bunun rastgele altısı çıkıyor
+     (bkz. `desteKur`). Seviyeyi `DilAntrenmaniHub` seçiyor,
+     oyun hangi seviyede olduğunu bilmiyor. Liste yalnızca İLK kurulumda ve "Yeniden
      dağıt"ta okunuyor, oyun ortasında değişmesi tahtayı yenilemez;
      seviye değişiminde çağıran taraf `key` vermeli. */
   kelimeler: Kelime[];
   /* Bitiş ekranındaki "Seviyelere dön" düğmesi. Verilmezse düğme hiç
      çizilmiyor, yani oyun tek başına da çalışmaya devam eder. */
   onListeyeDon?: () => void;
+  /* Seviye GERÇEKTEN bitince bir kez çağrılıyor -- sonraki seviyenin
+     kilidini açan tek olay bu. Kutuya girip çıkmak yetmiyor. */
+  onTamamlandi?: () => void;
 }) {
   const { language } = useLanguage();
   const ui = UI[language];
@@ -320,6 +337,12 @@ export default function DilAntrenmani({
      joker kalır; onları sessizce yok saymak yerine aynı animasyonla
      çıkarıyoruz, tahta boşalarak kapansın. */
   const bitir = useCallback(() => {
+    /* Kilidi açan haber BURADA veriliyor, bitiş ekranında değil: bu
+       noktada bütün kelime kartları eşleşmiş durumda, geri kalan yalnız
+       artan jokerlerin temizlenme animasyonu. Oyuncu o animasyon
+       biterken sayfadan çıkarsa da seviye tamamlanmış sayılmalı. */
+    onTamamlandi?.();
+
     const artan = kartlarRef.current
       .map((k, i) => (k.tip === "joker" && !k.bitti ? i : -1))
       .filter((i) => i >= 0);
@@ -343,11 +366,16 @@ export default function DilAntrenmani({
         setBitti(true);
       }, 720);
     }, 560);
-  }, [bekle, ciz, patlatIndeks]);
+  }, [bekle, ciz, patlatIndeks, onTamamlandi]);
 
+  /* `kaldirilacak` tahtadan çıkacak kartlar, `geriDonecek` ise turun
+     sonunda KAPANIP tahtada kalacak Mustafâ kartları. İkincisi bir
+     oyun kuralı, süs değil: bir turda iki ya da üç Mustafâ birden
+     kullanıldıysa o kartlar harcanmıyor, çünkü sona doğru jokerlere
+     ihtiyaç oluyor. Tek Mustafâ ile yapılan eşleşmede joker harcanır. */
   const eslestir = useCallback(
-    (grup: number[]) => {
-      grup.forEach((i) => {
+    (kaldirilacak: number[], geriDonecek: number[]) => {
+      kaldirilacak.forEach((i) => {
         const k = kartlarRef.current[i];
         k.bitti = true;
         k.eslesti = true;
@@ -356,7 +384,12 @@ export default function DilAntrenmani({
       setTamam((n) => n + 1);
       ciz();
       bekle(() => {
-        grup.forEach((i) => (kartlarRef.current[i].gitti = true));
+        kaldirilacak.forEach((i) => (kartlarRef.current[i].gitti = true));
+        /* Geri dönen jokerler kapanıyor, yani yeniden oynanabilir
+           hâle geliyorlar. Kapanışı biraz geciktiriyoruz -- kartlar
+           yukarı süzülürken oyuncu jokerlerin yerinde kaldığını
+           görsün. */
+        geriDonecek.forEach((i) => (kartlarRef.current[i].acik = false));
         seciliRef.current = [];
         kilitRef.current = false;
         ciz();
@@ -397,16 +430,23 @@ export default function DilAntrenmani({
     }
 
     if (uygun) {
-      const grup = [...secili, ...ekler];
+      const jokerler = secili.filter((i) => kartlarRef.current[i].tip === "joker");
+      /* İki ya da üç Mustafâ birden kullanıldıysa kartlar tahtada
+         kalıyor, yalnızca kelime kartları çıkıyor. Tek Mustafâ ile
+         yapılan eşleşmede joker de gidiyor. */
+      const geriDonecek = jokerler.length >= 2 ? jokerler : [];
+      const kaldirilacak = [...secili, ...ekler].filter(
+        (i) => !geriDonecek.includes(i),
+      );
       if (ekler.length) {
         /* Joker kullanıldıysa eksik dildeki kart önce AÇILIP gösteriliyor,
            eşleşme animasyonu ancak ondan sonra başlıyor. Oyuncu jokerin
            neyin yerine geçtiğini görmeli. */
         ekler.forEach((i) => (kartlarRef.current[i].acik = true));
         ciz();
-        bekle(() => eslestir(grup), 660);
+        bekle(() => eslestir(kaldirilacak, geriDonecek), 660);
       } else {
-        bekle(() => eslestir(grup), 360);
+        bekle(() => eslestir(kaldirilacak, geriDonecek), 360);
       }
     } else {
       secili.forEach((i) => (kartlarRef.current[i].yanlis = true));
@@ -452,7 +492,7 @@ export default function DilAntrenmani({
     <div className={s.sahne}>
       <div className={s.serit}>
         <div className={s.tally} aria-label={ui.tamamlananlar}>
-          {kelimeler.map((_, i) => (
+          {Array.from({ length: KELIME_SAYISI }, (_, i) => (
             <i key={i} className={i < tamam ? s.dolu : undefined} />
           ))}
         </div>
@@ -540,7 +580,7 @@ export default function DilAntrenmani({
       {bitti && (
         <div className={s.bitis} role="dialog" aria-modal="true">
           <div>
-            <h2>{ui.bitisBaslik(kelimeler.length)}</h2>
+            <h2>{ui.bitisBaslik(KELIME_SAYISI)}</h2>
             <p>{ui.bitisAlt(hamle)}</p>
             <div className={s.bitisDugmeler}>
               <button type="button" className={s.yeni} onClick={yenidenDagit}>

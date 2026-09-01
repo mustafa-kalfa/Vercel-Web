@@ -48,16 +48,18 @@
 
 /* ---------- üst şerit ---------- */
 /* Şerit ve tahta AYNI genişlik hesabını kullanıyor, yoksa sayaçlar
-   tahtadan taşar. Hesap `calc((100dvh - 235px) / 1.42)`: altı satır
-   kart 5:7 oranıyla ekran yüksekliğine sığmak zorunda, 1.42 o oranın
-   satır sayısına bölünmüş hâli. 235px sayfanın üstünde duran şeye
+   tahtadan taşar. Hesap `calc((100dvh - 290px) / 1.42)`: kartlar
+   ekran yüksekliğine sığmak zorunda, 1.42 de 5:7 oranının satır
+   sayısına bölünmüş hâli. Izgara KARE olduğu için (5x5) bu bölen
+   sütun sayısından bağımsız -- 6x6'dan 5x5'e inildiğinde değişmedi,
+   yalnızca her kart büyüdü. 290px sayfanın üstünde duran şeye
    ayrılan pay -- logo, "Seviyeler" düğmesi, başlık, kural satırı ve
    alt boşluk. Sayfadaki o bloğu değiştirirsen bu sayıyı da değiştir,
    yoksa tahtanın altı ekrandan taşar. `max(...300px)` çok kısa
    ekranlarda tahtanın okunamayacak kadar küçülmesini engelliyor; o
    durumda sayfa kaydırılır. */
 .serit {
-  width: max(300px, min(94vw, 46rem, calc((100dvh - 235px) / 1.42)));
+  width: max(300px, min(94vw, 46rem, calc((100dvh - 290px) / 1.42)));
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -97,9 +99,9 @@
 /* ---------- tahta ---------- */
 .tahta {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: var(--ara);
-  width: max(300px, min(94vw, 46rem, calc((100dvh - 235px) / 1.42)));
+  width: max(300px, min(94vw, 46rem, calc((100dvh - 290px) / 1.42)));
   perspective: 1600px;
 }
 .kart {
@@ -253,19 +255,22 @@
 }
 
 /* joker (Mustafâ kartı) */
+/* Ön yüz ÖTEKİ KARTLARLA AYNI parşömen (Mustafâ'nın isteği,
+   2026-09-01). Önce koyu yeşil bir radyal zemini vardı; kart açılınca
+   tahtada tek başına kalıyor ve arka yüzle karışıyordu. Jokeri artık
+   üstteki altın şerit ve altın çerçeve ayırıyor -- `.on`un parşömeni
+   olduğu gibi miras kalsın diye burada `background` HİÇ verilmiyor. */
 .joker {
-  background: radial-gradient(90% 70% at 50% 32%, #23704f 0%, #143a2c 68%, #0f2c21 100%);
-  border-color: rgba(227, 194, 92, 0.5);
+  border-color: rgba(201, 162, 39, 0.55);
 }
 .joker::before {
-  background: var(--altin-sicak);
+  background: var(--altin);
 }
 .joker::after {
-  border-color: rgba(227, 194, 92, 0.3);
+  border-color: rgba(201, 162, 39, 0.38);
 }
 .joker .dil {
-  color: var(--altin-sicak);
-  opacity: 0.9;
+  color: rgba(27, 23, 18, 0.6);
 }
 .joker .dil i {
   display: none;

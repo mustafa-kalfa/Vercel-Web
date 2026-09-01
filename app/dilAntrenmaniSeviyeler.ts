@@ -1,6 +1,10 @@
 import type { Kelime } from "./DilAntrenmani";
 
-/* DİL ANTRENMANI — 12 seviyelik kelime havuzu.
+/* DİL ANTRENMANI — kelime havuzları.
+
+   İki küme var. `B1_SEVIYELERI` 12 seviye (Oxford B1), `HADIS_SEVIYELERI`
+   3 seviye (hadis ilminin ıstılahları). Kümeler `DilAntrenmaniHub`
+   içinde `KUMELER` dizisinden bağlanıyor.
 
    Her seviye TAM 10 kelime tutuyor, çünkü tahta 6x6 = 36 kart ve
    10 kelime × 3 dil + 6 joker tam oturuyor. Seviye sayısını ya da
@@ -36,7 +40,7 @@ export type Seviye = {
   kelimeler: Kelime[];
 };
 
-export const SEVIYELER: Seviye[] = [
+export const B1_SEVIYELERI: Seviye[] = [
   {
     tema: "Nesneler",
     kelimeler: [
@@ -215,6 +219,72 @@ export const SEVIYELER: Seviye[] = [
       { tr: "parlak", en: "shiny", ar: "لَامِع" },
       { tr: "sessiz", en: "silent", ar: "صَامِت" },
       { tr: "çirkin", en: "ugly", ar: "قَبِيح" },
+    ],
+  },
+];
+
+/* HADİSLE İLGİLİ KELİMELER — üç seviye.
+
+   Bu küme ötekinden farklı bir iş görüyor. B1 havuzunda oyuncu üç ayrı
+   dilde ÜÇ AYRI kelime görüyor; burada Türkçe karşılık çoğu zaman
+   Arapça ıstılahın kendisi (isnâd / إِسْنَاد). Kazanç şurada: ıstılahın
+   Arapça yazılışını tanımak ve İngilizce karşılığını öğrenmek. Hadis
+   ilmi metinleri üç dilde de okunuyor, terimin üç yüzünü birlikte
+   görmek işe yarıyor.
+
+   İngilizce karşılıklar KISA tutuldu. "comprehensive collection" gibi
+   uzun tamlamalar kartta 8 puntoya düşüyor (bkz. `DilAntrenmani.tsx`
+   içindeki `punto()`); bu yüzden kitap türleri (câmi, müsned, sünen)
+   listeye alınmadı, yerlerine tek kelimeyle karşılanan ıstılahlar
+   kondu.
+
+   Aynı seviyede kök benzerliği olan çiftler bilerek ayrıldı: مَقْطُوع
+   ile مُنْقَطِع aynı kökten, ikisi birlikte konsaydı Arapça kartlar bir
+   bakışta ayırt edilemezdi -- مَقْطُوع listeye hiç alınmadı. */
+export const HADIS_SEVIYELERI: Seviye[] = [
+  {
+    tema: "Temel kavramlar",
+    kelimeler: [
+      { tr: "hadis", en: "hadith", ar: "حَدِيث" },
+      { tr: "sünnet", en: "sunnah", ar: "سُنَّة" },
+      { tr: "isnâd", en: "isnad", ar: "إِسْنَاد" },
+      { tr: "metin", en: "text", ar: "مَتْن" },
+      { tr: "râvi", en: "narrator", ar: "رَاوٍ" },
+      { tr: "sahâbî", en: "Companion", ar: "صَحَابِيّ" },
+      { tr: "tâbiî", en: "Successor", ar: "تَابِعِيّ" },
+      { tr: "rivayet", en: "narration", ar: "رِوَايَة" },
+      { tr: "muhaddis", en: "traditionist", ar: "مُحَدِّث" },
+      { tr: "haber", en: "report", ar: "خَبَر" },
+    ],
+  },
+  {
+    tema: "Hüküm ve dereceler",
+    kelimeler: [
+      { tr: "sahih", en: "sound", ar: "صَحِيح" },
+      { tr: "hasen", en: "good", ar: "حَسَن" },
+      { tr: "zayıf", en: "weak", ar: "ضَعِيف" },
+      { tr: "mevzû", en: "fabricated", ar: "مَوْضُوع" },
+      { tr: "merfû", en: "raised", ar: "مَرْفُوع" },
+      { tr: "mevkuf", en: "halted", ar: "مَوْقُوف" },
+      { tr: "mürsel", en: "sent", ar: "مُرْسَل" },
+      { tr: "muallak", en: "suspended", ar: "مُعَلَّق" },
+      { tr: "şâz", en: "anomalous", ar: "شَاذّ" },
+      { tr: "münker", en: "denounced", ar: "مُنْكَر" },
+    ],
+  },
+  {
+    tema: "İlim ve nakil",
+    kelimeler: [
+      { tr: "cerh", en: "criticism", ar: "جَرْح" },
+      { tr: "ta'dîl", en: "approval", ar: "تَعْدِيل" },
+      { tr: "illet", en: "defect", ar: "عِلَّة" },
+      { tr: "mütevâtir", en: "mass-reported", ar: "مُتَوَاتِر" },
+      { tr: "âhâd", en: "solitary", ar: "آحَاد" },
+      { tr: "icâzet", en: "licence", ar: "إِجَازَة" },
+      { tr: "semâ", en: "audition", ar: "سَمَاع" },
+      { tr: "hâfız", en: "memoriser", ar: "حَافِظ" },
+      { tr: "munkatı", en: "broken", ar: "مُنْقَطِع" },
+      { tr: "tedlîs", en: "concealment", ar: "تَدْلِيس" },
     ],
   },
 ];

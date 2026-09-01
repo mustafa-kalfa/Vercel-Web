@@ -1422,45 +1422,78 @@ yalnizca bunlar icin vardi.
 ### Uc katman (duzen `/resule-kavusmak` ile bilerek ayni)
 
 ```
-katman 1   B1 / B2 / C1                 kare kutu, 3 sutun
-katman 2   "Seviye 1" ... "Seviye 12"   kare kutu, 3 sutun x 4 sira
-katman 3   oyun                         secilen seviyenin on kelimesi
+katman 1   kumeler     B1 / B2 / C1 / Hadisle Ilgili Kelimeler (2x2)
+katman 2   seviyeler   "Seviye 1" ...  kare kutu, 3 sutun
+katman 3   oyun        secilen seviyenin on kelimesi
 ```
 
+**Dort kume var, ikisi gercek liste aciyor.** B1 12 seviye
+(`B1_SEVIYELERI`), hadis istilahlari 3 seviye (`HADIS_SEVIYELERI`).
 B2 ve C1 henuz YOK, ikisi de `/mustafa-calisiyor`a gidiyor. Icerik
-gelince `KUMELER` icindeki `kind`i `"liste"` yapmak ve
-`dilAntrenmaniSeviyeler.ts`e o katmanin seviyelerini eklemek yetiyor.
+gelince `KUMELER` icindeki `kind`i `"liste"` yapip `seviyeler` alanina
+o kumenin dizisini vermek yetiyor — kilit, ilerleme kaydi ve basliklar
+kume kimliginden turuyor.
 
-**KILIT YOK.** Isnad oyununda hadisler sirayla acilir ve ilerleme
-localStorage'da tutulur; burada on iki seviyenin hepsi bastan acik
-(Mustafa'nin tarifi: "tiklayinca oyun acilacak"). Sirali kilit
-istenirse `ResuleKavusmakHub`taki `PROGRESS_KEY` blogu oldugu gibi
-tasinabilir.
+**SIRALI KILIT VAR** (2026-09-01, Mustafa'nin istegi: "1. seviye
+bitmeden 2. seviye acilmamali"). Her kumenin ilk seviyesi daima acik,
+otekiler ancak KENDINDEN ONCEKI seviye tamamlanmissa. Kilidi acan tek
+olay oyunun gercekten bitirilmesi — kutuya girip cikmak yetmiyor
+(`DilAntrenmani`in `onTamamlandi` prop'u, `bitir()` icinde bir kez
+cagriliyor). Bitmis seviyede kucuk bir ✓ duruyor.
+
+Kayit `localStorage`ta, `dil-antrenmani-ilerleme-v1` anahtarinda, kume
+kimliginden tamamlanan seviye numaralarina bir esleme olarak. **Kumeler
+AYRI sayiliyor**, hadis istilahlarini bitirmek B1'in kilidini acmiyor.
+Anahtar SURUMLU: `dilAntrenmaniSeviyeler.ts`teki sira ya da seviye
+sayisi degisirse eski kayit YANLIS kutulari acar, o zaman numarayi bir
+ilerlet (-v2).
+
+**Kilitli kutuda seviye adi GIZLENMIYOR.** Isnad oyununda hadis adi
+icerigi sizdirdigi icin "?" ile ortuluyordu; "Seviye 5" hicbir sey
+sizdirmiyor, kutu yalnizca soluk ve kesik cizgili.
 
 Katmanlar arasi her gecis `history.pushState` ile gecmise bir adim
 birakiyor — yoksa geri tusu sayfadan tamamen cikarirdi (isnad oyununda
 2026-08-19'da yasanan hata). `press-go` basma efekti de ayni.
 
 `/oyunlar` sayfasindaki IKINCI dugme buraya gidiyor, etiketi
-"3 Dil 1 Kelime" (`t.gameDilAntrenmani`, uc dilde). Oyunun kendi adresi
+"1 Kelime 3 Dil" (`t.gameDilAntrenmani`, uc dilde). Oyunun kendi adresi
 `/oyunlar` altinda DEGIL kokte, cunku icerik hadis degil dil calismasi.
 
 ### Oyunun kurallari (bozulursa oyun degisir)
 
-Tahta 6x6 = 36 kart: 10 kelime x 3 dil + 6 "Mustafa" karti (joker).
+**Tahta 5x5 = 25 kart** (2026-09-01, once 6x6 idi): 6 kelime x 3 dil =
+18 kart + 7 "Mustafa" karti (joker). Uc sayi birbirine bagli, birini
+degistirirsen otekileri de tut -- `KART = KELIME * 3 + JOKER`.
+
+**Seviye dosyasinda her seviyede ON kelime var ama tahtaya ALTISI
+cikiyor.** Her dagitimda seviyenin on kelimesinden rastgele altisi
+seciliyor; "Yeniden dagit" boylece ayni tahtayi tekrarlamiyor ve seviye
+birkac turda tumuyle goruluyor. 25 kart 10 kelimeyi alamiyor (10x3+7=37),
+seviye sayilarini bozmamak icin bu yol secildi.
+
 Oyuncu art arda UC kart acar, uc durum eslesme sayilir:
 
-| Secim | Tahtadan cikan |
-|---|---|
-| 3 kelime karti, ayni kelime uc dilde | 3 |
-| 2 kelime + 1 joker (eksik dil kendiliginden acilir) | 4 |
-| 1 kelime + 2 joker | 5 |
+| Secim | Tahtadan cikan | Joker |
+|---|---|---|
+| 3 kelime karti, ayni kelime uc dilde | 3 | — |
+| 2 kelime + 1 joker (eksik dil acilir) | 4 | joker HARCANIR |
+| 1 kelime + 2 joker (iki eksik dil acilir) | 3 | **jokerler TAHTADA KALIR** |
 
-Uc joker eslesme DEGIL. **Joker sayisinin alti ve kuralin uc turlu
-olmasi birlikte karar verildi:** yalniz "2 kelime + 1 joker" kurali
-olsaydi alti joker en fazla alti kelimeyi kapatabilirdi ve artan
-jokerler tahtada kalirdi. Oyuncu jokerleri hic kullanmadan bitirirse
-artanlar sonda topluca acilip ayni animasyonla gidiyor (`bitir()`).
+Uc joker eslesme DEGIL. **Iki ya da uc Mustafa'nin harcanmamasi
+Mustafa'nin kendi kurali** (2026-09-01: "sonlara dogru bu jokerlere
+ihtiyac oluyor"). Geri donen jokerler kapaniyor, yani yeniden
+oynanabilir hale geliyor.
+
+**BU KURALIN DENGE BEDELI OLCULDU ve Mustafa'ya soylendi.** Jokerler
+geri geldigi icin "1 kelime + 2 joker" hamlesi bedelsiz: oyuncu her
+turda bir kelime karti + iki Mustafa secerek tahtayi ALTI HAMLEDE, hic
+kart ezberlemeden bitirebiliyor (tarayicida denendi, 6 hamle). Hafiza
+yonu geri istenirse en kucuk duzeltme, geri donen jokerleri o tur
+boyunca kilitlemek ya da yalnizca UC jokerde geri vermek.
+
+Oyuncu jokerleri hic kullanmadan bitirirse artanlar sonda topluca
+acilip ayni animasyonla gidiyor (`bitir()`).
 
 **Ayni kelimenin uc karti UC AYRI RENK alir** (`desteKur()` icinde
 paletten uc farkli renk cekiliyor). Rastgele dagitilsaydi bir kelimenin
@@ -1491,6 +1524,11 @@ tahta iki tarafta da bos ciziliyor, uyusmazlik hic dogmuyor.
 
 ### Gorseller
 
+- **Joker kartinin ON YUZU de acik renk** (2026-09-01). Once koyu yesil
+  bir radyal zemini vardi; kart acilinca tahtada tek basina kaliyor ve
+  arka yuzle karisiyordu. Artik oteki kartlarla ayni parsomen, jokeri
+  ustteki altin serit ve altin cerceve ayiriyor. CSS'te `.joker`
+  `background` HIC vermiyor, `.on`unki miras kaliyor.
 - **Kart sirti sitenin HD logosu.** `HD-logo.png` goruntu olarak degil
   MASKE olarak kullaniliyor (globals.css'teki `.brand-logo` ile ayni
   yol): dosya siyah cizim tasidigi icin koyu yesil kartin uzerine oldugu
@@ -1528,20 +1566,27 @@ sariyor). Arapca harf sayisi harekeler ATILARAK sayiliyor, yoksa
 "قَصِيدَة" 12 harf sayilip gereksiz kuculurdu.
 
 Tahta genisligi
-`max(300px, min(94vw, 46rem, calc((100dvh - 235px) / 1.42)))`. Alti
-satir kart 5:7 oraniyla ekran yuksekligine sigmak zorunda, 1.42 o oranin
-satir sayisina bolunmus hali; 235px sayfanin ustunde duran seye
+`max(300px, min(94vw, 46rem, calc((100dvh - 290px) / 1.42)))`. Alti
+kart 5:7 oraniyla ekran yuksekligine sigmak zorunda, 1.42 de o oranin
+satir sayisina bolunmus hali. Izgara KARE oldugu icin (5x5) bu bolen
+sutun sayisindan BAGIMSIZ -- 6x6'dan 5x5'e inildiginde degismedi,
+yalnizca her kart buyudu (70px -> 84px). 290px sayfanin ustunde duran seye
 (logo, geri dugmesi, baslik, kural satiri) ayrilan pay. **Ustteki bloga
 dokunursan bu sayiyi da degistir**, yoksa tahtanin alti ekrandan tasar.
-Geri dugmesi ile seviye adi ayni satirda duruyor tam da bu yuzden: ayri
-satirlarda ~50px daha yiyorlardi ve kartlar gozle gorulur kuculuyordu.
-1200x900'de olculdu: tahta 468px, kart 72px, tahtanin alti 829px.
+
+Bir ara geri dugmesi ile seviye adi ayni satira alinip pay 235px'e
+cekilmisti (kartlar buyusun diye); **Mustafa geri aldirdi**, ustteki
+blok sikistirilmayacak ve seviye basligi kendi satirinda ORTALI
+duracak. 1200x900'de olculdu: tahta 430px, tahtanin alti 867px, yani
+kaydirmadan siginiyor.
 
 ### Kelime havuzu
 
-`dilAntrenmaniSeviyeler.ts`, 12 seviye x 10 kelime = 120 kelime.
-Ingilizcelerin HEPSI Oxford 3000'in B1 katmanindan (`oxford-B1.csv`,
-700 kelime), rastgele degil uc olcute gore elendi:
+`dilAntrenmaniSeviyeler.ts` iki dizi tasiyor. `B1_SEVIYELERI` 12
+seviye x 10 kelime = 120 kelime, Ingilizcelerin HEPSI Oxford 3000'in B1
+katmanindan (`oxford-B1.csv`, 700 kelime); `HADIS_SEVIYELERI` 3 seviye
+x 10 kelime = 30 istilah. Kelimeler rastgele degil uc olcute gore
+elendi:
 
 1. **Tek anlamli olacak.** Baglamsiz bir kartta *file*, *bank*, *iron*
    gibi kelimeler hangi anlamda kastedildigini soylemiyor.
@@ -1558,6 +1603,16 @@ hala gecerli: harekesiz yazildiginda عَلَم kelimesi عِلْم, جَنَا�
 karti da bu yuzden tohumla degistirilmisti — وَرَقَة hem agac yapragi
 hem kagit yapragi demek.
 
+**Hadis kumesi otekinden farkli bir is goruyor.** B1 havuzunda oyuncu
+uc ayri dilde UC AYRI kelime goruyor; orada Turkce karsilik cogu zaman
+Arapca istilahin kendisi (isnad / إِسْنَاد). Kazanc su: istilahin Arapca
+yazilisini tanimak ve Ingilizce karsiligini ogrenmek. Ingilizce
+karsiliklar KISA tutuldu — "comprehensive collection" gibi tamlamalar
+kartta 8 puntoya dusuyor, bu yuzden kitap turleri (cami, musned, sunen)
+listeye hic alinmadi. Kok benzerligi olan ciftler de ayrildi: مَقْطُوع
+ile مُنْقَطِع ayni kokten, ikisi bir seviyede olsa Arapca kartlar bir
+bakista ayirt edilemezdi — مَقْطُوع listeye girmedi.
+
 **B2 ve C1 havuzlari icin:** `oxford-B2.csv` (1299) ve `oxford-C1.csv`
 (1285) elimizde ama ikisi de YALNIZCA Ingilizce kelime + tur bilgisi
 tasiyor. Turkce ve harekeli Arapca karsiliklarin ayrica uretilmesi ve
@@ -1567,4 +1622,3 @@ yukaridaki uc olcutten gecirilmesi gerekiyor.
 
 1. B2 ve C1 havuzlari (yukarida).
 2. Skor ve sure. Su an yalnizca hamle sayiliyor.
-3. Sirali kilit istenirse `ResuleKavusmakHub` deseni hazir.
