@@ -282,7 +282,8 @@ export const NODES = [
   N("hilas", "خلاس الهجري", "Hılâs el-Hecerî", 2, null, "Basra"),
   N("bece", "بعجة بن عبد الله الجهني", "Ba‘ce b. Abdillâh el-Cühenî", 2, 100, "Medine"),
 
-  N("sabi", "عامر بن شراحيل الشعبي", "Âmir b. Şerâhîl eş-Şa‘bî", 3, 104, "Kûfe"),
+  N("sabi", "عامر بن شراحيل الشعبي", "Âmir b. Şerâhîl eş-Şa‘bî", 3, 104, "Kûfe",
+    "Takrîb 3092: «ثقة مشهور فقيه فاضل من الثالثة». Mekhûl onun için «ما رأيت أفقه منه» demiş. Yüzden sonra, seksen yaşlarında vefat etti."),
   N("ibnebileyla", "عبد الرحمن بن أبي ليلى", "Abdurrahman b. Ebî Leylâ", 3, 83, "Kûfe"),
   N("urve", "عروة بن الزبير", "Urve b. ez-Zübeyr", 3, 94, "Medine", "Zührî'nin başlıca hocası; Medine'nin yedi fakıhından."),
   N("ikrime", "عكرمة مولى ابن عباس", "İkrime mevlâ İbn Abbâs", 3, 105, "Medine"),
@@ -2288,6 +2289,7 @@ export const buyuk = (t) => (/[\u0621-\u064A]/.test(t) ? t : t.replace(/i/g, "\u
    medar/pivot, ihtilat/ikhtilat, tedlis/tadlis. (2026-08-30) */
 export const NOT_DIL = {
  en: {
+   "sabi": "Taqrib 3092: «ثقة مشهور فقيه فاضل من الثالثة». Makhul said of him «ما رأيت أفقه منه». He died after the year one hundred, aged about eighty.",
    "sube": "Taqrib 2790: al-Thawri used to call him «أمير المؤمنين في الحديث». Ibn Hajar adds «أول من فتش بالعراق عن الرجال وذب عن السنة» — he was the first in Iraq to scrutinise the transmitters.",
    "sevri": "Taqrib 2445: «ثقة حافظ فقيه عابد إمام حجة من رؤوس الطبقة السابعة وكان ربما دلس». He died aged sixty-four.",
    "cabir": "Taqrib 871: «صحابي ابن صحابي غزا تسع عشرة غزوة». He died in Medina after the year seventy, aged ninety-four.",
@@ -2470,6 +2472,7 @@ export const NOT_DIL = {
    "zeydeslem": "Al-Mizzī: his audition from Abū Hurayra is disputed («قيل لم يسمع منه»).",
  },
  ar: {
+   "sabi": "تقريب 3092: «ثقة مشهور فقيه فاضل من الثالثة». قال فيه مكحول «ما رأيت أفقه منه». مات بعد المئة وله نحو من ثمانين.",
    "sube": "تقريب 2790: كان الثوري يقول فيه «أمير المؤمنين في الحديث». وقيَّده ابن حجر بأنه «أول من فتش بالعراق عن الرجال وذب عن السنة».",
    "sevri": "تقريب 2445: «ثقة حافظ فقيه عابد إمام حجة من رؤوس الطبقة السابعة وكان ربما دلس». مات وله أربع وستون سنة.",
    "cabir": "تقريب 871: «صحابي ابن صحابي غزا تسع عشرة غزوة». مات بالمدينة بعد السبعين وهو ابن أربع وتسعين.",
