@@ -7,21 +7,32 @@ Son güncelleme 2026-08-30. Önceki not dosyasının yerini alır.
 | Adres | Dosya | Durum |
 |---|---|---|
 | `/ravi-iliski-aglari` | `app/ravi-iliski-aglari/page.tsx` | Tanıtım metni, haritaya buton. Sitemap'te, indekse açık |
-| `/ravi-iliski-aglari/harita` | `app/SilsileAgi.jsx` → `silsileVeri.js` | **Yayındaki sürüm**, canvas. Sayfa adı "Rivayet Haritası" |
-| `/ag-sinamasi` | `app/SilsileAgiSinama.jsx` → `silsileVeriSinama.js` | Deneme adresi, `noindex`. **Veri çalışması burada yürüyor** |
+| `/ravi-iliski-aglari/harita` | `app/SilsileAgi.jsx` → `silsileVeri.js` | **Yayındaki sürüm**, canvas. Sayfa adı "Rivayet Haritası". Çalışma burada yürüyor |
+| `/ag-sinamasi` | `app/SilsileAgi.jsx` → `silsileVeri.js` | Deneme adresi, `noindex`. Şu an yayındakiyle birebir aynı |
 | — | `app/silsileAgiKur.jsx` | Çizim kodu. İki sayfa da bunu kullanıyor |
 | — | `app/silsileVeri.js` | 657 râvi, 1647 bağ, çeviriler, konum hesabı |
 
 ÇİZİM KODU TEK, VERİ İKİ. `silsileAgiKur.jsx` bir fabrika — `kur(V)` bir veri modülü alıp ondan beslenen bileşen döndürüyor. İki sayfa birer satırlık sarmalayıcı. Bileşeni kopyalamak da bir seçenekti ama 1400 satır iki yerde yaşardı ve her düzeltmeyi iki kez uygulamak gerekirdi — SVG sürümü son günlerin bütün iyileştirmelerini tam da bu yüzden kaçırmıştı.
 
-**Veri çalışması `silsileVeriSinama.js` üzerinde yürüyor.** Bitince o dosya `silsileVeri.js`'in üzerine kopyalanır (başlık yorumu hariç) ve yayına geçer. Ana sayfa kartı ve footer `/ravi-iliski-aglari`'ne bakıyor.
+Veri bir süre çatallanmıştı (kart doldurma yayındaki haritayı etkilemesin diye); 2026-08-30'da yayına alınıp çatal kapatıldı. Yeni bir deneme gerekirse yol açık — veriyi ya da bileşeni kopyala, `/ag-sinamasi`'nı kopyaya bağla. Ana sayfa kartı ve footer `/ravi-iliski-aglari`'ne bakıyor.
 
 `next.config.ts`'te eskiden `/ravi-iliski-aglari → /mustafa-calisiyor` yönlendirmesi vardı, kaldırıldı.
 
 ## Veri durumu
 
 - **657 râvi, 1647 bağ.**
-- **156 boşluk kaldı** — kendi tercemesi hiç açılmamış, yani talebe tarafı boş râviler.
+- **160 boşluk** — kendi tercemesi hiç açılmamış, yani talebe tarafı boş râviler.
+- **Bilgi kartları 208/661.** Kaynak İbn Hacer, *Takrîbü't-Tehzîb* (Şâmile 8609). Medâr, müksirûn, müellif ve "en önemli 60" listesi tamamlandı; kalanı düz taramayla sürüyor.
+
+### Vefat yılları nereden geliyor
+
+İki ayrı kaynak var ve karışması kolay:
+
+- **141 râvide DİA'dan** geliyor. `DIA` tablosu hicrî ve milâdî yılı birlikte tutuyor ve `N()` içindeki değeri **eziyor** — yani o râvilerde N() satırına yazılan yıl hiç kullanılmıyor.
+- **Kalan 520'de** `N()` çağrısındaki değer geçerli.
+- Milâdî yılı DİA'dan gelmeyenlerde `miladiKestirim` ile hesaplanıyor ve tilde ile yazılıyor ("ö. 256/~870").
+
+Takrîb ile fark çıkması **hata değil**: DİA modern tercihi, İbn Hacer klasik ihtilâftan bir görüşü yansıtıyor (Übey'de İbn Hacer 19 ve 32'yi anıyor, DİA 33 diyor). DİA'da olmayan râvilerde ise Takrîb daha güvenilir kaynak — özellikle yılın hiç bulunmadığı yerlerde.
 - Tabakaya göre — 1'de 23, 2'de 32, 3'te 25, 4'te 9, 5'te 67.
 - 6. tabakadaki 116 kişi **bilerek** boş. Kütüb-i Sitte müelliflerinin öğrencileri son sınır.
 - Ebû Hüreyre'nin tercemesi neredeyse tam işlenmiş — Mizzî'nin saydığı 338 talebeden **333'ü kartta** görünüyor. Ama bunun yalnızca **64'ü haritada çizili**; kalan 269'u `DIS` tablosunda, kesik çerçeveli ve tıklanamaz çip olarak duruyor. Fark şundan: bir ismi haritaya nokta olarak koymak belde, vefat yılı ve tabaka ister, bunlar da o kişinin **kendi tercemesinden** gelir. Yani 338'i birden çizmek 269 terceme daha işlemek demek.

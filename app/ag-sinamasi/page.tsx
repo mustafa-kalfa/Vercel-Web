@@ -2,18 +2,18 @@
 
 import Link from "next/link";
 import ChromaKeyVideo from "../ChromaKeyVideo";
-import SilsileAgiSinama from "../SilsileAgiSinama";
+import SilsileAgi from "../SilsileAgi";
 import { useLanguage } from "../LanguageContext";
 
 /* DENEME ADRESI.
 
    Su an /ravi-iliski-aglari/harita ile BIREBIR ayni: ikisi de
-   SilsileAgi'yi cagiriyor. Tuval denemesi 2026-08-30'da yayina
-   alindi ve bu adres bir sonraki deneme icin bosaldi.
+   SilsileAgi'yi cagiriyor ve tek bir veri dosyasindan besleniyor.
 
-   Yeni bir sey denemek gerekirse bileseni kopyala, burayi kopyaya
-   bagla, veri modulune (app/silsileVeri.js) dokunma -- boylece
-   islenen tercemeler iki sayfada da gorunmeye devam eder.
+   2026-08-30'da bir sure veri BURADA catallanmisti (bilgi kartlari
+   Takrib'den doldurulurken yayindaki harita etkilenmesin diye);
+   calisma yayina alinip catal kapatildi. Yeni bir deneme gerekirse
+   ayni yol acik: veriyi ya da bileseni kopyala, burayi kopyaya bagla.
 
    Arama motorlarina KAPALI kalmali (bkz. layout.tsx): iki adres de
    indekse girseydi Google birini kopya sayip ikisini birden
@@ -46,7 +46,7 @@ export default function AgSinamasi() {
           Ust bant 2026-08-29'da %33 kuculdu: logo 72 -> 48 px, bant
           80 -> 54 px. Sayfanin ust seridi ag'dan cok yer aliyordu. */}
       <div className="mt-[54px] h-[calc(100dvh-54px)]">
-        <SilsileAgiSinama />
+        <SilsileAgi />
       </div>
     </main>
   );
