@@ -390,8 +390,8 @@ export const NODES = [
 
   // ---- Zuhri'nin Tehzib'de gecen, agda henuz olmayan hocalari ----
   N("sabitkayszuraki", "ثابت بن قيس الزرقي", "Sâbit b. Kays ez-Zürakī", 2, null, "Medine"),
-  N("ibrahimavf", "إبراهيم بن عبد الرحمن بن عوف", "İbrâhim b. Abdirrahman b. Avf", 3, null, "Medine",
-    "Takrîb 206: Rü'yeti olduğu söylenir; Hz. Ömer'den semâını Ya‘kūb b. Şeybe sabit görür. Takrîb vefatını 95, bir görüşe göre 96 verir."),
+  N("ibrahimavf", "إبراهيم بن عبد الرحمن بن عوف", "İbrâhim b. Abdirrahman b. Avf", 3, 95, "Medine",
+    "Takrîb 206: Rü'yeti olduğu söylenir; Hz. Ömer'den semâını Ya‘kūb b. Şeybe sabit görür. Vefatı 95, bir görüşe göre 96."),
   N("haricezeyd", "خارجة بن زيد بن ثابت", "Hârice b. Zeyd b. Sâbit", 3, 100, "Medine", "Medine'nin yedi fakihinden."),
   N("ubeydullahutbe", "عبيد الله بن عبد الله بن عتبة", "Ubeydullah b. Abdillâh b. Utbe", 3, 98, "Medine", "Medine'nin yedi fakihinden. Rumûz ع."),
   N("arac", "عبد الرحمن بن هرمز الأعرج", "Abdurrahman b. Hürmüz el-A‘rec", 3, 117, "Medine", "Rumûz ع."),
@@ -614,8 +614,8 @@ export const NODES = [
   N("ibnrahuye", "إسحاق بن راهويه", "İshak b. Râhûye", 5, 238, "Horasan", "Rumûz خ م س."),
   N("ahmedsalihmisri", "أحمد بن صالح المصري", "Ahmed b. Sâlih el-Mısrî", 5, 248, "Mısır"),
   N("ahmedmeni", "أحمد بن منيع", "Ahmed b. Manî‘ el-Bağavî", 5, 244, "Basra"),
-  N("ibrahimfezari", "إبراهيم بن محمد الفزاري", "İbrâhim b. Muhammed el-Fezârî", 5, 188, "Şam",
-    "Takrîb 230: «الإمام أبو إسحاق ثقة حافظ له تصانيف». Takrîb vefatını 185 ya da sonrası verir."),
+  N("ibrahimfezari", "إبراهيم بن محمد الفزاري", "İbrâhim b. Muhammed el-Fezârî", 5, 185, "Şam",
+    "Takrîb 230: «الإمام أبو إسحاق ثقة حافظ له تصانيف». Vefatı 185, bir görüşe göre sonrası."),
 
   // ---- Ibn Cureyc cevresinde aga giren raviler ----
   N("abdullahtavus", "عبد الله بن طاووس", "Abdullah b. Tâvûs", 5, 132, "Mekke", "Mizzî: İbn Cüreyc ondan yalnız bir hadis işitti (Yahyâ el-Kattân ve İbn Ma‘în)."),
@@ -760,8 +760,8 @@ export const NODES = [
   N("nasralicehdami", "نصر بن علي الجهضمي", "Nasr b. Ali el-Cehdamî", 5, 250, "Basra"),
 
   // ---- Ibnu'l-Mubarek cevresinde aga giren raviler ----
-  N("ibrahimtahman", "إبراهيم بن طهمان", "İbrâhim b. Tahmân", 5, 163, "Horasan",
-    "Takrîb 189: «ثقة يغرب وتكلم فيه للإرجاء ويقال رجع عنه». Horasanlı, Nîsâbûr'a sonra Mekke'ye yerleşti. Takrîb vefatını 168 verir."),
+  N("ibrahimtahman", "إبراهيم بن طهمان", "İbrâhim b. Tahmân", 5, 168, "Horasan",
+    "Takrîb 189: «ثقة يغرب وتكلم فيه للإرجاء ويقال رجع عنه». Horasanlı, Nîsâbûr'a sonra Mekke'ye yerleşti."),
   N("ibrahimebiable", "إبراهيم بن أبي عبلة", "İbrâhim b. Ebî Able", 5, 152, "Şam"),
   N("usamezeydeslem", "أسامة بن زيد بن أسلم", "Üsâme b. Zeyd b. Eslem", 5, null, "Medine"),
   N("caferburkan", "جعفر بن برقان", "Ca‘fer b. Burkān", 5, 154, "Şam"),
@@ -2316,11 +2316,11 @@ export const buyuk = (t) => (/[\u0621-\u064A]/.test(t) ? t : t.replace(/i/g, "\u
    medar/pivot, ihtilat/ikhtilat, tedlis/tadlis. (2026-08-30) */
 export const NOT_DIL = {
  en: {
-   "ibrahimavf": "Taqrib 206: He is said to have seen the Prophet; Yaʿqub b. Shayba affirmed his audition from ʿUmar. Taqrib gives his death as 95, or 96 by another view.",
+   "ibrahimavf": "Taqrib 206: He is said to have seen the Prophet; Yaʿqub b. Shayba affirmed his audition from ʿUmar. He died in 95, or 96 by another view.",
    "ebansattar": "Taqrib 143: «ثقة له أفراد». He died around the year sixty.",
-   "ibrahimfezari": "Taqrib 230: «الإمام أبو إسحاق ثقة حافظ له تصانيف». Taqrib gives his death as 185 or later.",
+   "ibrahimfezari": "Taqrib 230: «الإمام أبو إسحاق ثقة حافظ له تصانيف». He died in 185 or later.",
    "ibrahimukbe": "Taqrib 217: «أخو موسى ثقة من السادسة» — brother of Musa b. ʿUqba, the author of the Maghazi.",
-   "ibrahimtahman": "Taqrib 189: «ثقة يغرب وتكلم فيه للإرجاء ويقال رجع عنه». Of Khurasan, he settled in Nishapur then Mecca. Taqrib gives his death as 168.",
+   "ibrahimtahman": "Taqrib 189: «ثقة يغرب وتكلم فيه للإرجاء ويقال رجع عنه». Of Khurasan, he settled in Nishapur then Mecca.",
    "ibrahimsad": "Taqrib 177: «ثقة حجة تُكُلِّم فيه بلا قادح». A great-grandson of ʿAbd al-Rahman b. ʿAwf; of Medina, he settled in Baghdad. Taqrib gives his death as 185.",
    "yezidharun": "Taqrib 7789: «ثقة متقن عابد». The central transmitter of Wasit. He died in 206, close to ninety.",
    "ibnsirin": "Taqrib 5947: «ثقة ثبت عابد كبير القدر كان لا يرى الرواية بالمعنى». That last notice matters for transmission method — he did not allow narration by sense. He died in 110.",
@@ -2530,7 +2530,7 @@ export const NOT_DIL = {
    "ebansattar": "تقريب 143: «ثقة له أفراد». مات في حدود الستين.",
    "ibrahimfezari": "تقريب 230: «الإمام أبو إسحاق ثقة حافظ له تصانيف». مات سنة 185 وقيل بعدها.",
    "ibrahimukbe": "تقريب 217: «أخو موسى ثقة من السادسة»، وهو أخو موسى بن عقبة صاحب المغازي.",
-   "ibrahimtahman": "تقريب 189: «ثقة يغرب وتكلم فيه للإرجاء ويقال رجع عنه». خراسانيٌّ سكن نيسابور ثم مكة. وفي التقريب أنه مات سنة 168.",
+   "ibrahimtahman": "تقريب 189: «ثقة يغرب وتكلم فيه للإرجاء ويقال رجع عنه». خراسانيٌّ سكن نيسابور ثم مكة.",
    "ibrahimsad": "تقريب 177: «ثقة حجة تُكُلِّم فيه بلا قادح». مدنيٌّ نزل بغداد. وفي التقريب أنه مات سنة 185.",
    "yezidharun": "تقريب 7789: «ثقة متقن عابد». مات سنة 206 وقد قارب التسعين.",
    "ibnsirin": "تقريب 5947: «ثقة ثبت عابد كبير القدر كان لا يرى الرواية بالمعنى». مات سنة 110.",
