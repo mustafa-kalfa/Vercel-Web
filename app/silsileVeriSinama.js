@@ -236,7 +236,8 @@ export const NODES = [
   N("basra", "بصرة بن أبي بصرة الغفاري", "Basra b. Ebû Basra el-Gıfârî", 1, null, "Mısır"),
   N("fadl", "الفضل بن العباس", "Fazl b. Abbâs", 1, 18, "Medine"),
   N("kabahbar", "كعب الأحبار", "Kâ‘bü'l-ahbâr", 1, 32, "Humus"),
-  N("aise", "عائشة أم المؤمنين", "Âişe bint Ebî Bekir", 1, 58, "Medine"),
+  N("aise", "عائشة أم المؤمنين", "Âişe bint Ebî Bekir", 1, 58, "Medine",
+    "Takrîb 8633: «أفقه النساء مطلقا وأفضل أزواج النبي ﷺ إلا خديجة ففيهما خلاف شهير». Sahih olan görüşe göre 57'de vefat etti."),
   N("enes", "أنس بن مالك", "Enes b. Mâlik", 1, 93, "Basra",
     "Takrîb 565: «خادم رسول الله ﷺ خدمه عشر سنين». Vefatı 92, bir görüşe göre 93; yüzü aşkın yaşadı."),
   N("cabir", "جابر بن عبد الله", "Câbir b. Abdullah", 1, 78, "Medine",
@@ -310,7 +311,8 @@ export const NODES = [
   N("osman", "عثمان بن عفان", "Osman b. Affân", 1, 35, "Medine"),
   N("ukbeamir", "عقبة بن عامر الجهني", "Ukbe b. Âmir el-Cühenî", 1, 58, "Mısır"),
   N("ebumusa", "أبو موسى الأشعري", "Ebû Mûsâ el-Eş‘arî", 1, 42, "Kûfe"),
-  N("ebusaid", "أبو سعيد الخدري", "Ebû Saîd el-Hudrî", 1, 74, "Medine"),
+  N("ebusaid", "أبو سعيد الخدري", "Ebû Saîd el-Hudrî", 1, 74, "Medine",
+    "Takrîb 2253: «له ولأبيه صحبة واستصغر بأحد ثم شهد ما بعدها وروى الكثير». Uhud'da küçük görülüp geri çevrildi, sonraki bütün gazvelerde bulundu. Vefatında ihtilâf var — 63, 64, 65 ya da 74."),
   N("huzeyfe", "حذيفة بن اليمان", "Huzeyfe b. el-Yemân", 1, 36, "Kûfe"),
   N("ebusalih", "أبو صالح ذكوان السمان", "Ebû Sâlih Zekvân es-Semmân", 2, 101, "Medine", "Mizzî: Ebû Bekir'e yetişmedi («ولم يدركه»)."),
   N("rifaazuraki", "رفاعة بن رافع الزرقي", "Rifâa b. Râfi‘ ez-Zürakī", 1, null, "Medine"),
@@ -362,7 +364,8 @@ export const NODES = [
   // ---- II. tabaka: musannifler ----
   N("malik", "مالك بن أنس", "Mâlik b. Enes", 5, 179, "Medine", "İbnü'l-Medînî: «Sonra bu altısının ilmi tasnif sahiplerine geçti, Medine'de Mâlik b. Enes...»"),
   N("ibnishak", "محمد بن إسحاق بن يسار", "Muhammed b. İshak", 5, 151, "Medine", "Megâzî imâmı. Mizzî, tercemesinde İbnü'l-Medînî'nin sözünü aynen nakleder: altının ilmi on iki kişiye geçti, biri Muhammed b. İshak'tır. Zührî onun için «Medine'de İbn İshak bulunduğu sürece büyük ilim eksilmez» der."),
-  N("ibncureyc", "ابن جريج", "İbn Cüreyc", 5, 150, "Mekke"),
+  N("ibncureyc", "ابن جريج", "İbn Cüreyc", 5, 150, "Mekke",
+    "Takrîb 4193: «ثقة فقيه فاضل وكان يدلس ويرسل». Tedlîs ve irsâl kaydı İbn Hacer'in kendi ifadesi. 150'de ya da sonrasında vefat etti."),
   N("ibnuyeyne", "سفيان بن عيينة", "Süfyân b. Uyeyne", 5, 198, "Mekke", "Tehzîb 5606'da Zührî'nin talebeleri arasında, rumûz ع."),
   N("ibnebiaruba", "سعيد بن أبي عروبة", "İbn Ebî Arûbe", 5, 156, "Basra", "Katâde'nin en sağlam talebelerinden. Mizzî, ihtilât kaydını nakleder: 145'ten sonra karıştırdı, İbn Ma‘în'e göre 142'den önce işitenin semâı sahih, sonrakiler değil."),
   N("hammadseleme", "حماد بن سلمة", "Hammâd b. Seleme", 5, 167, "Basra", "Basra'nın dört medârından. Mizzî, İbn Cüreyc ve İbn İshak için «ve hüve min şuyûhihî», Mâlik için «min akrânihî» kaydını düşer."),
@@ -2298,6 +2301,9 @@ export const buyuk = (t) => (/[\u0621-\u064A]/.test(t) ? t : t.replace(/i/g, "\u
    medar/pivot, ihtilat/ikhtilat, tedlis/tadlis. (2026-08-30) */
 export const NOT_DIL = {
  en: {
+   "ibncureyc": "Taqrib 4193: «ثقة فقيه فاضل وكان يدلس ويرسل». The notice of tadlis and irsal is Ibn Hajar's own. He died in 150 or later.",
+   "ebusaid": "Taqrib 2253: «له ولأبيه صحبة واستصغر بأحد ثم شهد ما بعدها وروى الكثير». He was judged too young at Uhud but took part in every campaign after it. His death year is disputed: 63, 64, 65 or 74.",
+   "aise": "Taqrib 8633: «أفقه النساء مطلقا وأفضل أزواج النبي ﷺ إلا خديجة ففيهما خلاف شهير». She died in 57 according to the sounder view.",
    "ibnabbas": "Taqrib 3409: The Prophet prayed that he be given understanding of the Qur'an; for the breadth of his learning he was called «البحر» and «الحبر». ʿUmar said: «لو أدرك ابن عباس أسناننا ما عشره منا أحد». One of the prolific Companions and of the ʿAbādila; he died in 68 at Taif.",
    "sabi": "Taqrib 3092: «ثقة مشهور فقيه فاضل من الثالثة». Makhul said of him «ما رأيت أفقه منه». He died after the year one hundred, aged about eighty.",
    "sube": "Taqrib 2790: al-Thawri used to call him «أمير المؤمنين في الحديث». Ibn Hajar adds «أول من فتش بالعراق عن الرجال وذب عن السنة» — he was the first in Iraq to scrutinise the transmitters.",
@@ -2482,6 +2488,9 @@ export const NOT_DIL = {
    "zeydeslem": "Al-Mizzī: his audition from Abū Hurayra is disputed («قيل لم يسمع منه»).",
  },
  ar: {
+   "ibncureyc": "تقريب 4193: «ثقة فقيه فاضل وكان يدلس ويرسل». مات سنة 150 أو بعدها.",
+   "ebusaid": "تقريب 2253: «له ولأبيه صحبة واستُصغر بأحد ثم شهد ما بعدها وروى الكثير». وفي وفاته اختلاف: 63 أو 64 أو 65، وقيل 74.",
+   "aise": "تقريب 8633: «أفقه النساء مطلقًا وأفضل أزواج النبي ﷺ إلا خديجة ففيهما خلاف شهير». ماتت سنة 57 على الصحيح.",
    "ibnabbas": "تقريب 3409: دعا له النبي ﷺ بالفهم في القرآن، وكان يسمى «البحر» و«الحبر» لسعة علمه. وقال عمر: «لو أدرك ابن عباس أسناننا ما عشره منا أحد». من المكثرين من الصحابة ومن العبادلة، توفي سنة 68 بالطائف.",
    "sabi": "تقريب 3092: «ثقة مشهور فقيه فاضل من الثالثة». قال فيه مكحول «ما رأيت أفقه منه». مات بعد المئة وله نحو من ثمانين.",
    "sube": "تقريب 2790: كان الثوري يقول فيه «أمير المؤمنين في الحديث». وقيَّده ابن حجر بأنه «أول من فتش بالعراق عن الرجال وذب عن السنة».",
