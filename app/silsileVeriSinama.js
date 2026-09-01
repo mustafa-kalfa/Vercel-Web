@@ -305,7 +305,8 @@ export const NODES = [
   N("ubeydullaherafi", "عبيد الله بن أبي رافع", "Ubeydullah b. Ebî Râfi‘", 3, null, "Medine", "Hz. Ali'nin kâtibi («وكان كاتبه»)."),
   N("umerbali", "عمر بن علي بن أبي طالب", "Ömer b. Ali b. Ebî Tâlib", 3, 77, "Medine"),
   N("abdrahmanharis", "عبد الرحمن بن الحارث بن هشام", "Abdurrahman b. el-Hâris", 3, null, "Medine"),
-  N("ubeydumeyr", "عبيد بن عمير الليثي", "Ubeyd b. Umeyr el-Leysî", 3, 74, "Mekke"),
+  N("ubeydumeyr", "عبيد بن عمير الليثي", "Ubeyd b. Umeyr el-Leysî", 3, 74, "Mekke",
+    "Takrîb 4385: Müslim'e göre Hz. Peygamber döneminde doğdu; başkaları onu kibâr-ı tâbiînden sayar. «وكان قاص أهل مكة مجمع على ثقته» — Mekke'nin kıssacısı, sikalığında ittifak var. İbn Ömer'den önce vefat etti."),
   N("saidzuhadan", "سعيد بن ذي حدان", "Saîd b. Zî Hudân", 3, null, "Kûfe"),
 
   N("zeydsabit", "زيد بن ثابت", "Zeyd b. Sâbit", 1, 45, "Medine", "Ebû Bekir'den rivayeti رمز خ ت س."),
@@ -318,7 +319,8 @@ export const NODES = [
   N("ebumusa", "أبو موسى الأشعري", "Ebû Mûsâ el-Eş‘arî", 1, 42, "Kûfe"),
   N("ebusaid", "أبو سعيد الخدري", "Ebû Saîd el-Hudrî", 1, 74, "Medine",
     "Takrîb 2253: «له ولأبيه صحبة واستصغر بأحد ثم شهد ما بعدها وروى الكثير». Uhud'da küçük görülüp geri çevrildi, sonraki bütün gazvelerde bulundu. Vefatında ihtilâf var — 63, 64, 65 ya da 74."),
-  N("huzeyfe", "حذيفة بن اليمان", "Huzeyfe b. el-Yemân", 1, 36, "Kûfe"),
+  N("huzeyfe", "حذيفة بن اليمان", "Huzeyfe b. el-Yemân", 1, 36, "Kûfe",
+    "Takrîb 1156: «صحابي جليل من السابقين». İbn Hacer Müslim'deki sahih rivayete dayanarak Hz. Peygamber'in ona «ما كان وما يكون إلى أن تقوم الساعة» bilgisini verdiğini kaydeder — fiten rivayetlerinin ondan gelmesinin sebebi budur. Babası da sahâbî, Uhud'da şehid oldu. Hz. Ali'nin hilâfetinin başında, 36'da vefat etti."),
   N("ebusalih", "أبو صالح ذكوان السمان", "Ebû Sâlih Zekvân es-Semmân", 2, 101, "Medine", "Mizzî: Ebû Bekir'e yetişmedi («ولم يدركه»)."),
   N("rifaazuraki", "رفاعة بن رافع الزرقي", "Rifâa b. Râfi‘ ez-Zürakī", 1, null, "Medine"),
   N("aizamr", "عائذ بن عمرو المزني", "Âiz b. Amr el-Müzenî", 1, null, "Basra"),
@@ -459,7 +461,8 @@ export const NODES = [
     "Takrîb 6601: «ثقة فقيه عابد مخضرم». Muhadramûndan, yani Câhiliye ile İslâm'a yetişip Hz. Peygamber'i görmeyenlerden. Künyesi Ebû Âişe. 62 ya da 63'te vefat etti."),
   N("musatalha", "موسى بن طلحة", "Mûsâ b. Talha", 3, 103, "Kûfe", "Dârekutnî: Ebû İshak ondan bir hadisi işitmemiştir."),
   N("numanbesir", "النعمان بن بشير", "Nu‘mân b. Beşîr", 1, 64, "Şam"),
-  N("nafiibnomer", "نافع مولى ابن عمر", "Nâfi‘ mevlâ İbn Ömer", 4, 117, "Medine"),
+  N("nafiibnomer", "نافع مولى ابن عمر", "Nâfi‘ mevlâ İbn Ömer", 4, 117, "Medine",
+    "Takrîb 7086: «ثقة ثبت فقيه مشهور». 117'de ya da sonrasında vefat etti. Mâlik'in İbn Ömer'e giden zincirinin orta halkası."),
   N("zuhayrmuaviye", "زهير بن معاوية", "Züheyr b. Muâviye", 5, 173, "Kûfe", "Rumûz ع."),
   N("zaidekudame", "زائدة بن قدامة", "Zâide b. Kedâme", 5, 161, "Kûfe"),
   N("ebulahvess", "أبو الأحوص سلام بن سليم", "Ebû’l-Ahves Süllâm b. Süleym", 5, 179, "Kûfe", "Rumûz ع."),
@@ -2312,6 +2315,9 @@ export const buyuk = (t) => (/[\u0621-\u064A]/.test(t) ? t : t.replace(/i/g, "\u
    medar/pivot, ihtilat/ikhtilat, tedlis/tadlis. (2026-08-30) */
 export const NOT_DIL = {
  en: {
+   "ubeydumeyr": "Taqrib 4385: According to Muslim he was born in the Prophet's lifetime; others count him among the senior Successors. «وكان قاص أهل مكة مجمع على ثقته» — the storyteller of Mecca, agreed upon as reliable. He died before Ibn ʿUmar.",
+   "nafiibnomer": "Taqrib 7086: «ثقة ثبت فقيه مشهور». He died in 117 or later. He is the middle link of Malik's chain back to Ibn ʿUmar.",
+   "huzeyfe": "Taqrib 1156: «صحابي جليل من السابقين». On the strength of a sound report in Muslim, Ibn Hajar records that the Prophet informed him of «ما كان وما يكون إلى أن تقوم الساعة» — hence the fitan reports come through him. His father was also a Companion, martyred at Uhud. He died in 36, at the start of ʿAli's caliphate.",
    "mugirasube": "Taqrib 6840: «صحابي مشهور أسلم قبل الحديبية وولي إمرة البصرة ثم الكوفة». He died in 50 according to the sounder view.",
    "mesruk": "Taqrib 6601: «ثقة فقيه عابد مخضرم». One of the mukhaḍramun — those who lived through both eras without meeting the Prophet. His kunya is Abu ʿAʾisha. He died in 62 or 63.",
    "bera": "Taqrib 648: «صحابي ابن صحابي نزل الكوفة». He was judged too young at Badr. Ibn Hajar notes «وكان هو وابن عمر لدة» — he and Ibn ʿUmar were of an age. Taqrib gives his death as 72.",
@@ -2510,6 +2516,9 @@ export const NOT_DIL = {
    "zeydeslem": "Al-Mizzī: his audition from Abū Hurayra is disputed («قيل لم يسمع منه»).",
  },
  ar: {
+   "ubeydumeyr": "تقريب 4385: قال مسلم وُلد على عهد النبي ﷺ، وعدَّه غيره في كبار التابعين. «وكان قاصَّ أهل مكة مجمعٌ على ثقته». مات قبل ابن عمر.",
+   "nafiibnomer": "تقريب 7086: «ثقة ثبت فقيه مشهور». مات سنة 117 أو بعد ذلك.",
+   "huzeyfe": "تقريب 1156: «صحابي جليل من السابقين». وصحَّ في مسلم أن رسول الله ﷺ أعلمه «بما كان وما يكون إلى أن تقوم الساعة». وأبوه صحابي أيضًا استُشهد بأحد. مات في أول خلافة علي سنة 36.",
    "mugirasube": "تقريب 6840: «صحابي مشهور أسلم قبل الحديبية وولي إمرة البصرة ثم الكوفة». مات سنة 50 على الصحيح.",
    "mesruk": "تقريب 6601: «ثقة فقيه عابد مخضرم». كنيته أبو عائشة. مات سنة 62 ويقال 63.",
    "bera": "تقريب 648: «صحابي ابن صحابي نزل الكوفة». استُصغر يوم بدر، و«كان هو وابن عمر لدة». مات سنة 72.",
