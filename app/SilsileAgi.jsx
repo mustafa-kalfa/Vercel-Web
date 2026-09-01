@@ -413,16 +413,29 @@ export default function SilsileAgi() {
       return;
     }
 
-    /* YUKARI GIDERKEN ONCE SAYFAYI GERI SAR. Footer gorunur haldeyken
-       tekerlegi yukari cevirince ag kayiyor ve footer ekranda asili
-       kaliyordu (Mustafa, 2026-08-29). Sayfa tepeye donmeden ag'a
-       dokunulmuyor -- asagi inerken isleyen kuralin aynadaki hali. */
-    if (ev.deltaY < 0 && window.scrollY > 0) return;
+    /* DOKUNMATIK YUZEYDE IKI PARMAK YATAY DA URETIR.
 
-    const hedef = { ...view, y: view.y - ev.deltaY };
+       Yukaridaki shift dali fareler icin: cogu fare yatay tekerlek
+       tasimadigindan yatay kaydirmayi shift ile veriyor. Dizustunde
+       ise iki parmagi yana kaydirmak dogrudan `deltaX` uretiyor ve
+       hicbir tus basili degil. Eskiden bu dal yalnizca `deltaY`yi
+       okudugu icin yana kaydirma tamamen yok sayiliyordu (Mustafa,
+       2026-08-30). Simdi iki eksen birlikte uygulaniyor, capraz
+       hareket de dogal calisiyor. */
+    const dx = ev.deltaX || 0, dy = ev.deltaY || 0;
+
+    /* Sayfaya devretme kurallari YALNIZCA DIKEYI ilgilendiriyor.
+       Agirlikli olarak yatay bir harekette sayfa kaydirilmamali,
+       yoksa yana kaydirirken footer aciliyor. */
+    const dikeyBaskin = Math.abs(dy) > Math.abs(dx);
+    if (dikeyBaskin && dy < 0 && window.scrollY > 0) return;
+
+    const hedef = { ...view, x: view.x - dx, y: view.y - dy };
     const sonuc = sinirla(hedef);
+    const kimildadi = Math.abs(sonuc.x - view.x) > 0.5 ||
+                      Math.abs(sonuc.y - view.y) > 0.5;
     // sinir yuzunden hic kimildamadiysak tekerlek sayfaya kalsin
-    if (ev.deltaY > 0 && Math.abs(sonuc.y - view.y) < 0.5) return;
+    if (!kimildadi && dikeyBaskin && dy > 0) return;
     ev.preventDefault();
     setView(sonuc);
   }, [view, sinirla, gitView, enAzOlcek]);
@@ -576,10 +589,13 @@ export default function SilsileAgi() {
     /* Dikeyde tam ORTA degil: dar ekranda bilgi karti alt seridi
        kapliyor ve secilen ravi kartin ardinda kaliyordu (Mustafa,
        2026-08-30). Kart 130 px + pay, arama kumesi de ustunde; geriye
-       kalan bos alanin ortasi yaklasik %35'e denk geliyor. Genis
-       ekranda kart yalnizca yarim genislik kapladigi icin orta
-       korunuyor. */
-    const oran = dar ? 0.35 : 0.5;
+       kalan bos alanin ortasi yaklasik %35'e denk geliyor.
+
+       Genis ekranda da tam orta DEGIL, %42. Kart orada yalnizca yarim
+       genislik kapliyor ama yine de alt seride oturuyor; secilen ravi
+       biraz yukarida dururken hem kart hem de raviden CIKAN baglar
+       (asagi dogru inen talebe kollari) ayni anda goruluyor. */
+    const oran = dar ? 0.35 : 0.42;
     const hy = UST_BANT + (box.h - UST_BANT) * oran;
     kaydir({ k, x: (box.w + SOL_BANT) / 2 - p.x * k, y: hy - p.y * k }, 620);
   };
