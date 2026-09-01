@@ -228,7 +228,8 @@ export const NODES = [
   N("ali", "علي بن أبي طالب", "Ali b. Ebî Tâlib", 1, 40, "Kûfe", "Tehzîb terceme 4089, rumûz ع."),
   N("ebuhureyre", "أبو هريرة الدوسي", "Ebû Hüreyre", 1, 57, "Medine", "Tehzîb terceme 7681. Sahâbenin hâfızı. Mizzî talebeleri arasında 338 isim sayar, Buhârî'den naklen «روى عنه نحو من ثمان مئة رجل أو أكثر» der. Semâ kaydı düşülenler bağ olarak çizilmedi: Zührî «ولم يسمع منه»; Yezîd b. Rûmân ve Mekhûl «مرسل»; Zeyd b. Eslem «قيل لم يسمع منه»."),
   N("ebubekir", "أبو بكر الصديق", "Ebû Bekir es-Sıddîk", 1, 13, "Medine", "Tehzîb'de «عبد الله بن عثمان وهو أبو قحافة» adıyla, bâbü'l-ayn içinde."),
-  N("omer", "عمر بن الخطاب", "Ömer b. el-Hattâb", 1, 23, "Medine"),
+  N("omer", "عمر بن الخطاب", "Ömer b. el-Hattâb", 1, 23, "Medine",
+    "Takrîb 4888: «أمير المؤمنين مشهور جم المناقب». Zilhicce 23'te şehid edildi; hilâfeti on buçuk yıl sürdü."),
   N("mikdad", "المقداد بن الأسود", "Mikdâd b. el-Esved", 1, 33, "Medine"),
   N("fatima", "فاطمة بنت رسول الله", "Fâtıma bint Resûlillâh", 1, 11, "Medine", "Mizzî, Hz. Ali’nin hocaları arasında zevcesi olarak zikreder. Kendi tercemesi Kitâbü’n-nisâ’dadır."),
   N("ubey", "أبي بن كعب", "Übey b. Kâ‘b", 1, 30, "Medine"),
@@ -308,7 +309,8 @@ export const NODES = [
   N("kayshazim", "قيس بن أبي حازم", "Kays b. Ebû Hâzim", 2, 97, "Kûfe"),
   N("abdrahmanebubekir", "عبد الرحمن بن أبي بكر", "Abdurrahman b. Ebî Bekir", 1, 53, "Medine", "Hz. Ebû Bekir'in oğlu."),
   N("abdrahmanavf", "عبد الرحمن بن عوف", "Abdurrahman b. Avf", 1, 32, "Medine"),
-  N("osman", "عثمان بن عفان", "Osman b. Affân", 1, 35, "Medine"),
+  N("osman", "عثمان بن عفان", "Osman b. Affân", 1, 35, "Medine",
+    "Takrîb 4503: «أمير المؤمنين ذو النورين أحد السابقين الأولين والخلفاء الأربعة والعشرة المبشرة». Zilhicce 35'te, kurban bayramının ardından şehid edildi; hilâfeti on iki yıl sürdü."),
   N("ukbeamir", "عقبة بن عامر الجهني", "Ukbe b. Âmir el-Cühenî", 1, 58, "Mısır"),
   N("ebumusa", "أبو موسى الأشعري", "Ebû Mûsâ el-Eş‘arî", 1, 42, "Kûfe"),
   N("ebusaid", "أبو سعيد الخدري", "Ebû Saîd el-Hudrî", 1, 74, "Medine",
@@ -337,7 +339,8 @@ export const NODES = [
   N("ebuabdrahmansulemi", "أبو عبد الرحمن السلمي", "Ebû Abdirrahman es-Sülemî", 2, 73, "Kûfe", "Rumûz خ ٤."),
   N("abdrahmanyezidnehai", "عبد الرحمن بن يزيد النخعي", "Abdurrahman b. Yezîd en-Nehaî", 2, null, "Kûfe"),
   N("mugirasube", "المغيرة بن شعبة", "Mugīre b. Şu‘be", 1, 50, "Kûfe"),
-  N("imranhusayn", "عمران بن حصين", "İmrân b. Husayn", 1, 52, "Basra"),
+  N("imranhusayn", "عمران بن حصين", "İmrân b. Husayn", 1, 52, "Basra",
+    "Takrîb 5150: Hayber yılı müslüman oldu, sohbete erdi. «وكان فاضلا وقضى بالكوفة» — Kûfe'de kadılık yaptı, 52'de Basra'da vefat etti."),
   /* Dort sahabi 2026-08-30'da eklendi. Kaynak Ibn Hacer, Takribu't-Tehzib
      (Samile 8609): kisa ve formullu oldugu icin tabaka, vefat yili ve
      rumuzu bir arada veriyor. */
@@ -2301,6 +2304,9 @@ export const buyuk = (t) => (/[\u0621-\u064A]/.test(t) ? t : t.replace(/i/g, "\u
    medar/pivot, ihtilat/ikhtilat, tedlis/tadlis. (2026-08-30) */
 export const NOT_DIL = {
  en: {
+   "imranhusayn": "Taqrib 5150: He accepted Islam in the year of Khaybar and kept the Prophet's company. «وكان فاضلا وقضى بالكوفة» — he served as judge in Kufa and died in Basra in 52.",
+   "osman": "Taqrib 4503: «أمير المؤمنين ذو النورين أحد السابقين الأولين والخلفاء الأربعة والعشرة المبشرة». He was martyred in Dhu al-Hijja 35, just after the Feast of Sacrifice; his caliphate lasted twelve years.",
+   "omer": "Taqrib 4888: «أمير المؤمنين مشهور جم المناقب». He was martyred in Dhu al-Hijja 23; his caliphate lasted ten and a half years.",
    "ibncureyc": "Taqrib 4193: «ثقة فقيه فاضل وكان يدلس ويرسل». The notice of tadlis and irsal is Ibn Hajar's own. He died in 150 or later.",
    "ebusaid": "Taqrib 2253: «له ولأبيه صحبة واستصغر بأحد ثم شهد ما بعدها وروى الكثير». He was judged too young at Uhud but took part in every campaign after it. His death year is disputed: 63, 64, 65 or 74.",
    "aise": "Taqrib 8633: «أفقه النساء مطلقا وأفضل أزواج النبي ﷺ إلا خديجة ففيهما خلاف شهير». She died in 57 according to the sounder view.",
@@ -2488,6 +2494,9 @@ export const NOT_DIL = {
    "zeydeslem": "Al-Mizzī: his audition from Abū Hurayra is disputed («قيل لم يسمع منه»).",
  },
  ar: {
+   "imranhusayn": "تقريب 5150: أسلم عام خيبر وصحب. «وكان فاضلًا وقضى بالكوفة»، ومات سنة 52 بالبصرة.",
+   "osman": "تقريب 4503: «أمير المؤمنين ذو النورين أحد السابقين الأولين والخلفاء الأربعة والعشرة المبشرة». استُشهد في ذي الحجة بعد عيد الأضحى سنة 35، فكانت خلافته اثنتي عشرة سنة.",
+   "omer": "تقريب 4888: «أمير المؤمنين مشهور جم المناقب». استُشهد في ذي الحجة سنة 23، وولي الخلافة عشر سنين ونصفًا.",
    "ibncureyc": "تقريب 4193: «ثقة فقيه فاضل وكان يدلس ويرسل». مات سنة 150 أو بعدها.",
    "ebusaid": "تقريب 2253: «له ولأبيه صحبة واستُصغر بأحد ثم شهد ما بعدها وروى الكثير». وفي وفاته اختلاف: 63 أو 64 أو 65، وقيل 74.",
    "aise": "تقريب 8633: «أفقه النساء مطلقًا وأفضل أزواج النبي ﷺ إلا خديجة ففيهما خلاف شهير». ماتت سنة 57 على الصحيح.",
