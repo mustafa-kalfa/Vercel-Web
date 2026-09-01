@@ -218,8 +218,20 @@ export default function ChromaKeyVideo({
         if (adim === 1) {
           oynat();
           if (hasFrameCallback) {
-            // rVFC hic tetiklenmiyor olabilir; rAF'e gecip duraklatilmis
-            // videonun mevcut karesini de cizebilir hale geliyoruz.
+            /* rVFC hic tetiklenmiyor olabilir; rAF'e gecip duraklatilmis
+               videonun mevcut karesini de cizebilir hale geliyoruz.
+
+               Bekleyen rVFC once IPTAL ediliyor. Edilmezse iki cizim
+               dongusu birden donebiliyor: buradaki `schedule()` rAF'i
+               baslatiyor, sonra bekleyen rVFC de ateslerse onun
+               `draw()`i kendi `schedule()`ini cagirip ikinci bir rAF
+               dongusu aciyor. Her dongu karesinde 1920x2160'lik bir
+               doku yuklemesi var, yani is ikiye katlaniyor ve sayfa
+               kasiyor. Ayni hata 2026-08-30'da takilma toparlayicisinda
+               yasandi; oradan tamamen kaldirildi, burada iptalle
+               cozuldu -- gozcunun rAF'e dusmesi gercekten gerekli,
+               cunku bu noktada rVFC'nin hic ateslemedigi biliniyor. */
+            video.cancelVideoFrameCallback(rafId);
             hasFrameCallback = false;
             schedule();
           }
@@ -268,15 +280,23 @@ export default function ChromaKeyVideo({
       (Number.isFinite(video.duration) &&
         video.duration > 0 &&
         video.currentTime >= video.duration - 0.08);
+    /* Toparlama YALNIZCA `play()` cagiriyor, cizim dongusune DOKUNMUYOR.
+
+       Burada bir sure rAF'e gecis de vardi ve sayfayi kasiyordu
+       (2026-08-30): rVFC zaten sirada bekleyen bir geri cagrimi
+       tutuyordu, `schedule()` bunun USTUNE ikinci bir dongu
+       basliyordu. Bekleyen rVFC atesledigi anda o da rAF koluna
+       geciyor ve iki rAF dongusu birden donmeye basliyordu. Her
+       dongude 1920x2160'lik bir kare dokuya yukleniyor: saniyede 24
+       yukleme yerine 2 x 60 = 120 yukleme, yani bes kati is.
+
+       rAF'e gecmek zaten burada gereksiz. Sorun cizim dongusunde
+       degil, videonun kare URETMEMESINDE. Oynatma geri baslayinca
+       rVFC kendiliginden atesliyor. rAF'e dusme yalnizca gozcude,
+       yani HIC kare cizilmemis halde anlamli. */
     const takilmaToparla = () => {
       if (stopped || klibinSonuMu()) return;
       oynat();
-      /* rVFC susmus olabilir; rAF'e gecmek duraklamis videonun mevcut
-         karesini de cizilebilir kiliyor. */
-      if (hasFrameCallback) {
-        hasFrameCallback = false;
-        schedule();
-      }
     };
     video.addEventListener("waiting", takilmaToparla);
     video.addEventListener("stalled", takilmaToparla);
