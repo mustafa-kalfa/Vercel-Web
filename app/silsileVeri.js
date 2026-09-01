@@ -226,7 +226,8 @@ export const NODES = [
   N("fatima", "فاطمة بنت رسول الله", "Fâtıma bint Resûlillâh", 1, 11, "Medine", "Mizzî, Hz. Ali’nin hocaları arasında zevcesi olarak zikreder. Kendi tercemesi Kitâbü’n-nisâ’dadır."),
   N("ubey", "أبي بن كعب", "Übey b. Kâ‘b", 1, 30, "Medine",
     "Takrîb 283: «سيد القراء ... من فضلاء الصحابة». Künyesi Ebü'l-Münzir, Ebü't-Tufeyl de denir. Vefat yılında ihtilâf büyük — İbn Hacer 19 ve 32'yi zikredip başka görüşler de olduğunu söyler."),
-  N("usame", "أسامة بن زيد", "Üsâme b. Zeyd", 1, 54, "Medine"),
+  N("usame", "أسامة بن زيد", "Üsâme b. Zeyd", 1, 54, "Medine",
+    "Takrîb 316: «صحابي مشهور». Hz. Peygamber'in azatlısı Zeyd b. Hârise'nin oğlu; «el-Emîr» diye anılır. Medine'de, yetmiş beş yaşında vefat etti."),
   N("basra", "بصرة بن أبي بصرة الغفاري", "Basra b. Ebû Basra el-Gıfârî", 1, null, "Mısır"),
   N("fadl", "الفضل بن العباس", "Fazl b. Abbâs", 1, 18, "Medine"),
   N("kabahbar", "كعب الأحبار", "Kâ‘bü'l-ahbâr", 1, 32, "Humus"),
@@ -255,7 +256,8 @@ export const NODES = [
   N("besrsuhaym", "بشر بن سحيم الغفاري", "Bişr b. Süheym el-Gıfârî", 1, null, "Medine"),
   N("ibncafer", "عبد الله بن جعفر", "Abdullah b. Ca‘fer", 1, 80, "Medine"),
 
-  N("ahnef", "الأحنف بن قيس", "Ahnef b. Kays", 2, 72, "Basra"),
+  N("ahnef", "الأحنف بن قيس", "Ahnef b. Kays", 2, 72, "Basra",
+    "Takrîb 288: «مخضرم ثقة». Asıl adı Dahhâk, bir görüşe göre Sahr; Ahnef lakabı. İbn Hacer vefatı için 67 ve 72'yi anar."),
   N("esvedyezid", "الأسود بن يزيد النخعي", "Esved b. Yezîd en-Nehaî", 2, 75, "Kûfe"),
   N("alkame", "علقمة بن قيس النخعي", "Alkame b. Kays en-Nehaî", 2, 62, "Kûfe", "Kûfe fıkıh ekolünün temel halkası."),
   N("ubeydesel", "عبيدة السلماني", "Ubeyde es-Selmânî", 2, 72, "Kûfe"),
@@ -407,7 +409,8 @@ export const NODES = [
   N("ibrahimsad", "إبراهيم بن سعد الزهري", "İbrâhim b. Sa‘d ez-Zührî", 5, null, "Medine",
     "Takrîb 177: «ثقة حجة تُكُلِّم فيه بلا قادح». Abdurrahman b. Avf'ın torununun oğlu; Medineli, Bağdat'a yerleşti. Takrîb vefatını 185 verir."),
   N("eyyubsahtiyani", "أيوب السختياني", "Eyyûb es-Sahtiyânî", 5, 131, "Basra"),
-  N("usamezeydleysi", "أسامة بن زيد الليثي", "Üsâme b. Zeyd el-Leysî", 5, null, "Medine"),
+  N("usamezeydleysi", "أسامة بن زيد الليثي", "Üsâme b. Zeyd el-Leysî", 5, 153, "Medine",
+    "Takrîb 317: «صدوق يهم». Medineli, Leys kabilesinin mevlâsı. Yetmişi aşkın yaşında vefat etti."),
   N("haccacertat", "الحجاج بن أرطاة", "Haccâc b. Ertât", 5, null, "Kûfe", "Mizzî: Zührî'den semâı ihtilâflı («ve kîle lem yesma‘ minhu»)."),
 
   // ---- Katade ve A'mes cevresinde aga giren yeni raviler ----
@@ -827,7 +830,8 @@ export const NODES = [
   N("ebumalikesceyi", "أبو مالك الأشجعي", "Ebû Mâlik el-Eşce‘î", 5, null, "Kûfe"),
   N("leysebisuleym", "ليث بن أبي سليم", "Leys b. Ebî Süleym", 5, 143, "Kûfe"),
   N("harunmaruf", "هارون بن معروف", "Hârûn b. Ma‘rûf", 5, 231, "Basra"),
-  N("ibrahimmusaferra", "إبراهيم بن موسى الفراء", "İbrâhim b. Mûsâ el-Ferrâ", 5, 220, "Kûfe"),
+  N("ibrahimmusaferra", "إبراهيم بن موسى الفراء", "İbrâhim b. Mûsâ el-Ferrâ", 5, 220, "Kûfe",
+    "Takrîb 259: «ثقة حافظ». Rey'li, «es-Sagīr» lakabıyla anılır. 220'den sonra vefat etti."),
   N("sericyunus", "سريج بن يونس", "Serîc b. Yûnus", 5, 235, "Basra"),
   N("hasanarafe", "الحسن بن عرفة", "Hasan b. Arafe", 5, 257, "Basra"),
   N("muhammedubeydmuharibi", "محمد بن عبيد المحاربي", "Muhammed b. Ubeyd el-Muhâribî", 5, 245, "Kûfe"),
@@ -2316,6 +2320,10 @@ export const buyuk = (t) => (/[\u0621-\u064A]/.test(t) ? t : t.replace(/i/g, "\u
    medar/pivot, ihtilat/ikhtilat, tedlis/tadlis. (2026-08-30) */
 export const NOT_DIL = {
  en: {
+   "usamezeydleysi": "Taqrib 317: «صدوق يهم». Of Medina, a client of the Layth. He died aged over seventy.",
+   "usame": "Taqrib 316: «صحابي مشهور». Son of Zayd b. Haritha, the Prophet's freedman; he is styled al-Amir. He died in Medina, aged seventy-five.",
+   "ahnef": "Taqrib 288: «مخضرم ثقة». His given name was al-Dahhak, or Sakhr by another view; al-Ahnaf is a byname. Ibn Hajar cites both 67 and 72 for his death.",
+   "ibrahimmusaferra": "Taqrib 259: «ثقة حافظ». Of Rayy, nicknamed al-Saghir. He died after 220.",
    "ibrahimavf": "Taqrib 206: He is said to have seen the Prophet; Yaʿqub b. Shayba affirmed his audition from ʿUmar. He died in 95, or 96 by another view.",
    "ebansattar": "Taqrib 143: «ثقة له أفراد». He died around the year sixty.",
    "ibrahimfezari": "Taqrib 230: «الإمام أبو إسحاق ثقة حافظ له تصانيف». He died in 185 or later.",
@@ -2526,6 +2534,10 @@ export const NOT_DIL = {
    "zeydeslem": "Al-Mizzī: his audition from Abū Hurayra is disputed («قيل لم يسمع منه»).",
  },
  ar: {
+   "usamezeydleysi": "تقريب 317: «صدوق يهم». مدنيٌّ مولى ليث. مات وهو ابن بضع وسبعين.",
+   "usame": "تقريب 316: «صحابي مشهور». ابن زيد بن حارثة مولى النبي ﷺ، ويقال له الأمير. مات بالمدينة وهو ابن خمس وسبعين.",
+   "ahnef": "تقريب 288: «مخضرم ثقة». اسمه الضحاك وقيل صخر، والأحنف لقب. وذكر ابن حجر في وفاته سنة 67 وقيل 72.",
+   "ibrahimmusaferra": "تقريب 259: «ثقة حافظ». رازيٌّ يلقب الصغير. مات بعد العشرين ومئتين.",
    "ibrahimavf": "تقريب 206: قيل له رؤية، وسماعه من عمر أثبته يعقوب بن شيبة. مات سنة 95 وقيل 96.",
    "ebansattar": "تقريب 143: «ثقة له أفراد». مات في حدود الستين.",
    "ibrahimfezari": "تقريب 230: «الإمام أبو إسحاق ثقة حافظ له تصانيف». مات سنة 185 وقيل بعدها.",
