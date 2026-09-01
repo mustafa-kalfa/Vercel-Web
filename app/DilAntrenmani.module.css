@@ -1,0 +1,457 @@
+/* "Üç Dil, Tek Kelime" kart oyununun bütün biçimleri.
+
+   CSS MODÜLÜ, global değil. Kurallar global'e sızmasın diye modül
+   dosyası tercih edildi; palet değişkenleri de `:root` yerine `.sahne`
+   üzerinde, çünkü modülde `:root` zaten kapsanmaz ve bütün siteyi
+   boyardı.
+
+   OYUNUN KENDİ PENCERESİ YOK. İlk sürümde kartlar koyu yeşil, yuvarlak
+   köşeli bir panelin içinde duruyordu; 2026-09-01'de kaldırıldı
+   (Mustafâ'nın isteği) ve kartlar doğrudan sayfanın zeminine oturdu.
+   `.sahne` artık yalnızca değişkenleri taşıyan bir sarmalayıcı --
+   arka planı, çerçevesi, iç boşluğu yok. Bunun sonucu olarak şerit
+   metinleri sitenin `--foreground` rengini kullanıyor, oyunun kendi
+   krem `--varak`ını DEĞİL: krem, açık temanın bej zemininde okunmaz.
+
+   Kartların kendi paleti duruyor. `--n1..--n13` râvi ilişki
+   haritasındaki nokta renkleri, ekran görüntüsünden piksel sayılarak
+   alındı -- ortalama alınmadı, en sık geçen 13 düz dolgu rengi seçildi. */
+.sahne {
+  --n1: #8f5779;
+  --n2: #e36777;
+  --n3: #ec896d;
+  --n4: #57bfc8;
+  --n5: #d45d8c;
+  --n6: #f966aa;
+  --n7: #a3bb79;
+  --n8: #d08185;
+  --n9: #f7be90;
+  --n10: #f3b94d;
+  --n11: #ba83e7;
+  --n12: #6abab1;
+  --n13: #7b90f3;
+
+  --varak: #efe7d6;
+  --varak-golge: #dcd0b7;
+  --murekkep: #1b1712;
+  --altin: #c9a227;
+  --altin-sicak: #e3c25c;
+  --ara: clamp(4px, 0.8vmin, 11px);
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(6px, 1vh, 12px);
+  width: 100%;
+}
+
+/* ---------- üst şerit ---------- */
+/* Şerit ve tahta AYNI genişlik hesabını kullanıyor, yoksa sayaçlar
+   tahtadan taşar. Hesap `calc((100dvh - 235px) / 1.42)`: altı satır
+   kart 5:7 oranıyla ekran yüksekliğine sığmak zorunda, 1.42 o oranın
+   satır sayısına bölünmüş hâli. 235px sayfanın üstünde duran şeye
+   ayrılan pay -- logo, "Seviyeler" düğmesi, başlık, kural satırı ve
+   alt boşluk. Sayfadaki o bloğu değiştirirsen bu sayıyı da değiştir,
+   yoksa tahtanın altı ekrandan taşar. `max(...300px)` çok kısa
+   ekranlarda tahtanın okunamayacak kadar küçülmesini engelliyor; o
+   durumda sayfa kaydırılır. */
+.serit {
+  width: max(300px, min(94vw, 46rem, calc((100dvh - 235px) / 1.42)));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: clamp(4px, 0.7vh, 8px);
+  border-bottom: 1px solid color-mix(in srgb, var(--foreground) 16%, transparent);
+}
+.tally {
+  display: flex;
+  gap: clamp(3px, 0.5vw, 6px);
+}
+.tally i {
+  width: clamp(6px, 1vh, 10px);
+  height: clamp(6px, 1vh, 10px);
+  transform: rotate(45deg);
+  border: 1px solid color-mix(in srgb, var(--foreground) 30%, transparent);
+  transition:
+    background 0.45s ease,
+    box-shadow 0.45s ease,
+    border-color 0.45s ease;
+}
+.tally i.dolu {
+  background: var(--altin);
+  border-color: var(--altin);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--altin) 55%, transparent);
+}
+.hamle {
+  font-size: clamp(12px, 1.7vh, 15px);
+  color: color-mix(in srgb, var(--foreground) 60%, transparent);
+  font-variant-numeric: tabular-nums;
+}
+.hamle b {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+/* ---------- tahta ---------- */
+.tahta {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--ara);
+  width: max(300px, min(94vw, 46rem, calc((100dvh - 235px) / 1.42)));
+  perspective: 1600px;
+}
+.kart {
+  position: relative;
+  aspect-ratio: 5/7;
+  border: 0;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  /* Kart içi ölçüler `cqw` biriminde, yani kart büyüyünce yazı da
+     büyüyor. Bunun için kartın kendisi bir ölçüm kabı olmalı. */
+  container-type: inline-size;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s cubic-bezier(0.2, 0.7, 0.3, 1),
+    filter 0.3s ease;
+}
+.kart:disabled {
+  cursor: default;
+}
+.kart:focus-visible {
+  outline: 2px solid var(--altin);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+.ic {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transition: transform 0.46s cubic-bezier(0.36, 0.72, 0.28, 1);
+}
+.kart.acik .ic {
+  transform: rotateY(180deg);
+}
+.yuz {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* kart arkası */
+/* Arka yüz HER KARTTA AYNI. Renk yalnız kart çevrildikten sonra
+   görünüyor -- arkada olsaydı aynı kelimenin kartları hiç bakmadan
+   eşlenirdi.
+
+   Sırt deseni sitenin kendi HD logosu. PNG görüntü olarak değil MASKE
+   olarak kullanılıyor (globals.css'teki `.brand-logo` ile aynı yol):
+   dosya siyah çizim taşıdığı için koyu yeşil kartın üzerine olduğu gibi
+   basılsaydı görünmezdi, maske olunca rengini altından alıyor.
+
+   Logo BEYAZ ve küçük (Mustafâ'nın isteği, 2026-09-01). Önce altın ve
+   kartın %58'i genişliğindeydi; altın koyu yeşilin üzerinde sırtı
+   fazla kalabalık gösteriyordu. */
+.arka {
+  background: linear-gradient(160deg, #173a2e 0%, #0f2a21 55%, #143328 100%);
+  border: 1px solid rgba(201, 162, 39, 0.22);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+    0 1px 3px rgba(0, 0, 0, 0.4);
+}
+.arka::after {
+  content: "";
+  width: 38%;
+  aspect-ratio: 332 / 248; /* HD-logo.png'nin kendi oranı */
+  background-color: #fff;
+  -webkit-mask: url("/HD-logo.png") no-repeat center / contain;
+  mask: url("/HD-logo.png") no-repeat center / contain;
+  opacity: 0.62;
+  transition: opacity 0.25s ease;
+}
+.kart:hover:not(:disabled):not(.acik) .arka {
+  border-color: rgba(201, 162, 39, 0.5);
+}
+.kart:hover:not(:disabled):not(.acik) .arka::after {
+  opacity: 0.9;
+}
+
+/* kart yüzü */
+.on {
+  transform: rotateY(180deg);
+  background: linear-gradient(168deg, #f4eddd 0%, var(--varak) 42%, var(--varak-golge) 100%);
+  border: 1px solid rgba(27, 23, 18, 0.16);
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.4);
+  flex-direction: column;
+  gap: 4cqw;
+  padding: 7cqw 5cqw;
+}
+.on::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3cqw;
+  background: var(--nokta);
+}
+.on::after {
+  content: "";
+  position: absolute;
+  inset: 4cqw;
+  border: 1px solid rgba(27, 23, 18, 0.13);
+  pointer-events: none;
+}
+.kelime {
+  color: var(--murekkep);
+  line-height: 1.08;
+  text-align: center;
+  word-break: break-word;
+}
+/* İngilizce italik, Türkçe düz. Dil kısaltmasına EK bir işaret olsun
+   diye kondu -- bir bakışta hangi dil olduğu anlaşılıyor. */
+/* Punto burada DEĞİL bileşende hesaplanıyor (bkz. `punto()`), harf
+   sayısına göre. Buradaki değerler yalnızca inline stil bir sebeple
+   gelmezse devreye giren yedek. */
+.on[data-dil="tr"] .kelime,
+.on[data-dil="en"] .kelime {
+  font-size: 20cqw;
+  font-weight: 500;
+}
+.on[data-dil="en"] .kelime {
+  font-style: italic;
+  font-weight: 400;
+}
+.on[data-dil="ar"] .kelime {
+  font-family: var(--font-amiri), var(--font-naskh), serif;
+  font-size: 26cqw;
+  direction: rtl;
+  line-height: 1.5;
+  padding-top: 2cqw;
+}
+.dil {
+  font-size: 9cqw;
+  letter-spacing: 0.06em;
+  color: rgba(27, 23, 18, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 0.45em;
+}
+.dil i {
+  width: 0.72em;
+  height: 0.72em;
+  border-radius: 50%;
+  background: var(--nokta);
+  box-shadow: 0 0 0 1px rgba(27, 23, 18, 0.14);
+}
+
+/* joker (Mustafâ kartı) */
+.joker {
+  background: radial-gradient(90% 70% at 50% 32%, #23704f 0%, #143a2c 68%, #0f2c21 100%);
+  border-color: rgba(227, 194, 92, 0.5);
+}
+.joker::before {
+  background: var(--altin-sicak);
+}
+.joker::after {
+  border-color: rgba(227, 194, 92, 0.3);
+}
+.joker .dil {
+  color: var(--altin-sicak);
+  opacity: 0.9;
+}
+.joker .dil i {
+  display: none;
+}
+/* Karakter YÜKSEKLİKTEN ölçülüyor, genişlikten değil: klip ayakta
+   duran bir figür, genişlik verilseydi 5:7 kartta boyu taşardı.
+   `canvas` ChromaKeyVideo'nun çizdiği yüzey, `img` ise WebGL
+   kurulamadığında devreye giren poster. */
+.joker figure {
+  height: 64%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.joker canvas,
+.joker img {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  display: block;
+}
+
+/* eşleşme */
+.eslesti {
+  filter: brightness(1.14);
+  z-index: 3;
+}
+.eslesti .on {
+  box-shadow:
+    0 0 0 2px var(--altin-sicak),
+    0 0 38px rgba(227, 194, 92, 0.7);
+}
+.gitti {
+  opacity: 0;
+  transform: translateY(-18px) scale(0.84) rotate(var(--egim, 0deg));
+  pointer-events: none;
+}
+.yanlis {
+  animation: sars 0.42s ease;
+}
+@keyframes sars {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  22% {
+    transform: translateX(-5px);
+  }
+  46% {
+    transform: translateX(5px);
+  }
+  72% {
+    transform: translateX(-3px);
+  }
+}
+
+/* ışıltı-konfeti */
+/* `fixed`, tahtaya göre değil EKRANA göre. Parçacıklar kartın dışına
+   taştığı için tahtanın `overflow`u onları kırpardı. */
+.parlak {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
+  overflow: hidden;
+}
+.zerre {
+  position: absolute;
+  width: 8px;
+  height: 12px;
+  border-radius: 1px;
+  will-change: transform, opacity;
+  animation: ucus var(--sure, 1100ms) cubic-bezier(0.15, 0.7, 0.4, 1) forwards;
+}
+@keyframes ucus {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(0.4);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) rotate(var(--don)) scale(0.9);
+    opacity: 0;
+  }
+}
+.halka {
+  position: absolute;
+  border: 2px solid var(--altin-sicak);
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  animation: genisle 780ms cubic-bezier(0.2, 0.75, 0.3, 1) forwards;
+}
+@keyframes genisle {
+  0% {
+    transform: translate(-50%, -50%) scale(0.4);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(10);
+    opacity: 0;
+  }
+}
+
+/* bitiş */
+/* Kendi koyu zeminini taşıyor, yani sitenin teması ne olursa olsun aynı
+   görünüyor -- oyunun kapanış perdesi. */
+.bitis {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(9, 22, 18, 0.88);
+  backdrop-filter: blur(3px);
+  text-align: center;
+  padding: 24px;
+  font-family: var(--font-garamond), Georgia, serif;
+  color: var(--varak);
+}
+.bitis > div {
+  max-width: 44ch;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+.bitis h2 {
+  font-size: clamp(24px, 4vh, 38px);
+  font-weight: 500;
+}
+.bitis p {
+  color: rgba(239, 231, 214, 0.7);
+  font-size: clamp(14px, 2vh, 18px);
+}
+.bitisDugmeler {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.yeni {
+  font-family: inherit;
+  font-size: clamp(14px, 2vh, 17px);
+  color: #0b1a15;
+  background: var(--altin);
+  border: 0;
+  padding: 0.55em 1.5em;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.yeni:hover {
+  background: var(--altin-sicak);
+}
+.ikincil {
+  font-family: inherit;
+  font-size: clamp(14px, 2vh, 17px);
+  color: var(--varak);
+  background: none;
+  border: 1px solid rgba(239, 231, 214, 0.35);
+  padding: 0.55em 1.5em;
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+.ikincil:hover {
+  background: rgba(239, 231, 214, 0.1);
+  border-color: rgba(239, 231, 214, 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sahne *,
+  .parlak * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.08s !important;
+  }
+}
+@media (max-width: 700px) {
+  .serit,
+  .tahta {
+    width: 96%;
+  }
+}

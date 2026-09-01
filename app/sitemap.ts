@@ -32,6 +32,7 @@ const YOLLAR = [
   "/rihle",
   "/oyunlar",
   "/resule-kavusmak",
+  "/dil-antrenmani",
   "/ravi-iliski-aglari",
   "/mustafa-calisiyor",
   "/egitim-icerikleri",

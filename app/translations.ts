@@ -49,6 +49,7 @@ type Translation = {
   playerFailed: string;
   gamesSoon: string;
   gameResuleKavusmak: string;
+  gameDilAntrenmani: string;
   // /sinama'daki 'burada neler var' kart izgarasi. Anasayfa henuz
   // kullanmiyor -- duzen orada onaylanirsa oraya da tasinacak.
   indexLead: string;
@@ -145,6 +146,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     playerFailed: "Ses dosyası yüklenemedi.",
     gamesSoon: "Yakında",
     gameResuleKavusmak: "Resûle Kavuşmak",
+    gameDilAntrenmani: "3 Dil 1 Kelime",
     indexLead: "Burada neler var",
     cardNetworks: "Râvi İlişki Ağları",
     cardNetworksDesc: "Râvilerin hoca-talebe bağlarını haritalama çalışması.",
@@ -241,6 +243,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     playerFailed: "تعذّر تحميل الملف الصوتي.",
     gamesSoon: "قريبًا",
     gameResuleKavusmak: "لقاء الرسول",
+    gameDilAntrenmani: "ثلاث لغات، كلمة واحدة",
     indexLead: "ما الذي تجده هنا",
     cardNetworks: "شبكات علاقات الرواة",
     cardNetworksDesc: "محاولةٌ لرسم صلات الشيوخ والتلاميذ بين الرواة.",
@@ -337,6 +340,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     playerFailed: "The audio file could not be loaded.",
     gamesSoon: "Coming soon",
     gameResuleKavusmak: "Meeting the Messenger",
+    gameDilAntrenmani: "3 Languages 1 Word",
     indexLead: "What's here",
     cardNetworks: "Narrator Networks",
     cardNetworksDesc: "Mapping teacher-student links between hadith narrators.",

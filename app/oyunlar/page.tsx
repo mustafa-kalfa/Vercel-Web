@@ -39,10 +39,18 @@ export default function Oyunlar() {
           {t.gameResuleKavusmak}
         </Link>
 
-        {/* Uc yer tutucu. `disabled` gercekten tiklanamaz yapiyor,
+        {/* Ikinci oyun, 2026-09-01. Kendi adresi /oyunlar ALTINDA DEGIL
+            kokte (/dil-antrenmani) -- oyun hadis degil dil calismasi,
+            adresi Mustafa boyle istedi. Yer tutuculardan biri buna
+            gitti, geriye iki "?" kaldi. */}
+        <Link href="/dil-antrenmani" className={dugmeSinifi}>
+          {t.gameDilAntrenmani}
+        </Link>
+
+        {/* Iki yer tutucu. `disabled` gercekten tiklanamaz yapiyor,
             `aria-label` ise ekran okuyucuya "?" yerine anlamli bir sey
             soyluyor. */}
-        {[0, 1, 2].map((i) => (
+        {[0, 1].map((i) => (
           <button
             key={i}
             type="button"

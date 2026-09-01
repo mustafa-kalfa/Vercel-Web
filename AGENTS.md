@@ -1397,3 +1397,174 @@ YENIDEN uretiliyor (ustune ekleme degil), yani `force:true` guvenli.
   dahil) ayri ayri kontrol edilmeli — ikisinin davranisi FARKLI
   (standalone'da `lastViewportData` hep null, toast CSS varsayilanlarina
   duser; postMessage'lar da standalone'da hic gelmez).
+
+## `/dil-antrenmani` — Uc Dil Tek Kelime (kart eslestirme oyunu)
+
+Ikinci oyun, 2026-09-01. Kaynak tek dosyalik bir prototipti
+(`uc-dil-tek-kelime-6x6.html`); siteye tasinirken **gercek React
+bilesenine cevrildi**, iframe'e KONMADI.
+
+**Dosyalar:**
+- `app/dil-antrenmani/page.tsx` — sunucu bileseni. Metadata burada
+  (sayfa "use client" degil, ayri layout.tsx gerekmedi). EB Garamond ve
+  Amiri de burada, `next/font/google` ile.
+- `app/DilAntrenmaniHub.tsx` — deneyimin tamami, uc katman.
+- `app/DilAntrenmani.tsx` — oyunun kendisi.
+- `app/dilAntrenmaniSeviyeler.ts` — 12 seviye x 10 kelime.
+- `app/DilAntrenmani.module.css` — bicimler. Projedeki TEK CSS modulu;
+  geri kalan her sey Tailwind.
+
+**Neden iframe DEGIL** (isnad oyunundan farki): bu oyunun disariyla
+alisverisi yok — tema/dil senkronu, yukseklik bildirimi, toast konumu
+gibi hicbir postMessage gerekmiyor. Iframe'in tasidigi butun karmasik
+yalnizca bunlar icin vardi.
+
+### Uc katman (duzen `/resule-kavusmak` ile bilerek ayni)
+
+```
+katman 1   B1 / B2 / C1                 kare kutu, 3 sutun
+katman 2   "Seviye 1" ... "Seviye 12"   kare kutu, 3 sutun x 4 sira
+katman 3   oyun                         secilen seviyenin on kelimesi
+```
+
+B2 ve C1 henuz YOK, ikisi de `/mustafa-calisiyor`a gidiyor. Icerik
+gelince `KUMELER` icindeki `kind`i `"liste"` yapmak ve
+`dilAntrenmaniSeviyeler.ts`e o katmanin seviyelerini eklemek yetiyor.
+
+**KILIT YOK.** Isnad oyununda hadisler sirayla acilir ve ilerleme
+localStorage'da tutulur; burada on iki seviyenin hepsi bastan acik
+(Mustafa'nin tarifi: "tiklayinca oyun acilacak"). Sirali kilit
+istenirse `ResuleKavusmakHub`taki `PROGRESS_KEY` blogu oldugu gibi
+tasinabilir.
+
+Katmanlar arasi her gecis `history.pushState` ile gecmise bir adim
+birakiyor — yoksa geri tusu sayfadan tamamen cikarirdi (isnad oyununda
+2026-08-19'da yasanan hata). `press-go` basma efekti de ayni.
+
+`/oyunlar` sayfasindaki IKINCI dugme buraya gidiyor, etiketi
+"3 Dil 1 Kelime" (`t.gameDilAntrenmani`, uc dilde). Oyunun kendi adresi
+`/oyunlar` altinda DEGIL kokte, cunku icerik hadis degil dil calismasi.
+
+### Oyunun kurallari (bozulursa oyun degisir)
+
+Tahta 6x6 = 36 kart: 10 kelime x 3 dil + 6 "Mustafa" karti (joker).
+Oyuncu art arda UC kart acar, uc durum eslesme sayilir:
+
+| Secim | Tahtadan cikan |
+|---|---|
+| 3 kelime karti, ayni kelime uc dilde | 3 |
+| 2 kelime + 1 joker (eksik dil kendiliginden acilir) | 4 |
+| 1 kelime + 2 joker | 5 |
+
+Uc joker eslesme DEGIL. **Joker sayisinin alti ve kuralin uc turlu
+olmasi birlikte karar verildi:** yalniz "2 kelime + 1 joker" kurali
+olsaydi alti joker en fazla alti kelimeyi kapatabilirdi ve artan
+jokerler tahtada kalirdi. Oyuncu jokerleri hic kullanmadan bitirirse
+artanlar sonda topluca acilip ayni animasyonla gidiyor (`bitir()`).
+
+**Ayni kelimenin uc karti UC AYRI RENK alir** (`desteKur()` icinde
+paletten uc farkli renk cekiliyor). Rastgele dagitilsaydi bir kelimenin
+kartlari tesaduefen ayni rengi alabilir ve bu dogrudan ipucu olurdu.
+**Renkler kart ARKASINDA degil YUZUNDE**; arka yuz hepsinde ayni.
+
+### Durum `useRef` + `useState` ikilisi
+
+Oyunun akisi zincirleme `setTimeout`lardan olusuyor (kart cevir → bekle
+→ eslestir → bekle → tahtadan cikar) ve her zamanlayici O ANKI diziyi
+okumak zorunda. Dogru durum `kartlarRef`te, ekrana cizilen ise `kartlar`
+state'inde; `ciz()` ref'in bir fotografini state'e veriyor, bir efekt de
+her cizimden sonra ref'i o fotografa esitliyor.
+
+Iki kural bundan cikiyor, ikisi de lint tarafindan zorunlu:
+- **Render YALNIZCA state'i okur.** `react-hooks/refs` render sirasinda
+  ref okumayi hata sayiyor.
+- **Gecikmeli is yapan her yer kartlari INDEKSLE tutar** ve her
+  seferinde ref'ten yeniden okur. Eski nesneleri elde saklamak
+  mutasyonun kaybolmasina yol acar (`bitir()` bir kez boyle yazildi ve
+  duzeltildi).
+
+Ilk deste `useState`in tembel baslaticisinda kuruluyor, bir efektte
+DEGIL (`react-hooks/set-state-in-effect`). Deste rastgele karildigi icin
+sunucunun urettigi sira ile tarayicininki tutmaz; `useSyncExternalStore`
+ile alinan `istemci` bayragi hidrasyon sirasinda `false` donuyor ve
+tahta iki tarafta da bos ciziliyor, uyusmazlik hic dogmuyor.
+
+### Gorseller
+
+- **Kart sirti sitenin HD logosu.** `HD-logo.png` goruntu olarak degil
+  MASKE olarak kullaniliyor (globals.css'teki `.brand-logo` ile ayni
+  yol): dosya siyah cizim tasidigi icin koyu yesil kartin uzerine oldugu
+  gibi basilsaydi gorunmezdi, maske olunca rengini altindan aliyor.
+  Renk BEYAZ, genislik kartin %38'i. Once altin ve %58 idi; Mustafa
+  2026-09-01'de kucultup beyaza cevirtti.
+- **Joker kartinda gercek Mustafa karakteri var**, isnad oyununun
+  kavusma sahnesindeki KLIBIN AYNISI
+  (`/Mustafa Karsilama_seffaf.mp4`, `ChromaKeyVideo` ile). Karakter
+  YALNIZCA kart acikken ve henuz tahtadan cikmamisken monte ediliyor:
+  her ornek bir WebGL baglami aciyor, alti jokerin altisini birden
+  kurmak gereksiz — kapali kartta zaten arka yuz goruluyor.
+  **Dev'de poster gorursen panige kapilma:** StrictMode ikinci kurulumda
+  kayip context'i geri aliyor ve `ChromaKeyVideo` statik postere
+  dusuyor (bkz. yukaridaki "ChromaKeyVideo dev'de postere dusebiliyor").
+  2026-09-01'de `reactStrictMode: false` ile olculdu, canvas sorunsuz
+  cizildi; uretimde sorun yok.
+- **Oyunun kendi penceresi YOK.** Ilk surumde kartlar koyu yesil,
+  yuvarlak koseli bir panelin icindeydi; Mustafa'nin istegiyle
+  kaldirildi. `.sahne` artik yalnizca degiskenleri tasiyan bir
+  sarmalayici. Bunun sonucu: serit metinleri sitenin `--foreground`
+  rengini kullaniyor, oyunun kendi krem `--varak`ini DEGIL — krem, acik
+  temanin bej zemininde okunmaz.
+
+### Punto ve olcu hesabi
+
+**Kart uzerindeki punto harf sayisindan hesaplaniyor** (`punto()`), sabit
+degil. Kademeli siniflarla denendi, iki sorunu vardi: kademe sinirinda
+punto zipliyordu ve en uzun kelimeler okunamayacak kadar (olculdu, 7px)
+kuculuyordu. `ADIM` degerleri (bir harfin em cinsinden ortalama
+genisligi) tarayicida `measureText` ile OLCULDU — Garamond'da en genis
+kelimeler 0.52'ye cikiyor, Amiri'de 0.36'yi gecmiyor. Olcu kelimenin
+tamamina degil EN UZUN PARCASINA bakiyor ("deniz kabugu" iki satira
+sariyor). Arapca harf sayisi harekeler ATILARAK sayiliyor, yoksa
+"قَصِيدَة" 12 harf sayilip gereksiz kuculurdu.
+
+Tahta genisligi
+`max(300px, min(94vw, 46rem, calc((100dvh - 235px) / 1.42)))`. Alti
+satir kart 5:7 oraniyla ekran yuksekligine sigmak zorunda, 1.42 o oranin
+satir sayisina bolunmus hali; 235px sayfanin ustunde duran seye
+(logo, geri dugmesi, baslik, kural satiri) ayrilan pay. **Ustteki bloga
+dokunursan bu sayiyi da degistir**, yoksa tahtanin alti ekrandan tasar.
+Geri dugmesi ile seviye adi ayni satirda duruyor tam da bu yuzden: ayri
+satirlarda ~50px daha yiyorlardi ve kartlar gozle gorulur kuculuyordu.
+1200x900'de olculdu: tahta 468px, kart 72px, tahtanin alti 829px.
+
+### Kelime havuzu
+
+`dilAntrenmaniSeviyeler.ts`, 12 seviye x 10 kelime = 120 kelime.
+Ingilizcelerin HEPSI Oxford 3000'in B1 katmanindan (`oxford-B1.csv`,
+700 kelime), rastgele degil uc olcute gore elendi:
+
+1. **Tek anlamli olacak.** Baglamsiz bir kartta *file*, *bank*, *iron*
+   gibi kelimeler hangi anlamda kastedildigini soylemiyor.
+2. **Turu sabit olacak.** Listede FIIL YOK, yalniz isim ve sifat.
+   Fiil karistirilsaydi Turkce mastar, Ingilizce yalin hal ve Arapca
+   mazi/masdar yan yana gelir, kartlar dilbilgisi olarak tutarsiz
+   gorunurdu.
+3. **Ayni seviyedeki on kelime birbirine karismayacak.** "prens" ile
+   "prenses" (أَمِير / أَمِيرَة) gibi ciftler ayri seviyelere dagitildi.
+
+**Arapca karsiliklar harekeli.** Gerekcesi devir notundan geliyor ve
+hala gecerli: harekesiz yazildiginda عَلَم kelimesi عِلْم, جَنَاح ise
+جُنَاح okunuyordu. Yeni kelime eklerken ayni kontrolu yap. "Yaprak"
+karti da bu yuzden tohumla degistirilmisti — وَرَقَة hem agac yapragi
+hem kagit yapragi demek.
+
+**B2 ve C1 havuzlari icin:** `oxford-B2.csv` (1299) ve `oxford-C1.csv`
+(1285) elimizde ama ikisi de YALNIZCA Ingilizce kelime + tur bilgisi
+tasiyor. Turkce ve harekeli Arapca karsiliklarin ayrica uretilmesi ve
+yukaridaki uc olcutten gecirilmesi gerekiyor.
+
+### Acik isler
+
+1. B2 ve C1 havuzlari (yukarida).
+2. Skor ve sure. Su an yalnizca hamle sayiliyor.
+3. Sirali kilit istenirse `ResuleKavusmakHub` deseni hazir.
