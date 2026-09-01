@@ -380,7 +380,14 @@
 
 /* bitiş */
 /* Kendi koyu zeminini taşıyor, yani sitenin teması ne olursa olsun aynı
-   görünüyor -- oyunun kapanış perdesi. */
+   görünüyor -- oyunun kapanış perdesi.
+
+   YAZI TİPİ SİTENİN KENDİSİ (Geist), Garamond DEĞİL. Kartların üzerinde
+   Garamond var çünkü kart bir oyun kâğıdı; bu ekran ise sitenin
+   arayüzünün parçası ve serif yazı yamalı duruyordu (Mustafâ'nın
+   uyarısı, 2026-09-01). `font-family` hiç verilmiyor, gövdeden miras
+   kalıyor; düğmeler de `font-family: inherit` taşıdığı için onlar da
+   düzeliyor. */
 .bitis {
   position: fixed;
   inset: 0;
@@ -392,7 +399,6 @@
   backdrop-filter: blur(3px);
   text-align: center;
   padding: 24px;
-  font-family: var(--font-garamond), Georgia, serif;
   color: var(--varak);
 }
 .bitis > div {
@@ -403,8 +409,9 @@
   align-items: center;
 }
 .bitis h2 {
-  font-size: clamp(24px, 4vh, 38px);
-  font-weight: 500;
+  font-size: clamp(22px, 3.4vh, 32px);
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 .bitis p {
   color: rgba(239, 231, 214, 0.7);

@@ -232,11 +232,34 @@ export const B1_SEVIYELERI: Seviye[] = [
    ilmi metinleri üç dilde de okunuyor, terimin üç yüzünü birlikte
    görmek işe yarıyor.
 
-   İngilizce karşılıklar KISA tutuldu. "comprehensive collection" gibi
-   uzun tamlamalar kartta 8 puntoya düşüyor (bkz. `DilAntrenmani.tsx`
-   içindeki `punto()`); bu yüzden kitap türleri (câmi, müsned, sünen)
-   listeye alınmadı, yerlerine tek kelimeyle karşılanan ıstılahlar
-   kondu.
+   İNGİLİZCE KARŞILIKLAR NASIL SEÇİLDİ. Kural şu: İngilizce akademik
+   literatürde o ıstılahın YERLEŞİK bir karşılığı varsa o alınıyor, yoksa
+   ıstılah olduğu gibi çevriyazıyla yazılıyor.
+
+   İlk sürümde harfî çeviriler kullanılmıştı ve yanlıştı -- مُرْسَل için
+   "sent" yazıyordu. "Sent" kelimenin sözlük anlamı, İngilizce hadis
+   literatüründe kimsenin kullanmadığı bir karşılık; o metinlerde terim
+   doğrudan "mursal" diye geçiyor (Mustafâ'nın uyarısı, 2026-09-01).
+
+   Ayrımın nerede durduğu:
+
+   - Yerleşik İngilizce karşılığı OLANLAR çevrildi -- hadith, sunnah,
+     isnad, matn, transmitter, Companion, Successor, narration,
+     traditionist, report; ve dört hüküm: sound, good, weak, fabricated.
+   - Yapı ve kusur ıstılahları ÇEVRİYAZIYLA -- marfu, mawquf, mursal,
+     mu'allaq, shadhdh, munkar, jarh, ta'dil, illa, mutawatir, ahad,
+     ijaza, sama', hafiz, munqati', tadlis. İngilizce metinler bunları
+     Arapça bırakıyor, "raised" / "stopped" / "suspended" gibi harfî
+     karşılıklar ancak parantez içi etimoloji notu olarak geçiyor.
+
+   Çevriyazı sitenin öteki İngilizce metinleriyle aynı sadelikte
+   (`Bukhari`, `Abu Dawud`, `Nasa'i` gibi) -- aksan işareti yok, ayn
+   yalnızca kelime içinde ya da sonunda kesme ile.
+
+   İngilizce karşılıklar ayrıca KISA tutuldu: "comprehensive collection"
+   gibi tamlamalar kartta 8 puntoya düşüyor (bkz. `DilAntrenmani.tsx`
+   içindeki `punto()`), bu yüzden kitap türleri (câmi, müsned, sünen)
+   listeye hiç alınmadı.
 
    Aynı seviyede kök benzerliği olan çiftler bilerek ayrıldı: مَقْطُوع
    ile مُنْقَطِع aynı kökten, ikisi birlikte konsaydı Arapça kartlar bir
@@ -248,8 +271,8 @@ export const HADIS_SEVIYELERI: Seviye[] = [
       { tr: "hadis", en: "hadith", ar: "حَدِيث" },
       { tr: "sünnet", en: "sunnah", ar: "سُنَّة" },
       { tr: "isnâd", en: "isnad", ar: "إِسْنَاد" },
-      { tr: "metin", en: "text", ar: "مَتْن" },
-      { tr: "râvi", en: "narrator", ar: "رَاوٍ" },
+      { tr: "metin", en: "matn", ar: "مَتْن" },
+      { tr: "râvi", en: "transmitter", ar: "رَاوٍ" },
       { tr: "sahâbî", en: "Companion", ar: "صَحَابِيّ" },
       { tr: "tâbiî", en: "Successor", ar: "تَابِعِيّ" },
       { tr: "rivayet", en: "narration", ar: "رِوَايَة" },
@@ -264,27 +287,27 @@ export const HADIS_SEVIYELERI: Seviye[] = [
       { tr: "hasen", en: "good", ar: "حَسَن" },
       { tr: "zayıf", en: "weak", ar: "ضَعِيف" },
       { tr: "mevzû", en: "fabricated", ar: "مَوْضُوع" },
-      { tr: "merfû", en: "raised", ar: "مَرْفُوع" },
-      { tr: "mevkuf", en: "halted", ar: "مَوْقُوف" },
-      { tr: "mürsel", en: "sent", ar: "مُرْسَل" },
-      { tr: "muallak", en: "suspended", ar: "مُعَلَّق" },
-      { tr: "şâz", en: "anomalous", ar: "شَاذّ" },
-      { tr: "münker", en: "denounced", ar: "مُنْكَر" },
+      { tr: "merfû", en: "marfu", ar: "مَرْفُوع" },
+      { tr: "mevkuf", en: "mawquf", ar: "مَوْقُوف" },
+      { tr: "mürsel", en: "mursal", ar: "مُرْسَل" },
+      { tr: "muallak", en: "mu'allaq", ar: "مُعَلَّق" },
+      { tr: "şâz", en: "shadhdh", ar: "شَاذّ" },
+      { tr: "münker", en: "munkar", ar: "مُنْكَر" },
     ],
   },
   {
     tema: "İlim ve nakil",
     kelimeler: [
-      { tr: "cerh", en: "criticism", ar: "جَرْح" },
-      { tr: "ta'dîl", en: "approval", ar: "تَعْدِيل" },
-      { tr: "illet", en: "defect", ar: "عِلَّة" },
-      { tr: "mütevâtir", en: "mass-reported", ar: "مُتَوَاتِر" },
-      { tr: "âhâd", en: "solitary", ar: "آحَاد" },
-      { tr: "icâzet", en: "licence", ar: "إِجَازَة" },
-      { tr: "semâ", en: "audition", ar: "سَمَاع" },
-      { tr: "hâfız", en: "memoriser", ar: "حَافِظ" },
-      { tr: "munkatı", en: "broken", ar: "مُنْقَطِع" },
-      { tr: "tedlîs", en: "concealment", ar: "تَدْلِيس" },
+      { tr: "cerh", en: "jarh", ar: "جَرْح" },
+      { tr: "ta'dîl", en: "ta'dil", ar: "تَعْدِيل" },
+      { tr: "illet", en: "illa", ar: "عِلَّة" },
+      { tr: "mütevâtir", en: "mutawatir", ar: "مُتَوَاتِر" },
+      { tr: "âhâd", en: "ahad", ar: "آحَاد" },
+      { tr: "icâzet", en: "ijaza", ar: "إِجَازَة" },
+      { tr: "semâ", en: "sama'", ar: "سَمَاع" },
+      { tr: "hâfız", en: "hafiz", ar: "حَافِظ" },
+      { tr: "munkatı", en: "munqati'", ar: "مُنْقَطِع" },
+      { tr: "tedlîs", en: "tadlis", ar: "تَدْلِيس" },
     ],
   },
 ];

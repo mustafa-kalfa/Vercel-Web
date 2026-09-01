@@ -1493,6 +1493,15 @@ secip tahtayi ALTI HAMLEDE, hicbir karti ezberlemeden bitirebiliyordu --
 oyunun hafiza yonu fiilen kapaniyordu. Geri getirmeden once ayni hesabi
 yap.
 
+**Jokerler tahtaya DENGELI dagitiliyor** (`jokerYerleri()`). Deste
+tumuyle karistirilsaydi yedi joker sik sik kumelenirdi — bir kosede
+dort Mustafa, karsi kosede hic; joker yigilan bolgede kelime karti
+kalmiyor ve oyun bozuluyor. Yontem iki asamali kota: once jokerler
+SATIRLARA bolusturuluyor (7 = her satira 1, artan 2'si rastgele iki
+satira), sonra her satirin jokerleri o ana kadar EN AZ kullanilmis
+sutunlara konuyor. Olculdu: on iki dagitimda hicbir satirda ya da
+sutunda ikiden fazla joker cikmadi ve on ikisi de farkli dizilisti.
+
 7 joker var ama en fazla 6'si harcanabiliyor (tahtada 6 kelime var,
 her kelimeye bir joker). Artanlar sonda topluca acilip ayni animasyonla
 gidiyor (`bitir()`).
@@ -1526,6 +1535,10 @@ tahta iki tarafta da bos ciziliyor, uyusmazlik hic dogmuyor.
 
 ### Gorseller
 
+- **Bitis ekraninin yazi tipi SITENIN KENDISI** (Geist), Garamond
+  DEGIL. Kartlarda Garamond var cunku kart bir oyun kagidi; bitis ekrani
+  ise arayuzun parcasi ve serif yazi yamali duruyordu (2026-09-01).
+  `.bitis` `font-family` HIC vermiyor, govdeden miras aliyor.
 - **Joker kartinin on yuzu KOYU YESIL**, kelime kartlarinin
   parsomeninden ayri. Bir ara parsomene cevrilmisti (2026-09-01), ayni
   gun geri alindi -- joker bir bakista ayri gorunmeli.
@@ -1607,12 +1620,35 @@ hem kagit yapragi demek.
 **Hadis kumesi otekinden farkli bir is goruyor.** B1 havuzunda oyuncu
 uc ayri dilde UC AYRI kelime goruyor; orada Turkce karsilik cogu zaman
 Arapca istilahin kendisi (isnad / إِسْنَاد). Kazanc su: istilahin Arapca
-yazilisini tanimak ve Ingilizce karsiligini ogrenmek. Ingilizce
-karsiliklar KISA tutuldu — "comprehensive collection" gibi tamlamalar
-kartta 8 puntoya dusuyor, bu yuzden kitap turleri (cami, musned, sunen)
-listeye hic alinmadi. Kok benzerligi olan ciftler de ayrildi: مَقْطُوع
-ile مُنْقَطِع ayni kokten, ikisi bir seviyede olsa Arapca kartlar bir
-bakista ayirt edilemezdi — مَقْطُوع listeye girmedi.
+yazilisini tanimak ve Ingilizce karsiligini ogrenmek.
+
+**INGILIZCE KARSILIK KURALI (2026-09-01, Mustafa'nin uyarisi).**
+Ingilizce akademik literaturde YERLESIK bir karsilik varsa o alinir,
+yoksa istilah oldugu gibi cevriyaziyla yazilir. Ilk surumde harfi
+ceviriler vardi ve yanlisti — مُرْسَل icin "sent" yaziyordu; "sent"
+kelimenin sozluk anlami, Ingilizce hadis literaturunde kimsenin
+kullanmadigi bir karsilik, o metinlerde terim dogrudan "mursal" diye
+geciyor.
+
+Ayrimin nerede durdugu:
+- **Cevrilenler** (yerlesik Ingilizce karsiligi olanlar): hadith,
+  sunnah, isnad, matn, transmitter, Companion, Successor, narration,
+  traditionist, report; ve dort hukum: sound, good, weak, fabricated.
+- **Cevriyaziyla birakilanlar** (yapi ve kusur istilahlari): marfu,
+  mawquf, mursal, mu'allaq, shadhdh, munkar, jarh, ta'dil, illa,
+  mutawatir, ahad, ijaza, sama', hafiz, munqati', tadlis. Ingilizce
+  metinler bunlari Arapca birakiyor; "raised" / "stopped" / "suspended"
+  gibi harfi karsiliklar ancak parantez ici etimoloji notu olarak
+  geciyor.
+
+Cevriyazi sitenin oteki Ingilizce metinleriyle ayni sadelikte
+(`Bukhari`, `Abu Dawud`, `Nasa'i` gibi) — aksan isareti yok.
+
+Ingilizce karsiliklar ayrica KISA tutuldu: "comprehensive collection"
+gibi tamlamalar kartta 8 puntoya dusuyor, bu yuzden kitap turleri
+(cami, musned, sunen) listeye hic alinmadi. Kok benzerligi olan ciftler
+de ayrildi: مَقْطُوع ile مُنْقَطِع ayni kokten, ikisi bir seviyede olsa
+Arapca kartlar bir bakista ayirt edilemezdi — مَقْطُوع listeye girmedi.
 
 **B2 ve C1 havuzlari icin:** `oxford-B2.csv` (1299) ve `oxford-C1.csv`
 (1285) elimizde ama ikisi de YALNIZCA Ingilizce kelime + tur bilgisi

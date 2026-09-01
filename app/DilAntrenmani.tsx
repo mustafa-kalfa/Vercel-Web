@@ -54,6 +54,9 @@ const DILLER: Dil[] = ["tr", "en", "ar"];
    seviye birkaç turda tümüyle görülüyor. */
 const JOKER_SAYISI = 7;
 const KELIME_SAYISI = 6;
+const SATIR = 5;
+const SUTUN = 5;
+const KART_SAYISI = SATIR * SUTUN;
 
 /* Joker kartındaki karakter. `/resule-kavusmak` oyununun kavuşma
    sahnesinde ve tebrik pop-up'ında kullanılan KLİBİN AYNISI -- oyunlar
@@ -87,6 +90,45 @@ function karistir<T>(a: readonly T[]): T[] {
   return d;
 }
 
+/* Mustafâ kartlarının tahtadaki YERLERİ. Deste tümüyle karıştırılsaydı
+   yedi joker rastgele dağılır ve sık sık kümelenirdi -- bir köşede dört
+   Mustafâ, karşı köşede hiç. Oyun bundan zarar görüyor, çünkü joker
+   yığılan bölgede kelime kartı kalmıyor.
+
+   Yöntem iki aşamalı bir kota. Önce jokerler SATIRLARA bölüştürülüyor
+   (7 = her satıra 1, artan 2 tanesi rastgele iki satıra), sonra her
+   satırın jokerleri o ana kadar EN AZ kullanılmış sütunlara konuyor.
+   Böylece hem satır hem sütun dağılımı dengeleniyor ama yerleşim yine
+   de her dağıtımda başka çıkıyor.
+
+   `karistir` önce çağrılıp sonra kullanıma göre sıralanıyor: JavaScript
+   sıralaması kararlı olduğu için eşit kullanımdaki sütunlar arasında
+   seçim rastgele kalıyor. */
+function jokerYerleri(): Set<number> {
+  const satirKota = Array.from({ length: SATIR }, () =>
+    Math.floor(JOKER_SAYISI / SATIR),
+  );
+  const artan = JOKER_SAYISI % SATIR;
+  karistir(Array.from({ length: SATIR }, (_, i) => i))
+    .slice(0, artan)
+    .forEach((r) => satirKota[r]++);
+
+  const sutunKullanim = new Array<number>(SUTUN).fill(0);
+  const yerler = new Set<number>();
+  for (let r = 0; r < SATIR; r++) {
+    const alinan: number[] = [];
+    for (let n = 0; n < satirKota[r] && n < SUTUN; n++) {
+      const c = karistir(Array.from({ length: SUTUN }, (_, i) => i))
+        .filter((x) => !alinan.includes(x))
+        .sort((x, y) => sutunKullanim[x] - sutunKullanim[y])[0];
+      alinan.push(c);
+      sutunKullanim[c]++;
+      yerler.add(r * SUTUN + c);
+    }
+  }
+  return yerler;
+}
+
 function desteKur(kelimeler: Kelime[]): Kart[] {
   const veri: Omit<Kart, "acik" | "bitti" | "gitti" | "eslesti" | "yanlis" | "egim">[] = [];
   /* Seviyenin on kelimesinden bu tura çıkacak altısı. Liste zaten
@@ -101,19 +143,27 @@ function desteKur(kelimeler: Kelime[]): Kart[] {
       veri.push({ tip: "kelime", kelimeId: i, dil: d, metin: k[d], renk: uclu[j] }),
     );
   });
-  for (let i = 0; i < JOKER_SAYISI; i++) {
-    veri.push({ tip: "joker", kelimeId: -1, dil: null, metin: "", renk: "--altin-sicak" });
+  /* Kelime kartları karıştırılıyor, jokerler ise HESAPLANMIŞ yerlerine
+     konuyor; geri kalan hücreleri kelimeler sırayla dolduruyor. */
+  const karisik = karistir(veri);
+  const jokerler = jokerYerleri();
+  const deste: Kart[] = [];
+  let sonraki = 0;
+  for (let i = 0; i < KART_SAYISI; i++) {
+    const v = jokerler.has(i)
+      ? { tip: "joker" as const, kelimeId: -1, dil: null, metin: "", renk: "--altin-sicak" }
+      : karisik[sonraki++];
+    deste.push({
+      ...v,
+      egim: (Math.random() * 10 - 5).toFixed(1) + "deg",
+      acik: false,
+      bitti: false,
+      gitti: false,
+      eslesti: false,
+      yanlis: false,
+    });
   }
-
-  return karistir(veri).map((v) => ({
-    ...v,
-    egim: (Math.random() * 10 - 5).toFixed(1) + "deg",
-    acik: false,
-    bitti: false,
-    gitti: false,
-    eslesti: false,
-    yanlis: false,
-  }));
+  return deste;
 }
 
 /* KART ÜZERİNDEKİ PUNTO harf sayısından hesaplanıyor.
