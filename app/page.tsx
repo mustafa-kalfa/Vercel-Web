@@ -165,15 +165,20 @@ export default function Home() {
           dugmelerin ALTINA indirildi -- boylece yatay sigma sorunu
           tamamen ortadan kalkiyor. Genis ekranda yer bol, eski dolgu. */}
       <header className="flex w-full justify-center pt-14 sm:pt-4">
+        {/* 2026-08-30: logo %25 kuculdu, 140 -> 105px (dar ekranda
+            104 -> 78px). Negatif kenar boslugu AYNI ORANDA kucultuldu,
+            yoksa kutunun icindeki bos pay orantisiz kalir ve gorunur
+            cizim yanlis yerden baslar: 140px'lik kutuda 76px bosluk
+            vardi, 105px'te 57px oluyor, yani kenar basina 28.5px. */}
         <span
           role="img"
           aria-label={t.brandAlt}
-          className="my-[-28px] block sm:my-[-38px]"
+          className="my-[-21px] block sm:my-[-28.5px]"
         >
           <ChromaKeyVideo
             src="/HD-Animasyon.mp4"
             loop={false}
-            className="h-[104px] w-auto max-w-none brightness-0 sm:h-[140px] dark:brightness-100"
+            className="h-[78px] w-auto max-w-none brightness-0 sm:h-[105px] dark:brightness-100"
           />
         </span>
       </header>

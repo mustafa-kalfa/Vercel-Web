@@ -231,6 +231,41 @@ export default function ChromaKeyVideo({
     };
     gozcuBaslat(1500, 1);
 
+    /* --- Oynatma ORTASINDA takilma ---
+       Gozcu YALNIZCA hic kare cizilmemisken ise yariyor: ilk kare
+       cizilince `cizildi` kalici olarak true oluyor ve gozcu bir daha
+       hicbir seye bakmiyor. Yani video basliyor, birkac kare cizip
+       DURUYORSA kimse toparlamiyordu -- rVFC yeni kare gelmedigi icin
+       susuyor ve canvas o yarim karede kaliyor.
+
+       Bu, uzun klipte (HD-Animasyon 7.2 sn / 1.1 MB) kisa olandan
+       (HD-Mini 2.0 sn / 0.29 MB) cok daha olasi: video ekranda 1x1
+       piksel ve saydam durdugu icin bazi mobil tarayicilar onu "gizli"
+       sayip kod cozmeyi kisiyor, zayif agda arabellek de tukeniyor.
+       Kisa klip bu kisitlar devreye girmeden bitiyor, uzun olan
+       ortasinda kaliyor.
+
+       `ended` HARIC tutuluyor: `loop={false}` kliplerin son karede
+       donmasi KASITLI (bkz. `loop` prop'unun aciklamasi), orada
+       yeniden oynatmak animasyonu bastan baslatirdi. */
+    let bitti = false;
+    const bittiIsaretle = () => { bitti = true; };
+    const takilmaToparla = () => {
+      if (stopped || bitti) return;
+      oynat();
+      /* rVFC susmus olabilir; rAF'e gecmek duraklamis videonun mevcut
+         karesini de cizilebilir kiliyor. */
+      if (hasFrameCallback) {
+        hasFrameCallback = false;
+        schedule();
+      }
+    };
+    video.addEventListener("ended", bittiIsaretle);
+    video.addEventListener("waiting", takilmaToparla);
+    video.addEventListener("stalled", takilmaToparla);
+    video.addEventListener("pause", takilmaToparla);
+
+
     /* --- Context kaybi ---
        Mobilde sekme arka plana atilip donunce veya GPU baskisinda tarayici
        WebGL context'ini dusurebiliyor. Islenmezse canvas kalici bos kalir. */
@@ -258,6 +293,10 @@ export default function ChromaKeyVideo({
       canvas.removeEventListener("webglcontextlost", contextKayboldu);
       canvas.removeEventListener("webglcontextrestored", contextGeriGeldi);
       video.removeEventListener("error", videoHatasi);
+      video.removeEventListener("ended", bittiIsaretle);
+      video.removeEventListener("waiting", takilmaToparla);
+      video.removeEventListener("stalled", takilmaToparla);
+      video.removeEventListener("pause", takilmaToparla);
       if (hasFrameCallback) {
         video.cancelVideoFrameCallback(rafId);
       } else {

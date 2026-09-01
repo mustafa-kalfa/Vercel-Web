@@ -157,17 +157,14 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     cardRihleDesc: "Bir yolculuk yaklaşıyor.",
     cardEducation: "Eğitim İçerikleri ve Diğer Hizmetler",
     cardEducationDesc: "Verilen eğitimler, rehber videoları ve paylaşımlar.",
-    eduVideos: "Rehber videoları",
+    eduVideos: "Rehber videolar",
     eduPosts: "Paylaşımlar",
-    eduVideoShamelaSetup:
-      "el-Mektebetü'ş-Şâmile Kullanım Rehberi 1 — Kurulum Videosu",
-    eduVideoMacbook: "Macbook'a Windows ve Şâmile Kurulumu",
-    eduVideoSearchPanel: "Arama Paneli 1 — el-Mektebetü'ş-Şâmile Rehberi 3",
-    eduVideoClaudeExt:
-      "Şâmile ile Türkçe Konuşmak! Claude'a Şâmile Eklentisi Nasıl Kurulur?",
-    eduVideoChh:
-      "Camiu Hâdimi'l-Haremeyn (CHH) Kurulumu, Sık Karşılaşılan Sorunlar ve Çözümleri",
-    eduVideoCevami: "Cevâmiü'l-kelim Programı Kurulumu",
+    eduVideoShamelaSetup: "el-Mektebetü'ş-Şâmile, kurulum",
+    eduVideoMacbook: "el-Mektebetü'ş-Şâmile, macOS üzerinde kurulum",
+    eduVideoSearchPanel: "el-Mektebetü'ş-Şâmile, arama panelinin kullanımı",
+    eduVideoClaudeExt: "el-Mektebetü'ş-Şâmile'nin yapay zekâ istemcisiyle kullanımı",
+    eduVideoChh: "Câmiu Hâdimi'l-Haremeyn, kurulum ve sık karşılaşılan sorunlar",
+    eduVideoCevami: "Cevâmiu'l-Kelim, kurulum",
     eduPostNotebookLM:
       "Şâmile'den elde edilen kitaplar üzerinde NotebookLM ile işlem yapma",
     eduPostVolumeLimit:
@@ -258,13 +255,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     cardEducationDesc: "دوراتٌ وفيديوهات إرشادية ومنشورات.",
     eduVideos: "الفيديوهات الإرشادية",
     eduPosts: "المنشورات",
-    eduVideoShamelaSetup: "دليل استخدام المكتبة الشاملة ١ — فيديو التثبيت",
-    eduVideoMacbook: "تثبيت ويندوز والمكتبة الشاملة على ماك بوك",
-    eduVideoSearchPanel: "لوحة البحث ١ — دليل المكتبة الشاملة ٣",
-    eduVideoClaudeExt:
-      "التحدّث إلى الشاملة بالتركية! كيف تُثبَّت إضافة الشاملة في Claude؟",
-    eduVideoChh: "تثبيت جامع خادم الحرمين: المشكلات الشائعة وحلولها",
-    eduVideoCevami: "تثبيت برنامج جوامع الكلم",
+    eduVideoShamelaSetup: "المكتبة الشاملة، التثبيت",
+    eduVideoMacbook: "المكتبة الشاملة، التثبيت على macOS",
+    eduVideoSearchPanel: "المكتبة الشاملة، استخدام لوحة البحث",
+    eduVideoClaudeExt: "استخدام المكتبة الشاملة مع عميل ذكاء اصطناعيّ",
+    eduVideoChh: "جامع خادم الحرمين، التثبيت والمشكلات الشائعة",
+    eduVideoCevami: "جوامع الكلم، التثبيت",
     eduPostNotebookLM:
       "العمل على الكتب المستخرجة من المكتبة الشاملة بواسطة NotebookLM",
     eduPostVolumeLimit:
@@ -355,14 +351,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     cardEducationDesc: "Courses taught, guide videos and posts.",
     eduVideos: "Guide videos",
     eduPosts: "Posts",
-    eduVideoShamelaSetup: "al-Maktaba al-Shamela Guide 1 — Installation",
-    eduVideoMacbook: "Installing Windows and Shamela on a MacBook",
-    eduVideoSearchPanel: "Search Panel 1 — al-Maktaba al-Shamela Guide 3",
-    eduVideoClaudeExt:
-      "Talking to Shamela in Turkish! How to install the Shamela extension for Claude",
-    eduVideoChh:
-      "Installing Jāmiʿ Khādim al-Ḥaramayn (CHH): common problems and fixes",
-    eduVideoCevami: "Installing the Jawāmiʿ al-Kalim program",
+    eduVideoShamelaSetup: "al-Maktaba al-Shāmila, installation",
+    eduVideoMacbook: "al-Maktaba al-Shāmila, installation on macOS",
+    eduVideoSearchPanel: "al-Maktaba al-Shāmila, using the search panel",
+    eduVideoClaudeExt: "Using al-Maktaba al-Shāmila with an AI client",
+    eduVideoChh: "Jāmiʿ Khādim al-Ḥaramayn, installation and common problems",
+    eduVideoCevami: "Jawāmiʿ al-Kalim, installation",
     eduPostNotebookLM: "Working on books exported from Shamela with NotebookLM",
     eduPostVolumeLimit:
       "Getting better results in NotebookLM by limiting the size of the work",

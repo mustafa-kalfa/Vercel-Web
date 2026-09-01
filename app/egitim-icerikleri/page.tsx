@@ -23,8 +23,8 @@ type Kalem = { anahtar: CeviriAnahtari; href: string };
 
 const VIDEOLAR: Kalem[] = [
   { anahtar: "eduVideoShamelaSetup", href: "https://youtu.be/E2FQ54kZ2j4" },
-  { anahtar: "eduVideoMacbook", href: "https://youtu.be/kOFPtcE4O54" },
   { anahtar: "eduVideoSearchPanel", href: "https://youtu.be/Nzpnf_YN47o" },
+  { anahtar: "eduVideoMacbook", href: "https://youtu.be/kOFPtcE4O54" },
   { anahtar: "eduVideoClaudeExt", href: "https://youtu.be/qLbSDKsBXBA" },
   { anahtar: "eduVideoChh", href: "https://youtu.be/RnauL-BLXmg" },
   { anahtar: "eduVideoCevami", href: "https://youtu.be/mv91CJnRZTY" },
