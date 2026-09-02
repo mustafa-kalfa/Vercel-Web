@@ -48,10 +48,14 @@ const DILLER: Dil[] = ["tr", "en", "ar"];
    dildeki karşılığı. Üç sayı birbirine bağlı, birini değiştirirsen
    ötekileri de tut: `KART = KELIME * 3 + JOKER`.
 
-   Seviye dosyasında her seviyede ON kelime var ama tahtaya ALTISI
-   çıkıyor -- her dağıtımda seviyenin on kelimesinden rastgele altısı
-   seçiliyor. Böylece "Yeniden dağıt" aynı tahtayı tekrarlamıyor ve
-   seviye birkaç turda tümüyle görülüyor. */
+   SEVİYENİN KELİMELERİ SABİT. Her seviye tam altı kelime tutuyor ve
+   altısı da her turda tahtaya çıkıyor; değişen tek şey kartların YERİ.
+
+   Bir ara seviyeler onar kelimeydi ve tahtaya rastgele altısı
+   seçiliyordu. Mustafâ 2026-09-02'de kaldırttı ("seviye içi kelime
+   değişimi istemiyorum"): aynı seviyeye ikinci kez girince kadro
+   değişiyordu, öğrenilen kelime kaybolup yerine başkası geliyordu.
+   Seviyeler bunun yerine altışar kelimeye bölündü. */
 const JOKER_SAYISI = 7;
 const KELIME_SAYISI = 6;
 const SATIR = 5;
@@ -148,9 +152,10 @@ function jokerYerleri(): Set<number> {
 
 function desteKur(kelimeler: Kelime[]): Kart[] {
   const veri: Omit<Kart, "acik" | "bitti" | "gitti" | "eslesti" | "yanlis" | "egim">[] = [];
-  /* Seviyenin on kelimesinden bu tura çıkacak altısı. Liste zaten
-     altı ya da daha az ise olduğu gibi alınıyor. */
-  const bugunku = karistir(kelimeler).slice(0, KELIME_SAYISI);
+  /* Seviyenin kelimeleri OLDUĞU GİBİ alınıyor, seçilmiyor. `slice`
+     yalnızca bir emniyet payı -- bir seviyeye yanlışlıkla altıdan fazla
+     kelime yazılırsa tahta taşmasın. */
+  const bugunku = kelimeler.slice(0, KELIME_SAYISI);
   bugunku.forEach((k, i) => {
     /* AYNI KELİMENİN ÜÇ KARTI ÜÇ AYRI RENK ALIR. Renk tamamen rastgele
        dağıtılsaydı bir kelimenin kartları tesadüfen aynı rengi alabilir
@@ -288,8 +293,8 @@ export default function DilAntrenmani({
   onListeyeDon,
   onTamamlandi,
 }: {
-  /* Seviyenin kelime listesi -- tahtaya bunun rastgele altısı çıkıyor
-     (bkz. `desteKur`). Seviyeyi `DilAntrenmaniHub` seçiyor,
+  /* Seviyenin altı kelimesi; altısı da tahtaya çıkıyor.
+     Seviyeyi `DilAntrenmaniHub` seçiyor,
      oyun hangi seviyede olduğunu bilmiyor. Liste yalnızca İLK kurulumda ve "Yeniden
      dağıt"ta okunuyor, oyun ortasında değişmesi tahtayı yenilemez;
      seviye değişiminde çağıran taraf `key` vermeli. */

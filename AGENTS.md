@@ -1466,11 +1466,27 @@ birakiyor — yoksa geri tusu sayfadan tamamen cikarirdi (isnad oyununda
 18 kart + 7 "Mustafa" karti (joker). Uc sayi birbirine bagli, birini
 degistirirsen otekileri de tut -- `KART = KELIME * 3 + JOKER`.
 
-**Seviye dosyasinda her seviyede ON kelime var ama tahtaya ALTISI
-cikiyor.** Her dagitimda seviyenin on kelimesinden rastgele altisi
-seciliyor; "Yeniden dagit" boylece ayni tahtayi tekrarlamiyor ve seviye
-birkac turda tumuyle goruluyor. 25 kart 10 kelimeyi alamiyor (10x3+7=37),
-seviye sayilarini bozmamak icin bu yol secildi.
+**HER SEVIYE TAM ALTI KELIME ve o altisi HEP AYNI.** Degisen tek sey
+kartlarin yeri.
+
+Bir ara seviyeler onar kelimeydi ve tahtaya rastgele altisi seciliyordu
+(25 kart 10 kelimeyi alamiyor, 10x3+7=37). Mustafa 2026-09-02'de
+kaldirtti: "seviye ici kelime degisimi istemiyorum" -- ayni seviyeye
+ikinci kez girince kadro degisiyor, ogrenilen kelime kaybolup yerine
+baskasi geliyordu.
+
+Kelime kaybi olmasin diye seviyeler altisara bolundu ve **her kume
+12 seviyeden 20 seviyeye cikti**; 240 kelimenin hepsi yerinde. Bolme
+sirayi korudu, yani bazi temalar iki seviyeye yayildi ("Nesneler I",
+"Nesneler II"). `tema` alani zaten yalnizca kod tarafi icin, ekranda
+"Seviye N" yaziyor.
+
+Bolme sirasinda ayni seviyeye dusen KARISTIRILABILIR ciftler bir
+script'le tarandi (Arapca 3-gram, Turkce 4-gram, Ingilizce 7-gram
+ortakligi) ve komsu seviyelerle takas edilerek cozuldu. Dort cift
+cikmisti: kuram/pil (نظرية/بطارية), sahid/sahih, musterek ravi/tek
+ravili tarik, mevla/dogum (مولى/مولد). Yeni kelime eklerken ayni
+denetimi yap.
 
 Oyuncu art arda UC kart acar, uc durum eslesme sayilir:
 

@@ -2060,6 +2060,98 @@ export const EDGES = [
   E("hisamhassan", "abdurrezzak", "—", "Tehzîb terceme 3899, 18/52-53"),
   E("huseym", "abdurrezzak", "—", "Tehzîb terceme 3899, 18/52-53"),
 
+
+  /* Leys b. Sa‘d (o. 175) -- hocalari.
+     Tehzîb 5016. Tercemede 80 kayit var, agda dugumu olan 19'i cizildi. */
+  E("ibrahimebiable", "leysbsad", "عخ س", "Tehzîb 5016"),
+  E("rebiaebiabdrahman", "leysbsad", "س", "Tehzîb 5016"),
+  E("suaybishakdimaski", "leysbsad", "س", "Tehzîb 5016"),
+  E("ibnebimuleyke", "leysbsad", "ع", "Tehzîb 5016"),
+  E("ubeydullahomeri2", "leysbsad", "م ت س ق", "Tehzîb 5016"),
+  E("macisun", "leysbsad", "خ", "Tehzîb 5016"),
+  E("ibncureyc", "leysbsad", "م", "Tehzîb 5016"),
+  E("ubeydullahomeri", "leysbsad", "ت س ق", "Tehzîb 5016"),
+  E("ataebirebah", "leysbsad", "م ٤", "Tehzîb 5016"),
+  E("amrharis", "leysbsad", "—", "Tehzîb 5016"),
+  E("katade", "leysbsad", "س", "Tehzîb 5016"),
+  E("muhammedacilan", "leysbsad", "بخ م د ت س", "Tehzîb 5016"),
+  E("ibnsihab", "leysbsad", "ع", "Tehzîb 5016"),
+  E("muaviyesalih", "leysbsad", "بخ م د ت س", "Tehzîb 5016"),
+  E("nafiibnomer", "leysbsad", "ع", "Tehzîb 5016"),
+  E("hisamurve", "leysbsad", "خ م س", "Tehzîb 5016"),
+  E("yahyasaidensari", "leysbsad", "خ م ت س", "Tehzîb 5016"),
+  E("yezidebihabib", "leysbsad", "ع", "Tehzîb 5016"),
+  E("yezidhad", "leysbsad", "—", "Tehzîb 5016"),
+
+
+  /* Leys b. Sa‘d (o. 175) -- talebeleri.
+     Tehzîb 5016. Tercemede 70 kayit var, agda dugumu olan 13'i cizildi. */
+  E("leysbsad", "ademebiiyas", "خ س", "Tehzîb 5016"),
+  E("leysbsad", "bisrsari", "ص", "Tehzîb 5016"),
+  E("leysbsad", "haccacmuhammed", "س", "Tehzîb 5016"),
+  E("leysbsad", "saidsuleymansadeviye", "خ", "Tehzîb 5016"),
+  E("leysbsad", "ibnmubarek", "خ", "Tehzîb 5016"),
+  E("leysbsad", "kanebi", "د", "Tehzîb 5016"),
+  E("leysbsad", "ibnvehb", "م د س ق", "Tehzîb 5016"),
+  E("leysbsad", "kuteybesaid", "خ م د ت س", "Tehzîb 5016"),
+  E("leysbsad", "kaysrebi", "—", "Tehzîb 5016"),
+  E("leysbsad", "hisamtayalisi", "خ م ت", "Tehzîb 5016"),
+  E("leysbsad", "huseym", "س", "Tehzîb 5016"),
+  E("leysbsad", "velidmuslim", "—", "Tehzîb 5016"),
+  E("leysbsad", "yahyayahyanisaburi", "م س", "Tehzîb 5016"),
+
+
+  /* Hasan-ı Basrî (o. 110) -- hocalari.
+     Tehzîb 1216. Tercemede 63 kayit var, agda dugumu olan 20'i cizildi. */
+  E("ubey", "hasanbasri", "ع", "Tehzîb 1216"),
+  E("ahnef", "hasanbasri", "خ م ق", "Tehzîb 1216"),
+  E("usame", "hasanbasri", "س", "Tehzîb 1216"),
+  E("enes", "hasanbasri", "ع", "Tehzîb 1216"),
+  E("cabir", "hasanbasri", "ع", "Tehzîb 1216"),
+  E("hamranaban", "hasanbasri", "ت", "Tehzîb 1216"),
+  E("sadhisam", "hasanbasri", "م د س", "Tehzîb 1216"),
+  E("aizamr", "hasanbasri", "م", "Tehzîb 1216"),
+  E("ibnabbas", "hasanbasri", "د ت س", "Tehzîb 1216"),
+  E("ibnomer", "hasanbasri", "س ق", "Tehzîb 1216"),
+  E("abdullahamr", "hasanbasri", "س", "Tehzîb 1216"),
+  E("ebumusa", "hasanbasri", "س ق", "Tehzîb 1216"),
+  E("osman", "hasanbasri", "بخ ق", "Tehzîb 1216"),
+  E("ukbeamir", "hasanbasri", "د س ق", "Tehzîb 1216"),
+  E("ali", "hasanbasri", "ت س", "Tehzîb 1216"),
+  E("omer", "hasanbasri", "د", "Tehzîb 1216"),
+  E("imranhusayn", "hasanbasri", "د ت س", "Tehzîb 1216"),
+  E("mugirasube", "hasanbasri", "د", "Tehzîb 1216"),
+  E("numanbesir", "hasanbasri", "س", "Tehzîb 1216"),
+  E("ebuhureyre", "hasanbasri", "خ ع", "Tehzîb 1216"),
+
+
+  /* Hasan-ı Basrî (o. 110) -- talebeleri.
+     Tehzîb 1216. Tercemede 143 kayit var, agda dugumu olan 24'i cizildi. */
+  E("hasanbasri", "ebansattar", "—", "Tehzîb 1216"),
+  E("hasanbasri", "esaseabdulmelik", "خت ع", "Tehzîb 1216"),
+  E("hasanbasri", "eyyubsahtiyani", "خ م س", "Tehzîb 1216"),
+  E("hasanbasri", "bekirmuzeni", "م د ت س", "Tehzîb 1216"),
+  E("hasanbasri", "cerirhazim", "خ م", "Tehzîb 1216"),
+  E("hasanbasri", "hasanzekvan", "—", "Tehzîb 1216"),
+  E("hasanbasri", "humeydtavil", "م د", "Tehzîb 1216"),
+  E("hasanbasri", "halidhazza", "م", "Tehzîb 1216"),
+  E("hasanbasri", "davudebihind", "م", "Tehzîb 1216"),
+  E("hasanbasri", "serieyyahya", "بخ س", "Tehzîb 1216"),
+  E("hasanbasri", "sadibrahim", "ق", "Tehzîb 1216"),
+  E("hasanbasri", "cureyri", "ق", "Tehzîb 1216"),
+  E("hasanbasri", "suleymanteymi", "م", "Tehzîb 1216"),
+  E("hasanbasri", "simakharb", "خت", "Tehzîb 1216"),
+  E("hasanbasri", "seybannahvi", "م", "Tehzîb 1216"),
+  E("hasanbasri", "abdullahavn", "خ م ق", "Tehzîb 1216"),
+  E("hasanbasri", "ataisaib", "س", "Tehzîb 1216"),
+  E("hasanbasri", "alizeydcudan", "ت س", "Tehzîb 1216"),
+  E("hasanbasri", "avfarabi", "خ ت س ق", "Tehzîb 1216"),
+  E("hasanbasri", "katade", "ع", "Tehzîb 1216"),
+  E("hasanbasri", "matarverrak", "مس", "Tehzîb 1216"),
+  E("hasanbasri", "mansurzazan", "بخ م ع", "Tehzîb 1216"),
+  E("hasanbasri", "mansurmutemir", "س", "Tehzîb 1216"),
+  E("hasanbasri", "hisamhassan", "ع", "Tehzîb 1216"),
+
 ];
 
 // En çok hadis rivayet eden yedi sahâbî

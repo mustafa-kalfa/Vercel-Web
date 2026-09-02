@@ -21,10 +21,10 @@ import type { Language } from "./translations";
 
      katman 1  kümeler    B1 / B2 / C1 / Hadisle İlgili Kelimeler
      katman 2  seviyeler  "Seviye 1" ... (kümenin kendi sayısı kadar)
-     katman 3  oyun       seçilen seviyenin on kelimesi
+     katman 3  oyun       seçilen seviyenin altı kelimesi
 
-   İki küme gerçek liste açıyor: B1 (12 seviye) ve hadis ıstılahları
-   (3 seviye). B2 ile C1 henüz YOK, ikisi de `/mustafa-calisiyor`
+   İki küme gerçek liste açıyor: B1 ve hadis ıstılahları, ikisi de
+   20 seviye. B2 ile C1 henüz YOK, ikisi de `/mustafa-calisiyor`
    sayfasına gidiyor. İçerikleri gelince `KUMELER` içindeki `kind`i
    `"liste"` yapıp `seviyeler` alanına o kümenin dizisini vermek
    yetiyor -- geri kalan her şey (kilit, ilerleme kaydı, başlıklar)
@@ -114,7 +114,7 @@ const UI: Record<
   tr: {
     kumeBaslik: "Aynı kelime, üç dilde.",
     kumeAlt: "Başlamak istediğin kümeyi seç.",
-    seviyeAlt: "Seviyeler sırayla açılır. Her turda altı kelime dağıtılır.",
+    seviyeAlt: "Seviyeler sırayla açılır. Her seviyede altı kelime var.",
     kural:
       "Aynı kelimenin Türkçe, İngilizce ve Arapça karşılığını art arda aç. Mustafâ kartı eksik dilin yerine geçer, ama bir turda yalnızca bir tanesi işe yarar.",
     seviye: (n) => `Seviye ${n}`,
@@ -125,7 +125,7 @@ const UI: Record<
   ar: {
     kumeBaslik: "كلمة واحدة، بثلاث لغات.",
     kumeAlt: "اختر المجموعة التي تريد أن تبدأ منها.",
-    seviyeAlt: "تُفتح المستويات بالترتيب. تُوزَّع في كل جولة ست كلمات.",
+    seviyeAlt: "تُفتح المستويات بالترتيب. في كل مستوى ست كلمات.",
     kural:
       "افتح المقابل التركي والإنجليزي والعربي للكلمة نفسها تباعًا. بطاقة مصطفى تقوم مقام اللغة الناقصة، ولا تنفع منها إلا واحدة في الجولة.",
     seviye: (n) => `المستوى ${arapcaSayi(n)}`,
@@ -136,7 +136,7 @@ const UI: Record<
   en: {
     kumeBaslik: "One word, three languages.",
     kumeAlt: "Pick the group you want to start from.",
-    seviyeAlt: "The levels unlock in order. Six words are dealt each round.",
+    seviyeAlt: "The levels unlock in order. Each one holds six words.",
     kural:
       "Turn over the Turkish, English and Arabic forms of the same word one after another. A Mustafâ card stands in for a missing language, but only one of them counts per turn.",
     seviye: (n) => `Level ${n}`,
@@ -172,15 +172,18 @@ const GERI_DUGMESI =
 
    Anahtar SÜRÜMLÜ: `dilAntrenmaniSeviyeler.ts` içindeki sıra ya da
    seviye sayısı değişirse eski kayıt YANLIŞ kutuları açar; o zaman
-   numarayı bir ilerlet (-v2), tarayıcılar eski anahtarı hiç okumadığı
-   için herkes baştan başlar.
+   numarayı bir ilerlet, tarayıcılar eski anahtarı hiç okumadığı için
+   herkes baştan başlar.
+     -v1 -> -v2  2026-09-02, seviyeler onar kelimeden altışara indi ve
+                 sayıları 12'den 20'ye çıktı; eski indisler artık başka
+                 seviyeleri gösteriyordu.
 
    Okuma `useSyncExternalStore` ile, bir efekt içinde `setState` ile
    DEĞİL: localStorage sunucuda yok ve efektte setState hem lint
    tarafından yasak (`react-hooks/set-state-in-effect`) hem de gereksiz
    basamaklı render üretiyor. Sitedeki tema/dil ve isnâd oyununun
    ilerlemesi de aynı deseni kullanıyor. */
-const ILERLEME_ANAHTARI = "dil-antrenmani-ilerleme-v1";
+const ILERLEME_ANAHTARI = "dil-antrenmani-ilerleme-v2";
 
 type Ilerleme = Record<string, number[]>;
 
