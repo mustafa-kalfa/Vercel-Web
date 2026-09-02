@@ -434,7 +434,7 @@ export const NODES = [
   N("cabirzeyd", "أبو الشعثاء جابر بن زيد", "Câbir b. Zeyd Ebû’ş-Şa‘sâ", 3, 93, "Basra", "Rumûz ع."),
   N("bekirmuzeni", "بكر بن عبد الله المزني", "Bekir b. Abdillâh el-Müzenî", 3, 106, "Basra",
     "Basralı tâbiîn râvisi, zühd ve takvâsıyla anılır. İbn Hacer onu \"sika, sebt, celîl\" diye niteler ve üçüncü tabakadan sayar; Kütüb-i Sitte'nin altısı da ondan rivayet eder. Enes b. Mâlik, İbn Ömer ve Mugīre b. Şu'be'den aldığı rivayetlerle Basra'nın erken hadis birikiminin taşıyıcılarındandır. 106 yılında vefat etti."),
-  N("nehai", "إبراهيم النخعي", "İbrâhim en-Nehaî", 4, 96, "Kûfe", "Rumûz ع. Kûfe re’y ekolünün temel halkası."),
+  N("nehai", "إبراهيم بن يزيد النخعي", "İbrâhim en-Nehaî", 4, 96, "Kûfe", "Rumûz ع. Kûfe re’y ekolünün temel halkası."),
   N("ibrahimteymi", "إبراهيم التيمي", "İbrâhim et-Teymî", 4, 92, "Kûfe", "Rumûz ع."),
   N("habibebisabit", "حبيب بن أبي ثابت", "Habîb b. Ebî Sâbit", 4, 119, "Kûfe",
     "Kûfeli râvi ve fakih. İbn Hacer onu \"sika, fakih, celîl\" diye niteler ve üçüncü tabakadan sayar; Kütüb-i Sitte'nin altısı da ondan rivayet eder. Bununla birlikte aynı yerde çok irsâl ve tedlîs yaptığını da belirtir — yani hocasını atlayarak rivayette bulunması sık görülür. Bu ikili değerlendirme, güvenilirliğin (adalet ve zabt) ayrı, isnaddaki kesintinin ayrı bir mesele olduğunun tipik örneğidir. 119 yılında vefat etti."),
@@ -2303,6 +2303,45 @@ export const EDGES = [
   E("mesruk", "ebuduha", "ع", "Tehzîb, Mesrûk b. el-Ecda‘ 27/451-454"),
   E("mesruk", "mekhul", "س", "Tehzîb, Mesrûk b. el-Ecda‘ 27/451-454"),
   E("mesruk", "yahyavessab", "خ م ت س ق", "Tehzîb, Mesrûk b. el-Ecda‘ 27/451-454"),
+
+
+  /* Hemmâm b. Münebbih (o. 132) -- hocalari.
+     Tehzîb 6600. Tercemede 5 kayit var, agda dugumu olan 3'i cizildi. */
+  E("ibnzubeyr", "hemmammunebbih", "—", "Tehzîb 6600"),
+  E("ibnabbas", "hemmammunebbih", "—", "Tehzîb 6600"),
+  E("ibnomer", "hemmammunebbih", "—", "Tehzîb 6600"),
+
+
+  /* Abdurrahman b. Hürmüz el-A‘rec (o. 117) -- hocalari.
+     Tehzîb, Abdurrahman b. Hürmüz el-A‘rec 17/467-470. Tercemede 28 kayit var, agda dugumu olan 10'i cizildi. */
+  E("humeydavf", "arac", "—", "Tehzîb, Abdurrahman b. Hürmüz el-A‘rec 17/467-470"),
+  E("saibyezid", "arac", "—", "Tehzîb, Abdurrahman b. Hürmüz el-A‘rec 17/467-470"),
+  E("suleymanyesar", "arac", "—", "Tehzîb, Abdurrahman b. Hürmüz el-A‘rec 17/467-470"),
+  E("ibnabbas", "arac", "—", "Tehzîb, Abdurrahman b. Hürmüz el-A‘rec 17/467-470"),
+  E("abdullahkab", "arac", "خ م س", "Tehzîb, Abdurrahman b. Hürmüz el-A‘rec 17/467-470"),
+  E("ubeydullaherafi", "arac", "م ٤", "Tehzîb, Abdurrahman b. Hürmüz el-A‘rec 17/467-470"),
+  E("zeynelabidin", "arac", "—", "Tehzîb, Abdurrahman b. Hürmüz el-A‘rec 17/467-470"),
+  E("mervan", "arac", "—", "Tehzîb, Abdurrahman b. Hürmüz el-A‘rec 17/467-470"),
+  E("ebusaid", "arac", "—", "Tehzîb, Abdurrahman b. Hürmüz el-A‘rec 17/467-470"),
+  E("ebuselemeavf", "arac", "خ م س", "Tehzîb, Abdurrahman b. Hürmüz el-A‘rec 17/467-470"),
+
+
+  /* Abdurrahman b. Hürmüz el-A‘rec (o. 117) -- talebeleri.
+     Tehzîb, Abdurrahman b. Hürmüz el-A‘rec 17/467-470. Tercemede 42 kayit var, agda dugumu olan 14'i cizildi. */
+  E("arac", "eyyubsahtiyani", "م", "Tehzîb, Abdurrahman b. Hürmüz el-A‘rec 17/467-470"),
+  E("arac", "davudhusayn", "س", "Tehzîb, Abdurrahman b. Hürmüz el-A‘rec 17/467-470"),
+  E("arac", "rebiaebiabdrahman", "سي", "Tehzîb, Abdurrahman b. Hürmüz el-A‘rec 17/467-470"),
+  E("arac", "zeydeslem", "خ م ت س ق", "Tehzîb, Abdurrahman b. Hürmüz el-A‘rec 17/467-470"),
+  E("arac", "sadibrahim", "خ م س ق", "Tehzîb, Abdurrahman b. Hürmüz el-A‘rec 17/467-470"),
+  E("arac", "amess", "—", "Tehzîb, Abdurrahman b. Hürmüz el-A‘rec 17/467-470"),
+  E("arac", "salihkeysan", "خ م ق", "Tehzîb, Abdurrahman b. Hürmüz el-A‘rec 17/467-470"),
+  E("arac", "ibnishak", "ر", "Tehzîb, Abdurrahman b. Hürmüz el-A‘rec 17/467-470"),
+  E("arac", "muhammedacilan", "سي ق", "Tehzîb, Abdurrahman b. Hürmüz el-A‘rec 17/467-470"),
+  E("arac", "muhammedamralkame", "—", "Tehzîb, Abdurrahman b. Hürmüz el-A‘rec 17/467-470"),
+  E("arac", "ebuzubeyrmekki", "س", "Tehzîb, Abdurrahman b. Hürmüz el-A‘rec 17/467-470"),
+  E("arac", "musaukbe", "ق", "Tehzîb, Abdurrahman b. Hürmüz el-A‘rec 17/467-470"),
+  E("arac", "yahyasaidensari", "م ت ق", "Tehzîb, Abdurrahman b. Hürmüz el-A‘rec 17/467-470"),
+  E("arac", "yahyaebikesir", "—", "Tehzîb, Abdurrahman b. Hürmüz el-A‘rec 17/467-470"),
 
 ];
 

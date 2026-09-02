@@ -234,7 +234,18 @@ function eslestir(metin, dugumler, ozne, yon) {
          bakiliyor. Ters yon hala gerekli (dugum «عبد الرحمن بن مهدي
          بن حسان», kayit «عبد الرحمن بن مهدي») ama yalnizca duz yonde
          hicbir aday yoksa. */
-      const tur = ileri ? 2 : 1;
+      /* AYNI YONDE ONEK OLAN ADAY ONCE GELIR.
+
+         Iki dugum de duz yonde uyabiliyor; "en uzun ad kazanir" o zaman
+         yanlis secim yapiyordu. «علي بن الحسين بن علي بن أبي طالب»
+         (Zeynelabidin) kaydina hem «علي بن الحسين» hem «علي بن أبي طالب»
+         uyuyor -- ikincisi daha uzun oldugu icin Hz. Ali kazaniyordu.
+         Oysa Zeynelabidin kaydin ONEKI, Hz. Ali ise araya bosluk
+         birakan bir alt dizi. Kaydin basiyla kesintisiz ortusen aday
+         her zaman daha iyi. */
+      const onekMi = ileri &&
+        (onek(bel, kayitBel) || onek(bel, kayitBelKunyesiz));
+      const tur = (ileri ? 2 : 1) * 2 + (onekMi ? 1 : 0);
       if (tur > enIyiTur || (tur === enIyiTur && bel.length > enIyiBel)) {
         enIyi = n; enIyiBel = bel.length; enIyiTur = tur;
       }
