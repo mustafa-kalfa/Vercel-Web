@@ -111,7 +111,7 @@ Açılış kadrajı: beş belde şeridi, Hz. Peygamber / Fâtıma / Ebû Bekir /
 
 **Ölçek tabanları sabit sayı olamaz, `W`ye bağlı olmalı.** `enAzOlcek` ve `baslangic`taki `kSigdir` tabanı `1e-4` yazılıydı; tabanların asıl gerekçesi ölçülmemiş kapsayıcıda oranın eksiye düşüp ağı aynalaması. `YAY` 16'da gerçek sığdırma ölçeği bu sabitin altına indi ve uzaklaştırma orada durdu — telefonda harita bir türlü bütün olarak görünmüyordu (ölçüldü: 375×812'de sığdırma 7,54e-5, taban 1e-4, harita ekranı 1,33 kat aşıyor). Taban artık `1 / W`.
 
-**Etiketlerin arkasındaki hale kaldırıldı** (aynı gün, Mustafa'nın isteği). Yazı zeminin renginde kalın bir kalemle bir kez daha yazılıp (SVG'deki `paintOrder: stroke`in tuval karşılığı) kenar çizgileri üzerinde okunaklı kalıyordu. Seyreltmeden sonra yazıların altına denk gelen çizgi azaldığı için hale kazandırdığından çok göze çarpıyordu. `C.etiketHale` paletten de düştü.
+**Etiketlerin arkasındaki hale inceltildi**, kalınlık `punto * 0.32` → `punto * 0.14` (`HALE_KALINLIK`). Yazı zeminin renginde kalın bir kalemle bir kez daha yazılıp (SVG'deki `paintOrder: stroke`in tuval karşılığı) kenar çizgileri üzerinde okunaklı kalıyor. Önce tümden kaldırılmıştı; hale olmadan yazı çizgilerin üzerinde dağınık görünüyor, eski kalınlıkta ise harflerin çevresinde gözle görülür bir gölge bırakıyordu.
 
 ## Açık işler
 
