@@ -67,6 +67,23 @@ const KART_SAYISI = SATIR * SUTUN;
    ile geri üretiyor. Ayrıntı AGENTS.md'de. */
 const MUSTAFA_KLIP = "/Mustafa%20Karsilama_seffaf.mp4";
 
+/* EŞLEŞME ANININ ZAMANLAMASI. Mustafâ'nın isteği (2026-09-01):
+   "3 kart eşleştiğinde 1 saniye kadar görünme payı olsun" -- oyuncu
+   neyin eşleştiğini okuyabilmeli.
+
+   Süreler kartın kendi ÇEVRİLME animasyonunu hesaba katıyor: `.ic`
+   dönüşü 460ms sürüyor, yani üçüncü kart ancak o bittikten sonra
+   okunabilir hâle geliyor. `BEKLEME` bunun bitmesini bekliyor,
+   `GORUNME` ise eşleşme parlaması ile kartların tahtadan süzülmesi
+   arasındaki pay. Okunabilir toplam süre kabaca
+   (BEKLEME - 460) + GORUNME, yani bir saniyenin biraz üzeri.
+
+   `JOKER_BEKLEME` daha uzun, çünkü o turda önce jokerin yerine geçen
+   kart açılıyor; oyuncunun okuması gereken bir kart daha var. */
+const ESLESME_BEKLEME = 520;
+const ESLESME_GORUNME = 1000;
+const JOKER_BEKLEME = 820;
+
 type Kart = {
   tip: "kelime" | "joker";
   kelimeId: number;
@@ -438,7 +455,7 @@ export default function DilAntrenmani({
         kilitRef.current = false;
         ciz();
         if (!kartlarRef.current.some((k) => !k.bitti && k.tip === "kelime")) bitir();
-      }, 640);
+      }, ESLESME_GORUNME);
     },
     [bekle, ciz, patlatIndeks, bitir],
   );
@@ -490,9 +507,9 @@ export default function DilAntrenmani({
            neyin yerine geçtiğini görmeli. */
         ekler.forEach((i) => (kartlarRef.current[i].acik = true));
         ciz();
-        bekle(() => eslestir(grup), 660);
+        bekle(() => eslestir(grup), JOKER_BEKLEME);
       } else {
-        bekle(() => eslestir(grup), 360);
+        bekle(() => eslestir(grup), ESLESME_BEKLEME);
       }
     } else {
       secili.forEach((i) => (kartlarRef.current[i].yanlis = true));

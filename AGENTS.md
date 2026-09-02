@@ -1535,6 +1535,21 @@ tahta iki tarafta da bos ciziliyor, uyusmazlik hic dogmuyor.
 
 ### Gorseller
 
+- **Kart rengi TURKUAZ-GECE MAVISI, yesil DEGIL.** Kartlar once koyu
+  yesildi (~159 derece); Mustafa 2026-09-01'de turkuaza kaydirtti, ton
+  ~189 dereceye tasindi. Kaydirma yalnizca RENK ACISINDA -- her rengin
+  parlakligi ve doygunlugu korundu, yani kartin agirligi ve altin
+  motifle kontrasti degismedi. Ayni kaydirma dort yerde birden var:
+  kart sirti, joker karti, bitis perdesinin zemini, o perdedeki altin
+  dugmenin yazi rengi. Birini degistirirsen dordunu birlikte degistir.
+- **Eslesen kartlar ~1 saniye ekranda kaliyor** (Mustafa, 2026-09-01:
+  "3 kart eslestiginde 1 saniye kadar gorunme payi olsun"). Sabitler
+  `DilAntrenmani.tsx` icinde: `ESLESME_BEKLEME` 520ms (parlamadan
+  once), `ESLESME_GORUNME` 1000ms (parlama ile tahtadan cikis arasi),
+  `JOKER_BEKLEME` 820ms (joker turunda okunacak bir kart daha var).
+  Kartin cevrilme animasyonu 460ms surdugu icin sayilarin tamami okuma
+  suresi degil; olculdu, ucuncu tiklamadan cikisa 1564ms, okunabilir
+  pay 1104ms. Onceki degerlerde bu pay 540ms idi ve kisa geliyordu.
 - **Bitis ekraninin yazi tipi SITENIN KENDISI** (Geist), Garamond
   DEGIL. Kartlarda Garamond var cunku kart bir oyun kagidi; bitis ekrani
   ise arayuzun parcasi ve serif yazi yamali duruyordu (2026-09-01).

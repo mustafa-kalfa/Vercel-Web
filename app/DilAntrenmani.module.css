@@ -149,7 +149,15 @@
 }
 
 /* kart arkası */
-/* Arka yüz HER KARTTA AYNI. Renk yalnız kart çevrildikten sonra
+/* RENK TONU. Kartlar önce koyu YEŞİLDİ (yaklaşık 159 derece); Mustafâ
+   turkuaz-gece mavisine kaydırmak istedi (2026-09-01), ton ~189
+   dereceye taşındı. Kaydırma yalnızca RENK AÇISINDA -- her rengin
+   parlaklığı ve doygunluğu olduğu gibi korundu, yani kartın ağırlığı
+   ve altın motifle kontrastı değişmedi. Aynı kaydırma joker kartında,
+   bitiş perdesinin zemininde ve o perdedeki düğmenin yazı renginde de
+   uygulandı; birini değiştirirsen dördünü birlikte değiştir.
+
+   Arka yüz HER KARTTA AYNI. Renk yalnız kart çevrildikten sonra
    görünüyor -- arkada olsaydı aynı kelimenin kartları hiç bakmadan
    eşlenirdi.
 
@@ -163,7 +171,7 @@
    kalabalık gösteriyordu; %38'e indi, sonra bir kez daha küçültülüp
    %30'da karar kılındı. */
 .arka {
-  background: linear-gradient(160deg, #173a2e 0%, #0f2a21 55%, #143328 100%);
+  background: linear-gradient(160deg, #17353a 0%, #0f262a 55%, #142f33 100%);
   border: 1px solid rgba(201, 162, 39, 0.22);
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.03),
@@ -260,7 +268,7 @@
    parşömene çevrilmişti (2026-09-01), aynı gün geri alındı --
    Mustafâ'nın kararı. Joker bir bakışta ayrı görünmeli. */
 .joker {
-  background: radial-gradient(90% 70% at 50% 32%, #23704f 0%, #143a2c 68%, #0f2c21 100%);
+  background: radial-gradient(90% 70% at 50% 32%, #236470 0%, #14343a 68%, #0f282c 100%);
   border-color: rgba(227, 194, 92, 0.5);
 }
 .joker::before {
@@ -395,7 +403,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(9, 22, 18, 0.88);
+  background: rgba(9, 20, 22, 0.88);
   backdrop-filter: blur(3px);
   text-align: center;
   padding: 24px;
@@ -426,7 +434,7 @@
 .yeni {
   font-family: inherit;
   font-size: clamp(14px, 2vh, 17px);
-  color: #0b1a15;
+  color: #0b181a;
   background: var(--altin);
   border: 0;
   padding: 0.55em 1.5em;
