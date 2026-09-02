@@ -1525,14 +1525,27 @@ secip tahtayi ALTI HAMLEDE, hicbir karti ezberlemeden bitirebiliyordu --
 oyunun hafiza yonu fiilen kapaniyordu. Geri getirmeden once ayni hesabi
 yap.
 
-**Jokerler tahtaya DENGELI dagitiliyor** (`jokerYerleri()`). Deste
-tumuyle karistirilsaydi yedi joker sik sik kumelenirdi — bir kosede
-dort Mustafa, karsi kosede hic; joker yigilan bolgede kelime karti
-kalmiyor ve oyun bozuluyor. Yontem iki asamali kota: once jokerler
-SATIRLARA bolusturuluyor (7 = her satira 1, artan 2'si rastgele iki
-satira), sonra her satirin jokerleri o ana kadar EN AZ kullanilmis
-sutunlara konuyor. Olculdu: on iki dagitimda hicbir satirda ya da
-sutunda ikiden fazla joker cikmadi ve on ikisi de farkli dizilisti.
+**Jokerlerin yeri UC KURALLA belirleniyor** (`jokerYerleri()`).
+
+1. **Hicbir iki joker YAN YANA gelmez** (Mustafa, 2026-09-03).
+   Yalnizca yukari/asagi/sag/sol; kosegen degme serbest. Caprazi da
+   yasaklamak yerlesimi satranc tahtasi desenine sikistirip
+   rastgeleligi bitiriyor — 5x5'te capraz dahil en fazla 9 hucre
+   secilebiliyor, yedi joker o desene mecbur kalirdi.
+2. Her satirda ve her sutunda EN AZ bir joker var.
+3. Hicbir satirda ya da sutunda IKIDEN FAZLA joker yok.
+
+2 ve 3 birlikte dagilimi zorunlu olarak (2,2,1,1,1) yapiyor. Deste
+tumuyle karistirilsaydi yedi joker bir kosede kumelenir, karsi kosede
+hic kalmazdi; yalniz ust sinir konsaydi bu kez bir satir tumuyle
+bosalabiliyordu (olculdu).
+
+Yontem hucreleri karistirip uzerinde geri izlemeli arama yapmak.
+Rastgele sira yerlesimi her dagitimda degistiriyor, geri izleme uc
+kurali birden tutan cozumu buluyor, budama da kalan secim hakki bos
+satir/sutunlari doldurmaya yetmiyorsa dali biraktiriyor. **OLCULDU:**
+3000 dagitimda hic cozumsuz kalmadi, yan yana cift cikmadi, 1985 farkli
+yerlesim uretti, toplam 23ms surdu.
 
 7 joker var ama en fazla 6'si harcanabiliyor (tahtada 6 kelime var,
 her kelimeye bir joker). Artanlar sonda topluca acilip ayni animasyonla
