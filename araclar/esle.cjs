@@ -101,6 +101,13 @@ const KUNYE = /^(ابو|ابي|ام)\s+\S+\s+(?!(?:بن|ابن)(?:\s|$))/;
 const BAGLAYICI = new Set(["بن", "بنت", "ال", "و", "هو", "مولي", "مولاهم",
   "مولاه", "مولاته",
   "اخيه", "اخوه", "اخته", "ابنه", "ابناه", "ابنته", "ابيه", "عمه", "عمته",
+  /* nesep() «ابن»i «بن» yaptigi icin «وابنه» once «وبنه», sonra bastaki
+     waw dusunce «بنه» oluyor; yukaridaki «ابنه» bu yuzden hicbir zaman
+     tutmuyordu. Kayit «بنه ابو سلمه بن عبد الرحمن» diye basladigindan
+     ism basta sayilmiyor ve Ebu Seleme, babasi Abdurrahman b. Avf'in
+     talebe listesinde eslesmiyordu. */
+  "بنه", "بناه", "بنته",
+
   "جده", "جدته", "خاله", "خالته", "زوجته", "حفيده", "صهره",
   "عم", "عمه", "خال", "جد",
   "ختنه", "والد", "والده", "نسيب", "سبط"]);
@@ -177,6 +184,17 @@ const altDizi = (kucuk, buyuk) => {
    dugum «ابو هريره دوسي»nin onekidir. */
 const onek = (kucuk, buyuk) =>
   kucuk.length <= buyuk.length && kucuk.every((w, i) => w === buyuk[i]);
+
+/* «ابو» BASTA OLMASI ISM'IN BASTA OLMASI DEMEK DEGIL.
+
+   Kunye belirteci herkeste ayni, ayirt eden sey ardindan gelen ad.
+   Yalnizca kayitBel[0] === bel[0] denetimi «أبي بردة بن أبي موسى
+   الأشعري» kaydini «أبو موسى الأشعري» dugumune bagliyordu -- yani
+   ogulu babasi sanip Ebu Musa'ya sahte kenar aciyordu (Asim b.
+   Behdele ve Abdulmelik b. Umeyr tercemelerinde ikisinde de cikti).
+   Kunye ile baslayan adlarda IKINCI belirtec de tutmali. */
+const basUyar = (kyt, bel) =>
+  kyt[0] === bel[0] && (bel[0] !== "ابو" || kyt[1] === bel[1]);
 
 /* ISM + SOHRET KISALTMASI.
 
@@ -266,7 +284,7 @@ function eslestir(metin, dugumler, ozne, yon) {
          Evzai hicbir listede eslesmiyordu. Tek belirtecli ad zaten
          ayirt edici olmak zorunda, tabloda boyle yalnizca Evzai var. */
       const sohret = /^(ابن|بن)\s/.test(nesep(n.ar)) || bel.length === 1;
-      const ismBasta = kayitBel[0] === bel[0] || kayitBelKunyesiz[0] === bel[0];
+      const ismBasta = basUyar(kayitBel, bel) || basUyar(kayitBelKunyesiz, bel);
       const kuyruk = ozneKunyesi(n.ar);
       /* Kayit kunyenin ONEKI olmali, tersi DEGIL. Iki yonlu birakinca
          kayit kunyeden sonra baska bir ism tasisa da eslesiyordu:
