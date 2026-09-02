@@ -237,6 +237,31 @@ export const NODES = [
     "Takrîb 565: «خادم رسول الله ﷺ خدمه عشر سنين». Vefatı 92, bir görüşe göre 93; yüzü aşkın yaşadı."),
   N("cabir", "جابر بن عبد الله", "Câbir b. Abdullah", 1, 78, "Medine",
     "Takrîb 871: «صحابي ابن صحابي غزا تسع عشرة غزوة». Medine'de yetmişten sonra, doksan dört yaşında vefat etti."),
+
+  /* 150 LISTESINDEN EKSIK KALAN SAHABILER (2026-09-03).
+
+     Bu dokuzu "hadis rivayet ilminde en onemli 150 isim" listesinde
+     olduklari halde tabloda hic yoktu. Bir ismi haritaya nokta olarak
+     koymak belde, vefat yili ve tabaka ister; ucu de kendi
+     tercemesinden geliyor, o yuzden hepsi Tehzib'den acildi. */
+  N("ebuzer", "أبو ذر الغفاري", "Ebû Zer el-Gıfârî", 1, 32, "Medine",
+    "Tehzîb terceme 7351. Meşhur kavle göre adı Cündüb b. Cünâde; Mizzî isminde ve babasının adında büyük ihtilâf olduğunu söyleyip yedi görüş sayar."),
+  N("selmanfarisi", "سلمان الفارسي", "Selmân-ı Fârisî", 1, 36, "Kûfe",
+    "Tehzîb terceme 2438; Mizzî'de «سلمان الخير الفارسي». Aslen İsfahanlı, bir görüşe göre Râmhürmüzlü. Medine'ye hicretle müslüman oldu, ilk gazvesi Hendek. Medâin'de vefat etti — sütun olarak en yakın belde Kûfe alındı."),
+  N("ubadesamit", "عبادة بن الصامت", "Ubâde b. es-Sâmit", 1, 34, "Şam",
+    "Tehzîb terceme 3107. Akabe'nin on iki nakibinden; Bedir'de ve bütün gazvelerde bulundu. Medineli hazrecî iken Şam'a yerleşti."),
+  N("ebueyyub", "أبو أيوب الأنصاري", "Ebû Eyyûb el-Ensârî", 1, 52, "Medine",
+    "Tehzîb terceme 1612, adı Hâlid b. Zeyd b. Küleyb. Hicrette Hz. Peygamber'i evinde ağırladı. Muâviye devrinde Rum diyarında gazâ ederken vefat etti; kabri Kostantiniyye surunun dibinde."),
+  N("ebukatade", "أبو قتادة الأنصاري", "Ebû Katâde el-Ensârî", 1, 54, "Medine",
+    "Tehzîb terceme 7574. Meşhur kavle göre adı el-Hâris b. Rib‘î. Mizzî onu «صاحب رسول الله ﷺ وفارسه» diye tanıtır."),
+  N("ebubekre", "أبو بكرة الثقفي", "Ebû Bekre es-Sekafî", 1, 52, "Basra",
+    "Tehzîb terceme 6465, adı Nüfey‘ b. el-Hâris. Tâif kuşatmasında surdan bir makarayla (bekre) indiği için bu künyeyle anılır; Hz. Peygamber o gün onu âzat etti."),
+  N("vasile", "واثلة بن الأسقع", "Vâsile b. el-Eska‘", 1, 85, "Şam",
+    "Tehzîb terceme 6659. Ashâb-ı Suffe'den; Tebük hazırlığı sırasında müslüman oldu, sonra Şam'a yerleşti ve Beytülmakdis'te vefat etti."),
+  N("ummuseleme", "أم سلمة", "Ümmü Seleme", 1, 59, "Medine",
+    "Tehzîb terceme 7941, adı Hind bint Ebî Ümeyye. Mizzî Vâkıdî'den şevval 59'da vefat ettiğini nakleder; İbn Hacer bu tarihi Müslim'deki bir rivayete dayanarak reddeder."),
+  N("esmaebubekir", "أسماء بنت أبي بكر", "Esmâ bint Ebî Bekir", 1, 73, "Mekke",
+    "Tehzîb terceme 7780. «Zâtü'n-nitâkayn»; Zübeyr b. el-Avvâm'ın zevcesi, Abdullah b. ez-Zübeyr'in annesi."),
   N("ibnabbas", "عبد الله بن عباس", "Abdullah b. Abbâs", 1, 68, "Mekke",
     "Takrîb 3409: Hz. Peygamber ona Kur'an'ı anlama duası etti, ilminin genişliği sebebiyle «البحر» ve «الحبر» diye anılırdı. Hz. Ömer: «لو أدرك ابن عباس أسناننا ما عشره منا أحد». Müksirûndan ve abâdileden; 68'de Tâif'te vefat etti."),
   N("ibnomer", "عبد الله بن عمر", "Abdullah b. Ömer", 1, 73, "Medine",
@@ -3243,6 +3268,155 @@ const EDGES_HAM = [
      Tehzîb 6907. Tercemede 38 kayit var, agda dugumu olan 2'i cizildi. */
   E("yahyaebikesir", "ebansattar", "خت م د ت س", "Tehzîb 6907"),
   E("yahyaebikesir", "harbseddad", "خ م د ت س", "Tehzîb 6907"),
+
+
+  /* Ebû Zer el-Gıfârî (o. 32) -- talebeleri.
+     Tehzîb 7351. Tercemede 64 kayit var, agda dugumu olan 17'i cizildi. */
+  E("ebuzer", "ahnef", "خ م", "Tehzîb 7351"),
+  E("ebuzer", "enes", "خ م", "Tehzîb 7351"),
+  E("ebuzer", "rebihiras", "س", "Tehzîb 7351"),
+  E("ebuzer", "zirhubeys", "ق", "Tehzîb 7351"),
+  E("ebuzer", "zeydvehb", "خ م د ت س", "Tehzîb 7351"),
+  E("ebuzer", "saidmusayyeb", "ق", "Tehzîb 7351"),
+  E("ebuzer", "selemeekva", "—", "Tehzîb 7351"),
+  E("ebuzer", "suveydgafle", "—", "Tehzîb 7351"),
+  E("ebuzer", "sehrhavseb", "ق", "Tehzîb 7351"),
+  E("ebuzer", "abdullahsakik", "م ت", "Tehzîb 7351"),
+  E("ebuzer", "ibnabbas", "خ م", "Tehzîb 7351"),
+  E("ebuzer", "ibnebileyla", "س ق", "Tehzîb 7351"),
+  E("ebuzer", "ubeydumeyr", "د", "Tehzîb 7351"),
+  E("ebuzer", "amrmeymun", "سي", "Tehzîb 7351"),
+  E("ebuzer", "mearrursuveyd", "ع", "Tehzîb 7351"),
+  E("ebuzer", "musatalha", "ت س", "Tehzîb 7351"),
+  E("ebuzer", "ebuidrishavlani", "م ت ق", "Tehzîb 7351"),
+
+
+  /* Selmân-ı Fârisî (o. 36) -- talebeleri.
+     Tehzîb 2438. Tercemede 27 kayit var, agda dugumu olan 10'i cizildi. */
+  E("selmanfarisi", "enes", "ق", "Tehzîb 2438"),
+  E("selmanfarisi", "harisemudarrib", "بخ", "Tehzîb 2438"),
+  E("selmanfarisi", "ebuzabyan", "ت", "Tehzîb 2438"),
+  E("selmanfarisi", "zadan", "—", "Tehzîb 2438"),
+  E("selmanfarisi", "ebusaid", "—", "Tehzîb 2438"),
+  E("selmanfarisi", "tariksihab", "—", "Tehzîb 2438"),
+  E("selmanfarisi", "ebutufeyl", "—", "Tehzîb 2438"),
+  E("selmanfarisi", "ibnabbas", "—", "Tehzîb 2438"),
+  E("selmanfarisi", "abdrahmanyezidnehai", "م ٤", "Tehzîb 2438"),
+  E("selmanfarisi", "alkame", "—", "Tehzîb 2438"),
+
+
+  /* Ubâde b. es-Sâmit (o. 34) -- talebeleri.
+     Tehzîb 3107. Tercemede 44 kayit var, agda dugumu olan 5'i cizildi. */
+  E("ubadesamit", "enes", "خ م د ت س", "Tehzîb 3107"),
+  E("ubadesamit", "cabir", "—", "Tehzîb 3107"),
+  E("ubadesamit", "ebuumame", "ت س ق", "Tehzîb 3107"),
+  E("ubadesamit", "sabi", "س", "Tehzîb 3107"),
+  E("ubadesamit", "ebuidrishavlani", "خ م ت س", "Tehzîb 3107"),
+
+
+  /* Ebû Eyyûb el-Ensârî (o. 52) -- hocalari.
+     Tehzîb 1612. Tercemede 1 kayit var, agda dugumu olan 1'i cizildi. */
+  E("ubey", "ebueyyub", "خ م", "Tehzîb 1612"),
+
+
+  /* Ebû Eyyûb el-Ensârî (o. 52) -- talebeleri.
+     Tehzîb 1612. Tercemede 51 kayit var, agda dugumu olan 15'i cizildi. */
+  E("ebueyyub", "esvedyezid", "—", "Tehzîb 1612"),
+  E("ebueyyub", "bera", "خ م س", "Tehzîb 1612"),
+  E("ebueyyub", "cabirsemura", "م س", "Tehzîb 1612"),
+  E("ebueyyub", "zeydhalid", "—", "Tehzîb 1612"),
+  E("ebueyyub", "salimibnomer", "—", "Tehzîb 1612"),
+  E("ebueyyub", "saidmusayyeb", "—", "Tehzîb 1612"),
+  E("ebueyyub", "ibnabbas", "—", "Tehzîb 1612"),
+  E("ebueyyub", "abdullahkab", "—", "Tehzîb 1612"),
+  E("ebueyyub", "ibnebileyla", "خ م ت س", "Tehzîb 1612"),
+  E("ebueyyub", "urve", "خ م", "Tehzîb 1612"),
+  E("ebueyyub", "alkame", "—", "Tehzîb 1612"),
+  E("ebueyyub", "amrmeymun", "س", "Tehzîb 1612"),
+  E("ebueyyub", "ibnmunkedir", "س", "Tehzîb 1612"),
+  E("ebueyyub", "musatalha", "خ م ت س", "Tehzîb 1612"),
+  E("ebueyyub", "ebuselemeavf", "خ ت س", "Tehzîb 1612"),
+
+
+  /* Ebû Katâde el-Ensârî (o. 54) -- hocalari.
+     Tehzîb 7574. Tercemede 2 kayit var, agda dugumu olan 2'i cizildi. */
+  E("omer", "ebukatade", "س", "Tehzîb 7574"),
+  E("muazcebel", "ebukatade", "—", "Tehzîb 7574"),
+
+
+  /* Ebû Katâde el-Ensârî (o. 54) -- talebeleri.
+     Tehzîb 7574. Tercemede 26 kayit var, agda dugumu olan 8'i cizildi. */
+  E("ebukatade", "enes", "ق", "Tehzîb 7574"),
+  E("ebukatade", "cabir", "ت", "Tehzîb 7574"),
+  E("ebukatade", "saidmusayyeb", "ق", "Tehzîb 7574"),
+  E("ebukatade", "ammarebiammar", "د س", "Tehzîb 7574"),
+  E("ebukatade", "ibnsirin", "ت ق", "Tehzîb 7574"),
+  E("ebukatade", "ibnmunkedir", "س", "Tehzîb 7574"),
+  E("ebukatade", "ebusaid", "م", "Tehzîb 7574"),
+  E("ebukatade", "ebuselemeavf", "ع", "Tehzîb 7574"),
+
+
+  /* Ebû Bekre es-Sekafî (o. 52) -- talebeleri.
+     Tehzîb 6465. Tercemede 17 kayit var, agda dugumu olan 5'i cizildi. */
+  E("ebubekre", "ibrahimavf", "—", "Tehzîb 6465"),
+  E("ebubekre", "ahnef", "خ م د س", "Tehzîb 6465"),
+  E("ebubekre", "hasanbasri", "خ ٤", "Tehzîb 6465"),
+  E("ebubekre", "rebihiras", "م س", "Tehzîb 6465"),
+  E("ebubekre", "ibnsirin", "د س", "Tehzîb 6465"),
+
+
+  /* Vâsile b. el-Eska‘ (o. 85) -- hocalari.
+     Tehzîb 6659. Tercemede 3 kayit var, agda dugumu olan 2'i cizildi. */
+  E("ebuhureyre", "vasile", "ق", "Tehzîb 6659"),
+  E("ummuseleme", "vasile", "—", "Tehzîb 6659"),
+
+
+  /* Vâsile b. el-Eska‘ (o. 85) -- talebeleri.
+     Tehzîb 6659. Tercemede 18 kayit var, agda dugumu olan 4'i cizildi. */
+  E("vasile", "ibrahimebiable", "—", "Tehzîb 6659"),
+  E("vasile", "saddadebuammar", "م ت س", "Tehzîb 6659"),
+  E("vasile", "mekhul", "بخ ت ق", "Tehzîb 6659"),
+  E("vasile", "ebuidrishavlani", "م ت", "Tehzîb 6659"),
+
+
+  /* Ümmü Seleme (o. 59) -- hocalari.
+     Tehzîb 7941. Tercemede 2 kayit var, agda dugumu olan 1'i cizildi. */
+  E("fatima", "ummuseleme", "ت", "Tehzîb 7941"),
+
+
+  /* Ümmü Seleme (o. 59) -- talebeleri.
+     Tehzîb 7941. Tercemede 70 kayit var, agda dugumu olan 23'i cizildi. */
+  E("ummuseleme", "usame", "خ", "Tehzîb 7941"),
+  E("ummuseleme", "esvedyezid", "س", "Tehzîb 7941"),
+  E("ummuseleme", "habibebisabit", "ق", "Tehzîb 7941"),
+  E("ummuseleme", "humeydavf", "م", "Tehzîb 7941"),
+  E("ummuseleme", "saidmusayyeb", "م ٤", "Tehzîb 7941"),
+  E("ummuseleme", "suleymanyesar", "م د س ق", "Tehzîb 7941"),
+  E("ummuseleme", "ebuvail", "م ٤", "Tehzîb 7941"),
+  E("ummuseleme", "sehrhavseb", "د ت", "Tehzîb 7941"),
+  E("ummuseleme", "sabi", "٤", "Tehzîb 7941"),
+  E("ummuseleme", "abdullahsedddad", "س", "Tehzîb 7941"),
+  E("ummuseleme", "ibnabbas", "س", "Tehzîb 7941"),
+  E("ummuseleme", "ibnebimuleyke", "د ت", "Tehzîb 7941"),
+  E("ummuseleme", "abdrahmanharis", "خ س", "Tehzîb 7941"),
+  E("ummuseleme", "ubeydullahutbe", "س", "Tehzîb 7941"),
+  E("ummuseleme", "ubeydumeyr", "م", "Tehzîb 7941"),
+  E("ummuseleme", "urve", "خ س", "Tehzîb 7941"),
+  E("ummuseleme", "ataebirebah", "د", "Tehzîb 7941"),
+  E("ummuseleme", "kureyb", "خ م د ت س", "Tehzîb 7941"),
+  E("ummuseleme", "mucahid", "ت", "Tehzîb 7941"),
+  E("ummuseleme", "mesruk", "ق", "Tehzîb 7941"),
+  E("ummuseleme", "nafiibnomer", "س ق", "Tehzîb 7941"),
+  E("ummuseleme", "ebuselemeavf", "٤", "Tehzîb 7941"),
+  E("ummuseleme", "talha", "ت", "Tehzîb 7941"),
+
+
+  /* Esmâ bint Ebî Bekir (o. 73) -- talebeleri.
+     Tehzîb 7780. Tercemede 17 kayit var, agda dugumu olan 4'i cizildi. */
+  E("esmaebubekir", "abbadabdullahzubeyr", "م س", "Tehzîb 7780"),
+  E("esmaebubekir", "ibnabbas", "م", "Tehzîb 7780"),
+  E("esmaebubekir", "ibnebimuleyke", "ع", "Tehzîb 7780"),
+  E("esmaebubekir", "ibnzubeyr", "—", "Tehzîb 7780"),
 
 ];
 
