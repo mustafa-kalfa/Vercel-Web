@@ -61,18 +61,7 @@ function katla(s) {
     .replace(/\s+/g, " ").trim();
 }
 
-/* `secenekler` DENEME SAYFASI ICIN.
-
-   /ag-sinamasi ile yayindaki harita ayni bileseni cagiriyor. Denenecek
-   bir sey yalnizca sinamada gorunsun isteniyorsa bileseni KOPYALAMA --
-   1400 satir iki yerde yasar ve her duzeltmeyi iki kez uygulamak
-   gerekir; SVG surumu son gunlerin butun iyilestirmelerini tam bu
-   yuzden kacirmisti. Bunun yerine buraya bir bayrak ekle, sinama
-   sarmalayicisi (SilsileAgiSinama.jsx) onu acik versin.
-
-   deneme: sag alttaki arama kutusunun yanina hamburger menu koyar. */
-export function kur(V, secenekler = {}) {
-  const { deneme = false } = secenekler;
+export function kur(V) {
   const {
     ALT, ASGARI_DY, BANT, BELDELER, BELDE_AD, DERECE, DIA, DIS, E, EDGES,
     EKRAN_PUNTO, EKRAN_R_ARTIS, EN_AZ_EKRAN_R, ESIK, H: HAM_H, HULEFA,
@@ -156,13 +145,6 @@ export function kur(V, secenekler = {}) {
     const [secim, setSecim] = useState(null);   // {tur:"ravi",id} | {tur:"kenar",e}
     const [arama, setArama] = useState("");
     const [acikArama, setAcikArama] = useState(false);
-    /* DENEME (yalnizca /ag-sinamasi). `yalnizAglar` acikken noktalar da
-       isimler de hic cizilmiyor, ekranda yalniz kenarlar kaliyor --
-       ag'in kendi dokusu gorulsun diye (Mustafa, 2026-09-02). Belde
-       seritleri ve yil ekseni KALIYOR: onlar isim ya da nokta degil,
-       yonu veren zemin. */
-    const [acikMenu, setAcikMenu] = useState(false);
-    const [yalnizAglar, setYalnizAglar] = useState(false);
     const [view, setView] = useState({ x: 0, y: 0, k: 0.4 });
     const [suruk, setSuruk] = useState(null);
     /* HOVER JS'TE TUTULMUYOR. Eskiden `uzerinde` diye bir state vardi:
@@ -1272,10 +1254,7 @@ export function kur(V, secenekler = {}) {
       if (seciliKenar) okCiz(seciliKenar, C.okVurgu, 9);
   
       // ---- dugumler ----
-      /* `yalnizAglar` DENEMESI: nokta hic cizilmiyor. Dongu bastan
-         atlaniyor, boylece `vurus.dugum` da bos kaliyor -- gorunmeyen
-         bir noktaya tiklanmasin. Etiketler de asagida ayni sekilde. */
-      if (!yalnizAglar) for (const n of NODES) {
+      for (const n of NODES) {
         const p = POS[n.id];
         if (!p || !icerde(p)) continue;
         const px = eX(p.x), py = eY(p.y);
@@ -1334,7 +1313,7 @@ export function kur(V, secenekler = {}) {
          bulaniklasiyor. */
       ctx.textAlign = "center";
       ctx.textBaseline = "alphabetic";
-      if (!yalnizAglar) for (const n of NODES) {
+      for (const n of NODES) {
         const bilgi = etiketliler.get(n.id);
         const p = POS[n.id];
         if (!bilgi || !p) continue;
@@ -1382,7 +1361,7 @@ export function kur(V, secenekler = {}) {
       ctx.globalAlpha = 1;
     }, [box, olculdu, view, pencere, secim, secRavi, secKenar, vurgu,
         cizgiCarpani, cizgiSaydam, MEDINE_I, adi, koyu, akisAnim, t,
-        etiketliler, kenarKubik, yalnizAglar]);
+        etiketliler, kenarKubik]);
   
     /* TUVALDA NE TIKLANDI.
   
@@ -1672,64 +1651,21 @@ export function kur(V, secenekler = {}) {
                 alani ona yer acmak icin soldan paylı. Ikon
                 `pointerEvents: none` -- ustune tiklayinca da kutu
                 odaklansin. */}
-            {/* DENEME MENUSU (yalnizca /ag-sinamasi).
-
-                Sonuc listesiyle ayni kaliba oturuyor: kumeden genis,
-                saga yasli, kutunun USTUNDE. Yazilar burada elle
-                Turkce -- deneme yayina alinirsa `t` sozlugune tasinmali,
-                yoksa Arapca ve Ingilizce'de Turkce kalir. */}
-            {deneme && acikMenu && (
-              <div className="shadow"
-                style={{ marginBottom: 6, background: C.tuval, border: "1px solid " + C.cizgi,
-                         borderRadius: 2, width: dar ? "calc(100vw - 24px)" : 220,
-                         marginLeft: "auto" }}>
-                <button
-                  onClick={() => setYalnizAglar((v) => !v)}
-                  aria-pressed={yalnizAglar}
-                  className="w-full text-left px-3 py-2 text-sm flex items-center gap-2"
-                  style={{ color: C.ink, background: yalnizAglar ? C.sonucVurgu : "transparent" }}>
-                  <span className="shrink-0" style={{ width: 14, color: C.vurguInk }}>
-                    {yalnizAglar ? "✓" : ""}
-                  </span>
-                  <span>Sadece Ağları Göster</span>
-                </button>
-              </div>
-            )}
-
-            <div className="flex items-center gap-1.5">
-              {/* Buyutec ikonu kutunun ICINDE, mutlak konumlu; yazi
-                  alani ona yer acmak icin soldan paylı. Ikon
-                  `pointerEvents: none` -- ustune tiklayinca da kutu
-                  odaklansin. */}
-              <div className="relative flex-1 min-w-0">
-                <svg viewBox="0 0 16 16" aria-hidden="true"
-                  style={{ position: "absolute", left: 8, top: "50%", marginTop: -7,
-                           width: 14, height: 14, pointerEvents: "none" }}
-                  fill="none" stroke={C.solukInk} strokeWidth="1.6"
-                  strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="7" cy="7" r="4.5" />
-                  <path d="M10.5 10.5 L14 14" />
-                </svg>
-                <input value={arama}
-                  onChange={(e) => { setArama(e.target.value); setAcikArama(true); }}
-                  onFocus={() => setAcikArama(true)}
-                  placeholder={t.agAra}
-                  className="w-full py-1.5 pr-3 text-sm border rounded-sm shadow-sm outline-none"
-                  style={{ paddingLeft: 28, background: C.tuval, borderColor: C.cizgi, color: C.ink }} />
-              </div>
-              {deneme && (
-                <button
-                  onClick={() => setAcikMenu((v) => !v)}
-                  aria-label="Menü" aria-expanded={acikMenu}
-                  className="shrink-0 border rounded-sm shadow-sm flex items-center justify-center"
-                  style={{ width: 32, height: 32, background: C.tuval, borderColor: C.cizgi }}>
-                  <svg viewBox="0 0 16 16" aria-hidden="true" width="15" height="15"
-                    stroke={acikMenu || yalnizAglar ? C.vurguInk : C.solukInk}
-                    strokeWidth="1.6" strokeLinecap="round">
-                    <path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11" />
-                  </svg>
-                </button>
-              )}
+            <div className="relative">
+              <svg viewBox="0 0 16 16" aria-hidden="true"
+                style={{ position: "absolute", left: 8, top: "50%", marginTop: -7,
+                         width: 14, height: 14, pointerEvents: "none" }}
+                fill="none" stroke={C.solukInk} strokeWidth="1.6"
+                strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="7" cy="7" r="4.5" />
+                <path d="M10.5 10.5 L14 14" />
+              </svg>
+              <input value={arama}
+                onChange={(e) => { setArama(e.target.value); setAcikArama(true); }}
+                onFocus={() => setAcikArama(true)}
+                placeholder={t.agAra}
+                className="w-full py-1.5 pr-3 text-sm border rounded-sm shadow-sm outline-none"
+                style={{ paddingLeft: 28, background: C.tuval, borderColor: C.cizgi, color: C.ink }} />
             </div>
           </div>
   

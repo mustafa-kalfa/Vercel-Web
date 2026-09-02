@@ -2,25 +2,18 @@
 
 import Link from "next/link";
 import ChromaKeyVideo from "../ChromaKeyVideo";
-import SilsileAgiSinama from "../SilsileAgiSinama";
+import SilsileAgi from "../SilsileAgi";
 import { useLanguage } from "../LanguageContext";
 
 /* DENEME ADRESI.
 
-   Cizim kodu ve veri yayindaki haritayla AYNI; fark yalnizca
-   SilsileAgiSinama'nin `kur`a verdigi `deneme` bayragi. Su an tek bir
-   sey aciyor: arama kutusunun yanindaki hamburger menu ve icindeki
-   "Sadece Ağları Göster" dugmesi (Mustafa, 2026-09-02).
+   Su an /ravi-iliski-aglari/harita ile BIREBIR ayni: ikisi de
+   SilsileAgi'yi cagiriyor ve tek bir veri dosyasindan besleniyor.
 
-   BILESENI KOPYALAMA. 1400 satir iki yerde yasarsa her duzeltmeyi iki
-   kez uygulamak gerekir; SVG surumu son gunlerin butun
-   iyilestirmelerini tam bu yuzden kacirmisti. Yeni bir deneme
-   gerekirse `kur`un secenek nesnesine bir bayrak daha ekle.
-
-   2026-08-30'da bir sure VERI burada catallanmisti (bilgi kartlari
+   2026-08-30'da bir sure veri BURADA catallanmisti (bilgi kartlari
    Takrib'den doldurulurken yayindaki harita etkilenmesin diye);
-   calisma yayina alinip catal kapatildi. Veri catallamak gerekirse o
-   yol da acik.
+   calisma yayina alinip catal kapatildi. Yeni bir deneme gerekirse
+   ayni yol acik: veriyi ya da bileseni kopyala, burayi kopyaya bagla.
 
    Arama motorlarina KAPALI kalmali (bkz. layout.tsx): iki adres de
    indekse girseydi Google birini kopya sayip ikisini birden
@@ -53,7 +46,7 @@ export default function AgSinamasi() {
           Ust bant 2026-08-29'da %33 kuculdu: logo 72 -> 48 px, bant
           80 -> 54 px. Sayfanin ust seridi ag'dan cok yer aliyordu. */}
       <div className="mt-[54px] h-[calc(100dvh-54px)]">
-        <SilsileAgiSinama />
+        <SilsileAgi />
       </div>
     </main>
   );
