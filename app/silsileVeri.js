@@ -262,6 +262,24 @@ export const NODES = [
     "Tehzîb terceme 7941, adı Hind bint Ebî Ümeyye. Mizzî Vâkıdî'den şevval 59'da vefat ettiğini nakleder; İbn Hacer bu tarihi Müslim'deki bir rivayete dayanarak reddeder."),
   N("esmaebubekir", "أسماء بنت أبي بكر", "Esmâ bint Ebî Bekir", 1, 73, "Mekke",
     "Tehzîb terceme 7780. «Zâtü'n-nitâkayn»; Zübeyr b. el-Avvâm'ın zevcesi, Abdullah b. ez-Zübeyr'in annesi."),
+
+  /* 150 LISTESINDEN EKSIK KALAN ALTI TABIIN/ATBA RAVISI (2026-09-03).
+
+     Ustteki dokuz sahabiyle ayni sebeple eklendiler. Ucu Zuhri'nin
+     "en saglam ravileri" diye sayilan halkadan (Ukayl, Yunus b. Yezid,
+     Ibn Ebi Zi'b), ikisi Buhari'nin hocasi, biri fukaha-i seb'adan. */
+  N("ebubekirabdrahman", "أبو بكر بن عبد الرحمن بن الحارث", "Ebû Bekir b. Abdirrahman", 3, 94, "Medine",
+    "Tehzîb terceme 7243. Medine'nin yedi fakihinden (fukahâ-i seb‘a). Mizzî'ye göre adı ile künyesi aynı; «râhibü Kureyş» diye anılırdı, gözleri görmezdi."),
+  N("ukaylhalid", "عقيل بن خالد", "Ukayl b. Hâlid el-Eylî", 5, 144, "Mısır",
+    "Tehzîb terceme 4001. Hz. Osman'ın mevlâsı. İbn Maîn'e göre Zührî'den rivayette en sağlamlar Mâlik, Ma‘mer, sonra Ukayl'dir."),
+  N("yunusyezid", "يونس بن يزيد الأيلي", "Yûnus b. Yezîd el-Eylî", 5, 159, "Mısır",
+    "Tehzîb terceme 7188. Zührî'ye on iki (bir görüşe göre on dört) yıl arkadaşlık etti; İbn Maîn onu Zührî'nin en sağlam râvileri arasında sayar."),
+  N("ibnebizib", "محمد بن عبد الرحمن بن أبي ذئب", "İbn Ebî Zi’b", 5, 159, "Medine",
+    "Tehzîb terceme 5408. Ahmed b. Hanbel onu Saîd b. el-Müseyyeb'e benzetir ve «Mâlik'ten üstün, ancak Mâlik ricâli daha iyi eler» der. Zührî'den semâı tartışmalı: İbn Maîn arz/münâvele olduğunu söyler, Ahmed işittiğini savunur."),
+  N("humeydi", "عبد الله بن الزبير الحميدي", "Humeydî", 5, 219, "Mekke",
+    "Tehzîb terceme 3270. Ahmed b. Hanbel «bize göre imamdır» der; Ebû Hâtim'e göre İbn Uyeyne'nin en sağlam râvisi ve ashabının reisi. Buhârî'nin hocası."),
+  N("suleymanharb", "سليمان بن حرب", "Süleymân b. Harb", 5, 224, "Basra",
+    "Tehzîb terceme 2502. Mekke'ye yerleşti ve orada kadılık yaptı. Ebû Hâtim onu «tedlîs yapmayan bir imam» sayar ve Affân'dan aşağı görmez."),
   N("ibnabbas", "عبد الله بن عباس", "Abdullah b. Abbâs", 1, 68, "Mekke",
     "Takrîb 3409: Hz. Peygamber ona Kur'an'ı anlama duası etti, ilminin genişliği sebebiyle «البحر» ve «الحبر» diye anılırdı. Hz. Ömer: «لو أدرك ابن عباس أسناننا ما عشره منا أحد». Müksirûndan ve abâdileden; 68'de Tâif'te vefat etti."),
   N("ibnomer", "عبد الله بن عمر", "Abdullah b. Ömer", 1, 73, "Medine",
@@ -3417,6 +3435,163 @@ const EDGES_HAM = [
   E("esmaebubekir", "ibnabbas", "م", "Tehzîb 7780"),
   E("esmaebubekir", "ibnebimuleyke", "ع", "Tehzîb 7780"),
   E("esmaebubekir", "ibnzubeyr", "—", "Tehzîb 7780"),
+
+
+  /* Ukayl b. Hâlid el-Eylî (o. 144) -- hocalari.
+     Tehzîb 4001. Tercemede 20 kayit var, agda dugumu olan 12'i cizildi. */
+  E("hasanbasri", "ukaylhalid", "—", "Tehzîb 4001"),
+  E("zeydeslem", "ukaylhalid", "—", "Tehzîb 4001"),
+  E("salimibnomer", "ukaylhalid", "—", "Tehzîb 4001"),
+  E("selemekuheyl", "ukaylhalid", "م", "Tehzîb 4001"),
+  E("ikrime", "ukaylhalid", "قد", "Tehzîb 4001"),
+  E("amrsuayb", "ukaylhalid", "—", "Tehzîb 4001"),
+  E("kasimmuhammed", "ukaylhalid", "—", "Tehzîb 4001"),
+  E("ibnishak", "ukaylhalid", "—", "Tehzîb 4001"),
+  E("ibnsihab", "ukaylhalid", "ع", "Tehzîb 4001"),
+  E("nafiibnomer", "ukaylhalid", "ق", "Tehzîb 4001"),
+  E("hisamurve", "ukaylhalid", "—", "Tehzîb 4001"),
+  E("yahyaebikesir", "ukaylhalid", "—", "Tehzîb 4001"),
+
+
+  /* Ukayl b. Hâlid el-Eylî (o. 144) -- talebeleri.
+     Tehzîb 4001. Tercemede 18 kayit var, agda dugumu olan 3'i cizildi. */
+  E("ukaylhalid", "saidebiyyubmisri", "خ", "Tehzîb 4001"),
+  E("ukaylhalid", "leysbsad", "ع", "Tehzîb 4001"),
+  E("ukaylhalid", "yunusyezid", "—", "Tehzîb 4001"),
+
+
+  /* Yûnus b. Yezîd el-Eylî (o. 159) -- hocalari.
+     Tehzîb 7188. Tercemede 11 kayit var, agda dugumu olan 6'i cizildi. */
+  E("ibrahimebiable", "yunusyezid", "—", "Tehzîb 7188"),
+  E("ikrime", "yunusyezid", "—", "Tehzîb 7188"),
+  E("kasimmuhammed", "yunusyezid", "—", "Tehzîb 7188"),
+  E("ibnsihab", "yunusyezid", "ع", "Tehzîb 7188"),
+  E("nafiibnomer", "yunusyezid", "خ م د س ق", "Tehzîb 7188"),
+  E("hisamurve", "yunusyezid", "د", "Tehzîb 7188"),
+
+
+  /* Yûnus b. Yezîd el-Eylî (o. 159) -- talebeleri.
+     Tehzîb 7188. Tercemede 37 kayit var, agda dugumu olan 10'i cizildi. */
+  E("yunusyezid", "enesiyaz", "—", "Tehzîb 7188"),
+  E("yunusyezid", "bakiyyevelid", "س ق", "Tehzîb 7188"),
+  E("yunusyezid", "cerirhazim", "خ م", "Tehzîb 7188"),
+  E("yunusyezid", "suleymanbilal", "خ م س", "Tehzîb 7188"),
+  E("yunusyezid", "ibnmubarek", "ع", "Tehzîb 7188"),
+  E("yunusyezid", "ibnvehb", "ع", "Tehzîb 7188"),
+  E("yunusyezid", "evzai", "—", "Tehzîb 7188"),
+  E("yunusyezid", "amrharis", "خ", "Tehzîb 7188"),
+  E("yunusyezid", "leysbsad", "خ م", "Tehzîb 7188"),
+  E("yunusyezid", "veki", "—", "Tehzîb 7188"),
+
+
+  /* İbn Ebî Zi’b (o. 159) -- hocalari.
+     Tehzîb 5408. Tercemede 50 kayit var, agda dugumu olan 6'i cizildi. */
+  E("ikrime", "ibnebizib", "—", "Tehzîb 5408"),
+  E("ibnsihab", "ibnebizib", "خ م د س ق", "Tehzîb 5408"),
+  E("ibnmunkedir", "ibnebizib", "خ س", "Tehzîb 5408"),
+  E("nafiibnomer", "ibnebizib", "خ م ق", "Tehzîb 5408"),
+  E("yezidhusayfe", "ibnebizib", "—", "Tehzîb 5408"),
+  E("yezidkusayt", "ibnebizib", "خ د ت س", "Tehzîb 5408"),
+
+
+  /* İbn Ebî Zi’b (o. 159) -- talebeleri.
+     Tehzîb 5408. Tercemede 50 kayit var, agda dugumu olan 19'i cizildi. */
+  E("ibnebizib", "ademebiiyas", "خ", "Tehzîb 5408"),
+  E("ibnebizib", "ruhubade", "—", "Tehzîb 5408"),
+  E("ibnebizib", "sadibrahim", "س", "Tehzîb 5408"),
+  E("ibnebizib", "sevri", "—", "Tehzîb 5408"),
+  E("ibnebizib", "suaybishakdimaski", "د", "Tehzîb 5408"),
+  E("ibnebizib", "ebuasimnebil", "س", "Tehzîb 5408"),
+  E("ibnebizib", "ibnmubarek", "خ سي", "Tehzîb 5408"),
+  E("ibnebizib", "kanebi", "س", "Tehzîb 5408"),
+  E("ibnebizib", "ibnnumeyr", "م", "Tehzîb 5408"),
+  E("ibnebizib", "ibnvehb", "م س", "Tehzîb 5408"),
+  E("ibnebizib", "alicad", "—", "Tehzîb 5408"),
+  E("ibnebizib", "ebunuaymfadl", "خ", "Tehzîb 5408"),
+  E("ibnebizib", "vakidi", "—", "Tehzîb 5408"),
+  E("ibnebizib", "mamer", "—", "Tehzîb 5408"),
+  E("ibnebizib", "veki", "م", "Tehzîb 5408"),
+  E("ibnebizib", "velidmuslim", "م ق", "Tehzîb 5408"),
+  E("ibnebizib", "kattan", "م س", "Tehzîb 5408"),
+  E("ibnebizib", "yezidharun", "—", "Tehzîb 5408"),
+  E("ibnebizib", "ebubekirayyas", "—", "Tehzîb 5408"),
+
+
+  /* Humeydî (o. 219) -- hocalari.
+     Tehzîb 3270. Tercemede 23 kayit var, agda dugumu olan 12'i cizildi. */
+  E("ibrahimsad", "humeydi", "—", "Tehzîb 3270"),
+  E("enesiyaz", "humeydi", "—", "Tehzîb 3270"),
+  E("bisrbekirtennisi", "humeydi", "خ", "Tehzîb 3270"),
+  E("ebuusamehammad", "humeydi", "—", "Tehzîb 3270"),
+  E("ibnuyeyne", "humeydi", "خ مق ت س فق", "Tehzîb 3270"),
+  E("darevardi", "humeydi", "—", "Tehzîb 3270"),
+  E("fudaylibnayaz", "humeydi", "—", "Tehzîb 3270"),
+  E("safii", "humeydi", "د", "Tehzîb 3270"),
+  E("mervanfezari", "humeydi", "خ ت", "Tehzîb 3270"),
+  E("veki", "humeydi", "خ", "Tehzîb 3270"),
+  E("velidmuslim", "humeydi", "خ", "Tehzîb 3270"),
+  E("yalaubeyd", "humeydi", "—", "Tehzîb 3270"),
+
+
+  /* Humeydî (o. 219) -- talebeleri.
+     Tehzîb 3270. Tercemede 21 kayit var, agda dugumu olan 4'i cizildi. */
+  E("humeydi", "buhari", "ت", "Tehzîb 3270"),
+  E("humeydi", "ebuzuraraazi", "—", "Tehzîb 3270"),
+  E("humeydi", "ebuhatimrazi", "—", "Tehzîb 3270"),
+  E("humeydi", "zuhli", "ت س", "Tehzîb 3270"),
+
+
+  /* Süleymân b. Harb (o. 224) -- hocalari.
+     Tehzîb 2502. Tercemede 19 kayit var, agda dugumu olan 8'i cizildi. */
+  E("cerirhazim", "suleymanharb", "—", "Tehzîb 2502"),
+  E("hammadzeyd", "suleymanharb", "ع", "Tehzîb 2502"),
+  E("hammadseleme", "suleymanharb", "ع", "Tehzîb 2502"),
+  E("serieyyahya", "suleymanharb", "—", "Tehzîb 2502"),
+  E("suleymanmugire", "suleymanharb", "—", "Tehzîb 2502"),
+  E("sallamebimuti", "suleymanharb", "مق", "Tehzîb 2502"),
+  E("sube", "suleymanharb", "خ د س", "Tehzîb 2502"),
+  E("vuheybhalid", "suleymanharb", "خ", "Tehzîb 2502"),
+
+
+  /* Süleymân b. Harb (o. 224) -- talebeleri.
+     Tehzîb 2502. Tercemede 46 kayit var, agda dugumu olan 16'i cizildi. */
+  E("suleymanharb", "buhari", "ت", "Tehzîb 2502"),
+  E("suleymanharb", "ebudavud", "—", "Tehzîb 2502"),
+  E("suleymanharb", "bh03", "—", "Tehzîb 2502"),
+  E("suleymanharb", "ahmeddevraki", "مق", "Tehzîb 2502"),
+  E("suleymanharb", "ahmedhanbel", "—", "Tehzîb 2502"),
+  E("suleymanharb", "ibnrahuye", "م س", "Tehzîb 2502"),
+  E("suleymanharb", "hasanaliayyal", "د ت", "Tehzîb 2502"),
+  E("suleymanharb", "humeydi", "—", "Tehzîb 2502"),
+  E("suleymanharb", "darimi", "ت", "Tehzîb 2502"),
+  E("suleymanharb", "ibnebiseybe", "م", "Tehzîb 2502"),
+  E("suleymanharb", "abdhumeyd", "ت", "Tehzîb 2502"),
+  E("suleymanharb", "ebuzuraraazi", "—", "Tehzîb 2502"),
+  E("suleymanharb", "osmanebiseybe", "—", "Tehzîb 2502"),
+  E("suleymanharb", "ebuhatimrazi", "—", "Tehzîb 2502"),
+  E("suleymanharb", "zuhli", "ق", "Tehzîb 2502"),
+  E("suleymanharb", "kattan", "—", "Tehzîb 2502"),
+
+
+  /* Ebû Bekir b. Abdirrahman (o. 94) -- hocalari.
+     Tehzîb 7243. Tercemede 14 kayit var, agda dugumu olan 5'i cizildi. */
+  E("abdrahmanharis", "ebubekirabdrahman", "خ س", "Tehzîb 7243"),
+  E("abdrahmanesved", "ebubekirabdrahman", "خ م", "Tehzîb 7243"),
+  E("mervan", "ebubekirabdrahman", "خ د ق", "Tehzîb 7243"),
+  E("ebuhureyre", "ebubekirabdrahman", "ع", "Tehzîb 7243"),
+  E("ummuseleme", "ebubekirabdrahman", "ع", "Tehzîb 7243"),
+
+
+  /* Ebû Bekir b. Abdirrahman (o. 94) -- talebeleri.
+     Tehzîb 7243. Tercemede 24 kayit var, agda dugumu olan 8'i cizildi. */
+  E("ebubekirabdrahman", "cameseddad", "س", "Tehzîb 7243"),
+  E("ebubekirabdrahman", "hakemuteybe", "س", "Tehzîb 7243"),
+  E("ebubekirabdrahman", "sabi", "س", "Tehzîb 7243"),
+  E("ebubekirabdrahman", "ikrimehalid", "س", "Tehzîb 7243"),
+  E("ebubekirabdrahman", "amrdinar", "—", "Tehzîb 7243"),
+  E("ebubekirabdrahman", "mucahid", "س", "Tehzîb 7243"),
+  E("ebubekirabdrahman", "ibnsihab", "ع", "Tehzîb 7243"),
+  E("ebubekirabdrahman", "yezidkusayt", "—", "Tehzîb 7243"),
 
 ];
 
