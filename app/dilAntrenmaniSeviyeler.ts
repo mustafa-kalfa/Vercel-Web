@@ -225,89 +225,82 @@ export const B1_SEVIYELERI: Seviye[] = [
 
 /* HADİSLE İLGİLİ KELİMELER — üç seviye.
 
-   Bu küme ötekinden farklı bir iş görüyor. B1 havuzunda oyuncu üç ayrı
-   dilde ÜÇ AYRI kelime görüyor; burada Türkçe karşılık çoğu zaman
-   Arapça ıstılahın kendisi (isnâd / إِسْنَاد). Kazanç şurada: ıstılahın
-   Arapça yazılışını tanımak ve İngilizce karşılığını öğrenmek. Hadis
-   ilmi metinleri üç dilde de okunuyor, terimin üç yüzünü birlikte
-   görmek işe yarıyor.
+   AMAÇ: hadis talebesi İngilizce bir makale okurken karşılaştığı
+   kelimeyi tanıyabilsin. Yani İngilizce sütun, o literatürde GERÇEKTEN
+   kullanılan kelime -- ıstılahın çevriyazısı değil.
 
-   İNGİLİZCE KARŞILIKLAR NASIL SEÇİLDİ. Kural şu: İngilizce akademik
-   literatürde o ıstılahın YERLEŞİK bir karşılığı varsa o alınıyor, yoksa
-   ıstılah olduğu gibi çevriyazıyla yazılıyor.
+   BİR TRİPLET ÜÇ AYRI YÜZ TAŞIMALI. Bu listenin ilk hâli çevriyazıyla
+   yazılmıştı ve oyun çöküyordu: "mevkuf / mawquf / موقوف" gibi kartlar
+   birbirinin aynısı olduğu için eşleştirme kendiliğinden çözülüyordu,
+   hafıza da bilgi de devreye girmiyordu (Mustafâ'nın uyarısı,
+   2026-09-02). Kural artık şu -- Türkçesi, İngilizcesi ve Arapçası
+   birbirinden AYRI görünmüyorsa o ıstılah listeye girmiyor.
 
-   İlk sürümde harfî çeviriler kullanılmıştı ve yanlıştı -- مُرْسَل için
-   "sent" yazıyordu. "Sent" kelimenin sözlük anlamı, İngilizce hadis
-   literatüründe kimsenin kullanmadığı bir karşılık; o metinlerde terim
-   doğrudan "mursal" diye geçiyor (Mustafâ'nın uyarısı, 2026-09-01).
+   Bu yüzden ELENEN ıstılahlar var. mursal, mawquf, marfu', mu'allaq,
+   munqati', shadhdh, munkar, tadlis... İngilizce makalelerde bunlar
+   Arapça bırakılıyor, yani İngilizce sütun Türkçe sütunun kopyası
+   oluyor. Yerlerine İngilizce karşılığı gerçekten olan ıstılahlar ve
+   Batı'daki hadis çalışmalarının kendi kavram dili kondu.
 
-   Ayrımın nerede durduğu:
+   ÜÇÜNCÜ SEVİYE ORYANTALİST LİTERATÜRÜN SÖZLÜĞÜ. Türkçe karşılıklar
+   TDV İslâm Ansiklopedisi'nin Juynboll maddesinden alındı (müşterek
+   râvi, kısmî müşterek râvi, tek râvili tarîk, örümcek, dalış, isnâd
+   kümesi). "Common link"in Arapça karşılığı olarak مَدَار seçildi:
+   Juynboll'ün kendisi de klasik literatürde bu kavramın "medâr" diye
+   anıldığını söylüyor, yani uydurma bir karşılık değil.
 
-   - Yerleşik İngilizce karşılığı OLANLAR çevrildi -- hadith, sunnah,
-     isnad, matn, transmitter, Companion, Successor, narration,
-     traditionist, report; ve dört hüküm: sound, good, weak, fabricated.
-   - Yapı ve kusur ıstılahları ÇEVRİYAZIYLA -- marfu, mawquf, mursal,
-     mu'allaq, shadhdh, munkar, jarh, ta'dil, illa, mutawatir, ahad,
-     ijaza, sama', hafiz, munqati', tadlis. İngilizce metinler bunları
-     Arapça bırakıyor, "raised" / "stopped" / "suspended" gibi harfî
-     karşılıklar ancak parantez içi etimoloji notu olarak geçiyor.
+   cerh/ta'dîl için "impugnment" ve "accreditation" Dickinson'ın İbnü's-
+   Salâh çevirisinden ("impugning ... accrediting"); "criticism and
+   praise" de kullanılıyor ama o çift daha gevşek.
 
-   Çevriyazı sitenin öteki İngilizce metinleriyle aynı sadelikte
-   (`Bukhari`, `Abu Dawud`, `Nasa'i` gibi) -- aksan işareti yok, ayn
-   yalnızca kelime içinde ya da sonunda kesme ile.
-
-   İngilizce karşılıklar ayrıca KISA tutuldu: "comprehensive collection"
-   gibi tamlamalar kartta 8 puntoya düşüyor (bkz. `DilAntrenmani.tsx`
-   içindeki `punto()`), bu yüzden kitap türleri (câmi, müsned, sünen)
-   listeye hiç alınmadı.
-
-   Aynı seviyede kök benzerliği olan çiftler bilerek ayrıldı: مَقْطُوع
-   ile مُنْقَطِع aynı kökten, ikisi birlikte konsaydı Arapça kartlar bir
-   bakışta ayırt edilemezdi -- مَقْطُوع listeye hiç alınmadı. */
+   ARAPÇA KARŞILIKLAR HAREKELİ, B1 havuzuyla aynı gerekçe. Uzun
+   tamlamalardan kaçınıldı -- kartın puntosu harf sayısına göre
+   düşüyor (bkz. `DilAntrenmani.tsx` içindeki `punto()`), "isnad-cum-matn
+   analysis" gibi bir ifade kartta okunmaz hâle geliyor. */
 export const HADIS_SEVIYELERI: Seviye[] = [
   {
-    tema: "Temel kavramlar",
+    tema: "İsnâd ve nakil",
     kelimeler: [
-      { tr: "hadis", en: "hadith", ar: "حَدِيث" },
-      { tr: "sünnet", en: "sunnah", ar: "سُنَّة" },
-      { tr: "isnâd", en: "isnad", ar: "إِسْنَاد" },
-      { tr: "metin", en: "matn", ar: "مَتْن" },
+      { tr: "hadis", en: "report", ar: "حَدِيث" },
+      { tr: "isnâd", en: "chain", ar: "إِسْنَاد" },
       { tr: "râvi", en: "transmitter", ar: "رَاوٍ" },
+      { tr: "metin", en: "text", ar: "مَتْن" },
       { tr: "sahâbî", en: "Companion", ar: "صَحَابِيّ" },
       { tr: "tâbiî", en: "Successor", ar: "تَابِعِيّ" },
-      { tr: "rivayet", en: "narration", ar: "رِوَايَة" },
+      { tr: "tabaka", en: "generation", ar: "طَبَقَة" },
+      { tr: "tarîk", en: "strand", ar: "طَرِيق" },
       { tr: "muhaddis", en: "traditionist", ar: "مُحَدِّث" },
-      { tr: "haber", en: "report", ar: "خَبَر" },
+      { tr: "şâhid", en: "corroboration", ar: "شَاهِد" },
     ],
   },
   {
-    tema: "Hüküm ve dereceler",
+    tema: "Sıhhat ve tenkit",
     kelimeler: [
-      { tr: "sahih", en: "sound", ar: "صَحِيح" },
-      { tr: "hasen", en: "good", ar: "حَسَن" },
+      { tr: "sahih", en: "authentic", ar: "صَحِيح" },
+      { tr: "hasen", en: "fair", ar: "حَسَن" },
       { tr: "zayıf", en: "weak", ar: "ضَعِيف" },
-      { tr: "mevzû", en: "fabricated", ar: "مَوْضُوع" },
-      { tr: "merfû", en: "marfu", ar: "مَرْفُوع" },
-      { tr: "mevkuf", en: "mawquf", ar: "مَوْقُوف" },
-      { tr: "mürsel", en: "mursal", ar: "مُرْسَل" },
-      { tr: "muallak", en: "mu'allaq", ar: "مُعَلَّق" },
-      { tr: "şâz", en: "shadhdh", ar: "شَاذّ" },
-      { tr: "münker", en: "munkar", ar: "مُنْكَر" },
+      { tr: "mevzû", en: "forgery", ar: "مَوْضُوع" },
+      { tr: "illet", en: "defect", ar: "عِلَّة" },
+      { tr: "sika", en: "reliable", ar: "ثِقَة" },
+      { tr: "adâlet", en: "uprightness", ar: "عَدَالَة" },
+      { tr: "zabt", en: "accuracy", ar: "ضَبْط" },
+      { tr: "cerh", en: "impugnment", ar: "جَرْح" },
+      { tr: "ta'dîl", en: "accreditation", ar: "تَعْدِيل" },
     ],
   },
   {
-    tema: "İlim ve nakil",
+    tema: "Batı'da hadis çalışmaları",
     kelimeler: [
-      { tr: "cerh", en: "jarh", ar: "جَرْح" },
-      { tr: "ta'dîl", en: "ta'dil", ar: "تَعْدِيل" },
-      { tr: "illet", en: "illa", ar: "عِلَّة" },
-      { tr: "mütevâtir", en: "mutawatir", ar: "مُتَوَاتِر" },
-      { tr: "âhâd", en: "ahad", ar: "آحَاد" },
-      { tr: "icâzet", en: "ijaza", ar: "إِجَازَة" },
-      { tr: "semâ", en: "sama'", ar: "سَمَاع" },
-      { tr: "hâfız", en: "hafiz", ar: "حَافِظ" },
-      { tr: "munkatı", en: "munqati'", ar: "مُنْقَطِع" },
-      { tr: "tedlîs", en: "tadlis", ar: "تَدْلِيس" },
+      { tr: "müşterek râvi", en: "common link", ar: "مَدَار" },
+      { tr: "örümcek", en: "spider", ar: "عَنْكَبُوت" },
+      { tr: "dalış", en: "dive", ar: "غَوْص" },
+      { tr: "tek râvili tarîk", en: "single strand", ar: "طَرِيق مُفْرَد" },
+      { tr: "isnâd kümesi", en: "isnad bundle", ar: "حُزْمَة أَسَانِيد" },
+      { tr: "geriye doğru büyüme", en: "backward growth", ar: "النُّمُوّ الْعَكْسِيّ" },
+      { tr: "müsteşrik", en: "orientalist", ar: "مُسْتَشْرِق" },
+      { tr: "tarihlendirme", en: "dating", ar: "تَأْرِيخ" },
+      { tr: "uydurma", en: "fabrication", ar: "وَضْع" },
+      { tr: "hadis tenkidi", en: "hadith criticism", ar: "نَقْد الْحَدِيث" },
     ],
   },
 ];

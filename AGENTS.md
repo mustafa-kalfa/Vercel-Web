@@ -1637,27 +1637,36 @@ uc ayri dilde UC AYRI kelime goruyor; orada Turkce karsilik cogu zaman
 Arapca istilahin kendisi (isnad / إِسْنَاد). Kazanc su: istilahin Arapca
 yazilisini tanimak ve Ingilizce karsiligini ogrenmek.
 
-**INGILIZCE KARSILIK KURALI (2026-09-01, Mustafa'nin uyarisi).**
-Ingilizce akademik literaturde YERLESIK bir karsilik varsa o alinir,
-yoksa istilah oldugu gibi cevriyaziyla yazilir. Ilk surumde harfi
-ceviriler vardi ve yanlisti — مُرْسَل icin "sent" yaziyordu; "sent"
-kelimenin sozluk anlami, Ingilizce hadis literaturunde kimsenin
-kullanmadigi bir karsilik, o metinlerde terim dogrudan "mursal" diye
-geciyor.
+**HADIS LISTESININ KURALI: bir triplet UC AYRI YUZ tasimali**
+(Mustafa, 2026-09-02). Amac su -- hadis talebesi Ingilizce bir makale
+okurken karsilastigi kelimeyi taniyabilsin. Yani Ingilizce sutun, o
+literaturde GERCEKTEN kullanilan kelime; istilahin cevriyazisi degil.
 
-Ayrimin nerede durdugu:
-- **Cevrilenler** (yerlesik Ingilizce karsiligi olanlar): hadith,
-  sunnah, isnad, matn, transmitter, Companion, Successor, narration,
-  traditionist, report; ve dort hukum: sound, good, weak, fabricated.
-- **Cevriyaziyla birakilanlar** (yapi ve kusur istilahlari): marfu,
-  mawquf, mursal, mu'allaq, shadhdh, munkar, jarh, ta'dil, illa,
-  mutawatir, ahad, ijaza, sama', hafiz, munqati', tadlis. Ingilizce
-  metinler bunlari Arapca birakiyor; "raised" / "stopped" / "suspended"
-  gibi harfi karsiliklar ancak parantez ici etimoloji notu olarak
-  geciyor.
+Listenin ikinci hali cevriyaziyla yazilmisti ("mevkuf / mawquf /
+موقوف") ve OYUNU COKERTIYORDU: uc kart birbirinin aynisi oldugu icin
+eslestirme kendiliginden cozuluyor, ne hafiza ne bilgi devreye
+giriyordu. Uzerine bir de ilk hali harfi cevirilerle yanlisti (مُرْسَل
+icin "sent"). Dogru olcut ikisinin ortasi degil, sudur:
 
-Cevriyazi sitenin oteki Ingilizce metinleriyle ayni sadelikte
-(`Bukhari`, `Abu Dawud`, `Nasa'i` gibi) — aksan isareti yok.
+- Turkcesi, Ingilizcesi ve Arapcasi AYRI gorunmuyorsa o istilah
+  listeye GIRMEZ. Bu yuzden mursal, mawquf, marfu', mu'allaq,
+  munqati', shadhdh, munkar, tadlis ELENDI — Ingilizce makaleler
+  bunlari Arapca birakiyor.
+- Yerlerine (a) Ingilizce karsiligi gercekten olan klasik istilahlar
+  (chain, transmitter, text, authentic, forgery, uprightness,
+  impugnment, accreditation...) ve (b) Bati'daki hadis
+  calismalarinin kendi kavram dili kondu (common link, spider, dive,
+  single strand, isnad bundle, backward growth).
+
+**Ucuncu seviye oryantalist literaturun sozlugu.** Turkce karsiliklar
+TDV Islam Ansiklopedisi'nin Juynboll maddesinden alindi: musterek ravi,
+kismi musterek ravi, tek ravili tarik, orumcek, dalis, isnad kumesi.
+"Common link"in Arapcasi olarak مَدَار secildi — Juynboll'un kendisi de
+klasik literaturde bu kavramin "medar" diye anildigini soyluyor, yani
+uydurma bir karsilik degil.
+
+cerh/ta'dil icin "impugnment" ve "accreditation" Dickinson'in Ibnu's-
+Salah cevirisinden ("impugning ... accrediting").
 
 Ingilizce karsiliklar ayrica KISA tutuldu: "comprehensive collection"
 gibi tamlamalar kartta 8 puntoya dusuyor, bu yuzden kitap turleri
