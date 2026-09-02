@@ -34,16 +34,18 @@ export default function RaviIliskiAglari() {
       <div className="flex w-full max-w-2xl flex-1 flex-col justify-center gap-6 px-6 pb-16 pt-28 sm:px-10 sm:pt-32">
         <h1 className="text-xl font-semibold sm:text-2xl">{t.cardNetworks}</h1>
 
-        {/* Iki paragraf: hangi kaynak, nerede bitiyor. Bilerek kisa --
+        {/* TEK paragraf: kaynak, kapsam, sinir. Bilerek kisa --
             ziyaretci buraya haritayi gormeye geldi, okumaya degil.
 
-            Ucuncu bir paragraf daha vardi ("Bu harita ... gosteriyor",
-            `agGirisNe`); 2026-08-30'da kaldirildi. Haritayi tanitma isi
-            artik ikinci paragrafin ilk sozune ("Bu haritada ...")
-            birakildi. */}
+            Once uc paragrafti (`agGirisNe` 2026-08-30'da kaldirildi),
+            sonra iki (`agGirisKaynak` + `agGirisSinir`). 2026-09-03'te
+            Mustafa tek paragrafa indirtti ve ikisi `agGiris`te
+            birlestirildi; ayni anda sayilar (676 ravi, 3.673 bag)
+            guncellendi ve iki gercek sinir metne girdi: muelliflerin
+            kendi hocalari olan son tabaka hala ince, bir kisim ravinin
+            de tek yonu islenmis durumda. */}
         <div className="flex flex-col gap-4 text-base leading-7 text-zinc-700 sm:text-lg sm:leading-8 dark:text-cream-dim">
-          <p>{t.agGirisKaynak}</p>
-          <p>{t.agGirisSinir}</p>
+          <p>{t.agGiris}</p>
         </div>
 
         {/* `w-fit` + `mr-auto`: dugme metnin sol kenariyla hizali,

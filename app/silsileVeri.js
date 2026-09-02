@@ -5038,6 +5038,19 @@ const EDGES_HAM = [
   E("esvedkays", "serikkadi", "—", "Tehzîb 506"),
   E("esvedkays", "sube", "خ م د ت", "Tehzîb 506"),
 
+
+  /* Alkame b. Vakkâs el-Leysî (o. ?) -- hocalari.
+     Tehzîb 4021. Tercemede 6 kayit var, agda dugumu olan 2'i cizildi. */
+  E("ibnomer", "alkamevakkas", "خ", "Tehzîb 4021"),
+  E("omer", "alkamevakkas", "ع", "Tehzîb 4021"),
+
+
+  /* Alkame b. Vakkâs el-Leysî (o. ?) -- talebeleri.
+     Tehzîb 4021. Tercemede 7 kayit var, agda dugumu olan 3'i cizildi. */
+  E("alkamevakkas", "ibnebimuleyke", "خ", "Tehzîb 4021"),
+  E("alkamevakkas", "amryahyamazini", "—", "Tehzîb 4021"),
+  E("alkamevakkas", "muhammedibrahimteymi", "ع", "Tehzîb 4021"),
+
 ];
 
 /* YINELENEN KENARLAR BURADA TEKILLESTIRILIYOR.
