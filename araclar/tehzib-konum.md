@@ -169,13 +169,13 @@ doğrudan okur. `Tehzîb N` = terceme numarası, başlık yok, sayfadan oku.
 | suaybebihamza | شعيب بن أبي حمزة | **title 2784** · s. 6290 |
 | salihkeysan | صالح بن كيسان | BAŞLIKSIZ · Tehzîb 2834 · s. 6461 (13/79) |
 | ebudavudtayalisi | سليمان بن داود بن الجارود | BAŞLIKSIZ · Tehzîb 2507 · s. 5722 (11/401) |
-| hisamdestuvai | هشام بن أبي عبد الله الدستوائي | BAŞLIKSIZ · s. 16282-16283 (30/216) |
+| hisamdestuvai | هشام بن أبي عبد الله الدستوائي | BAŞLIKSIZ · Tehzîb 6582 · s. 16282 (30/215) |
 | seybannahvi | شيبان بن عبد الرحمن التميمي | BAŞLIKSIZ · Tehzîb 2784 · s. 6366 (12/592) |
 | hemmamyahya | همام بن يحيى | **title 6939** · s. 16369 |
 | israilyunus | إسرائيل بن يونس | **title 458** · s. 997 |
 | cerirabdulhamid | جرير بن عبد الحميد بن قرط | BAŞLIKSIZ · Tehzîb 918 · s. 2054 (4/540) |
 | velidmuslim | الوليد بن مسلم | **title 7086** · s. 16635 |
-| safii | محمد بن إدريس بن العباس | BAŞLIKSIZ · Tehzîb 5049 · s. 12866 (24/355) |
+| safii | محمد بن إدريس بن العباس | BAŞLIKSIZ · Tehzîb 5049 · s. 12866-12869 (24/355) |
 | muazcebel | معاذ بن جبل | BAŞLIKSIZ · Tehzîb 6020 · s. 15081 (28/105) |
 | ebudderda | عويمر بن مالك | BAŞLIKSIZ · Tehzîb 4558 · s. 11723 (22/469) |
 | imranhusayn | عمران بن حصين | **title 4901** · s. 11573 |

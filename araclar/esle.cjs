@@ -29,6 +29,11 @@ const sad = (s) => s
   .replace(/ؤ/g, "و")
   .replace(/ئ/g, "ي")
   .replace(/\(.*?\)/g, " ")                       // (م د س) rumuzlari
+  /* NOKTALAMA. Listenin SON kaydi noktayla bitiyor ve nokta son
+     belirtece YAPISIK kaliyor: «عائشة أم المؤمنين.» -> «مومنين.»,
+     dugumdeki «مومنين» ile tutmuyor. Yani her tercemenin son kaydi
+     sessizce dusme riski tasiyordu. */
+  .replace(/[.,،؛:!؟«»"'\[\]{}]/g, " ")
   .replace(/[٠-٩\d]+/g, " ")
   .replace(/\s+/g, " ").trim();
 
