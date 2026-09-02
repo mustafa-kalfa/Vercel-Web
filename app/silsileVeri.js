@@ -4606,6 +4606,70 @@ const EDGES_HAM = [
   E("abdrahmanabza", "ibnebileyla", "—", "Tehzîb 3748"),
   E("abdrahmanabza", "ebuishaksebii", "بخ", "Tehzîb 3748"),
 
+
+  /* Ebû'l-Minhâl Abdurrahman b. Mut‘im (o. ?) -- hocalari.
+     Tehzîb 3958. Tercemede 4 kayit var, agda dugumu olan 2'i cizildi. */
+  E("bera", "ebulminhal", "خ م س", "Tehzîb 3958"),
+  E("zeydarkam", "ebulminhal", "خ م س", "Tehzîb 3958"),
+
+
+  /* Ebû'l-Minhâl Abdurrahman b. Mut‘im (o. ?) -- talebeleri.
+     Tehzîb 3958. Tercemede 7 kayit var, agda dugumu olan 3'i cizildi. */
+  E("ebulminhal", "ismailumeyye", "—", "Tehzîb 3958"),
+  E("ebulminhal", "habibebisabit", "خ م س", "Tehzîb 3958"),
+  E("ebulminhal", "amrdinar", "ع", "Tehzîb 3958"),
+
+
+  /* Ömer b. Zerr el-Hemdânî (o. 153) -- hocalari.
+     Tehzîb 4230. Tercemede 12 kayit var, agda dugumu olan 4'i cizildi. */
+  E("saidcubeyr", "omerzerr", "—", "Tehzîb 4230"),
+  E("ebuvail", "omerzerr", "—", "Tehzîb 4230"),
+  E("ataebirebah", "omerzerr", "—", "Tehzîb 4230"),
+  E("mucahid", "omerzerr", "خ د ت", "Tehzîb 4230"),
+
+
+  /* Ömer b. Zerr el-Hemdânî (o. 153) -- talebeleri.
+     Tehzîb 4230. Tercemede 32 kayit var, agda dugumu olan 9'i cizildi. */
+  E("omerzerr", "ibnuyeyne", "—", "Tehzîb 4230"),
+  E("omerzerr", "ebuasimnebil", "—", "Tehzîb 4230"),
+  E("omerzerr", "ibnidris", "—", "Tehzîb 4230"),
+  E("omerzerr", "ibnmubarek", "خ", "Tehzîb 4230"),
+  E("omerzerr", "ebunuaymfadl", "خ", "Tehzîb 4230"),
+  E("omerzerr", "mervanfezari", "—", "Tehzîb 4230"),
+  E("omerzerr", "yalaubeyd", "ت", "Tehzîb 4230"),
+  E("omerzerr", "yunusbukeyr", "ت", "Tehzîb 4230"),
+  E("omerzerr", "ebumuaviyedarir", "—", "Tehzîb 4230"),
+
+
+  /* Fıtr b. Halîfe (o. 155) -- hocalari.
+     Tehzîb 4773. Tercemede 26 kayit var, agda dugumu olan 15'i cizildi. */
+  E("habibebisabit", "fitrhalife", "—", "Tehzîb 4773"),
+  E("sadubeyde", "fitrhalife", "دسي", "Tehzîb 4773"),
+  E("ebuvail", "fitrhalife", "—", "Tehzîb 4773"),
+  E("tavus", "fitrhalife", "—", "Tehzîb 4773"),
+  E("asimbehdele", "fitrhalife", "د", "Tehzîb 4773"),
+  E("ebutufeyl", "fitrhalife", "—", "Tehzîb 4773"),
+  E("sabi", "fitrhalife", "—", "Tehzîb 4773"),
+  E("ataebirebah", "fitrhalife", "س", "Tehzîb 4773"),
+  E("ikrime", "fitrhalife", "—", "Tehzîb 4773"),
+  E("amrhurays", "fitrhalife", "—", "Tehzîb 4773"),
+  E("kasimebibezze", "fitrhalife", "دسي", "Tehzîb 4773"),
+  E("mucahid", "fitrhalife", "خ د ت", "Tehzîb 4773"),
+  E("ebuduha", "fitrhalife", "س", "Tehzîb 4773"),
+  E("mansurmutemir", "fitrhalife", "—", "Tehzîb 4773"),
+  E("ebuishaksebii", "fitrhalife", "س", "Tehzîb 4773"),
+
+
+  /* Fıtr b. Halîfe (o. 155) -- talebeleri.
+     Tehzîb 4773. Tercemede 23 kayit var, agda dugumu olan 7'i cizildi. */
+  E("fitrhalife", "ebuusamehammad", "د", "Tehzîb 4773"),
+  E("fitrhalife", "sevri", "خ د", "Tehzîb 4773"),
+  E("fitrhalife", "ibnuyeyne", "ت", "Tehzîb 4773"),
+  E("fitrhalife", "ibnmubarek", "س ق", "Tehzîb 4773"),
+  E("fitrhalife", "ubeydullahmusa", "د", "Tehzîb 4773"),
+  E("fitrhalife", "ebunuaymfadl", "بخ د", "Tehzîb 4773"),
+  E("fitrhalife", "muhammedbisrabdi", "س", "Tehzîb 4773"),
+
 ];
 
 /* YINELENEN KENARLAR BURADA TEKILLESTIRILIYOR.
