@@ -2,8 +2,9 @@ import type { Kelime } from "./DilAntrenmani";
 
 /* DİL ANTRENMANI — kelime havuzları.
 
-   İki küme var, ikisi de 20 seviye: `B1_SEVIYELERI` (Oxford B1) ve
-   `HADIS_SEVIYELERI` (hadis ilminin ıstılahları). Kümeler
+   Beş küme var. Oxford katmanları `A1_SEVIYELERI`, `A2_SEVIYELERI`,
+   `B2_SEVIYELERI`, `C1_SEVIYELERI` (12'şer seviye) ve `B1_SEVIYELERI`
+   (20 seviye); bir de `HADIS_SEVIYELERI` (20 seviye). Kümeler
    `DilAntrenmaniHub` içinde `KUMELER` dizisinden bağlanıyor.
 
    HER SEVİYE TAM ALTI KELİME TUTUYOR ve o altısı hep aynı. Tahta 5x5 =
@@ -555,6 +556,291 @@ export const B1_SEVIYELERI: Seviye[] = [
       { tr: "parlak", en: "shiny", ar: "لَامِع" },
       { tr: "sessiz", en: "silent", ar: "صَامِت" },
       { tr: "çirkin", en: "ugly", ar: "قَبِيح" },
+    ],
+  },
+];
+
+/* B2 ve C1 HAVUZLARI — 12'şer seviye, altışar kelime.
+
+   Kaynak `oxford-B2.csv` (1299 kelime) ve `oxford-C1.csv` (1285 kelime).
+   Ölçütler A1/A2 ile aynı: tek anlamlı, türü sabit (isim ve sıfat),
+   seviye içi karışma yok, Türkçesi İngilizcesiyle aynı değil.
+
+   Son ölçüt bu iki katmanda daha çok kelime eledi, çünkü ileri seviye
+   Oxford listesinde Türkçeye olduğu gibi geçmiş kelimeler yoğun --
+   karbon, oksijen, bakteri, mineral, ritim, bale, senatör, referandum,
+   rejim, kabine, kota. Hepsi listeye alınmadı; kart üç dilde de aynı
+   göründüğünde eşleştirme kendiliğinden çözülüyor.
+
+   Seviye içi karışma yine script'le tarandı. C1'de bir çift yakalandı,
+   "bakanlık / egemenlik" (Türkçede ikisi de -nlik ile bitiyor);
+   egemenlik yerine "antlaşma / treaty" kondu. */
+export const B2_SEVIYELERI: Seviye[] = [
+  {
+    tema: "Doğa",
+    kelimeler: [
+      { tr: "mağara", en: "cave", ar: "كَهْف" },
+      { tr: "uçurum", en: "cliff", ar: "جُرْف" },
+      { tr: "kıyı", en: "shore", ar: "شَاطِئ" },
+      { tr: "yamaç", en: "slope", ar: "مُنْحَدَر" },
+      { tr: "kanal", en: "canal", ar: "قَنَاة" },
+      { tr: "liman", en: "harbour", ar: "مِينَاء" },
+    ],
+  },
+  {
+    tema: "Malzeme",
+    kelimeler: [
+      { tr: "çelik", en: "steel", ar: "فُولَاذ" },
+      { tr: "tuğla", en: "brick", ar: "طُوب" },
+      { tr: "ipek", en: "silk", ar: "حَرِير" },
+      { tr: "mürekkep", en: "ink", ar: "حِبْر" },
+      { tr: "mum", en: "candle", ar: "شَمْعَة" },
+      { tr: "battaniye", en: "blanket", ar: "بِطَّانِيَّة" },
+    ],
+  },
+  {
+    tema: "Eşya",
+    kelimeler: [
+      { tr: "merdiven", en: "ladder", ar: "سُلَّم" },
+      { tr: "zarf", en: "envelope", ar: "ظَرْف" },
+      { tr: "çengel", en: "hook", ar: "خُطَّاف" },
+      { tr: "ok", en: "arrow", ar: "سَهْم" },
+      { tr: "mermi", en: "bullet", ar: "رَصَاصَة" },
+      { tr: "kask", en: "helmet", ar: "خُوذَة" },
+    ],
+  },
+  {
+    tema: "Beden",
+    kelimeler: [
+      { tr: "dirsek", en: "elbow", ar: "مِرْفَق" },
+      { tr: "yanak", en: "cheek", ar: "خَدّ" },
+      { tr: "topuk", en: "heel", ar: "كَعْب" },
+      { tr: "başparmak", en: "thumb", ar: "إِبْهَام" },
+      { tr: "bilek", en: "wrist", ar: "مِعْصَم" },
+      { tr: "akciğer", en: "lung", ar: "رِئَة" },
+    ],
+  },
+  {
+    tema: "Sağlık",
+    kelimeler: [
+      { tr: "ateş", en: "fever", ar: "حُمَّى" },
+      { tr: "hap", en: "pill", ar: "حَبَّة" },
+      { tr: "cerrah", en: "surgeon", ar: "جَرَّاح" },
+      { tr: "bulaşma", en: "infection", ar: "عَدْوَى" },
+      { tr: "kanser", en: "cancer", ar: "سَرَطَان" },
+      { tr: "sinir", en: "nerve", ar: "عَصَب" },
+    ],
+  },
+  {
+    tema: "Yönetim",
+    kelimeler: [
+      { tr: "vatandaş", en: "citizen", ar: "مُوَاطِن" },
+      { tr: "meclis", en: "parliament", ar: "بَرْلَمَان" },
+      { tr: "bakan", en: "minister", ar: "وَزِير" },
+      { tr: "vali", en: "governor", ar: "مُحَافِظ" },
+      { tr: "adalet", en: "justice", ar: "عَدْل" },
+      { tr: "özgürlük", en: "freedom", ar: "حُرِّيَّة" },
+    ],
+  },
+  {
+    tema: "Suç",
+    kelimeler: [
+      { tr: "hırsızlık", en: "theft", ar: "سَرِقَة" },
+      { tr: "soygun", en: "robbery", ar: "سَطْو" },
+      { tr: "suç", en: "offence", ar: "جَرِيمَة" },
+      { tr: "kanıt", en: "proof", ar: "بُرْهَان" },
+      { tr: "tehdit", en: "threat", ar: "تَهْدِيد" },
+      { tr: "şiddet", en: "violence", ar: "عُنْف" },
+    ],
+  },
+  {
+    tema: "Para",
+    kelimeler: [
+      { tr: "borç", en: "debt", ar: "دَيْن" },
+      { tr: "bütçe", en: "budget", ar: "مِيزَانِيَّة" },
+      { tr: "ücret", en: "wage", ar: "أَجْر" },
+      { tr: "gelir", en: "income", ar: "دَخْل" },
+      { tr: "kredi", en: "loan", ar: "قَرْض" },
+      { tr: "harcama", en: "expense", ar: "نَفَقَة" },
+    ],
+  },
+  {
+    tema: "İş",
+    kelimeler: [
+      { tr: "uzman", en: "specialist", ar: "خَبِير" },
+      { tr: "danışman", en: "consultant", ar: "مُسْتَشَار" },
+      { tr: "satıcı", en: "dealer", ar: "تَاجِر" },
+      { tr: "kurucu", en: "founder", ar: "مُؤَسِّس" },
+      { tr: "liderlik", en: "leadership", ar: "قِيَادَة" },
+      { tr: "sigorta", en: "insurance", ar: "تَأْمِين" },
+    ],
+  },
+  {
+    tema: "Bilim",
+    kelimeler: [
+      { tr: "hücre", en: "cell", ar: "خَلِيَّة" },
+      { tr: "evren", en: "universe", ar: "كَوْن" },
+      { tr: "roket", en: "rocket", ar: "صَارُوخ" },
+      { tr: "derinlik", en: "depth", ar: "عُمْق" },
+      { tr: "hacim", en: "volume", ar: "حَجْم" },
+      { tr: "ölçüm", en: "measurement", ar: "قِيَاس" },
+    ],
+  },
+  {
+    tema: "Kültür",
+    kelimeler: [
+      { tr: "koro", en: "choir", ar: "جَوْقَة" },
+      { tr: "tapınak", en: "temple", ar: "مَعْبَد" },
+      { tr: "cami", en: "mosque", ar: "مَسْجِد" },
+      { tr: "anıt", en: "monument", ar: "نُصْب" },
+      { tr: "efsane", en: "legend", ar: "أُسْطُورَة" },
+      { tr: "masal", en: "tale", ar: "حِكَايَة" },
+    ],
+  },
+  {
+    tema: "Sıfatlar",
+    kelimeler: [
+      { tr: "kutsal", en: "holy", ar: "مُقَدَّس" },
+      { tr: "kör", en: "blind", ar: "أَعْمَى" },
+      { tr: "sığ", en: "shallow", ar: "ضَحْل" },
+      { tr: "acı", en: "bitter", ar: "مُرّ" },
+      { tr: "çıplak", en: "naked", ar: "عَارِي" },
+      { tr: "kalıcı", en: "permanent", ar: "دَائِم" },
+    ],
+  },
+];
+
+export const C1_SEVIYELERI: Seviye[] = [
+  {
+    tema: "Devlet",
+    kelimeler: [
+      { tr: "büyükelçi", en: "ambassador", ar: "سَفِير" },
+      { tr: "bakanlık", en: "ministry", ar: "وِزَارَة" },
+      { tr: "anayasa", en: "constitution", ar: "دُسْتُور" },
+      { tr: "cumhuriyet", en: "republic", ar: "جُمْهُورِيَّة" },
+      { tr: "eyalet", en: "province", ar: "مُقَاطَعَة" },
+      { tr: "antlaşma", en: "treaty", ar: "مُعَاهَدَة" },
+    ],
+  },
+  {
+    tema: "Hukuk",
+    kelimeler: [
+      { tr: "dava", en: "lawsuit", ar: "دَعْوَى" },
+      { tr: "karar", en: "verdict", ar: "حُكْم" },
+      { tr: "tanıklık", en: "testimony", ar: "شَهَادَة" },
+      { tr: "gözaltı", en: "custody", ar: "حِرَاسَة" },
+      { tr: "yaptırım", en: "sanction", ar: "عُقُوبَة" },
+      { tr: "yetki", en: "jurisdiction", ar: "اِخْتِصَاص" },
+    ],
+  },
+  {
+    tema: "Savaş",
+    kelimeler: [
+      { tr: "rehine", en: "hostage", ar: "رَهِينَة" },
+      { tr: "füze", en: "missile", ar: "صَارُوخ" },
+      { tr: "tüfek", en: "rifle", ar: "بُنْدُقِيَّة" },
+      { tr: "kılıç", en: "sword", ar: "سَيْف" },
+      { tr: "savaşçı", en: "warrior", ar: "مُحَارِب" },
+      { tr: "ayaklanma", en: "rebellion", ar: "تَمَرُّد" },
+    ],
+  },
+  {
+    tema: "Din ve ahlak",
+    kelimeler: [
+      { tr: "melek", en: "angel", ar: "مَلَاك" },
+      { tr: "günah", en: "sin", ar: "إِثْم" },
+      { tr: "merhamet", en: "mercy", ar: "رَحْمَة" },
+      { tr: "vicdan", en: "conscience", ar: "ضَمِير" },
+      { tr: "erdem", en: "virtue", ar: "فَضِيلَة" },
+      { tr: "keşiş", en: "monk", ar: "رَاهِب" },
+    ],
+  },
+  {
+    tema: "Duygu",
+    kelimeler: [
+      { tr: "keder", en: "grief", ar: "حُزْن" },
+      { tr: "nefret", en: "hatred", ar: "كَرَاهِيَة" },
+      { tr: "öfke", en: "rage", ar: "غَضَب" },
+      { tr: "şefkat", en: "compassion", ar: "شَفَقَة" },
+      { tr: "suçluluk", en: "guilt", ar: "ذَنْب" },
+      { tr: "sadakat", en: "loyalty", ar: "وَلَاء" },
+    ],
+  },
+  {
+    tema: "Toplum",
+    kelimeler: [
+      { tr: "göç", en: "migration", ar: "هِجْرَة" },
+      { tr: "eşitlik", en: "equality", ar: "مُسَاوَاة" },
+      { tr: "ayrımcılık", en: "discrimination", ar: "تَمْيِيز" },
+      { tr: "refah", en: "prosperity", ar: "اِزْدِهَار" },
+      { tr: "köylü", en: "peasant", ar: "فَلَّاح" },
+      { tr: "dul", en: "widow", ar: "أَرْمَلَة" },
+    ],
+  },
+  {
+    tema: "Ekonomi",
+    kelimeler: [
+      { tr: "açık", en: "deficit", ar: "عَجْز" },
+      { tr: "hissedar", en: "shareholder", ar: "مُسَاهِم" },
+      { tr: "birleşme", en: "merger", ar: "اِنْدِمَاج" },
+      { tr: "tekel", en: "monopoly", ar: "اِحْتِكَار" },
+      { tr: "verim", en: "productivity", ar: "إِنْتَاجِيَّة" },
+      { tr: "yük", en: "burden", ar: "عِبْء" },
+    ],
+  },
+  {
+    tema: "Mekân",
+    kelimeler: [
+      { tr: "sığınak", en: "refuge", ar: "مَلْجَأ" },
+      { tr: "ambar", en: "warehouse", ar: "مُسْتَوْدَع" },
+      { tr: "mezarlık", en: "cemetery", ar: "مَقْبَرَة" },
+      { tr: "eşik", en: "threshold", ar: "عَتَبَة" },
+      { tr: "çayır", en: "lawn", ar: "مَرْج" },
+      { tr: "gölet", en: "pond", ar: "بِرْكَة" },
+    ],
+  },
+  {
+    tema: "Doğa",
+    kelimeler: [
+      { tr: "şafak", en: "dawn", ar: "فَجْر" },
+      { tr: "ufuk", en: "horizon", ar: "أُفُق" },
+      { tr: "gelgit", en: "tide", ar: "مَدّ" },
+      { tr: "kereste", en: "timber", ar: "خَشَب" },
+      { tr: "ot", en: "weed", ar: "عُشْب" },
+      { tr: "yırtıcı", en: "predator", ar: "مُفْتَرِس" },
+    ],
+  },
+  {
+    tema: "Bilim",
+    kelimeler: [
+      { tr: "mantık", en: "logic", ar: "مَنْطِق" },
+      { tr: "denklem", en: "equation", ar: "مُعَادَلَة" },
+      { tr: "oran", en: "ratio", ar: "نِسْبَة" },
+      { tr: "tayf", en: "spectrum", ar: "طَيْف" },
+      { tr: "boyut", en: "dimension", ar: "بُعْد" },
+      { tr: "yoğunluk", en: "density", ar: "كَثَافَة" },
+    ],
+  },
+  {
+    tema: "Metin ve sanat",
+    kelimeler: [
+      { tr: "elyazması", en: "manuscript", ar: "مَخْطُوطَة" },
+      { tr: "mısra", en: "verse", ar: "بَيْت" },
+      { tr: "ezgi", en: "melody", ar: "لَحْن" },
+      { tr: "anı", en: "memoir", ar: "مُذَكِّرَة" },
+      { tr: "taslak", en: "sketch", ar: "مُسَوَّدَة" },
+      { tr: "miras", en: "heritage", ar: "تُرَاث" },
+    ],
+  },
+  {
+    tema: "Sıfatlar",
+    kelimeler: [
+      { tr: "kırılgan", en: "fragile", ar: "هَشّ" },
+      { tr: "ölümcül", en: "lethal", ar: "فَتَّاك" },
+      { tr: "görünmez", en: "invisible", ar: "خَفِيّ" },
+      { tr: "asil", en: "noble", ar: "نَبِيل" },
+      { tr: "zehirli", en: "toxic", ar: "سَامّ" },
+      { tr: "muğlak", en: "vague", ar: "غَامِض" },
     ],
   },
 ];

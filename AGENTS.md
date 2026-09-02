@@ -1427,20 +1427,23 @@ katman 2   seviyeler   "Seviye 1" ...  kare kutu, 3 sutun
 katman 3   oyun        secilen seviyenin on kelimesi
 ```
 
-**Alti kume var, dordu gercek liste aciyor.** A1 ve A2 12'ser seviye
-(`A1_SEVIYELERI`, `A2_SEVIYELERI`, 72'ser kelime), B1 ve hadis
-istilahlari 20'ser seviye. A1/A2 kaynagi `oxford-A1.csv` (901 kelime) ve
-`oxford-A2.csv` (800 kelime).
+**ALTI KUMENIN ALTISI DA gercek liste aciyor.** A1, A2, B2, C1 12'ser
+seviye (72'ser kelime); B1 ve hadis istilahlari 20'ser seviye (120'ser
+kelime). Toplam 528 kelime. Oxford kaynaklari `oxford-A1.csv` (901),
+`oxford-A2.csv` (800), `oxford-B1.csv` (700), `oxford-B2.csv` (1299),
+`oxford-C1.csv` (1285).
 
-Bu iki havuzda ayrica **Ingilizce ile Turkcenin AYNI OLMAMASINA** dikkat
-edildi: "pilot / pilot / طَيَّار" gibi bir kart eslesmeyi kendiliginden ele
-veriyor. Turkceye Ingilizceden gecmis kelimeler (pilot, profesor,
-sekreter, dedektif) bu yuzden listeye alinmadi.
+Oxford havuzlarinda **Ingilizce ile Turkcenin AYNI OLMAMASINA** ayrica
+dikkat edildi: "pilot / pilot / طَيَّار" gibi bir kart eslesmeyi
+kendiliginden ele veriyor. Turkceye oldugu gibi gecmis kelimeler
+listeye alinmadi — pilot, profesor, sekreter, dedektif, karbon, oksijen,
+bakteri, mineral, ritim, bale, senator, referandum, rejim, kabine, kota.
+Bu eleme ust katmanlarda (B2, C1) daha cok kelime goturdu.
 
-B2 ve C1 henuz YOK, ikisi de `/mustafa-calisiyor`a gidiyor. Icerik
-gelince `KUMELER` icindeki `kind`i `"liste"` yapip `seviyeler` alanina
-o kumenin dizisini vermek yetiyor — kilit, ilerleme kaydi ve basliklar
-kume kimliginden turuyor.
+`kind: "link"` yolu (kumeyi `/mustafa-calisiyor`a gondermek) kodda
+duruyor ama su an kullanan yok; icerigi hazir olmayan yeni bir kume
+eklenirse ise yarar. Yeni kume eklemek icin `KUMELER`e bir kayit yazmak
+yetiyor — kilit, ilerleme kaydi ve basliklar kume kimliginden turuyor.
 
 **SIRALI KILIT VAR** (2026-09-01, Mustafa'nin istegi: "1. seviye
 bitmeden 2. seviye acilmamali"). Her kumenin ilk seviyesi daima acik,

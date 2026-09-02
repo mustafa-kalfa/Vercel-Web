@@ -8,6 +8,8 @@ import {
   A1_SEVIYELERI,
   A2_SEVIYELERI,
   B1_SEVIYELERI,
+  B2_SEVIYELERI,
+  C1_SEVIYELERI,
   HADIS_SEVIYELERI,
   type Seviye,
 } from "./dilAntrenmaniSeviyeler";
@@ -25,12 +27,14 @@ import type { Language } from "./translations";
      katman 2  seviyeler  "Seviye 1" ... (kümenin kendi sayısı kadar)
      katman 3  oyun       seçilen seviyenin altı kelimesi
 
-   Dört küme gerçek liste açıyor: A1 ve A2 (12'şer seviye), B1 ve hadis
-   ıstılahları (20'şer seviye). B2 ile C1 henüz YOK, ikisi de `/mustafa-calisiyor`
-   sayfasına gidiyor. İçerikleri gelince `KUMELER` içindeki `kind`i
-   `"liste"` yapıp `seviyeler` alanına o kümenin dizisini vermek
-   yetiyor -- geri kalan her şey (kilit, ilerleme kaydı, başlıklar)
-   küme kimliğinden türüyor. */
+   ALTI KÜMENİN ALTISI DA gerçek liste açıyor: A1, A2, B2, C1 (12'şer
+   seviye), B1 ve hadis ıstılahları (20'şer seviye). `kind: "link"` yolu
+   (kümeyi `/mustafa-calisiyor`a göndermek) kodda duruyor ama şu an
+   kullanan yok; içeriği hazır olmayan yeni bir küme eklenirse işe yarar.
+
+   Yeni küme eklemek için `KUMELER`e bir kayıt yazmak yetiyor -- geri
+   kalan her şey (kilit, ilerleme kaydı, başlıklar) küme kimliğinden
+   türüyor. */
 
 type Kume = {
   id: string;
@@ -84,16 +88,18 @@ const KUMELER: Kume[] = [
     id: "b2",
     etiket: { tr: "B2", ar: "B2", en: "B2" },
     iri: true,
-    kind: "link",
-    href: "/mustafa-calisiyor",
+    kind: "liste",
+    seviyeler: B2_SEVIYELERI,
+    listeBaslik: { tr: "B2", ar: "B2", en: "B2" },
     rozet: { tr: "Orta üstü", ar: "فوق المتوسط", en: "Upper intermediate" },
   },
   {
     id: "c1",
     etiket: { tr: "C1", ar: "C1", en: "C1" },
     iri: true,
-    kind: "link",
-    href: "/mustafa-calisiyor",
+    kind: "liste",
+    seviyeler: C1_SEVIYELERI,
+    listeBaslik: { tr: "C1", ar: "C1", en: "C1" },
     rozet: { tr: "İleri", ar: "متقدّم", en: "Advanced" },
   },
   {
