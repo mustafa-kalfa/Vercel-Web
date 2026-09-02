@@ -49,8 +49,9 @@ const blok = `\n  /* ${ozne.tr} (o. ${ozne.olum ?? "?"}) -- ${yon === "talebe" ?
   `     ${kaynak}. Tercemede ${kayitSayisi} kayit var, agda dugumu olan ${yeni.length}'i cizildi. */\n` +
   satirlar.join("\n") + "\n";
 
-// EDGES dizisinin kapanisindan hemen once ekle
-const kapanis = f.indexOf("\n];", f.indexOf("const EDGES = ["));
+// EDGES_HAM dizisinin kapanisindan hemen once ekle (EDGES artik ondan
+// turetilen TEKILLESTIRILMIS liste, bkz. silsileVeri.js)
+const kapanis = f.indexOf("\n];", f.indexOf("const EDGES_HAM = ["));
 if (kapanis < 0) throw new Error("EDGES kapanisi bulunamadi");
 f = f.slice(0, kapanis) + "\n" + blok + f.slice(kapanis);
 fs.writeFileSync(YOL, f);

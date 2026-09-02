@@ -1262,7 +1262,7 @@ export const DIS = {
 };
 
 export const E = (a, b, r, k) => ({ a, b, r, k });
-export const EDGES = [
+const EDGES_HAM = [
   E("omer", "ali", "—", "Tehzîb 4089"),
   E("mikdad", "ali", "م د س ق", "Tehzîb 4089"),
   E("fatima", "ali", "—", "Tehzîb 4089"),
@@ -3180,6 +3180,35 @@ export const EDGES = [
   E("ebuhatimrazi", "ms29", "—", "Tehzîb 5050"),
 
 ];
+
+/* YINELENEN KENARLAR BURADA TEKILLESTIRILIYOR.
+
+   Ayni ikili birden cok tercemede geciyor: Sube'nin talebe listesinde
+   Husyem, Husyem'in hoca listesinde Sube. Ikisi de dogru, ama grafikte
+   ayni cizgi iki kez ciziliyor ve derece sayimi siseriyordu (olculdu,
+   15 kenar). Hangisinin kalacagi bir veri karari degil -- ikisi de ayni
+   iliskiyi anlatiyor; dogru olan birini tutup KAYNAKLARI BIRLESTIRMEK,
+   boylece hicbir sehadet kaybolmuyor.
+
+   Yon ilk kayittan geliyor. Kenarlarin yonu zaten hoca->talebe olarak
+   giriliyor, iki terceme ayni yonu veriyor; ters yonlu bir cift cikarsa
+   burada degil VERIDE duzeltilmeli.
+
+   Tekillestirme CIZIM tarafinda degil burada: dugumleri-cikar.cjs ve
+   isle.cjs de bu modulu eval edip EDGES'i okuyor, yani arac zinciri de
+   ayni tekil listeyi goruyor. */
+export const EDGES = (() => {
+  const gorulen = new Map();
+  for (const e of EDGES_HAM) {
+    const onceki = gorulen.get(e.a + "|" + e.b) || gorulen.get(e.b + "|" + e.a);
+    if (!onceki) { gorulen.set(e.a + "|" + e.b, { ...e }); continue; }
+    if (e.k && onceki.k && !onceki.k.includes(e.k)) onceki.k += " + " + e.k;
+    // Rumuz yalnizca bostan doluya gecer; dolu bir rumuzun ustune yazma.
+    if ((!onceki.r || onceki.r === "—") && e.r) onceki.r = e.r;
+  }
+  return [...gorulen.values()];
+})();
+
 
 // En çok hadis rivayet eden yedi sahâbî
 // Ali b. el-Medînî, el-İlel: isnâdın üzerinde döndüğü tabakalar
