@@ -103,7 +103,13 @@ Netlik iki kaynaktan bozuluyordu. Cihaz piksel oranı ikiyle sınırlanmıştı,
 Bir de **öğe işleyicilerinde yaşayan davranışlar sessizce kaybolur.** SVG'de her düğümün kendi `onPointerUp`'ı vardı ve `odaklan`'ı çağırıyordu; o fonksiyon yalnızca seçmiyor, ekranı seçilen râviye **ortalıyor** ve aynı râviye tekrar tıklandığında seçimi **kaldırıyordu**. Canvas'ta tıklama tek bir yere toplanınca doğrudan `setSecim`'e bağlandı ve iki davranış birden gitti. Arama kutusu ile karttaki çipler hâlâ `odaklan`'ı çağırdığı için fark ancak haritaya tıklarken görülüyordu. Tuvalde vuruş sonucu düğümse **`odaklan`'dan geçmeli**.
 - Doğrulandı: açılış, yakınlaşma, kaydırma, düğüm ve etiket tıklaması, koyu mod, DPR (750×1516 tampon).
 
-Yerleşim `YAY = 4` ile dört kat seyrek (2026-09-02'de 2'den çıkarıldı), açılış yakınlığı `ACILIS_YAKINLIK` sabitinde. İkisi birbirine bağlı — seyreltme açılış çarpanıyla telafi edilmezse hiçbir şey değişmez, çünkü ağ yine aynı piksellere sığar. `ACILIS_YAKINLIK` zaten `5.25 * YAY` olduğu için açılış ölçeği `YAY`dan bağımsız kalıyor; değişen tek şey noktalar arası mesafe. Ölçüldü: sütun aralığı 210 px → 378 px, Hz. Peygamber ile Ebû Bekir arası 112 px → 225 px.
+Yerleşim `YAY = 16` ile on altı kat seyrek (2026-09-02'de önce 2'den 4'e, sonra 16'ya çıkarıldı).
+
+**`ACILIS_YAKINLIK` ile `YAY` birbirine BAĞLANMAMALI, bu bir kez yanlış yapıldı.** Eskiden `5.25 * YAY` yazılıydı. Sığdırma ölçeği `YAY` ile ters orantılı olduğu için çarpan `k`yı sabit tutuyor — ama grafik birimindeki mesafeler `YAY` katı açıldığından ekranda çerçeveye giren düğüm sayısı `YAY` katı **azalıyor**. `YAY` 16'da açılışta Hz. Peygamber'den başka nokta kadraja girmiyordu. Çarpan kaldırıldı, sabit **10,5** oldu (aynı değer, `YAY` 2'deki hâli): açılış artık `YAY`dan bağımsız, `YAY` yalnızca yakınlaşıldığında iş görüyor.
+
+Açılış kadrajı: beş belde şeridi, Hz. Peygamber / Fâtıma / Ebû Bekir / Fazl b. Abbâs / Ömer, yıl ekseninde ~24 piksel/yıl. Telefonda da aynı — harita çok uzun ve dar olduğu için sığdırma ölçeğini iki cihazda da **yükseklik** belirliyor.
+
+**Ölçek tabanları sabit sayı olamaz, `W`ye bağlı olmalı.** `enAzOlcek` ve `baslangic`taki `kSigdir` tabanı `1e-4` yazılıydı; tabanların asıl gerekçesi ölçülmemiş kapsayıcıda oranın eksiye düşüp ağı aynalaması. `YAY` 16'da gerçek sığdırma ölçeği bu sabitin altına indi ve uzaklaştırma orada durdu — telefonda harita bir türlü bütün olarak görünmüyordu (ölçüldü: 375×812'de sığdırma 7,54e-5, taban 1e-4, harita ekranı 1,33 kat aşıyor). Taban artık `1 / W`.
 
 **Etiketlerin arkasındaki hale kaldırıldı** (aynı gün, Mustafa'nın isteği). Yazı zeminin renginde kalın bir kalemle bir kez daha yazılıp (SVG'deki `paintOrder: stroke`in tuval karşılığı) kenar çizgileri üzerinde okunaklı kalıyordu. Seyreltmeden sonra yazıların altına denk gelen çizgi azaldığı için hale kazandırdığından çok göze çarpıyordu. `C.etiketHale` paletten de düştü.
 
