@@ -27,8 +27,8 @@ import type { Language } from "./translations";
      katman 2  seviyeler  "Seviye 1" ... (kümenin kendi sayısı kadar)
      katman 3  oyun       seçilen seviyenin altı kelimesi
 
-   ALTI KÜMENİN ALTISI DA gerçek liste açıyor: A1, A2, B2, C1 (12'şer
-   seviye), B1 ve hadis ıstılahları (20'şer seviye). `kind: "link"` yolu
+   ALTI KÜMENİN ALTISI DA gerçek liste açıyor ve HEPSİ 24 SEVİYE
+   (2026-09-02'de eşitlendi). `kind: "link"` yolu
    (kümeyi `/mustafa-calisiyor`a göndermek) kodda duruyor ama şu an
    kullanan yok; içeriği hazır olmayan yeni bir küme eklenirse işe yarar.
 

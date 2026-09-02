@@ -2,10 +2,15 @@ import type { Kelime } from "./DilAntrenmani";
 
 /* DİL ANTRENMANI — kelime havuzları.
 
-   Beş küme var. Oxford katmanları `A1_SEVIYELERI`, `A2_SEVIYELERI`,
-   `B2_SEVIYELERI`, `C1_SEVIYELERI` (12'şer seviye) ve `B1_SEVIYELERI`
-   (20 seviye); bir de `HADIS_SEVIYELERI` (20 seviye). Kümeler
+   ALTI KÜME, HER BİRİ 24 SEVİYE, 144 KELİME -- toplam 864 kelime.
+   Oxford katmanları `A1_SEVIYELERI`, `A2_SEVIYELERI`, `B1_SEVIYELERI`,
+   `B2_SEVIYELERI`, `C1_SEVIYELERI`; bir de `HADIS_SEVIYELERI`. Kümeler
    `DilAntrenmaniHub` içinde `KUMELER` dizisinden bağlanıyor.
+
+   Seviye sayıları 2026-09-02'de eşitlendi (Mustafâ: "bütün
+   kategorilerde seviye sayısını 24'e çıkar"). Yeni seviyeler dizilerin
+   SONUNA eklendi, araya girmedi -- bu yüzden ilerleme anahtarını
+   ilerletmek gerekmedi, eski indisler hâlâ aynı seviyeleri gösteriyor.
 
    HER SEVİYE TAM ALTI KELİME TUTUYOR ve o altısı hep aynı. Tahta 5x5 =
    25 kart, 6 kelime × 3 dil + 7 joker tam oturuyor.
@@ -50,7 +55,7 @@ export type Seviye = {
   kelimeler: Kelime[];
 };
 
-/* A1 ve A2 HAVUZLARI — 12'şer seviye, altışar kelime.
+/* A1 ve A2 HAVUZLARI — 24'er seviye, altışar kelime.
 
    Kaynak `oxford-A1.csv` (901 kelime) ve `oxford-A2.csv` (800 kelime).
    Seçim ölçütleri B1 havuzuyla aynı: tek anlamlı olacak, türü sabit
@@ -200,6 +205,138 @@ export const A1_SEVIYELERI: Seviye[] = [
       { tr: "kısa", en: "short", ar: "قَصِير" },
     ],
   },
+  {
+    tema: "Ev 2",
+    kelimeler: [
+      { tr: "banyo", en: "bathroom", ar: "حَمَّام" },
+      { tr: "oda", en: "room", ar: "غُرْفَة" },
+      { tr: "bahçe", en: "garden", ar: "حَدِيقَة" },
+      { tr: "duvar", en: "wall", ar: "جِدَار" },
+      { tr: "zemin", en: "floor", ar: "أَرْضِيَّة" },
+      { tr: "anahtar", en: "key", ar: "مِفْتَاح" },
+    ],
+  },
+  {
+    tema: "Giyim",
+    kelimeler: [
+      { tr: "gömlek", en: "shirt", ar: "قَمِيص" },
+      { tr: "ayakkabı", en: "shoe", ar: "حِذَاء" },
+      { tr: "etek", en: "skirt", ar: "تَنُّورَة" },
+      { tr: "ceket", en: "jacket", ar: "سُتْرَة" },
+      { tr: "şapka", en: "hat", ar: "قُبَّعَة" },
+      { tr: "palto", en: "coat", ar: "مِعْطَف" },
+    ],
+  },
+  {
+    tema: "İçecek",
+    kelimeler: [
+      { tr: "su", en: "water", ar: "مَاء" },
+      { tr: "çay", en: "tea", ar: "شَاي" },
+      { tr: "kahve", en: "coffee", ar: "قَهْوَة" },
+      { tr: "meyve", en: "fruit", ar: "فَاكِهَة" },
+      { tr: "et", en: "meat", ar: "لَحْم" },
+      { tr: "çorba", en: "soup", ar: "شُورْبَة" },
+    ],
+  },
+  {
+    tema: "Okul 2",
+    kelimeler: [
+      { tr: "sınıf", en: "classroom", ar: "فَصْل" },
+      { tr: "ders", en: "lesson", ar: "دَرْس" },
+      { tr: "sınav", en: "exam", ar: "اِمْتِحَان" },
+      { tr: "not", en: "note", ar: "مُلَاحَظَة" },
+      { tr: "üniversite", en: "university", ar: "جَامِعَة" },
+      { tr: "kütüphane", en: "library", ar: "مَكْتَبَة" },
+    ],
+  },
+  {
+    tema: "İş ve para",
+    kelimeler: [
+      { tr: "para", en: "money", ar: "مَال" },
+      { tr: "iş", en: "job", ar: "شُغْل" },
+      { tr: "fiyat", en: "price", ar: "سِعْر" },
+      { tr: "ofis", en: "office", ar: "مَكْتَب" },
+      { tr: "dükkân", en: "shop", ar: "دُكَّان" },
+      { tr: "müşteri", en: "customer", ar: "زَبُون" },
+    ],
+  },
+  {
+    tema: "Ulaşım",
+    kelimeler: [
+      { tr: "araba", en: "car", ar: "سَيَّارَة" },
+      { tr: "otobüs", en: "bus", ar: "حَافِلَة" },
+      { tr: "uçak", en: "plane", ar: "طَائِرَة" },
+      { tr: "tren", en: "train", ar: "قِطَار" },
+      { tr: "bisiklet", en: "bicycle", ar: "دَرَّاجَة" },
+      { tr: "yol", en: "road", ar: "طَرِيق" },
+    ],
+  },
+  {
+    tema: "Doğa 2",
+    kelimeler: [
+      { tr: "ada", en: "island", ar: "جَزِيرَة" },
+      { tr: "kar", en: "snow", ar: "ثَلْج" },
+      { tr: "yağmur", en: "rain", ar: "مَطَر" },
+      { tr: "hava", en: "weather", ar: "طَقْس" },
+      { tr: "buz", en: "ice", ar: "جَلِيد" },
+      { tr: "hayvan", en: "animal", ar: "حَيَوَان" },
+    ],
+  },
+  {
+    tema: "Beden 2",
+    kelimeler: [
+      { tr: "saç", en: "hair", ar: "شَعْر" },
+      { tr: "diş", en: "tooth", ar: "سِنّ" },
+      { tr: "ayak", en: "foot", ar: "قَدَم" },
+      { tr: "bacak", en: "leg", ar: "سَاق" },
+      { tr: "kol", en: "arm", ar: "ذِرَاع" },
+      { tr: "yüz", en: "face", ar: "وَجْه" },
+    ],
+  },
+  {
+    tema: "Hayvanlar 2",
+    kelimeler: [
+      { tr: "aslan", en: "lion", ar: "أَسَد" },
+      { tr: "fil", en: "elephant", ar: "فِيل" },
+      { tr: "yılan", en: "snake", ar: "ثُعْبَان" },
+      { tr: "inek", en: "cow", ar: "بَقَرَة" },
+      { tr: "domuz", en: "pig", ar: "خِنْزِير" },
+      { tr: "tavuk", en: "chicken", ar: "دَجَاجَة" },
+    ],
+  },
+  {
+    tema: "Zaman 2",
+    kelimeler: [
+      { tr: "dakika", en: "minute", ar: "دَقِيقَة" },
+      { tr: "saat", en: "hour", ar: "سَاعَة" },
+      { tr: "akşam", en: "evening", ar: "مَسَاء" },
+      { tr: "yaz", en: "summer", ar: "صَيْف" },
+      { tr: "kış", en: "winter", ar: "شِتَاء" },
+      { tr: "asır", en: "century", ar: "قَرْن" },
+    ],
+  },
+  {
+    tema: "Sıfatlar 2",
+    kelimeler: [
+      { tr: "güzel", en: "beautiful", ar: "جَمِيل" },
+      { tr: "kolay", en: "easy", ar: "سَهْل" },
+      { tr: "zor", en: "difficult", ar: "صَعْب" },
+      { tr: "sıcak", en: "hot", ar: "حَارّ" },
+      { tr: "soğuk", en: "cold", ar: "بَارِد" },
+      { tr: "temiz", en: "clean", ar: "نَظِيف" },
+    ],
+  },
+  {
+    tema: "Sıfatlar 3",
+    kelimeler: [
+      { tr: "mutlu", en: "happy", ar: "سَعِيد" },
+      { tr: "üzgün", en: "sad", ar: "حَزِين" },
+      { tr: "yorgun", en: "tired", ar: "تَعِب" },
+      { tr: "aç", en: "hungry", ar: "جَائِع" },
+      { tr: "zengin", en: "rich", ar: "غَنِيّ" },
+      { tr: "fakir", en: "poor", ar: "فَقِير" },
+    ],
+  },
 ];
 
 export const A2_SEVIYELERI: Seviye[] = [
@@ -333,6 +470,138 @@ export const A2_SEVIYELERI: Seviye[] = [
       { tr: "dar", en: "narrow", ar: "ضَيِّق" },
       { tr: "geniş", en: "wide", ar: "وَاسِع" },
       { tr: "boş", en: "empty", ar: "فَارِغ" },
+    ],
+  },
+  {
+    tema: "Suç ve güvenlik",
+    kelimeler: [
+      { tr: "suç", en: "crime", ar: "جَرِيمَة" },
+      { tr: "hırsız", en: "thief", ar: "لِصّ" },
+      { tr: "silah", en: "gun", ar: "سِلَاح" },
+      { tr: "tehlike", en: "danger", ar: "خَطَر" },
+      { tr: "kaza", en: "accident", ar: "حَادِث" },
+      { tr: "kanun", en: "law", ar: "قَانُون" },
+    ],
+  },
+  {
+    tema: "Bilim",
+    kelimeler: [
+      { tr: "bilgi", en: "knowledge", ar: "مَعْرِفَة" },
+      { tr: "deney", en: "experiment", ar: "تَجْرِبَة" },
+      { tr: "kimya", en: "chemistry", ar: "كِيمْيَاء" },
+      { tr: "güç", en: "power", ar: "قُوَّة" },
+      { tr: "gaz", en: "gas", ar: "غَاز" },
+      { tr: "yağ", en: "oil", ar: "زَيْت" },
+    ],
+  },
+  {
+    tema: "Bilim 2",
+    kelimeler: [
+      { tr: "fizik", en: "physics", ar: "فِيزْيَاء" },
+      { tr: "teknoloji", en: "technology", ar: "تِقْنِيَّة" },
+      { tr: "çevre", en: "environment", ar: "بِيئَة" },
+      { tr: "iklim", en: "climate", ar: "مُنَاخ" },
+      { tr: "kirlilik", en: "pollution", ar: "تَلَوُّث" },
+      { tr: "doğa", en: "nature", ar: "طَبِيعَة" },
+    ],
+  },
+  {
+    tema: "Toplum",
+    kelimeler: [
+      { tr: "toplum", en: "society", ar: "مُجْتَمَع" },
+      { tr: "nüfus", en: "population", ar: "سُكَّان" },
+      { tr: "seyirci", en: "audience", ar: "جُمْهُور" },
+      { tr: "kalabalık", en: "crowd", ar: "حَشْد" },
+      { tr: "barış", en: "peace", ar: "سَلَام" },
+      { tr: "savaş", en: "war", ar: "حَرْب" },
+    ],
+  },
+  {
+    tema: "İş 2",
+    kelimeler: [
+      { tr: "yönetici", en: "manager", ar: "مُدِير" },
+      { tr: "çalışan", en: "employee", ar: "مُوَظَّف" },
+      { tr: "maaş", en: "salary", ar: "رَاتِب" },
+      { tr: "fabrika", en: "factory", ar: "مَصْنَع" },
+      { tr: "ekipman", en: "equipment", ar: "مُعَدَّات" },
+      { tr: "hedef", en: "target", ar: "هَدَف" },
+    ],
+  },
+  {
+    tema: "Sanat",
+    kelimeler: [
+      { tr: "eğitim", en: "education", ar: "تَعْلِيم" },
+      { tr: "roman", en: "novel", ar: "رِوَايَة" },
+      { tr: "deneme", en: "essay", ar: "مَقَالَة" },
+      { tr: "dizi", en: "series", ar: "مُسَلْسَل" },
+      { tr: "sahne", en: "scene", ar: "مَشْهَد" },
+      { tr: "sembol", en: "symbol", ar: "رَمْز" },
+    ],
+  },
+  {
+    tema: "Nesne 2",
+    kelimeler: [
+      { tr: "cep", en: "pocket", ar: "جَيْب" },
+      { tr: "fırça", en: "brush", ar: "فُرْشَاة" },
+      { tr: "çöp", en: "rubbish", ar: "قُمَامَة" },
+      { tr: "alet", en: "tool", ar: "أَدَاة" },
+      { tr: "cihaz", en: "device", ar: "جِهَاز" },
+      { tr: "ekran", en: "screen", ar: "شَاشَة" },
+    ],
+  },
+  {
+    tema: "Yiyecek 2",
+    kelimeler: [
+      { tr: "sos", en: "sauce", ar: "صَلْصَة" },
+      { tr: "fasulye", en: "bean", ar: "فَاصُولْيَا" },
+      { tr: "limon", en: "lemon", ar: "لَيْمُون" },
+      { tr: "bisküvi", en: "biscuit", ar: "بِسْكُوِيت" },
+      { tr: "fındık", en: "nut", ar: "جَوْزَة" },
+      { tr: "reçel", en: "jam", ar: "مُرَبَّى" },
+    ],
+  },
+  {
+    tema: "Duygu",
+    kelimeler: [
+      { tr: "korku", en: "fear", ar: "خَوْف" },
+      { tr: "şans", en: "luck", ar: "حَظّ" },
+      { tr: "alışkanlık", en: "habit", ar: "عَادَة" },
+      { tr: "kahkaha", en: "laughter", ar: "ضَحِك" },
+      { tr: "hatıra", en: "memory", ar: "ذَاكِرَة" },
+      { tr: "rüya", en: "dream", ar: "حُلْم" },
+    ],
+  },
+  {
+    tema: "Sıfatlar 2",
+    kelimeler: [
+      { tr: "canlı", en: "alive", ar: "حَيّ" },
+      { tr: "ölü", en: "dead", ar: "مَيِّت" },
+      { tr: "gürültülü", en: "noisy", ar: "صَاخِب" },
+      { tr: "tembel", en: "lazy", ar: "كَسُول" },
+      { tr: "kibar", en: "polite", ar: "مُهَذَّب" },
+      { tr: "kaba", en: "rude", ar: "وَقِح" },
+    ],
+  },
+  {
+    tema: "Sıfatlar 3",
+    kelimeler: [
+      { tr: "yabancı", en: "foreign", ar: "أَجْنَبِيّ" },
+      { tr: "ulusal", en: "national", ar: "وَطَنِيّ" },
+      { tr: "ciddi", en: "serious", ar: "جِدِّيّ" },
+      { tr: "garip", en: "strange", ar: "غَرِيب" },
+      { tr: "güvenli", en: "safe", ar: "آمِن" },
+      { tr: "akıllı", en: "clever", ar: "ذَكِيّ" },
+    ],
+  },
+  {
+    tema: "Sıfatlar 4",
+    kelimeler: [
+      { tr: "kesin", en: "certain", ar: "أَكِيد" },
+      { tr: "imkânsız", en: "impossible", ar: "مُسْتَحِيل" },
+      { tr: "gerekli", en: "necessary", ar: "ضَرُورِيّ" },
+      { tr: "rahat", en: "comfortable", ar: "مُرِيح" },
+      { tr: "dijital", en: "digital", ar: "رَقْمِيّ" },
+      { tr: "elektrikli", en: "electric", ar: "كَهْرَبَائِيّ" },
     ],
   },
 ];
@@ -558,9 +827,53 @@ export const B1_SEVIYELERI: Seviye[] = [
       { tr: "çirkin", en: "ugly", ar: "قَبِيح" },
     ],
   },
+  {
+    tema: "Sanat 2",
+    kelimeler: [
+      { tr: "yontu", en: "sculpture", ar: "نَحْت" },
+      { tr: "sergi", en: "exhibition", ar: "مَعْرِض" },
+      { tr: "belgesel", en: "documentary", ar: "وَثَائِقِيّ" },
+      { tr: "bölüm", en: "episode", ar: "حَلْقَة" },
+      { tr: "başlık", en: "headline", ar: "عُنْوَان" },
+      { tr: "baskı", en: "printing", ar: "طِبَاعَة" },
+    ],
+  },
+  {
+    tema: "Doğa 3",
+    kelimeler: [
+      { tr: "yaprak", en: "leaf", ar: "وَرَقَة" },
+      { tr: "sel", en: "flood", ar: "فَيَضَان" },
+      { tr: "kasırga", en: "hurricane", ar: "إِعْصَار" },
+      { tr: "zehir", en: "poison", ar: "سُمّ" },
+      { tr: "sıvı", en: "liquid", ar: "سَائِل" },
+      { tr: "maden", en: "mine", ar: "مَنْجَم" },
+    ],
+  },
+  {
+    tema: "Toplum 2",
+    kelimeler: [
+      { tr: "politikacı", en: "politician", ar: "سِيَاسِيّ" },
+      { tr: "göçmen", en: "immigrant", ar: "مُهَاجِر" },
+      { tr: "gönüllü", en: "volunteer", ar: "مُتَطَوِّع" },
+      { tr: "oy", en: "vote", ar: "تَصْوِيت" },
+      { tr: "yargıç", en: "judge", ar: "قَاضِي" },
+      { tr: "vergi", en: "tax", ar: "ضَرِيبَة" },
+    ],
+  },
+  {
+    tema: "Nesne 2",
+    kelimeler: [
+      { tr: "çubuk", en: "stick", ar: "عَصَا" },
+      { tr: "paket", en: "package", ar: "طَرْد" },
+      { tr: "etiket", en: "label", ar: "بِطَاقَة" },
+      { tr: "sinyal", en: "signal", ar: "إِشَارَة" },
+      { tr: "dilim", en: "slice", ar: "شَرِيحَة" },
+      { tr: "demir", en: "iron", ar: "حَدِيد" },
+    ],
+  },
 ];
 
-/* B2 ve C1 HAVUZLARI — 12'şer seviye, altışar kelime.
+/* B2 ve C1 HAVUZLARI — 24'er seviye, altışar kelime.
 
    Kaynak `oxford-B2.csv` (1299 kelime) ve `oxford-C1.csv` (1285 kelime).
    Ölçütler A1/A2 ile aynı: tek anlamlı, türü sabit (isim ve sıfat),
@@ -708,6 +1021,138 @@ export const B2_SEVIYELERI: Seviye[] = [
       { tr: "kalıcı", en: "permanent", ar: "دَائِم" },
     ],
   },
+  {
+    tema: "Doğa 2",
+    kelimeler: [
+      { tr: "fosil", en: "fossil", ar: "أُحْفُورَة" },
+      { tr: "buğday", en: "wheat", ar: "قَمْح" },
+      { tr: "kök", en: "root", ar: "جَذْر" },
+      { tr: "gül", en: "rose", ar: "وَرْدَة" },
+      { tr: "solucan", en: "worm", ar: "دُودَة" },
+      { tr: "yaratık", en: "creature", ar: "مَخْلُوق" },
+    ],
+  },
+  {
+    tema: "Eşya 2",
+    kelimeler: [
+      { tr: "kablo", en: "cable", ar: "كَابِل" },
+      { tr: "mercek", en: "lens", ar: "عَدَسَة" },
+      { tr: "tel", en: "wire", ar: "سِلْك" },
+      { tr: "sepet", en: "basket", ar: "سَلَّة" },
+      { tr: "rozet", en: "badge", ar: "شَارَة" },
+      { tr: "tünel", en: "tunnel", ar: "نَفَق" },
+    ],
+  },
+  {
+    tema: "Sağlık 2",
+    kelimeler: [
+      { tr: "tedavi", en: "therapy", ar: "عِلَاج" },
+      { tr: "bağımlılık", en: "addiction", ar: "إِدْمَان" },
+      { tr: "beslenme", en: "nutrition", ar: "تَغْذِيَة" },
+      { tr: "kaygı", en: "anxiety", ar: "قَلَق" },
+      { tr: "bunalım", en: "depression", ar: "اِكْتِئَاب" },
+      { tr: "yara", en: "wound", ar: "جُرْح" },
+    ],
+  },
+  {
+    tema: "Tarih",
+    kelimeler: [
+      { tr: "medeniyet", en: "civilization", ar: "حَضَارَة" },
+      { tr: "sömürge", en: "colony", ar: "مُسْتَعْمَرَة" },
+      { tr: "ata", en: "ancestor", ar: "سَلَف" },
+      { tr: "köle", en: "slave", ar: "عَبْد" },
+      { tr: "devrim", en: "revolution", ar: "ثَوْرَة" },
+      { tr: "zafer", en: "victory", ar: "نَصْر" },
+    ],
+  },
+  {
+    tema: "Toplum 2",
+    kelimeler: [
+      { tr: "azınlık", en: "minority", ar: "أَقَلِّيَّة" },
+      { tr: "mülteci", en: "refugee", ar: "لَاجِئ" },
+      { tr: "hane", en: "household", ar: "أُسْرَة" },
+      { tr: "konut", en: "housing", ar: "إِسْكَان" },
+      { tr: "ilçe", en: "district", ar: "مِنْطَقَة" },
+      { tr: "barınak", en: "shelter", ar: "مَأْوَى" },
+    ],
+  },
+  {
+    tema: "Yönetim 2",
+    kelimeler: [
+      { tr: "çoğunluk", en: "majority", ar: "أَغْلَبِيَّة" },
+      { tr: "anket", en: "questionnaire", ar: "اِسْتِبْيَان" },
+      { tr: "oylama", en: "voting", ar: "اِقْتِرَاع" },
+      { tr: "ceza", en: "penalty", ar: "غَرَامَة" },
+      { tr: "yönetmelik", en: "regulation", ar: "لَائِحَة" },
+      { tr: "ölçüt", en: "criterion", ar: "مِعْيَار" },
+    ],
+  },
+  {
+    tema: "Para 2",
+    kelimeler: [
+      { tr: "yatırım", en: "investment", ar: "اِسْتِثْمَار" },
+      { tr: "fon", en: "fund", ar: "صُنْدُوق" },
+      { tr: "emeklilik", en: "retirement", ar: "تَقَاعُد" },
+      { tr: "servet", en: "wealth", ar: "ثَرْوَة" },
+      { tr: "teşvik", en: "incentive", ar: "حَافِز" },
+      { tr: "müzayede", en: "auction", ar: "مَزَاد" },
+    ],
+  },
+  {
+    tema: "Eğitim",
+    kelimeler: [
+      { tr: "müfredat", en: "curriculum", ar: "مَنْهَج" },
+      { tr: "bağış", en: "donation", ar: "تَبَرُّع" },
+      { tr: "kılavuz", en: "guideline", ar: "دَلِيل" },
+      { tr: "kurum", en: "institution", ar: "مُؤَسَّسَة" },
+      { tr: "bilgin", en: "scholar", ar: "عَالِم" },
+      { tr: "defter", en: "notebook", ar: "دَفْتَر" },
+    ],
+  },
+  {
+    tema: "Kültür 2",
+    kelimeler: [
+      { tr: "besteci", en: "composer", ar: "مُلَحِّن" },
+      { tr: "tür", en: "genre", ar: "نَوْع" },
+      { tr: "romancı", en: "novelist", ar: "رِوَائِيّ" },
+      { tr: "mizah", en: "humour", ar: "فُكَاهَة" },
+      { tr: "hayal", en: "illusion", ar: "وَهْم" },
+      { tr: "gölge", en: "shadow", ar: "ظِلّ" },
+    ],
+  },
+  {
+    tema: "Düşünce",
+    kelimeler: [
+      { tr: "felsefe", en: "philosophy", ar: "فَلْسَفَة" },
+      { tr: "ahlak", en: "ethic", ar: "أَخْلَاق" },
+      { tr: "ruh", en: "soul", ar: "رُوح" },
+      { tr: "iman", en: "faith", ar: "إِيمَان" },
+      { tr: "onur", en: "pride", ar: "كِبْرِيَاء" },
+      { tr: "utanç", en: "shame", ar: "عَار" },
+    ],
+  },
+  {
+    tema: "Duygu",
+    kelimeler: [
+      { tr: "sabır", en: "patience", ar: "صَبْر" },
+      { tr: "cesaret", en: "courage", ar: "شَجَاعَة" },
+      { tr: "öfke", en: "anger", ar: "غَضَب" },
+      { tr: "sevinç", en: "joy", ar: "فَرَح" },
+      { tr: "özgüven", en: "confidence", ar: "ثِقَة" },
+      { tr: "kâbus", en: "nightmare", ar: "كَابُوس" },
+    ],
+  },
+  {
+    tema: "Sıfatlar 2",
+    kelimeler: [
+      { tr: "yıllık", en: "annual", ar: "سَنَوِيّ" },
+      { tr: "kentsel", en: "urban", ar: "حَضَرِيّ" },
+      { tr: "kırsal", en: "rural", ar: "رِيفِيّ" },
+      { tr: "geçici", en: "temporary", ar: "مُؤَقَّت" },
+      { tr: "gizli", en: "hidden", ar: "مَخْفِيّ" },
+      { tr: "yoğun", en: "intense", ar: "كَثِيف" },
+    ],
+  },
 ];
 
 export const C1_SEVIYELERI: Seviye[] = [
@@ -843,9 +1288,141 @@ export const C1_SEVIYELERI: Seviye[] = [
       { tr: "muğlak", en: "vague", ar: "غَامِض" },
     ],
   },
+  {
+    tema: "Din 2",
+    kelimeler: [
+      { tr: "piskopos", en: "bishop", ar: "أُسْقُف" },
+      { tr: "aziz", en: "saint", ar: "قِدِّيس" },
+      { tr: "ilahiyat", en: "theology", ar: "لَاهُوت" },
+      { tr: "öğreti", en: "doctrine", ar: "عَقِيدَة" },
+      { tr: "ibadet", en: "worship", ar: "عِبَادَة" },
+      { tr: "ayin", en: "ritual", ar: "طَقْس" },
+    ],
+  },
+  {
+    tema: "Fikir",
+    kelimeler: [
+      { tr: "söylem", en: "discourse", ar: "خِطَاب" },
+      { tr: "önyargı", en: "prejudice", ar: "تَحَيُّز" },
+      { tr: "hoşgörü", en: "tolerance", ar: "تَسَامُح" },
+      { tr: "itiraz", en: "objection", ar: "اِعْتِرَاض" },
+      { tr: "uzlaşı", en: "consensus", ar: "تَوَافُق" },
+      { tr: "taviz", en: "concession", ar: "تَنَازُل" },
+    ],
+  },
+  {
+    tema: "Savaş 2",
+    kelimeler: [
+      { tr: "darbe", en: "coup", ar: "اِنْقِلَاب" },
+      { tr: "ittifak", en: "alliance", ar: "تَحَالُف" },
+      { tr: "casus", en: "spy", ar: "جَاسُوس" },
+      { tr: "çatışma", en: "clash", ar: "اِشْتِبَاك" },
+      { tr: "zulüm", en: "atrocity", ar: "فَظَاعَة" },
+      { tr: "sürgün", en: "exile", ar: "مَنْفَى" },
+    ],
+  },
+  {
+    tema: "Hukuk 2",
+    kelimeler: [
+      { tr: "mahkûmiyet", en: "conviction", ar: "إِدَانَة" },
+      { tr: "kefalet", en: "bail", ar: "كَفَالَة" },
+      { tr: "suçlama", en: "accusation", ar: "اِتِّهَام" },
+      { tr: "tutuklu", en: "inmate", ar: "نَزِيل" },
+      { tr: "denetim", en: "audit", ar: "تَدْقِيق" },
+      { tr: "savunma", en: "plea", ar: "دِفَاع" },
+    ],
+  },
+  {
+    tema: "Ticaret",
+    kelimeler: [
+      { tr: "emtia", en: "commodity", ar: "سِلْعَة" },
+      { tr: "ticaret", en: "commerce", ar: "تِجَارَة" },
+      { tr: "nakliye", en: "shipping", ar: "شَحْن" },
+      { tr: "prim", en: "premium", ar: "عَلَاوَة" },
+      { tr: "abone", en: "subscriber", ar: "مُشْتَرِك" },
+      { tr: "teşebbüs", en: "enterprise", ar: "مَشْرُوع" },
+    ],
+  },
+  {
+    tema: "Bilim 2",
+    kelimeler: [
+      { tr: "değişken", en: "variable", ar: "مُتَغَيِّر" },
+      { tr: "örneklem", en: "specimen", ar: "عَيِّنَة" },
+      { tr: "bağıntı", en: "correlation", ar: "اِرْتِبَاط" },
+      { tr: "sentez", en: "synthesis", ar: "تَرْكِيب" },
+      { tr: "benzetim", en: "simulation", ar: "مُحَاكَاة" },
+      { tr: "gösterge", en: "indicator", ar: "مُؤَشِّر" },
+    ],
+  },
+  {
+    tema: "Doğa 2",
+    kelimeler: [
+      { tr: "arazi", en: "terrain", ar: "تَضَارِيس" },
+      { tr: "sürü", en: "cattle", ar: "مَاشِيَة" },
+      { tr: "lif", en: "fibre", ar: "لِيف" },
+      { tr: "hasat", en: "harvest", ar: "حَصَاد" },
+      { tr: "kül", en: "ash", ar: "رَمَاد" },
+      { tr: "kütük", en: "log", ar: "جِذْع" },
+    ],
+  },
+  {
+    tema: "Duygu 2",
+    kelimeler: [
+      { tr: "küçümseme", en: "contempt", ar: "اِزْدِرَاء" },
+      { tr: "nezaket", en: "courtesy", ar: "لُطْف" },
+      { tr: "merak", en: "curiosity", ar: "فُضُول" },
+      { tr: "haysiyet", en: "dignity", ar: "كَرَامَة" },
+      { tr: "sefalet", en: "misery", ar: "بُؤْس" },
+      { tr: "iyimserlik", en: "optimism", ar: "تَفَاؤُل" },
+    ],
+  },
+  {
+    tema: "Toplum 2",
+    kelimeler: [
+      { tr: "intikam", en: "revenge", ar: "اِنْتِقَام" },
+      { tr: "dayanışma", en: "solidarity", ar: "تَضَامُن" },
+      { tr: "esaret", en: "slavery", ar: "عُبُودِيَّة" },
+      { tr: "adaletsizlik", en: "injustice", ar: "ظُلْم" },
+      { tr: "sömürü", en: "exploitation", ar: "اِسْتِغْلَال" },
+      { tr: "taciz", en: "harassment", ar: "تَحَرُّش" },
+    ],
+  },
+  {
+    tema: "Yönetişim",
+    kelimeler: [
+      { tr: "özerklik", en: "autonomy", ar: "اِسْتِقْلَال" },
+      { tr: "yetkinlik", en: "competence", ar: "كَفَاءَة" },
+      { tr: "gözetim", en: "supervision", ar: "إِشْرَاف" },
+      { tr: "denetleyici", en: "regulator", ar: "مُنَظِّم" },
+      { tr: "yönetişim", en: "governance", ar: "حَوْكَمَة" },
+      { tr: "temsil", en: "representation", ar: "تَمْثِيل" },
+    ],
+  },
+  {
+    tema: "Sıfatlar 2",
+    kelimeler: [
+      { tr: "acımasız", en: "brutal", ar: "وَحْشِيّ" },
+      { tr: "müzmin", en: "chronic", ar: "مُزْمِن" },
+      { tr: "muazzam", en: "immense", ar: "هَائِل" },
+      { tr: "ince", en: "subtle", ar: "دَقِيق" },
+      { tr: "sağlam", en: "robust", ar: "مَتِين" },
+      { tr: "üstün", en: "superior", ar: "مُتَفَوِّق" },
+    ],
+  },
+  {
+    tema: "Sıfatlar 3",
+    kelimeler: [
+      { tr: "dünyevi", en: "secular", ar: "عَلْمَانِيّ" },
+      { tr: "ölçülü", en: "moderate", ar: "مُعْتَدِل" },
+      { tr: "meşru", en: "legitimate", ar: "شَرْعِيّ" },
+      { tr: "alçakgönüllü", en: "humble", ar: "مُتَوَاضِع" },
+      { tr: "düşmanca", en: "hostile", ar: "عَدَائِيّ" },
+      { tr: "belirgin", en: "prominent", ar: "بَارِز" },
+    ],
+  },
 ];
 
-/* HADİSLE İLGİLİ KELİMELER — yirmi seviye.
+/* HADİSLE İLGİLİ KELİMELER — yirmi dört seviye.
 
    AMAÇ: hadis talebesi İngilizce bir makale okurken karşılaştığı
    kelimeyi tanıyabilsin. Yani İngilizce sütun, o literatürde GERÇEKTEN
@@ -1105,6 +1682,50 @@ export const HADIS_SEVIYELERI: Seviye[] = [
       { tr: "ruhsat", en: "dispensation", ar: "رُخْصَة" },
       { tr: "azimet", en: "strictness", ar: "عَزِيمَة" },
       { tr: "fetva", en: "responsum", ar: "فَتْوَى" },
+    ],
+  },
+  {
+    tema: "Râvi tabakaları",
+    kelimeler: [
+      { tr: "akran", en: "peers", ar: "أَقْرَان" },
+      { tr: "meşhur", en: "well-known", ar: "مَشْهُور" },
+      { tr: "ulüvv", en: "elevation", ar: "عُلُوّ" },
+      { tr: "nüzûl", en: "descent", ar: "نُزُول" },
+      { tr: "müselsel", en: "chained", ar: "مُسَلْسَل" },
+      { tr: "vefeyat", en: "obituaries", ar: "وَفَيَات" },
+    ],
+  },
+  {
+    tema: "Usûlle kesişim",
+    kelimeler: [
+      { tr: "mutlak", en: "absolute", ar: "مُطْلَق" },
+      { tr: "mukayyed", en: "qualified", ar: "مُقَيَّد" },
+      { tr: "âmm", en: "general", ar: "عَامّ" },
+      { tr: "hâss", en: "specific", ar: "خَاصّ" },
+      { tr: "mücmel", en: "ambiguous", ar: "مُجْمَل" },
+      { tr: "mübeyyen", en: "clarified", ar: "مُبَيَّن" },
+    ],
+  },
+  {
+    tema: "Rivayet çeşitleri",
+    kelimeler: [
+      { tr: "kudsî", en: "sacred", ar: "قُدْسِيّ" },
+      { tr: "nebevî", en: "prophetic", ar: "نَبَوِيّ" },
+      { tr: "eser", en: "tradition", ar: "أَثَر" },
+      { tr: "nakil", en: "conveyance", ar: "نَقْل" },
+      { tr: "lafız", en: "wording", ar: "لَفْظ" },
+      { tr: "mefhum", en: "purport", ar: "مَفْهُوم" },
+    ],
+  },
+  {
+    tema: "Tearuz ve tercih",
+    kelimeler: [
+      { tr: "muteber", en: "authoritative", ar: "مُعْتَبَر" },
+      { tr: "müşkil", en: "problematic", ar: "مُشْكِل" },
+      { tr: "nâsih", en: "abrogating", ar: "نَاسِخ" },
+      { tr: "teâruz", en: "conflict", ar: "تَعَارُض" },
+      { tr: "tercih", en: "preference", ar: "تَرْجِيح" },
+      { tr: "cem", en: "reconciliation", ar: "جَمْع" },
     ],
   },
 ];

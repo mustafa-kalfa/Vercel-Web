@@ -1427,11 +1427,16 @@ katman 2   seviyeler   "Seviye 1" ...  kare kutu, 3 sutun
 katman 3   oyun        secilen seviyenin on kelimesi
 ```
 
-**ALTI KUMENIN ALTISI DA gercek liste aciyor.** A1, A2, B2, C1 12'ser
-seviye (72'ser kelime); B1 ve hadis istilahlari 20'ser seviye (120'ser
-kelime). Toplam 528 kelime. Oxford kaynaklari `oxford-A1.csv` (901),
+**ALTI KUME, HER BIRI 24 SEVIYE, 144 KELIME — toplam 864 kelime.**
+Seviye sayilari 2026-09-02'de esitlendi (Mustafa: "butun kategorilerde
+seviye sayisini 24'e cikar"). Oxford kaynaklari `oxford-A1.csv` (901),
 `oxford-A2.csv` (800), `oxford-B1.csv` (700), `oxford-B2.csv` (1299),
 `oxford-C1.csv` (1285).
+
+**Yeni seviyeler dizilerin SONUNA eklendi, araya girmedi.** Bu yuzden
+ilerleme anahtarini ilerletmek GEREKMEDI -- eski indisler hala ayni
+seviyeleri gosteriyor, kimsenin ilerlemesi sifirlanmadi. Seviye
+EKLERKEN bu kurali koru; sirayi degistirirsen anahtari ilerlet.
 
 Oxford havuzlarinda **Ingilizce ile Turkcenin AYNI OLMAMASINA** ayrica
 dikkat edildi: "pilot / pilot / طَيَّار" gibi bir kart eslesmeyi
