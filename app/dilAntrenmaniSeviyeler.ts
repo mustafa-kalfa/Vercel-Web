@@ -3,7 +3,7 @@ import type { Kelime } from "./DilAntrenmani";
 /* DİL ANTRENMANI — kelime havuzları.
 
    İki küme var. `B1_SEVIYELERI` 12 seviye (Oxford B1), `HADIS_SEVIYELERI`
-   6 seviye (hadis ilminin ıstılahları). Kümeler `DilAntrenmaniHub`
+   12 seviye (hadis ilminin ıstılahları). Kümeler `DilAntrenmaniHub`
    içinde `KUMELER` dizisinden bağlanıyor.
 
    Her seviye TAM 10 kelime tutuyor, çünkü tahta 6x6 = 36 kart ve
@@ -223,7 +223,7 @@ export const B1_SEVIYELERI: Seviye[] = [
   },
 ];
 
-/* HADİSLE İLGİLİ KELİMELER — altı seviye.
+/* HADİSLE İLGİLİ KELİMELER — on iki seviye.
 
    AMAÇ: hadis talebesi İngilizce bir makale okurken karşılaştığı
    kelimeyi tanıyabilsin. Yani İngilizce sütun, o literatürde GERÇEKTEN
@@ -353,6 +353,96 @@ export const HADIS_SEVIYELERI: Seviye[] = [
       { tr: "garîb", en: "rare", ar: "غَرِيب" },
       { tr: "müdrec", en: "interpolation", ar: "مُدْرَج" },
       { tr: "mânâ rivayeti", en: "paraphrase", ar: "رِوَايَة بِالْمَعْنَى" },
+    ],
+  },
+  {
+    tema: "Râvi tenkidi",
+    kelimeler: [
+      { tr: "mecrûh", en: "discredited", ar: "مَجْرُوح" },
+      { tr: "metrûk", en: "abandoned", ar: "مَتْرُوك" },
+      { tr: "müttehem", en: "accused", ar: "مُتَّهَم" },
+      { tr: "kezzâb", en: "liar", ar: "كَذَّاب" },
+      { tr: "sadûk", en: "truthful", ar: "صَدُوق" },
+      { tr: "hüccet", en: "proof", ar: "حُجَّة" },
+      { tr: "imam", en: "authority", ar: "إِمَام" },
+      { tr: "mestûr", en: "obscure", ar: "مَسْتُور" },
+      { tr: "mübhem", en: "unnamed", ar: "مُبْهَم" },
+      { tr: "muhtelit", en: "confused", ar: "مُخْتَلِط" },
+    ],
+  },
+  {
+    tema: "İsnâd kusurları",
+    kelimeler: [
+      { tr: "inkıtâ", en: "discontinuity", ar: "اِنْقِطَاع" },
+      { tr: "ittisâl", en: "continuity", ar: "اِتِّصَال" },
+      { tr: "tedlîs", en: "concealment", ar: "تَدْلِيس" },
+      { tr: "kalb", en: "inversion", ar: "قَلْب" },
+      { tr: "tashîf", en: "misreading", ar: "تَصْحِيف" },
+      { tr: "ıztırâb", en: "inconsistency", ar: "اِضْطِرَاب" },
+      { tr: "şüzûz", en: "anomaly", ar: "شُذُوذ" },
+      { tr: "vehim", en: "error", ar: "وَهْم" },
+      { tr: "cehâlet", en: "anonymity", ar: "جَهَالَة" },
+      { tr: "teferrüd", en: "singularity", ar: "تَفَرُّد" },
+    ],
+  },
+  {
+    tema: "Erken dönem",
+    kelimeler: [
+      { tr: "hicret", en: "emigration", ar: "هِجْرَة" },
+      { tr: "sünnet", en: "precedent", ar: "سُنَّة" },
+      { tr: "bid'at", en: "innovation", ar: "بِدْعَة" },
+      { tr: "fitne", en: "civil strife", ar: "فِتْنَة" },
+      { tr: "mezhep", en: "school", ar: "مَذْهَب" },
+      { tr: "re'y", en: "opinion", ar: "رَأْي" },
+      { tr: "fıkıh", en: "jurisprudence", ar: "فِقْه" },
+      { tr: "kelâm", en: "theology", ar: "كَلَام" },
+      { tr: "tefsir", en: "exegesis", ar: "تَفْسِير" },
+      { tr: "megâzî", en: "campaigns", ar: "مَغَازِي" },
+    ],
+  },
+  {
+    tema: "Modern hadis çalışmaları",
+    kelimeler: [
+      { tr: "kısmî müşterek râvi", en: "partial common link", ar: "مَدَار جُزْئِيّ" },
+      { tr: "isnâdların yayılması", en: "spread of isnads", ar: "اِنْتِشَار الْأَسَانِيد" },
+      { tr: "şifahî nakil", en: "oral transmission", ar: "نَقْل شَفَوِيّ" },
+      { tr: "otantiklik", en: "authenticity", ar: "أَصَالَة" },
+      { tr: "şüphecilik", en: "scepticism", ar: "شَكّ" },
+      { tr: "tabakat", en: "prosopography", ar: "طَبَقَات" },
+      { tr: "metin tenkidi", en: "textual criticism", ar: "نَقْد الْمَتْن" },
+      { tr: "nâkid", en: "critic", ar: "نَاقِد" },
+      { tr: "kaynak", en: "source", ar: "مَصْدَر" },
+      { tr: "tarihsellik", en: "historicity", ar: "تَارِيخِيَّة" },
+    ],
+  },
+  {
+    tema: "İsim ve kimlik",
+    kelimeler: [
+      { tr: "künye", en: "teknonym", ar: "كُنْيَة" },
+      { tr: "lakap", en: "epithet", ar: "لَقَب" },
+      { tr: "nesep", en: "lineage", ar: "نَسَب" },
+      { tr: "mevlâ", en: "client", ar: "مَوْلَى" },
+      { tr: "kabile", en: "tribe", ar: "قَبِيلَة" },
+      { tr: "vefat", en: "death", ar: "وَفَاة" },
+      { tr: "doğum", en: "birth", ar: "مَوْلِد" },
+      { tr: "hoca", en: "teacher", ar: "شَيْخ" },
+      { tr: "talebe", en: "student", ar: "تِلْمِيذ" },
+      { tr: "muâsır", en: "contemporary", ar: "مُعَاصِر" },
+    ],
+  },
+  {
+    tema: "Rivayet ve amel",
+    kelimeler: [
+      { tr: "amel", en: "practice", ar: "عَمَل" },
+      { tr: "ihticâc", en: "argumentation", ar: "اِحْتِجَاج" },
+      { tr: "maslahat", en: "public interest", ar: "مَصْلَحَة" },
+      { tr: "hüküm", en: "ruling", ar: "حُكْم" },
+      { tr: "delil", en: "evidence", ar: "دَلِيل" },
+      { tr: "icmâ", en: "consensus", ar: "إِجْمَاع" },
+      { tr: "kıyas", en: "analogy", ar: "قِيَاس" },
+      { tr: "ruhsat", en: "dispensation", ar: "رُخْصَة" },
+      { tr: "azimet", en: "strictness", ar: "عَزِيمَة" },
+      { tr: "fetva", en: "responsum", ar: "فَتْوَى" },
     ],
   },
 ];

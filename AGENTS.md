@@ -1428,7 +1428,7 @@ katman 3   oyun        secilen seviyenin on kelimesi
 ```
 
 **Dort kume var, ikisi gercek liste aciyor.** B1 12 seviye
-(`B1_SEVIYELERI`), hadis istilahlari 6 seviye (`HADIS_SEVIYELERI`).
+(`B1_SEVIYELERI`), hadis istilahlari 12 seviye (`HADIS_SEVIYELERI`).
 B2 ve C1 henuz YOK, ikisi de `/mustafa-calisiyor`a gidiyor. Icerik
 gelince `KUMELER` icindeki `kind`i `"liste"` yapip `seviyeler` alanina
 o kumenin dizisini vermek yetiyor — kilit, ilerleme kaydi ve basliklar
@@ -1668,9 +1668,16 @@ uydurma bir karsilik degil.
 cerh/ta'dil icin "impugnment" ve "accreditation" Dickinson'in Ibnu's-
 Salah cevirisinden ("impugning ... accrediting").
 
-**Alti seviye var** (2026-09-02'de 3'ten cikarildi): isnad ve nakil /
-sihhat ve tenkit / Bati'da hadis calismalari / tahammul ve eda /
-kitaplar ve alimler / metin ve muhteva. Dorduncu seviyedeki nakil
+**On iki seviye var** (2026-09-02'de once 3'ten 6'ya, sonra 12'ye
+cikarildi): isnad ve nakil / sihhat ve tenkit / Bati'da hadis
+calismalari / tahammul ve eda / kitaplar ve alimler / metin ve muhteva /
+ravi tenkidi / isnad kusurlari / erken donem / modern hadis
+calismalari / isim ve kimlik / rivayet ve amel.
+
+Ravi tenkidi derecelerinin Ingilizcesi Brown'un Yaqeen makalesindeki
+kullanimla ayni: matruk "abandoned", saduk "truthful/sincere". tabakat
+icin "prosopography", kunye icin "teknonym", fetva icin "responsum" --
+ucu de Bati literaturunun kendi terimleri. Dorduncu seviyedeki nakil
 usullerinin Ingilizce karsiliklari da ayni ceviri gelenegdinden geliyor
 -- sama' "audition", kiraat "recitation", icazet "licence", munavele
 "handing over", mukatebe "correspondence", i'lam "notification",
@@ -1680,10 +1687,12 @@ vasiyet "bequest", vicade "finding".
 ayni seviyeleri gostermeye devam ediyor. Anahtari ancak seviyelerin
 SIRASI degisirse ilerlet.
 
-Ayni seviyede KOK BENZERLIGI olan ciftlerden kacinildi: tasnif/musannif
-(تصنيف/مصنف) ve i'lam/imla (إعلام/إملاء) bir arada olsalardi Arapca
-kartlar bir bakista ayirt edilemezdi -- musannif ve imla listeye hic
-girmedi.
+Ayni seviyede KOK BENZERLIGI olan ciftlerden kacinildi, cunku Arapca
+kartlar bir bakista ayirt edilemez hale geliyor. Bu yuzden listeye HIC
+girmeyenler: musannif (tasnif ile تصنيف/مصنف), imla (i'lam ile
+إعلام/إملاء), tahrif (tashif ile تحريف/تصحيف), nisbe (nesep ile
+نسبة/نسب), istidlal (delil ile استدلال/دليل). Yeni istilah eklerken
+ayni denetimi yap.
 
 Ingilizce karsiliklar ayrica KISA tutuldu: "comprehensive collection"
 gibi tamlamalar kartta 8 puntoya dusuyor, bu yuzden kitap turleri
