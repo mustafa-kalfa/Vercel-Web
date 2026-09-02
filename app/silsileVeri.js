@@ -2765,6 +2765,184 @@ export const EDGES = [
   E("ebudavudtayalisi", "nasralicehdami", "—", "Tehzîb 2507"),
   E("ebudavudtayalisi", "yakubdevraki", "—", "Tehzîb 2507"),
 
+
+  /* Velîd b. Müslim (o. 195) -- hocalari.
+     Tehzîb 6737. Tercemede 103 kayit var, agda dugumu olan 11'i cizildi. */
+  E("sevryezid", "velidmuslim", "خ د ت ق", "Tehzîb 6737"),
+  E("hassanatiyye", "velidmuslim", "د", "Tehzîb 6737"),
+  E("hanzalasufyan", "velidmuslim", "س ق", "Tehzîb 6737"),
+  E("saidabdulaziz", "velidmuslim", "م د", "Tehzîb 6737"),
+  E("sevri", "velidmuslim", "سي", "Tehzîb 6737"),
+  E("evzai", "velidmuslim", "—", "Tehzîb 6737"),
+  E("ibncureyc", "velidmuslim", "ع", "Tehzîb 6737"),
+  E("isabyunus", "velidmuslim", "—", "Tehzîb 6737"),
+  E("muhammedacilan", "velidmuslim", "ق", "Tehzîb 6737"),
+  E("muaviyesellam", "velidmuslim", "د", "Tehzîb 6737"),
+  E("hisamhassan", "velidmuslim", "ق", "Tehzîb 6737"),
+
+
+  /* Velîd b. Müslim (o. 195) -- talebeleri.
+     Tehzîb 6737. Tercemede 96 kayit var, agda dugumu olan 15'i cizildi. */
+  E("velidmuslim", "ibrahimmunzirhizami", "خ", "Tehzîb 6737"),
+  E("velidmuslim", "ahmedhanbel", "د", "Tehzîb 6737"),
+  E("velidmuslim", "ibnrahuye", "خ م", "Tehzîb 6737"),
+  E("velidmuslim", "bakiyyevelid", "—", "Tehzîb 6737"),
+  E("velidmuslim", "zuheyrharb", "م", "Tehzîb 6737"),
+  E("velidmuslim", "suveydsaidhadesani", "—", "Tehzîb 6737"),
+  E("velidmuslim", "damrarebia", "—", "Tehzîb 6737"),
+  E("velidmuslim", "ibnvehb", "—", "Tehzîb 6737"),
+  E("velidmuslim", "alimedini", "خ", "Tehzîb 6737"),
+  E("velidmuslim", "kuteybesaid", "ت", "Tehzîb 6737"),
+  E("velidmuslim", "mucahidmusa", "ق", "Tehzîb 6737"),
+  E("velidmuslim", "muhammedsuaybsabur", "—", "Tehzîb 6737"),
+  E("velidmuslim", "ibnmusenna", "خ م د س", "Tehzîb 6737"),
+  E("velidmuslim", "mahmudgaylan", "—", "Tehzîb 6737"),
+  E("velidmuslim", "harunmaruf", "م", "Tehzîb 6737"),
+
+
+  /* Cerîr b. Abdilhamîd (o. 188) -- hocalari.
+     Tehzîb 918. Tercemede 54 kayit var, agda dugumu olan 23'i cizildi. */
+  E("ismailebihalid", "cerirabdulhamid", "خ م", "Tehzîb 918"),
+  E("beyanbisr", "cerirabdulhamid", "م س", "Tehzîb 918"),
+  E("hasanubeydullah", "cerirabdulhamid", "م د ت", "Tehzîb 918"),
+  E("husaynabdrahman", "cerirabdulhamid", "م", "Tehzîb 918"),
+  E("hamzazeyyat", "cerirabdulhamid", "مق", "Tehzîb 918"),
+  E("suleymanteymi", "cerirabdulhamid", "م س", "Tehzîb 918"),
+  E("suheylebisalih", "cerirabdulhamid", "م ٤", "Tehzîb 918"),
+  E("asimahvel", "cerirabdulhamid", "م د", "Tehzîb 918"),
+  E("abdullahsubrume", "cerirabdulhamid", "س", "Tehzîb 918"),
+  E("ibnhuseymkhaysem", "cerirabdulhamid", "ت", "Tehzîb 918"),
+  E("abdulmelikumeyr", "cerirabdulhamid", "خ م", "Tehzîb 918"),
+  E("ubeydullahomeri", "cerirabdulhamid", "ق", "Tehzîb 918"),
+  E("ataisaib", "cerirabdulhamid", "د ت س", "Tehzîb 918"),
+  E("leysebisuleym", "cerirabdulhamid", "بخ", "Tehzîb 918"),
+  E("malik", "cerirabdulhamid", "—", "Tehzîb 918"),
+  E("ibnishak", "cerirabdulhamid", "ت س", "Tehzîb 918"),
+  E("mutarriftarif", "cerirabdulhamid", "خ م د س", "Tehzîb 918"),
+  E("mugirmiksem", "cerirabdulhamid", "خ م د", "Tehzîb 918"),
+  E("mansurmutemir", "cerirabdulhamid", "ع", "Tehzîb 918"),
+  E("hisamhassan", "cerirabdulhamid", "م س", "Tehzîb 918"),
+  E("hisamurve", "cerirabdulhamid", "م ت س", "Tehzîb 918"),
+  E("yahyasaidensari", "cerirabdulhamid", "م", "Tehzîb 918"),
+  E("ismailebiislamsibani", "cerirabdulhamid", "خ م د", "Tehzîb 918"),
+
+
+  /* Cerîr b. Abdilhamîd (o. 188) -- talebeleri.
+     Tehzîb 918. Tercemede 42 kayit var, agda dugumu olan 15'i cizildi. */
+  E("cerirabdulhamid", "ibrahimmusaferra", "د", "Tehzîb 918"),
+  E("cerirabdulhamid", "ahmedhanbel", "—", "Tehzîb 918"),
+  E("cerirabdulhamid", "ibnrahuye", "خ م ت س", "Tehzîb 918"),
+  E("cerirabdulhamid", "zuheyrharb", "خ م د", "Tehzîb 918"),
+  E("cerirabdulhamid", "said_mansur", "د", "Tehzîb 918"),
+  E("cerirabdulhamid", "abdan", "خ", "Tehzîb 918"),
+  E("cerirabdulhamid", "ibnmubarek", "—", "Tehzîb 918"),
+  E("cerirabdulhamid", "ibnebiseybe", "م ق", "Tehzîb 918"),
+  E("cerirabdulhamid", "osmanebiseybe", "خ م د سي", "Tehzîb 918"),
+  E("cerirabdulhamid", "alimedini", "خ", "Tehzîb 918"),
+  E("cerirabdulhamid", "kuteybesaid", "خ م ت سي", "Tehzîb 918"),
+  E("cerirabdulhamid", "muhammedisataba", "—", "Tehzîb 918"),
+  E("cerirabdulhamid", "ibnmain", "—", "Tehzîb 918"),
+  E("cerirabdulhamid", "yahyayahyanisaburi", "خ م", "Tehzîb 918"),
+  E("cerirabdulhamid", "yakubdevraki", "—", "Tehzîb 918"),
+
+
+  /* İsrâîl b. Yûnus (o. 160) -- hocalari.
+     Tehzîb 402. Tercemede 69 kayit var, agda dugumu olan 15'i cizildi. */
+  E("suddi", "israilyunus", "م ت", "Tehzîb 402"),
+  E("cabircufi", "israilyunus", "ق", "Tehzîb 402"),
+  E("saidmesrukhsevri", "israilyunus", "ق", "Tehzîb 402"),
+  E("amess", "israilyunus", "خ", "Tehzîb 402"),
+  E("simakharb", "israilyunus", "بخ م د ت س", "Tehzîb 402"),
+  E("asimbehdele", "israilyunus", "سي", "Tehzîb 402"),
+  E("asimahvel", "israilyunus", "خ", "Tehzîb 402"),
+  E("abdulkerimcezeri", "israilyunus", "س", "Tehzîb 402"),
+  E("abdulmelikumeyr", "israilyunus", "م", "Tehzîb 402"),
+  E("ebuhasin", "israilyunus", "خ س", "Tehzîb 402"),
+  E("ebuishaksebii", "israilyunus", "خ م د ت س", "Tehzîb 402"),
+  E("mugirmiksem", "israilyunus", "خ م", "Tehzîb 402"),
+  E("mansurmutemir", "israilyunus", "خ م ت س", "Tehzîb 402"),
+  E("hisamurve", "israilyunus", "خ", "Tehzîb 402"),
+  E("hilalvezzan", "israilyunus", "ت", "Tehzîb 402"),
+
+
+  /* İsrâîl b. Yûnus (o. 160) -- talebeleri.
+     Tehzîb 402. Tercemede 56 kayit var, agda dugumu olan 14'i cizildi. */
+  E("israilyunus", "ademebiiyas", "خ س", "Tehzîb 402"),
+  E("israilyunus", "abdulvehhabata", "ت", "Tehzîb 402"),
+  E("israilyunus", "ubeydullahmusa", "خ م ت س", "Tehzîb 402"),
+  E("israilyunus", "alicad", "—", "Tehzîb 402"),
+  E("israilyunus", "isabyunus", "تم", "Tehzîb 402"),
+  E("israilyunus", "ebunuaymfadl", "م س ق", "Tehzîb 402"),
+  E("israilyunus", "firyabi", "خ م د ت", "Tehzîb 402"),
+  E("israilyunus", "mafairan", "س", "Tehzîb 402"),
+  E("israilyunus", "musaismailtebuzeki", "—", "Tehzîb 402"),
+  E("israilyunus", "nadrsumeyl", "خ م", "Tehzîb 402"),
+  E("israilyunus", "hisamtayalisi", "—", "Tehzîb 402"),
+  E("israilyunus", "veki", "خ م د ت ق", "Tehzîb 402"),
+  E("israilyunus", "yahyaadem", "خ م د ت س", "Tehzîb 402"),
+  E("israilyunus", "yezidzurey", "س", "Tehzîb 402"),
+
+
+  /* Behz b. Hakîm (o. ?) -- hocalari.
+     Tehzîb 775. Tercemede 3 kayit var, agda dugumu olan 2'i cizildi. */
+  E("zurareevfa", "behzhakim", "د ت", "Tehzîb 775"),
+  E("hisamurve", "behzhakim", "—", "Tehzîb 775"),
+
+
+  /* Behz b. Hakîm (o. ?) -- talebeleri.
+     Tehzîb 775. Tercemede 50 kayit var, agda dugumu olan 22'i cizildi. */
+  E("behzhakim", "ibnuleyye", "د س ق", "Tehzîb 775"),
+  E("behzhakim", "cerirhazim", "—", "Tehzîb 775"),
+  E("behzhakim", "ebuusamehammad", "د ق", "Tehzîb 775"),
+  E("behzhakim", "hammadzeyd", "—", "Tehzîb 775"),
+  E("behzhakim", "hammadseleme", "د", "Tehzîb 775"),
+  E("behzhakim", "ruhubade", "—", "Tehzîb 775"),
+  E("behzhakim", "sevri", "د", "Tehzîb 775"),
+  E("behzhakim", "suleymanteymi", "—", "Tehzîb 775"),
+  E("behzhakim", "ebuasimnebil", "بخ", "Tehzîb 775"),
+  E("behzhakim", "abdullahavn", "—", "Tehzîb 775"),
+  E("behzhakim", "abdulvarissaid", "—", "Tehzîb 775"),
+  E("behzhakim", "abdulvehhabata", "—", "Tehzîb 775"),
+  E("behzhakim", "isabyunus", "—", "Tehzîb 775"),
+  E("behzhakim", "muhammedebiadi", "د", "Tehzîb 775"),
+  E("behzhakim", "ibnsihab", "—", "Tehzîb 775"),
+  E("behzhakim", "mervanfezari", "د", "Tehzîb 775"),
+  E("behzhakim", "muazmuaz", "ت", "Tehzîb 775"),
+  E("behzhakim", "mutemirsuleyman", "س", "Tehzîb 775"),
+  E("behzhakim", "mamer", "د س ق", "Tehzîb 775"),
+  E("behzhakim", "nadrsumeyl", "ق", "Tehzîb 775"),
+  E("behzhakim", "hisamhassan", "—", "Tehzîb 775"),
+  E("behzhakim", "yezidharun", "د ت ق", "Tehzîb 775"),
+
+
+  /* Bakiyye b. el-Velîd (o. 197) -- hocalari.
+     Tehzîb 738. Tercemede 73 kayit var, agda dugumu olan 11'i cizildi. */
+  E("sevryezid", "bakiyyevelid", "د س ق", "Tehzîb 738"),
+  E("saidabdulaziz", "bakiyyevelid", "د", "Tehzîb 738"),
+  E("sube", "bakiyyevelid", "س", "Tehzîb 738"),
+  E("ibnmubarek", "bakiyyevelid", "—", "Tehzîb 738"),
+  E("ibncureyc", "bakiyyevelid", "—", "Tehzîb 738"),
+  E("ubeydullahomeri", "bakiyyevelid", "س", "Tehzîb 738"),
+  E("malik", "bakiyyevelid", "—", "Tehzîb 738"),
+  E("muhammedvelidzubeydi", "bakiyyevelid", "م د س ق", "Tehzîb 738"),
+  E("hikalziyad", "bakiyyevelid", "—", "Tehzîb 738"),
+  E("varkaomer", "bakiyyevelid", "ق", "Tehzîb 738"),
+  E("yezidharun", "bakiyyevelid", "د", "Tehzîb 738"),
+
+
+  /* Bakiyye b. el-Velîd (o. 197) -- talebeleri.
+     Tehzîb 738. Tercemede 59 kayit var, agda dugumu olan 10'i cizildi. */
+  E("bakiyyevelid", "ibrahimmusaferra", "بخ د", "Tehzîb 738"),
+  E("bakiyyevelid", "ibnrahuye", "بخ سي", "Tehzîb 738"),
+  E("bakiyyevelid", "ismailayyas", "—", "Tehzîb 738"),
+  E("bakiyyevelid", "hammadzeyd", "—", "Tehzîb 738"),
+  E("bakiyyevelid", "hammadseleme", "—", "Tehzîb 738"),
+  E("bakiyyevelid", "ibnuyeyne", "—", "Tehzîb 738"),
+  E("bakiyyevelid", "suveydsaidhadesani", "ق", "Tehzîb 738"),
+  E("bakiyyevelid", "alihucr", "ت س", "Tehzîb 738"),
+  E("bakiyyevelid", "veki", "—", "Tehzîb 738"),
+  E("bakiyyevelid", "yakubdevraki", "س", "Tehzîb 738"),
+
 ];
 
 // En çok hadis rivayet eden yedi sahâbî
