@@ -101,12 +101,29 @@ export function kur(V) {
      sayfasini da degistirirdi. */
   const YAY = 16;
   /* Acilis yakinligi: sigdirma olceginin kac kati. Buyudukce daha
-     yakindan baslar. YAY ile carpilmasi sart, yoksa seyreltme acilisi
-     da kucultur ve birbirlerini gotururler. 12 * YAY fazla yakindi --
-     fazla yakindi. Mustafa'nin verdigi ekran goruntulerinde yil
-     ekseni yilda ~24,4 piksel; olculen deger 12 * YAY iken 39,4 idi,
-     yani 1,6 kat fazla yakin. 5,25 * YAY o oranı veriyor. */
-  const ACILIS_YAKINLIK = 5.25 * YAY;
+     yakindan baslar. Mustafa'nin verdigi ekran goruntulerinde yil
+     ekseni yilda ~24,4 piksel; olculen deger 12 kat iken 39,4 idi,
+     yani 1,6 kat fazla yakin. 10,5 o oranı veriyor.
+
+     SABIT, `YAY` ILE CARPILMIYOR -- eskiden `5,25 * YAY` yaziliydi ve
+     bu bir HATAYDI. Aradaki bagi cozmek gerekiyor cunku ikisi tam
+     olarak birbirini goturuyor: sigdirma olcegi YAY ile ters orantili,
+     yakinligi de YAY ile carpinca `k` sabit kaliyor; ama grafik
+     birimindeki mesafeler YAY kati acildigi icin EKRANDA cerceveye
+     giren dugum sayisi YAY kati AZALIYOR. YAY 16'da acilista Hz.
+     Peygamber'den baska hicbir nokta kadraja girmiyordu.
+
+     Carpan kaldirilinca cerceve YAY'dan bagimsiz hale geliyor: acilis
+     hep ayni icerigi gosteriyor (Hz. Peygamber, Fatima, Ebu Bekir,
+     Fazl b. Abbas, Omer -- ve bes belde seridi), YAY ise yalnizca
+     YAKINLASILDIGINDA ise yariyor, yogun bolgeleri ayirmak icin
+     tavani yukseltiyor. Mustafa'nin 2026-09-02'de ekran goruntusuyle
+     istedigi acilis odagi tam olarak bu.
+
+     Ayni cerceve telefonda da kendiliginden tutuyor: harita cok uzun
+     ve dar oldugu icin sigdirma olcegini her iki cihazda da YUKSEKLIK
+     belirliyor, yani yil eksenindeki piksel/yil orani ayni kaliyor. */
+  const ACILIS_YAKINLIK = 10.5;
   const POS = Object.fromEntries(Object.entries(HAM_POS)
     .map(([id, p]) => [id, { x: p.x * YAY, y: p.y * YAY }]));
   const SUTUNLAR = HAM_SUTUNLAR.map((c) => ({ ...c, x: c.x * YAY, genislik: c.genislik * YAY }));
@@ -337,11 +354,20 @@ export function kur(V) {
        POZITIF TABAN sart: kapsayici henuz olculmemisse (gizli sekme,
        kapali panel, ilk kare) genislik ve yukseklik 0 gelir, band
        paylari cikinca oranlar EKSIYE duser ve `scale(-0.0008)` gibi bir
-       donusum ag'i aynalar. Olculdu, gercekten oluyor. */
-    const enAzOlcek = useCallback(
-      () => Math.max(1e-4, Math.min((box.w - SOL_BANT) / W, (box.h - UST_BANT) / H)),
-      [box]
-    );
+       donusum ag'i aynalar. Olculdu, gercekten oluyor.
+
+       TABAN SABIT OLAMAZ, W'YE BAGLI OLMALI. Eskiden `1e-4` yaziliydi;
+       YAY 2 iken sigdirma olcegi (~3,2e-4) bunun ustunde kaldigi icin
+       fark edilmiyordu. YAY 16 olunca sigdirma olcegi 4e-5'e indi, yani
+       SABIT TABANIN ALTINA dustu: uzaklastirma 1e-4'te duruyor ve
+       harita bir turlu butun olarak goruntuye girmiyordu (Mustafa,
+       2026-09-02). Taban artik yalnizca olculmemis kapsayici icin
+       devrede ve `1 / W` -- tuvalin bir piksele indigi olcek, yani her
+       zaman pozitif ve her zaman sigdirmanin altinda. */
+    const enAzOlcek = useCallback(() => {
+      const sigdir = Math.min((box.w - SOL_BANT) / W, (box.h - UST_BANT) / H);
+      return sigdir > 0 ? sigdir : 1 / W;
+    }, [box]);
   
   
     /* Acilis gorunumu: HZ. PEYGAMBER'E ODAKLI.
@@ -363,8 +389,10 @@ export function kur(V) {
       /* Olcek POZITIF bir tabana bagli, tipki enAzOlcek gibi. Taban
          olmadan sivri bir olcum -- kapsayici bir an cok kisa olursa --
          eksi bir olcek uretiyor ve acilis gorunumu bir kez kuruldugu
-         icin bu kaliciya biniyordu. */
-      const kSigdir = Math.max(1e-4, Math.min(yatay, dikey));
+         icin bu kaliciya biniyordu. Taban `1 / W`, sabit degil: sabit
+         1e-4 iken YAY 16'da gercek sigdirma olcegini (4e-5) eziyor ve
+         acilis olmasi gerekenden 2,5 kat yakin basliyordu. */
+      const kSigdir = Math.max(1 / W, Math.min(yatay, dikey));
       // Yakinlik ACILIS_YAKINLIK sabitinde, sebebiyle birlikte.
       const k = Math.min(kSigdir * ACILIS_YAKINLIK, 0.08);
       const nebi = POS["nebi"];
