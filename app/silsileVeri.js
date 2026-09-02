@@ -4531,6 +4531,81 @@ const EDGES_HAM = [
   E("busrsaid", "yezidhusayfe", "م د س", "Tehzîb 654"),
   E("busrsaid", "ebuselemeavf", "خ م دت س", "Tehzîb 654"),
 
+
+  /* Şüreyh b. Hâni’ el-Hârisî (o. 78) -- hocalari.
+     Tehzîb 2729. Tercemede 7 kayit var, agda dugumu olan 3'i cizildi. */
+  E("sadvakkas", "sureyhhani", "م س ق", "Tehzîb 2729"),
+  E("ali", "sureyhhani", "م س ق", "Tehzîb 2729"),
+  E("omer", "sureyhhani", "—", "Tehzîb 2729"),
+
+
+  /* Şüreyh b. Hâni’ el-Hârisî (o. 78) -- talebeleri.
+     Tehzîb 2729. Tercemede 9 kayit var, agda dugumu olan 4'i cizildi. */
+  E("sureyhhani", "habibebisabit", "—", "Tehzîb 2729"),
+  E("sureyhhani", "hakemuteybe", "—", "Tehzîb 2729"),
+  E("sureyhhani", "sabi", "م س", "Tehzîb 2729"),
+  E("sureyhhani", "kasimmuhaymire", "م س ق", "Tehzîb 2729"),
+
+
+  /* Rifâa b. Râfi‘ ez-Zürakī (o. ?) -- talebeleri.
+     Tehzîb 1915. Tercemede 5 kayit var, agda dugumu olan 1'i cizildi. */
+  E("rifaazuraki", "abdullahsedddad", "—", "Tehzîb 1915"),
+
+
+  /* Hâris b. Süveyd et-Teymî (o. 72) -- hocalari.
+     Tehzîb 1022. Tercemede 4 kayit var, agda dugumu olan 3'i cizildi. */
+  E("ibnmesud", "harissuveyd", "خ م د ت س", "Tehzîb 1022"),
+  E("omer", "harissuveyd", "—", "Tehzîb 1022"),
+  E("amrmeymun", "harissuveyd", "ق", "Tehzîb 1022"),
+
+
+  /* Hâris b. Süveyd et-Teymî (o. 72) -- talebeleri.
+     Tehzîb 1022. Tercemede 6 kayit var, agda dugumu olan 1'i cizildi. */
+  E("harissuveyd", "ibrahimteymi", "خ م د س", "Tehzîb 1022"),
+
+
+  /* Esved b. Hilâl el-Muhâribî (o. 84) -- hocalari.
+     Tehzîb 508. Tercemede 6 kayit var, agda dugumu olan 3'i cizildi. */
+  E("ibnmesud", "esvedhilal", "—", "Tehzîb 508"),
+  E("omer", "esvedhilal", "—", "Tehzîb 508"),
+  E("mugirasube", "esvedhilal", "—", "Tehzîb 508"),
+
+
+  /* Esved b. Hilâl el-Muhâribî (o. 84) -- talebeleri.
+     Tehzîb 508. Tercemede 7 kayit var, agda dugumu olan 5'i cizildi. */
+  E("esvedhilal", "nehai", "—", "Tehzîb 508"),
+  E("esvedhilal", "cameseddad", "—", "Tehzîb 508"),
+  E("esvedhilal", "asimbehdele", "س", "Tehzîb 508"),
+  E("esvedhilal", "ebuhasin", "خ م", "Tehzîb 508"),
+  E("esvedhilal", "ebuishaksebii", "—", "Tehzîb 508"),
+
+
+  /* Hârise b. Mudarrib (o. ?) -- hocalari.
+     Tehzîb 1058. Tercemede 8 kayit var, agda dugumu olan 3'i cizildi. */
+  E("ebumusa", "harisemudarrib", "—", "Tehzîb 1058"),
+  E("ibnmesud", "harisemudarrib", "د س", "Tehzîb 1058"),
+  E("omer", "harisemudarrib", "—", "Tehzîb 1058"),
+
+
+  /* Hârise b. Mudarrib (o. ?) -- talebeleri.
+     Tehzîb 1058. Tercemede 1 kayit var, agda dugumu olan 1'i cizildi. */
+  E("harisemudarrib", "ebuishaksebii", "بخ ٤", "Tehzîb 1058"),
+
+
+  /* Abdurrahman b. Ebzâ (o. 70) -- hocalari.
+     Tehzîb 3748. Tercemede 7 kayit var, agda dugumu olan 4'i cizildi. */
+  E("ubey", "abdrahmanabza", "٤", "Tehzîb 3748"),
+  E("ibnabbas", "abdrahmanabza", "—", "Tehzîb 3748"),
+  E("ali", "abdrahmanabza", "—", "Tehzîb 3748"),
+  E("omer", "abdrahmanabza", "خ", "Tehzîb 3748"),
+
+
+  /* Abdurrahman b. Ebzâ (o. 70) -- talebeleri.
+     Tehzîb 3748. Tercemede 11 kayit var, agda dugumu olan 3'i cizildi. */
+  E("abdrahmanabza", "sabi", "د", "Tehzîb 3748"),
+  E("abdrahmanabza", "ibnebileyla", "—", "Tehzîb 3748"),
+  E("abdrahmanabza", "ebuishaksebii", "بخ", "Tehzîb 3748"),
+
 ];
 
 /* YINELENEN KENARLAR BURADA TEKILLESTIRILIYOR.
