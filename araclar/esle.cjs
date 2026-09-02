@@ -71,9 +71,28 @@ const KUNYE = /^(ابو|ابي|ام)\s+\S+\s+/;
 
 /* Nesep baglayicilari ve nispet onekleri: eslestirmede ayirt edici
    degiller, atiliyor. Geriye kalan "ayirt edici belirtecler". */
-const BAGLAYICI = new Set(["بن", "بنت", "ال", "و", "هو", "مولي", "مولاهم"]);
+/* AKRABALIK ONEKLERI DE BAGLAYICI.
+
+   Mizzi listelerde kisiyi cogu zaman ozneye gore konumlandiriyor:
+   «وأخيه همام بن منبه», «وابنه شعيب بن الليث», «وابن أخيه عبد الصمد».
+   Bu onekler ism sanildigi icin kayit ISM'i BASTA olmayan bir kayit
+   gibi gorunuyor ve dugum hic aranmadan eleniyordu -- Vehb b.
+   Munebbih'in oz kardesi Hemmam listede oldugu halde eslesmiyordu.
+   Ayirt edici olmadiklari icin dogru yer BAGLAYICI. */
+const BAGLAYICI = new Set(["بن", "بنت", "ال", "و", "هو", "مولي", "مولاهم",
+  "اخيه", "اخوه", "اخته", "ابنه", "ابناه", "ابيه", "عمه", "جده",
+  "ختنه", "والد", "والده", "نسيب", "سبط"]);
+/* KUNYENIN UC HALI TEK BICIME INIYOR.
+
+   Mizzi listeleri «روى عن:» ve «روى عنه:» ardindan geldigi icin adlar
+   CER HALINDE yaziliyor: «وأبي هريرة». Dugum tablosunda ise ad yalin
+   halde: «أبو هريرة». Harekeler sad()'da zaten dustugu icin geriye
+   ابي / ابو / ابا ayrimi kaliyordu ve YALNIZ KUNYESIYLE bilinen her
+   dugum (Ebu Hureyre, Ebu Vail, Ebu Kilabe, Ebu Nadra...) sessizce
+   eslesmiyordu. Uc bicim burada tek belirtece indiriliyor. */
 const belirtec = (ad) => nesep(ad).split(" ")
   .map((w) => w.replace(/^ال/, ""))
+  .map((w) => (w === "ابي" || w === "ابا" ? "ابو" : w))
   .filter((w) => w && !BAGLAYICI.has(w));
 
 /* Duz onek karsilastirmasi yetmiyordu, cunku nesep zinciri IKI YONDE
@@ -95,13 +114,32 @@ const altDizi = (kucuk, buyuk) => {
   return i === kucuk.length;
 };
 
+/* TERS YONDE ALT DIZI DEGIL ONEK.
+
+   Dugum adi kayittan uzun olabiliyor ve bu mesru: dugum
+   «عبد الرحمن بن مهدي بن حسان», kayit «عبد الرحمن بن مهدي». Ama serbest
+   alt dizi birakildiginda kayit adin ORTASINDAN atlayarak da
+   eslesiyordu ve yanlis kisiyi getiriyordu:
+
+     kayit «ابو عثمان» (adi verilmemis biri)
+       -> dugum «ابو حصين عثمان بن عاصم»   (حصين atlanarak)
+     kayit «ابو طارق البصري»
+       -> dugum «ابو عمرو احمد بن علي البصري» (yalniz nisbe uzerinden)
+
+   Oysa kisaltilmis bir ad KUYRUGUNU atar (nisbe, dede), ortasini
+   degil. Onek sarti mesru durumu koruyor, bu ikisini eliyor, ve
+   kunyesiyle bilinen dugumleri de kurtariyor: kayit «ابو هريره»
+   dugum «ابو هريره دوسي»nin onekidir. */
+const onek = (kucuk, buyuk) =>
+  kucuk.length <= buyuk.length && kucuk.every((w, i) => w === buyuk[i]);
+
 function eslestir(metin, dugumler, ozne, yon) {
   const kyt = kayitlar(metin);
   const bulunan = [];
   for (const k of kyt) {
     const kayitBel = belirtec(k.ad.replace(/^و/, ""));
     const kayitBelKunyesiz = belirtec(k.ad.replace(/^و/, "").replace(KUNYE, ""));
-    let enIyi = null, enIyiBel = 0;
+    let enIyi = null, enIyiBel = 0, enIyiTur = 0;
     for (const n of dugumler) {
       if (ozne && n.id === ozne.id) continue;      // kendine bag olmaz
       const bel = belirtec(n.ar);
@@ -114,13 +152,36 @@ function eslestir(metin, dugumler, ozne, yon) {
          «عبد الرحمن بن مهدي». Ters yonde en az iki belirtec sarti var,
          yoksa yalin bir «علي» kaydi butun uzun adlarla eslesirdi. */
       const ileri = altDizi(bel, kayitBel) || altDizi(bel, kayitBelKunyesiz);
-      const geri = kayitBel.length >= 2 &&
-                   (altDizi(kayitBel, bel) || altDizi(kayitBelKunyesiz, bel));
+      /* Esik her varyanta AYRI uygulaniyor: eskiden guard yalniz
+         kayitBel'e bakiyordu, oysa eslesmeyi kunyesi atilmis (ve tek
+         belirtece dusmus) varyant saglayabiliyordu. */
+      const geri = (kayitBel.length >= 2 && onek(kayitBel, bel)) ||
+                   (kayitBelKunyesiz.length >= 2 &&
+                    onek(kayitBelKunyesiz, bel));
       if (!ileri && !geri) continue;
       // Tek belirtecli ad ancak sohret adiysa kabul ediliyor.
       if (bel.length < 2 && !sohret) continue;
       if (ozne && !kronolojiUyar(ozne, n, yon)) continue;
-      if (bel.length > enIyiBel) { enIyi = n; enIyiBel = bel.length; }
+      /* DUZ YON TERS YONU YENER.
+
+         Iki dugum ayni kayda uyabiliyor: biri kaydin TAMAMINI
+         karsiliyor (duz: dugum adi kaydin alt dizisi), oteki kayittan
+         DAHA UZUN bir ad tasiyor (ters: kayit dugumun alt dizisi).
+         Salt "en uzun ad kazanir" dendiginde ikincisi kazaniyordu ve
+         yanlisti: «نافع مولى ابن عمر» kaydi (Nafi' mevla Ibn Omer,
+         o.117) «نافع بن عمر الجمحي» (o.169) dugumune gidiyordu --
+         kayitta gecmeyen «الجمحي» nisbesi kaydi baska birine
+         cevirdigi halde. Kayitta bulunmayan bir belirtec ADAYI
+         GUCLENDIREMEZ; zayiflatir.
+
+         Bu yuzden once eslesmenin turune, sonra ad uzunluguna
+         bakiliyor. Ters yon hala gerekli (dugum «عبد الرحمن بن مهدي
+         بن حسان», kayit «عبد الرحمن بن مهدي») ama yalnizca duz yonde
+         hicbir aday yoksa. */
+      const tur = ileri ? 2 : 1;
+      if (tur > enIyiTur || (tur === enIyiTur && bel.length > enIyiBel)) {
+        enIyi = n; enIyiBel = bel.length; enIyiTur = tur;
+      }
     }
     if (enIyi && !bulunan.some((x) => x.id === enIyi.id)) {
       bulunan.push({ id: enIyi.id, tr: enIyi.tr, ar: enIyi.ar, olum: enIyi.olum,

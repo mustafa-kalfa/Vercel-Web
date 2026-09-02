@@ -2073,7 +2073,6 @@ export const EDGES = [
   E("ubeydullahomeri", "leysbsad", "ت س ق", "Tehzîb 5016"),
   E("ataebirebah", "leysbsad", "م ٤", "Tehzîb 5016"),
   E("amrharis", "leysbsad", "—", "Tehzîb 5016"),
-  E("katade", "leysbsad", "س", "Tehzîb 5016"),
   E("muhammedacilan", "leysbsad", "بخ م د ت س", "Tehzîb 5016"),
   E("ibnsihab", "leysbsad", "ع", "Tehzîb 5016"),
   E("muaviyesalih", "leysbsad", "بخ م د ت س", "Tehzîb 5016"),
@@ -2096,7 +2095,6 @@ export const EDGES = [
   E("leysbsad", "kuteybesaid", "خ م د ت س", "Tehzîb 5016"),
   E("leysbsad", "kaysrebi", "—", "Tehzîb 5016"),
   E("leysbsad", "hisamtayalisi", "خ م ت", "Tehzîb 5016"),
-  E("leysbsad", "huseym", "س", "Tehzîb 5016"),
   E("leysbsad", "velidmuslim", "—", "Tehzîb 5016"),
   E("leysbsad", "yahyayahyanisaburi", "م س", "Tehzîb 5016"),
 
@@ -2106,23 +2104,16 @@ export const EDGES = [
   E("ubey", "hasanbasri", "ع", "Tehzîb 1216"),
   E("ahnef", "hasanbasri", "خ م ق", "Tehzîb 1216"),
   E("usame", "hasanbasri", "س", "Tehzîb 1216"),
-  E("enes", "hasanbasri", "ع", "Tehzîb 1216"),
   E("cabir", "hasanbasri", "ع", "Tehzîb 1216"),
   E("hamranaban", "hasanbasri", "ت", "Tehzîb 1216"),
   E("sadhisam", "hasanbasri", "م د س", "Tehzîb 1216"),
   E("aizamr", "hasanbasri", "م", "Tehzîb 1216"),
-  E("ibnabbas", "hasanbasri", "د ت س", "Tehzîb 1216"),
-  E("ibnomer", "hasanbasri", "س ق", "Tehzîb 1216"),
   E("abdullahamr", "hasanbasri", "س", "Tehzîb 1216"),
   E("ebumusa", "hasanbasri", "س ق", "Tehzîb 1216"),
-  E("osman", "hasanbasri", "بخ ق", "Tehzîb 1216"),
   E("ukbeamir", "hasanbasri", "د س ق", "Tehzîb 1216"),
-  E("ali", "hasanbasri", "ت س", "Tehzîb 1216"),
-  E("omer", "hasanbasri", "د", "Tehzîb 1216"),
   E("imranhusayn", "hasanbasri", "د ت س", "Tehzîb 1216"),
   E("mugirasube", "hasanbasri", "د", "Tehzîb 1216"),
   E("numanbesir", "hasanbasri", "س", "Tehzîb 1216"),
-  E("ebuhureyre", "hasanbasri", "خ ع", "Tehzîb 1216"),
 
 
   /* Hasan-ı Basrî (o. 110) -- talebeleri.
@@ -2146,11 +2137,49 @@ export const EDGES = [
   E("hasanbasri", "ataisaib", "س", "Tehzîb 1216"),
   E("hasanbasri", "alizeydcudan", "ت س", "Tehzîb 1216"),
   E("hasanbasri", "avfarabi", "خ ت س ق", "Tehzîb 1216"),
-  E("hasanbasri", "katade", "ع", "Tehzîb 1216"),
   E("hasanbasri", "matarverrak", "مس", "Tehzîb 1216"),
   E("hasanbasri", "mansurzazan", "بخ م ع", "Tehzîb 1216"),
   E("hasanbasri", "mansurmutemir", "س", "Tehzîb 1216"),
   E("hasanbasri", "hisamhassan", "ع", "Tehzîb 1216"),
+
+
+  /* Dahhâk b. Müzâhim (o. 105) -- hocalari.
+     Tehzîb 2928. Tercemede 13 kayit var, agda dugumu olan 9'i cizildi. */
+  E("esvedyezid", "dahhak", "ق", "Tehzîb 2928"),
+  E("enes", "dahhak", "ق", "Tehzîb 2928"),
+  E("zeydarkam", "dahhak", "—", "Tehzîb 2928"),
+  E("ebusaid", "dahhak", "—", "Tehzîb 2928"),
+  E("saidcubeyr", "dahhak", "—", "Tehzîb 2928"),
+  E("tavus", "dahhak", "—", "Tehzîb 2928"),
+  E("ibnomer", "dahhak", "—", "Tehzîb 2928"),
+  E("ataebirebah", "dahhak", "—", "Tehzîb 2928"),
+  E("ebuhureyre", "dahhak", "—", "Tehzîb 2928"),
+
+
+  /* Dahhâk b. Müzâhim (o. 105) -- talebeleri.
+     Tehzîb 2928. Tercemede 43 kayit var, agda dugumu olan 2'i cizildi. */
+  E("dahhak", "ismailebihalid", "—", "Tehzîb 2928"),
+  E("dahhak", "ebuishaksebii", "—", "Tehzîb 2928"),
+
+
+  /* Vehb b. Münebbih (o. 114) -- hocalari.
+     Tehzîb 6767. Tercemede 14 kayit var, agda dugumu olan 10'i cizildi. */
+  E("enes", "vehbmunebbih", "—", "Tehzîb 6767"),
+  E("tavus", "vehbmunebbih", "—", "Tehzîb 6767"),
+  E("ibnabbas", "vehbmunebbih", "د ت س", "Tehzîb 6767"),
+  E("ibnomer", "vehbmunebbih", "—", "Tehzîb 6767"),
+  E("abdullahamr", "vehbmunebbih", "د ت س", "Tehzîb 6767"),
+  E("amrsuayb", "vehbmunebbih", "س", "Tehzîb 6767"),
+  E("numanbesir", "vehbmunebbih", "—", "Tehzîb 6767"),
+  E("hemmammunebbih", "vehbmunebbih", "خ م د ت س", "Tehzîb 6767"),
+  E("ebusaid", "vehbmunebbih", "—", "Tehzîb 6767"),
+  E("ebuhureyre", "vehbmunebbih", "—", "Tehzîb 6767"),
+
+
+  /* Vehb b. Münebbih (o. 114) -- talebeleri.
+     Tehzîb 6767. Tercemede 26 kayit var, agda dugumu olan 2'i cizildi. */
+  E("vehbmunebbih", "ibnhuseymkhaysem", "—", "Tehzîb 6767"),
+  E("vehbmunebbih", "avfarabi", "—", "Tehzîb 6767"),
 
 ];
 

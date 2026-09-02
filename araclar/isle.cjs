@@ -15,10 +15,25 @@ const metin = fs.readFileSync(metinDosya, "utf8");
 const { kayitSayisi, eslesen } = eslestir(metin, dugumler, ozne, yon);
 
 let f = fs.readFileSync(YOL, "utf8");
-// mevcut kenarlari topla ki tekrar eklemeyelim
+
+/* MEVCUT KENARLAR MODULU CALISTIRARAK OKUNUYOR, METINDEN DEGIL.
+
+   Eskiden `E("a", "b"` kalibi regex ile taraniyordu. Ama kenarlarin
+   buyuk bir kismi dosyada boyle DURMUYOR; toplu bloklar halinde
+   uretiliyor:
+
+     ...[["hasanbasri","ت س"], ...].map(([b, r]) => E("ali", b, r, ...)),
+
+   Regex bunlari gormedigi icin arac, zaten var olan kenarlari "yeni"
+   sayip ikinci kez yaziyordu -- Hasan-i Basri'nin sekiz hocasi bu
+   sekilde iki kere eklendi. Modulu eval edip EDGES'i okumak her iki
+   bicimi de kesin olarak kapsiyor (dugumleri-cikar.cjs ayni yolu
+   izliyor). */
 const varOlan = new Set();
-for (const m of f.matchAll(/E\(\s*"([^"]+)"\s*,\s*"([^"]+)"/g)) varOlan.add(m[1] + "|" + m[2]);
-for (const m of f.matchAll(/\["([^"]+)"\s*,\s*"[^"]*"\]/g)) { /* map bloklari asagida */ }
+{
+  const { EDGES } = eval(f.replace(/^export /gm, "") + "\n;({ EDGES })");
+  EDGES.forEach((e) => varOlan.add(e.a + "|" + e.b));
+}
 
 const yeni = [];
 for (const e of eslesen) {
