@@ -104,7 +104,25 @@ const BAGLAYICI = new Set(["بن", "بنت", "ال", "و", "هو", "مولي", "
    ابي / ابو / ابا ayrimi kaliyordu ve YALNIZ KUNYESIYLE bilinen her
    dugum (Ebu Hureyre, Ebu Vail, Ebu Kilabe, Ebu Nadra...) sessizce
    eslesmiyordu. Uc bicim burada tek belirtece indiriliyor. */
-const belirtec = (ad) => nesep(ad).split(" ")
+/* «عبد» BILESIK ISMIN YARISI, AYRI BIR BELIRTEC DEGIL.
+
+   Ayri birakilinca «عبد الله» ve «عبد الرحمن» ILK belirteclerini
+   paylasiyor ve "ism basta" denetimi bosa dusuyor:
+   «عبد الرحمن بن عبد الله بن مسعود» kaydi (Ibn Mes'ud'un OGLU)
+   «عبد الله بن مسعود» dugumuyle esleşiyordu.
+
+   «عبد» ardindaki kelimeyle birlestiriliyor -- ama ardindan بن
+   geliyorsa DEGIL, cunku o zaman «عبد» tek basina ism (Abd b. Humeyd). */
+const birlestir = (par) => {
+  const cikti = [];
+  for (let i = 0; i < par.length; i++) {
+    const w = par[i], s = par[i + 1];
+    if (w === "عبد" && s && s !== "بن" && s !== "ابن") { cikti.push(w + s); i++; }
+    else cikti.push(w);
+  }
+  return cikti;
+};
+const belirtec = (ad) => birlestir(nesep(ad).split(" ").filter(Boolean))
   .map((w) => w.replace(/^ال/, ""))
   .map((w) => (w === "ابي" || w === "ابا" ? "ابو" : w))
   .filter((w) => w && !BAGLAYICI.has(w));

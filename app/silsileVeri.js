@@ -2253,6 +2253,57 @@ export const EDGES = [
      Tehzîb 5016. Tercemede 80 kayit var, agda dugumu olan 1'i cizildi. */
   E("ebuzubeyrmekki", "leysbsad", "م ٤", "Tehzîb 5016"),
 
+
+  /* Alkame b. Kays en-Nehaî (o. 62) -- hocalari.
+     Tehzîb, Alkame b. Kays 20/300-303. Tercemede 20 kayit var, agda dugumu olan 7'i cizildi. */
+  E("huzeyfe", "alkame", "—", "Tehzîb, Alkame b. Kays 20/300-303"),
+  E("halidvelid", "alkame", "س", "Tehzîb, Alkame b. Kays 20/300-303"),
+  E("sadvakkas", "alkame", "د س", "Tehzîb, Alkame b. Kays 20/300-303"),
+  E("ibnmesud", "alkame", "ع", "Tehzîb, Alkame b. Kays 20/300-303"),
+  E("omer", "alkame", "ت س", "Tehzîb, Alkame b. Kays 20/300-303"),
+  E("ebubekir", "alkame", "—", "Tehzîb, Alkame b. Kays 20/300-303"),
+  E("ebumusa", "alkame", "—", "Tehzîb, Alkame b. Kays 20/300-303"),
+
+
+  /* Alkame b. Kays en-Nehaî (o. 62) -- talebeleri.
+     Tehzîb, Alkame b. Kays 20/300-303. Tercemede 28 kayit var, agda dugumu olan 10'i cizildi. */
+  E("alkame", "ebuzabyan", "—", "Tehzîb, Alkame b. Kays 20/300-303"),
+  E("alkame", "selemekuheyl", "س", "Tehzîb, Alkame b. Kays 20/300-303"),
+  E("alkame", "ebuvail", "م", "Tehzîb, Alkame b. Kays 20/300-303"),
+  E("alkame", "sabi", "م د ت س", "Tehzîb, Alkame b. Kays 20/300-303"),
+  E("alkame", "abdrahmanyezidnehai", "د ت س", "Tehzîb, Alkame b. Kays 20/300-303"),
+  E("alkame", "ebuishaksebii", "س ق", "Tehzîb, Alkame b. Kays 20/300-303"),
+  E("alkame", "kasimmuhaymire", "د", "Tehzîb, Alkame b. Kays 20/300-303"),
+  E("alkame", "ibnsirin", "—", "Tehzîb, Alkame b. Kays 20/300-303"),
+  E("alkame", "ebuduha", "—", "Tehzîb, Alkame b. Kays 20/300-303"),
+  E("alkame", "yahyavessab", "—", "Tehzîb, Alkame b. Kays 20/300-303"),
+
+
+  /* Mesrûk b. el-Ecda‘ (o. 63) -- hocalari.
+     Tehzîb, Mesrûk b. el-Ecda‘ 27/451-454. Tercemede 18 kayit var, agda dugumu olan 12'i cizildi. */
+  E("ubey", "mesruk", "س", "Tehzîb, Mesrûk b. el-Ecda‘ 27/451-454"),
+  E("zeydsabit", "mesruk", "—", "Tehzîb, Mesrûk b. el-Ecda‘ 27/451-454"),
+  E("ibnomer", "mesruk", "س", "Tehzîb, Mesrûk b. el-Ecda‘ 27/451-454"),
+  E("abdullahamr", "mesruk", "ع", "Tehzîb, Mesrûk b. el-Ecda‘ 27/451-454"),
+  E("ibnmesud", "mesruk", "ع", "Tehzîb, Mesrûk b. el-Ecda‘ 27/451-454"),
+  E("ubeydumeyr", "mesruk", "—", "Tehzîb, Mesrûk b. el-Ecda‘ 27/451-454"),
+  E("osman", "mesruk", "—", "Tehzîb, Mesrûk b. el-Ecda‘ 27/451-454"),
+  E("ali", "mesruk", "س", "Tehzîb, Mesrûk b. el-Ecda‘ 27/451-454"),
+  E("omer", "mesruk", "د ق", "Tehzîb, Mesrûk b. el-Ecda‘ 27/451-454"),
+  E("muazcebel", "mesruk", "٤", "Tehzîb, Mesrûk b. el-Ecda‘ 27/451-454"),
+  E("mugirasube", "mesruk", "خ م س ق", "Tehzîb, Mesrûk b. el-Ecda‘ 27/451-454"),
+  E("ebubekir", "mesruk", "—", "Tehzîb, Mesrûk b. el-Ecda‘ 27/451-454"),
+
+
+  /* Mesrûk b. el-Ecda‘ (o. 63) -- talebeleri.
+     Tehzîb, Mesrûk b. el-Ecda‘ 27/451-454. Tercemede 21 kayit var, agda dugumu olan 6'i cizildi. */
+  E("mesruk", "enessirin", "—", "Tehzîb, Mesrûk b. el-Ecda‘ 27/451-454"),
+  E("mesruk", "ebuvail", "ع", "Tehzîb, Mesrûk b. el-Ecda‘ 27/451-454"),
+  E("mesruk", "sabi", "ع", "Tehzîb, Mesrûk b. el-Ecda‘ 27/451-454"),
+  E("mesruk", "ebuduha", "ع", "Tehzîb, Mesrûk b. el-Ecda‘ 27/451-454"),
+  E("mesruk", "mekhul", "س", "Tehzîb, Mesrûk b. el-Ecda‘ 27/451-454"),
+  E("mesruk", "yahyavessab", "خ م ت س ق", "Tehzîb, Mesrûk b. el-Ecda‘ 27/451-454"),
+
 ];
 
 // En çok hadis rivayet eden yedi sahâbî
