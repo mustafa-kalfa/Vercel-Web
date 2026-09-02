@@ -76,14 +76,18 @@ export function kur(V) {
   } = V;
 
 
-  /* YERLESIM BU SAYFADA IKI KAT SEYREK.
+  /* YERLESIM BU SAYFADA DORT KAT SEYREK.
 
      Yalnizca ARALIKLAR buyuyor: nokta yaricaplari ve yazi puntolari
      ekranda oldugu gibi kaliyor. Aciliste butun ag yine ekrana
-     sigdirildigi icin olcek yariya iniyor; noktalarin kucumesin diye
-     yaricap hesabina `k * YAY` veriliyor, boylece ekrandaki boy
-     degismiyor ama iki nokta arasindaki mesafe ikiye katlaniyor.
+     sigdirildigi icin olcek ayni oranda iniyor; noktalarin kucumesin
+     diye yaricap hesabina `k * YAY` veriliyor, boylece ekrandaki boy
+     degismiyor ama iki nokta arasindaki mesafe YAY kati aciliyor.
      Kullanicinin istedigi seyreltme bu.
+
+     2026-09-02'de 2'den 4'e cikarildi (Mustafa: "genislik ve
+     yuksekligi 2 katina cikar ki noktalar arasi bosluk artsin").
+     Tuval W ve H'si iki katina ciktı, nokta ve yazi boyu degismedi.
 
      Olceklenenler: konumlar, sutun seritleri, tuval boyu, yil ekseni
      ve kavis buyuklugu. Kavis de olcekleniyor, yoksa egriler
@@ -93,7 +97,7 @@ export function kur(V) {
      DEGISIKLIK YALNIZCA BU DOSYADA. Yerlesim sabitleri paylasilan
      app/silsileVeri.js icinde ve orayi degistirmek yayindaki SVG
      sayfasini da degistirirdi. */
-  const YAY = 2;
+  const YAY = 4;
   /* Acilis yakinligi: sigdirma olceginin kac kati. Buyudukce daha
      yakindan baslar. YAY ile carpilmasi sart, yoksa seyreltme acilisi
      da kucultur ve birbirlerini gotururler. 12 * YAY fazla yakindi --
@@ -161,7 +165,7 @@ export function kur(V) {
       zemin: "#1C1A17", tuval: "#232019", kart: "rgba(35,32,25,0.97)",
       cizgi: "#4A4438", ink: "#EDE7DA", solukInk: "#A79E8C", vurguInk: "#D9C77A",
       kenar: "#8A7F55", kenarSonuk: "#5A5340", kenarSecili: "#E0785A",
-      okSonuk: "#4A4433", dugumCerceve: "#232019", etiketHale: "#1C1A17",
+      okSonuk: "#4A4433", dugumCerceve: "#232019",
       etiketAna: "#EDE7DA", etiketAlt: "#8F8878", sonucVurgu: "#2E2A22",
       kesikCerceve: "#4A4438",
       /* KOYU MODDA DAMA RENK DEGIL ISIK FARKI. Acik modda iki ton
@@ -183,7 +187,7 @@ export function kur(V) {
       zemin: "#FBF9F4", tuval: "#FFFFFF", kart: "rgba(255,255,255,0.97)",
       cizgi: "#D8D0BF", ink: "#23201B", solukInk: "#8C8676", vurguInk: "#8A7A34",
       kenar: "#6F6438", kenarSonuk: "#B3A88E", kenarSecili: "#B5462B",
-      okSonuk: "#C9BFA8", dugumCerceve: "white", etiketHale: "#FFFFFF",
+      okSonuk: "#C9BFA8", dugumCerceve: "white",
       etiketAna: "#2B2721", etiketAlt: "#8C8676", sonucVurgu: "#F5F1E6",
       kesikCerceve: "#E0D8C6",
       // Acik temada ayni turkuaz krem zemin uzerinde okunacak kadar koyu.
@@ -1290,13 +1294,14 @@ export function kur(V) {
         ctx.globalAlpha = sonuk(n.id) ? 0.12 : 1;
         const ad = adi(n).length > 26 ? adi(n).slice(0, 25) + "…" : adi(n);
   
-        /* Hale: SVG'de `paintOrder: stroke` ile yapiliyordu, tuvalde
-           once kalin bir kalemle yazip sonra icini doldurmak ayni sey. */
+        /* HALE KALDIRILDI (Mustafa'nin istegi, 2026-09-02).
+
+           Yazinin arkasina zemin renginde kalin bir kalemle bir kez daha
+           yazilip (SVG'deki `paintOrder: stroke`in tuval karsiligi) kenar
+           cizgileri uzerinde okunakli kalmasi saglaniyordu. Yerlesim iki
+           kat daha seyreldigi icin (bkz. YAY) yazilarin altina denk gelen
+           cizgi de azaldi; hale artik kazandirdigindan cok goze carpiyordu. */
         ctx.font = `${kad <= 1 ? 600 : 400} ${punto}px Georgia, 'Times New Roman', serif`;
-        ctx.strokeStyle = C.etiketHale;
-        ctx.lineWidth = punto * 0.32;
-        ctx.lineJoin = "round";
-        ctx.strokeText(ad, px, py + r + punto);
         ctx.fillStyle = C.etiketAna;
         ctx.fillText(ad, px, py + r + punto);
         /* Hedef alani yazinin kendi kutusu. Yaziyi zaten cizdik, o
@@ -1308,8 +1313,6 @@ export function kur(V) {
   
         const tarih = tarihYaz(n, t.agOlum);
         ctx.font = `400 ${altPunto}px Georgia, 'Times New Roman', serif`;
-        ctx.lineWidth = altPunto * 0.32;
-        ctx.strokeText(tarih, px, py + r + punto + altPunto + 3 * k);
         ctx.fillStyle = C.solukInk;
         ctx.fillText(tarih, px, py + r + punto + altPunto + 3 * k);
       }

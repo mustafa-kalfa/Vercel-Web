@@ -103,7 +103,9 @@ Netlik iki kaynaktan bozuluyordu. Cihaz piksel oranı ikiyle sınırlanmıştı,
 Bir de **öğe işleyicilerinde yaşayan davranışlar sessizce kaybolur.** SVG'de her düğümün kendi `onPointerUp`'ı vardı ve `odaklan`'ı çağırıyordu; o fonksiyon yalnızca seçmiyor, ekranı seçilen râviye **ortalıyor** ve aynı râviye tekrar tıklandığında seçimi **kaldırıyordu**. Canvas'ta tıklama tek bir yere toplanınca doğrudan `setSecim`'e bağlandı ve iki davranış birden gitti. Arama kutusu ile karttaki çipler hâlâ `odaklan`'ı çağırdığı için fark ancak haritaya tıklarken görülüyordu. Tuvalde vuruş sonucu düğümse **`odaklan`'dan geçmeli**.
 - Doğrulandı: açılış, yakınlaşma, kaydırma, düğüm ve etiket tıklaması, koyu mod, DPR (750×1516 tampon).
 
-Yerleşim `YAY = 2` ile iki kat seyrek, açılış yakınlığı `ACILIS_YAKINLIK` sabitinde. İkisi birbirine bağlı — seyreltme açılış çarpanıyla telafi edilmezse hiçbir şey değişmez, çünkü ağ yine aynı piksellere sığar.
+Yerleşim `YAY = 4` ile dört kat seyrek (2026-09-02'de 2'den çıkarıldı), açılış yakınlığı `ACILIS_YAKINLIK` sabitinde. İkisi birbirine bağlı — seyreltme açılış çarpanıyla telafi edilmezse hiçbir şey değişmez, çünkü ağ yine aynı piksellere sığar. `ACILIS_YAKINLIK` zaten `5.25 * YAY` olduğu için açılış ölçeği `YAY`dan bağımsız kalıyor; değişen tek şey noktalar arası mesafe. Ölçüldü: sütun aralığı 210 px → 378 px, Hz. Peygamber ile Ebû Bekir arası 112 px → 225 px.
+
+**Etiketlerin arkasındaki hale kaldırıldı** (aynı gün, Mustafa'nın isteği). Yazı zeminin renginde kalın bir kalemle bir kez daha yazılıp (SVG'deki `paintOrder: stroke`in tuval karşılığı) kenar çizgileri üzerinde okunaklı kalıyordu. Seyreltmeden sonra yazıların altına denk gelen çizgi azaldığı için hale kazandırdığından çok göze çarpıyordu. `C.etiketHale` paletten de düştü.
 
 ## Açık işler
 
