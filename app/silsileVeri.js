@@ -4919,6 +4919,48 @@ const EDGES_HAM = [
   E("sallamebimuti", "hebbanhilal", "—", "Tehzîb 2663"),
   E("sallamebimuti", "hisamtayalisi", "مق س", "Tehzîb 2663"),
 
+
+  /* Ali b. Sâlih b. Hayy (o. 151) -- hocalari.
+     Tehzîb 4084. Tercemede 22 kayit var, agda dugumu olan 10'i cizildi. */
+  E("ismailebihalid", "aliebisalihhayy", "—", "Tehzîb 4084"),
+  E("esvedkays", "aliebisalihhayy", "—", "Tehzîb 4084"),
+  E("selemekuheyl", "aliebisalihhayy", "م د ت س", "Tehzîb 4084"),
+  E("amess", "aliebisalihhayy", "—", "Tehzîb 4084"),
+  E("simakharb", "aliebisalihhayy", "د س ق", "Tehzîb 4084"),
+  E("salihhayy", "aliebisalihhayy", "—", "Tehzîb 4084"),
+  E("asimbehdele", "aliebisalihhayy", "س", "Tehzîb 4084"),
+  E("mugirmiksem", "aliebisalihhayy", "—", "Tehzîb 4084"),
+  E("mansurmutemir", "aliebisalihhayy", "س", "Tehzîb 4084"),
+  E("ebuishaksebii", "aliebisalihhayy", "س", "Tehzîb 4084"),
+
+
+  /* Ali b. Sâlih b. Hayy (o. 151) -- talebeleri.
+     Tehzîb 4084. Tercemede 17 kayit var, agda dugumu olan 4'i cizildi. */
+  E("aliebisalihhayy", "ibnuyeyne", "—", "Tehzîb 4084"),
+  E("aliebisalihhayy", "ibnnumeyr", "د", "Tehzîb 4084"),
+  E("aliebisalihhayy", "ubeydullahmusa", "د س", "Tehzîb 4084"),
+  E("aliebisalihhayy", "ebunuaymfadl", "—", "Tehzîb 4084"),
+
+
+  /* Muhammed b. Fudayl b. Gazvân (o. 195) -- hocalari.
+     Tehzîb 5548. Tercemede 52 kayit var, agda dugumu olan 16'i cizildi. */
+  E("ismailebihalid", "muhammedfudayl", "خ م", "Tehzîb 5548"),
+  E("beyanbisr", "muhammedfudayl", "م د ق", "Tehzîb 5548"),
+  E("haccacertat", "muhammedfudayl", "ق", "Tehzîb 5548"),
+  E("hasanubeydullah", "muhammedfudayl", "د س", "Tehzîb 5548"),
+  E("husaynabdrahman", "muhammedfudayl", "خ م ق", "Tehzîb 5548"),
+  E("hamzazeyyat", "muhammedfudayl", "ت", "Tehzîb 5548"),
+  E("davudebihind", "muhammedfudayl", "—", "Tehzîb 5548"),
+  E("zekeriyyaebizaide", "muhammedfudayl", "ق", "Tehzîb 5548"),
+  E("amess", "muhammedfudayl", "ع", "Tehzîb 5548"),
+  E("asimahvel", "muhammedfudayl", "خ م", "Tehzîb 5548"),
+  E("abdulmelikebisuleyman", "muhammedfudayl", "س", "Tehzîb 5548"),
+  E("ataisaib", "muhammedfudayl", "ت س ق", "Tehzîb 5548"),
+  E("leysebisuleym", "muhammedfudayl", "بخ", "Tehzîb 5548"),
+  E("malikmigvel", "muhammedfudayl", "—", "Tehzîb 5548"),
+  E("mucalidsaid", "muhammedfudayl", "ق", "Tehzîb 5548"),
+  E("ibnishak", "muhammedfudayl", "س", "Tehzîb 5548"),
+
 ];
 
 /* YINELENEN KENARLAR BURADA TEKILLESTIRILIYOR.
