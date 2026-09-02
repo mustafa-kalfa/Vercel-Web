@@ -113,6 +113,10 @@ export function kur(V) {
   const yOf = (yil) => HAM_yOf(yil) * YAY;
   const KAVIS_OLCEK = HAM_KAVIS_OLCEK * YAY;
 
+  /* Etiketin arkasindaki halenin kalinligi, punto'nun kati. Tek yerden
+     ayarlanabilsin diye burada: ad ve tarih ayni degeri kullaniyor. */
+  const HALE_KALINLIK = 0.14;
+
   /* Akan kesik cizginin hizi, saniyede piksel. Kesik deseni 14+8=22
      piksel, yani saniyede bir turun biraz uzerinde. Iki kez
      yarilandi (100 -> 50 -> 25); ilk degerler gozu yoruyordu. */
@@ -165,7 +169,7 @@ export function kur(V) {
       zemin: "#1C1A17", tuval: "#232019", kart: "rgba(35,32,25,0.97)",
       cizgi: "#4A4438", ink: "#EDE7DA", solukInk: "#A79E8C", vurguInk: "#D9C77A",
       kenar: "#8A7F55", kenarSonuk: "#5A5340", kenarSecili: "#E0785A",
-      okSonuk: "#4A4433", dugumCerceve: "#232019",
+      okSonuk: "#4A4433", dugumCerceve: "#232019", etiketHale: "#1C1A17",
       etiketAna: "#EDE7DA", etiketAlt: "#8F8878", sonucVurgu: "#2E2A22",
       kesikCerceve: "#4A4438",
       /* KOYU MODDA DAMA RENK DEGIL ISIK FARKI. Acik modda iki ton
@@ -187,7 +191,7 @@ export function kur(V) {
       zemin: "#FBF9F4", tuval: "#FFFFFF", kart: "rgba(255,255,255,0.97)",
       cizgi: "#D8D0BF", ink: "#23201B", solukInk: "#8C8676", vurguInk: "#8A7A34",
       kenar: "#6F6438", kenarSonuk: "#B3A88E", kenarSecili: "#B5462B",
-      okSonuk: "#C9BFA8", dugumCerceve: "white",
+      okSonuk: "#C9BFA8", dugumCerceve: "white", etiketHale: "#FFFFFF",
       etiketAna: "#2B2721", etiketAlt: "#8C8676", sonucVurgu: "#F5F1E6",
       kesikCerceve: "#E0D8C6",
       // Acik temada ayni turkuaz krem zemin uzerinde okunacak kadar koyu.
@@ -1294,14 +1298,20 @@ export function kur(V) {
         ctx.globalAlpha = sonuk(n.id) ? 0.12 : 1;
         const ad = adi(n).length > 26 ? adi(n).slice(0, 25) + "…" : adi(n);
   
-        /* HALE KALDIRILDI (Mustafa'nin istegi, 2026-09-02).
+        /* Hale: SVG'de `paintOrder: stroke` ile yapiliyordu, tuvalde
+           once kalin bir kalemle yazip sonra icini doldurmak ayni sey.
+           Yazinin kenar cizgileri uzerinde okunakli kalmasini sagliyor.
 
-           Yazinin arkasina zemin renginde kalin bir kalemle bir kez daha
-           yazilip (SVG'deki `paintOrder: stroke`in tuval karsiligi) kenar
-           cizgileri uzerinde okunakli kalmasi saglaniyordu. Yerlesim iki
-           kat daha seyreldigi icin (bkz. YAY) yazilarin altina denk gelen
-           cizgi de azaldi; hale artik kazandirdigindan cok goze carpiyordu. */
+           KALINLIK 0.32'den 0.14'e indi (Mustafa, 2026-09-02). Once
+           tumden kaldirilmisti; hale olmadan yazi kenar cizgilerinin
+           uzerinde daginik goruluyor, eski kalinlikta ise harflerin
+           cevresinde gorunur bir golge birakiyordu. 0.14 ikisinin
+           ortasi: cizgiyi kesiyor ama kendisi fark edilmiyor. */
         ctx.font = `${kad <= 1 ? 600 : 400} ${punto}px Georgia, 'Times New Roman', serif`;
+        ctx.strokeStyle = C.etiketHale;
+        ctx.lineWidth = punto * HALE_KALINLIK;
+        ctx.lineJoin = "round";
+        ctx.strokeText(ad, px, py + r + punto);
         ctx.fillStyle = C.etiketAna;
         ctx.fillText(ad, px, py + r + punto);
         /* Hedef alani yazinin kendi kutusu. Yaziyi zaten cizdik, o
@@ -1313,6 +1323,8 @@ export function kur(V) {
   
         const tarih = tarihYaz(n, t.agOlum);
         ctx.font = `400 ${altPunto}px Georgia, 'Times New Roman', serif`;
+        ctx.lineWidth = altPunto * HALE_KALINLIK;
+        ctx.strokeText(tarih, px, py + r + punto + altPunto + 3 * k);
         ctx.fillStyle = C.solukInk;
         ctx.fillText(tarih, px, py + r + punto + altPunto + 3 * k);
       }
