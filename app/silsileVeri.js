@@ -4717,6 +4717,49 @@ const EDGES_HAM = [
   E("caferebivahsiyye", "sufyanhusayn", "س", "Tehzîb 932"),
   E("caferebivahsiyye", "sube", "ع", "Tehzîb 932"),
 
+
+  /* Nâfi‘ b. Ömer el-Cümahî (o. 169) -- hocalari.
+     Tehzîb 6367. Tercemede 9 kayit var, agda dugumu olan 2'i cizildi. */
+  E("ibnebimuleyke", "nafiomercumahi", "ع", "Tehzîb 6367"),
+  E("amrdinar", "nafiomercumahi", "—", "Tehzîb 6367"),
+
+
+  /* Nâfi‘ b. Ömer el-Cümahî (o. 169) -- talebeleri.
+     Tehzîb 6367. Tercemede 37 kayit var, agda dugumu olan 11'i cizildi. */
+  E("nafiomercumahi", "ebuusamehammad", "ت", "Tehzîb 6367"),
+  E("nafiomercumahi", "ibnmubarek", "د", "Tehzîb 6367"),
+  E("nafiomercumahi", "kanebi", "د", "Tehzîb 6367"),
+  E("nafiomercumahi", "ibnmehdi", "—", "Tehzîb 6367"),
+  E("nafiomercumahi", "ebunuaymfadl", "خ", "Tehzîb 6367"),
+  E("nafiomercumahi", "muhammedbisrabdi", "م", "Tehzîb 6367"),
+  E("nafiomercumahi", "musaismailtebuzeki", "—", "Tehzîb 6367"),
+  E("nafiomercumahi", "hisamtayalisi", "—", "Tehzîb 6367"),
+  E("nafiomercumahi", "veki", "خ د ق", "Tehzîb 6367"),
+  E("nafiomercumahi", "kattan", "—", "Tehzîb 6367"),
+  E("nafiomercumahi", "yezidharun", "س ق", "Tehzîb 6367"),
+
+
+  /* Ebû Mâlik el-Eşce‘î (o. ?) -- hocalari.
+     Tehzîb 2211. Tercemede 15 kayit var, agda dugumu olan 4'i cizildi. */
+  E("enes", "ebumalikesceyi", "—", "Tehzîb 2211"),
+  E("rebihiras", "ebumalikesceyi", "خت م س ق", "Tehzîb 2211"),
+  E("sadubeyde", "ebumalikesceyi", "م", "Tehzîb 2211"),
+  E("musatalha", "ebumalikesceyi", "م ت", "Tehzîb 2211"),
+
+
+  /* Ebû Mâlik el-Eşce‘î (o. ?) -- talebeleri.
+     Tehzîb 2211. Tercemede 20 kayit var, agda dugumu olan 10'i cizildi. */
+  E("ebumalikesceyi", "hafsgiyas", "ق", "Tehzîb 2211"),
+  E("ebumalikesceyi", "sevri", "بخ د", "Tehzîb 2211"),
+  E("ebumalikesceyi", "sube", "—", "Tehzîb 2211"),
+  E("ebumalikesceyi", "ibnidris", "ق", "Tehzîb 2211"),
+  E("ebumalikesceyi", "abdulvahidziyad", "م", "Tehzîb 2211"),
+  E("ebumalikesceyi", "ibnishak", "د", "Tehzîb 2211"),
+  E("ebumalikesceyi", "muhammedfudayl", "م س ق", "Tehzîb 2211"),
+  E("ebumalikesceyi", "mervanfezari", "بخ م س", "Tehzîb 2211"),
+  E("ebumalikesceyi", "yezidharun", "م ت ق", "Tehzîb 2211"),
+  E("ebumalikesceyi", "ms29", "م ت", "Tehzîb 2211"),
+
 ];
 
 /* YINELENEN KENARLAR BURADA TEKILLESTIRILIYOR.
