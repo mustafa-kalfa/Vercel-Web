@@ -2181,6 +2181,78 @@ export const EDGES = [
   E("vehbmunebbih", "ibnhuseymkhaysem", "—", "Tehzîb 6767"),
   E("vehbmunebbih", "avfarabi", "—", "Tehzîb 6767"),
 
+
+  /* İbrâhim en-Nehaî (o. 96) -- hocalari.
+     Tehzîb, İbrâhim en-Nehaî 2/233-238. Tercemede 27 kayit var, agda dugumu olan 10'i cizildi. */
+  E("esvedyezid", "nehai", "ع", "Tehzîb, İbrâhim en-Nehaî 2/233-238"),
+  E("hayseme", "nehai", "ش", "Tehzîb, İbrâhim en-Nehaî 2/233-238"),
+  E("suveydgafle", "nehai", "س", "Tehzîb, İbrâhim en-Nehaî 2/233-238"),
+  E("sureyh", "nehai", "س", "Tehzîb, İbrâhim en-Nehaî 2/233-238"),
+  E("abisrebia", "nehai", "خ م د ت س", "Tehzîb, İbrâhim en-Nehaî 2/233-238"),
+  E("abdrahmanyezidnehai", "nehai", "ع", "Tehzîb, İbrâhim en-Nehaî 2/233-238"),
+  E("ubeydesel", "nehai", "ع", "Tehzîb, İbrâhim en-Nehaî 2/233-238"),
+  E("alkame", "nehai", "ع", "Tehzîb, İbrâhim en-Nehaî 2/233-238"),
+  E("mesruk", "nehai", "ع", "Tehzîb, İbrâhim en-Nehaî 2/233-238"),
+  E("ebuabdrahmansulemi", "nehai", "س", "Tehzîb, İbrâhim en-Nehaî 2/233-238"),
+
+
+  /* İbrâhim en-Nehaî (o. 96) -- talebeleri.
+     Tehzîb, İbrâhim en-Nehaî 2/233-238. Tercemede 36 kayit var, agda dugumu olan 14'i cizildi. */
+  E("nehai", "hasanubeydullah", "م د س", "Tehzîb, İbrâhim en-Nehaî 2/233-238"),
+  E("nehai", "hakemuteybe", "ع", "Tehzîb, İbrâhim en-Nehaî 2/233-238"),
+  E("nehai", "hammadebisuleyman", "بخ م د س ق", "Tehzîb, İbrâhim en-Nehaî 2/233-238"),
+  E("nehai", "zubeydyami", "خ ت س ق", "Tehzîb, İbrâhim en-Nehaî 2/233-238"),
+  E("nehai", "zubeyradi", "د س", "Tehzîb, İbrâhim en-Nehaî 2/233-238"),
+  E("nehai", "simakharb", "م د ت س", "Tehzîb, İbrâhim en-Nehaî 2/233-238"),
+  E("nehai", "abdullahsubrume", "س", "Tehzîb, İbrâhim en-Nehaî 2/233-238"),
+  E("nehai", "abdullahavn", "خ م تم س ق", "Tehzîb, İbrâhim en-Nehaî 2/233-238"),
+  E("nehai", "ebuhasin", "س", "Tehzîb, İbrâhim en-Nehaî 2/233-238"),
+  E("nehai", "ataisaib", "س", "Tehzîb, İbrâhim en-Nehaî 2/233-238"),
+  E("nehai", "ebuishaksebii", "—", "Tehzîb, İbrâhim en-Nehaî 2/233-238"),
+  E("nehai", "muhammedsuka", "ت ق", "Tehzîb, İbrâhim en-Nehaî 2/233-238"),
+  E("nehai", "mugirmiksem", "خ م س", "Tehzîb, İbrâhim en-Nehaî 2/233-238"),
+  E("nehai", "mansurmutemir", "ع", "Tehzîb, İbrâhim en-Nehaî 2/233-238"),
+
+
+  /* İbrâhim b. Sa‘d ez-Zührî (o. 183) -- hocalari.
+     Tehzîb 174. Tercemede 20 kayit var, agda dugumu olan 7'i cizildi. */
+  E("sadibrahim", "ibrahimsad", "ع", "Tehzîb 174"),
+  E("sube", "ibrahimsad", "—", "Tehzîb 174"),
+  E("salihkeysan", "ibrahimsad", "خ م د ت س", "Tehzîb 174"),
+  E("ibnishak", "ibrahimsad", "خت م د س", "Tehzîb 174"),
+  E("hisamurve", "ibrahimsad", "—", "Tehzîb 174"),
+  E("velidkesir", "ibrahimsad", "خ م د س", "Tehzîb 174"),
+  E("yezidhad", "ibrahimsad", "م س", "Tehzîb 174"),
+
+
+  /* İbrâhim b. Sa‘d ez-Zührî (o. 183) -- talebeleri.
+     Tehzîb 174. Tercemede 64 kayit var, agda dugumu olan 15'i cizildi. */
+  E("ibrahimsad", "ahmedhanbel", "—", "Tehzîb 174"),
+  E("ibrahimsad", "ebudavudtayalisi", "م", "Tehzîb 174"),
+  E("ibrahimsad", "abdullahavn", "—", "Tehzîb 174"),
+  E("ibrahimsad", "kanebi", "خ م", "Tehzîb 174"),
+  E("ibrahimsad", "ibnvehb", "م", "Tehzîb 174"),
+  E("ibrahimsad", "abdussamed", "م", "Tehzîb 174"),
+  E("ibrahimsad", "alicad", "—", "Tehzîb 174"),
+  E("ibrahimsad", "kaysrebi", "—", "Tehzîb 174"),
+  E("ibrahimsad", "leysbsad", "—", "Tehzîb 174"),
+  E("ibrahimsad", "muhammedisataba", "د", "Tehzîb 174"),
+  E("ibrahimsad", "musaismailtebuzeki", "خ د", "Tehzîb 174"),
+  E("ibrahimsad", "hisamtayalisi", "خ", "Tehzîb 174"),
+  E("ibrahimsad", "yahyaadem", "م", "Tehzîb 174"),
+  E("ibrahimsad", "yahyayahyanisaburi", "م", "Tehzîb 174"),
+  E("ibrahimsad", "yezidharun", "م", "Tehzîb 174"),
+
+
+  /* İbrâhim b. Sa‘d ez-Zührî (o. 183) -- talebeleri.
+     Tehzîb 174. Tercemede 64 kayit var, agda dugumu olan 1'i cizildi. */
+  E("ibrahimsad", "veki", "—", "Tehzîb 174"),
+
+
+  /* Leys b. Sa‘d (o. 175) -- hocalari.
+     Tehzîb 5016. Tercemede 80 kayit var, agda dugumu olan 1'i cizildi. */
+  E("ebuzubeyrmekki", "leysbsad", "م ٤", "Tehzîb 5016"),
+
 ];
 
 // En çok hadis rivayet eden yedi sahâbî

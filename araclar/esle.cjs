@@ -67,7 +67,21 @@ function kronolojiUyar(ozne, aday, yon) {
 }
 
 // kunye onekini at: "ابو فلان" / "ابي فلان" / "ام فلان"
-const KUNYE = /^(ابو|ابي|ام)\s+\S+\s+/;
+/* KUNYE ANCAK ADIN YERINE GECIYORSA ATILIR.
+
+   «أبي معمر عبد الله بن سخبرة» kaydinda kunye adin ONUNDE duruyor,
+   atilinca gercek ad kaliyor. Ama «أبي عبيدة بن عبد الله بن مسعود»
+   kaydinda kunyeden sonra BN geliyor: orada «عبد الله بن مسعود»
+   ozne DEGIL, oznenin BABASI. Kunyeyi atmak Ebu Ubeyde'nin kaydini
+   Ibn Mes'ud dugumune baglıyordu.
+
+   Ayrim basit: kunyeden sonra بن / ابن geliyorsa atma. */
+/* NOT: buraya bir kez  yazilmaya calisildi ve arac zinciri onu GERCEK
+   backspace karakterine (0x08) cevirdi; lookahead hicbir zaman tutmadi,
+   kunye her kayitta atildi ve «ابي عبيدة بن عبد الله بن مسعود» kaydi
+   Ibn Mes'ud dugumune baglandi. Ayrica JS'te  sinirini \w tanimlar
+   ve \w Arapca harf icermez, yani dogru yazilsa da ise yaramazdi. */
+const KUNYE = /^(ابو|ابي|ام)\s+\S+\s+(?!(?:بن|ابن)(?:\s|$))/;
 
 /* Nesep baglayicilari ve nispet onekleri: eslestirmede ayirt edici
    degiller, atiliyor. Geriye kalan "ayirt edici belirtecler". */
@@ -133,12 +147,35 @@ const altDizi = (kucuk, buyuk) => {
 const onek = (kucuk, buyuk) =>
   kucuk.length <= buyuk.length && kucuk.every((w, i) => w === buyuk[i]);
 
+/* ISM + SOHRET KISALTMASI.
+
+   Onek sarti tek basina bir seyi kaciriyor: kayit bazen adin ORTASINI
+   atip ism ile sohreti birlestiriyor -- «سليمان الأعمش», oysa dugum
+   «سليمان بن مهران الأعمش». Onek degil, ama ayni kisi.
+
+   Bunu guvenle almanin yolu iki ucu birden capalamak: kaydin ILK ve
+   SON belirteci dugumunkiyle ayni olmali, arasi da alt dizi olmali.
+   Boylece «ابو عثمان» -> «ابو حصين عثمان بن عاصم» hala eleniyor
+   (son belirtecler عثمان / عاصم tutmuyor). */
+const ucCapa = (kucuk, buyuk) =>
+  kucuk.length >= 2 && buyuk.length >= 2 &&
+  kucuk[0] === buyuk[0] &&
+  kucuk[kucuk.length - 1] === buyuk[buyuk.length - 1] &&
+  altDizi(kucuk, buyuk);
+
 function eslestir(metin, dugumler, ozne, yon) {
   const kyt = kayitlar(metin);
   const bulunan = [];
   for (const k of kyt) {
-    const kayitBel = belirtec(k.ad.replace(/^و/, ""));
-    const kayitBelKunyesiz = belirtec(k.ad.replace(/^و/, "").replace(KUNYE, ""));
+    /* BASTAKI BAGLAC WAW'INI BURADA BIR DAHA ATMA.
+
+       kayitlar() ad'i uretirken zaten `^و`yi siliyor. Burada ikinci kez
+       silinince ADI WAW ILE BASLAYAN herkes ilk harfini kaybediyordu:
+       «ووكيع بن الجراح» -> kayitlar «وكيع بن الجراح» -> burada
+       «كيع بن الجراح». Veki', Velid, Vehb, Vasile, Vakid... hepsi
+       baskalarinin listelerinde sessizce eslesmiyordu. */
+    const kayitBel = belirtec(k.ad);
+    const kayitBelKunyesiz = belirtec(k.ad.replace(KUNYE, ""));
     let enIyi = null, enIyiBel = 0, enIyiTur = 0;
     for (const n of dugumler) {
       if (ozne && n.id === ozne.id) continue;      // kendine bag olmaz
@@ -155,9 +192,10 @@ function eslestir(metin, dugumler, ozne, yon) {
       /* Esik her varyanta AYRI uygulaniyor: eskiden guard yalniz
          kayitBel'e bakiyordu, oysa eslesmeyi kunyesi atilmis (ve tek
          belirtece dusmus) varyant saglayabiliyordu. */
-      const geri = (kayitBel.length >= 2 && onek(kayitBel, bel)) ||
-                   (kayitBelKunyesiz.length >= 2 &&
-                    onek(kayitBelKunyesiz, bel));
+      const geri =
+        (kayitBel.length >= 2 && (onek(kayitBel, bel) || ucCapa(kayitBel, bel))) ||
+        (kayitBelKunyesiz.length >= 2 &&
+         (onek(kayitBelKunyesiz, bel) || ucCapa(kayitBelKunyesiz, bel)));
       if (!ileri && !geri) continue;
       // Tek belirtecli ad ancak sohret adiysa kabul ediliyor.
       if (bel.length < 2 && !sohret) continue;
