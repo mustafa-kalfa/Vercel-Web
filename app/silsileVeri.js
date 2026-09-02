@@ -4961,6 +4961,46 @@ const EDGES_HAM = [
   E("mucalidsaid", "muhammedfudayl", "ق", "Tehzîb 5548"),
   E("ibnishak", "muhammedfudayl", "س", "Tehzîb 5548"),
 
+
+  /* Abdüsselâm b. Harb (o. 187) -- hocalari.
+     Tehzîb 3418. Tercemede 23 kayit var, agda dugumu olan 8'i cizildi. */
+  E("eyyubsahtiyani", "abdusselamharb", "خ", "Tehzîb 3418"),
+  E("halidhazza", "abdusselamharb", "د", "Tehzîb 3418"),
+  E("saidubeydtai", "abdusselamharb", "—", "Tehzîb 3418"),
+  E("amess", "abdusselamharb", "دت", "Tehzîb 3418"),
+  E("ataisaib", "abdusselamharb", "د", "Tehzîb 3418"),
+  E("leysebisuleym", "abdusselamharb", "بخ د ت", "Tehzîb 3418"),
+  E("hisamhassan", "abdusselamharb", "خ س ق", "Tehzîb 3418"),
+  E("yahyasaidensari", "abdusselamharb", "ت س", "Tehzîb 3418"),
+
+
+  /* Abdüsselâm b. Harb (o. 187) -- talebeleri.
+     Tehzîb 3418. Tercemede 35 kayit var, agda dugumu olan 10'i cizildi. */
+  E("abdusselamharb", "ahmedhanbel", "—", "Tehzîb 3418"),
+  E("abdusselamharb", "hasanarafe", "—", "Tehzîb 3418"),
+  E("abdusselamharb", "ebuusamehammad", "ص", "Tehzîb 3418"),
+  E("abdusselamharb", "ibnebiseybe", "ق", "Tehzîb 3418"),
+  E("abdusselamharb", "osmanebiseybe", "د", "Tehzîb 3418"),
+  E("abdusselamharb", "amrnakid", "—", "Tehzîb 3418"),
+  E("abdusselamharb", "ebunuaymfadl", "خ ت", "Tehzîb 3418"),
+  E("abdusselamharb", "kuteybesaid", "ت س", "Tehzîb 3418"),
+  E("abdusselamharb", "muhammedubeydmuharibi", "ت", "Tehzîb 3418"),
+  E("abdusselamharb", "muhammedisataba", "د", "Tehzîb 3418"),
+
+
+  /* Avvâm b. Havşeb (o. 148) -- hocalari.
+     Tehzîb 4541. Tercemede 25 kayit var, agda dugumu olan 10'i cizildi. */
+  E("ibrahimteymi", "avvamhavseb", "—", "Tehzîb 4541"),
+  E("nehai", "avvamhavseb", "—", "Tehzîb 4541"),
+  E("cebeleshim", "avvamhavseb", "ق", "Tehzîb 4541"),
+  E("habibebisabit", "avvamhavseb", "د", "Tehzîb 4541"),
+  E("selemekuheyl", "avvamhavseb", "س", "Tehzîb 4541"),
+  E("ataisaib", "avvamhavseb", "سي", "Tehzîb 4541"),
+  E("mucahid", "avvamhavseb", "خ س ق", "Tehzîb 4541"),
+  E("yezidsuheybfakir", "avvamhavseb", "—", "Tehzîb 4541"),
+  E("ebuishaksebii", "avvamhavseb", "سي", "Tehzîb 4541"),
+  E("ismailebiislamsibani", "avvamhavseb", "م", "Tehzîb 4541"),
+
 ];
 
 /* YINELENEN KENARLAR BURADA TEKILLESTIRILIYOR.
