@@ -5001,6 +5001,43 @@ const EDGES_HAM = [
   E("ebuishaksebii", "avvamhavseb", "سي", "Tehzîb 4541"),
   E("ismailebiislamsibani", "avvamhavseb", "م", "Tehzîb 4541"),
 
+
+  /* Alâ b. Abdirrahman (o. 132) -- hocalari.
+     Tehzîb 4577. Tercemede 15 kayit var, agda dugumu olan 4'i cizildi. */
+  E("enes", "alaabdrahman", "م د ت س", "Tehzîb 4577"),
+  E("salimibnomer", "alaabdrahman", "ي", "Tehzîb 4577"),
+  E("ibnomer", "alaabdrahman", "—", "Tehzîb 4577"),
+  E("ikrime", "alaabdrahman", "—", "Tehzîb 4577"),
+
+
+  /* Alâ b. Abdirrahman (o. 132) -- talebeleri.
+     Tehzîb 4577. Tercemede 29 kayit var, agda dugumu olan 9'i cizildi. */
+  E("alaabdrahman", "sadsaidensari", "—", "Tehzîb 4577"),
+  E("alaabdrahman", "sevri", "—", "Tehzîb 4577"),
+  E("alaabdrahman", "ibnuyeyne", "ر م د س ق", "Tehzîb 4577"),
+  E("alaabdrahman", "suleymanbilal", "ي م د", "Tehzîb 4577"),
+  E("alaabdrahman", "sube", "ر م ق", "Tehzîb 4577"),
+  E("alaabdrahman", "ibncafer", "ت", "Tehzîb 4577"),
+  E("alaabdrahman", "abdulhamidcafer", "ت س", "Tehzîb 4577"),
+  E("alaabdrahman", "darevardi", "ر م ٤", "Tehzîb 4577"),
+  E("alaabdrahman", "ubeydullahomeri", "—", "Tehzîb 4577"),
+
+
+  /* Hubîb b. Abdirrahman (o. 132) -- hocalari.
+     Tehzîb 1678. Tercemede 5 kayit var, agda dugumu olan 1'i cizildi. */
+  E("hafsasim", "hubeybabdrahman", "ع", "Tehzîb 1678"),
+
+
+  /* Esved b. Kays (o. ?) -- talebeleri.
+     Tehzîb 506. Tercemede 11 kayit var, agda dugumu olan 7'i cizildi. */
+  E("esvedkays", "ibrahimtahman", "—", "Tehzîb 506"),
+  E("esvedkays", "israilyunus", "—", "Tehzîb 506"),
+  E("esvedkays", "zuhayrmuaviye", "خ م د س", "Tehzîb 506"),
+  E("esvedkays", "ibnuyeyne", "م ت س ق", "Tehzîb 506"),
+  E("esvedkays", "ebulahvess", "م س", "Tehzîb 506"),
+  E("esvedkays", "serikkadi", "—", "Tehzîb 506"),
+  E("esvedkays", "sube", "خ م د ت", "Tehzîb 506"),
+
 ];
 
 /* YINELENEN KENARLAR BURADA TEKILLESTIRILIYOR.
