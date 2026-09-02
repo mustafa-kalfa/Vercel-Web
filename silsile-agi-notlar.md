@@ -8,17 +8,13 @@ Son güncelleme 2026-08-30. Önceki not dosyasının yerini alır.
 |---|---|---|
 | `/ravi-iliski-aglari` | `app/ravi-iliski-aglari/page.tsx` | Tanıtım metni, haritaya buton. Sitemap'te, indekse açık |
 | `/ravi-iliski-aglari/harita` | `app/SilsileAgi.jsx` → `silsileVeri.js` | **Yayındaki sürüm**, canvas. Sayfa adı "Rivayet Haritası". Çalışma burada yürüyor |
-| `/ag-sinamasi` | `app/SilsileAgiSinama.jsx` → `silsileVeri.js` | Deneme adresi, `noindex`. Çizim kodu ve veri yayındakiyle aynı; tek fark `kur`a verilen `deneme` bayrağı |
+| `/ag-sinamasi` | `app/SilsileAgi.jsx` → `silsileVeri.js` | Deneme adresi, `noindex`. Şu an yayındakiyle birebir aynı |
 | — | `app/silsileAgiKur.jsx` | Çizim kodu. İki sayfa da bunu kullanıyor |
 | — | `app/silsileVeri.js` | 657 râvi, 1647 bağ, çeviriler, konum hesabı |
 
 ÇİZİM KODU TEK, VERİ İKİ. `silsileAgiKur.jsx` bir fabrika — `kur(V)` bir veri modülü alıp ondan beslenen bileşen döndürüyor. İki sayfa birer satırlık sarmalayıcı. Bileşeni kopyalamak da bir seçenekti ama 1400 satır iki yerde yaşardı ve her düzeltmeyi iki kez uygulamak gerekirdi — SVG sürümü son günlerin bütün iyileştirmelerini tam da bu yüzden kaçırmıştı.
 
-Veri bir süre çatallanmıştı (kart doldurma yayındaki haritayı etkilemesin diye); 2026-08-30'da yayına alınıp çatal kapatıldı. Ana sayfa kartı ve footer `/ravi-iliski-aglari`'ne bakıyor.
-
-**Yalnız sinamada görünecek bir deneme için bileşeni KOPYALAMA.** `kur` bir seçenek nesnesi alıyor (`kur(V, { deneme: true })`); `SilsileAgiSinama.jsx` bayrağı açık veriyor, `SilsileAgi.jsx` vermiyor. Yeni bir deneme gerekirse seçeneğe bir bayrak daha ekle. Veri çatallamak gerekirse o yol da hâlâ açık.
-
-Şu an açık olan tek deneme: arama kutusunun sağındaki hamburger menü ve içindeki **"Sadece Ağları Göster"** (2026-09-02). Basınca isimler ve noktalar hiç çizilmiyor, ekranda yalnız kenarlar kalıyor; belde şeritleri ve yıl ekseni kalıyor. Nokta döngüsü baştan atlandığı için `vurus.dugum` da boş kalıyor, görünmeyen noktaya tıklanamıyor. Menüdeki yazı elle Türkçe — yayına alınırsa `t` sözlüğüne taşınmalı.
+Veri bir süre çatallanmıştı (kart doldurma yayındaki haritayı etkilemesin diye); 2026-08-30'da yayına alınıp çatal kapatıldı. Yeni bir deneme gerekirse yol açık — veriyi ya da bileşeni kopyala, `/ag-sinamasi`'nı kopyaya bağla. Ana sayfa kartı ve footer `/ravi-iliski-aglari`'ne bakıyor.
 
 `next.config.ts`'te eskiden `/ravi-iliski-aglari → /mustafa-calisiyor` yönlendirmesi vardı, kaldırıldı.
 
