@@ -94,8 +94,16 @@ const KUNYE = /^(ابو|ابي|ام)\s+\S+\s+(?!(?:بن|ابن)(?:\s|$))/;
    Munebbih'in oz kardesi Hemmam listede oldugu halde eslesmiyordu.
    Ayirt edici olmadiklari icin dogru yer BAGLAYICI. */
 const BAGLAYICI = new Set(["بن", "بنت", "ال", "و", "هو", "مولي", "مولاهم",
-  "اخيه", "اخوه", "اخته", "ابنه", "ابناه", "ابيه", "عمه", "جده",
+  "مولاه", "مولاته",
+  "اخيه", "اخوه", "اخته", "ابنه", "ابناه", "ابنته", "ابيه", "عمه", "عمته",
+  "جده", "جدته", "خاله", "خالته", "زوجته", "حفيده", "صهره",
+  "عم", "عمه", "خال", "جد",
   "ختنه", "والد", "والده", "نسيب", "سبط"]);
+/* «مولاه» BUNLARIN EN PAHALISIYDI. «مولي» ve «مولاهم» listede vardi ama
+   ZAMIRLI hali yoktu; oysa Mizzi azadliyi efendisine gore konumlarken
+   tam bu bicimi kullaniyor. Ibn Sirin'in tercemesi «مولاه أنس بن مالك»
+   ile basliyor ve Enes b. Malik -- yani listenin en onemli adi --
+   ism'i basta olmayan bir kayit sanilip sessizce eleniyordu. */
 /* KUNYENIN UC HALI TEK BICIME INIYOR.
 
    Mizzi listeleri «روى عن:» ve «روى عنه:» ardindan geldigi icin adlar
@@ -181,6 +189,28 @@ const ucCapa = (kucuk, buyuk) =>
   kucuk[kucuk.length - 1] === buyuk[buyuk.length - 1] &&
   altDizi(kucuk, buyuk);
 
+/* OZNENIN KENDI KUNYESI ADIN SONUNDAYSA.
+
+   Dugum «عويمر بن زيد أبو الدرداء», kayit ise yalnizca «وأبي الدرداء».
+   Kayit adin oneki degil KUYRUGU oldugu icin onek() de ucCapa() da
+   eliyordu ve Ebu'd-Derda gibi kunyesiyle anilan dokuz dugum listelerde
+   hic eslesmiyordu (Salim Ebu'n-Nadr, Seddad Ebu Ammar, Siyar
+   Ebu'l-Hakem, Zuheyr b. Harb Ebu Hayseme...).
+
+   Kuyrugu serbestce kabul etmek TEHLIKELI, cunku kunye cogu zaman
+   OZNENIN degil BABANIN: «عبد الرحمن بن أبي ليلى» kaydina «أبي ليلى»
+   uyarsa oglu babasi sanilir. Ayirt eden sey su: babanin kunyesi
+   «بن»in ardindan gelir, oznenin kunyesi gelmez. Tabloda 60 ad
+   birinci turden, 9'u ikinci turden. */
+const ozneKunyesi = (ar) => {
+  const ham = nesep(ar).split(" ").filter(Boolean)
+    .map((w) => (w === "ابي" || w === "ابا" ? "ابو" : w));
+  const i = ham.lastIndexOf("ابو");
+  if (i <= 0 || ham[i - 1] === "بن") return null;
+  return birlestir(ham.slice(i)).map((w) => w.replace(/^ال/, ""))
+    .filter((w) => w && !BAGLAYICI.has(w));
+};
+
 function eslestir(metin, dugumler, ozne, yon) {
   const kyt = kayitlar(metin);
   const bulunan = [];
@@ -199,9 +229,24 @@ function eslestir(metin, dugumler, ozne, yon) {
       if (ozne && n.id === ozne.id) continue;      // kendine bag olmaz
       const bel = belirtec(n.ar);
       if (!bel.length) continue;
-      const sohret = /^(ابن|بن)\s/.test(nesep(n.ar));
+      /* SOHRET = ism'in basta olma sartindan muaf ad.
+         Iki bicimi var. Birincisi «ابن جريج», «ابن علية». Ikincisi TEK
+         BELIRTECE inen yalin lakap/nisbe: dugum «الأوزاعي», kayit
+         «عبد الرحمن بن عمرو الأوزاعي» -- ilk belirtecler tutmadigi icin
+         Evzai hicbir listede eslesmiyordu. Tek belirtecli ad zaten
+         ayirt edici olmak zorunda, tabloda boyle yalnizca Evzai var. */
+      const sohret = /^(ابن|بن)\s/.test(nesep(n.ar)) || bel.length === 1;
       const ismBasta = kayitBel[0] === bel[0] || kayitBelKunyesiz[0] === bel[0];
-      if (!sohret && !ismBasta) continue;
+      const kuyruk = ozneKunyesi(n.ar);
+      /* Kayit kunyenin ONEKI olmali, tersi DEGIL. Iki yonlu birakinca
+         kayit kunyeden sonra baska bir ism tasisa da eslesiyordu:
+         «أبو عثمان عمرو بن مرثد الصنعاني» -> «الجعد أبو عثمان»,
+         «أبو مسلم الخولاني» -> «الأغر أبو مسلم». Kunyeden sonrasi
+         kaydin kime ait oldugunu SOYLUYOR; onu gormezden gelmek
+         kunyeyi paylasan herkesi ayni kisi yapar. */
+      const kunyeUyar = !!kuyruk && kayitBel.length >= 2 &&
+        onek(kayitBel, kuyruk);
+      if (!sohret && !ismBasta && !kunyeUyar) continue;
       /* Alt dizi IKI YONDE de aranıyor. Dugum adi metinden uzun
          olabiliyor: dugum «عبد الرحمن بن مهدي بن حسان», metin
          «عبد الرحمن بن مهدي». Ters yonde en az iki belirtec sarti var,
@@ -213,7 +258,8 @@ function eslestir(metin, dugumler, ozne, yon) {
       const geri =
         (kayitBel.length >= 2 && (onek(kayitBel, bel) || ucCapa(kayitBel, bel))) ||
         (kayitBelKunyesiz.length >= 2 &&
-         (onek(kayitBelKunyesiz, bel) || ucCapa(kayitBelKunyesiz, bel)));
+         (onek(kayitBelKunyesiz, bel) || ucCapa(kayitBelKunyesiz, bel))) ||
+        kunyeUyar;
       if (!ileri && !geri) continue;
       // Tek belirtecli ad ancak sohret adiysa kabul ediliyor.
       if (bel.length < 2 && !sohret) continue;
