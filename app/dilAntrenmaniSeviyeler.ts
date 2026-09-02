@@ -3,7 +3,7 @@ import type { Kelime } from "./DilAntrenmani";
 /* DİL ANTRENMANI — kelime havuzları.
 
    İki küme var. `B1_SEVIYELERI` 12 seviye (Oxford B1), `HADIS_SEVIYELERI`
-   3 seviye (hadis ilminin ıstılahları). Kümeler `DilAntrenmaniHub`
+   6 seviye (hadis ilminin ıstılahları). Kümeler `DilAntrenmaniHub`
    içinde `KUMELER` dizisinden bağlanıyor.
 
    Her seviye TAM 10 kelime tutuyor, çünkü tahta 6x6 = 36 kart ve
@@ -223,7 +223,7 @@ export const B1_SEVIYELERI: Seviye[] = [
   },
 ];
 
-/* HADİSLE İLGİLİ KELİMELER — üç seviye.
+/* HADİSLE İLGİLİ KELİMELER — altı seviye.
 
    AMAÇ: hadis talebesi İngilizce bir makale okurken karşılaştığı
    kelimeyi tanıyabilsin. Yani İngilizce sütun, o literatürde GERÇEKTEN
@@ -252,6 +252,13 @@ export const B1_SEVIYELERI: Seviye[] = [
    cerh/ta'dîl için "impugnment" ve "accreditation" Dickinson'ın İbnü's-
    Salâh çevirisinden ("impugning ... accrediting"); "criticism and
    praise" de kullanılıyor ama o çift daha gevşek.
+
+   DÖRDÜNCÜ SEVİYEDEKİ nakil usullerinin İngilizce karşılıkları da aynı
+   çeviri geleneğinden: samâ' "audition", kırâat "recitation", icâzet
+   "licence", münâvele "handing over", mükâtebe "correspondence", i'lâm
+   "notification", vasiyet "bequest", vicâde "finding". Sekizi de
+   İngilizce metinlerde bu şekilde geçiyor, yani öğrenci makalede
+   "handing over" görünce münâveleyi tanıyacak.
 
    ARAPÇA KARŞILIKLAR HAREKELİ, B1 havuzuyla aynı gerekçe. Uzun
    tamlamalardan kaçınıldı -- kartın puntosu harf sayısına göre
@@ -301,6 +308,51 @@ export const HADIS_SEVIYELERI: Seviye[] = [
       { tr: "tarihlendirme", en: "dating", ar: "تَأْرِيخ" },
       { tr: "uydurma", en: "fabrication", ar: "وَضْع" },
       { tr: "hadis tenkidi", en: "hadith criticism", ar: "نَقْد الْحَدِيث" },
+    ],
+  },
+  {
+    tema: "Tahammül ve edâ",
+    kelimeler: [
+      { tr: "semâ", en: "audition", ar: "سَمَاع" },
+      { tr: "kırâat", en: "recitation", ar: "قِرَاءَة" },
+      { tr: "icâzet", en: "licence", ar: "إِجَازَة" },
+      { tr: "münâvele", en: "handing over", ar: "مُنَاوَلَة" },
+      { tr: "mükâtebe", en: "correspondence", ar: "مُكَاتَبَة" },
+      { tr: "vicâde", en: "finding", ar: "وِجَادَة" },
+      { tr: "i'lâm", en: "notification", ar: "إِعْلَام" },
+      { tr: "vasiyet", en: "bequest", ar: "وَصِيَّة" },
+      { tr: "tahammül", en: "reception", ar: "تَحَمُّل" },
+      { tr: "rihle", en: "journey", ar: "رِحْلَة" },
+    ],
+  },
+  {
+    tema: "Kitaplar ve âlimler",
+    kelimeler: [
+      { tr: "tasnif", en: "compilation", ar: "تَصْنِيف" },
+      { tr: "şerh", en: "commentary", ar: "شَرْح" },
+      { tr: "muhtasar", en: "abridgement", ar: "مُخْتَصَر" },
+      { tr: "nüsha", en: "recension", ar: "نُسْخَة" },
+      { tr: "sahîfe", en: "scroll", ar: "صَحِيفَة" },
+      { tr: "Kütüb-i Sitte", en: "the Six Books", ar: "الْكُتُب السِّتَّة" },
+      { tr: "ricâl", en: "biographies", ar: "رِجَال" },
+      { tr: "bâb", en: "chapter", ar: "بَاب" },
+      { tr: "mukaddime", en: "introduction", ar: "مُقَدِّمَة" },
+      { tr: "hâfız", en: "memoriser", ar: "حَافِظ" },
+    ],
+  },
+  {
+    tema: "Metin ve muhteva",
+    kelimeler: [
+      { tr: "tevâtür", en: "mass transmission", ar: "تَوَاتُر" },
+      { tr: "haber-i vâhid", en: "solitary report", ar: "خَبَر الْوَاحِد" },
+      { tr: "ziyade", en: "addition", ar: "زِيَادَة" },
+      { tr: "ihtilâf", en: "divergence", ar: "اِخْتِلَاف" },
+      { tr: "nesih", en: "abrogation", ar: "نَسْخ" },
+      { tr: "te'vil", en: "interpretation", ar: "تَأْوِيل" },
+      { tr: "mütâbi", en: "parallel", ar: "مُتَابِع" },
+      { tr: "garîb", en: "rare", ar: "غَرِيب" },
+      { tr: "müdrec", en: "interpolation", ar: "مُدْرَج" },
+      { tr: "mânâ rivayeti", en: "paraphrase", ar: "رِوَايَة بِالْمَعْنَى" },
     ],
   },
 ];

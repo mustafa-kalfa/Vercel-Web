@@ -1428,7 +1428,7 @@ katman 3   oyun        secilen seviyenin on kelimesi
 ```
 
 **Dort kume var, ikisi gercek liste aciyor.** B1 12 seviye
-(`B1_SEVIYELERI`), hadis istilahlari 3 seviye (`HADIS_SEVIYELERI`).
+(`B1_SEVIYELERI`), hadis istilahlari 6 seviye (`HADIS_SEVIYELERI`).
 B2 ve C1 henuz YOK, ikisi de `/mustafa-calisiyor`a gidiyor. Icerik
 gelince `KUMELER` icindeki `kind`i `"liste"` yapip `seviyeler` alanina
 o kumenin dizisini vermek yetiyor — kilit, ilerleme kaydi ve basliklar
@@ -1667,6 +1667,23 @@ uydurma bir karsilik degil.
 
 cerh/ta'dil icin "impugnment" ve "accreditation" Dickinson'in Ibnu's-
 Salah cevirisinden ("impugning ... accrediting").
+
+**Alti seviye var** (2026-09-02'de 3'ten cikarildi): isnad ve nakil /
+sihhat ve tenkit / Bati'da hadis calismalari / tahammul ve eda /
+kitaplar ve alimler / metin ve muhteva. Dorduncu seviyedeki nakil
+usullerinin Ingilizce karsiliklari da ayni ceviri gelenegdinden geliyor
+-- sama' "audition", kiraat "recitation", icazet "licence", munavele
+"handing over", mukatebe "correspondence", i'lam "notification",
+vasiyet "bequest", vicade "finding".
+
+**Seviye EKLEMEK ilerleme anahtarini bozmuyor**, cunku eski indisler
+ayni seviyeleri gostermeye devam ediyor. Anahtari ancak seviyelerin
+SIRASI degisirse ilerlet.
+
+Ayni seviyede KOK BENZERLIGI olan ciftlerden kacinildi: tasnif/musannif
+(تصنيف/مصنف) ve i'lam/imla (إعلام/إملاء) bir arada olsalardi Arapca
+kartlar bir bakista ayirt edilemezdi -- musannif ve imla listeye hic
+girmedi.
 
 Ingilizce karsiliklar ayrica KISA tutuldu: "comprehensive collection"
 gibi tamlamalar kartta 8 puntoya dusuyor, bu yuzden kitap turleri
