@@ -5,6 +5,8 @@ import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
 import ChromaKeyVideo from "./ChromaKeyVideo";
 import DilAntrenmani from "./DilAntrenmani";
 import {
+  A1_SEVIYELERI,
+  A2_SEVIYELERI,
   B1_SEVIYELERI,
   HADIS_SEVIYELERI,
   type Seviye,
@@ -19,12 +21,12 @@ import type { Language } from "./translations";
    değiştiren her düğmede kısa bir basma efekti ve tarayıcı geçmişine
    bırakılan bir adım.
 
-     katman 1  kümeler    B1 / B2 / C1 / Hadisle İlgili Kelimeler
+     katman 1  kümeler    A1 / A2 / B1 / B2 / C1 / Hadisle İlgili Kelimeler
      katman 2  seviyeler  "Seviye 1" ... (kümenin kendi sayısı kadar)
      katman 3  oyun       seçilen seviyenin altı kelimesi
 
-   İki küme gerçek liste açıyor: B1 ve hadis ıstılahları, ikisi de
-   20 seviye. B2 ile C1 henüz YOK, ikisi de `/mustafa-calisiyor`
+   Dört küme gerçek liste açıyor: A1 ve A2 (12'şer seviye), B1 ve hadis
+   ıstılahları (20'şer seviye). B2 ile C1 henüz YOK, ikisi de `/mustafa-calisiyor`
    sayfasına gidiyor. İçerikleri gelince `KUMELER` içindeki `kind`i
    `"liste"` yapıp `seviyeler` alanına o kümenin dizisini vermek
    yetiyor -- geri kalan her şey (kilit, ilerleme kaydı, başlıklar)
@@ -51,6 +53,24 @@ type Kume = {
 };
 
 const KUMELER: Kume[] = [
+  {
+    id: "a1",
+    etiket: { tr: "A1", ar: "A1", en: "A1" },
+    iri: true,
+    kind: "liste",
+    seviyeler: A1_SEVIYELERI,
+    listeBaslik: { tr: "A1", ar: "A1", en: "A1" },
+    rozet: { tr: "Başlangıç", ar: "مبتدئ", en: "Beginner" },
+  },
+  {
+    id: "a2",
+    etiket: { tr: "A2", ar: "A2", en: "A2" },
+    iri: true,
+    kind: "liste",
+    seviyeler: A2_SEVIYELERI,
+    listeBaslik: { tr: "A2", ar: "A2", en: "A2" },
+    rozet: { tr: "Temel", ar: "أساسي", en: "Elementary" },
+  },
   {
     id: "b1",
     etiket: { tr: "B1", ar: "B1", en: "B1" },
@@ -356,7 +376,9 @@ export default function DilAntrenmaniHub() {
             {ui.kumeAlt}
           </p>
 
-          <div className="mx-auto mt-8 grid max-w-xl grid-cols-2 gap-3 sm:gap-4">
+          {/* Altı kutu. Dar ekranda 2 sütun (3 sıra), genişinde 3 sütun
+              (2 sıra) -- dörtken 2x2 idi, A1 ve A2 eklenince bölündü. */}
+          <div className="mx-auto mt-8 grid max-w-xl grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
             {KUMELER.map((k) => {
               const rozet = (
                 <span className="absolute right-2 top-2 max-w-[70%] whitespace-normal rounded-full border border-solid border-black/[.12] px-2 py-0.5 text-[9px] leading-tight text-black/55 dark:border-white/[.18] dark:text-cream-dimmer sm:text-[10px]">

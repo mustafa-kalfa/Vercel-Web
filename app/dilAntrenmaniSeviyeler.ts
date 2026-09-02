@@ -49,6 +49,293 @@ export type Seviye = {
   kelimeler: Kelime[];
 };
 
+/* A1 ve A2 HAVUZLARI — 12'şer seviye, altışar kelime.
+
+   Kaynak `oxford-A1.csv` (901 kelime) ve `oxford-A2.csv` (800 kelime).
+   Seçim ölçütleri B1 havuzuyla aynı: tek anlamlı olacak, türü sabit
+   olacak (yalnız isim ve sıfat, fiil yok) ve aynı seviyedeki altı
+   kelime birbirine karışmayacak.
+
+   Bu iki havuzda İNGİLİZCE İLE TÜRKÇENİN AYNI OLMAMASINA ayrıca dikkat
+   edildi. "pilot / pilot / طَيَّار" gibi bir kart eşleşmeyi kendiliğinden
+   ele veriyor -- Türkçeye İngilizceden geçmiş kelimeler (pilot,
+   profesör, sekreter, dedektif) bu yüzden listeye alınmadı, yerlerine
+   "yazar / author" gibi ayrı duran çiftler kondu.
+
+   Seviye içi karışma bir script'le tarandı (Arapça 3-gram, Türkçe
+   4-gram, İngilizce 7-gram ortaklığı). Yakalanan iki çift ayrıldı:
+   "öğrenci / öğretmen" (Türkçede aynı kök) ve "orman / bulut"
+   (غَابَة ile سَحَابَة sonu aynı görünüyor). */
+export const A1_SEVIYELERI: Seviye[] = [
+  {
+    tema: "Aile",
+    kelimeler: [
+      { tr: "anne", en: "mother", ar: "أُمّ" },
+      { tr: "baba", en: "father", ar: "أَب" },
+      { tr: "oğul", en: "son", ar: "اِبْن" },
+      { tr: "teyze", en: "aunt", ar: "خَالَة" },
+      { tr: "çocuk", en: "child", ar: "طِفْل" },
+      { tr: "aile", en: "family", ar: "عَائِلَة" },
+    ],
+  },
+  {
+    tema: "Ev",
+    kelimeler: [
+      { tr: "kapı", en: "door", ar: "بَاب" },
+      { tr: "pencere", en: "window", ar: "نَافِذَة" },
+      { tr: "masa", en: "table", ar: "طَاوِلَة" },
+      { tr: "sandalye", en: "chair", ar: "كُرْسِيّ" },
+      { tr: "yatak", en: "bed", ar: "سَرِير" },
+      { tr: "mutfak", en: "kitchen", ar: "مَطْبَخ" },
+    ],
+  },
+  {
+    tema: "Yiyecek",
+    kelimeler: [
+      { tr: "ekmek", en: "bread", ar: "خُبْز" },
+      { tr: "peynir", en: "cheese", ar: "جُبْن" },
+      { tr: "süt", en: "milk", ar: "حَلِيب" },
+      { tr: "yumurta", en: "egg", ar: "بَيْضَة" },
+      { tr: "pirinç", en: "rice", ar: "أَرُزّ" },
+      { tr: "tuz", en: "salt", ar: "مِلْح" },
+    ],
+  },
+  {
+    tema: "Meyve ve sebze",
+    kelimeler: [
+      { tr: "elma", en: "apple", ar: "تُفَّاحَة" },
+      { tr: "muz", en: "banana", ar: "مَوْزَة" },
+      { tr: "patates", en: "potato", ar: "بَطَاطِس" },
+      { tr: "havuç", en: "carrot", ar: "جَزَرَة" },
+      { tr: "soğan", en: "onion", ar: "بَصَل" },
+      { tr: "şeker", en: "sugar", ar: "سُكَّر" },
+    ],
+  },
+  {
+    tema: "Hayvanlar",
+    kelimeler: [
+      { tr: "kedi", en: "cat", ar: "قِطّ" },
+      { tr: "köpek", en: "dog", ar: "كَلْب" },
+      { tr: "kuş", en: "bird", ar: "طَائِر" },
+      { tr: "at", en: "horse", ar: "حِصَان" },
+      { tr: "balık", en: "fish", ar: "سَمَكَة" },
+      { tr: "koyun", en: "sheep", ar: "خَرُوف" },
+    ],
+  },
+  {
+    tema: "Beden",
+    kelimeler: [
+      { tr: "baş", en: "head", ar: "رَأْس" },
+      { tr: "göz", en: "eye", ar: "عَيْن" },
+      { tr: "burun", en: "nose", ar: "أَنْف" },
+      { tr: "kulak", en: "ear", ar: "أُذُن" },
+      { tr: "ağız", en: "mouth", ar: "فَم" },
+      { tr: "el", en: "hand", ar: "يَد" },
+    ],
+  },
+  {
+    tema: "Şehir",
+    kelimeler: [
+      { tr: "şehir", en: "city", ar: "مَدِينَة" },
+      { tr: "sokak", en: "street", ar: "شَارِع" },
+      { tr: "hastane", en: "hospital", ar: "مُسْتَشْفَى" },
+      { tr: "otel", en: "hotel", ar: "فُنْدُق" },
+      { tr: "pazar", en: "market", ar: "سُوق" },
+      { tr: "köy", en: "village", ar: "قَرْيَة" },
+    ],
+  },
+  {
+    tema: "Okul",
+    kelimeler: [
+      { tr: "öğrenci", en: "student", ar: "طَالِب" },
+      { tr: "sözlük", en: "dictionary", ar: "قَامُوس" },
+      { tr: "kitap", en: "book", ar: "كِتَاب" },
+      { tr: "kalem", en: "pen", ar: "قَلَم" },
+      { tr: "kâğıt", en: "paper", ar: "وَرَق" },
+      { tr: "soru", en: "question", ar: "سُؤَال" },
+    ],
+  },
+  {
+    tema: "Zaman",
+    kelimeler: [
+      { tr: "gün", en: "day", ar: "يَوْم" },
+      { tr: "hafta", en: "week", ar: "أُسْبُوع" },
+      { tr: "ay", en: "month", ar: "شَهْر" },
+      { tr: "yıl", en: "year", ar: "سَنَة" },
+      { tr: "sabah", en: "morning", ar: "صَبَاح" },
+      { tr: "gece", en: "night", ar: "لَيْل" },
+    ],
+  },
+  {
+    tema: "Doğa",
+    kelimeler: [
+      { tr: "güneş", en: "sun", ar: "شَمْس" },
+      { tr: "deniz", en: "sea", ar: "بَحْر" },
+      { tr: "nehir", en: "river", ar: "نَهْر" },
+      { tr: "dağ", en: "mountain", ar: "جَبَل" },
+      { tr: "ağaç", en: "tree", ar: "شَجَرَة" },
+      { tr: "çiçek", en: "flower", ar: "زَهْرَة" },
+    ],
+  },
+  {
+    tema: "Renkler",
+    kelimeler: [
+      { tr: "siyah", en: "black", ar: "أَسْوَد" },
+      { tr: "beyaz", en: "white", ar: "أَبْيَض" },
+      { tr: "kırmızı", en: "red", ar: "أَحْمَر" },
+      { tr: "yeşil", en: "green", ar: "أَخْضَر" },
+      { tr: "sarı", en: "yellow", ar: "أَصْفَر" },
+      { tr: "mavi", en: "blue", ar: "أَزْرَق" },
+    ],
+  },
+  {
+    tema: "Sıfatlar",
+    kelimeler: [
+      { tr: "büyük", en: "big", ar: "كَبِير" },
+      { tr: "küçük", en: "small", ar: "صَغِير" },
+      { tr: "yeni", en: "new", ar: "جَدِيد" },
+      { tr: "eski", en: "old", ar: "قَدِيم" },
+      { tr: "uzun", en: "long", ar: "طَوِيل" },
+      { tr: "kısa", en: "short", ar: "قَصِير" },
+    ],
+  },
+];
+
+export const A2_SEVIYELERI: Seviye[] = [
+  {
+    tema: "Beden",
+    kelimeler: [
+      { tr: "kalp", en: "heart", ar: "قَلْب" },
+      { tr: "beyin", en: "brain", ar: "دِمَاغ" },
+      { tr: "kemik", en: "bone", ar: "عَظْم" },
+      { tr: "omuz", en: "shoulder", ar: "كَتِف" },
+      { tr: "diz", en: "knee", ar: "رُكْبَة" },
+      { tr: "boyun", en: "neck", ar: "رَقَبَة" },
+    ],
+  },
+  {
+    tema: "Sağlık",
+    kelimeler: [
+      { tr: "kan", en: "blood", ar: "دَم" },
+      { tr: "hastalık", en: "illness", ar: "مَرَض" },
+      { tr: "ilaç", en: "medicine", ar: "دَوَاء" },
+      { tr: "ağrı", en: "pain", ar: "أَلَم" },
+      { tr: "yaralanma", en: "injury", ar: "إِصَابَة" },
+      { tr: "sıcaklık", en: "temperature", ar: "حَرَارَة" },
+    ],
+  },
+  {
+    tema: "Mutfak",
+    kelimeler: [
+      { tr: "çatal", en: "fork", ar: "شَوْكَة" },
+      { tr: "kaşık", en: "spoon", ar: "مِلْعَقَة" },
+      { tr: "bıçak", en: "knife", ar: "سِكِّين" },
+      { tr: "tabak", en: "plate", ar: "صَحْن" },
+      { tr: "kâse", en: "bowl", ar: "وِعَاء" },
+      { tr: "fırın", en: "oven", ar: "فُرْن" },
+    ],
+  },
+  {
+    tema: "Ev eşyası",
+    kelimeler: [
+      { tr: "halı", en: "carpet", ar: "سَجَّادَة" },
+      { tr: "ayna", en: "mirror", ar: "مِرْآة" },
+      { tr: "lamba", en: "lamp", ar: "مِصْبَاح" },
+      { tr: "dolap", en: "cupboard", ar: "خِزَانَة" },
+      { tr: "havlu", en: "towel", ar: "مِنْشَفَة" },
+      { tr: "sabun", en: "soap", ar: "صَابُون" },
+    ],
+  },
+  {
+    tema: "Doğa",
+    kelimeler: [
+      { tr: "orman", en: "forest", ar: "غَابَة" },
+      { tr: "göl", en: "lake", ar: "بُحَيْرَة" },
+      { tr: "tepe", en: "hill", ar: "تَلّ" },
+      { tr: "çöl", en: "desert", ar: "صَحْرَاء" },
+      { tr: "taş", en: "stone", ar: "حَجَر" },
+      { tr: "okyanus", en: "ocean", ar: "مُحِيط" },
+    ],
+  },
+  {
+    tema: "Gökyüzü",
+    kelimeler: [
+      { tr: "gökyüzü", en: "sky", ar: "سَمَاء" },
+      { tr: "fırtına", en: "storm", ar: "عَاصِفَة" },
+      { tr: "ay", en: "moon", ar: "قَمَر" },
+      { tr: "gezegen", en: "planet", ar: "كَوْكَب" },
+      { tr: "dalga", en: "wave", ar: "مَوْجَة" },
+      { tr: "bulut", en: "cloud", ar: "سَحَابَة" },
+    ],
+  },
+  {
+    tema: "Yapılar",
+    kelimeler: [
+      { tr: "köprü", en: "bridge", ar: "جِسْر" },
+      { tr: "kule", en: "tower", ar: "بُرْج" },
+      { tr: "saray", en: "palace", ar: "قَصْر" },
+      { tr: "kale", en: "castle", ar: "قَلْعَة" },
+      { tr: "kilise", en: "church", ar: "كَنِيسَة" },
+      { tr: "çatı", en: "roof", ar: "سَقْف" },
+    ],
+  },
+  {
+    tema: "Ulaşım",
+    kelimeler: [
+      { tr: "kamyon", en: "truck", ar: "شَاحِنَة" },
+      { tr: "gemi", en: "ship", ar: "سَفِينَة" },
+      { tr: "tekerlek", en: "wheel", ar: "عَجَلَة" },
+      { tr: "motor", en: "engine", ar: "مُحَرِّك" },
+      { tr: "yolcu", en: "passenger", ar: "رَاكِب" },
+      { tr: "peron", en: "platform", ar: "رَصِيف" },
+    ],
+  },
+  {
+    tema: "Devlet",
+    kelimeler: [
+      { tr: "ordu", en: "army", ar: "جَيْش" },
+      { tr: "asker", en: "soldier", ar: "جُنْدِيّ" },
+      { tr: "kral", en: "king", ar: "مَلِك" },
+      { tr: "hükümet", en: "government", ar: "حُكُومَة" },
+      { tr: "hapishane", en: "prison", ar: "سِجْن" },
+      { tr: "avukat", en: "lawyer", ar: "مُحَامِي" },
+    ],
+  },
+  {
+    tema: "Meslekler",
+    kelimeler: [
+      { tr: "şef", en: "chef", ar: "طَبَّاخ" },
+      { tr: "yazar", en: "author", ar: "مُؤَلِّف" },
+      { tr: "mühendis", en: "engineer", ar: "مُهَنْدِس" },
+      { tr: "gazeteci", en: "journalist", ar: "صَحَفِيّ" },
+      { tr: "ressam", en: "painter", ar: "رَسَّام" },
+      { tr: "müzisyen", en: "musician", ar: "مُوسِيقِيّ" },
+    ],
+  },
+  {
+    tema: "Eşya",
+    kelimeler: [
+      { tr: "düğme", en: "button", ar: "زِرّ" },
+      { tr: "kemer", en: "belt", ar: "حِزَام" },
+      { tr: "çorap", en: "sock", ar: "جَوْرَب" },
+      { tr: "takı", en: "jewellery", ar: "حُلِيّ" },
+      { tr: "oyuncak", en: "toy", ar: "لُعْبَة" },
+      { tr: "pul", en: "stamp", ar: "طَابَع" },
+    ],
+  },
+  {
+    tema: "Sıfatlar",
+    kelimeler: [
+      { tr: "ağır", en: "heavy", ar: "ثَقِيل" },
+      { tr: "kalın", en: "thick", ar: "سَمِيك" },
+      { tr: "derin", en: "deep", ar: "عَمِيق" },
+      { tr: "dar", en: "narrow", ar: "ضَيِّق" },
+      { tr: "geniş", en: "wide", ar: "وَاسِع" },
+      { tr: "boş", en: "empty", ar: "فَارِغ" },
+    ],
+  },
+];
+
 export const B1_SEVIYELERI: Seviye[] = [
   {
     tema: "Nesneler I",

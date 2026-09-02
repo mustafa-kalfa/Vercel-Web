@@ -1427,8 +1427,16 @@ katman 2   seviyeler   "Seviye 1" ...  kare kutu, 3 sutun
 katman 3   oyun        secilen seviyenin on kelimesi
 ```
 
-**Dort kume var, ikisi gercek liste aciyor.** B1 12 seviye
-(`B1_SEVIYELERI`), hadis istilahlari 12 seviye (`HADIS_SEVIYELERI`).
+**Alti kume var, dordu gercek liste aciyor.** A1 ve A2 12'ser seviye
+(`A1_SEVIYELERI`, `A2_SEVIYELERI`, 72'ser kelime), B1 ve hadis
+istilahlari 20'ser seviye. A1/A2 kaynagi `oxford-A1.csv` (901 kelime) ve
+`oxford-A2.csv` (800 kelime).
+
+Bu iki havuzda ayrica **Ingilizce ile Turkcenin AYNI OLMAMASINA** dikkat
+edildi: "pilot / pilot / طَيَّار" gibi bir kart eslesmeyi kendiliginden ele
+veriyor. Turkceye Ingilizceden gecmis kelimeler (pilot, profesor,
+sekreter, dedektif) bu yuzden listeye alinmadi.
+
 B2 ve C1 henuz YOK, ikisi de `/mustafa-calisiyor`a gidiyor. Icerik
 gelince `KUMELER` icindeki `kind`i `"liste"` yapip `seviyeler` alanina
 o kumenin dizisini vermek yetiyor — kilit, ilerleme kaydi ve basliklar
