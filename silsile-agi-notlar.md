@@ -50,14 +50,21 @@ Betikler `my-app/araclar/` altında.
 
 ### Şâmile tuzağı
 
-**Başlık ve sayfa araması Tehzîb'de güvenilmez.** Dizin `ابن`'i `بن`'e indirgiyor, `ابن علية` araması 3466 sonuç veriyor. Uzun adlarda ise tokenleştirici kuyruğu tek bir token yapıp sıfır sonuç döndürüyor. **TOC ile gezinmek tek güvenilir yol.**
+**Başlık ve sayfa araması Tehzîb'de güvenilmez.** Dizin `ابن`'i `بن`'e indirgiyor, `ابن علية` araması 3466 sonuç veriyor. Uzun adlarda ise tokenleştirici kuyruğu tek bir token yapıp sıfır sonuç döndürüyor. Ayrıca **arama en fazla 5 belirteç alıyor**, gerisini sessizce atıyor — uzun nesep zinciri yazmak ayırt edici kelimeyi dışarı itiyor.
 
-### Eşleştiricinin iki süzgeci
+Bugün öncelikli yöntem **`shamela_search_phrase` ile kısa ve ayırt edici bir nesep parçası**; TOC gezintisi yalnızca o tutmayınca. Ayrıntı ve çözülmüş konum tablosu `araclar/tehzib-konum.md`'de.
 
-Her ikisi de gerçek yanlış eşleşmelerden doğdu, teorik değil.
+### Eşleştiricinin süzgeçleri
+
+Hepsi gerçek yanlış eşleşmelerden doğdu, teorik değil.
 
 - **Kayıt sınırı** — `حميد بن عبد الرحمن بن عوف` kaydı Abdurrahman b. Avf düğümüyle eşleşmemeli, oradaki isim dedenin adı. İsim kaydın başında olmalı.
 - **Kronoloji penceresi** — `علي بن الحسين` hem Zeynelâbidîn'in (ö. 94) hem Ali b. el-Huseyin b. Eşkâb'ın (3. yüzyıl) adının başı. Ters yönde 60 yıl pay var (talebe hocadan önce ölebilir, Mizzî `ومات قبله` der), düz yönde 100 yıl.
+
+- **Künye başta ise ikinci belirteç de tutmalı** — `أبي بردة بن أبي موسى الأشعري` kaydı `أبو موسى الأشعري` düğümüne bağlanıyordu, yani oğul babaya. `ابو` herkeste ortak, ayırt eden ardındaki ad.
+- **`مولى`nın ardındaki ad öznenin değil efendisinin** — `أبي المنذر مولى أبي ذر الغفاري` kaydı Ebû Zer'e gidiyordu. Künyesi atılmış varyant mevlâ işaretinde kesiliyor; tam varyant kesilmiyor ki `عكرمة مولى ابن عباس` gibi mevlâlığı adının parçası olanlar bozulmasın.
+
+Bir de sessiz bir hata vardı: `nesep()` `ابن`i `بن` yaptığı için `وابنه` önce `وبنه`, baştaki waw düşünce `بنه` oluyordu; BAGLAYICI'daki `ابنه` bu yüzden hiç tutmuyor ve **her `وابنه X` kaydı** ismi başta sayılmadığından eleniyordu. Ebû Seleme, babası Abdurrahman b. Avf'ın talebe listesinde bu yüzden yoktu.
 
 Ad karşılaştırması **alt dizi**, hem de iki yönde. Nesep zinciri iki tarafa da uzayabiliyor — `احمد بن حنبل` ile `احمد بن محمد بن حنبل` aynı kişi, `عبد الرحمن بن مهدي بن حسان` ile `عبد الرحمن بن مهدي` de öyle. Şöhret adları (`ابن جريج`) için ismin başta olma şartı aranmıyor.
 

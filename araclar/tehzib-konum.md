@@ -45,6 +45,13 @@ Kurallar:
   25 kelime yakınlıkla Destüvâî'yi buldu, düz ibare hiç bulamamıştı.
 - Cevaptaki `dropped_tokens`'a bak. Yaygın kelimeler (`الأنصاري`,
   `البصري`, `أبو`) atılıyor ve arama sessizce zayıflıyor.
+- **Arama en fazla 5 belirteç alıyor, gerisini atıyor.** `normalized_tokens`
+  alanı bunu açıkça gösteriyor: `عبد الرحمن بن عوف بن عبد عوف الزهري`
+  sorgusundan geriye `["عبد","الرحمن","بن","عوف","بن"]` kalıyor ve
+  `الزهري` düşüyor. Yani sorguya `بن` / `عبد` gibi doldurma kelimeler
+  koymak ayırt edici olanı dışarı itiyor. Kısa ve ayırt edici yaz:
+  `عوف الزهري أحد العشرة` Abdurrahman b. Avf'ı tek sonuçla getirdi,
+  uzun nesep zinciri 409 sonuç verip işe yaramamıştı.
 - Künyeyle bilinenlerde **ismi** ara: Ebû Ümâme → `صدي بن عجلان بن وهب`,
   Ebü'd-Derdâ → `عويمر بن مالك`, Ebû Dâvûd et-Tayâlisî →
   `سليمان بن داود بن الجارود`.
@@ -195,6 +202,45 @@ doğrudan okur. `Tehzîb N` = terceme numarası, başlık yok, sayfadan oku.
 Dikkat: `suaybebihamza` **title_id** 2784, `seybannahvi` **Tehzîb no**
 2784. Aynı sayı, ayrı numaralandırma. Karıştırma.
 
+### Tek yönlü kalan hatırı sayılı isimler (2026-09-03)
+
+Hepsi BAŞLIKSIZ, §1 ile bulundu (aksi belirtilmedikçe).
+
+| kişi | konum |
+|---|---|
+| ebuvail (Ebû Vâil) | Tehzîb 2767 · s. 6322 (12/548) |
+| ibnvehb (Abdullah b. Vehb) | Tehzîb 3645 · s. 8271 (16/277) |
+| gunder (Muhammed b. Ca‘fer) | Tehzîb 5120 · s. 13099 (25/5) |
+| hafsgiyas | Tehzîb 1415 · s. 3279 (7/56) — title 1478 de var |
+| ibnnumeyr (Abdullah b. Nümeyr) | Tehzîb 3618 · s. 8219 — title 3552 |
+| yezidzurey | Tehzîb 6987 · s. 17239 — title 7310 |
+| nadrsumeyl | Tehzîb 6421 · s. 15951-52 (29/379) |
+| huseyn (Hüseyin b. Ali) | Tehzîb 1323 · s. 3061 (6/396) |
+| abdrahmanavf | Tehzîb 3923 · s. 8875 (17/324) |
+| tariksihab | Tehzîb 2950 · s. 6723 — title 2960 |
+| zeydvehb | Tehzîb 2131 · s. 4884 — title 2220 |
+| asimbehdele | Tehzîb 3002 · s. 6855 — title 3011 |
+| abdulmelikumeyr | Tehzîb 3546 · s. 9404 — title 4019 |
+| fudaylibnayaz | Tehzîb 4763 · s. 12169 (23/281) |
+| ebumuaviyedarir | Tehzîb 5173 · s. 13217 (25/123) |
+| leysebisuleym | Tehzîb 5017 · s. 12791 (24/279) |
+| cabirzeyd | Tehzîb 866 · s. 1948 (4/434) |
+| suddi (İsmâîl es-Süddî) | Tehzîb 462 · s. 1147 — title 523 |
+| suleymanbilal | Tehzîb 2496 · s. 5693 (11/372) |
+| mutemirsuleyman | Tehzîb 6080 · s. 15226 — title 6409 |
+| muazmuaz | Tehzîb 6036 · s. 15108 (28/132) |
+| ruhubade | Tehzîb 1930 · s. 4479 — title 2049 |
+| abdulvarissaid | Tehzîb 3595 · s. 9512 — title 4066 |
+| abdussamed | Tehzîb 3431 · s. 9133 (18/99) |
+| ebulahvess (Sellâm b. Süleym) | Tehzîb 2655 · s. 6056 (12/282) |
+| ishaktalha | Tehzîb 366 · s. 926 — title 420 |
+| suleymanmugire | Tehzîb 2567 · s. 5843 (12/69) |
+| muaviyesalih | Tehzîb 6058 · s. 15162 (28/186) |
+
+**Bulunamayanlar** (aramanın hepsi ayırt edici belirteci düşürdü,
+ikili arama da tutmadı): Mes‘ûdî (Abdurrahman b. Abdillâh),
+Abdülmelik b. Ebî Süleymân, Hâlid b. el-Hâris el-Hüceymî.
+
 ## Çözülmüş grup listeleri
 
 Bu grupların çocukları bir kez çekildi; tekrar çekmeden önce buraya bak.
@@ -241,9 +287,9 @@ Bu grupların çocukları bir kez çekildi; tekrar çekmeden önce buraya bak.
 - `الواو / من اسمه وليد` = **7042**, s. 16554, çocuklar 7043-7098.
 - `الياء / من اسمه يزداد ويزيد` = **7282**, s. 17179, çocuklar 7283-7396.
 
-## 150 listesinden tabloda hiç olmayan 15 isim
+## 150 listesinden tabloda hiç olmayan 15 isim (TAMAMLANDI 2026-09-03)
 
-Bunların düğümü yok, önce `silsileVeri.js`'e eklenmeleri gerekiyor:
+Hepsi eklendi ve iki yönde işlendi:
 Ebû Zer, Selmân-ı Fârisî, Ubâde b. es-Sâmit, Ebû Eyyûb, Ebû Katâde,
 Ebû Bekre, Vâsile, Ümmü Seleme, Esmâ bint Ebî Bekir, Ukayl b. Hâlid,
 Yûnus b. Yezîd el-Eylî, İbn Ebî Zi'b, Humeydî, Süleymân b. Harb,
