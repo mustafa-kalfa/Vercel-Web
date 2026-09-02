@@ -4867,6 +4867,58 @@ const EDGES_HAM = [
   E("rebiuenes", "suleymanteymi", "قد", "Tehzîb 1853"),
   E("rebiuenes", "amess", "—", "Tehzîb 1853"),
 
+
+  /* Süleym b. Hayyân (o. ?) -- hocalari.
+     Tehzîb 2490. Tercemede 12 kayit var, agda dugumu olan 4'i cizildi. */
+  E("eyyubsahtiyani", "selimhayyan", "—", "Tehzîb 2490"),
+  E("ikrimehalid", "selimhayyan", "—", "Tehzîb 2490"),
+  E("amrdinar", "selimhayyan", "خ", "Tehzîb 2490"),
+  E("nafiibnomer", "selimhayyan", "—", "Tehzîb 2490"),
+
+
+  /* Süleym b. Hayyân (o. ?) -- talebeleri.
+     Tehzîb 2490. Tercemede 20 kayit var, agda dugumu olan 8'i cizildi. */
+  E("selimhayyan", "bisrsari", "—", "Tehzîb 2490"),
+  E("selimhayyan", "ebudavudtayalisi", "—", "Tehzîb 2490"),
+  E("selimhayyan", "abdussamed", "خ م ت", "Tehzîb 2490"),
+  E("selimhayyan", "affanmuslim", "م", "Tehzîb 2490"),
+  E("selimhayyan", "amrmerzuk", "—", "Tehzîb 2490"),
+  E("selimhayyan", "muslimibrahim", "—", "Tehzîb 2490"),
+  E("selimhayyan", "muazmuaz", "—", "Tehzîb 2490"),
+  E("selimhayyan", "yezidharun", "خ م", "Tehzîb 2490"),
+
+
+  /* Hâtim b. Ebî Sagīre (o. 152) -- hocalari.
+     Tehzîb 996. Tercemede 11 kayit var, agda dugumu olan 5'i cizildi. */
+  E("habibebisabit", "hatimebisagire", "سي", "Tehzîb 996"),
+  E("simakharb", "hatimebisagire", "م د ت س", "Tehzîb 996"),
+  E("ibnebimuleyke", "hatimebisagire", "خ م س ق", "Tehzîb 996"),
+  E("ataebirebah", "hatimebisagire", "س", "Tehzîb 996"),
+  E("amrdinar", "hatimebisagire", "س", "Tehzîb 996"),
+
+
+  /* Sellâm b. Ebî Mutī‘ (o. 164) -- hocalari.
+     Tehzîb 2663. Tercemede 20 kayit var, agda dugumu olan 9'i cizildi. */
+  E("eyyubsahtiyani", "sallamebimuti", "م س", "Tehzîb 2663"),
+  E("cabircufi", "sallamebimuti", "—", "Tehzîb 2663"),
+  E("davudebihind", "sallamebimuti", "—", "Tehzîb 2663"),
+  E("salihhayy", "sallamebimuti", "—", "Tehzîb 2663"),
+  E("ebuhasin", "sallamebimuti", "—", "Tehzîb 2663"),
+  E("katade", "sallamebimuti", "ت س ق", "Tehzîb 2663"),
+  E("mamer", "sallamebimuti", "س", "Tehzîb 2663"),
+  E("mansurmutemir", "sallamebimuti", "—", "Tehzîb 2663"),
+  E("hisamurve", "sallamebimuti", "خ", "Tehzîb 2663"),
+
+
+  /* Sellâm b. Ebî Mutī‘ (o. 164) -- talebeleri.
+     Tehzîb 2663. Tercemede 26 kayit var, agda dugumu olan 6'i cizildi. */
+  E("sallamebimuti", "ibnmubarek", "م س", "Tehzîb 2663"),
+  E("sallamebimuti", "alicad", "—", "Tehzîb 2663"),
+  E("sallamebimuti", "misned", "—", "Tehzîb 2663"),
+  E("sallamebimuti", "musaismailtebuzeki", "خ", "Tehzîb 2663"),
+  E("sallamebimuti", "hebbanhilal", "—", "Tehzîb 2663"),
+  E("sallamebimuti", "hisamtayalisi", "مق س", "Tehzîb 2663"),
+
 ];
 
 /* YINELENEN KENARLAR BURADA TEKILLESTIRILIYOR.
