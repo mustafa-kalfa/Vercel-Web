@@ -4760,6 +4760,58 @@ const EDGES_HAM = [
   E("ebumalikesceyi", "yezidharun", "م ت ق", "Tehzîb 2211"),
   E("ebumalikesceyi", "ms29", "م ت", "Tehzîb 2211"),
 
+
+  /* Abdülvâhid b. Ziyâd (o. 176) -- hocalari.
+     Tehzîb 3585. Tercemede 47 kayit var, agda dugumu olan 12'i cizildi. */
+  E("ebuburde", "abdulvahidziyad", "خ", "Tehzîb 3585"),
+  E("haccacertat", "abdulvahidziyad", "بخ د ت", "Tehzîb 3585"),
+  E("hasanubeydullah", "abdulvahidziyad", "م س", "Tehzîb 3585"),
+  E("hasanamrfukaymi", "abdulvahidziyad", "خ", "Tehzîb 3585"),
+  E("cureyri", "abdulvahidziyad", "م", "Tehzîb 3585"),
+  E("amess", "abdulvahidziyad", "خ م دت", "Tehzîb 3585"),
+  E("salihhayy", "abdulvahidziyad", "خ مد", "Tehzîb 3585"),
+  E("asimahvel", "abdulvahidziyad", "خ م ق", "Tehzîb 3585"),
+  E("amrmeymunmihran", "abdulvahidziyad", "خ م", "Tehzîb 3585"),
+  E("leysebisuleym", "abdulvahidziyad", "بخ س", "Tehzîb 3585"),
+  E("mucalidsaid", "abdulvahidziyad", "دق", "Tehzîb 3585"),
+  E("mamer", "abdulvahidziyad", "م", "Tehzîb 3585"),
+
+
+  /* Hasan b. Amr el-Fukaymî (o. 142) -- hocalari.
+     Tehzîb 1256. Tercemede 17 kayit var, agda dugumu olan 6'i cizildi. */
+  E("nehai", "hasanamrfukaymi", "—", "Tehzîb 1256"),
+  E("hakemuteybe", "hasanamrfukaymi", "د", "Tehzîb 1256"),
+  E("saidcubeyr", "hasanamrfukaymi", "—", "Tehzîb 1256"),
+  E("kazaayahya", "hasanamrfukaymi", "—", "Tehzîb 1256"),
+  E("mucahid", "hasanamrfukaymi", "خ د س ق", "Tehzîb 1256"),
+  E("ebuzubeyrmekki", "hasanamrfukaymi", "ق", "Tehzîb 1256"),
+
+
+  /* Hasan b. Amr el-Fukaymî (o. 142) -- talebeleri.
+     Tehzîb 1256. Tercemede 21 kayit var, agda dugumu olan 5'i cizildi. */
+  E("hasanamrfukaymi", "hafsgiyas", "—", "Tehzîb 1256"),
+  E("hasanamrfukaymi", "ibnnumeyr", "—", "Tehzîb 1256"),
+  E("hasanamrfukaymi", "muhammedfudayl", "قد ق", "Tehzîb 1256"),
+  E("hasanamrfukaymi", "mervanfezari", "قد س", "Tehzîb 1256"),
+  E("hasanamrfukaymi", "ebubekirayyas", "بخ", "Tehzîb 1256"),
+
+
+  /* Büreyd b. Abdillâh b. Ebî Bürde (o. ?) -- hocalari.
+     Tehzîb 659. Tercemede 5 kayit var, agda dugumu olan 2'i cizildi. */
+  E("hasanbasri", "ebuburde", "—", "Tehzîb 659"),
+  E("ataebirebah", "ebuburde", "—", "Tehzîb 659"),
+
+
+  /* Büreyd b. Abdillâh b. Ebî Bürde (o. ?) -- talebeleri.
+     Tehzîb 659. Tercemede 19 kayit var, agda dugumu olan 7'i cizildi. */
+  E("ebuburde", "hafsgiyas", "خ م ت", "Tehzîb 659"),
+  E("ebuburde", "ebuusamehammad", "ع", "Tehzîb 659"),
+  E("ebuburde", "sevri", "خ س", "Tehzîb 659"),
+  E("ebuburde", "ibnuyeyne", "م د ت", "Tehzîb 659"),
+  E("ebuburde", "ibnidris", "م", "Tehzîb 659"),
+  E("ebuburde", "ebunuaymfadl", "—", "Tehzîb 659"),
+  E("ebuburde", "mervanfezari", "—", "Tehzîb 659"),
+
 ];
 
 /* YINELENEN KENARLAR BURADA TEKILLESTIRILIYOR.
