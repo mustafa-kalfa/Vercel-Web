@@ -76,7 +76,7 @@ export function kur(V) {
   } = V;
 
 
-  /* YERLESIM BU SAYFADA DORT KAT SEYREK.
+  /* YERLESIM BU SAYFADA ON ALTI KAT SEYREK.
 
      Yalnizca ARALIKLAR buyuyor: nokta yaricaplari ve yazi puntolari
      ekranda oldugu gibi kaliyor. Aciliste butun ag yine ekrana
@@ -85,9 +85,11 @@ export function kur(V) {
      degismiyor ama iki nokta arasindaki mesafe YAY kati aciliyor.
      Kullanicinin istedigi seyreltme bu.
 
-     2026-09-02'de 2'den 4'e cikarildi (Mustafa: "genislik ve
-     yuksekligi 2 katina cikar ki noktalar arasi bosluk artsin").
-     Tuval W ve H'si iki katina ciktı, nokta ve yazi boyu degismedi.
+     2026-09-02'de once 2'den 4'e, ayni gun 4'ten 16'ya cikarildi
+     (Mustafa: "genislik ve yuksekligi 2 katina cikar", ardindan
+     "genislik ve yuksekligi 4 katina cikar ki noktalar arasi bosluk
+     artsin ve harita ferahlasin"). Tuval W ve H'si toplamda sekiz
+     katina ciktı, nokta ve yazi boyu hic degismedi.
 
      Olceklenenler: konumlar, sutun seritleri, tuval boyu, yil ekseni
      ve kavis buyuklugu. Kavis de olcekleniyor, yoksa egriler
@@ -97,7 +99,7 @@ export function kur(V) {
      DEGISIKLIK YALNIZCA BU DOSYADA. Yerlesim sabitleri paylasilan
      app/silsileVeri.js icinde ve orayi degistirmek yayindaki SVG
      sayfasini da degistirirdi. */
-  const YAY = 4;
+  const YAY = 16;
   /* Acilis yakinligi: sigdirma olceginin kac kati. Buyudukce daha
      yakindan baslar. YAY ile carpilmasi sart, yoksa seyreltme acilisi
      da kucultur ve birbirlerini gotururler. 12 * YAY fazla yakindi --
