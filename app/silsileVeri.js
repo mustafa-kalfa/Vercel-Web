@@ -3179,6 +3179,59 @@ const EDGES_HAM = [
   E("ebuhatimrazi", "im04", "—", "Tehzîb 5050"),
   E("ebuhatimrazi", "ms29", "—", "Tehzîb 5050"),
 
+
+  /* İbn Şihâb ez-Zührî (o. 124) -- hocalari.
+     Tehzîb 5606. Tercemede 155 kayit var, agda dugumu olan 18'i cizildi. */
+  E("salimibnomer", "ibnsihab", "ع", "Tehzîb 5606"),
+  E("saibyezid", "ibnsihab", "ع", "Tehzîb 5606"),
+  E("saidmusayyeb", "ibnsihab", "ع", "Tehzîb 5606"),
+  E("suleymanyesar", "ibnsihab", "ع", "Tehzîb 5606"),
+  E("tavus", "ibnsihab", "س", "Tehzîb 5606"),
+  E("ebutufeyl", "ibnsihab", "م ق", "Tehzîb 5606"),
+  E("malikevs", "ibnsihab", "ع", "Tehzîb 5606"),
+  E("muhammedabbadcafer", "ibnsihab", "—", "Tehzîb 5606"),
+  E("muhammedsevban", "ibnsihab", "د", "Tehzîb 5606"),
+  E("ibnmunkedir", "ibnsihab", "م", "Tehzîb 5606"),
+  E("mahmudlebid", "ibnsihab", "ق", "Tehzîb 5606"),
+  E("mutallibhantab", "ibnsihab", "—", "Tehzîb 5606"),
+  E("nafiibnomer", "ibnsihab", "—", "Tehzîb 5606"),
+  E("ebuidrishavlani", "ibnsihab", "ع", "Tehzîb 5606"),
+  E("ebuumamesehl", "ibnsihab", "خ م د س ق", "Tehzîb 5606"),
+  E("ebuselemeavf", "ibnsihab", "ع", "Tehzîb 5606"),
+  E("ebuhureyre", "ibnsihab", "ت", "Tehzîb 5606"),
+  E("amrabdrahmanzurara", "ibnsihab", "ع", "Tehzîb 5606"),
+
+
+  /* İbn Şihâb ez-Zührî (o. 124) -- talebeleri.
+     Tehzîb 5606. Tercemede 156 kayit var, agda dugumu olan 27'i cizildi. */
+  E("ibnsihab", "ibrahimebiable", "س", "Tehzîb 5606"),
+  E("ibnsihab", "ismailumeyye", "د س", "Tehzîb 5606"),
+  E("ibnsihab", "caferburkan", "٤", "Tehzîb 5606"),
+  E("ibnsihab", "humeyskaysarac", "د ق", "Tehzîb 5606"),
+  E("ibnsihab", "rebiaebiabdrahman", "—", "Tehzîb 5606"),
+  E("ibnsihab", "ziyadsad", "خ م د ت س", "Tehzîb 5606"),
+  E("ibnsihab", "sadsaidensari", "بخ", "Tehzîb 5606"),
+  E("ibnsihab", "saidabdulaziz", "س", "Tehzîb 5606"),
+  E("ibnsihab", "sufyanhusayn", "خت ٤", "Tehzîb 5606"),
+  E("ibnsihab", "suleymanmusadimaski", "د ت س", "Tehzîb 5606"),
+  E("ibnsihab", "suheylebisalih", "د", "Tehzîb 5606"),
+  E("ibnsihab", "abdullahdinar", "—", "Tehzîb 5606"),
+  E("ibnsihab", "macisun", "خ", "Tehzîb 5606"),
+  E("ibnsihab", "ubeydullahomeri", "م س", "Tehzîb 5606"),
+  E("ibnsihab", "ikrimehalid", "—", "Tehzîb 5606"),
+  E("ibnsihab", "amrharis", "م د س", "Tehzîb 5606"),
+  E("ibnsihab", "katade", "—", "Tehzîb 5606"),
+  E("ibnsihab", "kurrahayvil", "٤", "Tehzîb 5606"),
+  E("ibnsihab", "muhammedvelidzubeydi", "خ م د س ق", "Tehzîb 5606"),
+  E("ibnsihab", "muaviyesellam", "س", "Tehzîb 5606"),
+  E("ibnsihab", "mansurmutemir", "خ م", "Tehzîb 5606"),
+  E("ibnsihab", "musaukbe", "خ س", "Tehzîb 5606"),
+  E("ibnsihab", "hisamurve", "م", "Tehzîb 5606"),
+  E("ibnsihab", "yahyasaidensari", "خ", "Tehzîb 5606"),
+  E("ibnsihab", "yezidrouman", "س", "Tehzîb 5606"),
+  E("ibnsihab", "yezidhad", "م س", "Tehzîb 5606"),
+  E("ibnsihab", "ebuzubeyrmekki", "—", "Tehzîb 5606"),
+
 ];
 
 /* YINELENEN KENARLAR BURADA TEKILLESTIRILIYOR.
