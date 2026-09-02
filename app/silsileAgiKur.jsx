@@ -1455,7 +1455,15 @@ export function kur(V) {
               const vurulan = tuvaldaBul(nokta);
               if (vurulan && vurulan.tur === "ravi") odaklan(vurulan.id);
               else setSecim(vurulan);
+              /* ARAMA KUTUSU DA SIFIRLANIYOR, yalnizca acilir liste degil.
+                 Eskiden sadece `setAcikArama(false)` vardi: yazilan metin
+                 kutuda kaliyordu, dolayisiyla arama sonucundaki isimler
+                 haritada vurgulu kalmaya devam ediyor ve kullanici baska
+                 bir raviye gectiginde bile kutu eski aramada takili
+                 duruyordu (Mustafa, 2026-09-02). Metin `sonuclarSet`i
+                 besledigi icin onu temizlemek vurguyu da kaldiriyor. */
               setAcikArama(false);
+              setArama("");
             }
           }}
           onPointerCancel={pointerBirak}
