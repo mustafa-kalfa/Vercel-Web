@@ -795,7 +795,7 @@ export const NODES = [
   N("firasyahya", "فراس بن يحيى الهمداني", "Firâs b. Yahyâ el-Hemdânî", 5, 129, "Kûfe"),
   N("mansurzazan", "منصور بن زاذان", "Mansûr b. Zâzân", 5, 131, "Vâsıt"),
   N("abdulmelikebisuleyman", "عبد الملك بن أبي سليمان", "Abdülmelik b. Ebî Süleymân", 5, 145, "Kûfe"),
-  N("abdulazizsuheyb", "عبد العزيز بن صهيب", "Abdýlazîz b. Suheyb", 5, 130, "Basra"),
+  N("abdulazizsuheyb", "عبد العزيز بن صهيب", "Abdülazîz b. Suheyb", 5, 130, "Basra"),
   N("saidmesrukhsevri", "سعيد بن مسروق الثوري", "Saîd b. Mesrûk es-Sevrî", 5, 126, "Kûfe", "Süfyân es-Sevrî'nin babası."),
   N("yalaata", "يعلى بن عطاء العامري", "Ya‘lâ b. Atâ el-Âmirî", 5, 120, "Vâsıt"),
   N("hilalvezzan", "هلال الوزان", "Hilâl el-Vezzân", 5, null, "Kûfe"),
@@ -4811,6 +4811,61 @@ const EDGES_HAM = [
   E("ebuburde", "ibnidris", "م", "Tehzîb 659"),
   E("ebuburde", "ebunuaymfadl", "—", "Tehzîb 659"),
   E("ebuburde", "mervanfezari", "—", "Tehzîb 659"),
+
+
+  /* Abdýlazîz b. Suheyb (o. 130) -- hocalari.
+     Tehzîb 3453. Tercemede 8 kayit var, agda dugumu olan 3'i cizildi. */
+  E("enes", "abdulazizsuheyb", "ع", "Tehzîb 3453"),
+  E("sehrhavseb", "abdulazizsuheyb", "—", "Tehzîb 3453"),
+  E("ebunadra", "abdulazizsuheyb", "م ت س ق", "Tehzîb 3453"),
+
+
+  /* Abdýlazîz b. Suheyb (o. 130) -- talebeleri.
+     Tehzîb 3453. Tercemede 27 kayit var, agda dugumu olan 11'i cizildi. */
+  E("abdulazizsuheyb", "ibrahimtahman", "خت", "Tehzîb 3453"),
+  E("abdulazizsuheyb", "ibnuleyye", "ع", "Tehzîb 3453"),
+  E("abdulazizsuheyb", "hakemuteybe", "—", "Tehzîb 3453"),
+  E("abdulazizsuheyb", "hammadzeyd", "ع", "Tehzîb 3453"),
+  E("abdulazizsuheyb", "hammadseleme", "خت", "Tehzîb 3453"),
+  E("abdulazizsuheyb", "saidabdulaziz", "—", "Tehzîb 3453"),
+  E("abdulazizsuheyb", "sube", "خ م د ت س", "Tehzîb 3453"),
+  E("abdulazizsuheyb", "abdulvarissaid", "ع", "Tehzîb 3453"),
+  E("abdulazizsuheyb", "alimubarekhinai", "س", "Tehzîb 3453"),
+  E("abdulazizsuheyb", "hisamhassan", "س", "Tehzîb 3453"),
+  E("abdulazizsuheyb", "vuheybhalid", "خ م", "Tehzîb 3453"),
+
+
+  /* Kâsım b. Ebî Bezze (o. 124) -- hocalari.
+     Tehzîb 4782. Tercemede 11 kayit var, agda dugumu olan 6'i cizildi. */
+  E("saidcubeyr", "kasimebibezze", "خ م س", "Tehzîb 4782"),
+  E("ebutufeyl", "kasimebibezze", "بخ م د س", "Tehzîb 4782"),
+  E("ataihorasani", "kasimebibezze", "سي", "Tehzîb 4782"),
+  E("ikrime", "kasimebibezze", "—", "Tehzîb 4782"),
+  E("mucahid", "kasimebibezze", "—", "Tehzîb 4782"),
+  E("nafiibnomer", "kasimebibezze", "—", "Tehzîb 4782"),
+
+
+  /* Kâsım b. Ebî Bezze (o. 124) -- talebeleri.
+     Tehzîb 4782. Tercemede 15 kayit var, agda dugumu olan 5'i cizildi. */
+  E("kasimebibezze", "haccacertat", "ت ق", "Tehzîb 4782"),
+  E("kasimebibezze", "davudattar", "—", "Tehzîb 4782"),
+  E("kasimebibezze", "sube", "بخ م د س", "Tehzîb 4782"),
+  E("kasimebibezze", "abdulmelikebisuleyman", "—", "Tehzîb 4782"),
+  E("kasimebibezze", "misersukdam", "—", "Tehzîb 4782"),
+
+
+  /* Rabî‘ b. Enes (o. 139) -- hocalari.
+     Tehzîb 1853. Tercemede 5 kayit var, agda dugumu olan 3'i cizildi. */
+  E("enes", "rebiuenes", "د ت ق", "Tehzîb 1853"),
+  E("hasanbasri", "rebiuenes", "—", "Tehzîb 1853"),
+  E("safvanmuhriz", "rebiuenes", "—", "Tehzîb 1853"),
+
+
+  /* Rabî‘ b. Enes (o. 139) -- talebeleri.
+     Tehzîb 1853. Tercemede 17 kayit var, agda dugumu olan 3'i cizildi. */
+  E("rebiuenes", "sevri", "—", "Tehzîb 1853"),
+  E("rebiuenes", "suleymanteymi", "قد", "Tehzîb 1853"),
+  E("rebiuenes", "amess", "—", "Tehzîb 1853"),
 
 ];
 
