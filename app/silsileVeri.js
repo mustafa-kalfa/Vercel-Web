@@ -4670,6 +4670,53 @@ const EDGES_HAM = [
   E("fitrhalife", "ebunuaymfadl", "بخ د", "Tehzîb 4773"),
   E("fitrhalife", "muhammedbisrabdi", "س", "Tehzîb 4773"),
 
+
+  /* Abdülmelik b. Ebî Süleymân (o. 145) -- hocalari.
+     Tehzîb 3532. Tercemede 11 kayit var, agda dugumu olan 6'i cizildi. */
+  E("enessirin", "abdulmelikebisuleyman", "م", "Tehzîb 3532"),
+  E("zubeydyami", "abdulmelikebisuleyman", "س", "Tehzîb 3532"),
+  E("saidcubeyr", "abdulmelikebisuleyman", "ي م ت س", "Tehzîb 3532"),
+  E("selemekuheyl", "abdulmelikebisuleyman", "م د", "Tehzîb 3532"),
+  E("ataebirebah", "abdulmelikebisuleyman", "خت م ٤", "Tehzîb 3532"),
+  E("ebuzubeyrmekki", "abdulmelikebisuleyman", "بخ م د س ق", "Tehzîb 3532"),
+
+
+  /* Ebû İmrân el-Cevnî (o. 128) -- hocalari.
+     Tehzîb 3521. Tercemede 15 kayit var, agda dugumu olan 2'i cizildi. */
+  E("enes", "ebuimrancevni", "ع", "Tehzîb 3521"),
+  E("aizamr", "ebuimrancevni", "—", "Tehzîb 3521"),
+
+
+  /* Ebû İmrân el-Cevnî (o. 128) -- talebeleri.
+     Tehzîb 3521. Tercemede 14 kayit var, agda dugumu olan 5'i cizildi. */
+  E("ebuimrancevni", "ebansattar", "خت م", "Tehzîb 3521"),
+  E("ebuimrancevni", "hammadzeyd", "خ م د س ق", "Tehzîb 3521"),
+  E("ebuimrancevni", "suleymanteymi", "م", "Tehzîb 3521"),
+  E("ebuimrancevni", "sallamebimuti", "خ س", "Tehzîb 3521"),
+  E("ebuimrancevni", "sube", "خ م س ق", "Tehzîb 3521"),
+
+
+  /* Ca‘fer b. Ebî Vahşiyye (Ebû Bişr) (o. 126) -- hocalari.
+     Tehzîb 932. Tercemede 30 kayit var, agda dugumu olan 11'i cizildi. */
+  E("saidcubeyr", "caferebivahsiyye", "ع", "Tehzîb 932"),
+  E("sehrhavseb", "caferebivahsiyye", "س ق", "Tehzîb 932"),
+  E("tavus", "caferebivahsiyye", "—", "Tehzîb 932"),
+  E("sabi", "caferebivahsiyye", "—", "Tehzîb 932"),
+  E("abdullahsakik", "caferebivahsiyye", "بخ م", "Tehzîb 932"),
+  E("ataebirebah", "caferebivahsiyye", "م د", "Tehzîb 932"),
+  E("ikrime", "caferebivahsiyye", "خ د", "Tehzîb 932"),
+  E("mucahid", "caferebivahsiyye", "د", "Tehzîb 932"),
+  E("meymunmihran", "caferebivahsiyye", "م د", "Tehzîb 932"),
+  E("nafiibnomer", "caferebivahsiyye", "تم س", "Tehzîb 932"),
+  E("ebunadra", "caferebivahsiyye", "ت س ق", "Tehzîb 932"),
+
+
+  /* Ca‘fer b. Ebî Vahşiyye (Ebû Bişr) (o. 126) -- talebeleri.
+     Tehzîb 932. Tercemede 10 kayit var, agda dugumu olan 3'i cizildi. */
+  E("caferebivahsiyye", "davudebihind", "—", "Tehzîb 932"),
+  E("caferebivahsiyye", "sufyanhusayn", "س", "Tehzîb 932"),
+  E("caferebivahsiyye", "sube", "ع", "Tehzîb 932"),
+
 ];
 
 /* YINELENEN KENARLAR BURADA TEKILLESTIRILIYOR.
