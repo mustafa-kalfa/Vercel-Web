@@ -3095,6 +3095,90 @@ export const EDGES = [
   E("abdullahdinar", "yahyasaidensari", "—", "Tehzîb 3251"),
   E("abdullahdinar", "yezidhad", "م د س ق", "Tehzîb 3251"),
 
+
+  /* Hârice b. Zeyd b. Sâbit (o. 100) -- hocalari.
+     Tehzîb 1589. Tercemede 7 kayit var, agda dugumu olan 2'i cizildi. */
+  E("usame", "haricezeyd", "—", "Tehzîb 1589"),
+  E("zeydsabit", "haricezeyd", "ع", "Tehzîb 1589"),
+
+
+  /* Hârice b. Zeyd b. Sâbit (o. 100) -- talebeleri.
+     Tehzîb 1589. Tercemede 21 kayit var, agda dugumu olan 4'i cizildi. */
+  E("haricezeyd", "salimibnomer", "—", "Tehzîb 1589"),
+  E("haricezeyd", "salimebinadr", "—", "Tehzîb 1589"),
+  E("haricezeyd", "mutallibhantab", "ر", "Tehzîb 1589"),
+  E("haricezeyd", "yezidkusayt", "د", "Tehzîb 1589"),
+
+
+  /* Cerîr b. Abdillâh el-Becelî (o. 51) -- talebeleri.
+     Tehzîb 917. Tercemede 22 kayit var, agda dugumu olan 9'i cizildi. */
+  E("cerirbecelî", "enes", "خ م", "Tehzîb 917"),
+  E("cerirbecelî", "ebuzabyan", "خ م", "Tehzîb 917"),
+  E("cerirbecelî", "zadan", "ق", "Tehzîb 917"),
+  E("cerirbecelî", "zeydvehb", "خ م", "Tehzîb 917"),
+  E("cerirbecelî", "ebuvail", "س", "Tehzîb 917"),
+  E("cerirbecelî", "sehrhavseb", "ت", "Tehzîb 917"),
+  E("cerirbecelî", "sabi", "ع", "Tehzîb 917"),
+  E("cerirbecelî", "kayshazim", "ع", "Tehzîb 917"),
+  E("cerirbecelî", "ebuishaksebii", "س", "Tehzîb 917"),
+
+
+  /* Ebû Zür‘a er-Râzî (o. 264) -- hocalari.
+     Tehzîb 3660. Tercemede 76 kayit var, agda dugumu olan 12'i cizildi. */
+  E("ahmedhanbel", "ebuzuraraazi", "—", "Tehzîb 3660"),
+  E("harmalayahya", "ebuzuraraazi", "—", "Tehzîb 3660"),
+  E("halefhisam", "ebuzuraraazi", "—", "Tehzîb 3660"),
+  E("ebuasimnebil", "ebuzuraraazi", "—", "Tehzîb 3660"),
+  E("ibnebiseybe", "ebuzuraraazi", "—", "Tehzîb 3660"),
+  E("kanebi", "ebuzuraraazi", "—", "Tehzîb 3660"),
+  E("ebunuaymfadl", "ebuzuraraazi", "—", "Tehzîb 3660"),
+  E("kuteybesaid", "ebuzuraraazi", "—", "Tehzîb 3660"),
+  E("muslimibrahim", "ebuzuraraazi", "—", "Tehzîb 3660"),
+  E("musaismailtebuzeki", "ebuzuraraazi", "—", "Tehzîb 3660"),
+  E("nasralicehdami", "ebuzuraraazi", "—", "Tehzîb 3660"),
+  E("hisamtayalisi", "ebuzuraraazi", "—", "Tehzîb 3660"),
+
+
+  /* Ebû Zür‘a er-Râzî (o. 264) -- talebeleri.
+     Tehzîb 3660. Tercemede 45 kayit var, agda dugumu olan 10'i cizildi. */
+  E("ebuzuraraazi", "muslim", "—", "Tehzîb 3660"),
+  E("ebuzuraraazi", "tirmizi", "—", "Tehzîb 3660"),
+  E("ebuzuraraazi", "nesai", "—", "Tehzîb 3660"),
+  E("ebuzuraraazi", "ibnmace", "—", "Tehzîb 3660"),
+  E("ebuzuraraazi", "bh03", "—", "Tehzîb 3660"),
+  E("ebuzuraraazi", "ed19", "—", "Tehzîb 3660"),
+  E("ebuzuraraazi", "ms20", "—", "Tehzîb 3660"),
+  E("ebuzuraraazi", "ms23", "—", "Tehzîb 3660"),
+  E("ebuzuraraazi", "ebuhatimrazi", "—", "Tehzîb 3660"),
+  E("ebuzuraraazi", "ms29", "—", "Tehzîb 3660"),
+
+
+  /* Ebû Hâtim er-Râzî (o. 277) -- hocalari.
+     Tehzîb 5050. Tercemede 77 kayit var, agda dugumu olan 11'i cizildi. */
+  E("ahmedhanbel", "ebuhatimrazi", "—", "Tehzîb 5050"),
+  E("ahmedsalihmisri", "ebuhatimrazi", "—", "Tehzîb 5050"),
+  E("ademebiiyas", "ebuhatimrazi", "سي", "Tehzîb 5050"),
+  E("zuheyrharb", "ebuhatimrazi", "—", "Tehzîb 5050"),
+  E("ubeydullahmusa", "ebuhatimrazi", "—", "Tehzîb 5050"),
+  E("affanmuslim", "ebuhatimrazi", "—", "Tehzîb 5050"),
+  E("ebunuaymfadl", "ebuhatimrazi", "—", "Tehzîb 5050"),
+  E("kuteybesaid", "ebuhatimrazi", "—", "Tehzîb 5050"),
+  E("bundar", "ebuhatimrazi", "—", "Tehzîb 5050"),
+  E("hebbanhilal", "ebuhatimrazi", "—", "Tehzîb 5050"),
+  E("ibnmain", "ebuhatimrazi", "—", "Tehzîb 5050"),
+
+
+  /* Ebû Hâtim er-Râzî (o. 277) -- talebeleri.
+     Tehzîb 5050. Tercemede 35 kayit var, agda dugumu olan 8'i cizildi. */
+  E("ebuhatimrazi", "ebudavud", "—", "Tehzîb 5050"),
+  E("ebuhatimrazi", "nesai", "—", "Tehzîb 5050"),
+  E("ebuhatimrazi", "ibnmace", "—", "Tehzîb 5050"),
+  E("ebuhatimrazi", "bh03", "—", "Tehzîb 5050"),
+  E("ebuhatimrazi", "im03", "—", "Tehzîb 5050"),
+  E("ebuhatimrazi", "bh17", "—", "Tehzîb 5050"),
+  E("ebuhatimrazi", "im04", "—", "Tehzîb 5050"),
+  E("ebuhatimrazi", "ms29", "—", "Tehzîb 5050"),
+
 ];
 
 // En çok hadis rivayet eden yedi sahâbî
