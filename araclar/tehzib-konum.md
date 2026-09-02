@@ -188,7 +188,7 @@ doğrudan okur. `Tehzîb N` = terceme numarası, başlık yok, sayfadan oku.
 | ebuzuraraazi | عبيد الله بن عبد الكريم أبو زرعة | **title 4135** · s. 9664-9686 |
 | ebuhatimrazi | محمد بن إدريس الحنظلي | **title 5452** · s. 12892 |
 | bakiyyevelid | بقية بن الوليد | **title 814** · s. 1707 |
-| yezidebihabib | يزيد بن أبي حبيب | BAŞLIKSIZ · s. 17216-17217 (32/102) |
+| yezidebihabib | يزيد بن أبي حبيب | BAŞLIKSIZ · Tehzîb 6975 · s. 17217 (32/102) |
 | amrsuayb | عمرو بن شعيب | **title 4818** · s. 11318 |
 | behzhakim | بهز بن حكيم بن معاوية | BAŞLIKSIZ · Tehzîb 775 · s. 1774 (4/259) |
 

@@ -216,6 +216,30 @@ const ozneKunyesi = (ar) => {
     .filter((w) => w && !BAGLAYICI.has(w));
 };
 
+/* KUTUB-I SITTE MUELLIFLERI LISTELERDE YALIN GECIYOR.
+
+   Mizzi bir seyhin talebeleri arasinda alti kitabin sahiplerini adiyla
+   degil, kitabin adi gibi yaziyor: «روى عنه: البخاري، ومسلم، وأبو داود».
+   Tabloda ise tam adlariyla duruyorlar. Tek belirtece dusen «البخاري»
+   ters yondeki iki-belirtec esigini gecemiyor, «أبو داود» ise oglu
+   «أبو بكر بن أبي داود»a gidiyordu -- yani en cok bag tasimasi gereken
+   alti dugum, tam da kendi kitaplarinin ravileri arasinda kayboluyordu.
+
+   Genel bir kural yazilamiyor: «بخاري» ve «مسلم» tabloda tekil degil
+   (ms11, Velid b. Muslim, Affan b. Muslim...). Ama bu alti ad
+   kisaltilmis haliyle BASKA kimseyi gostermiyor, cunku kisaltmayi
+   mumkun kilan sey zaten kitabin kendi baglamı. Kronoloji penceresi
+   ayrica bekci: 2. yuzyilda yalin «أبو داود» Tayalisi demektir ve
+   Sicistani (o. 275) o pencereye girmiyor. */
+const KISALTMA = new Map([
+  ["بخاري", "محمد بن إسماعيل البخاري"],
+  ["مسلم", "مسلم بن الحجاج القشيري"],
+  ["ترمذي", "محمد بن عيسى الترمذي"],
+  ["نسايي", "أحمد بن شعيب النسائي"],
+  ["ماجه", "محمد بن يزيد ابن ماجه"],
+  ["ابو داود", "أبو داود السجستاني"],
+]);
+
 function eslestir(metin, dugumler, ozne, yon) {
   const kyt = kayitlar(metin);
   const bulunan = [];
@@ -227,8 +251,9 @@ function eslestir(metin, dugumler, ozne, yon) {
        «ووكيع بن الجراح» -> kayitlar «وكيع بن الجراح» -> burada
        «كيع بن الجراح». Veki', Velid, Vehb, Vasile, Vakid... hepsi
        baskalarinin listelerinde sessizce eslesmiyordu. */
-    const kayitBel = belirtec(k.ad);
-    const kayitBelKunyesiz = belirtec(k.ad.replace(KUNYE, ""));
+    const acik = KISALTMA.get(belirtec(k.ad).join(" "));
+    const kayitBel = belirtec(acik || k.ad);
+    const kayitBelKunyesiz = belirtec((acik || k.ad).replace(KUNYE, ""));
     let enIyi = null, enIyiBel = 0, enIyiTur = 0;
     for (const n of dugumler) {
       if (ozne && n.id === ozne.id) continue;      // kendine bag olmaz
@@ -296,7 +321,19 @@ function eslestir(metin, dugumler, ozne, yon) {
          her zaman daha iyi. */
       const onekMi = ileri &&
         (onek(bel, kayitBel) || onek(bel, kayitBelKunyesiz));
-      const tur = (ileri ? 2 : 1) * 2 + (onekMi ? 1 : 0);
+      /* TERS YONDE DE ONEK, IKI-UC-CAPAYI YENER.
+
+         Ayni gerekce ters yon icin de gecerliydi ama uygulanmamisti ve
+         ters yondeki butun adaylar esit sayilip aralarindan "en uzun
+         ad" seciliyordu. Kayit «أبو داود» iki dugume uyuyor: «أبو داود
+         السجستاني»in ONEKI, «أبو بكر بن أبي داود»in ise yalnizca
+         iki-uc-capasi (ابو...داود, arasi atlanmis). Uzun olan ikincisi
+         kazaniyor ve Ebu Davud'un yerine oglu yaziliyordu. */
+      const geriOnek = !ileri &&
+        ((kayitBel.length >= 2 && onek(kayitBel, bel)) ||
+         (kayitBelKunyesiz.length >= 2 && onek(kayitBelKunyesiz, bel)) ||
+         kunyeUyar);
+      const tur = (ileri ? 2 : 1) * 2 + (onekMi || geriOnek ? 1 : 0);
       if (tur > enIyiTur || (tur === enIyiTur && bel.length > enIyiBel)) {
         enIyi = n; enIyiBel = bel.length; enIyiTur = tur;
       }
