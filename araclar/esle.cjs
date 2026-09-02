@@ -88,6 +88,20 @@ function kronolojiUyar(ozne, aday, yon) {
    ve \w Arapca harf icermez, yani dogru yazilsa da ise yaramazdi. */
 const KUNYE = /^(ابو|ابي|ام)\s+\S+\s+(?!(?:بن|ابن)(?:\s|$))/;
 
+/* «MEVLA»NIN ARDINDAKI AD OZNENIN DEGIL EFENDISININ.
+
+   Kunyesi atilmis varyant «أبي المنذر مولى أبي ذر الغفاري» kaydini
+   «مولي ابي ذر الغفاري»ye indiriyor ve geriye yalnizca EFENDININ adi
+   kaliyor; kayit da dogruca Ebu Zer dugumune baglaniyordu -- oysa
+   Ebu'l-Munzir onun azatlisi. Kunye adin tamamiysa (yalniz o zaman)
+   atmak oznenin adini yok ediyor, o yuzden kunyesiz varyant mevla
+   isaretinde kesiliyor.
+
+   Tam varyant (kayitBel) kesilmiyor: dugumun kendi adi mevlalik
+   bildiriyorsa -- «عكرمة مولى ابن عباس», «نافع مولى ابن عمر» --
+   eslesme oradan yuruyor ve bozulmuyor. */
+const MEVLA = /(^|\s)(مولي|مولاهم|مولاه|مولاته)(\s|$)[\s\S]*$/;
+
 /* Nesep baglayicilari ve nispet onekleri: eslestirmede ayirt edici
    degiller, atiliyor. Geriye kalan "ayirt edici belirtecler". */
 /* AKRABALIK ONEKLERI DE BAGLAYICI.
@@ -271,7 +285,8 @@ function eslestir(metin, dugumler, ozne, yon) {
        baskalarinin listelerinde sessizce eslesmiyordu. */
     const acik = KISALTMA.get(belirtec(k.ad).join(" "));
     const kayitBel = belirtec(acik || k.ad);
-    const kayitBelKunyesiz = belirtec((acik || k.ad).replace(KUNYE, ""));
+    const kayitBelKunyesiz =
+      belirtec((acik || k.ad).replace(KUNYE, "").replace(MEVLA, ""));
     let enIyi = null, enIyiBel = 0, enIyiTur = 0;
     for (const n of dugumler) {
       if (ozne && n.id === ozne.id) continue;      // kendine bag olmaz
