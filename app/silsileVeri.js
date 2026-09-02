@@ -3232,6 +3232,18 @@ const EDGES_HAM = [
   E("ibnsihab", "yezidhad", "م س", "Tehzîb 5606"),
   E("ibnsihab", "ebuzubeyrmekki", "—", "Tehzîb 5606"),
 
+
+  /* Yahyâ b. Ebî Kesîr (o. 129) -- hocalari.
+     Tehzîb 6907. Tercemede 57 kayit var, agda dugumu olan 2'i cizildi. */
+  E("hafsubeydullahenes", "yahyaebikesir", "خ", "Tehzîb 6907"),
+  E("muhammedsevban", "yahyaebikesir", "خ ٤", "Tehzîb 6907"),
+
+
+  /* Yahyâ b. Ebî Kesîr (o. 129) -- talebeleri.
+     Tehzîb 6907. Tercemede 38 kayit var, agda dugumu olan 2'i cizildi. */
+  E("yahyaebikesir", "ebansattar", "خت م د ت س", "Tehzîb 6907"),
+  E("yahyaebikesir", "harbseddad", "خ م د ت س", "Tehzîb 6907"),
+
 ];
 
 /* YINELENEN KENARLAR BURADA TEKILLESTIRILIYOR.
