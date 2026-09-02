@@ -2,42 +2,93 @@
 
 Bu dosya bir **araç değil, harita**. Bir râvinin `روى عن` / `روى عنه`
 listelerine ulaşmak için tercemesini bulmak gerekiyor ve bu, işin en
-pahalı adımı. Aşağısı o adımı ucuzlatıyor.
+pahalı adımıydı. Aşağısı o adımı ucuzlatıyor.
+
+**2026-09-02'de yöntem değişti.** Aşağıdaki §1 artık ilk seçenek;
+eski "boşluktan kuşatma" (§3) yalnız o tutmazsa gerekiyor. Kalan 27
+ismin (aslında 30) hepsi §1 ve §2 ile bulundu, tablo en altta.
 
 ## Neden zor: ÖNEMLİ isimlerin başlığı fihristte YOK
 
 `shamela_search_titles` ile aranan isim çoğu zaman bulunamıyor. Sebep
 tesadüf değil, sistematik: **tercemesi uzun olan râvinin fihrist kaydı
-eksik.** Ölçüldü, yedisi de böyle çıktı:
+eksik.** Ölçüldü, defalarca doğrulandı — Hasan-ı Basrî, Dahhâk, İbn
+Sîrîn, Nehaî, Alkame, Mesrûk, A‘rec, Şâfiî, Muâz b. Cebel, Ebü'd-Derdâ,
+Ukbe b. Âmir, Ali b. el-Ca‘d, Seleme b. el-Ekva‘, Ebû Ümâme, Hârice b.
+Zeyd, Sâlih b. Keysân, Cerîr b. Abdülhamîd, Behz b. Hakîm, Şeybân
+en-Nahvî, Hişâm ed-Destüvâî, Ebû Dâvûd et-Tayâlisî, Abdullah b. Dînâr,
+Yezîd b. Ebî Habîb... Yani tam ihtiyaç duyulan isimler **başlıkla**
+aranamıyor.
 
-Hasan-ı Basrî · Dahhâk b. Müzâhim · İbn Sîrîn · İbrâhim en-Nehaî ·
-Alkame b. Kays · Mesrûk b. el-Ecda‘ · Abdurrahman b. Hürmüz el-A‘rec
+## 1. YÖNTEM (ÖNCELİKLİ): nesep parçasıyla metin araması
 
-Yani tam ihtiyaç duyulan isimler aramayla bulunamıyor. Bulunabilenler
-(Leys b. Sa‘d 5422, Vehb b. Münebbih 7118, Hemmâm b. Münebbih 6937,
-İbrâhim b. Sa‘d 220) zaten kolay olanlar.
+`shamela_search_phrase` ile **nesebin ayırt edici bir parçasını** ara,
+kitabı 3722'ye kısıtla. Başlık indeksini hiç kullanmadığı için başlıksız
+tercemeleri de buluyor ve tek çağrıda üçünü birden veriyor: `page_id`,
+basılı cilt/sayfa, ve pasajın başındaki **terceme numarası**.
 
-## Yöntem: boşluktan kuşatma
+```
+shamela_search_phrase({
+  query: "علي بن الجعد بن عبيد",
+  scope: {book_ids: [3722]}, limit: 3
+})
+→ page_id 10472, 20/341, "٤٠٣٤ - خ د: علي بن الجعد بن عُبَيد الجوهري"
+```
 
-1. `shamela_get_toc(book_id:3722, parent_id:0, depth:1)` → 30 küsur
-   **bâb** (باب الألف, باب الباء ...). Aşağıda tablosu var, tekrar
-   çekmeye gerek yok.
-2. İlgili bâbın çocukları → `من اسمه X` **grupları**. Küçük bir liste.
-3. O grubun çocukları → **tercemeler**, her biri `page_id` ile.
-4. Aradığın isim listede yoksa, **alfabetik olarak nereye düşeceğine**
-   bak ve komşularının `page_id`leri arasındaki BOŞLUĞU al. Terceme
-   orada, başlıksız duruyor.
-5. O aralıktan `shamela_get_pages_range` ile oku. `روى عن` ve
-   `روى عنه` tercemenin hemen başında.
+Kurallar:
 
-Sıralama **babanın adına** göre alfabetik. `عبد الله` ile
-`عبد الرحمن` ayrı ayrı sıralanıyor, `أبو X` künyeleri kendi
-harfinde değil `X`in harfinde değil — künyeliler ismiyle sıralı
+- **Uzun ve tekil bir dizi seç.** `عقبة بن عامر الجهني` 25 sonuç verir
+  (başkalarının tercemelerinde geçiyor); `عقبة بن عامر بن عبس` bir
+  sonuç verir, o da tercemenin kendisi. Şöhret nisbesi değil, **dedenin
+  adı** ayırt ediyor.
+- Sonuç 0 ise `mode:"near"` + geniş `distance` dene. `سنبر الدستوائي`
+  25 kelime yakınlıkla Destüvâî'yi buldu, düz ibare hiç bulamamıştı.
+- Cevaptaki `dropped_tokens`'a bak. Yaygın kelimeler (`الأنصاري`,
+  `البصري`, `أبو`) atılıyor ve arama sessizce zayıflıyor.
+- Künyeyle bilinenlerde **ismi** ara: Ebû Ümâme → `صدي بن عجلان بن وهب`,
+  Ebü'd-Derdâ → `عويمر بن مالك`, Ebû Dâvûd et-Tayâlisî →
+  `سليمان بن داود بن الجارود`.
+
+## 2. YÖNTEM: sayfadan başlığa sorma (ikili arama)
+
+`shamela_get_toc({book_id:3722, containing_page_id:N})` bir sayfanın
+ata zincirini döndürüyor — bâb, grup ve **o sayfayı içeren terceme
+başlığı**. Çıktısı üç satır, yani neredeyse bedava. Bir grubun 600
+çocuğunu dökmek yerine 4-5 sorguyla ikili arama yap.
+
+Alfabetik konumdan bir sayfa tahmin et, sor, hangi tercemede olduğunu
+gör, daralt. Başlıksız terceme, iki başlık arasındaki boşluk olarak
+kendini belli ediyor: sorgu hep bir öncekini döndürüyorsa aradaki
+sayfalarda başlıksız bir terceme vardır.
+
+## 3. YÖNTEM (eski): TOC'ta boşluktan kuşatma
+
+1. `shamela_get_toc(book_id:3722, parent_id:0, depth:1)` → bâblar
+   (tablo aşağıda, tekrar çekme).
+2. Bâbın çocukları → `من اسمه X` grupları.
+3. Grubun çocukları → tercemeler, her biri `page_id` ile.
+4. Ad listede yoksa **alfabetik olarak nereye düşeceğine** bak,
+   komşularının `page_id`leri arasındaki BOŞLUĞU al.
+
+Pahalı olan 3. adım (`من اسمه محمد` 624 çocuk). §1 tutmazsa kullan.
+
+### Sıralama kuralları (ölçüldü)
+
+Sıralama **babanın adına** göre. Ama iki istisna var ve ikisi de
+yanlış tahmine yol açtı:
+
+- **`عبد الله` her zaman önce geliyor**, alfabetik olarak `عبد الرحمن`
+  ve `عبد الحميد`den sonra gelmesi gerekirken. Bâb düzeyinde de böyle
+  (`من اسمه عبد الله` 3150, `عبد الرحمن` 3685). Cerîr b. Abdülhamîd bu
+  yüzden Cerîr b. Abdillâh'tan **sonra**.
+- **`سلام` / `سلامة` s harfinin SONUNA** atılıyor (`من اسمه سلام` 2695,
+  `سويد` 2679'dan sonra). İbn Sîrîn bu yüzden `محمد بن سلام`ların
+  hemen üstünde değil, arasında çıktı.
+
+Künyeliler künyenin harfinde değil **ismin** harfinde sıralı
 (Ebü'd-Derdâ → عويمر, Ebû Ümâme → صدي, Ebû Mûsâ → عبد الله بن قيس).
 
 ## Sayfa ↔ terceme numarası bağıntısı
-
-Ölçülen dört çıpa (terceme no → page_id):
 
 | terceme | page_id |
 |---|---|
@@ -46,9 +97,9 @@ harfinde değil `X`in harfinde değil — künyeliler ismiyle sıralı
 | 5016 Leys b. Sa‘d | 12767 |
 | 6767 Vehb b. Münebbih | 16689 |
 
-Eğim ≈ **2.62 sayfa / terceme**, kitap ortasında tutarlı. Ama
-`باب الألف` daha yoğun (~1.94), yani bâb içinde yerel eğim kullan.
-Kaba tahmin için: `page ≈ 2761 + 2.62 × (N − 1216)`.
+Eğim ≈ **2.62 sayfa / terceme**, kitap ortasında tutarlı. `باب الألف`
+daha yoğun (~1.94). Kaba tahmin: `page ≈ 2761 + 2.62 × (N − 1216)`.
+İkili arama için başlangıç noktası olarak yeterli.
 
 ## Bâb tablosu (parent_id:0, depth:1 çıktısı)
 
@@ -86,7 +137,12 @@ Kaba tahmin için: `page ≈ 2761 + 2.62 × (N − 1216)`.
 | كتاب الكنى | 7515 | 17677 |
 | كتاب النساء | 10119 | 18723 |
 
-## Çözülmüş konumlar (tekrar aramaya gerek yok)
+## ÇÖZÜLMÜŞ KONUMLAR
+
+`title` = fihristte başlığı var, `shamela_get_book_section(3722, title)`
+doğrudan okur. `Tehzîb N` = terceme numarası, başlık yok, sayfadan oku.
+
+### Önceki oturumlardan
 
 | kişi | konum |
 |---|---|
@@ -96,75 +152,99 @@ Kaba tahmin için: `page ≈ 2761 + 2.62 × (N − 1216)`.
 | İbrâhim b. Sa‘d ez-Zührî | title 220 · Tehzîb 174 · s. 570 |
 | Hasan-ı Basrî | BAŞLIKSIZ · s. 2761-2767 (listeler 2762-2767) |
 | Dahhâk b. Müzâhim | BAŞLIKSIZ · Tehzîb 2928 · s. 6673-6675 |
-| İbrâhim en-Nehaî | BAŞLIKSIZ · 307↔308 arası · s. 716-718 |
-| Alkame b. Kays | BAŞLIKSIZ · 4485↔4486 arası · s. 10432-10433 |
-| Mesrûk b. el-Ecda‘ | BAŞLIKSIZ · 6227↔6228 arası · s. 14842-14843 |
-| Abdurrahman b. Hürmüz el-A‘rec | BAŞLIKSIZ · 3869↔3870 arası · s. 9019-9021 |
+| İbrâhim en-Nehaî | BAŞLIKSIZ · s. 716-718 |
+| Alkame b. Kays | BAŞLIKSIZ · s. 10432-10433 |
+| Mesrûk b. el-Ecda‘ | BAŞLIKSIZ · s. 14842-14843 |
+| Abdurrahman b. Hürmüz el-A‘rec | BAŞLIKSIZ · s. 9019-9021 |
+
+### Kalan 30 isim — 2026-09-02'de çözüldü, hepsi ölçülü
+
+| id | Tehzîb'deki ad | konum |
+|---|---|---|
+| ibnsirin | محمد بن سيرين | BAŞLIKSIZ · Tehzîb 5280 · s. 13438 (25/344) |
+| kasimmuhammed | القاسم بن محمد بن أبي بكر | **title 5222** · s. 12315 |
+| ubeydullahutbe | عبيد الله بن عبد الله بن عتبة | **title 4127** · s. 9648 (19/73) |
+| haricezeyd | خارجة بن زيد بن ثابت | BAŞLIKSIZ · Tehzîb 1589 · s. 3720 (8/8) |
+| abdullahdinar | عبد الله بن دينار القرشي العدوي | BAŞLIKSIZ · Tehzîb 3251 · s. 7400 (14/471) |
+| suaybebihamza | شعيب بن أبي حمزة | **title 2784** · s. 6290 |
+| salihkeysan | صالح بن كيسان | BAŞLIKSIZ · Tehzîb 2834 · s. 6461 (13/79) |
+| ebudavudtayalisi | سليمان بن داود بن الجارود | BAŞLIKSIZ · Tehzîb 2507 · s. 5722 (11/401) |
+| hisamdestuvai | هشام بن أبي عبد الله الدستوائي | BAŞLIKSIZ · s. 16282-16283 (30/216) |
+| seybannahvi | شيبان بن عبد الرحمن التميمي | BAŞLIKSIZ · Tehzîb 2784 · s. 6366 (12/592) |
+| hemmamyahya | همام بن يحيى | **title 6939** · s. 16369 |
+| israilyunus | إسرائيل بن يونس | **title 458** · s. 997 |
+| cerirabdulhamid | جرير بن عبد الحميد بن قرط | BAŞLIKSIZ · Tehzîb 918 · s. 2054 (4/540) |
+| velidmuslim | الوليد بن مسلم | **title 7086** · s. 16635 |
+| safii | محمد بن إدريس بن العباس | BAŞLIKSIZ · Tehzîb 5049 · s. 12866 (24/355) |
+| muazcebel | معاذ بن جبل | BAŞLIKSIZ · Tehzîb 6020 · s. 15081 (28/105) |
+| ebudderda | عويمر بن مالك | BAŞLIKSIZ · Tehzîb 4558 · s. 11723 (22/469) |
+| imranhusayn | عمران بن حصين | **title 4901** · s. 11573 |
+| sehlsad | سهل بن سعد الساعدي | **title 2649** · s. 5962 |
+| ukbeamir | عقبة بن عامر بن عبس | BAŞLIKSIZ · Tehzîb 3978 · s. 10333 (20/202) |
+| ebuumame | صدي بن عجلان بن وهب | BAŞLIKSIZ · Tehzîb 2872 · s. 6540 (13/158) |
+| selemeekva | سلمة بن عمرو بن الأكوع | BAŞLIKSIZ · Tehzîb 2462 · s. 5622 (11/301) |
+| cerirbecelî | جرير بن عبد الله البجلي | **title 987** · s. 2047-2065 |
+| alicad | علي بن الجعد بن عبيد | BAŞLIKSIZ · Tehzîb 4034 · s. 10472 (20/341) |
+| ebuzuraraazi | عبيد الله بن عبد الكريم أبو زرعة | **title 4135** · s. 9664-9686 |
+| ebuhatimrazi | محمد بن إدريس الحنظلي | **title 5452** · s. 12892 |
+| bakiyyevelid | بقية بن الوليد | **title 814** · s. 1707 |
+| yezidebihabib | يزيد بن أبي حبيب | BAŞLIKSIZ · s. 17216-17217 (32/102) |
+| amrsuayb | عمرو بن شعيب | **title 4818** · s. 11318 |
+| behzhakim | بهز بن حكيم بن معاوية | BAŞLIKSIZ · Tehzîb 775 · s. 1774 (4/259) |
+
+Dikkat: `suaybebihamza` **title_id** 2784, `seybannahvi` **Tehzîb no**
+2784. Aynı sayı, ayrı numaralandırma. Karıştırma.
 
 ## Çözülmüş grup listeleri
 
 Bu grupların çocukları bir kez çekildi; tekrar çekmeden önce buraya bak.
 
-- `باب الألف / من اسمه إبراهيم` = **189**, s. 509-740, çocuklar 190-324.
+- `الألف / من اسمه إبراهيم` = **189**, s. 509-740, çocuklar 190-324.
   İbrâhim b. Sa‘d = 220. Nehaî 307 ile 308 arasında, başlıksız.
-- `باب الحاء / من اسمه حسام وحسان` = **1244**, s. 2670-3014,
-  çocuklar 1245-1347. Hasan-ı Basrî 1271 (s. 2749) ile 1272 (s. 2792)
-  arasında, başlıksız.
-- `باب الضاد / من اسمه الضحاك` = **2928**, s. 6641-6684.
-  Dahhâk b. Müzâhim 2937 (s. 6658) ile 2938 (s. 6671) arasında.
-- `باب العين` alt grupları = 3009-5019 (tam tablo aşağıda kritik olanlar):
-  - `من اسمه عبد الله` **3150** s. 7201
+- `الألف / من اسمه أسد وإسرائيل` = **454**, çocuklar 455-458.
+- `الباء / من اسمه بصرة وبعجة وبقية` = **811**, s. 1704, çocuklar 812-814.
+- `الباء / من اسمه بهز وبهلول وبور` = **850**, s. 1772, çocuklar 851-853.
+- `الجيم / من اسمه جرهد وجرير وجري` = **982**, s. 2037, çocuklar 983-992.
+- `الحاء / من اسمه حسام وحسان` = **1244**, s. 2670-3014, çocuklar
+  1245-1347. Hasan-ı Basrî 1271 (s. 2749) ile 1272 (s. 2792) arasında.
+- `الخاء / من اسمه خارجة` = **1672**, s. 3717, çocuklar 1673-1676.
+  Hârice b. Zeyd 1673'ün içinde, s. 3720'de başlıksız.
+- `السين / من اسمه سلمة` = **2495**, s. 5584, çocuklar 2496-2524.
+- `السين / من اسمه سليمان` = **2541**, s. 5672, çocuklar 2542-2620.
+- `السين / من اسمه سهل` = **2644**, s. 5942, çocuklar 2645-2658.
+- `الشين / من اسمه شعيب وشعيث` = **2780**, s. 6275, çocuklar 2781-2795.
+- `الشين / من اسمه شيبان وشيبة وشييم` = **2819**, s. 6365, çocuklar 2820-2826.
+- `الصاد / من اسمه صاعد وصالح` = **2828**, s. 6387, çocuklar 2829-2864.
+- `الصاد / من اسمه صدقة وصدي وصرد` = **2880**, s. 6509, çocuklar 2881-2891.
+- `الضاد / من اسمه الضحاك` = **2928**, s. 6641-6684. Dahhâk b. Müzâhim
+  2937 (s. 6658) ile 2938 (s. 6671) arasında.
+- `العين` alt grupları = 3009-5019:
+  - `من اسمه عبد الله` **3150** s. 7201 (535 çocuk — dökme, ikili ara)
   - `من اسمه عبد الرحمن` **3685** s. 8556, çocuklar 3686-3886
-  - `من اسمه عبيد الله` **4089** s. 9580
-  - `من اسمه عقار وعقبة` **4437** s. 10317
+  - `من اسمه عبيد الله` **4089** s. 9580, çocuklar 4090-4178
+  - `من اسمه عقار وعقبة` **4437** s. 10317, çocuklar 4438-4462
   - `من اسمه علباء وعلقمة` **4478** s. 10424, çocuklar 4479-4488
-  - `من اسمه علي` **4489** s. 10446
-  - `من اسمه عمرو` **4764** s. 11185
-  - `من اسمه عمران` **4895** s. 11559
-  - `من اسمه عويم وعويمر` **4968** s. 11720
-- `باب الميم / من اسمه محمد` = **5425**, s. 12804, çocuklar 5426-6049
-  (624 terceme — dökmek pahalı, önce alfabetik daralt).
-- `باب الميم / من اسمه مسرة ومسروح ومسروق` = **6225**, s. 14839,
+  - `من اسمه علي` **4489** s. 10446 (275 çocuk)
+  - `من اسمه عمرو` **4764** s. 11185 (131 çocuk)
+  - `من اسمه عمران` **4895** s. 11559, çocuklar 4896-4926
+  - `من اسمه عويم وعويمر` **4968** s. 11720-11729, çocuklar 4969-4970
+  - `من اسمه العلاء` **4971** s. 11730
+- `القاف / من اسمه القاسم` = **5184**, s. 12223, çocuklar 5185-5241.
+- `الميم / من اسمه محمد` = **5425**, s. 12804, çocuklar 5426-6049
+  (624 terceme — dökmek pahalı, §1 veya §2 kullan).
+- `الميم / من اسمه مسرة ومسروح ومسروق` = **6225**, s. 14839,
   çocuklar 6226-6229. Mesrûk 6227 ile 6228 arasında.
+- `الميم / من اسمه معاذ` = **6347**, s. 15079, çocuklar 6348-6367.
+  Muâz b. Cebel 6349 ile 6350 arasında, başlıksız.
+- `الهاء / من اسمه هشام` = **6904**, s. 16241, çocuklar 6905-6928.
+- `الهاء / من اسمه همام وهناد` = **6935**, s. 16364, çocuklar 6936-6941.
+- `الواو / من اسمه وليد` = **7042**, s. 16554, çocuklar 7043-7098.
+- `الياء / من اسمه يزداد ويزيد` = **7282**, s. 17179, çocuklar 7283-7396.
 
-## Kalan 27 ismin muhtemel yeri
+## 150 listesinden tabloda hiç olmayan 15 isim
 
-Aşağıdakiler için henüz konum çıkarılmadı. Parantezde Tehzîb'deki
-sıralama adı (baba adına göre aranacak).
-
-| id | Tehzîb'de aranacak ad | bâb / grup |
-|---|---|---|
-| ibnsirin | محمد بن سيرين | الميم / محمد (5425) |
-| kasimmuhammed | القاسم بن محمد بن أبي بكر | القاف (5180) |
-| ubeydullahutbe | عبيد الله بن عبد الله بن عتبة | العين / 4089 |
-| haricezeyd | خارجة بن زيد بن ثابت | الخاء (1671) |
-| abdullahdinar | عبد الله بن دينار | العين / 3150 |
-| suaybebihamza | شعيب بن أبي حمزة | الشين (2717) |
-| salihkeysan | صالح بن كيسان | الصاد (2827) |
-| ebudavudtayalisi | سليمان بن داود الطيالسي | السين (2232) |
-| hisamdestuvai | هشام بن أبي عبد الله الدستوائي | الهاء (6833) |
-| seybannahvi | شيبان بن عبد الرحمن النحوي | الشين (2717) |
-| hemmamyahya | همام بن يحيى | الهاء (6833) |
-| israilyunus | إسرائيل بن يونس | الألف / 454 |
-| cerirabdulhamid | جرير بن عبد الحميد | الجيم (931) |
-| velidmuslim | الوليد بن مسلم | الواو (6999) |
-| safii | محمد بن إدريس الشافعي | الميم / محمد (5425) |
-| muazcebel | معاذ بن جبل | الميم / معاذ (6347) |
-| ebudderda | عويمر أبو الدرداء | العين / 4968 |
-| imranhusayn | عمران بن حصين | العين / 4895 |
-| sehlsad | سهل بن سعد الساعدي | السين (2232) |
-| ukbeamir | عقبة بن عامر الجهني | العين / 4437 |
-| ebuumame | صدي بن عجلان أبو أمامة | الصاد (2827) |
-| selemeekva | سلمة بن الأكوع | السين (2232) |
-| cerirbecelî | جرير بن عبد الله البجلي | الجيم (931) |
-| alicad | علي بن الجعد | العين / 4489 |
-| ebuzuraraazi | عبيد الله بن عبد الكريم أبو زرعة | العين / 4089 |
-| ebuhatimrazi | محمد بن إدريس الحنظلي أبو حاتم | الميم / محمد (5425) |
-| bakiyyevelid | بقية بن الوليد | الباء (718) |
-| yezidebihabib | يزيد بن أبي حبيب | الياء (7126) |
-| amrsuayb | عمرو بن شعيب | العين / 4764 |
-| behzhakim | بهز بن حكيم | الباء (718) |
-
-**Tavsiye:** aynı gruptakileri birlikte çöz. `باب العين` altındaki
-yedi isim, `السين` altındaki üç isim, `الشين` altındaki iki isim
-tek grup dökümüyle halloluyor.
+Bunların düğümü yok, önce `silsileVeri.js`'e eklenmeleri gerekiyor:
+Ebû Zer, Selmân-ı Fârisî, Ubâde b. es-Sâmit, Ebû Eyyûb, Ebû Katâde,
+Ebû Bekre, Vâsile, Ümmü Seleme, Esmâ bint Ebî Bekir, Ukayl b. Hâlid,
+Yûnus b. Yezîd el-Eylî, İbn Ebî Zi'b, Humeydî, Süleymân b. Harb,
+Ebû Bekir b. Abdirrahman. Hanım râvi kapsamı genel olarak zayıf.
