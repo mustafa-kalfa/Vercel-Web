@@ -1203,6 +1203,22 @@ export const NODES = [
   N("abbasanberi", "عباس بن عبد العظيم بن إسماعيل بن توبة العنبري", "Abbâs b. Abdil'azîm el-Anberî", 5, 246, "Basra"),
   N("zaferani", "الحسن بن محمد بن الصباح الزعفراني البغدادي", "Hasan b. Muhammed ez-Za‘ferânî", 6, 260, "Basra"),
   N("abbasduri", "عباس بن محمد بن حاتم بن واقد الدوري البغدادي", "Abbâs b. Muhammed ed-Dûrî", 6, 271, "Basra"),
+
+  /* DORDUNCU PARTI. Muelliflerin akranlari ve onlarla ayni halkalarda
+     oturan hafizlar: Haccac b. es-Sair, Cuzcani, Ramadi, Ahmed b. Abde
+     ve Yusuf b. Musa el-Kattan.
+
+     SAMILE FIHRISTININ BOSLUKLARI: bu partide bes isimden ucunun
+     tercemesine baslik aramasiyla ulasilamadi. Sebep iki turlu --
+     ya baslik fihristte hic yok (Cuzcani, Ramadi'nin bir kismi), ya da
+     nisbe basliga «المعروف بالرمادي» gibi bir ON EKLE giriyor ve
+     «الرمادي» belirteci tutmuyor. Cozum: «من اسمه X» agacini listeleyip
+     dogrudan okumak. Bu yol yavas ama sasmiyor. */
+  N("haccacsair", "حجاج بن يوسف بن حجاج الثقفي ابن الشاعر", "Haccâc b. eş-Şâir", 6, 259, "Basra"),
+  N("cuzcani", "إبراهيم بن يعقوب بن إسحاق السعدي الجوزجاني", "İbrâhim b. Ya‘kūb el-Cûzcânî", 6, 259, "Şam"),
+  N("ramadi", "أحمد بن منصور بن سيار الرمادي البغدادي", "Ahmed b. Mansûr er-Ramâdî", 6, 265, "Basra"),
+  N("ahmedabde", "أحمد بن عبدة بن موسى الضبي البصري", "Ahmed b. Abde ed-Dabbî", 5, 245, "Basra"),
+  N("yusufmusakattan", "يوسف بن موسى بن راشد القطان أبو يعقوب الكوفي الرازي", "Yûsuf b. Mûsâ el-Kattân", 6, 253, "Basra"),
 ];
 
 
@@ -5759,6 +5775,168 @@ const EDGES_HAM = [
   E("abbasduri", "ed27", "—", "Tehzîb 3141"),
   E("abbasduri", "ed29", "—", "Tehzîb 3141"),
   E("abbasduri", "ms28", "—", "Tehzîb 3141"),
+
+
+  /* Haccâc b. eş-Şâir (o. 259) -- hocalari.
+     Tehzîb 1131. Tercemede 48 kayit var, agda dugumu olan 15'i cizildi. */
+  E("haccacmuhammed", "haccacsair", "م", "Tehzîb 1131"),
+  E("ruhubade", "haccacsair", "م", "Tehzîb 1131"),
+  E("suleymanharb", "haccacsair", "م", "Tehzîb 1131"),
+  E("ebuasimnebil", "haccacsair", "م", "Tehzîb 1131"),
+  E("abdurrezzak", "haccacsair", "م", "Tehzîb 1131"),
+  E("abdussamed", "haccacsair", "م د", "Tehzîb 1131"),
+  E("ubeydullahmusa", "haccacsair", "م", "Tehzîb 1131"),
+  E("affanmuslim", "haccacsair", "م", "Tehzîb 1131"),
+  E("ebunuaymfadl", "haccacsair", "م", "Tehzîb 1131"),
+  E("muslimibrahim", "haccacsair", "م", "Tehzîb 1131"),
+  E("yezidharun", "haccacsair", "—", "Tehzîb 1131"),
+  E("ebuahmedzubeyri", "haccacsair", "م", "Tehzîb 1131"),
+  E("ebudavudtayalisi", "haccacsair", "م", "Tehzîb 1131"),
+  E("ebuamirakadi", "haccacsair", "م", "Tehzîb 1131"),
+  E("hisamtayalisi", "haccacsair", "م", "Tehzîb 1131"),
+
+
+  /* Haccâc b. eş-Şâir (o. 259) -- talebeleri.
+     Tehzîb 1131. Tercemede 15 kayit var, agda dugumu olan 8'i cizildi. */
+  E("haccacsair", "muslim", "—", "Tehzîb 1131"),
+  E("haccacsair", "ebudavud", "—", "Tehzîb 1131"),
+  E("haccacsair", "bh05", "—", "Tehzîb 1131"),
+  E("haccacsair", "bh17", "—", "Tehzîb 1131"),
+  E("haccacsair", "bh06", "—", "Tehzîb 1131"),
+  E("haccacsair", "ed20", "—", "Tehzîb 1131"),
+  E("haccacsair", "ms20", "—", "Tehzîb 1131"),
+  E("haccacsair", "ebuhatimrazi", "—", "Tehzîb 1131"),
+
+
+  /* İbrâhim b. Ya‘kūb el-Cûzcânî (o. 259) -- hocalari.
+     Tehzîb 268. Tercemede 83 kayit var, agda dugumu olan 22'i cizildi. */
+  E("ahmedhanbel", "cuzcani", "—", "Tehzîb 268"),
+  E("caferavn", "cuzcani", "س", "Tehzîb 268"),
+  E("haccacminhal", "cuzcani", "س", "Tehzîb 268"),
+  E("ruhubade", "cuzcani", "ت", "Tehzîb 268"),
+  E("saidsuleymansadeviye", "cuzcani", "س", "Tehzîb 268"),
+  E("said_mansur", "cuzcani", "—", "Tehzîb 268"),
+  E("suleymanharb", "cuzcani", "س", "Tehzîb 268"),
+  E("ebuasimnebil", "cuzcani", "سي", "Tehzîb 268"),
+  E("abdan", "cuzcani", "—", "Tehzîb 268"),
+  E("abdussamed", "cuzcani", "س", "Tehzîb 268"),
+  E("ubeydullahmusa", "cuzcani", "س", "Tehzîb 268"),
+  E("affanmuslim", "cuzcani", "س", "Tehzîb 268"),
+  E("alihasansakik", "cuzcani", "س", "Tehzîb 268"),
+  E("alimedini", "cuzcani", "س", "Tehzîb 268"),
+  E("ebunuaymfadl", "cuzcani", "—", "Tehzîb 268"),
+  E("ibnsabbahdulabi", "cuzcani", "س", "Tehzîb 268"),
+  E("muhammedisataba", "cuzcani", "س", "Tehzîb 268"),
+  E("misned", "cuzcani", "س", "Tehzîb 268"),
+  E("hisamtayalisi", "cuzcani", "س", "Tehzîb 268"),
+  E("ibnmain", "cuzcani", "س", "Tehzîb 268"),
+  E("yezidharun", "cuzcani", "د س", "Tehzîb 268"),
+  E("yalaubeyd", "cuzcani", "س", "Tehzîb 268"),
+
+
+  /* İbrâhim b. Ya‘kūb el-Cûzcânî (o. 259) -- talebeleri.
+     Tehzîb 268. Tercemede 21 kayit var, agda dugumu olan 7'i cizildi. */
+  E("cuzcani", "ebudavud", "—", "Tehzîb 268"),
+  E("cuzcani", "tirmizi", "—", "Tehzîb 268"),
+  E("cuzcani", "nesai", "—", "Tehzîb 268"),
+  E("cuzcani", "ebuzuraraazi", "—", "Tehzîb 268"),
+  E("cuzcani", "ed24", "—", "Tehzîb 268"),
+  E("cuzcani", "ebuhatimrazi", "—", "Tehzîb 268"),
+  E("cuzcani", "bh10", "—", "Tehzîb 268"),
+
+
+  /* Ahmed b. Mansûr er-Ramâdî (o. 265) -- hocalari.
+     Tehzîb 113. Tercemede 42 kayit var, agda dugumu olan 14'i cizildi. */
+  E("ahmedhanbel", "ramadi", "—", "Tehzîb 113"),
+  E("haccacmuhammed", "ramadi", "ق", "Tehzîb 113"),
+  E("ebudavudtayalisi", "ramadi", "—", "Tehzîb 113"),
+  E("ebuasimnebil", "ramadi", "—", "Tehzîb 113"),
+  E("kanebi", "ramadi", "—", "Tehzîb 113"),
+  E("duhaym", "ramadi", "—", "Tehzîb 113"),
+  E("abdurrezzak", "ramadi", "—", "Tehzîb 113"),
+  E("ubeydullahmusa", "ramadi", "—", "Tehzîb 113"),
+  E("affanmuslim", "ramadi", "—", "Tehzîb 113"),
+  E("alicad", "ramadi", "—", "Tehzîb 113"),
+  E("musaismailtebuzeki", "ramadi", "—", "Tehzîb 113"),
+  E("harunmaruf", "ramadi", "—", "Tehzîb 113"),
+  E("hennadseri", "ramadi", "—", "Tehzîb 113"),
+  E("yezidharun", "ramadi", "—", "Tehzîb 113"),
+
+
+  /* Ahmed b. Mansûr er-Ramâdî (o. 265) -- talebeleri.
+     Tehzîb 113. Tercemede 16 kayit var, agda dugumu olan 6'i cizildi. */
+  E("ramadi", "ibnmace", "—", "Tehzîb 113"),
+  E("ramadi", "ed12", "—", "Tehzîb 113"),
+  E("ramadi", "bh17", "—", "Tehzîb 113"),
+  E("ramadi", "ms20", "—", "Tehzîb 113"),
+  E("ramadi", "ms28", "—", "Tehzîb 113"),
+  E("ramadi", "ms29", "—", "Tehzîb 113"),
+
+
+  /* Ahmed b. Abde ed-Dabbî (o. 245) -- hocalari.
+     Tehzîb 75. Tercemede 30 kayit var, agda dugumu olan 12'i cizildi. */
+  E("hammadzeyd", "ahmedabde", "م ت س ق", "Tehzîb 75"),
+  E("ibnuyeyne", "ahmedabde", "م د", "Tehzîb 75"),
+  E("ebudavudtayalisi", "ahmedabde", "م", "Tehzîb 75"),
+  E("darevardi", "ahmedabde", "م ت ق", "Tehzîb 75"),
+  E("abdulvahidziyad", "ahmedabde", "ق", "Tehzîb 75"),
+  E("abdulvarissaid", "ahmedabde", "م", "Tehzîb 75"),
+  E("isabyunus", "ahmedabde", "ت", "Tehzîb 75"),
+  E("fudaylibnayaz", "ahmedabde", "م تم", "Tehzîb 75"),
+  E("mutemirsuleyman", "ahmedabde", "ت ق", "Tehzîb 75"),
+  E("ebuavane", "ahmedabde", "—", "Tehzîb 75"),
+  E("kattan", "ahmedabde", "م", "Tehzîb 75"),
+  E("yezidzurey", "ahmedabde", "م د", "Tehzîb 75"),
+
+
+  /* Ahmed b. Abde ed-Dabbî (o. 245) -- talebeleri.
+     Tehzîb 75. Tercemede 24 kayit var, agda dugumu olan 10'i cizildi. */
+  E("ahmedabde", "muslim", "—", "Tehzîb 75"),
+  E("ahmedabde", "ebudavud", "—", "Tehzîb 75"),
+  E("ahmedabde", "tirmizi", "—", "Tehzîb 75"),
+  E("ahmedabde", "nesai", "—", "Tehzîb 75"),
+  E("ahmedabde", "ibnmace", "—", "Tehzîb 75"),
+  E("ahmedabde", "ed17", "—", "Tehzîb 75"),
+  E("ahmedabde", "bh09", "—", "Tehzîb 75"),
+  E("ahmedabde", "ebuzuraraazi", "—", "Tehzîb 75"),
+  E("ahmedabde", "bh11", "—", "Tehzîb 75"),
+  E("ahmedabde", "ebuhatimrazi", "—", "Tehzîb 75"),
+
+
+  /* Yûsuf b. Mûsâ el-Kattân (o. 253) -- hocalari.
+     Tehzîb 7159. Tercemede 28 kayit var, agda dugumu olan 15'i cizildi. */
+  E("cerirabdulhamid", "yusufmusakattan", "خ د عس ق", "Tehzîb 7159"),
+  E("caferavn", "yusufmusakattan", "—", "Tehzîb 7159"),
+  E("ebuusamehammad", "yusufmusakattan", "خ د ق", "Tehzîb 7159"),
+  E("ibnuyeyne", "yusufmusakattan", "—", "Tehzîb 7159"),
+  E("ibnidris", "yusufmusakattan", "—", "Tehzîb 7159"),
+  E("ibnnumeyr", "yusufmusakattan", "—", "Tehzîb 7159"),
+  E("ibnvehb", "yusufmusakattan", "—", "Tehzîb 7159"),
+  E("ubeydullahmusa", "yusufmusakattan", "خ", "Tehzîb 7159"),
+  E("ebunuaymfadl", "yusufmusakattan", "خ", "Tehzîb 7159"),
+  E("ebumuaviyedarir", "yusufmusakattan", "—", "Tehzîb 7159"),
+  E("ebuahmedzubeyri", "yusufmusakattan", "خ", "Tehzîb 7159"),
+  E("muhammedfudayl", "yusufmusakattan", "—", "Tehzîb 7159"),
+  E("muslimibrahim", "yusufmusakattan", "—", "Tehzîb 7159"),
+  E("veki", "yusufmusakattan", "خ", "Tehzîb 7159"),
+  E("yezidharun", "yusufmusakattan", "خ", "Tehzîb 7159"),
+
+
+  /* Yûsuf b. Mûsâ el-Kattân (o. 253) -- talebeleri.
+     Tehzîb 7159. Tercemede 20 kayit var, agda dugumu olan 13'i cizildi. */
+  E("yusufmusakattan", "buhari", "—", "Tehzîb 7159"),
+  E("yusufmusakattan", "ebudavud", "—", "Tehzîb 7159"),
+  E("yusufmusakattan", "tirmizi", "—", "Tehzîb 7159"),
+  E("yusufmusakattan", "nesai", "—", "Tehzîb 7159"),
+  E("yusufmusakattan", "ibnmace", "—", "Tehzîb 7159"),
+  E("yusufmusakattan", "bh03", "—", "Tehzîb 7159"),
+  E("yusufmusakattan", "bh17", "—", "Tehzîb 7159"),
+  E("yusufmusakattan", "ed20", "—", "Tehzîb 7159"),
+  E("yusufmusakattan", "bh09", "—", "Tehzîb 7159"),
+  E("yusufmusakattan", "ebuzuraraazi", "—", "Tehzîb 7159"),
+  E("yusufmusakattan", "ebuhatimrazi", "—", "Tehzîb 7159"),
+  E("yusufmusakattan", "ms28", "—", "Tehzîb 7159"),
+  E("yusufmusakattan", "ibnmain", "—", "Tehzîb 7159"),
 
 ];
 
