@@ -1219,6 +1219,25 @@ export const NODES = [
   N("ramadi", "أحمد بن منصور بن سيار الرمادي البغدادي", "Ahmed b. Mansûr er-Ramâdî", 6, 265, "Basra"),
   N("ahmedabde", "أحمد بن عبدة بن موسى الضبي البصري", "Ahmed b. Abde ed-Dabbî", 5, 245, "Basra"),
   N("yusufmusakattan", "يوسف بن موسى بن راشد القطان أبو يعقوب الكوفي الرازي", "Yûsuf b. Mûsâ el-Kattân", 6, 253, "Basra"),
+
+  /* BESINCI PARTI -- BU SEFER ERKEN TABAKA. Sayimin ust siralari yalniz
+     3. yuzyilin sahibi degildi; tabiin arasinda da onlarca kez gecip
+     agda karsiligi olmayan adlar vardi. Bunlar muelliflerin hocalari
+     degil, agin BASINDAKI yogunlugu tasiyan isimler: Ata b. Yesar,
+     Ebu Osman en-Nehdi, Makburi, Cubeyr b. Nufeyr, Ibn Ganm, Said b.
+     Ebi Hilal.
+
+     Vefat yillari yine Mizzi'den; Mizzi birden cok rivayet verdiginde
+     Takrib'in tercihi degil, Mizzi'nin coklukla naklettigi alindi
+     (Ata b. Yesar icin 103, Makburi icin 123). Cubeyr b. Nufeyr
+     «Humus» sutununda -- Sam'in kendisi degil, tabloda ayri duran
+     serhat sehri. */
+  N("atayesar", "عطاء بن يسار الهلالي أبو محمد المدني", "Atâ b. Yesâr", 3, 103, "Medine"),
+  N("makburi", "سعيد بن أبي سعيد كيسان المقبري أبو سعد المدني", "Saîd b. Ebî Saîd el-Makburî", 3, 123, "Medine"),
+  N("ebuosmannehdi", "عبد الرحمن بن مل أبو عثمان النهدي", "Ebû Osmân en-Nehdî", 2, 95, "Basra"),
+  N("cubeyrnufeyr", "جبير بن نفير بن مالك بن عامر الحضرمي الحمصي", "Cübeyr b. Nüfeyr", 2, 80, "Humus"),
+  N("ibnganm", "عبد الرحمن بن غنم الأشعري الشامي", "Abdurrahman b. Ganm", 2, 78, "Şam"),
+  N("saidebihilal", "سعيد بن أبي هلال الليثي أبو العلاء المصري", "Saîd b. Ebî Hilâl", 4, 135, "Mısır"),
 ];
 
 
@@ -5937,6 +5956,184 @@ const EDGES_HAM = [
   E("yusufmusakattan", "ebuhatimrazi", "—", "Tehzîb 7159"),
   E("yusufmusakattan", "ms28", "—", "Tehzîb 7159"),
   E("yusufmusakattan", "ibnmain", "—", "Tehzîb 7159"),
+
+
+  /* Atâ b. Yesâr (o. 103) -- hocalari.
+     Tehzîb 3946. Tercemede 32 kayit var, agda dugumu olan 20'i cizildi. */
+  E("ubey", "atayesar", "ق", "Tehzîb 3946"),
+  E("usame", "atayesar", "س", "Tehzîb 3946"),
+  E("cabir", "atayesar", "د", "Tehzîb 3946"),
+  E("zeydsabit", "atayesar", "خ م د ت س", "Tehzîb 3946"),
+  E("zeydhalid", "atayesar", "خ م د", "Tehzîb 3946"),
+  E("ubadesamit", "atayesar", "ت", "Tehzîb 3946"),
+  E("ibnabbas", "atayesar", "ع", "Tehzîb 3946"),
+  E("ibnomer", "atayesar", "—", "Tehzîb 3946"),
+  E("abdullahamr", "atayesar", "خ", "Tehzîb 3946"),
+  E("ibnmesud", "atayesar", "—", "Tehzîb 3946"),
+  E("kabahbar", "atayesar", "—", "Tehzîb 3946"),
+  E("muazcebel", "atayesar", "د ت ق", "Tehzîb 3946"),
+  E("ebueyyub", "atayesar", "ت ق", "Tehzîb 3946"),
+  E("ebudderda", "atayesar", "س", "Tehzîb 3946"),
+  E("ebuzer", "atayesar", "س", "Tehzîb 3946"),
+  E("ebusaid", "atayesar", "ع", "Tehzîb 3946"),
+  E("ebukatade", "atayesar", "م ت", "Tehzîb 3946"),
+  E("ebuhureyre", "atayesar", "ع", "Tehzîb 3946"),
+  E("aise", "atayesar", "بخ م ٤", "Tehzîb 3946"),
+  E("ummuseleme", "atayesar", "ت", "Tehzîb 3946"),
+
+
+  /* Atâ b. Yesâr (o. 103) -- talebeleri.
+     Tehzîb 3946. Tercemede 22 kayit var, agda dugumu olan 7'i cizildi. */
+  E("atayesar", "habibebisabit", "م", "Tehzîb 3946"),
+  E("atayesar", "zeydeslem", "ع", "Tehzîb 3946"),
+  E("atayesar", "ubeydullahmiksem", "—", "Tehzîb 3946"),
+  E("atayesar", "amrdinar", "م", "Tehzîb 3946"),
+  E("atayesar", "muhammedibrahimteymi", "م", "Tehzîb 3946"),
+  E("atayesar", "yezidkusayt", "خ م د ت س", "Tehzîb 3946"),
+  E("atayesar", "ebuselemeavf", "خ م", "Tehzîb 3946"),
+
+
+  /* Saîd b. Ebî Saîd el-Makburî (o. 123) -- hocalari.
+     Tehzîb 2284. Tercemede 41 kayit var, agda dugumu olan 12'i cizildi. */
+  E("enes", "makburi", "د ق", "Tehzîb 2284"),
+  E("cabir", "makburi", "—", "Tehzîb 2284"),
+  E("sadvakkas", "makburi", "—", "Tehzîb 2284"),
+  E("saidyesar", "makburi", "م ت س ق", "Tehzîb 2284"),
+  E("ibnomer", "makburi", "—", "Tehzîb 2284"),
+  E("abdullahebikatade", "makburi", "م", "Tehzîb 2284"),
+  E("urve", "makburi", "—", "Tehzîb 2284"),
+  E("ebusaid", "makburi", "س", "Tehzîb 2284"),
+  E("ebusaidmakburi", "makburi", "ع", "Tehzîb 2284"),
+  E("ebuselemeavf", "makburi", "ع", "Tehzîb 2284"),
+  E("ebuhureyre", "makburi", "ع", "Tehzîb 2284"),
+  E("ummuseleme", "makburi", "د", "Tehzîb 2284"),
+
+
+  /* Saîd b. Ebî Saîd el-Makburî (o. 123) -- talebeleri.
+     Tehzîb 2284. Tercemede 54 kayit var, agda dugumu olan 16'i cizildi. */
+  E("makburi", "ibrahimtahman", "—", "Tehzîb 2284"),
+  E("makburi", "usamezeydleysi", "٤", "Tehzîb 2284"),
+  E("makburi", "ismailumeyye", "خ م", "Tehzîb 2284"),
+  E("makburi", "davudkaysferra", "بخ", "Tehzîb 2284"),
+  E("makburi", "sube", "—", "Tehzîb 2284"),
+  E("makburi", "abdulhamidcafer", "خت م ت س ق", "Tehzîb 2284"),
+  E("makburi", "ubeydullahomeri", "ع", "Tehzîb 2284"),
+  E("makburi", "amrsuayb", "د", "Tehzîb 2284"),
+  E("makburi", "leysbsad", "خ م س ق", "Tehzîb 2284"),
+  E("makburi", "malik", "خ م د ت س", "Tehzîb 2284"),
+  E("makburi", "ibnishak", "م", "Tehzîb 2284"),
+  E("makburi", "ibnebizib", "خ م", "Tehzîb 2284"),
+  E("makburi", "muhammedacilan", "خت د س", "Tehzîb 2284"),
+  E("makburi", "muhammedvelidzubeydi", "د", "Tehzîb 2284"),
+  E("makburi", "velidkesir", "م س", "Tehzîb 2284"),
+  E("makburi", "yahyasaidensari", "م", "Tehzîb 2284"),
+
+
+  /* Ebû Osmân en-Nehdî (o. 95) -- hocalari.
+     Tehzîb 3968. Tercemede 38 kayit var, agda dugumu olan 22'i cizildi. */
+  E("ubey", "ebuosmannehdi", "م د ق", "Tehzîb 3968"),
+  E("usame", "ebuosmannehdi", "ع", "Tehzîb 3968"),
+  E("cabir", "ebuosmannehdi", "—", "Tehzîb 3968"),
+  E("huzeyfe", "ebuosmannehdi", "—", "Tehzîb 3968"),
+  E("zeydarkam", "ebuosmannehdi", "م ت", "Tehzîb 3968"),
+  E("sadvakkas", "ebuosmannehdi", "خ م د ق", "Tehzîb 3968"),
+  E("selmanfarisi", "ebuosmannehdi", "ع", "Tehzîb 3968"),
+  E("talha", "ebuosmannehdi", "خ م", "Tehzîb 3968"),
+  E("ibnabbas", "ebuosmannehdi", "م", "Tehzîb 3968"),
+  E("ibnomer", "ebuosmannehdi", "خ", "Tehzîb 3968"),
+  E("abdullahamr", "ebuosmannehdi", "—", "Tehzîb 3968"),
+  E("ibnmesud", "ebuosmannehdi", "ع", "Tehzîb 3968"),
+  E("abdrahmanebubekir", "ebuosmannehdi", "خ م د", "Tehzîb 3968"),
+  E("ali", "ebuosmannehdi", "عس", "Tehzîb 3968"),
+  E("omer", "ebuosmannehdi", "خ م د س ق", "Tehzîb 3968"),
+  E("imranhusayn", "ebuosmannehdi", "—", "Tehzîb 3968"),
+  E("ebubekre", "ebuosmannehdi", "م د ق", "Tehzîb 3968"),
+  E("ebuzer", "ebuosmannehdi", "ت س ق", "Tehzîb 3968"),
+  E("ebusaid", "ebuosmannehdi", "م", "Tehzîb 3968"),
+  E("ebumusa", "ebuosmannehdi", "ع", "Tehzîb 3968"),
+  E("ebuhureyre", "ebuosmannehdi", "ع", "Tehzîb 3968"),
+  E("ummuseleme", "ebuosmannehdi", "—", "Tehzîb 3968"),
+
+
+  /* Ebû Osmân en-Nehdî (o. 95) -- talebeleri.
+     Tehzîb 3968. Tercemede 34 kayit var, agda dugumu olan 10'i cizildi. */
+  E("ebuosmannehdi", "eyyubsahtiyani", "خ م ت", "Tehzîb 3968"),
+  E("ebuosmannehdi", "sabitbunani", "م د س", "Tehzîb 3968"),
+  E("ebuosmannehdi", "humeydtavil", "—", "Tehzîb 3968"),
+  E("ebuosmannehdi", "halidhazza", "خ م ت س", "Tehzîb 3968"),
+  E("ebuosmannehdi", "davudebihind", "م س", "Tehzîb 3968"),
+  E("ebuosmannehdi", "cureyri", "م د ت ق", "Tehzîb 3968"),
+  E("ebuosmannehdi", "suleymanteymi", "ع", "Tehzîb 3968"),
+  E("ebuosmannehdi", "asimahvel", "ع", "Tehzîb 3968"),
+  E("ebuosmannehdi", "alizeydcudan", "د ق", "Tehzîb 3968"),
+  E("ebuosmannehdi", "avfarabi", "خ", "Tehzîb 3968"),
+
+
+  /* Cübeyr b. Nüfeyr (o. 80) -- hocalari.
+     Tehzîb 905. Tercemede 32 kayit var, agda dugumu olan 11'i cizildi. */
+  E("halidvelid", "cubeyrnufeyr", "د", "Tehzîb 905"),
+  E("ubadesamit", "cubeyrnufeyr", "ت", "Tehzîb 905"),
+  E("ibnomer", "cubeyrnufeyr", "ت ق", "Tehzîb 905"),
+  E("abdullahamr", "cubeyrnufeyr", "س ق", "Tehzîb 905"),
+  E("ukbeamir", "cubeyrnufeyr", "م د س", "Tehzîb 905"),
+  E("omer", "cubeyrnufeyr", "—", "Tehzîb 905"),
+  E("mikdad", "cubeyrnufeyr", "بخ د", "Tehzîb 905"),
+  E("ebueyyub", "cubeyrnufeyr", "س", "Tehzîb 905"),
+  E("ebubekir", "cubeyrnufeyr", "سي", "Tehzîb 905"),
+  E("ebuzer", "cubeyrnufeyr", "٤", "Tehzîb 905"),
+  E("aise", "cubeyrnufeyr", "س", "Tehzîb 905"),
+
+
+  /* Cübeyr b. Nüfeyr (o. 80) -- talebeleri.
+     Tehzîb 905. Tercemede 21 kayit var, agda dugumu olan 2'i cizildi. */
+  E("cubeyrnufeyr", "rebiayezid", "د س", "Tehzîb 905"),
+  E("cubeyrnufeyr", "mekhul", "عخ د ت ق", "Tehzîb 905"),
+
+
+  /* Abdurrahman b. Ganm (o. 78) -- hocalari.
+     Tehzîb 3928. Tercemede 17 kayit var, agda dugumu olan 9'i cizildi. */
+  E("ubadesamit", "ibnganm", "ق", "Tehzîb 3928"),
+  E("osman", "ibnganm", "—", "Tehzîb 3928"),
+  E("ali", "ibnganm", "—", "Tehzîb 3928"),
+  E("omer", "ibnganm", "—", "Tehzîb 3928"),
+  E("muazcebel", "ibnganm", "د ت سي ق", "Tehzîb 3928"),
+  E("ebudderda", "ibnganm", "—", "Tehzîb 3928"),
+  E("ebuzer", "ibnganm", "ت سي ق", "Tehzîb 3928"),
+  E("ebumusa", "ibnganm", "د", "Tehzîb 3928"),
+  E("ebuhureyre", "ibnganm", "س", "Tehzîb 3928"),
+
+
+  /* Abdurrahman b. Ganm (o. 78) -- talebeleri.
+     Tehzîb 3928. Tercemede 20 kayit var, agda dugumu olan 4'i cizildi. */
+  E("ibnganm", "sehrhavseb", "٤", "Tehzîb 3928"),
+  E("ibnganm", "umeyrhani", "—", "Tehzîb 3928"),
+  E("ibnganm", "mekhul", "د", "Tehzîb 3928"),
+  E("ibnganm", "ebuidrishavlani", "—", "Tehzîb 3928"),
+
+
+  /* Saîd b. Ebî Hilâl (o. 135) -- hocalari.
+     Tehzîb 2372. Tercemede 53 kayit var, agda dugumu olan 14'i cizildi. */
+  E("enes", "saidebihilal", "—", "Tehzîb 2372"),
+  E("cabir", "saidebihilal", "خت ت", "Tehzîb 2372"),
+  E("rebiaebiabdrahman", "saidebihilal", "خ", "Tehzîb 2372"),
+  E("zeydeslem", "saidebihilal", "خ م", "Tehzîb 2372"),
+  E("ubeydullaherafi", "saidebihilal", "—", "Tehzîb 2372"),
+  E("alaabdrahman", "saidebihilal", "—", "Tehzîb 2372"),
+  E("kasimebibezze", "saidebihilal", "عس", "Tehzîb 2372"),
+  E("katade", "saidebihilal", "خت", "Tehzîb 2372"),
+  E("ibnsihab", "saidebihilal", "س", "Tehzîb 2372"),
+  E("ibnmunkedir", "saidebihilal", "م قد", "Tehzîb 2372"),
+  E("nafiibnomer", "saidebihilal", "خ", "Tehzîb 2372"),
+  E("hisamurve", "saidebihilal", "—", "Tehzîb 2372"),
+  E("yahyasaidensari", "saidebihilal", "س", "Tehzîb 2372"),
+  E("yezidhad", "saidebihilal", "ت س", "Tehzîb 2372"),
+
+
+  /* Saîd b. Ebî Hilâl (o. 135) -- talebeleri.
+     Tehzîb 2372. Tercemede 11 kayit var, agda dugumu olan 3'i cizildi. */
+  E("saidebihilal", "amrharis", "ع", "Tehzîb 2372"),
+  E("saidebihilal", "leysbsad", "—", "Tehzîb 2372"),
+  E("saidebihilal", "yezidebihabib", "—", "Tehzîb 2372"),
 
 ];
 
