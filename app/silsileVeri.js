@@ -1140,6 +1140,29 @@ export const NODES = [
   N("yahyasaidensari", "يحيى بن سعيد الأنصاري", "Yahyâ b. Saîd el-Ensârî", 5, 143, "Medine", "Mizzî: Yahyâ b. Ebî Kesîr'in akranlarından."),
   N("ikrimeammar", "عكرمة بن عمار", "İkrime b. Ammâr", 5, 159, "Basra"),
   N("zeydeslem", "زيد بن أسلم", "Zeyd b. Eslem", 4, 136, "Medine", "Mizzî: Ebû Hüreyre'den semâı ihtilâflı («قيل لم يسمع منه»)."),
+
+  /* KUTUB-I SITTE MUELLIFLERININ KENDI HOCALARI (o. 210-260).
+
+     Mustafa haritada bu evrenin bos gorundugunu soyledi; olculdu ve
+     hakliydi: 200-249 bandinda elli yila 82 dugum dusuyordu, ondan
+     onceki elli yilda ise 143. Oysa bu tabaka Buhari'nin, Muslim'in
+     BIZZAT ders aldigi nesil -- en yogun olmasi gereken yerlerden biri.
+
+     Eksikler tahminle degil OLCUMLE secildi: islenmis butun hoca ve
+     talebe listeleri tarandi, agda dugumu olmayan adlar sayildi, en cok
+     tekrar edenler alindi. Vefat yillari Mizzi'nin kendi metninden
+     okundu, hafizadan yazilmadi -- Ibn Sellam icin yaygin olarak 227
+     deniyor ama Mizzi Buhari'den 225 naklediyor, o alindi.
+
+     BAGDATLILAR BASRA SUTUNUNDA: tabloda Bagdat sutunu yok ve mevcut
+     Bagdatlilar (Ahmed b. Hanbel, Ibn Main, Zuheyr b. Harb, Ali b.
+     el-Ca'd) zaten orada duruyor; ayni kural surduruldu. */
+  N("sufyanveki", "سفيان بن وكيع بن الجراح", "Süfyân b. Vekî‘", 5, 247, "Kûfe"),
+  N("harunhammal", "هارون بن عبد الله بن مروان الحمال", "Hârûn b. Abdillâh el-Hammâl", 5, 243, "Basra"),
+  N("ibnsellam", "محمد بن سلام البيكندي", "Muhammed b. Sellâm el-Bîkendî", 5, 225, "Mâverâünnehir"),
+  N("habbanhilal", "حبان بن هلال الباهلي", "Habbân b. Hilâl", 5, 216, "Basra"),
+  N("nersi", "عبد الأعلى بن حماد النرسي", "Abdül'alâ b. Hammâd en-Nersî", 5, 237, "Basra"),
+  N("duhaym", "عبد الرحمن بن إبراهيم بن عمرو بن ميمون دحيم", "Duhaym, Abdurrahman b. İbrâhim", 5, 245, "Şam"),
 ];
 
 
@@ -5050,6 +5073,226 @@ const EDGES_HAM = [
   E("alkamevakkas", "ibnebimuleyke", "خ", "Tehzîb 4021"),
   E("alkamevakkas", "amryahyamazini", "—", "Tehzîb 4021"),
   E("alkamevakkas", "muhammedibrahimteymi", "ع", "Tehzîb 4021"),
+
+
+  /* Abdurrahman b. el-Esved (o. ?) -- hocalari.
+     Tehzîb 3758. Tercemede 7 kayit var, agda dugumu olan 5'i cizildi. */
+  E("esvedyezid", "abdrahmanesved", "ع", "Tehzîb 3758"),
+  E("enes", "abdrahmanesved", "—", "Tehzîb 3758"),
+  E("ibnzubeyr", "abdrahmanesved", "—", "Tehzîb 3758"),
+  E("alkame", "abdrahmanesved", "—", "Tehzîb 3758"),
+  E("aise", "abdrahmanesved", "س", "Tehzîb 3758"),
+
+
+  /* Abdurrahman b. el-Esved (o. ?) -- talebeleri.
+     Tehzîb 3758. Tercemede 31 kayit var, agda dugumu olan 12'i cizildi. */
+  E("abdrahmanesved", "ismailebihalid", "—", "Tehzîb 3758"),
+  E("abdrahmanesved", "beyanbisr", "—", "Tehzîb 3758"),
+  E("abdrahmanesved", "cabircufi", "ت", "Tehzîb 3758"),
+  E("abdrahmanesved", "haccacertat", "—", "Tehzîb 3758"),
+  E("abdrahmanesved", "hasanubeydullah", "—", "Tehzîb 3758"),
+  E("abdrahmanesved", "hakemuteybe", "—", "Tehzîb 3758"),
+  E("abdrahmanesved", "zubeydyami", "—", "Tehzîb 3758"),
+  E("abdrahmanesved", "amess", "—", "Tehzîb 3758"),
+  E("abdrahmanesved", "mesudi", "—", "Tehzîb 3758"),
+  E("abdrahmanesved", "malikmigvel", "م", "Tehzîb 3758"),
+  E("abdrahmanesved", "ebuishaksebii", "ع", "Tehzîb 3758"),
+  E("abdrahmanesved", "ismailebiislamsibani", "خ م د س ق", "Tehzîb 3758"),
+
+
+  /* Süfyân b. Vekî‘ (o. 247) -- hocalari.
+     Tehzîb 2418. Tercemede 47 kayit var, agda dugumu olan 24'i cizildi. */
+  E("ishakyusufezrak", "sufyanveki", "ت", "Tehzîb 2418"),
+  E("ibnuleyye", "sufyanveki", "ق", "Tehzîb 2418"),
+  E("cerirabdulhamid", "sufyanveki", "ت", "Tehzîb 2418"),
+  E("hafsgiyas", "sufyanveki", "ت ق", "Tehzîb 2418"),
+  E("ebuusamehammad", "sufyanveki", "ت", "Tehzîb 2418"),
+  E("ruhubade", "sufyanveki", "ق", "Tehzîb 2418"),
+  E("ibnuyeyne", "sufyanveki", "ت", "Tehzîb 2418"),
+  E("ibnidris", "sufyanveki", "—", "Tehzîb 2418"),
+  E("ibnnumeyr", "sufyanveki", "ت", "Tehzîb 2418"),
+  E("ibnvehb", "sufyanveki", "ت", "Tehzîb 2418"),
+  E("abdulalaabdulala", "sufyanveki", "ت", "Tehzîb 2418"),
+  E("ibnmehdi", "sufyanveki", "ت", "Tehzîb 2418"),
+  E("abdusselamharb", "sufyanveki", "—", "Tehzîb 2418"),
+  E("ubeydullahmusa", "sufyanveki", "—", "Tehzîb 2418"),
+  E("isabyunus", "sufyanveki", "ت ق", "Tehzîb 2418"),
+  E("muhammedebiadi", "sufyanveki", "ت", "Tehzîb 2418"),
+  E("muhammedfudayl", "sufyanveki", "ت", "Tehzîb 2418"),
+  E("muazmuaz", "sufyanveki", "—", "Tehzîb 2418"),
+  E("veki", "sufyanveki", "ت ق", "Tehzîb 2418"),
+  E("yahyaadem", "sufyanveki", "ت", "Tehzîb 2418"),
+  E("kattan", "sufyanveki", "ت", "Tehzîb 2418"),
+  E("yezidharun", "sufyanveki", "ت", "Tehzîb 2418"),
+  E("yunusbukeyr", "sufyanveki", "ق", "Tehzîb 2418"),
+  E("ebubekirayyas", "sufyanveki", "—", "Tehzîb 2418"),
+
+
+  /* Süfyân b. Vekî‘ (o. 247) -- talebeleri.
+     Tehzîb 2418. Tercemede 23 kayit var, agda dugumu olan 5'i cizildi. */
+  E("sufyanveki", "tirmizi", "—", "Tehzîb 2418"),
+  E("sufyanveki", "ibnmace", "—", "Tehzîb 2418"),
+  E("sufyanveki", "ed17", "—", "Tehzîb 2418"),
+  E("sufyanveki", "ed20", "—", "Tehzîb 2418"),
+  E("sufyanveki", "ms28", "—", "Tehzîb 2418"),
+
+
+  /* Hârûn b. Abdillâh el-Hammâl (o. 243) -- hocalari.
+     Tehzîb 6520. Tercemede 60 kayit var, agda dugumu olan 19'i cizildi. */
+  E("caferavn", "harunhammal", "م", "Tehzîb 6520"),
+  E("ebuusamehammad", "harunhammal", "م دس", "Tehzîb 6520"),
+  E("ruhubade", "harunhammal", "م س", "Tehzîb 6520"),
+  E("saidsuleymansadeviye", "harunhammal", "د", "Tehzîb 6520"),
+  E("ibnuyeyne", "harunhammal", "س ق", "Tehzîb 6520"),
+  E("suleymanharb", "harunhammal", "م", "Tehzîb 6520"),
+  E("ebudavudtayalisi", "harunhammal", "م د ت س", "Tehzîb 6520"),
+  E("ebuasimnebil", "harunhammal", "م ت", "Tehzîb 6520"),
+  E("humeydi", "harunhammal", "د", "Tehzîb 6520"),
+  E("ibnnumeyr", "harunhammal", "—", "Tehzîb 6520"),
+  E("abdussamed", "harunhammal", "م د ت س", "Tehzîb 6520"),
+  E("affanmuslim", "harunhammal", "م", "Tehzîb 6520"),
+  E("ebunuaymfadl", "harunhammal", "دت", "Tehzîb 6520"),
+  E("muhammedbisrabdi", "harunhammal", "د", "Tehzîb 6520"),
+  E("muhammedharbhavlani", "harunhammal", "ت", "Tehzîb 6520"),
+  E("yahyaadem", "harunhammal", "د", "Tehzîb 6520"),
+  E("yezidharun", "harunhammal", "م س", "Tehzîb 6520"),
+  E("yalaubeyd", "harunhammal", "د", "Tehzîb 6520"),
+  E("hisamtayalisi", "harunhammal", "دس", "Tehzîb 6520"),
+
+
+  /* Hârûn b. Abdillâh el-Hammâl (o. 243) -- talebeleri.
+     Tehzîb 6520. Tercemede 18 kayit var, agda dugumu olan 10'i cizildi. */
+  E("harunhammal", "muslim", "—", "Tehzîb 6520"),
+  E("harunhammal", "ebudavud", "—", "Tehzîb 6520"),
+  E("harunhammal", "tirmizi", "—", "Tehzîb 6520"),
+  E("harunhammal", "nesai", "—", "Tehzîb 6520"),
+  E("harunhammal", "ibnmace", "—", "Tehzîb 6520"),
+  E("harunhammal", "bh03", "—", "Tehzîb 6520"),
+  E("harunhammal", "ed20", "—", "Tehzîb 6520"),
+  E("harunhammal", "ms28", "—", "Tehzîb 6520"),
+  E("harunhammal", "ebuhatimrazi", "—", "Tehzîb 6520"),
+  E("harunhammal", "ebuzuraraazi", "—", "Tehzîb 6520"),
+
+
+  /* Muhammed b. Sellâm el-Bîkendî (o. 225) -- hocalari.
+     Tehzîb 5278. Tercemede 52 kayit var, agda dugumu olan 20'i cizildi. */
+  E("ibrahimfezari", "ibnsellam", "خ", "Tehzîb 5278"),
+  E("ibnuleyye", "ibnsellam", "خ", "Tehzîb 5278"),
+  E("ismailayyas", "ibnsellam", "بخ", "Tehzîb 5278"),
+  E("enesiyaz", "ibnsellam", "خ", "Tehzîb 5278"),
+  E("cerirabdulhamid", "ibnsellam", "خ", "Tehzîb 5278"),
+  E("ibnuyeyne", "ibnsellam", "خ", "Tehzîb 5278"),
+  E("ebulahvess", "ibnsellam", "خ", "Tehzîb 5278"),
+  E("ibnidris", "ibnsellam", "بخ", "Tehzîb 5278"),
+  E("ibnmubarek", "ibnsellam", "—", "Tehzîb 5278"),
+  E("ibnnumeyr", "ibnsellam", "خ", "Tehzîb 5278"),
+  E("abdulalaabdulala", "ibnsellam", "بخ", "Tehzîb 5278"),
+  E("abdesuleyman", "ibnsellam", "خ", "Tehzîb 5278"),
+  E("malik", "ibnsellam", "—", "Tehzîb 5278"),
+  E("ebumuaviyedarir", "ibnsellam", "خ", "Tehzîb 5278"),
+  E("muhammedfudayl", "ibnsellam", "خ", "Tehzîb 5278"),
+  E("mervanfezari", "ibnsellam", "خ", "Tehzîb 5278"),
+  E("mutemirsuleyman", "ibnsellam", "خ", "Tehzîb 5278"),
+  E("huseym", "ibnsellam", "بخ", "Tehzîb 5278"),
+  E("veki", "ibnsellam", "خ", "Tehzîb 5278"),
+  E("yezidharun", "ibnsellam", "خ", "Tehzîb 5278"),
+
+
+  /* Muhammed b. Sellâm el-Bîkendî (o. 225) -- talebeleri.
+     Tehzîb 5278. Tercemede 27 kayit var, agda dugumu olan 1'i cizildi. */
+  E("ibnsellam", "buhari", "—", "Tehzîb 5278"),
+
+
+  /* Habbân b. Hilâl (o. 216) -- hocalari.
+     Tehzîb 1064. Tercemede 27 kayit var, agda dugumu olan 10'i cizildi. */
+  E("ebansattar", "habbanhilal", "م س", "Tehzîb 1064"),
+  E("cerirhazim", "habbanhilal", "س", "Tehzîb 1064"),
+  E("hammadseleme", "habbanhilal", "م ت س", "Tehzîb 1064"),
+  E("suleymanmugire", "habbanhilal", "م", "Tehzîb 1064"),
+  E("sube", "habbanhilal", "خ", "Tehzîb 1064"),
+  E("abdulvarissaid", "habbanhilal", "س", "Tehzîb 1064"),
+  E("mamer", "habbanhilal", "ت", "Tehzîb 1064"),
+  E("hemmamyahya", "habbanhilal", "ع", "Tehzîb 1064"),
+  E("ebuavane", "habbanhilal", "م س", "Tehzîb 1064"),
+  E("vuheybhalid", "habbanhilal", "م س", "Tehzîb 1064"),
+
+
+  /* Habbân b. Hilâl (o. 216) -- talebeleri.
+     Tehzîb 1064. Tercemede 25 kayit var, agda dugumu olan 8'i cizildi. */
+  E("habbanhilal", "ishakkevsec", "خ م ت ق", "Tehzîb 1064"),
+  E("habbanhilal", "zuheyrharb", "م", "Tehzîb 1064"),
+  E("habbanhilal", "darimi", "م", "Tehzîb 1064"),
+  E("habbanhilal", "abdhumeyd", "م ت", "Tehzîb 1064"),
+  E("habbanhilal", "alimedini", "—", "Tehzîb 1064"),
+  E("habbanhilal", "amrbnalisayrafi", "—", "Tehzîb 1064"),
+  E("habbanhilal", "bundar", "—", "Tehzîb 1064"),
+  E("habbanhilal", "ibnmusenna", "—", "Tehzîb 1064"),
+
+
+  /* Abdül'alâ b. Hammâd en-Nersî (o. 237) -- hocalari.
+     Tehzîb 3683. Tercemede 36 kayit var, agda dugumu olan 18'i cizildi. */
+  E("bisrsari", "nersi", "س", "Tehzîb 3683"),
+  E("hammadzeyd", "nersi", "م دس", "Tehzîb 3683"),
+  E("hammadseleme", "nersi", "م د س", "Tehzîb 3683"),
+  E("davudattar", "nersi", "د س", "Tehzîb 3683"),
+  E("ibnuyeyne", "nersi", "م د", "Tehzîb 3683"),
+  E("ebulahvess", "nersi", "—", "Tehzîb 3683"),
+  E("sallamebimuti", "nersi", "—", "Tehzîb 3683"),
+  E("ibnvehb", "nersi", "—", "Tehzîb 3683"),
+  E("ibnmehdi", "nersi", "—", "Tehzîb 3683"),
+  E("darevardi", "nersi", "—", "Tehzîb 3683"),
+  E("isabyunus", "nersi", "—", "Tehzîb 3683"),
+  E("malik", "nersi", "م", "Tehzîb 3683"),
+  E("mutemirsuleyman", "nersi", "م", "Tehzîb 3683"),
+  E("veki", "nersi", "—", "Tehzîb 3683"),
+  E("vuheybhalid", "nersi", "خ م سي", "Tehzîb 3683"),
+  E("kattan", "nersi", "—", "Tehzîb 3683"),
+  E("yezidzurey", "nersi", "خ س", "Tehzîb 3683"),
+  E("yezidharun", "nersi", "—", "Tehzîb 3683"),
+
+
+  /* Abdül'alâ b. Hammâd en-Nersî (o. 237) -- talebeleri.
+     Tehzîb 3683. Tercemede 37 kayit var, agda dugumu olan 7'i cizildi. */
+  E("nersi", "buhari", "—", "Tehzîb 3683"),
+  E("nersi", "muslim", "—", "Tehzîb 3683"),
+  E("nersi", "ebudavud", "—", "Tehzîb 3683"),
+  E("nersi", "bh05", "س", "Tehzîb 3683"),
+  E("nersi", "bh09", "—", "Tehzîb 3683"),
+  E("nersi", "ebuzuraraazi", "—", "Tehzîb 3683"),
+  E("nersi", "ebuhatimrazi", "—", "Tehzîb 3683"),
+
+
+  /* Duhaym, Abdurrahman b. İbrâhim (o. 245) -- hocalari.
+     Tehzîb 3747. Tercemede 43 kayit var, agda dugumu olan 17'i cizildi. */
+  E("ademebiiyas", "duhaym", "—", "Tehzîb 3747"),
+  E("ishakyusufezrak", "duhaym", "سي", "Tehzîb 3747"),
+  E("enesiyaz", "duhaym", "ق", "Tehzîb 3747"),
+  E("bisrbekirtennisi", "duhaym", "د ق", "Tehzîb 3747"),
+  E("ebuusamehammad", "duhaym", "ق", "Tehzîb 3747"),
+  E("said_mansur", "duhaym", "—", "Tehzîb 3747"),
+  E("ibnuyeyne", "duhaym", "—", "Tehzîb 3747"),
+  E("suaybishakdimaski", "duhaym", "ق", "Tehzîb 3747"),
+  E("damrarebia", "duhaym", "—", "Tehzîb 3747"),
+  E("ubeydullahmusa", "duhaym", "—", "Tehzîb 3747"),
+  E("affanmuslim", "duhaym", "—", "Tehzîb 3747"),
+  E("amrebiselemetennisi", "duhaym", "ق", "Tehzîb 3747"),
+  E("muhammedsuaybsabur", "duhaym", "ق", "Tehzîb 3747"),
+  E("firyabi", "duhaym", "سي ق", "Tehzîb 3747"),
+  E("mervanfezari", "duhaym", "س ق", "Tehzîb 3747"),
+  E("velidmuslim", "duhaym", "خ د س ق", "Tehzîb 3747"),
+  E("yalaubeyd", "duhaym", "—", "Tehzîb 3747"),
+
+
+  /* Duhaym, Abdurrahman b. İbrâhim (o. 245) -- talebeleri.
+     Tehzîb 3747. Tercemede 44 kayit var, agda dugumu olan 8'i cizildi. */
+  E("duhaym", "buhari", "—", "Tehzîb 3747"),
+  E("duhaym", "ebudavud", "—", "Tehzîb 3747"),
+  E("duhaym", "nesai", "—", "Tehzîb 3747"),
+  E("duhaym", "ibnmace", "—", "Tehzîb 3747"),
+  E("duhaym", "bh03", "—", "Tehzîb 3747"),
+  E("duhaym", "darimi", "—", "Tehzîb 3747"),
+  E("duhaym", "ebuzuraraazi", "—", "Tehzîb 3747"),
+  E("duhaym", "ebuhatimrazi", "—", "Tehzîb 3747"),
 
 ];
 
