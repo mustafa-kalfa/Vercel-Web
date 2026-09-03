@@ -12,6 +12,18 @@ import type { NextConfig } from "next";
    Yonlendirmeyle birlikte kaldirilanlar: layout'taki `robots: index:false`
    ve sitemap'e eklenen yol. Ucu birden ayni ise bakiyor -- gelecekte bir
    sayfayi yine boyle beklemeye alirsan ucunu de kur. */
-const nextConfig: NextConfig = {};
+/* /rihle -> /rihleler (2026-09-03). Sayfanin adi degisti; eski yol
+   disarida (paylasilmis baglantilarda, tarayici gecmisinde) durdugu icin
+   yonlendirme birakiliyor.
+
+   `permanent: false`, yani 307. Yukaridaki notun sebebi ayni: 308
+   tarayicida kaliciya yaziliyor ve yonlendirme kaldirildiktan sonra bile
+   ziyaretciyi eski hedefe goturuyor. Sayfa henuz bir yer tutucu, arama
+   motoru agirligi tasimiyor -- geri donusun temiz olmasi daha degerli. */
+const nextConfig: NextConfig = {
+  async redirects() {
+    return [{ source: "/rihle", destination: "/rihleler", permanent: false }];
+  },
+};
 
 export default nextConfig;

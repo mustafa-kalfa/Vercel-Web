@@ -119,7 +119,7 @@ export default function Sinama() {
       ikon: <MikrofonIcon />,
     },
     {
-      href: "/rihle",
+      href: "/rihleler",
       adAnahtar: "cardRihle",
       altAnahtar: "cardRihleDesc",
       ikon: <YolIcon />,

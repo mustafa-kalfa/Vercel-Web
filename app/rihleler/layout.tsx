@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 // Next.js metadata'yi yalnizca sunucu bileseninden okur. Ince bir layout
 // bu isi cozuyor -- sayfaya hic dokunmadan basligi veriyor.
 export const metadata: Metadata = {
-  title: "Rihle",
+  title: "Rihleler",
   description: "Bir yolculuk yaklaşıyor.",
 };
 

@@ -29,7 +29,7 @@ const YOLLAR = [
   "/selam",
   "/podcastler",
   "/hadis-tarihi",
-  "/rihle",
+  "/rihleler",
   "/oyunlar",
   "/resule-kavusmak",
   "/dil-antrenmani",

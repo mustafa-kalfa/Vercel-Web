@@ -119,7 +119,7 @@ export default function Home() {
       ikon: <MikrofonIcon />,
     },
     {
-      href: "/rihle",
+      href: "/rihleler",
       adAnahtar: "cardRihle",
       altAnahtar: "cardRihleDesc",
       ikon: <YolIcon />,

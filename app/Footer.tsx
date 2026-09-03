@@ -49,14 +49,14 @@ export default function Footer() {
   const baglantilar = [
     { href: "/ravi-iliski-aglari", ad: t.cardNetworks },
     { href: "/podcastler", ad: t.cardPodcasts },
-    { href: "/rihle", ad: t.cardRihle },
+    { href: "/rihleler", ad: t.cardRihle },
     { href: "/oyunlar", ad: t.cardGames },
     { href: "/egitim-icerikleri", ad: t.cardEducation },
     { href: "/selam", ad: t.about },
   ];
 
   return (
-    /* `mt-auto`: govde kisa kalan sayfalarda (ornegin /rihle) footer
+    /* `mt-auto`: govde kisa kalan sayfalarda (ornegin /rihleler) footer
        ekranin ortasinda asili kalmasin, dibe otursun. */
     <footer className="mt-auto w-full border-t border-black/20 dark:border-white/70">
       <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-8 py-8 sm:px-16 md:max-w-5xl">
@@ -120,7 +120,7 @@ export default function Footer() {
           {/* Tek satir. Bir ara iki satira bolunmustu: kosedeki klip o
               zaman `fixed` idi ve sayfa sonunda bu satirin uzerine
               biniyordu. Klipler `absolute` olup footer'in USTUNE
-              alininca (bkz. selam/rihle/mustafa-calisiyor sayfalari) o
+              alininca (bkz. selam/rihleler/mustafa-calisiyor sayfalari) o
               kisitlama ortadan kalkti. */}
           <p>
             © {YIL} Mustafâ Kalfa{" "}

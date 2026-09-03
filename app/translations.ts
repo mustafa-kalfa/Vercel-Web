@@ -126,7 +126,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     greetingMore: "Daha fazla bilgi için tıklayın.",
     workingOnIt: "Mustafâ bu iş üzerinde çalışıyor.",
     journeyAhead:
-      "Bir yolculuk yaklaşıyor. Ama önce hazırlık yapmalıyım. Mustafâ bu iş üzerinde çalışıyor.",
+      "Bir yolculuk yaklaşıyor. Kütüb-i Sitte müelliflerinin rihle güzergâhlarını öğrenelim. Ama önce hazırlık yapmalıyım. Mustafâ bu iş üzerinde çalışıyor.",
     pageNotCreated:
       "Şu anda buradasınız. Mustafâ henüz böyle bir sayfa oluşturmadı. Fakat... Neden olmasın?",
     podcastHadithHistory: "Hadis Tarihi",
@@ -222,7 +222,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     greetingMore: "اضغط لمزيد من المعلومات.",
     workingOnIt: "مصطفى يعمل على هذا الأمر.",
     journeyAhead:
-      "رحلةٌ تقترب. ولكن لا بدّ لي من الاستعداد أوّلًا. مصطفى يعمل على هذا الأمر.",
+      "رحلةٌ تقترب. لنتعرّف على مسارات رحلات مؤلّفي الكتب الستّة. ولكن لا بدّ لي من الاستعداد أوّلًا. مصطفى يعمل على هذا الأمر.",
     pageNotCreated:
       "أنتم الآن هنا. لم يُنشئ مصطفى هذه الصفحة بعدُ. ولكن... لِمَ لا؟",
     podcastHadithHistory: "تاريخ الحديث",
@@ -318,7 +318,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     greetingMore: "Click for more information.",
     workingOnIt: "Mustafâ is working on this.",
     journeyAhead:
-      "A journey is drawing near. But first I must prepare. Mustafâ is working on this.",
+      "A journey is drawing near. Let us learn the travel routes of the authors of the Six Books. But first I must prepare. Mustafâ is working on this.",
     pageNotCreated:
       "You are here right now. Mustafâ hasn't made such a page yet. But... Why not?",
     podcastHadithHistory: "History of Hadith",
