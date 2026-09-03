@@ -1200,7 +1200,6 @@ export const NODES = [
   N("ebuahmedzubeyri", "محمد بن عبد الله بن الزبير بن عمر بن درهم أبو أحمد الزبيري", "Ebû Ahmed ez-Zübeyrî", 5, 203, "Kûfe"),
   N("ibnsabbahdulabi", "محمد بن الصباح الدولابي البزاز", "Muhammed b. es-Sabbâh ed-Dûlâbî", 5, 227, "Basra"),
   N("ibnrecagudani", "عبد الله بن رجاء بن عمر الغداني البصري", "Abdullah b. Recâ el-Gudânî", 5, 219, "Basra"),
-  N("abbasanberi", "عباس بن عبد العظيم بن إسماعيل بن توبة العنبري", "Abbâs b. Abdil'azîm el-Anberî", 5, 246, "Basra"),
   N("zaferani", "الحسن بن محمد بن الصباح الزعفراني البغدادي", "Hasan b. Muhammed ez-Za‘ferânî", 6, 260, "Basra"),
   N("abbasduri", "عباس بن محمد بن حاتم بن واقد الدوري البغدادي", "Abbâs b. Muhammed ed-Dûrî", 6, 271, "Basra"),
 
