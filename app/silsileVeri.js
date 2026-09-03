@@ -6298,6 +6298,80 @@ const EDGES_HAM = [
   E("irakmalik", "yahyasaidensari", "س", "Tehzîb 3893"),
   E("irakmalik", "yezidebihabib", "خ م د س", "Tehzîb 3893"),
 
+
+  /* Me‘âfâ b. İmrân (o. 185) -- talebeleri.
+     Tehzîb 6041. Tercemede 29 kayit var, agda dugumu olan 2'i cizildi. */
+  E("mafairan", "bakiyyevelid", "—", "Tehzîb 6041"),
+  E("mafairan", "veki", "—", "Tehzîb 6041"),
+
+
+  /* Mücâhid b. Mûsâ (o. 244) -- talebeleri.
+     Tehzîb 5784. Tercemede 16 kayit var, agda dugumu olan 6'i cizildi. */
+  E("mucahidmusa", "bh03", "—", "Tehzîb 5784"),
+  E("mucahidmusa", "zuhli", "—", "Tehzîb 5784"),
+  E("mucahidmusa", "ed20", "—", "Tehzîb 5784"),
+  E("mucahidmusa", "ebuhatimrazi", "—", "Tehzîb 5784"),
+  E("mucahidmusa", "ebuzuraraazi", "—", "Tehzîb 5784"),
+
+  /* Mücâhid b. Mûsâ -- "روى له الجماعة سوى البخاري" ifadesinden: metinde tek tek adlariyla gecmeyen dort muellif. */
+  E("mucahidmusa", "muslim", "—", "Tehzîb 5784, “el-cemâa sivâ'l-Buhârî”"),
+  E("mucahidmusa", "ebudavud", "—", "Tehzîb 5784, “el-cemâa sivâ'l-Buhârî”"),
+  E("mucahidmusa", "tirmizi", "—", "Tehzîb 5784, “el-cemâa sivâ'l-Buhârî”"),
+  E("mucahidmusa", "nesai", "—", "Tehzîb 5784, “el-cemâa sivâ'l-Buhârî”"),
+  E("mucahidmusa", "ibnmace", "—", "Tehzîb 5784, “el-cemâa sivâ'l-Buhârî”"),
+
+
+  /* Amr b. Merzûk (o. 224) -- talebeleri.
+     Tehzîb 4446. Tercemede 28 kayit var, agda dugumu olan 6'i cizildi. */
+  E("amrmerzuk", "ebudavud", "—", "Tehzîb 4446"),
+  E("amrmerzuk", "bh05", "—", "Tehzîb 4446"),
+  E("amrmerzuk", "ed13", "—", "Tehzîb 4446"),
+  E("amrmerzuk", "ebuzuraraazi", "—", "Tehzîb 4446"),
+  E("amrmerzuk", "ebuhatimrazi", "—", "Tehzîb 4446"),
+  E("amrmerzuk", "bundar", "—", "Tehzîb 4446"),
+  E("amrmerzuk", "buhari", "—", "Tehzîb 4446, makrûnen bi-gayrihî"),
+
+
+  /* Ebû'l-Mugīre Abdülkuddûs el-Havlânî (o. 212) -- talebeleri.
+     Tehzîb 3495. Tercemede 29 kayit var, agda dugumu olan 7'i cizildi. */
+  E("ebulmugirehavlani", "buhari", "—", "Tehzîb 3495"),
+  E("ebulmugirehavlani", "ahmedhanbel", "د", "Tehzîb 3495"),
+  E("ebulmugirehavlani", "ishakkevsec", "خ م ت س", "Tehzîb 3495"),
+  E("ebulmugirehavlani", "suaybishakdimaski", "س", "Tehzîb 3495"),
+  E("ebulmugirehavlani", "darimi", "م ت", "Tehzîb 3495"),
+  E("ebulmugirehavlani", "zuhli", "د ق", "Tehzîb 3495"),
+  E("ebulmugirehavlani", "ibnmain", "—", "Tehzîb 3495"),
+
+
+  /* Ebû Nasr et-Temmâr (o. 228) -- talebeleri.
+     Tehzîb 3540. Tercemede 23 kayit var, agda dugumu olan 8'i cizildi. */
+  E("ebunasrtemmar", "muslim", "—", "Tehzîb 3540"),
+  E("ebunasrtemmar", "ahmedmeni", "—", "Tehzîb 3540"),
+  E("ebunasrtemmar", "ed20", "—", "Tehzîb 3540"),
+  E("ebunasrtemmar", "ebukudame", "—", "Tehzîb 3540"),
+  E("ebunasrtemmar", "ebuzuraraazi", "—", "Tehzîb 3540"),
+  E("ebunasrtemmar", "amrbnalisayrafi", "—", "Tehzîb 3540"),
+  E("ebunasrtemmar", "ebuhatimrazi", "—", "Tehzîb 3540"),
+  E("ebunasrtemmar", "ibnmusenna", "—", "Tehzîb 3540"),
+
+
+  /* Süveyd b. Nasr et-Tûsânî (o. 240) -- talebeleri.
+     Tehzîb 2651. Tercemede 31 kayit var, agda dugumu olan 3'i cizildi. */
+  E("suveydnasr", "tirmizi", "—", "Tehzîb 2651"),
+  E("suveydnasr", "nesai", "—", "Tehzîb 2651"),
+  E("suveydnasr", "ed16", "—", "Tehzîb 2651"),
+
+
+  /* Ali b. el-Mübârek (o. ?) -- talebeleri.
+     Tehzîb 4124. Tercemede 17 kayit var, agda dugumu olan 7'i cizildi. */
+  E("alimubarek", "ibnuleyye", "خ م ت", "Tehzîb 4124"),
+  E("alimubarek", "ibnmubarek", "س", "Tehzîb 4124"),
+  E("alimubarek", "ebunuaymfadl", "—", "Tehzîb 4124"),
+  E("alimubarek", "muslimibrahim", "د", "Tehzîb 4124"),
+  E("alimubarek", "veki", "خ م س ق", "Tehzîb 4124"),
+  E("alimubarek", "kattan", "د س", "Tehzîb 4124"),
+  E("alimubarek", "ebuamirakadi", "—", "Tehzîb 4124"),
+
 ];
 
 /* YINELENEN KENARLAR BURADA TEKILLESTIRILIYOR.
