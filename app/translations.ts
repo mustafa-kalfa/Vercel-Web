@@ -203,7 +203,8 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     agMedar1: "I. tabaka — müdevvinler",
     agMedar2: "II. tabaka — musannifler",
     agMedar3: "III. tabaka — münekkit ve fakîh muhaddisler",
-    agGiris: "Tercemeler ve bağlar Mizzî'nin Tehzîbü'l-Kemâl'inden, tabaka tasnifi İbn Hacer'in Takrîbü't-Tehzîb'inden, Kütüb-i Sitte müelliflerinin talebe halkaları Zehebî'nin Siyeru a'lâmi'n-nübelâ'sından alındı; sahâbe tabakasında Hulefâ-i Râşidîn ile müksirûn, diğerlerinde Ali b. el-Medînî'nin medâr saydığı isimler esas alındı ve şimdilik on iki beldede 676 râvi ile 3.673 bağ var. Ağ Kütüb-i Sitte râvileriyle bitiyor; müelliflerin kendi hocaları olan son tabakanın kapsamı hâlâ ince, bir kısım râvinin de yalnızca hocaları ya da yalnızca talebeleri işlenmiş durumda.",
+    agGiris:
+      "Tercemeler ve bağlar Mizzî'nin Tehzîbü'l-Kemâl'inden, tabaka tasnifi İbn Hacer'in Takrîbü't-Tehzîb'inden, Kütüb-i Sitte müelliflerinin talebe halkaları Zehebî'nin Siyeru a'lâmi'n-nübelâ'sından alındı; ağ Ali b. el-Medînî'nin medâr saydığı isimlerle müksirûndan başladı, ama artık onlarla sınırlı değil: on iki beldedeki 711 râvinin ancak otuz yedisi o çekirdekten geliyor, gerisi işlenen tercemelerin hoca ve talebe listelerinden çıktı ve aradaki bağ sayısı 4.521. Ağ Kütüb-i Sitte râvileriyle bitiyor; müelliflerin kendi hocaları olan tabaka bir hayli genişledi ama hâlâ eksik, bir kısım râvinin de yalnızca hocaları ya da yalnızca talebeleri işlenmiş durumda.",
     agHaritayaGit: "Haritaya erişmek için tıklayınız",
   },
   ar: {
@@ -299,7 +300,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     agMedar2: "الطبقة الثانية — المصنِّفون",
     agMedar3: "الطبقة الثالثة — النقاد والفقهاء من المحدِّثين",
     agGiris:
-      "التراجم والصلات في هذه الخريطة مأخوذة من تهذيب الكمال للمزّيّ، وتصنيف الطبقات من تقريب التهذيب لابن حجر، وحلقات تلاميذ أصحاب الكتب الستّة من سير أعلام النبلاء للذهبيّ؛ واعتُمد في طبقة الصحابة على الخلفاء الراشدين والمكثرين، وفي سائرها على من عدّهم عليّ بن المدينيّ مدارًا للإسناد، وهي الآن 676 راويًا و3673 صلة في اثنتي عشرة بلدة. وتنتهي الشبكة عند رواة الكتب الستّة؛ ولا تزال طبقة شيوخ المؤلّفين أنفسهم قليلة التغطية، كما أنّ بعض الرواة لم يُعالَج منهم إلّا الشيوخ أو إلّا التلاميذ.",
+      "التراجم والصلات في هذه الخريطة مأخوذة من تهذيب الكمال للمزّيّ، وتصنيف الطبقات من تقريب التهذيب لابن حجر، وحلقات تلاميذ أصحاب الكتب الستّة من سير أعلام النبلاء للذهبيّ؛ وقد بدأت الشبكة بمن عدّهم عليّ بن المدينيّ مدارًا للإسناد وبالمكثرين من الصحابة، غير أنّها لم تعد مقصورة عليهم: فمن رواتها البالغين 711 راويًا في اثنتي عشرة بلدة سبعةٌ وثلاثون فحسب من تلك النواة، وسائرهم جاء من قوائم الشيوخ والتلاميذ في التراجم المعالَجة، وعدد الصلات بينهم 4521. وتنتهي الشبكة عند رواة الكتب الستّة؛ وطبقة شيوخ المؤلّفين أنفسهم قد اتّسعت كثيرًا لكنّها ما زالت ناقصة، كما أنّ بعض الرواة لم يُعالَج منهم إلّا الشيوخ أو إلّا التلاميذ.",
     agHaritayaGit: "اضغط للوصول إلى الخريطة",
   },
   en: {
@@ -396,7 +397,8 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     agMedar1: "Tier I — recorders (tadwīn)",
     agMedar2: "Tier II — arrangers (taṣnīf)",
     agMedar3: "Tier III — critic and jurist traditionists",
-    agGiris: "The entries and the links come from al-Mizzī's Tahdhīb al-Kamāl, the ṭabaqāt classification from Ibn Ḥajar's Taqrīb al-Tahdhīb, and the student circles of the authors of the Six Books from al-Dhahabī's Siyar aʿlām al-nubalāʾ; the Companions' ṭabaqa is limited to the Rightly Guided Caliphs and the muksirūn and the rest to the narrators ʿAlī b. al-Madīnī counts as madār, which comes to 676 narrators and 3,673 links across twelve towns. The network stops at the transmitters of the Six Books; the last ṭabaqa — the authors' own teachers — is still thinly covered, and for some narrators only the teachers or only the students have been worked through.",
+    agGiris:
+      "The entries and the links come from al-Mizzī's Tahdhīb al-Kamāl, the ṭabaqāt classification from Ibn Ḥajar's Taqrīb al-Tahdhīb, and the student circles of the authors of the Six Books from al-Dhahabī's Siyar aʿlām al-nubalāʾ; the network began with the narrators ʿAlī b. al-Madīnī counts as madār and with the muksirūn among the Companions, but it is no longer confined to them: of its 711 narrators across twelve towns only thirty-seven come from that core, the rest having emerged from the teacher and student lists of the entries worked through, with 4,521 links between them. The network stops at the transmitters of the Six Books; the ṭabaqa of the authors' own teachers has grown a great deal but is still incomplete, and for some narrators only the teachers or only the students have been worked through.",
     agHaritayaGit: "Click to open the map",
   },
 };
