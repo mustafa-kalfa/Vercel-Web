@@ -1646,7 +1646,7 @@ esik `DilAntrenmani.module.css`teki `@media (max-width: 700px)`:
   `max-w-[46rem]`, `px-3`) neredeyse tamamini kaplar, yukseklik hesaba
   hic girmiyor.
 - **>700px (bilgisayar/tablet):**
-  `max(300px, min(94vw, 46rem, calc((100dvh - 250px) / 1.42)))`. Alti
+  `max(300px, min(94vw, 46rem, calc((100dvh - 250px) / 1.42 * 1.2)))`. Alti
   kart 5:7 oraniyla ekran yuksekligine sigmak zorunda, 1.42 de o oranin
   satir sayisina bolunmus hali. Izgara KARE oldugu icin (5x5) bu bolen
   sutun sayisindan BAGIMSIZ -- 6x6'dan 5x5'e inildiginde degismedi,
@@ -1670,19 +1670,33 @@ altinda tahta zaten sabit %96 aldigi icin telefon hic etkilenmiyor.
 64px'e cikti. 375x812'de (telefon) HER IKI olcu de degismedi (337px,
 96px) -- mobil override bu formulden bagimsiz oldugu icin beklenen.
 
+**`* 1.2` CARPANI TAHTAYI BILEREK EKRANA SIGDIRMIYOR.** Yukaridaki
+%8'lik artis Mustafa'ya YAYINDA fark edilir gelmedi ("bende hala boyle
+gorunuyor... 20% daha buyut", 2026-09-03), o yuzden hesabin %20
+ustune cikildi. Sonuc olculdu, 1280x800: tahta 388px -> 465px (kart
+88x123), tahtanin alti 877px'e iniyor ve sayfa ~117px kaydiriliyor.
+**Bu bir hata degil, bilerek verilen odun** -- kart okunakliligi,
+kaydirmasizliga tercih edildi. Kucultmek gerekirse once BU carpani
+dusur, 250'ye dokunma: 250 gercek bir olcuye karsilik geliyor (o kadar
+gercek bosluk var), carpan ise bir TERCIH. 375x812'de (telefon) tahta
+yine 337px -- degismedi.
+
+`46rem` ust siniri BILEREK buyutulmedi: tahta `DilAntrenmaniHub.tsx`
+teki `max-w-[46rem]` kabinin icinde, siniri buyutmek tahtayi kabindan
+tasirirdi (kabi da buyutmek gerekirdi). O sinir ancak ~1150px+
+yukseklikteki pencerelerde devreye giriyor, orada tahta zaten 736px.
+
 **Ustteki bloga (logo/geri/baslik/kural) dokunursan 250'yi de
-degistir**, yoksa tahtanin alti ekrandan tasar. `max(...300px)` cok
-kisa ekranlarda tahtanin okunamayacak kadar kuculmesini engelliyor; o
-durumda sayfa kaydirilir -- 1280x800'de bile ~10px'lik boyle bir tasma
-zaten var (olculdu, degismedi), kabul edilebilir kabul edildi.
+degistir.** `max(...300px)` cok kisa ekranlarda tahtanin okunamayacak
+kadar kuculmesini engelliyor.
 
 Bir ara geri dugmesi ile seviye adi ayni satira alinip pay 235px'e
 cekilmisti (kartlar buyusun diye); **Mustafa geri aldirdi**, ustteki
 blok sikistirilmayacak ve seviye basligi kendi satirinda ORTALI
 duracak. 1200x900'de olculdu: tahta 430px, tahtanin alti 867px, yani
-kaydirmadan siginiyor. (Bu olcum 290px doneminden kalma; 250px'e
-gecince tahta biraz daha buyudu, "kaydirmadan sigma" durumu YUKARIDAKI
-1280x800 olcumune gore degerlendirilmeli.)
+kaydirmadan siginiyor. (Bu olcum 290px doneminden kalma ve ARTIK
+GECERLI DEGIL -- `* 1.2` carpaniyla tahta bilerek ekrana sigmiyor,
+yukaridaki 1280x800 olcumune bak.)
 
 ### Kelime havuzu
 

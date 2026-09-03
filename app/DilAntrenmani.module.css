@@ -48,7 +48,7 @@
 
 /* ---------- üst şerit ---------- */
 /* Şerit ve tahta AYNI genişlik hesabını kullanıyor, yoksa sayaçlar
-   tahtadan taşar. Hesap `calc((100dvh - 250px) / 1.42)`: kartlar
+   tahtadan taşar. Hesap `calc((100dvh - 250px) / 1.42 * 1.2)`: kartlar
    ekran yüksekliğine sığmak zorunda, 1.42 de 5:7 oranının satır
    sayısına bölünmüş hâli. Izgara KARE olduğu için (5x5) bu bölen
    sütun sayısından bağımsız -- 6x6'dan 5x5'e inildiğinde değişmedi,
@@ -59,18 +59,33 @@
    ekranlarda tahtanın okunamayacak kadar küçülmesini engelliyor; o
    durumda sayfa kaydırılır.
 
-   Bu 290 -> 250 değişikliği 700px genişliğin ÜSTÜNDE (yani `@media
-   (max-width: 700px)` kuralının UYGULANMADIĞI ekranlarda) geçerli --
-   2026-09-03,
-   "bilgisayarda kartlar küçük kalıyor" (Mustafa). 40px'lik fark
-   `DilAntrenmaniHub.tsx`teki oyun ekranının GERÇEK üst dolgusundan
-   (`min-[701px]:pt-16`, `min-[701px]:mt-2`) geri kazanıldı -- yani
-   burası UYDURMA bir sayı değil, gerçekten boşalan alan kadar
-   küçültüldü; taşma miktarı eskisiyle aynı kaldı. Telefon (<=700px)
-   bu satırdan hiç etkilenmiyor, orada tahta zaten sabit %96 genişlik
-   alıyor. */
+   Aşağıdaki iki değişiklik de yalnızca 700px genişliğin ÜSTÜNDE (yani
+   `@media (max-width: 700px)` kuralının UYGULANMADIĞI ekranlarda)
+   geçerli; telefon bu satırdan hiç etkilenmiyor, orada tahta zaten
+   sabit %96 genişlik alıyor.
+
+   1) **290px -> 250px** (2026-09-03, "bilgisayarda kartlar küçük
+   kalıyor"). 40px'lik fark `DilAntrenmaniHub.tsx`teki oyun ekranının
+   GERÇEK üst dolgusundan (`min-[701px]:pt-16`, `min-[701px]:mt-2`)
+   geri kazanıldı -- yani UYDURMA bir sayı değil, gerçekten boşalan
+   alan kadar küçültüldü ve taşma miktarı aynı kaldı.
+
+   2) **`* 1.2`** (aynı gün). Yukarıdaki %8'lik artış Mustafa'ya
+   yayında fark edilir gelmedi, "20% daha büyüt" dedi. Bu çarpan
+   yukarıdaki "ekrana sığ" hesabının BİLEREK %20 ÜSTÜNE çıkıyor, yani
+   **tahtanın altı artık kısa pencerelerde ekrandan taşıyor ve sayfa
+   kaydırılıyor** -- 1280x800'de ölçüldü, ~115px. Bu bir hata değil,
+   istenen ödünç: kart okunaklılığı, kaydırmasızlığa tercih edildi.
+   Küçültmek gerekirse önce BU çarpanı düşür, 250'ye dokunma (250 gerçek
+   bir ölçüye karşılık geliyor, çarpan ise bir tercih).
+
+   `46rem` üst sınırı BİLEREK büyütülmedi: tahta
+   `DilAntrenmaniHub.tsx`teki `max-w-[46rem]` kabının içinde duruyor,
+   sınırı büyütmek tahtayı kabından taşırırdı. O sınır ancak çok uzun
+   pencerelerde (~1150px+ yükseklik) devreye giriyor, orada tahta zaten
+   736px. */
 .serit {
-  width: max(300px, min(94vw, 46rem, calc((100dvh - 250px) / 1.42)));
+  width: max(300px, min(94vw, 46rem, calc((100dvh - 250px) / 1.42 * 1.2)));
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -112,7 +127,7 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: var(--ara);
-  width: max(300px, min(94vw, 46rem, calc((100dvh - 250px) / 1.42)));
+  width: max(300px, min(94vw, 46rem, calc((100dvh - 250px) / 1.42 * 1.2)));
   perspective: 1600px;
 }
 .kart {
