@@ -1481,7 +1481,7 @@ export const HADIS_SEVIYELERI: Seviye[] = [
       { tr: "tabaka", en: "generation", ar: "طَبَقَة" },
       { tr: "tarîk", en: "strand", ar: "طَرِيق" },
       { tr: "muhaddis", en: "traditionist", ar: "مُحَدِّث" },
-      { tr: "şâhid", en: "corroboration", ar: "شَاهِد" },
+      { tr: "şâhid", en: "witness", ar: "شَاهِد" },
       { tr: "hadis", en: "report", ar: "حَدِيث" },
       { tr: "hasen", en: "fair", ar: "حَسَن" },
     ],
@@ -1494,7 +1494,7 @@ export const HADIS_SEVIYELERI: Seviye[] = [
       { tr: "illet", en: "defect", ar: "عِلَّة" },
       { tr: "sika", en: "reliable", ar: "ثِقَة" },
       { tr: "adâlet", en: "uprightness", ar: "عَدَالَة" },
-      { tr: "zabt", en: "accuracy", ar: "ضَبْط" },
+      { tr: "zabt", en: "precision", ar: "ضَبْط" },
     ],
   },
   {
@@ -1556,7 +1556,7 @@ export const HADIS_SEVIYELERI: Seviye[] = [
     tema: "Metin ve muhteva I",
     kelimeler: [
       { tr: "mukaddime", en: "introduction", ar: "مُقَدِّمَة" },
-      { tr: "hâfız", en: "memoriser", ar: "حَافِظ" },
+      { tr: "hâfız", en: "preserver", ar: "حَافِظ" },
       { tr: "tevâtür", en: "mass transmission", ar: "تَوَاتُر" },
       { tr: "haber-i vâhid", en: "solitary report", ar: "خَبَر الْوَاحِد" },
       { tr: "ziyade", en: "addition", ar: "زِيَادَة" },
@@ -1568,7 +1568,7 @@ export const HADIS_SEVIYELERI: Seviye[] = [
     kelimeler: [
       { tr: "nesih", en: "abrogation", ar: "نَسْخ" },
       { tr: "te'vil", en: "interpretation", ar: "تَأْوِيل" },
-      { tr: "mütâbi", en: "parallel", ar: "مُتَابِع" },
+      { tr: "mütâbi", en: "follow-up", ar: "مُتَابِع" },
       { tr: "garîb", en: "rare", ar: "غَرِيب" },
       { tr: "müdrec", en: "interpolation", ar: "مُدْرَج" },
       { tr: "mânâ rivayeti", en: "paraphrase", ar: "رِوَايَة بِالْمَعْنَى" },
@@ -1588,7 +1588,7 @@ export const HADIS_SEVIYELERI: Seviye[] = [
   {
     tema: "Râvi tenkidi II",
     kelimeler: [
-      { tr: "imam", en: "authority", ar: "إِمَام" },
+      { tr: "imam", en: "leader", ar: "إِمَام" },
       { tr: "mestûr", en: "obscure", ar: "مَسْتُور" },
       { tr: "mübhem", en: "unnamed", ar: "مُبْهَم" },
       { tr: "muhtelit", en: "confused", ar: "مُخْتَلِط" },
@@ -1610,8 +1610,8 @@ export const HADIS_SEVIYELERI: Seviye[] = [
   {
     tema: "Erken dönem I",
     kelimeler: [
-      { tr: "cehâlet", en: "anonymity", ar: "جَهَالَة" },
-      { tr: "teferrüd", en: "singularity", ar: "تَفَرُّد" },
+      { tr: "cehâlet", en: "unknown", ar: "جَهَالَة" },
+      { tr: "teferrüd", en: "singular", ar: "تَفَرُّد" },
       { tr: "hicret", en: "emigration", ar: "هِجْرَة" },
       { tr: "sünnet", en: "precedent", ar: "سُنَّة" },
       { tr: "bid'at", en: "innovation", ar: "بِدْعَة" },
@@ -1691,7 +1691,7 @@ export const HADIS_SEVIYELERI: Seviye[] = [
       { tr: "meşhur", en: "well-known", ar: "مَشْهُور" },
       { tr: "ulüvv", en: "elevation", ar: "عُلُوّ" },
       { tr: "nüzûl", en: "descent", ar: "نُزُول" },
-      { tr: "müselsel", en: "chained", ar: "مُسَلْسَل" },
+      { tr: "müselsel", en: "uniformly linked", ar: "مُسَلْسَل" },
       { tr: "vefeyat", en: "obituaries", ar: "وَفَيَات" },
     ],
   },
@@ -1724,7 +1724,7 @@ export const HADIS_SEVIYELERI: Seviye[] = [
       { tr: "müşkil", en: "problematic", ar: "مُشْكِل" },
       { tr: "nâsih", en: "abrogating", ar: "نَاسِخ" },
       { tr: "teâruz", en: "conflict", ar: "تَعَارُض" },
-      { tr: "tercih", en: "preference", ar: "تَرْجِيح" },
+      { tr: "tercih", en: "preponderance", ar: "تَرْجِيح" },
       { tr: "cem", en: "reconciliation", ar: "جَمْع" },
     ],
   },

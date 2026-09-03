@@ -495,8 +495,19 @@ export default function DilAntrenmaniHub() {
       ) : (
         /* 3. katman: oyun. Genişlik oyunun kendi tahtasıyla aynı hizada
            dursun diye `max-w-[46rem]` -- CSS modülündeki tahta genişliği
-           de aynı üst sınırı kullanıyor. */
-        <div className="mx-auto w-full max-w-[46rem] px-3 pb-10 pt-24 sm:px-6">
+           de aynı üst sınırı kullanıyor.
+
+           `min-[701px]:` ile üstteki dolgu ve tahtanın üstündeki boşluk
+           701px ve üzeri EKRANLARDA daralıyor (bilgisayarda kartlar küçük
+           kalıyordu, 2026-09-03). Eşik BİLEREK CSS modülündeki
+           `@media (max-width: 700px)` ile birebir aynı -- altında tahta
+           zaten sabit %96 genişlik alıyor (bkz. `.serit,.tahta` kuralı),
+           yani telefon hiç etkilenmiyor. Burada kazanılan 40px GERÇEK
+           boşluk `DilAntrenmani.module.css`'teki tahta yükseklik
+           hesabındaki 290px'ten de düşüldü (250px) -- ikisi birlikte
+           değişmezse tahta taştığı kadar büyür ama kaydırma payı
+           yanlış hesaplanır. */
+        <div className="mx-auto w-full max-w-[46rem] px-3 pb-10 pt-24 min-[701px]:pt-16 sm:px-6">
           <button
             type="button"
             onClick={(e) => basVeGit(e, kume.id, null)}
@@ -512,7 +523,7 @@ export default function DilAntrenmaniHub() {
             {ui.kural}
           </p>
 
-          <div className="mt-4 flex justify-center">
+          <div className="mt-4 min-[701px]:mt-2 flex justify-center">
             {/* `key` ZORUNLU: seviye değişince oyunun destesi baştan
                 kurulmalı. Bileşen kelime listesini yalnızca ilk
                 kurulumda okuyor, prop'un değişmesi tahtayı kendiliğinden

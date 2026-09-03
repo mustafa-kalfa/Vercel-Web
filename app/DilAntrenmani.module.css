@@ -48,18 +48,29 @@
 
 /* ---------- üst şerit ---------- */
 /* Şerit ve tahta AYNI genişlik hesabını kullanıyor, yoksa sayaçlar
-   tahtadan taşar. Hesap `calc((100dvh - 290px) / 1.42)`: kartlar
+   tahtadan taşar. Hesap `calc((100dvh - 250px) / 1.42)`: kartlar
    ekran yüksekliğine sığmak zorunda, 1.42 de 5:7 oranının satır
    sayısına bölünmüş hâli. Izgara KARE olduğu için (5x5) bu bölen
    sütun sayısından bağımsız -- 6x6'dan 5x5'e inildiğinde değişmedi,
-   yalnızca her kart büyüdü. 290px sayfanın üstünde duran şeye
+   yalnızca her kart büyüdü. 250px sayfanın üstünde duran şeye
    ayrılan pay -- logo, "Seviyeler" düğmesi, başlık, kural satırı ve
    alt boşluk. Sayfadaki o bloğu değiştirirsen bu sayıyı da değiştir,
    yoksa tahtanın altı ekrandan taşar. `max(...300px)` çok kısa
    ekranlarda tahtanın okunamayacak kadar küçülmesini engelliyor; o
-   durumda sayfa kaydırılır. */
+   durumda sayfa kaydırılır.
+
+   Bu 290 -> 250 değişikliği 700px genişliğin ÜSTÜNDE (yani `@media
+   (max-width: 700px)` kuralının UYGULANMADIĞI ekranlarda) geçerli --
+   2026-09-03,
+   "bilgisayarda kartlar küçük kalıyor" (Mustafa). 40px'lik fark
+   `DilAntrenmaniHub.tsx`teki oyun ekranının GERÇEK üst dolgusundan
+   (`min-[701px]:pt-16`, `min-[701px]:mt-2`) geri kazanıldı -- yani
+   burası UYDURMA bir sayı değil, gerçekten boşalan alan kadar
+   küçültüldü; taşma miktarı eskisiyle aynı kaldı. Telefon (<=700px)
+   bu satırdan hiç etkilenmiyor, orada tahta zaten sabit %96 genişlik
+   alıyor. */
 .serit {
-  width: max(300px, min(94vw, 46rem, calc((100dvh - 290px) / 1.42)));
+  width: max(300px, min(94vw, 46rem, calc((100dvh - 250px) / 1.42)));
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -101,7 +112,7 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: var(--ara);
-  width: max(300px, min(94vw, 46rem, calc((100dvh - 290px) / 1.42)));
+  width: max(300px, min(94vw, 46rem, calc((100dvh - 250px) / 1.42)));
   perspective: 1600px;
 }
 .kart {

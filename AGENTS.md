@@ -1639,20 +1639,50 @@ tamamina degil EN UZUN PARCASINA bakiyor ("deniz kabugu" iki satira
 sariyor). Arapca harf sayisi harekeler ATILARAK sayiliyor, yoksa
 "قَصِيدَة" 12 harf sayilip gereksiz kuculurdu.
 
-Tahta genisligi
-`max(300px, min(94vw, 46rem, calc((100dvh - 290px) / 1.42)))`. Alti
-kart 5:7 oraniyla ekran yuksekligine sigmak zorunda, 1.42 de o oranin
-satir sayisina bolunmus hali. Izgara KARE oldugu icin (5x5) bu bolen
-sutun sayisindan BAGIMSIZ -- 6x6'dan 5x5'e inildiginde degismedi,
-yalnizca her kart buyudu (70px -> 84px). 290px sayfanin ustunde duran seye
-(logo, geri dugmesi, baslik, kural satiri) ayrilan pay. **Ustteki bloga
-dokunursan bu sayiyi da degistir**, yoksa tahtanin alti ekrandan tasar.
+Tahta genisligi TELEFONDA VE BILGISAYARDA AYRI FORMUL kullaniyor,
+esik `DilAntrenmani.module.css`teki `@media (max-width: 700px)`:
+
+- **<=700px (telefon):** sabit `%96` -- tahta konteynerinin (kendisi
+  `max-w-[46rem]`, `px-3`) neredeyse tamamini kaplar, yukseklik hesaba
+  hic girmiyor.
+- **>700px (bilgisayar/tablet):**
+  `max(300px, min(94vw, 46rem, calc((100dvh - 250px) / 1.42)))`. Alti
+  kart 5:7 oraniyla ekran yuksekligine sigmak zorunda, 1.42 de o oranin
+  satir sayisina bolunmus hali. Izgara KARE oldugu icin (5x5) bu bolen
+  sutun sayisindan BAGIMSIZ -- 6x6'dan 5x5'e inildiginde degismedi,
+  yalnizca her kart buyudu (70px -> 84px). Pratikte hemen her zaman
+  YUKSEKLIK terimi kazaniyor (94vw ve 46rem'den kucuk kaliyor), yani
+  "bilgisayarda kartlar kucuk kaliyor" sikayeti aslinda dar/kisa bir
+  tarayici PENCERESI sikayeti -- cok genis bir monitorde bile pencere
+  kisaysa tahta kuculur.
+
+**250px sayfanin ustunde/altinda duran seye (logo, geri dugmesi,
+baslik, kural satiri, alt bosluk) ayrilan pay -- SADECE >700px icin
+gecerli.** Eskiden 290'di; 2026-09-03'te "bilgisayarda kartlar kucuk
+kaliyor" (Mustafa) uzerine 250'ye indi. Bu UYDURMA bir sayi degil:
+`DilAntrenmaniHub.tsx`teki oyun ekraninin ust dolgusu da AYNI 40px
+kadar GERCEKTEN kucultuldu (`min-[701px]:pt-16`, tahtanin uzerindeki
+sarmalayicida `min-[701px]:mt-2`) -- yani pay ile gercek bosluk
+BIRLIKTE degisti, taşma miktari eskisiyle ayni kaldi (~10px, asagida).
+`min-[701px]:` esigi CSS modulundeki `700px`e BILEREK birebir denk --
+altinda tahta zaten sabit %96 aldigi icin telefon hic etkilenmiyor.
+1280x800'de olculdu: tahta 359px -> 388px (+8%), geri dugmesi 96px'ten
+64px'e cikti. 375x812'de (telefon) HER IKI olcu de degismedi (337px,
+96px) -- mobil override bu formulden bagimsiz oldugu icin beklenen.
+
+**Ustteki bloga (logo/geri/baslik/kural) dokunursan 250'yi de
+degistir**, yoksa tahtanin alti ekrandan tasar. `max(...300px)` cok
+kisa ekranlarda tahtanin okunamayacak kadar kuculmesini engelliyor; o
+durumda sayfa kaydirilir -- 1280x800'de bile ~10px'lik boyle bir tasma
+zaten var (olculdu, degismedi), kabul edilebilir kabul edildi.
 
 Bir ara geri dugmesi ile seviye adi ayni satira alinip pay 235px'e
 cekilmisti (kartlar buyusun diye); **Mustafa geri aldirdi**, ustteki
 blok sikistirilmayacak ve seviye basligi kendi satirinda ORTALI
 duracak. 1200x900'de olculdu: tahta 430px, tahtanin alti 867px, yani
-kaydirmadan siginiyor.
+kaydirmadan siginiyor. (Bu olcum 290px doneminden kalma; 250px'e
+gecince tahta biraz daha buyudu, "kaydirmadan sigma" durumu YUKARIDAKI
+1280x800 olcumune gore degerlendirilmeli.)
 
 ### Kelime havuzu
 
@@ -1727,6 +1757,44 @@ usullerinin Ingilizce karsiliklari da ayni ceviri gelenegdinden geliyor
 -- sama' "audition", kiraat "recitation", icazet "licence", munavele
 "handing over", mukatebe "correspondence", i'lam "notification",
 vasiyet "bequest", vicade "finding".
+
+**Ingilizce sutun 2026-09-03'te kaynaklardan TEK TEK gecirildi.** Once
+Mustafa sordu ("akademik metinlere mi dayandin yoksa kendin mi
+yazdin?"); 144 istilahin ancak yirmi kadari dogrulanabilir bir
+kullanima dayaniyordu, gerisi benim yazdigimdi. Arama sonucunda dokuz
+karsilik DEGISTI:
+
+| istilah | eski | yeni | dayanak |
+|---|---|---|---|
+| mutabi | parallel | follow-up | "mutaba'ah tammah = full follow-up" (islamic-awareness) |
+| muselsel | chained | uniformly linked | "musalsal (uniformly-linked) isnad" |
+| tercih | preference | preponderance | tarjih catismayi tercihle degil PREPONDERANCE ile cozuyor |
+| zabt | accuracy | precision | "technical precision in recording" |
+| sahid | corroboration | witness | shawahid = "witnesses"; eski karsilik SURECI adlandiriyordu |
+| teferrud | singularity | singular | fard/tafarrud icin "singular"; "singularity" matematik terimi gibi |
+| cehalet | anonymity | unknown | mechul "unknown"; "anonymity" fazla sikistirilmis |
+| imam | authority | leader | "Aimmah (leaders)" |
+| hafiz | memoriser | preserver | "Huffaz (preservers)" |
+
+**"uniformly linked" TIRE ILE DEGIL BOSLUKLA yazildi.** Kaynaklar
+tireli yaziyor ama `punto()` yalniz boslukta boluyor: tek parca 16 harf
+sayilip kart 8 puntoya dusuyordu (bkz. "Punto ve olcu hesabi").
+Bosluklu halde "mass transmission" gibi iki satira sariyor.
+
+Ayni turda DOGRULANIP yerinde birakilanlar (bunlari "zayif" diye
+degistirmeye kalkma, kaynak var): hasen "fair", tabaka "generation",
+tabakat "prosopography", kunye "teknonym", lakap "epithet", fetva
+"responsum", ruhsat "dispensation", sika "reliable", adalet
+"uprightness", tearuz "conflict", mubhem "unnamed", mevzu "forgery".
+
+**HALA DAYANAKSIZ, bir sonraki turda ele alinacak:** huccet "proof",
+mestur "obscure", vehim "error", muhtelit "confused", nakil
+"conveyance", mefhum "purport", tarik "strand" (Juynboll'e ozgu),
+azimet "strictness", sunnet "precedent" (Brown cevirmiyor), hadis
+"report" ("report" aslinda HABER'in karsiligi), eser "tradition"
+(hadis'in eski karsiligiyla karisiyor), nesep "lineage" (kaynak
+"patronymic" diyor). Ayrica dogum/vefat/kabile/kaynak/hoca/talebe
+istilah degil, seviye doldurmak icin konmus sozluk kelimeleri.
 
 **Seviye EKLEMEK ilerleme anahtarini bozmuyor**, cunku eski indisler
 ayni seviyeleri gostermeye devam ediyor. Anahtari ancak seviyelerin
