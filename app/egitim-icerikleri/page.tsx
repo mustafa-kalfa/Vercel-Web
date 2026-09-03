@@ -27,6 +27,7 @@ const VIDEOLAR: Kalem[] = [
   { anahtar: "eduVideoMacbook", href: "https://youtu.be/kOFPtcE4O54" },
   { anahtar: "eduVideoClaudeExt", href: "https://youtu.be/qLbSDKsBXBA" },
   { anahtar: "eduVideoChh", href: "https://youtu.be/RnauL-BLXmg" },
+  { anahtar: "eduVideoChhWindow", href: "https://youtu.be/jIhwOq7nL7Q" },
   { anahtar: "eduVideoCevami", href: "https://youtu.be/mv91CJnRZTY" },
 ];
 

@@ -70,6 +70,7 @@ type Translation = {
   eduVideoSearchPanel: string;
   eduVideoClaudeExt: string;
   eduVideoChh: string;
+  eduVideoChhWindow: string;
   eduVideoCevami: string;
   eduPostNotebookLM: string;
   eduPostVolumeLimit: string;
@@ -150,12 +151,13 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     cardNetworks: "Râvi İlişki Ağları",
     cardNetworksDesc: "Râvilerin hoca-talebe bağlarını haritalama çalışması.",
     cardGames: "Oyunlar",
-    cardGamesDesc: "İsnâd zincirini doğru sırayla tamamla.",
+    cardGamesDesc: "Oynarken öğrenelim.",
     cardPodcasts: "Podcastler",
     cardPodcastsDesc:
       "Hadis tarihi, usûlü, edebiyatı ve oryantalizm üzerine podcastler.",
     cardRihle: "Rihleler",
-    cardRihleDesc: "Bir yolculuk yaklaşıyor.",
+    cardRihleDesc:
+      "Kütüb-i Sitte müelliflerinin rihle güzergâhlarını öğrenelim.",
     cardEducation: "Eğitim İçerikleri ve Diğer Hizmetler",
     cardEducationDesc: "Verilen eğitimler, rehber videoları ve paylaşımlar.",
     eduVideos: "Rehber videolar",
@@ -165,6 +167,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     eduVideoSearchPanel: "el-Mektebetü'ş-Şâmile, arama panelinin kullanımı",
     eduVideoClaudeExt: "el-Mektebetü'ş-Şâmile'nin yapay zekâ istemcisiyle kullanımı",
     eduVideoChh: "Câmiu Hâdimi'l-Haremeyn, kurulum ve sık karşılaşılan sorunlar",
+    eduVideoChhWindow: "Câmiu Hâdimi'l-Haremeyn, pencere probleminin çözümü",
     eduVideoCevami: "Cevâmiu'l-Kelim, kurulum",
     eduPostNotebookLM:
       "Şâmile'den elde edilen kitaplar üzerinde NotebookLM ile işlem yapma",
@@ -176,7 +179,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
       "Gemini ve NotebookLM ile YDS kelime çalışma kartları hazırlamak",
     eduPostDataPrivacy:
       "Dil modellerine verilen akademik metinlerin ve kişisel verilerin şirketlerce kullanımını önlemek (ChatGPT, Gemini, Claude)",
-    eduPostPdfDarkMode: "PDF'leri karanlık moda çeviren siteler",
+    eduPostPdfDarkMode: "Pdf'leri gece moduna çeviren siteler",
     eduPostDeepL:
       "Seçilen metni her programda çeviren masaüstü aracı (DeepL)",
     footerRights: "Tüm hakları saklıdır.",
@@ -246,12 +249,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     cardNetworks: "شبكات علاقات الرواة",
     cardNetworksDesc: "محاولةٌ لرسم صلات الشيوخ والتلاميذ بين الرواة.",
     cardGames: "الألعاب",
-    cardGamesDesc: "أتمِمْ سلسلة الإسناد بترتيبها الصحيح.",
+    cardGamesDesc: "لنتعلّم ونحن نلعب.",
     cardPodcasts: "التسجيلات الصوتية",
     cardPodcastsDesc:
       "تسجيلات في تاريخ الحديث وأصوله وأدبه والاستشراق.",
     cardRihle: "الرحلات",
-    cardRihleDesc: "رحلةٌ تقترب.",
+    cardRihleDesc: "لنتعرّف على مسارات رحلات مؤلّفي الكتب الستّة.",
     cardEducation: "المحتوى التعليمي وخدمات أخرى",
     cardEducationDesc: "دوراتٌ وفيديوهات إرشادية ومنشورات.",
     eduVideos: "الفيديوهات الإرشادية",
@@ -261,6 +264,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     eduVideoSearchPanel: "المكتبة الشاملة، استخدام لوحة البحث",
     eduVideoClaudeExt: "استخدام المكتبة الشاملة مع عميل ذكاء اصطناعيّ",
     eduVideoChh: "جامع خادم الحرمين، التثبيت والمشكلات الشائعة",
+    eduVideoChhWindow: "جامع خادم الحرمين، حلّ مشكلة النافذة",
     eduVideoCevami: "جوامع الكلم، التثبيت",
     eduPostNotebookLM:
       "العمل على الكتب المستخرجة من المكتبة الشاملة بواسطة NotebookLM",
@@ -342,12 +346,13 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     cardNetworks: "Narrator Networks",
     cardNetworksDesc: "Mapping teacher-student links between hadith narrators.",
     cardGames: "Games",
-    cardGamesDesc: "Complete the chain of transmission in the right order.",
+    cardGamesDesc: "Let us learn while playing.",
     cardPodcasts: "Podcasts",
     cardPodcastsDesc:
       "Podcasts on hadith history, methodology, literature and orientalism.",
     cardRihle: "Journeys",
-    cardRihleDesc: "A journey is drawing near.",
+    cardRihleDesc:
+      "Let us learn the travel routes of the authors of the Six Books.",
     cardEducation: "Training Content and Other Services",
     cardEducationDesc: "Courses taught, guide videos and posts.",
     eduVideos: "Guide videos",
@@ -357,6 +362,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     eduVideoSearchPanel: "al-Maktaba al-Shāmila, using the search panel",
     eduVideoClaudeExt: "Using al-Maktaba al-Shāmila with an AI client",
     eduVideoChh: "Jāmiʿ Khādim al-Ḥaramayn, installation and common problems",
+    eduVideoChhWindow: "Jāmiʿ Khādim al-Ḥaramayn, solving the window problem",
     eduVideoCevami: "Jawāmiʿ al-Kalim, installation",
     eduPostNotebookLM: "Working on books exported from Shamela with NotebookLM",
     eduPostVolumeLimit:
