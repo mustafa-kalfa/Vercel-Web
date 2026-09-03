@@ -56,6 +56,26 @@ Kurallar:
   Ebü'd-Derdâ → `عويمر بن مالك`, Ebû Dâvûd et-Tayâlisî →
   `سليمان بن داود بن الجارود`.
 
+## 1b. Başlık aramasının üç tuzağı (2026-09-03)
+
+`search_titles` belirteci **yazıldığı gibi** eşliyor; kök ya da ek
+analizi yok. Üç yerde ısrarla yanılttı:
+
+- **Harf-i tarif.** Mizzî başlıkta çoğu zaman `عباس`, `صفوان` yazıyor,
+  `العباس` değil. `العباس بن محمد الدوري` sıfır sonuç verdi; terceme
+  fihristte duruyordu (3141).
+- **Ön ek belirtece yapışıyor.** `المعروف بالرمادي` içinde belirteç
+  `بالرمادي`; `الرمادي` ile aranınca tutmuyor. Ahmed b. Mansûr
+  er-Ramâdî bu yüzden "yok" göründü (var, 156).
+- **Başlığın kendisi hatalı olabilir.** Ebû Ahmed ez-Zübeyrî'nin
+  başlığında `الأسلمي` yazıyor, doğrusu `الأسدي`. Nisbeyle aranınca
+  bulunamadı; `الزبير عمر درهم` (dede adları) buldu.
+
+Üçünde de çözüm aynı: nisbeyi bırak, **nesep zincirindeki özel adları**
+ara — ya da doğrudan §3'e geç, `من اسمه X` çocuklarını dök ve boşluğu
+oku. Bu partide beş ismin tercemesine ancak öyle ulaşıldı (Cûzcânî,
+Ramâdî, Ebû Osmân en-Nehdî, Cübeyr b. Nüfeyr, Mus'ab b. Sa'd).
+
 ## 2. YÖNTEM: sayfadan başlığa sorma (ikili arama)
 
 `shamela_get_toc({book_id:3722, containing_page_id:N})` bir sayfanın
@@ -294,3 +314,43 @@ Ebû Zer, Selmân-ı Fârisî, Ubâde b. es-Sâmit, Ebû Eyyûb, Ebû Katâde,
 Ebû Bekre, Vâsile, Ümmü Seleme, Esmâ bint Ebî Bekir, Ukayl b. Hâlid,
 Yûnus b. Yezîd el-Eylî, İbn Ebî Zi'b, Humeydî, Süleymân b. Harb,
 Ebû Bekir b. Abdirrahman. Hanım râvi kapsamı genel olarak zayıf.
+
+## 2026-09-03 partisi: eklenen 35 ismin terceme numaraları
+
+| râvi | Tehzîb | nasıl bulundu |
+|---|---|---|
+| Süfyân b. Vekî‘ | 2418 | başlık |
+| Hârûn b. Abdillâh el-Hammâl | 6520 | başlık |
+| Muhammed b. Sellâm el-Bîkendî | 5278 | başlık |
+| Habbân b. Hilâl | 1064 | başlık |
+| Abdül'alâ b. Hammâd en-Nersî | 3683 | başlık |
+| Duhaym | 3747 | başlık |
+| Ahmed b. Sinân el-Kattân | 45 | başlık |
+| Ebû Kudâme es-Serahsî | 3639 | başlık (künye + dede) |
+| Yahyâ b. Mûsâ el-Belhî | 6930 | TOC boşluğu (17120-17125) |
+| Esed b. Mûsâ | 400 | başlık |
+| Abdullah b. Muhammed el-Müsnedî | 3536 | başlık (dede adları) |
+| Rebî‘ b. Süleymân el-Murâdî | 1864 | başlık |
+| Ebû Âmir el-Akadî | 3545 | başlık |
+| Ebû Ahmed ez-Zübeyrî | 5343 | başlık (nisbe hatalı, dede adıyla) |
+| Muhammed b. es-Sabbâh ed-Dûlâbî | 5298 | şerh dipnotundan cilt/sayfa |
+| Abdullah b. Recâ el-Gudânî | 3262 | başlık |
+| Abbâs b. Abdil'azîm el-Anberî | 3128 | TOC listesi (`من اسمه عباس`) |
+| Hasan b. Muhammed ez-Za‘ferânî | 1270 | başlık |
+| Abbâs b. Muhammed ed-Dûrî | 3141 | TOC listesi (`من اسمه عباس`) |
+| Haccâc b. eş-Şâir | 1131 | başlık |
+| İbrâhim b. Ya‘kūb el-Cûzcânî | 268 | TOC boşluğu (727-730) |
+| Ahmed b. Mansûr er-Ramâdî | 113 | TOC listesi (`من اسمه أحمد`) |
+| Ahmed b. Abde ed-Dabbî | 75 | TOC listesi (`من اسمه أحمد`) |
+| Yûsuf b. Mûsâ el-Kattân | 7159 | TOC listesi (`من اسمه يوسف`) |
+| Atâ b. Yesâr | 3946 | başlık |
+| Saîd b. Ebî Saîd el-Makburî | 2284 | TOC boşluğu (5239-5245) |
+| Ebû Osmân en-Nehdî | 3968 | TOC boşluğu (8975-8980) |
+| Cübeyr b. Nüfeyr | 905 | TOC boşluğu (2023-2025) |
+| Abdurrahman b. Ganm | 3928 | TOC listesi |
+| Saîd b. Ebî Hilâl | 2372 | TOC listesi |
+| Safvân b. Süleym | 2882 | TOC boşluğu (6566-6572) |
+| Bükeyr b. Abdillâh b. el-Eşec | 765 | TOC listesi (`من اسمه بكير`) |
+| Nâfi‘ b. Cübeyr b. Mut‘im | 6359 | TOC listesi (`من اسمه نافع`) |
+| Mus‘ab b. Sa‘d | 5982 | TOC boşluğu (15000-15002) |
+| İrâk b. Mâlik | 3893 | başlık |
