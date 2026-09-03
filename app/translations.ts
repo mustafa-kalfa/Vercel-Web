@@ -154,10 +154,10 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     cardGamesDesc: "Oynarken öğrenelim.",
     cardPodcasts: "Podcastler",
     cardPodcastsDesc:
-      "Hadis tarihi, usûlü, edebiyatı ve oryantalizm üzerine podcastler.",
+      "Hadis tarihi, usûlü, edebiyatı ve oryantalizm üzerine yapay zekâ destekli podcastler.",
     cardRihle: "Rihleler",
     cardRihleDesc:
-      "Kütüb-i Sitte müelliflerinin rihle güzergâhlarını öğrenelim.",
+      "Kütüb-i Sitte müelliflerinin rihle güzergâhlarını görelim.",
     cardEducation: "Eğitim İçerikleri ve Diğer Hizmetler",
     cardEducationDesc: "Verilen eğitimler, rehber videoları ve paylaşımlar.",
     eduVideos: "Rehber videolar",
