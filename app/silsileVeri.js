@@ -6453,6 +6453,16 @@ const EDGES_HAM = [
   E("zekvanmevlaaise", "abdrahmanharis", "س", "Tehzîb 1815"),
   E("zekvanmevlaaise", "zeynelabidin", "م", "Tehzîb 1815"),
 
+
+  /* Âsım b. Ömer b. el-Hattâb (o. 70) -- talebeleri.
+     Tehzîb 3018. Tercemede 3 kayit var, agda dugumu olan 1'i cizildi. */
+  E("asimomer", "urve", "خ م د ت س", "Tehzîb 3018"),
+
+
+  /* Beşîr b. Nehîk (o. ?) -- talebeleri.
+     Tehzîb 730. Tercemede 7 kayit var, agda dugumu olan 1'i cizildi. */
+  E("besirnehik", "yahyasaidensari", "س", "Tehzîb 730"),
+
 ];
 
 /* YINELENEN KENARLAR BURADA TEKILLESTIRILIYOR.
