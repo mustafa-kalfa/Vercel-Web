@@ -230,13 +230,17 @@ export function kur(V) {
        renk degisiyor: normal ve sonuk kenar. Secili kenar (kirmizi) ve
        akan kenar (turkuaz) DOKUNULMUYOR -- onlarin isi zaten tek bir
        yolu one cikarmak, dokuyu yapan onlar degil. */
-    if (beyazKenar) {
-      /* Koyu zeminde gercekten beyaz. Acik zeminde beyaz cizgi beyaz
-         tuvalde tumden kayboluyor (denendi) -- fikri acik temada da
-         degerlendirebilmek icin oradaki karsiligi "beyaza en yakin
-         gorunur ton", yani kagidin kendisinden bir tik koyu. */
-      C.kenar = koyu ? "#FFFFFF" : "#DED6C6";
-      C.kenarSonuk = koyu ? "#FFFFFF" : "#DED6C6";
+    /* KOYU TEMADA cozum RENK: cizgi beyaza cekiliyor, koyu zeminde ag
+       ince ve temiz bir yelpazeye donuyor.
+
+       ACIK TEMADA cozum SAYDAMLIK. Once orada da cizgi acilmisti; beyaz
+       kagit zemininde tumden kayboldugu, "kagittan bir tik koyu" ton da
+       yakinlasinca goturmedigi icin (ikisi de denendi) renk geri
+       zeytine birakildi ve kirlilik opaklikla aliniyor -- bkz. asagida
+       cizgiSaydam. */
+    if (beyazKenar && koyu) {
+      C.kenar = "#FFFFFF";
+      C.kenarSonuk = "#FFFFFF";
     }
   
     /* RAVI ADI DILE GORE. Arapca'da dugumun kendi `ar` alani, digerinde
@@ -892,7 +896,12 @@ export function kur(V) {
       return `M ${pa.x} ${pa.y} C ${k1x} ${k1y}, ${k2x} ${k2y}, ` +
              `${pb.x - (vx / vu) * bosluk} ${pb.y - (vy / vu) * bosluk}`;
     }, []);
-    const cizgiSaydam = Math.min(1, 0.3 + durgun.k * 6);
+    /* Sondaki carpan BEYAZ KENAR DENEMESI'nin acik tema ayagi (bkz.
+       paletin altindaki not). Yalnizca normal ve sonuk kenarlar bu
+       degeri kullaniyor; secili kenar ile akan kenarin opakligi sabit,
+       yani deneme yolu one cikarmayi zayiflatmiyor. */
+    const cizgiSaydam = Math.min(1, 0.3 + durgun.k * 6) *
+                        (beyazKenar && !koyu ? 0.5 : 1);
   
   
     const MEDINE_I = SUTUNLAR.findIndex((c) => c.belde === "Medine");
