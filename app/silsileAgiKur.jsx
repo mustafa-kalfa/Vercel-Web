@@ -992,8 +992,18 @@ export function kur(V, { yay, acilis } = {}) {
        yapan taraf o degil. Deneme modunda taban yukseltildi (Mustafa,
        2026-09-04: "beyazin siddetini arttiramaz miyiz"). Ilk deneme 0,85 /
        1,0 idi, fazla geldi ("bu cok fazla olmus"); su anki degerlerle
-       acilista kalinlik 0,36 -> 0,66 piksel, opaklik %26 -> %51. */
-    const cizgiCarpani = Math.min(1, (denemeZemin ? 0.55 : 0.3) + durgun.k * 7);
+       acilista kalinlik 0,36 -> 0,66 piksel, opaklik %26 -> %51.
+
+       ARTAN TERIM `k`YE DEGIL `k * YAY`A BAGLI, tipki DERECE_MERDIVEN
+       gibi. Ham `k` YAY ile ters orantili, yani YAY 640'ta ayni goruntu
+       on kat kucuk bir k'ya dusuyor ve terim sifira yaklasiyordu:
+       deneme sayfasinda kalinlik ve opaklik ne kadar yakinlasilirsa
+       yakinlasilsin tabanda cakili kaliyordu -- derin yakinlikta
+       cizgilerin gorunmemesinin bir ayagi buydu. `/ 64` carpani eski
+       davranisi birebir koruyor (YAY 64 iken kYay * 7 / 64 = k * 7). */
+    const kYayCizgi = durgun.k * YAY;
+    const cizgiCarpani = Math.min(1, (denemeZemin ? 0.55 : 0.3) +
+                                     kYayCizgi * 7 / 64);
   
     /* Bir kenarin yol dizgisi. Iki yerde lazim: tek tek cizilen
        (vurgulu / yakin) kenarlarda ve uzakta hepsinin birlestirildigi
@@ -1016,31 +1026,25 @@ export function kur(V, { yay, acilis } = {}) {
        altindaki not). Yalnizca normal ve sonuk kenarlar bu degeri
        kullaniyor; secili kenar ile akan kenarin opakligi sabit, yani
        zemin sakinlesirken bir yolu one cikarma zayiflamiyor. */
-    /* YAKINLASTIKCA SONUMLENME (Mustafa, 2026-09-04: noktalarin
-       arkasindaki cizgi gurultusu, "telefonda daha da kotu").
+    /* BURADA BIR ZAMANLAR YAKINLIGA BAGLI BIR SONUM VARDI; kaldirildi,
+       yerine asagidaki KACAK KENAR + KALABALIK olcutu geldi.
 
-       Gurultunun kaynagi gecip giden kenarlar DEGIL -- onlar ayrica
-       eleniyor, bkz. GECIP GIDEN KENAR. Kaynak, kadrajin kenarindaki
-       COK BAGLANTILI ravilerin kendi yelpazeleri: altmis-doksan bagi
-       olan bir isim ekranin ustunde durunca butun baglari asagi
-       taraniyor ve arkada bir ag dokusu birakiyor.
+       Hikayesi: noktalarin arkasindaki cizgi gurultusune ("telefonda
+       daha da kotu") once butun kenarlari yakinlikla ters orantili
+       soldurarak karsilik verilmisti. Iki kez yanildi. Once gurultuyu
+       durduramadi ("biraz yakinlastirinca yine ayni cizgi gurultusu
+       basliyor"), cunku 0,35 tabanina oturup orada kaliyordu. Sonra
+       KACAK KENAR eklenince iki sonum ust uste bindi ve derin
+       yakinlikta kenarlar tumden kayboldu ("asiri yaklasinca cizgiler
+       komple yok oluyor").
 
-       Uzakta bu doku BILGI -- agin sekli o. Yakinda ise bilgi
-       noktalarda ve isimlerde; cizgi baglamdan ibaret. Bu yuzden
-       opaklik yakinlikla TERS: kYay 0,02 civarinda tam, ustune
-       cikildikca 0,35'e kadar iniyor.
-
-       TEK BASINA YETMEDI ("biraz yakinlastirinca yine ayni cizgi
-       gurultusu basliyor"): genel bir kisma, okunmasi istenen bagla
-       gurultuyu ayirt etmiyor ve tabana oturunca duruyor. Asil ayrimi
-       asagidaki KACAK KENAR yapiyor; bu ise onun altinda genel bir
-       sakinlestirme olarak kaliyor. */
-    const kYayCizgi = durgun.k * YAY;
-    const yakinSonum = denemeKenarKirp
-      ? Math.max(0.35, Math.min(1, 0.02 / Math.max(kYayCizgi, 0.004)))
-      : 1;
-    const cizgiSaydam = Math.min(1, (denemeZemin ? 0.6 : 0.3) + durgun.k * 6) *
-                        (koyu || denemeZemin ? 1 : 0.5) * yakinSonum;
+       Ders: yakinlik yanlis olcut. Gurultuyu yakin olmak yapmiyor,
+       KALABALIK yapiyor -- ayni olcekte Sube'nin cevresi bogucu,
+       Yemen'in kenari bombos. Ayrica derin yakinlikta kadraja zaten
+       birkac kenar giriyor; orasi kismanin degil, gostermenin yeri. */
+    const cizgiSaydam = Math.min(1, (denemeZemin ? 0.6 : 0.3) +
+                                    kYayCizgi * 6 / 64) *
+                        (koyu || denemeZemin ? 1 : 0.5);
   
   
     const MEDINE_I = SUTUNLAR.findIndex((c) => c.belde === "Medine");
@@ -1420,11 +1424,11 @@ export function kur(V, { yay, acilis } = {}) {
            disina, gorulmeyen bir yere giden cizgi. Okunacak bir sey
            tasimiyor -- obur ucu gorunmuyor ki.
 
-           GENEL BIR OPAKLIK KISMASI BU ISI GORMUYOR (denendi, bkz.
-           yukarida yakinSonum): butun kenarlari birden soldurunca
-           okunmasi istenen bag da soluyor, gurultu ise 0,35 tabanina
-           oturup orada kaliyor. Olcut kenarin kendisi olmali: IKI UCU DA
-           EKRANDA MI.
+           GENEL BIR OPAKLIK KISMASI BU ISI GORMUYOR (denendi ve
+           kaldirildi, bkz. yukarida cizgiSaydam'in ustundeki not):
+           butun kenarlari birden soldurunca okunmasi istenen bag da
+           soluyor, gurultu ise tabana oturup orada kaliyor. Olcut
+           kenarin kendisi olmali: IKI UCU DA EKRANDA MI.
 
            Kural kendiliginden olcege uyuyor, ayrica bir esik gerekmiyor:
            uzaktan bakarken hemen her kenarin iki ucu da kadrajda, hicbir
@@ -1448,13 +1452,32 @@ export function kur(V, { yay, acilis } = {}) {
         for (const c of liste) kubik(ctx, c);
         ctx.stroke();
       };
-      /* Ucu disari tasan kenarin opakligi, normalin bu kati. Kalinlik da
-         dusuk: incelik ile soluklugun birlikte gitmesi gerekiyor, yoksa
-         ince ama tam opak cizgi yine kesik kesik bir doku birakiyor. */
-      const KACAK_SONUM = 0.35;
+      /* KACAK KENARIN OPAKLIGI SAYIYA BAGLI, YAKINLIGA DEGIL (Mustafa,
+         2026-09-04: "asiri yaklasinca cizgiler komple yok oluyor").
+
+         Ilk surumde sabit bir 0,35 idi ve ustune bir de yakinlik sonumu
+         biniyordu; ikisi carpilinca derin yakinlikta opaklik %6'ya
+         iniyor, o olcekte zaten incelmis cizgi tumden kayboluyordu. Oysa
+         gurultunun olcusu yakinlik degil KALABALIK: ekranda kac kacak
+         kenar cizilecekse odur.
+
+         Bu yuzden dogrudan `kacakYol.length`e baglandi. Elli kenara
+         kadar tam opak -- o kadari doku degil, okunabilir bir avuc bag;
+         ustune ciktikca ters orantili iniyor ve %12'de duruyor.
+
+         Kendini ayarliyor, ayrica bir olcek esigi gerekmiyor: derin
+         yakinlikta kadraja birkac kenar girdigi icin tam gorunuyorlar
+         (sikayet edilen hal), kalabalik bir orta olcekte ayni kenarlar
+         silinip zemini birakiyor (bir onceki sikayet). Kalinlik da ayni
+         orana biniyor -- incelik ile sonukluk birlikte gitmezse ince ama
+         opak cizgi yine kesik kesik bir doku birakiyor. */
+      const KACAK_DOYUM = 50;
+      const kacakSonum = Math.max(0.12,
+        Math.min(1, KACAK_DOYUM / Math.max(kacakYol.length, 1)));
       // Once kacaklar: en altta, en ince, en silik kalsinlar.
-      topluCiz(kacakYol, C.kenarSonuk, 0.55 * cizgiCarpani,
-               (vurgu ? 0.22 : 0.85) * cizgiSaydam * KACAK_SONUM);
+      topluCiz(kacakYol, C.kenarSonuk,
+               (0.55 + 0.45 * kacakSonum) * cizgiCarpani,
+               (vurgu ? 0.22 : 0.85) * cizgiSaydam * kacakSonum);
       topluCiz(sonukYol, C.kenarSonuk, 0.7 * cizgiCarpani,
                (vurgu ? 0.22 : 0.5) * cizgiSaydam);
       topluCiz(normalYol, C.kenar, 1.2 * cizgiCarpani, 0.85 * cizgiSaydam);
