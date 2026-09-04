@@ -88,8 +88,12 @@ export function kur(V) {
      2026-09-02'de once 2'den 4'e, ayni gun 4'ten 16'ya cikarildi
      (Mustafa: "genislik ve yuksekligi 2 katina cikar", ardindan
      "genislik ve yuksekligi 4 katina cikar ki noktalar arasi bosluk
-     artsin ve harita ferahlasin"). 2026-09-04'te ayni istekle 16'dan
-     32'ye. Nokta ve yazi boyu hicbirinde degismedi.
+     artsin ve harita ferahlasin"). 2026-09-04'te ayni istekle once
+     16'dan 32'ye, ayni gun 32'den 64'e. Nokta ve yazi boyu hicbirinde
+     degismedi.
+
+     DERECE MERDIVENI BUNDAN ETKILENMIYOR: esigi `k * YAY`a baglamanin
+     sebebi tam da buydu, bkz. UZAKTAN SEYREK, YAKINDAN TAM.
 
      Olceklenenler: konumlar, sutun seritleri, tuval boyu, yil ekseni
      ve kavis buyuklugu. Kavis de olcekleniyor, yoksa egriler
@@ -99,7 +103,7 @@ export function kur(V) {
      DEGISIKLIK YALNIZCA BU DOSYADA. Yerlesim sabitleri paylasilan
      app/silsileVeri.js icinde ve orayi degistirmek yayindaki SVG
      sayfasini da degistirirdi. */
-  const YAY = 32;
+  const YAY = 64;
   /* Acilis yakinligi: sigdirma olceginin kac kati. Buyudukce daha
      yakindan baslar. Mustafa'nin verdigi ekran goruntulerinde yil
      ekseni yilda ~24,4 piksel; olculen deger 12 kat iken 39,4 idi,
