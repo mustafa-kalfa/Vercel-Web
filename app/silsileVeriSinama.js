@@ -6625,6 +6625,56 @@ const EDGES_HAM = [
   E("surayjnuman", "buhari", "خ", "Tehzîb 2190"),
   E("surayjnuman", "abbasduri", "—", "Tehzîb 2190"),
 
+
+  /* Müslim b. el-Haccâc (o. 261) -- hocalari.
+     Siyer 12/558-561. Tercemede 157 kayit var, agda dugumu olan 11'i cizildi. */
+  E("alihucr", "muslim", "—", "Siyer 12/558-561"),
+  E("amrbnalisayrafi", "muslim", "—", "Siyer 12/558-561"),
+  E("amrnakid", "muslim", "—", "Siyer 12/558-561"),
+  E("muhammedabbadcafer", "muslim", "—", "Siyer 12/558-561"),
+  E("muhammedabdulalasanani", "muslim", "—", "Siyer 12/558-561"),
+  E("ibnebiomeradeni", "muslim", "—", "Siyer 12/558-561"),
+  E("mahmudgaylan", "muslim", "—", "Siyer 12/558-561"),
+  E("ibnmain", "muslim", "—", "Siyer 12/558-561"),
+  E("alicad", "muslim", "—", "Siyer 12/558-561"),
+  E("alimedini", "muslim", "—", "Siyer 12/558-561"),
+  E("zuhli", "muslim", "—", "Siyer 12/558-561"),
+
+
+  /* Nesâî (o. 303) -- hocalari.
+     Siyer 14/125-126. Tercemede 72 kayit var, agda dugumu olan 7'i cizildi. */
+  E("ahmedmeni", "nesai", "—", "Siyer 14/125-126"),
+  E("alihucr", "nesai", "—", "Siyer 14/125-126"),
+  E("bundar", "nesai", "—", "Siyer 14/125-126"),
+  E("muhammedubeydmuharibi", "nesai", "—", "Siyer 14/125-126"),
+  E("ibnmusenna", "nesai", "—", "Siyer 14/125-126"),
+  E("mahmudgaylan", "nesai", "—", "Siyer 14/125-126"),
+  E("hennadseri", "nesai", "—", "Siyer 14/125-126"),
+
+
+  /* Ebû Dâvûd es-Sicistânî (o. 275) -- hocalari.
+     Siyer 13/204-205. Tercemede 44 kayit var, agda dugumu olan 6'i cizildi. */
+  E("saidsuleymansadeviye", "ebudavud", "—", "Siyer 13/204-205"),
+  E("ibnrecagudani", "ebudavud", "—", "Siyer 13/204-205"),
+  E("ibnrahuye", "ebudavud", "—", "Siyer 13/204-205"),
+  E("ibrahimmusaferra", "ebudavud", "—", "Siyer 13/204-205"),
+  E("alimedini", "ebudavud", "—", "Siyer 13/204-205"),
+  E("ibnmain", "ebudavud", "—", "Siyer 13/204-205"),
+
+
+  /* Tirmizî (o. 279) -- hocalari.
+     Siyer 13/271. Tercemede 36 kayit var, agda dugumu olan 4'i cizildi. */
+  E("ibnrahuye", "tirmizi", "—", "Siyer 13/271"),
+  E("amrbnalisayrafi", "tirmizi", "—", "Siyer 13/271"),
+  E("muhammedrafi", "tirmizi", "—", "Siyer 13/271"),
+  E("nasralicehdami", "tirmizi", "—", "Siyer 13/271"),
+
+
+  /* İbn Mâce (o. 273) -- hocalari.
+     Siyer 13/277-278. Tercemede 23 kayit var, agda dugumu olan 2'i cizildi. */
+  E("ibrahimmunzirhizami", "ibnmace", "—", "Siyer 13/277-278"),
+  E("zuheyrharb", "ibnmace", "—", "Siyer 13/277-278"),
+
 ];
 
 /* YINELENEN KENARLAR BURADA TEKILLESTIRILIYOR.
