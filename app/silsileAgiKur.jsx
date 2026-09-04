@@ -61,7 +61,11 @@ function katla(s) {
     .replace(/\s+/g, " ").trim();
 }
 
-export function kur(V) {
+/* Ikinci parametre DENEME icin: yerlesim yayilmasini (YAY) disaridan
+   verip ayni cizim kodundan ikinci bir bilesen kurmaya yariyor. Yayindaki
+   harita parametresiz cagiriyor, yani varsayilanla calisiyor.
+   Bkz. app/SilsileAgi.jsx ve app/SilsileAgiSinama.jsx. */
+export function kur(V, { yay, acilis } = {}) {
   const {
     ALT, ASGARI_DY, BANT, BELDELER, BELDE_AD, DERECE, DIA, DIS, E, EDGES,
     EKRAN_PUNTO, EKRAN_R_ARTIS, EN_AZ_EKRAN_R, ESIK, H: HAM_H, HULEFA,
@@ -103,7 +107,7 @@ export function kur(V) {
      DEGISIKLIK YALNIZCA BU DOSYADA. Yerlesim sabitleri paylasilan
      app/silsileVeri.js icinde ve orayi degistirmek yayindaki SVG
      sayfasini da degistirirdi. */
-  const YAY = 64;
+  const YAY = yay ?? 64;
   /* Acilis yakinligi: sigdirma olceginin kac kati. Buyudukce daha
      yakindan baslar. Mustafa'nin verdigi ekran goruntulerinde yil
      ekseni yilda ~24,4 piksel; olculen deger 12 kat iken 39,4 idi,
@@ -126,8 +130,18 @@ export function kur(V) {
 
      Ayni cerceve telefonda da kendiliginden tutuyor: harita cok uzun
      ve dar oldugu icin sigdirma olcegini her iki cihazda da YUKSEKLIK
-     belirliyor, yani yil eksenindeki piksel/yil orani ayni kaliyor. */
-  const ACILIS_YAKINLIK = 10.5;
+     belirliyor, yani yil eksenindeki piksel/yil orani ayni kaliyor.
+
+     YAY'I BUYUTMEK ACILISTA HICBIR SEY DEGISTIRMIYOR -- yukaridaki
+     bagimsizligin dogrudan sonucu. 2026-09-04'te YAY 16'dan 32'ye,
+     32'den 64'e cikarildi ve Mustafa hicbirinde fark goremedi ("ben bir
+     turlu ferahlamayi hissedemiyorum"); 640'ta da acilis goruntusu
+     piksel piksel ayni cikti. Ekranda gorulen mesafe k * YAY ile
+     orantili, acilis k'si da YAY ile ters orantili, yani carpim sabit.
+     Gercekten daha ferah bir ACILIS istenirse degistirilecek sabit YAY
+     degil BU: buyudukce daha yakindan baslanir, kadraja daha az nokta
+     girer, noktalar birbirinden ayrilir. */
+  const ACILIS_YAKINLIK = acilis ?? 10.5;
   const POS = Object.fromEntries(Object.entries(HAM_POS)
     .map(([id, p]) => [id, { x: p.x * YAY, y: p.y * YAY }]));
   const SUTUNLAR = HAM_SUTUNLAR.map((c) => ({ ...c, x: c.x * YAY, genislik: c.genislik * YAY }));

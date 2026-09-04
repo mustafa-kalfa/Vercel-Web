@@ -2,13 +2,19 @@
 
 import Link from "next/link";
 import ChromaKeyVideo from "../ChromaKeyVideo";
-import SilsileAgi from "../SilsileAgi";
+import SilsileAgi from "../SilsileAgiSinama";
 import { useLanguage } from "../LanguageContext";
 
 /* DENEME ADRESI.
 
-   Su an /ravi-iliski-aglari/harita ile BIREBIR ayni: ikisi de
-   SilsileAgi'yi cagiriyor ve tek bir veri dosyasindan besleniyor.
+   Su an /ravi-iliski-aglari/harita ile AYNI DEGIL. Cizim kodu ve veri
+   ortak, ama burada iki deneme aciik:
+   - SilsileAgiSinama (SilsileAgi yerine): yerlesim yayilmasi on kat,
+     YAY 640 -- yayindaki 64.
+   - `denemeZemin` prop'u: acik temada zemin koyulastirilip baglanti
+     cizgileri beyaza cekiliyor.
+   Ikisi de begenilirse yayindakine tasinir; begenilmezse bu iki satir
+   geri alinir, sayfa yine harita ile birebir ayni olur.
 
    2026-08-30'da bir sure veri BURADA catallanmisti (bilgi kartlari
    Takrib'den doldurulurken yayindaki harita etkilenmesin diye);
