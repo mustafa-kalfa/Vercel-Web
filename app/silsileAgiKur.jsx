@@ -154,15 +154,17 @@ export function kur(V) {
      Sayilar agin kendi derece dagilimindan: >=30 -> 78 dugum,
      >=12 -> 268, >=6 -> 410, >=3 -> 554, >=2 -> 607, hepsi 710.
 
-     Basamaklar acilis olcegi (0,0112) ETRAFINA yayildi, alt uca degil:
-     pratikte gezilen aralik asagi yukari 0,01 ile 0,3 arasi, ust sinir
-     (k<=4, yani kYay 128) ise hicbir zaman gorulmuyor. Acilista esik 12
-     -- Hz. Peygamber, hulefa ve muksirun duruyor, birkac baglantili
-     isimler bekliyor. Fatima (derece 3) ve Fazl b. Abbas (2) gibi
-     TANINMIS ama az baglantili isimler ancak yakinlasinca geliyor; bu
-     bilincli, olcut sohret degil bag sayisi. */
-  const DERECE_MERDIVEN = [[0.006, 30], [0.015, 12], [0.035, 6],
-                           [0.08, 3], [0.2, 2]];
+     BASAMAKLAR ACILISIN ALTINDA KALIYOR. Ilk denemede acilis olceginin
+     (0,0112) ustune yayilmislardi ve acilista esik 12 idi: harita
+     ilk acildiginda kucuk noktalarin hepsi yoktu, geri gelmeleri icin
+     on yedi kademe yakinlasmak gerekiyordu -- pratikte hic geri
+     gelmiyorlardi (Mustafa, 2026-09-04: "kucuk noktalar komple
+     gitmis"). Referans nokta ACILIS: orada ve daha yakininda esik
+     sifir, yani HERKES gorunur; eleme yalnizca acilistan UZAKLASINCA
+     basliyor. Uzaklasma araligi dar (acilis 0,0112 ile tamami
+     gorunumu 0,0011 arasi, on kat), basamaklar da o araliga sigiyor. */
+  const DERECE_MERDIVEN = [[0.002, 30], [0.0035, 12], [0.0055, 6],
+                           [0.008, 3], [0.0105, 2]];
   const dereceEsigi = (kYay) => {
     for (const [ust, esik] of DERECE_MERDIVEN) if (kYay < ust) return esik;
     return 0;
