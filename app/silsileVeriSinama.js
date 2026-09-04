@@ -1277,6 +1277,8 @@ export const NODES = [
     "Tehzîb terceme 1652, rumûz ع كد. Zehebî, Buhârî'nin Kûfe şeyhleri arasında sayar (Siyer 12/394). Buhârî'nin Rikāk'ta tek başına rivayet ettiği meşhur «من عادى لي وليا» hadisinin râvisi. Teşeyyu‘ ile itham edilmiş; Ebû Dâvûd «صدوق ولكنه يتشيع» der. Vefatı 213 (Mutayyen, İbn Sa‘d); İbn Kāni‘ 214 der."),
   N("asbagferec", "أصبغ بن الفرج بن سعيد الأموي", "Asbağ b. el-Ferec el-Ümevî", 5, 225, "Mısır",
     "Tehzîb terceme 536, rumûz خ د ت س. Zehebî, Buhârî'nin Mısır şeyhleri arasında sayar (Siyer 12/395). İbn Vehb'in verrâkı ve Ebû Hâtim'e göre onun en büyük talebesi; İbn Maîn «Mâlik'in görüşünü meseleye kadar bilen en âlim kişi» der. Şevval 225'te vefat etti."),
+  N("surayjnuman", "سريج بن النعمان بن مروان الجوهري", "Süreyc b. en-Nu‘mân el-Cevherî", 5, 217, "Basra",
+    "Tehzîb terceme 2190, rumûz خ ٤. Zehebî, Buhârî'nin Bağdat şeyhleri arasında sayar (Siyer 12/394). Aslı Horasanlı, Bağdat'ta yerleşti; kurban bayramı günü 217'de vefat etti. Belde olarak Basra yazılı — haritada Irak sütunu o; Ahmed b. Hanbel ve İbn Maîn gibi Bağdatlılar da orada duruyor."),
 ];
 
 
@@ -6594,6 +6596,34 @@ const EDGES_HAM = [
   E("asbagferec", "ebuhatimrazi", "—", "Tehzîb 536"),
   E("asbagferec", "zuhli", "د", "Tehzîb 536"),
   E("asbagferec", "buhari", "خ", "Tehzîb 536"),
+
+
+  /* Süreyc b. en-Nu‘mân el-Cevherî (o. 217) -- hocalari.
+     Tehzîb 2190. Tercemede 29 kayit var, agda dugumu olan 9'i cizildi. */
+  E("bakiyyevelid", "surayjnuman", "—", "Tehzîb 2190"),
+  E("cerirabdulhamid", "surayjnuman", "—", "Tehzîb 2190"),
+  E("hammadzeyd", "surayjnuman", "—", "Tehzîb 2190"),
+  E("hammadseleme", "surayjnuman", "تم س", "Tehzîb 2190"),
+  E("ibnuyeyne", "surayjnuman", "—", "Tehzîb 2190"),
+  E("ibnvehb", "surayjnuman", "—", "Tehzîb 2190"),
+  E("macisun", "surayjnuman", "—", "Tehzîb 2190"),
+  E("huseym", "surayjnuman", "—", "Tehzîb 2190"),
+  E("ebuavane", "surayjnuman", "—", "Tehzîb 2190"),
+
+
+  /* Süreyc b. en-Nu‘mân el-Cevherî (o. 217) -- talebeleri.
+     Tehzîb 2190. Tercemede 27 kayit var, agda dugumu olan 9'i cizildi. */
+  E("surayjnuman", "bh03", "—", "Tehzîb 2190"),
+  E("surayjnuman", "ahmedhanbel", "—", "Tehzîb 2190"),
+  E("surayjnuman", "ahmedmeni", "ت", "Tehzîb 2190"),
+  E("surayjnuman", "zuheyrharb", "—", "Tehzîb 2190"),
+  E("surayjnuman", "ibnebiseybe", "د ق", "Tehzîb 2190"),
+  E("surayjnuman", "ebuzuraraazi", "—", "Tehzîb 2190"),
+  E("surayjnuman", "amrnakid", "—", "Tehzîb 2190"),
+  E("surayjnuman", "ebuhatimrazi", "—", "Tehzîb 2190"),
+  E("surayjnuman", "muhammedrafi", "خ", "Tehzîb 2190"),
+  E("surayjnuman", "buhari", "خ", "Tehzîb 2190"),
+  E("surayjnuman", "abbasduri", "—", "Tehzîb 2190"),
 
 ];
 
