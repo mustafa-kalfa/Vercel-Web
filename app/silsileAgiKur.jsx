@@ -202,7 +202,7 @@ export function kur(V, { yay, acilis } = {}) {
   /* denemeZemin: acik temada zemini koyulastirip cizgiyi beyaza ceken
      DENEME. Yalnizca /ag-sinamasi bu prop'u geciyor; yayindaki harita
      prop'suz cagirdigi icin degismiyor. Bkz. paletin altindaki not. */
-  return function SilsileAgi({ denemeZemin = false } = {}) {
+  return function SilsileAgi({ denemeZemin = false, denemeKenarKirp = false } = {}) {
     const [secim, setSecim] = useState(null);   // {tur:"ravi",id} | {tur:"kenar",e}
     const [arama, setArama] = useState("");
     const [acikArama, setAcikArama] = useState(false);
@@ -1016,8 +1016,25 @@ export function kur(V, { yay, acilis } = {}) {
        altindaki not). Yalnizca normal ve sonuk kenarlar bu degeri
        kullaniyor; secili kenar ile akan kenarin opakligi sabit, yani
        zemin sakinlesirken bir yolu one cikarma zayiflamiyor. */
+    /* YAKINLASTIKCA SONUMLENME (Mustafa, 2026-09-04: noktalarin
+       arkasindaki cizgi gurultusu, "telefonda daha da kotu").
+
+       Gurultunun kaynagi gecip giden kenarlar DEGIL -- onlar ayrica
+       eleniyor, bkz. GECIP GIDEN KENAR. Kaynak, kadrajin kenarindaki
+       COK BAGLANTILI ravilerin kendi yelpazeleri: altmis-doksan bagi
+       olan bir isim ekranin ustunde durunca butun baglari asagi
+       taraniyor ve arkada bir ag dokusu birakiyor.
+
+       Uzakta bu doku BILGI -- agin sekli o. Yakinda ise bilgi
+       noktalarda ve isimlerde; cizgi baglamdan ibaret. Bu yuzden
+       opaklik yakinlikla TERS: kYay 0,02 civarinda tam, ustune
+       cikildikca 0,35'e kadar iniyor. */
+    const kYayCizgi = durgun.k * YAY;
+    const yakinSonum = denemeKenarKirp
+      ? Math.max(0.35, Math.min(1, 0.02 / Math.max(kYayCizgi, 0.004)))
+      : 1;
     const cizgiSaydam = Math.min(1, (denemeZemin ? 0.6 : 0.3) + durgun.k * 6) *
-                        (koyu || denemeZemin ? 1 : 0.5);
+                        (koyu || denemeZemin ? 1 : 0.5) * yakinSonum;
   
   
     const MEDINE_I = SUTUNLAR.findIndex((c) => c.belde === "Medine");
@@ -1236,6 +1253,14 @@ export function kur(V, { yay, acilis } = {}) {
       const k = view.k;
       const eX = (gx) => view.x + gx * k;     // grafik -> ekran
       const eY = (gy) => view.y + gy * k;
+      /* Bir kenar ucunun GERCEK kadrajda olup olmadigi -- `icerde`den
+         ayri: o, kaba elemenin 3x3 karo penceresine bakiyor ve ekrandan
+         epey genis. Bkz. asagida GECIP GIDEN KENAR. */
+      const payX = box.w * 0.25, payY = box.h * 0.25;
+      const ucKadrajda = (p) => {
+        const x = eX(p.x), y = eY(p.y);
+        return x >= -payX && x <= box.w + payX && y >= -payY && y <= box.h + payY;
+      };
       const vurus = { dugum: [], etiket: [], kenar: [] };
       vurusRef.current = vurus;
   
@@ -1343,6 +1368,25 @@ export function kur(V, { yay, acilis } = {}) {
         const secili = secKenar && secKenar.a === e.a && secKenar.b === e.b;
         const canli = !secili && !!(secim && secim.tur === "ravi" &&
           (e.a === secim.id || e.b === secim.id));
+        /* GECIP GIDEN KENAR (Mustafa, 2026-09-04: "noktalarin arkasindaki
+           cizgi gurultusu ... telefonda daha da kotu").
+
+           `kenarIcerde` yalnizca kenarin GOVDESI kadraja giriyor mu diye
+           bakiyor; Medine'den Basra'ya, yuz yil arayla uzanan bir bag
+           ekrani boydan boya kesip gecebiliyor. Yakinlasildikca bu tur
+           kenarlarin sayisi artmiyor ama ekranda kapladiklari yer
+           artiyor: gorulen her sey birkac noktaya ait birkac cizgi degil,
+           baska yerlerin trafigi oluyor.
+
+           Kural: IKI UCU DA kadrajin disinda kalan kenar cizilmiyor. Bir
+           ucu iceridekiler duruyor -- onlar ekrandaki bir ravinin kendi
+           bagi, yani bilgi. Secili ve vurgulu kenarlar muaf: bir raviye
+           tiklandiginda baglari ucu disarida kalsa da gorunmeli.
+
+           Pay ekranin dortte biri: sert kesim kenarda goze batiyordu. */
+        const gecipGiden = denemeKenarKirp && !secili && !canli &&
+          !ucKadrajda(pa) && !ucKadrajda(pb);
+        if (gecipGiden) continue;
         const c = kenarKubik(e);
         if (!c) continue;
         vurus.kenar.push({ e, c });

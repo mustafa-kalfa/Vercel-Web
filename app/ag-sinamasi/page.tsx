@@ -54,7 +54,7 @@ export default function AgSinamasi() {
       <div className="mt-[54px] h-[calc(100dvh-54px)]">
         {/* denemeZemin: bkz. silsileAgiKur.jsx, ACIK TEMA ICIN IKINCI
             DENEME. Yayindaki harita bu prop'u GECMIYOR. */}
-        <SilsileAgi denemeZemin />
+        <SilsileAgi denemeZemin denemeKenarKirp />
       </div>
     </main>
   );
