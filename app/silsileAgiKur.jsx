@@ -1028,7 +1028,13 @@ export function kur(V, { yay, acilis } = {}) {
        Uzakta bu doku BILGI -- agin sekli o. Yakinda ise bilgi
        noktalarda ve isimlerde; cizgi baglamdan ibaret. Bu yuzden
        opaklik yakinlikla TERS: kYay 0,02 civarinda tam, ustune
-       cikildikca 0,35'e kadar iniyor. */
+       cikildikca 0,35'e kadar iniyor.
+
+       TEK BASINA YETMEDI ("biraz yakinlastirinca yine ayni cizgi
+       gurultusu basliyor"): genel bir kisma, okunmasi istenen bagla
+       gurultuyu ayirt etmiyor ve tabana oturunca duruyor. Asil ayrimi
+       asagidaki KACAK KENAR yapiyor; bu ise onun altinda genel bir
+       sakinlestirme olarak kaliyor. */
     const kYayCizgi = durgun.k * YAY;
     const yakinSonum = denemeKenarKirp
       ? Math.max(0.35, Math.min(1, 0.02 / Math.max(kYayCizgi, 0.004)))
@@ -1261,6 +1267,16 @@ export function kur(V, { yay, acilis } = {}) {
         const x = eX(p.x), y = eY(p.y);
         return x >= -payX && x <= box.w + payX && y >= -payY && y <= box.h + payY;
       };
+      /* Ucun GERCEKTEN ekranda olup olmadigi. `ucKadrajda`dan dar: orada
+         pay ekranin dortte biri (sert kesim goze batmasin diye), burada
+         onda biri -- burasi elemek icin degil SONDURMEK icin, kenardaki
+         yumusak gecis zaten opakligin kendisinde. Bkz. KACAK KENAR. */
+      const payDarX = box.w * 0.1, payDarY = box.h * 0.1;
+      const ucEkranda = (p) => {
+        const x = eX(p.x), y = eY(p.y);
+        return x >= -payDarX && x <= box.w + payDarX &&
+               y >= -payDarY && y <= box.h + payDarY;
+      };
       const vurus = { dugum: [], etiket: [], kenar: [] };
       vurusRef.current = vurus;
   
@@ -1355,7 +1371,7 @@ export function kur(V, { yay, acilis } = {}) {
       };
       const canliKenarlar = [];
       let seciliKenar = null;
-      const sonukYol = [], normalYol = [];
+      const sonukYol = [], normalYol = [], kacakYol = [];
       for (const e of EDGES) {
         const pa = POS[e.a], pb = POS[e.b];
         if (!pa || !pb || !kenarIcerde(pa, pb)) continue;
@@ -1394,7 +1410,34 @@ export function kur(V, { yay, acilis } = {}) {
         if (canli) { canliKenarlar.push(c); continue; }
         // ekranda uc pikselden kisa kalan kenar gorunmuyor
         if (Math.hypot(pb.x - pa.x, pb.y - pa.y) * k < 3) continue;
-        (kenarSonuk(e) || uzakUc ? sonukYol : normalYol).push(c);
+        /* KACAK KENAR (Mustafa, 2026-09-04: "haritayi iyice kucultunce ise
+           yariyor gibi ama biraz yakinlastirinca yine ayni cizgi
+           gurultusu basliyor").
+
+           GECIP GIDEN kural iki ucu da disarida kalani atiyordu. Geriye
+           BIR ucu iceride olanlar kaldi ve yakinlasildikca gurultuyu
+           asil onlar yapiyor: ekrandaki bir isimden cikip kadrajin
+           disina, gorulmeyen bir yere giden cizgi. Okunacak bir sey
+           tasimiyor -- obur ucu gorunmuyor ki.
+
+           GENEL BIR OPAKLIK KISMASI BU ISI GORMUYOR (denendi, bkz.
+           yukarida yakinSonum): butun kenarlari birden soldurunca
+           okunmasi istenen bag da soluyor, gurultu ise 0,35 tabanina
+           oturup orada kaliyor. Olcut kenarin kendisi olmali: IKI UCU DA
+           EKRANDA MI.
+
+           Kural kendiliginden olcege uyuyor, ayrica bir esik gerekmiyor:
+           uzaktan bakarken hemen her kenarin iki ucu da kadrajda, hicbir
+           sey sonmuyor ve agin dokusu duruyor -- begenilen gorunum o.
+           Yakinlasildikca cogu kenarin bir ucu disari tasiyor, yani tam
+           gurultunun basladigi yerde siliniyorlar.
+
+           Silik, ama YOK degil: "bu isimden baska yerlere de bag var"
+           kendi basina bilgi. Isaret kalsin, gurultu gitsin. */
+        const kacak = denemeKenarKirp && !(ucEkranda(pa) && ucEkranda(pb));
+        const hedef = kacak ? kacakYol
+                    : (kenarSonuk(e) || uzakUc) ? sonukYol : normalYol;
+        hedef.push(c);
       }
       const topluCiz = (liste, renk, kalinlik, saydam) => {
         if (!liste.length) return;
@@ -1405,6 +1448,13 @@ export function kur(V, { yay, acilis } = {}) {
         for (const c of liste) kubik(ctx, c);
         ctx.stroke();
       };
+      /* Ucu disari tasan kenarin opakligi, normalin bu kati. Kalinlik da
+         dusuk: incelik ile soluklugun birlikte gitmesi gerekiyor, yoksa
+         ince ama tam opak cizgi yine kesik kesik bir doku birakiyor. */
+      const KACAK_SONUM = 0.35;
+      // Once kacaklar: en altta, en ince, en silik kalsinlar.
+      topluCiz(kacakYol, C.kenarSonuk, 0.55 * cizgiCarpani,
+               (vurgu ? 0.22 : 0.85) * cizgiSaydam * KACAK_SONUM);
       topluCiz(sonukYol, C.kenarSonuk, 0.7 * cizgiCarpani,
                (vurgu ? 0.22 : 0.5) * cizgiSaydam);
       topluCiz(normalYol, C.kenar, 1.2 * cizgiCarpani, 0.85 * cizgiSaydam);
