@@ -134,14 +134,21 @@ export function kur(V) {
 
   /* Etiketin arkasindaki halenin kalinligi, punto'nun kati. Tek yerden
      ayarlanabilsin diye burada: ad ve tarih ayni degeri kullaniyor. */
-  const HALE_KALINLIK = 0.14;
+  const HALE_KALINLIK = 0.18;
 
   /* Akan kesik cizginin hizi, saniyede piksel. Kesik deseni 14+8=22
      piksel, yani saniyede bir turun biraz uzerinde. Iki kez
      yarilandi (100 -> 50 -> 25); ilk degerler gozu yoruyordu. */
   const AKIS_HIZ = 25;
 
-  return function SilsileAgi() {
+  /* BEYAZ KENAR DENEMESI (Mustafa, 2026-09-04). Kenar sayisi artinca
+     zeytin cizgiler ust uste binip kirli bir doku yapiyor. Deneme:
+     cizgiyi zeminin kendi renginde birakip yalnizca noktalari
+     birakmak. YALNIZCA /ag-sinamasi'nda acik -- yayindaki harita
+     (/ravi-iliski-aglari/harita) ayni bileseni prop'suz cagiriyor,
+     dolayisiyla eski gorunumde kaliyor. Karar verilirse bayrak
+     kaldirilip renkler palete yazilir. */
+  return function SilsileAgi({ beyazKenar = false } = {}) {
     const [secim, setSecim] = useState(null);   // {tur:"ravi",id} | {tur:"kenar",e}
     const [arama, setArama] = useState("");
     const [acikArama, setAcikArama] = useState(false);
@@ -218,6 +225,19 @@ export function kur(V) {
       damaA: "#8A7A34", damaAOp: 0.05, damaB: "#2E7D6E", damaBOp: 0.026,
       satirA: "#8A7A34", satirAOp: 0.055, satirB: "#2E7D6E", satirBOp: 0.028,
     };
+
+    /* Bkz. yukarida BEYAZ KENAR DENEMESI. Yalnizca sirandan gecen iki
+       renk degisiyor: normal ve sonuk kenar. Secili kenar (kirmizi) ve
+       akan kenar (turkuaz) DOKUNULMUYOR -- onlarin isi zaten tek bir
+       yolu one cikarmak, dokuyu yapan onlar degil. */
+    if (beyazKenar) {
+      /* Koyu zeminde gercekten beyaz. Acik zeminde beyaz cizgi beyaz
+         tuvalde tumden kayboluyor (denendi) -- fikri acik temada da
+         degerlendirebilmek icin oradaki karsiligi "beyaza en yakin
+         gorunur ton", yani kagidin kendisinden bir tik koyu. */
+      C.kenar = koyu ? "#FFFFFF" : "#DED6C6";
+      C.kenarSonuk = koyu ? "#FFFFFF" : "#DED6C6";
+    }
   
     /* RAVI ADI DILE GORE. Arapca'da dugumun kendi `ar` alani, digerinde
        `tr`. Ingilizce icin AYRI BIR AD YOK: 570 ismin latinize
@@ -1336,7 +1356,11 @@ export function kur(V) {
            tumden kaldirilmisti; hale olmadan yazi kenar cizgilerinin
            uzerinde daginik goruluyor, eski kalinlikta ise harflerin
            cevresinde gorunur bir golge birakiyordu. 0.14 ikisinin
-           ortasi: cizgiyi kesiyor ama kendisi fark edilmiyor. */
+           ortasi: cizgiyi kesiyor ama kendisi fark edilmiyor.
+
+           0.14 -> 0.18 (Mustafa, 2026-09-04): kenar sayisi artinca
+           0.14 zemini yeterince acmiyordu. Artis kasitli olarak kucuk;
+           0.20'nin ustunde eski golge geri geliyor. */
         ctx.font = `${kad <= 1 ? 600 : 400} ${punto}px Georgia, 'Times New Roman', serif`;
         ctx.strokeStyle = C.etiketHale;
         ctx.lineWidth = punto * HALE_KALINLIK;
