@@ -972,9 +972,10 @@ export function kur(V) {
        kirletiyor. BEYAZ cizgide ters -- orada kisma dogrudan
        gorunmezlik demek, cunku beyaz zaten zeminle kaynasiyor, kirlilik
        yapan taraf o degil. Deneme modunda taban yukseltildi (Mustafa,
-       2026-09-04: "beyazin siddetini arttiramaz miyiz"): acilista
-       kalinlik 0,36 -> 1,02 piksel, opaklik %26 -> %85. */
-    const cizgiCarpani = Math.min(1, (denemeZemin ? 0.85 : 0.3) + durgun.k * 7);
+       2026-09-04: "beyazin siddetini arttiramaz miyiz"). Ilk deneme 0,85 /
+       1,0 idi, fazla geldi ("bu cok fazla olmus"); su anki degerlerle
+       acilista kalinlik 0,36 -> 0,66 piksel, opaklik %26 -> %51. */
+    const cizgiCarpani = Math.min(1, (denemeZemin ? 0.55 : 0.3) + durgun.k * 7);
   
     /* Bir kenarin yol dizgisi. Iki yerde lazim: tek tek cizilen
        (vurgulu / yakin) kenarlarda ve uzakta hepsinin birlestirildigi
@@ -997,7 +998,7 @@ export function kur(V) {
        altindaki not). Yalnizca normal ve sonuk kenarlar bu degeri
        kullaniyor; secili kenar ile akan kenarin opakligi sabit, yani
        zemin sakinlesirken bir yolu one cikarma zayiflamiyor. */
-    const cizgiSaydam = Math.min(1, (denemeZemin ? 1 : 0.3) + durgun.k * 6) *
+    const cizgiSaydam = Math.min(1, (denemeZemin ? 0.6 : 0.3) + durgun.k * 6) *
                         (koyu || denemeZemin ? 1 : 0.5);
   
   
