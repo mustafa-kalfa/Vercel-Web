@@ -1271,6 +1271,10 @@ export const NODES = [
     "Tehzîb terceme 3673, rumûz خ د ت س. Zehebî, Buhârî'nin Mısır şeyhleri arasında sayar (Siyer 12/395). İbn Maîn: Muvatta' rivayetinde Ka‘nebî'den sonra en sağlam kişi; Buhârî Mâlik'ten rivayetlerinde ona dayanmıştır."),
   N("ebulyemanhakem", "الحكم بن نافع البهراني أبو اليمان", "Ebü'l-Yemân el-Hakem b. Nâfi‘", 5, 222, "Humus",
     "Tehzîb terceme 1448, rumûz ع (Kütüb-i Sitte'nin tamamı). Zehebî, Buhârî'nin Şam şeyhleri arasında sayar (Siyer 12/395). İsmâîl b. Ayyâş'ın kâtibi; Şuayb b. Ebî Hamza'nın Zührî nüshasının râvisi. Vefatı 221 ve 222 diye ihtilâflı; Buhârî ile İbn Sa‘d 222 der."),
+  N("mekkiibrahim", "مكي بن إبراهيم بن بشير البلخي", "Mekkî b. İbrâhîm el-Belhî", 5, 215, "Horasan",
+    "Tehzîb terceme 6170, rumûz ع. Zehebî, Buhârî'nin Belh şeyhi olarak sayar ve «هو من عوالي شيوخه» der (Siyer 12/394) — Buhârî'nin tâbiîn nesline en yakın hocalarından. Kendisi on bir tâbiîden rivayet ettiğini söyler. Vefatı 215 (İbn Sa‘d); Buhârî 214 der."),
+  N("halidmahled", "خالد بن مخلد القطواني", "Hâlid b. Mahled el-Katavânî", 5, 213, "Kûfe",
+    "Tehzîb terceme 1652, rumûz ع كد. Zehebî, Buhârî'nin Kûfe şeyhleri arasında sayar (Siyer 12/394). Buhârî'nin Rikāk'ta tek başına rivayet ettiği meşhur «من عادى لي وليا» hadisinin râvisi. Teşeyyu‘ ile itham edilmiş; Ebû Dâvûd «صدوق ولكنه يتشيع» der. Vefatı 213 (Mutayyen, İbn Sa‘d); İbn Kāni‘ 214 der."),
 ];
 
 
@@ -6525,6 +6529,54 @@ const EDGES_HAM = [
   E("ebulyemanhakem", "ahmedhanbel", "—", "Tehzîb 1448"),
   E("ebulyemanhakem", "darimi", "م", "Tehzîb 1448"),
   E("ebulyemanhakem", "buhari", "خ", "Tehzîb 1448"),
+
+
+  /* Mekkî b. İbrâhîm el-Belhî (o. 215) -- hocalari.
+     Tehzîb 6170. Tercemede 29 kayit var, agda dugumu olan 10'i cizildi. */
+  E("behzhakim", "mekkiibrahim", "عخ ت", "Tehzîb 6170"),
+  E("caferisadik", "mekkiibrahim", "—", "Tehzîb 6170"),
+  E("hasanisad", "mekkiibrahim", "خ د س", "Tehzîb 6170"),
+  E("hanzalasufyan", "mekkiibrahim", "خ", "Tehzîb 6170"),
+  E("ibncureyc", "mekkiibrahim", "خ م د س", "Tehzîb 6170"),
+  E("fitrhalife", "mekkiibrahim", "—", "Tehzîb 6170"),
+  E("malik", "mekkiibrahim", "كن ق", "Tehzîb 6170"),
+  E("hasimhasim", "mekkiibrahim", "خ", "Tehzîb 6170"),
+  E("hisamhassan", "mekkiibrahim", "خ", "Tehzîb 6170"),
+  E("hisamdestuvai", "mekkiibrahim", "خ", "Tehzîb 6170"),
+
+
+  /* Mekkî b. İbrâhîm el-Belhî (o. 215) -- talebeleri.
+     Tehzîb 6170. Tercemede 23 kayit var, agda dugumu olan 6'i cizildi. */
+  E("mekkiibrahim", "cuzcani", "س", "Tehzîb 6170"),
+  E("mekkiibrahim", "ahmedhanbel", "—", "Tehzîb 6170"),
+  E("mekkiibrahim", "zuhli", "—", "Tehzîb 6170"),
+  E("mekkiibrahim", "harunhammal", "د س", "Tehzîb 6170"),
+  E("mekkiibrahim", "ibnmain", "—", "Tehzîb 6170"),
+  E("mekkiibrahim", "yahyayahyanisaburi", "—", "Tehzîb 6170"),
+  E("mekkiibrahim", "buhari", "خ", "Tehzîb 6170"),
+
+
+  /* Hâlid b. Mahled el-Katavânî (o. 213) -- hocalari.
+     Tehzîb 1652. Tercemede 33 kayit var, agda dugumu olan 4'i cizildi. */
+  E("suleymanbilal", "halidmahled", "خ م ت س ق", "Tehzîb 1652"),
+  E("aliebisalihhayy", "halidmahled", "س", "Tehzîb 1652"),
+  E("alimushir", "halidmahled", "خ م ت س", "Tehzîb 1652"),
+  E("malik", "halidmahled", "م كد س ق", "Tehzîb 1652"),
+
+
+  /* Hâlid b. Mahled el-Katavânî (o. 213) -- talebeleri.
+     Tehzîb 1652. Tercemede 31 kayit var, agda dugumu olan 7'i cizildi. */
+  E("halidmahled", "ibnrahuye", "—", "Tehzîb 1652"),
+  E("halidmahled", "sufyanveki", "ت", "Tehzîb 1652"),
+  E("halidmahled", "abbasanberi", "س", "Tehzîb 1652"),
+  E("halidmahled", "ibnebiseybe", "م ق", "Tehzîb 1652"),
+  E("halidmahled", "abdhumeyd", "م ت", "Tehzîb 1652"),
+  E("halidmahled", "osmanebiseybe", "—", "Tehzîb 1652"),
+  E("halidmahled", "ebukureyb", "م", "Tehzîb 1652"),
+  E("halidmahled", "buhari", "خ", "Tehzîb 1652"),
+  E("halidmahled", "abbasduri", "ت", "Tehzîb 1652"),
+  /* Mizzi "وهو أكبر منه" der: ikisi akran, Ubeydullah daha yasli. */
+  E("halidmahled", "ubeydullahmusa", "—", "Tehzîb 1652"),
 
 ];
 
