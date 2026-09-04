@@ -88,8 +88,8 @@ export function kur(V) {
      2026-09-02'de once 2'den 4'e, ayni gun 4'ten 16'ya cikarildi
      (Mustafa: "genislik ve yuksekligi 2 katina cikar", ardindan
      "genislik ve yuksekligi 4 katina cikar ki noktalar arasi bosluk
-     artsin ve harita ferahlasin"). Tuval W ve H'si toplamda sekiz
-     katina ciktı, nokta ve yazi boyu hic degismedi.
+     artsin ve harita ferahlasin"). 2026-09-04'te ayni istekle 16'dan
+     32'ye. Nokta ve yazi boyu hicbirinde degismedi.
 
      Olceklenenler: konumlar, sutun seritleri, tuval boyu, yil ekseni
      ve kavis buyuklugu. Kavis de olcekleniyor, yoksa egriler
@@ -99,7 +99,7 @@ export function kur(V) {
      DEGISIKLIK YALNIZCA BU DOSYADA. Yerlesim sabitleri paylasilan
      app/silsileVeri.js icinde ve orayi degistirmek yayindaki SVG
      sayfasini da degistirirdi. */
-  const YAY = 16;
+  const YAY = 32;
   /* Acilis yakinligi: sigdirma olceginin kac kati. Buyudukce daha
      yakindan baslar. Mustafa'nin verdigi ekran goruntulerinde yil
      ekseni yilda ~24,4 piksel; olculen deger 12 kat iken 39,4 idi,
@@ -136,19 +136,44 @@ export function kur(V) {
      ayarlanabilsin diye burada: ad ve tarih ayni degeri kullaniyor. */
   const HALE_KALINLIK = 0.18;
 
+  /* UZAKTAN SEYREK, YAKINDAN TAM (Mustafa, 2026-09-04: "harita
+     kucultulunce belli sayinin altinda hoca ve talebesi olan noktalar
+     kaybolsun, yaklastirinca gorunmeye baslasin").
+
+     Olcut DERECE, yani dugumun hoca + talebe sayisi. Uzaktan bakarken
+     iki baglantili bir ravi zaten okunamiyor, yalnizca dokuyu
+     kalabaliklastiriyor; yaklasildikca sirayla geri geliyorlar.
+
+     ESIK `k` YERINE `k * YAY`'A BAGLI. Ham `k` YAY ile ters orantili
+     (YAY buyuyunce ayni goruntu daha kucuk bir k'ya dusuyor), yani
+     mutlak bir k esigi YAY her degistiginde kayardi -- bu dosyada YAY
+     bugune kadar dort kez degisti. `k * YAY` ise ekranda iki nokta
+     arasinda gorulen mesafeyle orantili ve YAY'dan bagimsiz: acilis
+     gorunumunde olculen deger 0,0112 ve YAY 16'da da 32'de de ayni.
+
+     Sayilar agin kendi derece dagilimindan: >=30 -> 78 dugum,
+     >=12 -> 268, >=6 -> 410, >=3 -> 554, >=2 -> 607, hepsi 710.
+
+     Basamaklar acilis olcegi (0,0112) ETRAFINA yayildi, alt uca degil:
+     pratikte gezilen aralik asagi yukari 0,01 ile 0,3 arasi, ust sinir
+     (k<=4, yani kYay 128) ise hicbir zaman gorulmuyor. Acilista esik 12
+     -- Hz. Peygamber, hulefa ve muksirun duruyor, birkac baglantili
+     isimler bekliyor. Fatima (derece 3) ve Fazl b. Abbas (2) gibi
+     TANINMIS ama az baglantili isimler ancak yakinlasinca geliyor; bu
+     bilincli, olcut sohret degil bag sayisi. */
+  const DERECE_MERDIVEN = [[0.006, 30], [0.015, 12], [0.035, 6],
+                           [0.08, 3], [0.2, 2]];
+  const dereceEsigi = (kYay) => {
+    for (const [ust, esik] of DERECE_MERDIVEN) if (kYay < ust) return esik;
+    return 0;
+  };
+
   /* Akan kesik cizginin hizi, saniyede piksel. Kesik deseni 14+8=22
      piksel, yani saniyede bir turun biraz uzerinde. Iki kez
      yarilandi (100 -> 50 -> 25); ilk degerler gozu yoruyordu. */
   const AKIS_HIZ = 25;
 
-  /* BEYAZ KENAR DENEMESI (Mustafa, 2026-09-04). Kenar sayisi artinca
-     zeytin cizgiler ust uste binip kirli bir doku yapiyor. Deneme:
-     cizgiyi zeminin kendi renginde birakip yalnizca noktalari
-     birakmak. YALNIZCA /ag-sinamasi'nda acik -- yayindaki harita
-     (/ravi-iliski-aglari/harita) ayni bileseni prop'suz cagiriyor,
-     dolayisiyla eski gorunumde kaliyor. Karar verilirse bayrak
-     kaldirilip renkler palete yazilir. */
-  return function SilsileAgi({ beyazKenar = false } = {}) {
+  return function SilsileAgi() {
     const [secim, setSecim] = useState(null);   // {tur:"ravi",id} | {tur:"kenar",e}
     const [arama, setArama] = useState("");
     const [acikArama, setAcikArama] = useState(false);
@@ -230,15 +255,21 @@ export function kur(V) {
        renk degisiyor: normal ve sonuk kenar. Secili kenar (kirmizi) ve
        akan kenar (turkuaz) DOKUNULMUYOR -- onlarin isi zaten tek bir
        yolu one cikarmak, dokuyu yapan onlar degil. */
-    /* KOYU TEMADA cozum RENK: cizgi beyaza cekiliyor, koyu zeminde ag
-       ince ve temiz bir yelpazeye donuyor.
+    /* KENAR KIRLILIGI (Mustafa, 2026-09-04). Kenar sayisi artinca
+       cizgiler ust uste binip kirli bir doku yapiyordu. Cozum iki
+       temada AYRI, cunku ayni hamle iki zeminde ayni seyi yapmiyor:
 
-       ACIK TEMADA cozum SAYDAMLIK. Once orada da cizgi acilmisti; beyaz
-       kagit zemininde tumden kayboldugu, "kagittan bir tik koyu" ton da
-       yakinlasinca goturmedigi icin (ikisi de denendi) renk geri
-       zeytine birakildi ve kirlilik opaklikla aliniyor -- bkz. asagida
-       cizgiSaydam. */
-    if (beyazKenar && koyu) {
+       KOYU TEMADA RENK. Cizgi beyaza cekiliyor; koyu zeminde ag ince ve
+       temiz bir yelpazeye donuyor, renkli ravi noktalari one cikiyor.
+
+       ACIK TEMADA SAYDAMLIK. Orada da once cizgi acildi (once tam
+       beyaz, sonra kagittan bir tik koyu bir ton); ikisi de kagit
+       zemininde kayboldu. Renk zeytinde birakildi, kirlilik opaklikla
+       aliniyor -- bkz. asagida cizgiSaydam.
+
+       /ag-sinamasi'nda bir sure `beyazKenar` prop'uyla denendi, sonra
+       ikisi de buraya alindi; iki adres yine birebir ayni. */
+    if (koyu) {
       C.kenar = "#FFFFFF";
       C.kenarSonuk = "#FFFFFF";
     }
@@ -740,9 +771,32 @@ export function kur(V) {
       return () => clearTimeout(z);
     }, [view]);
   
+    /* Bkz. UZAKTAN SEYREK, YAKINDAN TAM. Esik `durgun`a bagli, canli
+       `view`e degil: zoom sirasinda her karede nokta belirip kaybolsa
+       goz titrer; hareket durunca 140 ms sonra bir kerede geliyorlar.
+
+       DORT ISTISNA hep gorunur:
+       - KADEME <= 1 (Hz. Peygamber, hulefa, muellifler, medar,
+         muksirun): kimligi derecesinden gelmiyor, 42 dugum.
+       - secili ravi,
+       - vurgulu (secili raviye bagli) dugumler,
+       - arama eslesmeleri.
+       Son ucu olmasa aranan bir ravi bulunup ortalandiginda kendisi
+       gorunmeyebilirdi. */
+    const enAzDerece = dereceEsigi(durgun.k * YAY);
+    const gorunur = useCallback((id) => {
+      if (enAzDerece === 0) return true;
+      if ((DERECE[id] || 0) >= enAzDerece) return true;
+      if (KADEME(id) <= 1) return true;
+      if (secim && secim.tur === "ravi" && secim.id === id) return true;
+      if (vurgu && vurgu.has(id)) return true;
+      if (eslesen && eslesen.has(id)) return true;
+      return false;
+    }, [enAzDerece, secim, vurgu, eslesen]);
+
     const etiketliler = useMemo(() => {
       const sirali = NODES
-        .filter((n) => POS[n.id])
+        .filter((n) => POS[n.id] && gorunur(n.id))
         .map((n) => ({ n, kad: KADEME(n.id), dg: DERECE[n.id] || 0 }))
         .sort((a, b) => a.kad - b.kad || b.dg - a.dg);
   
@@ -821,7 +875,7 @@ export function kur(V) {
         if (!secilenler.has(x.n.id)) dene(x, false);
       });
       return secilenler;
-    }, [durgun, box, secim, vurgu, adi, dar]);
+    }, [durgun, box, secim, vurgu, adi, dar, gorunur]);
   
     /* Kenarlarin tiklama seritleri bu esigin ustunde uretiliyor (bkz.
        kenar cizimi). 0.05, agin tamami ekrana sigmis haldeki olcegin
@@ -896,12 +950,11 @@ export function kur(V) {
       return `M ${pa.x} ${pa.y} C ${k1x} ${k1y}, ${k2x} ${k2y}, ` +
              `${pb.x - (vx / vu) * bosluk} ${pb.y - (vy / vu) * bosluk}`;
     }, []);
-    /* Sondaki carpan BEYAZ KENAR DENEMESI'nin acik tema ayagi (bkz.
-       paletin altindaki not). Yalnizca normal ve sonuk kenarlar bu
-       degeri kullaniyor; secili kenar ile akan kenarin opakligi sabit,
-       yani deneme yolu one cikarmayi zayiflatmiyor. */
-    const cizgiSaydam = Math.min(1, 0.3 + durgun.k * 6) *
-                        (beyazKenar && !koyu ? 0.5 : 1);
+    /* Sondaki carpan KENAR KIRLILIGI'nin acik tema ayagi (bkz. paletin
+       altindaki not). Yalnizca normal ve sonuk kenarlar bu degeri
+       kullaniyor; secili kenar ile akan kenarin opakligi sabit, yani
+       zemin sakinlesirken bir yolu one cikarma zayiflamiyor. */
+    const cizgiSaydam = Math.min(1, 0.3 + durgun.k * 6) * (koyu ? 1 : 0.5);
   
   
     const MEDINE_I = SUTUNLAR.findIndex((c) => c.belde === "Medine");
@@ -1218,6 +1271,9 @@ export function kur(V) {
       for (const e of EDGES) {
         const pa = POS[e.a], pb = POS[e.b];
         if (!pa || !pb || !kenarIcerde(pa, pb)) continue;
+        /* Iki ucundan biri elenmisse kenar da cizilmiyor; yoksa uzak
+           gorunumde bir ucu bosluga giden cizgiler kalirdi. */
+        if (!gorunur(e.a) || !gorunur(e.b)) continue;
         const secili = secKenar && secKenar.a === e.a && secKenar.b === e.b;
         const canli = !secili && !!(secim && secim.tur === "ravi" &&
           (e.a === secim.id || e.b === secim.id));
@@ -1286,6 +1342,7 @@ export function kur(V) {
       for (const n of NODES) {
         const p = POS[n.id];
         if (!p || !icerde(p)) continue;
+        if (!gorunur(n.id)) continue;          // bkz. UZAKTAN SEYREK, YAKINDAN TAM
         const px = eX(p.x), py = eY(p.y);
         const r = rEkranOf(n.id, k);          // dogrudan ekran yaricapi
         if (px < -r - 20 || px > box.w + r + 20 ||
@@ -1394,7 +1451,7 @@ export function kur(V) {
       ctx.globalAlpha = 1;
     }, [box, olculdu, view, pencere, secim, secRavi, secKenar, vurgu,
         cizgiCarpani, cizgiSaydam, MEDINE_I, adi, koyu, akisAnim, t,
-        etiketliler, kenarKubik]);
+        etiketliler, kenarKubik, gorunur]);
   
     /* TUVALDA NE TIKLANDI.
   
