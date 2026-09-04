@@ -181,7 +181,10 @@ export function kur(V) {
      yarilandi (100 -> 50 -> 25); ilk degerler gozu yoruyordu. */
   const AKIS_HIZ = 25;
 
-  return function SilsileAgi() {
+  /* denemeZemin: acik temada zemini koyulastirip cizgiyi beyaza ceken
+     DENEME. Yalnizca /ag-sinamasi bu prop'u geciyor; yayindaki harita
+     prop'suz cagirdigi icin degismiyor. Bkz. paletin altindaki not. */
+  return function SilsileAgi({ denemeZemin = false } = {}) {
     const [secim, setSecim] = useState(null);   // {tur:"ravi",id} | {tur:"kenar",e}
     const [arama, setArama] = useState("");
     const [acikArama, setAcikArama] = useState(false);
@@ -259,10 +262,6 @@ export function kur(V) {
       satirA: "#8A7A34", satirAOp: 0.055, satirB: "#2E7D6E", satirBOp: 0.028,
     };
 
-    /* Bkz. yukarida BEYAZ KENAR DENEMESI. Yalnizca sirandan gecen iki
-       renk degisiyor: normal ve sonuk kenar. Secili kenar (kirmizi) ve
-       akan kenar (turkuaz) DOKUNULMUYOR -- onlarin isi zaten tek bir
-       yolu one cikarmak, dokuyu yapan onlar degil. */
     /* KENAR KIRLILIGI (Mustafa, 2026-09-04). Kenar sayisi artinca
        cizgiler ust uste binip kirli bir doku yapiyordu. Cozum iki
        temada AYRI, cunku ayni hamle iki zeminde ayni seyi yapmiyor:
@@ -280,6 +279,35 @@ export function kur(V) {
     if (koyu) {
       C.kenar = "#FFFFFF";
       C.kenarSonuk = "#FFFFFF";
+    }
+
+    /* ACIK TEMA ICIN IKINCI DENEME (Mustafa, 2026-09-04, YALNIZCA
+       /ag-sinamasi'nda): "zemin renklerini cok hafif koyulastir,
+       baglanti cizgilerini net beyaz yap."
+
+       Yukaridaki notta acik temada beyaz cizginin kagit zemininde
+       kayboldugu yaziyor -- bu deneme tam o engeli kaldiriyor: cizgiyi
+       zemine uydurmak yerine ZEMINI cizgiye gore aciyor. Kagit birkac
+       ton koyulasinca beyaz cizgi kendiliginden okunur hale geliyor,
+       yani koyu temadaki cozumun aynisi acik temaya da tasinabiliyor.
+
+       Koyulastirma kasitli olarak KUCUK: tuval #FFFFFF -> #EFEADF,
+       zemin #FBF9F4 -> #EAE4D7, yani sayfanin krem kimligi duruyor,
+       yalnizca beyaz cizgiye kontrast acilmis oluyor. Izgara cizgisi de
+       ayni oranda koyulasiyor, yoksa yeni zeminde kayboluyordu.
+
+       Cizgi opakligi burada TAM: acik temanin yari saydam ayari
+       kirliligi zeminle kaynastirarak aliyordu, beyaz cizgide o gerekli
+       degil -- kontrast zaten ters yonde. Bkz. asagida cizgiSaydam. */
+    if (denemeZemin && !koyu) {
+      C.zemin = "#E2DACA";
+      C.tuval = "#E8E1D3";
+      C.kart = "rgba(232,225,211,0.97)";
+      C.cizgi = "#C6BAA0";
+      C.kesikCerceve = "#D5CBB6";
+      C.kenar = "#FFFFFF";
+      C.kenarSonuk = "#FFFFFF";
+      C.etiketHale = "#E8E1D3";
     }
   
     /* RAVI ADI DILE GORE. Arapca'da dugumun kendi `ar` alani, digerinde
@@ -962,7 +990,8 @@ export function kur(V) {
        altindaki not). Yalnizca normal ve sonuk kenarlar bu degeri
        kullaniyor; secili kenar ile akan kenarin opakligi sabit, yani
        zemin sakinlesirken bir yolu one cikarma zayiflamiyor. */
-    const cizgiSaydam = Math.min(1, 0.3 + durgun.k * 6) * (koyu ? 1 : 0.5);
+    const cizgiSaydam = Math.min(1, 0.3 + durgun.k * 6) *
+                        (koyu || denemeZemin ? 1 : 0.5);
   
   
     const MEDINE_I = SUTUNLAR.findIndex((c) => c.belde === "Medine");
