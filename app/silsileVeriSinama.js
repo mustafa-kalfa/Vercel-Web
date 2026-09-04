@@ -1275,6 +1275,8 @@ export const NODES = [
     "Tehzîb terceme 6170, rumûz ع. Zehebî, Buhârî'nin Belh şeyhi olarak sayar ve «هو من عوالي شيوخه» der (Siyer 12/394) — Buhârî'nin tâbiîn nesline en yakın hocalarından. Kendisi on bir tâbiîden rivayet ettiğini söyler. Vefatı 215 (İbn Sa‘d); Buhârî 214 der."),
   N("halidmahled", "خالد بن مخلد القطواني", "Hâlid b. Mahled el-Katavânî", 5, 213, "Kûfe",
     "Tehzîb terceme 1652, rumûz ع كد. Zehebî, Buhârî'nin Kûfe şeyhleri arasında sayar (Siyer 12/394). Buhârî'nin Rikāk'ta tek başına rivayet ettiği meşhur «من عادى لي وليا» hadisinin râvisi. Teşeyyu‘ ile itham edilmiş; Ebû Dâvûd «صدوق ولكنه يتشيع» der. Vefatı 213 (Mutayyen, İbn Sa‘d); İbn Kāni‘ 214 der."),
+  N("asbagferec", "أصبغ بن الفرج بن سعيد الأموي", "Asbağ b. el-Ferec el-Ümevî", 5, 225, "Mısır",
+    "Tehzîb terceme 536, rumûz خ د ت س. Zehebî, Buhârî'nin Mısır şeyhleri arasında sayar (Siyer 12/395). İbn Vehb'in verrâkı ve Ebû Hâtim'e göre onun en büyük talebesi; İbn Maîn «Mâlik'in görüşünü meseleye kadar bilen en âlim kişi» der. Şevval 225'te vefat etti."),
 ];
 
 
@@ -6577,6 +6579,21 @@ const EDGES_HAM = [
   E("halidmahled", "abbasduri", "ت", "Tehzîb 1652"),
   /* Mizzi "وهو أكبر منه" der: ikisi akran, Ubeydullah daha yasli. */
   E("halidmahled", "ubeydullahmusa", "—", "Tehzîb 1652"),
+
+
+  /* Asbağ b. el-Ferec el-Ümevî (o. 225) -- hocalari.
+     Tehzîb 536. Tercemede 10 kayit var, agda dugumu olan 4'i cizildi. */
+  E("ibnvehb", "asbagferec", "خ ت س", "Tehzîb 536"),
+  E("ibnkasimmisri", "asbagferec", "س", "Tehzîb 536"),
+  E("darevardi", "asbagferec", "د", "Tehzîb 536"),
+  E("isabyunus", "asbagferec", "—", "Tehzîb 536"),
+
+
+  /* Asbağ b. el-Ferec el-Ümevî (o. 225) -- talebeleri.
+     Tehzîb 536. Tercemede 21 kayit var, agda dugumu olan 2'i cizildi. */
+  E("asbagferec", "ebuhatimrazi", "—", "Tehzîb 536"),
+  E("asbagferec", "zuhli", "د", "Tehzîb 536"),
+  E("asbagferec", "buhari", "خ", "Tehzîb 536"),
 
 ];
 
