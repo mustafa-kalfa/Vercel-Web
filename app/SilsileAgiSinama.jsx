@@ -18,7 +18,7 @@
 
    Bedeli: bu sayfa ag govdesini bir kez daha kuruyor. Sayfalar ayri
    yuklendigi icin ikisi ayni anda bellekte durmuyor. */
-import * as V from "./silsileVeri";
+import * as V from "./silsileVeriSinama";
 import { kur } from "./silsileAgiKur";
 
 export default kur(V, { yay: 640, acilis: 32 });

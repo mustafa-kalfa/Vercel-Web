@@ -7,7 +7,9 @@ const SP = __dirname;
 const { eslestir } = require(path.join(SP, "esle.cjs"));
 
 const [, , ozneId, yon, metinDosya, kaynak] = process.argv;
-const YOL = path.join(SP, "..", "app", "silsileVeri.js");
+/* Veri dosyasi ortam degiskeniyle degistirilebiliyor -- bkz.
+   dugumleri-cikar.cjs'teki ayni not. */
+const YOL = path.join(SP, "..", process.env.SILSILE_VERI || "app/silsileVeri.js");
 const dugumler = JSON.parse(fs.readFileSync(path.join(SP, "dugumler.json"), "utf8"));
 const ozne = dugumler.find((d) => d.id === ozneId);
 if (!ozne) throw new Error("ozne yok: " + ozneId);

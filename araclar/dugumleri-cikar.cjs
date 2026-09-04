@@ -8,7 +8,12 @@ const fs = require('fs');
 const path = require('path');
 const KOK = path.join(__dirname, '..');
 
-const kod = fs.readFileSync(path.join(KOK, 'app/silsileVeri.js'), 'utf8')
+/* Veri dosyasi ortam degiskeniyle degistirilebiliyor: /ag-sinamasi
+   catallanmis bir kopya (app/silsileVeriSinama.js) kullaniyor ve
+   arastirma o kopya uzerinde yapiliyor. Bos birakilirsa yayindaki
+   dosya. Ornek: SILSILE_VERI=app/silsileVeriSinama.js node ... */
+const VERI = process.env.SILSILE_VERI || 'app/silsileVeri.js';
+const kod = fs.readFileSync(path.join(KOK, VERI), 'utf8')
   .replace(/^export /gm, '');
 const { NODES, EDGES } = eval(kod + '\n;({ NODES, EDGES })');
 
