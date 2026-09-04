@@ -165,6 +165,12 @@ export function kur(V) {
      gorunumu 0,0011 arasi, on kat), basamaklar da o araliga sigiyor. */
   const DERECE_MERDIVEN = [[0.002, 30], [0.0035, 12], [0.0055, 6],
                            [0.008, 3], [0.0105, 2]];
+
+  /* Esigin altinda kalan raviyi anlatan minik dairenin EKRAN yaricapi.
+     Olcekle buyumuyor -- zaten isi "uzaktayken yer tutmak"; buyuseydi
+     kucultmenin anlami kalmazdi. 2 piksel bir noktayi belli etmeye
+     yetiyor, en kucuk tam boy noktanin (~4 px) yarisi kadar. */
+  const MINIK_R = 2;
   const dereceEsigi = (kYay) => {
     for (const [ust, esik] of DERECE_MERDIVEN) if (kYay < ust) return esik;
     return 0;
@@ -774,19 +780,19 @@ export function kur(V) {
     }, [view]);
   
     /* Bkz. UZAKTAN SEYREK, YAKINDAN TAM. Esik `durgun`a bagli, canli
-       `view`e degil: zoom sirasinda her karede nokta belirip kaybolsa
-       goz titrer; hareket durunca 140 ms sonra bir kerede geliyorlar.
+       `view`e degil: zoom sirasinda her karede nokta boy degistirse
+       goz titrer; hareket durunca 140 ms sonra bir kerede oluyorlar.
 
-       DORT ISTISNA hep gorunur:
+       DORT ISTISNA hep tam boy kaliyor:
        - KADEME <= 1 (Hz. Peygamber, hulefa, muellifler, medar,
          muksirun): kimligi derecesinden gelmiyor, 42 dugum.
        - secili ravi,
        - vurgulu (secili raviye bagli) dugumler,
        - arama eslesmeleri.
        Son ucu olmasa aranan bir ravi bulunup ortalandiginda kendisi
-       gorunmeyebilirdi. */
+       kucuk kalabilirdi. */
     const enAzDerece = dereceEsigi(durgun.k * YAY);
-    const gorunur = useCallback((id) => {
+    const tamBoy = useCallback((id) => {
       if (enAzDerece === 0) return true;
       if ((DERECE[id] || 0) >= enAzDerece) return true;
       if (KADEME(id) <= 1) return true;
@@ -798,7 +804,7 @@ export function kur(V) {
 
     const etiketliler = useMemo(() => {
       const sirali = NODES
-        .filter((n) => POS[n.id] && gorunur(n.id))
+        .filter((n) => POS[n.id] && tamBoy(n.id))
         .map((n) => ({ n, kad: KADEME(n.id), dg: DERECE[n.id] || 0 }))
         .sort((a, b) => a.kad - b.kad || b.dg - a.dg);
   
@@ -877,7 +883,7 @@ export function kur(V) {
         if (!secilenler.has(x.n.id)) dene(x, false);
       });
       return secilenler;
-    }, [durgun, box, secim, vurgu, adi, dar, gorunur]);
+    }, [durgun, box, secim, vurgu, adi, dar, tamBoy]);
   
     /* Kenarlarin tiklama seritleri bu esigin ustunde uretiliyor (bkz.
        kenar cizimi). 0.05, agin tamami ekrana sigmis haldeki olcegin
@@ -1273,9 +1279,12 @@ export function kur(V) {
       for (const e of EDGES) {
         const pa = POS[e.a], pb = POS[e.b];
         if (!pa || !pb || !kenarIcerde(pa, pb)) continue;
-        /* Iki ucundan biri elenmisse kenar da cizilmiyor; yoksa uzak
-           gorunumde bir ucu bosluga giden cizgiler kalirdi. */
-        if (!gorunur(e.a) || !gorunur(e.b)) continue;
+        /* Ucu minige inmis kenar SILINMIYOR, sonuk yola giriyor: nokta
+           ekranda durdugu icin kenarinin da durmasi gerekiyor, yoksa
+           bagi olmayan noktalar gibi gorunurlerdi. Ilk surumde bunlar
+           tumden atlaniyordu -- o zaman nokta da cizilmiyordu, tutarli
+           ama fazla bosaltiyordu. */
+        const uzakUc = !tamBoy(e.a) || !tamBoy(e.b);
         const secili = secKenar && secKenar.a === e.a && secKenar.b === e.b;
         const canli = !secili && !!(secim && secim.tur === "ravi" &&
           (e.a === secim.id || e.b === secim.id));
@@ -1286,7 +1295,7 @@ export function kur(V) {
         if (canli) { canliKenarlar.push(c); continue; }
         // ekranda uc pikselden kisa kalan kenar gorunmuyor
         if (Math.hypot(pb.x - pa.x, pb.y - pa.y) * k < 3) continue;
-        (kenarSonuk(e) ? sonukYol : normalYol).push(c);
+        (kenarSonuk(e) || uzakUc ? sonukYol : normalYol).push(c);
       }
       const topluCiz = (liste, renk, kalinlik, saydam) => {
         if (!liste.length) return;
@@ -1344,15 +1353,32 @@ export function kur(V) {
       for (const n of NODES) {
         const p = POS[n.id];
         if (!p || !icerde(p)) continue;
-        if (!gorunur(n.id)) continue;          // bkz. UZAKTAN SEYREK, YAKINDAN TAM
         const px = eX(p.x), py = eY(p.y);
-        const r = rEkranOf(n.id, k);          // dogrudan ekran yaricapi
+        /* Bkz. UZAKTAN SEYREK, YAKINDAN TAM. Esigin altinda kalan ravi
+           KAYBOLMUYOR, KUCULUYOR (Mustafa, 2026-09-04: "yaklasana kadar
+           hic gorunmemesi kotu oluyor, bunun yerine kucuk bir nokta
+           seklinde olsun"). Ilk surumde tumden ciziminden atlaniyordu ve
+           uzaklasinca haritanin yarisi bosaliyordu. */
+        const minik = !tamBoy(n.id);
+        const r = minik ? MINIK_R : rEkranOf(n.id, k);   // dogrudan ekran yaricapi
         if (px < -r - 20 || px > box.w + r + 20 ||
             py < -r - 20 || py > box.h + r + 20) continue;
-        vurus.dugum.push({ id: n.id, px, py, r });
         const sonukMu = sonuk(n.id);
-        const secili = secRavi && secRavi.id === n.id;
         const renk = n.id === "nebi" ? NEBI_RENK : renkOf(n.id);
+        if (minik) {
+          /* Yalin daire: halka, baklava, cerceve ve etiket YOK -- onlar
+             kimlik anlatiyor, minik noktanin isi yalnizca "burada bir
+             ravi var" demek. Tiklama hedefi cizilenden genis, yoksa iki
+             piksellik noktaya isabet ettirmek imkansiz olurdu. */
+          ctx.globalAlpha = sonukMu ? 0.14 : 0.7;
+          ctx.fillStyle = renk;
+          ctx.beginPath(); ctx.arc(px, py, r, 0, Math.PI * 2); ctx.fill();
+          ctx.globalAlpha = 1;
+          vurus.dugum.push({ id: n.id, px, py, r: Math.max(r, 6) });
+          continue;
+        }
+        vurus.dugum.push({ id: n.id, px, py, r });
+        const secili = secRavi && secRavi.id === n.id;
         ctx.globalAlpha = sonukMu ? 0.14 : 1;
   
         /* Muksirun halkasi ve medar baklavasi. Salinim ve hale
@@ -1453,7 +1479,7 @@ export function kur(V) {
       ctx.globalAlpha = 1;
     }, [box, olculdu, view, pencere, secim, secRavi, secKenar, vurgu,
         cizgiCarpani, cizgiSaydam, MEDINE_I, adi, koyu, akisAnim, t,
-        etiketliler, kenarKubik, gorunur]);
+        etiketliler, kenarKubik, tamBoy]);
   
     /* TUVALDA NE TIKLANDI.
   
