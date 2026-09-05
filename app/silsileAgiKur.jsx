@@ -96,7 +96,18 @@ export function kur(V, { yay, acilis } = {}) {
      16'dan 32'ye, ayni gun 32'den 64'e. Nokta ve yazi boyu hicbirinde
      degismedi.
 
-     DERECE MERDIVENI BUNDAN ETKILENMIYOR: esigi `k * YAY`a baglamanin
+     SON IKI KATINA CIKARMA 2026-09-05'te GERI ALINDI (Mustafa: "bir
+     ara hem genisligi hem yuksekligi 2 katina cikarmistik, onu geri
+     al"), yani 64 -> 32.
+
+     GERI ALMANIN GORUNTUYE ETKISI YOK, olculdu: acilis cercevesi
+     YAY'dan bagimsiz (asagida ACILIS_YAKINLIK notu) ve ekranda iki
+     nokta arasinda gorulen mesafe `k * YAY` ile orantili, acilis k'si
+     de YAY ile ters orantili -- carpim sabit. YAY 16, 32, 64 ve
+     640'ta acilis goruntusu piksel piksel ayni cikti. Yani bu sayi
+     grafik biriminin olcegini belirliyor, gorunumu degil.
+
+     DERECE MERDIVENI DE ETKILENMIYOR: esigi `k * YAY`a baglamanin
      sebebi tam da buydu, bkz. UZAKTAN SEYREK, YAKINDAN TAM.
 
      Olceklenenler: konumlar, sutun seritleri, tuval boyu, yil ekseni
@@ -107,7 +118,7 @@ export function kur(V, { yay, acilis } = {}) {
      DEGISIKLIK YALNIZCA BU DOSYADA. Yerlesim sabitleri paylasilan
      app/silsileVeri.js icinde ve orayi degistirmek yayindaki SVG
      sayfasini da degistirirdi. */
-  const YAY = yay ?? 64;
+  const YAY = yay ?? 32;
   /* Acilis yakinligi: sigdirma olceginin kac kati. Buyudukce daha
      yakindan baslar. Mustafa'nin verdigi ekran goruntulerinde yil
      ekseni yilda ~24,4 piksel; olculen deger 12 kat iken 39,4 idi,
@@ -1059,8 +1070,11 @@ export function kur(V, { yay, acilis } = {}) {
        Deneme sayfasinda artik sabit; kalabalik gorunume karsi elde
        kalan arac cizginin kendisi degil, DERECE_MERDIVEN (uzakta az
        baglantili noktayi kuculten eleme) -- o yerinde duruyor. */
-    const cizgiSaydam = Math.min(1, (denemeZemin ? 0.6 : 0.3) +
-                                    yakinlikPayi * 6) *
+    /* Deneme sayfasinin beyaz cizgisinde taban 2026-09-05'te YARIYA
+       indirildi, 0,6 -> 0,3 (Mustafa: "beyaz cizgilerin opakligini
+       yariya dusur"). Normal kenarin ekrandaki opakligi %51 -> %26.
+       Ayni deger koyu temanin beyaz cizgisiyle de esitlenmis oldu. */
+    const cizgiSaydam = Math.min(1, 0.3 + yakinlikPayi * 6) *
                         (koyu || denemeZemin ? 1 : 0.5);
   
   
