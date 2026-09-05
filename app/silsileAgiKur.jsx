@@ -1026,7 +1026,12 @@ export function kur(V, { yay, acilis } = {}) {
        kYay * 7 / 64 = k * 7, yani yayindaki davranis birebir ayni. */
     const kYayCizgi = durgun.k * YAY;
     const yakinlikPayi = denemeKenarKirp ? 0 : kYayCizgi / 64;
-    const cizgiCarpani = Math.min(1, (denemeZemin ? 0.55 : 0.3) +
+    /* Deneme sayfasinin beyaz cizgisinde taban 2026-09-05'te YARIYA
+       indirildi, 0,55 -> 0,275 (Mustafa: "kalinligini yariya indir").
+       Normal kenar ekranda 0,66 -> 0,33 piksel. Ayni gun opaklik once
+       yariya indirilip sonra geri alinmisti; secilen ayar bu ikisinin
+       birlesimi: eski opaklik, yari kalinlik. */
+    const cizgiCarpani = Math.min(1, (denemeZemin ? 0.275 : 0.3) +
                                      yakinlikPayi * 7);
   
     /* Bir kenarin yol dizgisi. Iki yerde lazim: tek tek cizilen
@@ -1070,11 +1075,12 @@ export function kur(V, { yay, acilis } = {}) {
        Deneme sayfasinda artik sabit; kalabalik gorunume karsi elde
        kalan arac cizginin kendisi degil, DERECE_MERDIVEN (uzakta az
        baglantili noktayi kuculten eleme) -- o yerinde duruyor. */
-    /* Deneme sayfasinin beyaz cizgisinde taban 2026-09-05'te YARIYA
-       indirildi, 0,6 -> 0,3 (Mustafa: "beyaz cizgilerin opakligini
-       yariya dusur"). Normal kenarin ekrandaki opakligi %51 -> %26.
-       Ayni deger koyu temanin beyaz cizgisiyle de esitlenmis oldu. */
-    const cizgiSaydam = Math.min(1, 0.3 + yakinlikPayi * 6) *
+    /* Deneme sayfasinin tabani bir sure 0,3'e indirilmisti; AYNI GUN
+       GERI ALINDI (Mustafa: "beyaz cizgilerin opakligini tekrar eski
+       haline getir"). Incelme kalinliktan gelsin istendi, opakliktan
+       degil -- bkz. yukarida cizgiCarpani. Normal kenar %51. */
+    const cizgiSaydam = Math.min(1, (denemeZemin ? 0.6 : 0.3) +
+                                    yakinlikPayi * 6) *
                         (koyu || denemeZemin ? 1 : 0.5);
   
   
