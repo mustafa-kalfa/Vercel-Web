@@ -29,8 +29,8 @@ import { useTheme } from "./ThemeContext";
    surumu son uc gunun butun iyilestirmelerini tam da bu yuzden
    kacirmisti. Fabrika o tuzagi kapatiyor.
 
-   Kullanimi: app/SilsileAgi.jsx (canli) ve app/SilsileAgiSinama.jsx
-   (deneme) birer satirlik sarmalayici. */
+   Kullanimi: app/SilsileAgi.jsx, bir satirlik sarmalayici. Iki sayfa
+   da (/ravi-iliski-aglari/harita ve /ag-sinamasi) onu kullaniyor. */
 /* ARAMA ICIN HARF KATLAMA.
 
    Kullanici "salim" yazinca "Sâlim" cikmiyordu, "firebri" yazinca
@@ -61,11 +61,14 @@ function katla(s) {
     .replace(/\s+/g, " ").trim();
 }
 
-/* Ikinci parametre DENEME icin: yerlesim yayilmasini (YAY) disaridan
-   verip ayni cizim kodundan ikinci bir bilesen kurmaya yariyor. Yayindaki
-   harita parametresiz cagiriyor, yani varsayilanla calisiyor.
-   Bkz. app/SilsileAgi.jsx ve app/SilsileAgiSinama.jsx. */
-export function kur(V, { yay, acilis } = {}) {
+/* Bir sure ikinci bir parametre vardi (`{ yay, acilis }`): YAY ve
+   ACILIS_YAKINLIK bilesenin DISINDA, bu govdede hesaplandigi icin
+   prop'la degistirilemiyor, deneme surumu de bu yuzden ayri bir
+   bilesen olarak kuruluyordu. 2026-09-05'te ikisi de yayindaki
+   degerlere donunce parametre bosa dustu ve kaldirildi -- iki sayfa
+   artik tek bilesen. Yeniden gerekirse desen basit: buraya bir
+   parametre, cagiran tarafa ikinci bir sarmalayici. */
+export function kur(V) {
   const {
     ALT, ASGARI_DY, BANT, BELDELER, BELDE_AD, DERECE, DIA, DIS, E, EDGES,
     EKRAN_PUNTO, EKRAN_R_ARTIS, EN_AZ_EKRAN_R, ESIK, H: HAM_H, HULEFA,
@@ -118,7 +121,7 @@ export function kur(V, { yay, acilis } = {}) {
      DEGISIKLIK YALNIZCA BU DOSYADA. Yerlesim sabitleri paylasilan
      app/silsileVeri.js icinde ve orayi degistirmek yayindaki SVG
      sayfasini da degistirirdi. */
-  const YAY = yay ?? 32;
+  const YAY = 32;
   /* Acilis yakinligi: sigdirma olceginin kac kati. Buyudukce daha
      yakindan baslar. Mustafa'nin verdigi ekran goruntulerinde yil
      ekseni yilda ~24,4 piksel; olculen deger 12 kat iken 39,4 idi,
@@ -152,7 +155,7 @@ export function kur(V, { yay, acilis } = {}) {
      Gercekten daha ferah bir ACILIS istenirse degistirilecek sabit YAY
      degil BU: buyudukce daha yakindan baslanir, kadraja daha az nokta
      girer, noktalar birbirinden ayrilir. */
-  const ACILIS_YAKINLIK = acilis ?? 10.5;
+  const ACILIS_YAKINLIK = 10.5;
   const POS = Object.fromEntries(Object.entries(HAM_POS)
     .map(([id, p]) => [id, { x: p.x * YAY, y: p.y * YAY }]));
   const SUTUNLAR = HAM_SUTUNLAR.map((c) => ({ ...c, x: c.x * YAY, genislik: c.genislik * YAY }));
@@ -206,9 +209,11 @@ export function kur(V, { yay, acilis } = {}) {
   };
 
   /* Akan kesik cizginin hizi, saniyede piksel. Kesik deseni 14+8=22
-     piksel, yani saniyede bir turun biraz uzerinde. Iki kez
-     yarilandi (100 -> 50 -> 25); ilk degerler gozu yoruyordu. */
-  const AKIS_HIZ = 25;
+     piksel, yani saniyede yarim turun biraz uzerinde. Uc kez yarilandi
+     (100 -> 50 -> 25 -> 12,5); ilk degerler gozu yoruyordu. Son
+     yarilama 2026-09-05 (Mustafa: "baglanti cizgilerinin hizini yariya
+     dusur"). */
+  const AKIS_HIZ = 12.5;
 
   /* denemeZemin: acik temada zemini koyulastirip cizgiyi beyaza ceken
      DENEME. Yalnizca /ag-sinamasi bu prop'u geciyor; yayindaki harita
@@ -409,7 +414,7 @@ export function kur(V, { yay, acilis } = {}) {
     }, []);
   
     // Kaydırmayı sınırla: tuval kenarlarında boş beyaz alan görünmesin.
-    const sinirla = useCallback((v) => {
+    const sinirla = useCallback((v, secimKabul) => {
       const gw = box.w - SOL_BANT, gh = box.h - UST_BANT;
       const cw = W * v.k, ch = H * v.k;
       let x = v.x, y = v.y;
@@ -432,7 +437,19 @@ export function kur(V, { yay, acilis } = {}) {
          hale geliyor, mevcut konum her zaman yeni sinirin icinde
          kaliyor. */
       const YAN = 130, UST_PAY = 70;
-      const ALT_PAY = 260 + (secim ? (dar ? 320 : 190) : 0);
+      /* ALT_PAY SECIME BAGLI, ve secimin O ANDA state'e yazilmis olmasi
+         SART DEGIL. `odaklan` once setSecim cagirip hemen ardindan
+         kaydir->sinirla'ya giriyor; React state'i o gecis icinde henuz
+         guncellemedigi icin bu islev ESKI `secim`i goruyordu ve pay
+         320 yerine 0 aliniyordu. Sonuc: agin altindaki bir raviye
+         tiklayinca alt sinir gereginden dar kaliyor, kamera raviyi
+         hedeflenen %35 cizgisine getiremiyor ve nokta ortalanmiyordu
+         (Mustafa, 2026-09-05: "telefon ekraninda asagilardan bir
+         noktaya tiklayinca nokta ortalanmiyor").
+
+         Bu yuzden cagiran taraf secimin OLACAGINI bildirebiliyor. */
+      const secimVar = secimKabul ?? !!secim;
+      const ALT_PAY = 260 + (secimVar ? (dar ? 320 : 190) : 0);
       if (cw >= gw) x = Math.min(SOL_BANT + YAN, Math.max(box.w - cw - YAN, x));
       else x = SOL_BANT + (gw - cw) / 2;
       if (ch >= gh) y = Math.min(UST_BANT + UST_PAY, Math.max(box.h - ch - ALT_PAY, y));
@@ -444,9 +461,9 @@ export function kur(V, { yay, acilis } = {}) {
   
     /* Yumuşak kamera geçişi. Ani sıçrama yerine kısa bir yumuşatma
        eğrisiyle kaydırılır; sürüklerken devreye girmez. */
-    const kaydir = useCallback((hedef, sure = 520) => {
+    const kaydir = useCallback((hedef, sure = 520, secimKabul) => {
       if (tweenRef.current) cancelAnimationFrame(tweenRef.current);
-      const son = sinirla(hedef);
+      const son = sinirla(hedef, secimKabul);
       const bas = { ...view };
       const t0 = performance.now();
       const yumusat = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
@@ -462,6 +479,26 @@ export function kur(V, { yay, acilis } = {}) {
       };
       tweenRef.current = requestAnimationFrame(adim);
     }, [view, sinirla]);
+
+    /* SECILI RAVININ DURACAGI GORUNUM. Iki yerden cagriliyor: tiklama
+       aninda (`odaklan`) ve kapsayici her olculdugunde (asagidaki
+       etki), boylece pencere buyuyup kuculunce ravi ayni yerde kaliyor.
+
+       Dikeyde tam ORTA degil: dar ekranda bilgi karti alt seridi
+       kapliyor ve secilen ravi kartin ardinda kaliyordu (Mustafa,
+       2026-08-30). Kart 130 px + pay, arama kumesi de ustunde; geriye
+       kalan bos alanin ortasi yaklasik %35'e denk geliyor.
+
+       Genis ekranda da tam orta DEGIL, %42. Kart orada yalnizca yarim
+       genislik kapliyor ama yine de alt seride oturuyor; secilen ravi
+       biraz yukarida dururken hem kart hem de raviden CIKAN baglar
+       (asagi dogru inen talebe kollari) ayni anda goruluyor. */
+    const odakKonumu = useCallback((id, k) => {
+      const p = POS[id];
+      const oran = dar ? 0.35 : 0.42;
+      const hy = UST_BANT + (box.h - UST_BANT) * oran;
+      return { k, x: (box.w + SOL_BANT) / 2 - p.x * k, y: hy - p.y * k };
+    }, [box, dar]);
   
     // açılış animasyonu için bayrak
     useEffect(() => {
@@ -551,10 +588,28 @@ export function kur(V, { yay, acilis } = {}) {
          gorunumu bir kez kuruldugu icin boyle bir olcum kaliciya
          binerdi (olculdu: gizlenip acilan panelde oluyor). */
       if (!olculdu) return;
-      if (kuruldu.current) { setView((o) => sinirla(o)); return; }
+      if (kuruldu.current) {
+        /* SECILI RAVI VARSA YENIDEN ODAKLANIYOR, yalnizca sinirlanmiyor
+           (Mustafa, 2026-09-05: "hadi ortalandi diyelim, ekrani buyutup
+           kuculunce tekrar asagi kaciyor ve onune bilgi karti geliyor").
+
+           Sebep: hedef konum `box.h`ye bagli (yukarida odakKonumu) ama
+           eskiden olcum degisince yalnizca `sinirla` uygulaniyordu.
+           Kapsayici kisalinca alt sinir yukari kayiyor, gorunum oraya
+           yapisiyor ve ravi ekranda asagi iniyor -- dar ekranda tam da
+           kartin ardina. Simdi ayni orana (%35 / %42) yeniden
+           oturtuluyor, yani telefonu cevirmek ya da tarayiciyi
+           yakinlastirmak secimi bozmuyor. */
+        if (secim && secim.tur === "ravi" && POS[secim.id]) {
+          setView((o) => sinirla(odakKonumu(secim.id, o.k)));
+        } else {
+          setView((o) => sinirla(o));
+        }
+        return;
+      }
       kuruldu.current = true;
       setView(baslangic());
-    }, [box, olculdu, baslangic, sinirla]);
+    }, [box, olculdu, baslangic, sinirla, secim, odakKonumu]);
   
     const sonuclar = useMemo(() => {
       const q = katla(arama);
@@ -796,23 +851,12 @@ export function kur(V, { yay, acilis } = {}) {
        Ortalama KALIYOR: bu islev arama sonucundan da cagriliyor, bir
        isim arayip secince kamera hic kimildamazsa arama iseyaramaz hale
        gelir. */
+
     const odaklan = (id) => {
       if (secim && secim.tur === "ravi" && secim.id === id) { setSecim(null); return; }
       setSecim({ tur: "ravi", id });
-      const p = POS[id];
-      const k = view.k;
-      /* Dikeyde tam ORTA degil: dar ekranda bilgi karti alt seridi
-         kapliyor ve secilen ravi kartin ardinda kaliyordu (Mustafa,
-         2026-08-30). Kart 130 px + pay, arama kumesi de ustunde; geriye
-         kalan bos alanin ortasi yaklasik %35'e denk geliyor.
-  
-         Genis ekranda da tam orta DEGIL, %42. Kart orada yalnizca yarim
-         genislik kapliyor ama yine de alt seride oturuyor; secilen ravi
-         biraz yukarida dururken hem kart hem de raviden CIKAN baglar
-         (asagi dogru inen talebe kollari) ayni anda goruluyor. */
-      const oran = dar ? 0.35 : 0.42;
-      const hy = UST_BANT + (box.h - UST_BANT) * oran;
-      kaydir({ k, x: (box.w + SOL_BANT) / 2 - p.x * k, y: hy - p.y * k }, 620);
+      // ucuncu arguman: secim HENUZ state'te yok, bkz. sinirla'daki not
+      kaydir(odakKonumu(id, view.k), 620, true);
     };
   
   

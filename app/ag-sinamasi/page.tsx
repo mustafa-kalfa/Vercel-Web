@@ -2,19 +2,21 @@
 
 import Link from "next/link";
 import ChromaKeyVideo from "../ChromaKeyVideo";
-import SilsileAgi from "../SilsileAgiSinama";
+import SilsileAgi from "../SilsileAgi";
 import { useLanguage } from "../LanguageContext";
 
 /* DENEME ADRESI.
 
-   Su an /ravi-iliski-aglari/harita ile AYNI DEGIL. Cizim kodu ve veri
-   ortak, ama burada iki deneme aciik:
-   - SilsileAgiSinama (SilsileAgi yerine): yerlesim yayilmasi on kat,
-     YAY 640 -- yayindaki 64.
-   - `denemeZemin` prop'u: acik temada zemin koyulastirilip baglanti
-     cizgileri beyaza cekiliyor.
-   Ikisi de begenilirse yayindakine tasinir; begenilmezse bu iki satir
-   geri alinir, sayfa yine harita ile birebir ayni olur.
+   Bilesen ve veri /ravi-iliski-aglari/harita ile AYNI. Tek fark iki
+   prop: `denemeZemin` (acik temada zemin koyulastirilip baglanti
+   cizgileri beyaza cekiliyor) ve `denemeKenarKirp` (cizgi agirligi
+   olcekten bagimsiz sabit). Begenilirse yayindaki sayfa da bu iki
+   prop'u gecer; begenilmezse burada silinir ve sayfa harita ile
+   birebir ayni olur.
+
+   2026-09-04'te bir sure ayri bir bilesen (SilsileAgiSinama) ve ayri
+   bir veri kopyasi (silsileVeriSinama.js) vardi; Zehebi'nin Siyer'inden
+   gelen yirmi ravi yayina alininca ikisi de silindi.
 
    2026-08-30'da bir sure veri BURADA catallanmisti (bilgi kartlari
    Takrib'den doldurulurken yayindaki harita etkilenmesin diye);

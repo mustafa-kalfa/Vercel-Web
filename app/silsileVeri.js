@@ -1251,6 +1251,66 @@ export const NODES = [
   N("naficubeyr", "نافع بن جبير بن مطعم القرشي النوفلي المدني", "Nâfi b. Cübeyr b. Mut‘im", 3, 99, "Medine"),
   N("musabsad", "مصعب بن سعد بن أبي وقاص القرشي الزهري", "Mus‘ab b. Sa‘d", 3, 103, "Medine"),
   N("irakmalik", "عراك بن مالك الغفاري الكناني المدني", "İrâk b. Mâlik", 3, 105, "Medine"),
+  /* ---- SIYER EKI ----
+     Zehebi, Buhari'nin seyhlerini sehir sehir sayarken (Siyer 12/394-395)
+     gecen ve agda HIC BULUNMAYAN isimler. Her biri Tehzib'de mustakil
+     terceme sahibi, yani Kutub-i Sitte ravisi. */
+  N("abdullahyusuftinnisi", "عبد الله بن يوسف التنيسي", "Abdullah b. Yûsuf et-Tinnîsî", 5, 218, "Mısır",
+    "Tehzîb terceme 3673, rumûz خ د ت س. Zehebî, Buhârî'nin Mısır şeyhleri arasında sayar (Siyer 12/395). İbn Maîn: Muvatta' rivayetinde Ka‘nebî'den sonra en sağlam kişi; Buhârî Mâlik'ten rivayetlerinde ona dayanmıştır."),
+  N("ebulyemanhakem", "الحكم بن نافع البهراني أبو اليمان", "Ebü'l-Yemân el-Hakem b. Nâfi‘", 5, 222, "Humus",
+    "Tehzîb terceme 1448, rumûz ع (Kütüb-i Sitte'nin tamamı). Zehebî, Buhârî'nin Şam şeyhleri arasında sayar (Siyer 12/395). İsmâîl b. Ayyâş'ın kâtibi; Şuayb b. Ebî Hamza'nın Zührî nüshasının râvisi. Vefatı 221 ve 222 diye ihtilâflı; Buhârî ile İbn Sa‘d 222 der."),
+  N("mekkiibrahim", "مكي بن إبراهيم بن بشير البلخي", "Mekkî b. İbrâhîm el-Belhî", 5, 215, "Horasan",
+    "Tehzîb terceme 6170, rumûz ع. Zehebî, Buhârî'nin Belh şeyhi olarak sayar ve «هو من عوالي شيوخه» der (Siyer 12/394) — Buhârî'nin tâbiîn nesline en yakın hocalarından. Kendisi on bir tâbiîden rivayet ettiğini söyler. Vefatı 215 (İbn Sa‘d); Buhârî 214 der."),
+  N("halidmahled", "خالد بن مخلد القطواني", "Hâlid b. Mahled el-Katavânî", 5, 213, "Kûfe",
+    "Tehzîb terceme 1652, rumûz ع كد. Zehebî, Buhârî'nin Kûfe şeyhleri arasında sayar (Siyer 12/394). Buhârî'nin Rikāk'ta tek başına rivayet ettiği meşhur «من عادى لي وليا» hadisinin râvisi. Teşeyyu‘ ile itham edilmiş; Ebû Dâvûd «صدوق ولكنه يتشيع» der. Vefatı 213 (Mutayyen, İbn Sa‘d); İbn Kāni‘ 214 der."),
+  N("asbagferec", "أصبغ بن الفرج بن سعيد الأموي", "Asbağ b. el-Ferec el-Ümevî", 5, 225, "Mısır",
+    "Tehzîb terceme 536, rumûz خ د ت س. Zehebî, Buhârî'nin Mısır şeyhleri arasında sayar (Siyer 12/395). İbn Vehb'in verrâkı ve Ebû Hâtim'e göre onun en büyük talebesi; İbn Maîn «Mâlik'in görüşünü meseleye kadar bilen en âlim kişi» der. Şevval 225'te vefat etti."),
+  N("surayjnuman", "سريج بن النعمان بن مروان الجوهري", "Süreyc b. en-Nu‘mân el-Cevherî", 5, 217, "Basra",
+    "Tehzîb terceme 2190, rumûz خ ٤. Zehebî, Buhârî'nin Bağdat şeyhleri arasında sayar (Siyer 12/394). Aslı Horasanlı, Bağdat'ta yerleşti; kurban bayramı günü 217'de vefat etti. Belde olarak Basra yazılı — haritada Irak sütunu o; Ahmed b. Hanbel ve İbn Maîn gibi Bağdatlılar da orada duruyor."),
+
+  /* SIYER EKI, IKINCI TUR (2026-09-05). Zehebi'nin Buhari listesinde
+     (Siyer 12/394-395) gecip agda bulunmayan isimlerden Tehzib'de
+     tercemesi bulunabilenler. Ilk turda tespit edilmis ama o zaman
+     Tehzib'in baslik dizininde bulunamamislardi; govde metninde
+     tam kunyeyle arayinca cikti. */
+  N("muhammedsabik", "محمد بن سابق التميمي", "Muhammed b. Sâbık et-Temîmî", 5, 214, "Basra",
+    "Tehzîb terceme 5230, rumûz خ م د ت س. Zehebî, Buhârî'nin şeyhleri arasında sayar (Siyer 12/394). Aslı Faris'ten, Kûfe'de yetişti, Bağdat'a yerleşip orada vefat etti. Ahmed b. Hanbel'e sorulunca «Ebû Nuaym'ı istiyorsan İbn Sâbık'a git» demiş. Buhârî ondan el-Edeb'de, Sahîh'in Vesâyâ bölümünde ise «Muhammed b. Sâbık ya da Fadl b. Ya‘kūb» diyerek rivayet eder. İbn Maîn zayıf saymış, Ya‘kūb b. Şeybe «sadûk sika ama zabtıyla anılmaz» demiş; İbn Hacer sadûk der. Vefatı 213 (Hadramî) yahut 214 (İbn Kâni‘, İbn Hibbân)."),
+  N("muhammedararah", "محمد بن عرعرة بن البرند القرشي", "Muhammed b. Ar‘ara el-Kuraşî", 5, 213, "Basra",
+    "Tehzîb terceme 5463, rumûz خ م د. Zehebî, Buhârî'nin Basra şeyhleri arasında sayar (Siyer 12/394). Şu‘be'nin talebesi; Buhârî ondan Şu‘be yoluyla rivayet eder. Ebû Hâtim «sika sadûk», Nesâî «leyse bihî be's» der. 213'te yetmiş beş yaşında vefat etti. Oğlu İbrâhim b. Muhammed b. Ar‘ara da Müslim ve Nesâî'nin şeyhidir."),
+  N("bedelmuhabber", "بدل بن المحبر بن المنبه التميمي", "Bedel b. el-Muhabber et-Temîmî", 5, 215, "Basra",
+    "Tehzîb terceme 647. Zehebî, Buhârî'nin Basra şeyhleri arasında sayar (Siyer 12/394). Aslı Vâsıtlı, Ebü'l-Münîr künyesiyle bilinir. Buhârî ondan Sahîh'te yalnızca iki yerde (Salât ve Fiten), ikisinde de Şu‘be'den rivayet eder. Ebû Zür‘a sika, Ebû Hâtim «Ümeyye b. Hâlid, Behz, Habbân ve Affân'dan üstün» der. Dârekutnî tek bir hadis sebebiyle zayıf saymış, İbn Hacer bunu teannüt saymıştır. Zehebî «kimse vefatını tarihlemedi, 215 dolayında öldü» der."),
+  N("talkgannam", "طلق بن غنام بن طلق النخعي", "Talk b. Gannâm en-Nehaî", 5, 211, "Kûfe",
+    "Tehzîb terceme 2991, rumûz خ ٤. Zehebî, Buhârî'nin Kûfe şeyhleri arasında sayar (Siyer 12/394). Hafs b. Gıyâs'ın amcaoğlu ve Şerîk b. Abdillâh'ın kâtibi. İclî, İbn Nümeyr ve Dârekutnî sika der; İbn Hacer de sika sayar. Receb 211'de vefat etti (İbn Sa‘d, Mutayyen, İbn Hibbân)."),
+  N("halladyahya", "خلاد بن يحيى بن صفوان السلمي", "Hallâd b. Yahyâ es-Sülemî", 5, 213, "Mekke",
+    "Tehzîb terceme 1741, rumûz خ د ت. Zehebî, Buhârî'nin Mekke şeyhleri arasında sayar (Siyer 12/394). Kûfeli olup Mekke'ye yerleşti. Ahmed b. Hanbel «sika yahut sadûk, ama ircâdan bir şey görüyordu» der; İbn Hacer «sadûk, ircâ ile itham edildi; Buhârî'nin büyük şeyhlerindendir» diyerek Fetih'in mukaddimesinde onu savunur. Buhârî'ye göre Mekke'de 213 dolayında, Hanbel b. İshak'a göre 217'de vefat etti."),
+  N("aliayyas", "علي بن عياش بن مسلم الألهاني", "Ali b. Ayyâş el-Elhânî", 5, 219, "Humus",
+    "Tehzîb terceme 4116, rumûz خ ٤. Zehebî, Buhârî'nin Humus şeyhleri arasında sayar (Siyer 12/395). Ebü'l-Hasen el-Hımsî el-Bekkâ. Şuayb b. Ebî Hamza'nın Zührî nüshasını nakleden başlıca râvilerden; Buhârî Sahîh'in ilk hadislerinden birini ondan alır. Ahmed b. Hanbel, Dühaym, Ebû Zür‘a ed-Dımaşkī ve Zühlî talebeleri arasındadır."),
+  N("ebumushir", "عبد الأعلى بن مسهر الغساني", "Ebû Müshir ed-Dımaşkī", 5, 218, "Şam",
+    "Tehzîb terceme 3691, rumûz ع. Zehebî, Buhârî'nin Şam şeyhleri arasında sayar (Siyer 10/228). Dımaşk'ın hadis imamı; Mâlik b. Enes, Saîd b. Abdilazîz ve Süfyân b. Uyeyne'den rivayet eder. Mihne'de halku'l-Kur'ân'ı söylemeyi reddedince Bağdat'a sevk edilip hapsedildi ve 218'de orada vefat etti. Buhârî ondan el-Edeb'de rivayet eder yahut rivayeti kendisine ulaşmıştır."),
+  N("bisrsuayb", "بشر بن شعيب بن أبي حمزة", "Bişr b. Şuayb b. Ebî Hamza", 5, 213, "Humus",
+    "Tehzîb terceme 691, rumûz خ ت س. Zehebî, Buhârî'nin Humus şeyhleri arasında sayar (Siyer 12/395). Yalnızca babası Şuayb b. Ebî Hamza'dan rivayet eder; babası vefatı sırasında «kitaplarımı sahih kıldım, oğlumdan dinlemek isteyen dinlesin» demiştir. Buhârî Sahîh'te ondan tek bir hadisi İshak (b. Mansûr el-Kevsec) vasıtasıyla alır, Sahîh dışındaki eserlerinde ise doğrudan rivayet eder. Buhârî 212'de hayatta olduğunu söyler; İbn Hibbân 213'te vefat ettiğini kaydeder."),
+  N("ahmedhalidvehbi", "أحمد بن خالد الوهبي الكندي", "Ahmed b. Hâlid el-Vehbî el-Kindî", 5, 214, "Humus",
+    "Tehzîb terceme 30. Zehebî, Buhârî'nin Humus şeyhleri arasında sayar (Siyer 12/395). Ebû Saîd b. Ebî Mahled el-Hımsî; Muhammed b. İshak'ın Sîre'sini nakleden başlıca râvilerden. Buhârî ondan Cüz'ü'l-kırâe halfe'l-imâm ve el-Edebü'l-müfred'de rivayet eder, Sahîh'te değil. Kardeşi Muhammed b. Hâlid el-Vehbî de râvidir."),
+  N("eyyubsuleymanbilal", "أيوب بن سليمان بن بلال القرشي", "Eyyûb b. Süleymân b. Bilâl", 5, 224, "Medine",
+    "Tehzîb terceme 614, rumûz خ د ت س. Zehebî, Buhârî'nin Medine şeyhleri arasında sayar (Siyer 12/394). Rivayetinin tamamı babası Süleymân b. Bilâl'in nüshasıdır; ama onu babasından doğrudan değil, Ebû Bekir Abdülhamîd b. Ebî Üveys vasıtasıyla alır — Zehebî «babasına yetiştiğini görmedim» der. Buhârî'nin Medineli şeyhlerinin sonuncularından."),
+
+  /* SIYER EKI, UCUNCU TUR (2026-09-05). Ikinci turda bulunamayan dort
+     isim. Sebep her seferinde ayni: Samile'nin arama dizini sorguyu
+     bes belirtece kirpiyor ve Tehzib'in BASLIK dizini bu dort tercemeyi
+     tasimiyor. Cozum, govde metninde tercemenin KENDI bas kalibiyla
+     aramak -- Mizzi'nin yazdigi sekliyle, sonradan eklenen nisbe
+     olmadan. Sadaka b. el-Fadl'in bas kaydinda mesela «المروزي» yok,
+     «صدقة بن الفضل، أبو الفضل المروزي» diye geciyor; «صدقة بن الفضل
+     المروزي» diye arayinca yalnizca baskalarinin tercemelerindeki
+     anmalar cikiyordu. */
+  N("sadakafadl", "صدقة بن الفضل المروزي", "Sadaka b. el-Fadl el-Mervezî", 5, 223, "Horasan",
+    "Tehzîb terceme 2867, rumûz خ. Zehebî, Buhârî'nin Merv şeyhleri arasında sayar (Siyer 12/394). Abbâs b. el-Velîd en-Nersî'nin sözü onu tarif eder: «Horasan'da Sadaka b. el-Fadl derdik, Irak'ta Ahmed b. Hanbel.» Abbâs b. Abdilazîm el-Anberî de kendisiyle Allah arasında hüccet saydığı üç kişiden biri olarak anar. Merv'de «Sikketü Sadaka» ona nisbetle anılır. Nesâî sika, İbn Hibbân «hadis ve sünnet sahibi» der. Buhârî «iki yüz yirmi küsurda vefat etti» der; başkaları 223, kimi 226 verir."),
+  N("hassanhassan", "حسان بن حسان البصري", "Hassân b. Hassân el-Basrî", 5, 213, "Mekke",
+    "Tehzîb terceme 1189, rumûz خ. Zehebî, Buhârî'nin Mekke şeyhleri arasında sayar (Siyer 12/394). Ebû Alî b. Ebî Abbâd; Basralı olup Mekke'ye yerleşti. Buhârî ondan Hemmâm b. Yahyâ ve Muhammed b. Talha yoluyla rivayet eder ve «Mukri' onu överdi» der. Ebû Hâtim münkerü'l-hadîs saymış, İbn Hacer «sadûk yuhtî» demiştir. Buhârî'ye göre 213'te vefat etti."),
+  N("abdulazizuveysi", "عبد العزيز بن عبد الله الأويسي", "Abdülazîz b. Abdillâh el-Üveysî", 5, 223, "Medine",
+    "Tehzîb terceme 3457, rumûz خ. Zehebî, Buhârî'nin Medine şeyhleri arasında sayar (Siyer 12/394). Ebü'l-Kāsım el-Medenî. Mâlik'in Muvatta'ının bir kısmını ondan işitip kalanını arz yoluyla aldı; Ebû Hâtim onu Yahyâ b. Bükeyr'e tercih eder. Ya‘kūb b. Şeybe ve Ebû Dâvûd sika, Dârekutnî hüccet, Halîlî «üzerinde ittifak edilmiş sika» der. İbrâhim b. Sa‘d, Süleymân b. Bilâl ve Abdülazîz b. Ebî Hâzim'den gelen Buhârî isnadlarının Medine ayağıdır."),
+  N("ahmedeskab", "أحمد بن إشكاب الحضرمي", "Ahmed b. İşkâb el-Hadramî", 5, 217, "Mısır",
+    "Tehzîb terceme 11, rumûz خ. Zehebî, Buhârî'nin Mısır şeyhleri arasında sayar (Siyer 12/395). Ebû Abdillâh es-Saffâr; Kûfeli olup Mısır'a yerleşti. Zehretü'l-müteallimîn'e göre Buhârî'nin yaşıtıdır ve ondan sekiz hadis rivayet etmiştir. Ebû Hâtim «sika, me'mûn, sadûk — Mısır'da kendisinden yazdım», Ya‘kūb b. Şeybe «Kûfeli, sika» der; İbn Maîn ondan çok yazmıştır. Buhârî «Mısır'da onunla son görüşmem 217'dedir» der, İbn Yûnus 217 yahut 218'de vefat ettiğini kaydeder."),
 ];
 
 
@@ -6462,6 +6522,446 @@ const EDGES_HAM = [
   /* Beşîr b. Nehîk (o. ?) -- talebeleri.
      Tehzîb 730. Tercemede 7 kayit var, agda dugumu olan 1'i cizildi. */
   E("besirnehik", "yahyasaidensari", "س", "Tehzîb 730"),
+
+  /* ---- SIYER EKI (Zehebi, Siyer 12/394-395) ----
+     Buhari'nin sehirlere gore sayilan seyhleri. Bu dortu ZATEN
+     DUGUM olarak vardi ama Buhari'ye bagli degildi; Zehebi dordunu de
+     acikca Buhari'nin hocasi olarak sayiyor. */
+  E("abdan", "buhari", "—", "Siyer 12/394"),
+  E("alihasansakik", "buhari", "—", "Siyer 12/394"),
+  E("ubeydullahmusa", "buhari", "—", "Siyer 12/394"),
+  E("yahyayahyanisaburi", "buhari", "—", "Siyer 12/394"),
+
+  /* Abdullah b. Yûsuf et-Tinnîsî (o. 218) -- hocalari.
+     Tehzîb 3673. Tercemede 29 kayit var, agda dugumu olan 7'i cizildi. */
+  E("ibnuleyye", "abdullahyusuftinnisi", "—", "Tehzîb 3673"),
+  E("saidabdulaziz", "abdullahyusuftinnisi", "د س", "Tehzîb 3673"),
+  E("ibnvehb", "abdullahyusuftinnisi", "خ", "Tehzîb 3673"),
+  E("isabyunus", "abdullahyusuftinnisi", "س", "Tehzîb 3673"),
+  E("leysbsad", "abdullahyusuftinnisi", "خ س", "Tehzîb 3673"),
+  E("malik", "abdullahyusuftinnisi", "خ كن", "Tehzîb 3673"),
+  E("velidmuslim", "abdullahyusuftinnisi", "د", "Tehzîb 3673"),
+
+
+  /* Abdullah b. Yûsuf et-Tinnîsî (o. 218) -- talebeleri.
+     Tehzîb 3673. Tercemede 28 kayit var, agda dugumu olan 5'i cizildi. */
+  E("abdullahyusuftinnisi", "cuzcani", "س", "Tehzîb 3673"),
+  E("abdullahyusuftinnisi", "harmalayahya", "—", "Tehzîb 3673"),
+  E("abdullahyusuftinnisi", "ebuhatimrazi", "ت كن", "Tehzîb 3673"),
+  E("abdullahyusuftinnisi", "zuhli", "—", "Tehzîb 3673"),
+  E("abdullahyusuftinnisi", "ibnmain", "—", "Tehzîb 3673"),
+  E("abdullahyusuftinnisi", "buhari", "خ", "Tehzîb 3673"),
+
+
+  /* Ebü'l-Yemân el-Hakem b. Nâfi‘ (o. 222) -- hocalari.
+     Tehzîb 1448. Tercemede 12 kayit var, agda dugumu olan 3'i cizildi. */
+  E("ismailayyas", "ebulyemanhakem", "د", "Tehzîb 1448"),
+  E("saidabdulaziz", "ebulyemanhakem", "—", "Tehzîb 1448"),
+  E("suaybebihamza", "ebulyemanhakem", "ع", "Tehzîb 1448"),
+
+
+  /* Ebü'l-Yemân el-Hakem b. Nâfi‘ (o. 222) -- talebeleri.
+     Tehzîb 1448. Tercemede 20 kayit var, agda dugumu olan 2'i cizildi. */
+  E("ebulyemanhakem", "ahmedhanbel", "—", "Tehzîb 1448"),
+  E("ebulyemanhakem", "darimi", "م", "Tehzîb 1448"),
+  E("ebulyemanhakem", "buhari", "خ", "Tehzîb 1448"),
+
+
+  /* Mekkî b. İbrâhîm el-Belhî (o. 215) -- hocalari.
+     Tehzîb 6170. Tercemede 29 kayit var, agda dugumu olan 10'i cizildi. */
+  E("behzhakim", "mekkiibrahim", "عخ ت", "Tehzîb 6170"),
+  E("caferisadik", "mekkiibrahim", "—", "Tehzîb 6170"),
+  E("hasanisad", "mekkiibrahim", "خ د س", "Tehzîb 6170"),
+  E("hanzalasufyan", "mekkiibrahim", "خ", "Tehzîb 6170"),
+  E("ibncureyc", "mekkiibrahim", "خ م د س", "Tehzîb 6170"),
+  E("fitrhalife", "mekkiibrahim", "—", "Tehzîb 6170"),
+  E("malik", "mekkiibrahim", "كن ق", "Tehzîb 6170"),
+  E("hasimhasim", "mekkiibrahim", "خ", "Tehzîb 6170"),
+  E("hisamhassan", "mekkiibrahim", "خ", "Tehzîb 6170"),
+  E("hisamdestuvai", "mekkiibrahim", "خ", "Tehzîb 6170"),
+
+
+  /* Mekkî b. İbrâhîm el-Belhî (o. 215) -- talebeleri.
+     Tehzîb 6170. Tercemede 23 kayit var, agda dugumu olan 6'i cizildi. */
+  E("mekkiibrahim", "cuzcani", "س", "Tehzîb 6170"),
+  E("mekkiibrahim", "ahmedhanbel", "—", "Tehzîb 6170"),
+  E("mekkiibrahim", "zuhli", "—", "Tehzîb 6170"),
+  E("mekkiibrahim", "harunhammal", "د س", "Tehzîb 6170"),
+  E("mekkiibrahim", "ibnmain", "—", "Tehzîb 6170"),
+  E("mekkiibrahim", "yahyayahyanisaburi", "—", "Tehzîb 6170"),
+  E("mekkiibrahim", "buhari", "خ", "Tehzîb 6170"),
+
+
+  /* Hâlid b. Mahled el-Katavânî (o. 213) -- hocalari.
+     Tehzîb 1652. Tercemede 33 kayit var, agda dugumu olan 4'i cizildi. */
+  E("suleymanbilal", "halidmahled", "خ م ت س ق", "Tehzîb 1652"),
+  E("aliebisalihhayy", "halidmahled", "س", "Tehzîb 1652"),
+  E("alimushir", "halidmahled", "خ م ت س", "Tehzîb 1652"),
+  E("malik", "halidmahled", "م كد س ق", "Tehzîb 1652"),
+
+
+  /* Hâlid b. Mahled el-Katavânî (o. 213) -- talebeleri.
+     Tehzîb 1652. Tercemede 31 kayit var, agda dugumu olan 7'i cizildi. */
+  E("halidmahled", "ibnrahuye", "—", "Tehzîb 1652"),
+  E("halidmahled", "sufyanveki", "ت", "Tehzîb 1652"),
+  E("halidmahled", "abbasanberi", "س", "Tehzîb 1652"),
+  E("halidmahled", "ibnebiseybe", "م ق", "Tehzîb 1652"),
+  E("halidmahled", "abdhumeyd", "م ت", "Tehzîb 1652"),
+  E("halidmahled", "osmanebiseybe", "—", "Tehzîb 1652"),
+  E("halidmahled", "ebukureyb", "م", "Tehzîb 1652"),
+  E("halidmahled", "buhari", "خ", "Tehzîb 1652"),
+  E("halidmahled", "abbasduri", "ت", "Tehzîb 1652"),
+  /* Mizzi "وهو أكبر منه" der: ikisi akran, Ubeydullah daha yasli. */
+  E("halidmahled", "ubeydullahmusa", "—", "Tehzîb 1652"),
+
+
+  /* Asbağ b. el-Ferec el-Ümevî (o. 225) -- hocalari.
+     Tehzîb 536. Tercemede 10 kayit var, agda dugumu olan 4'i cizildi. */
+  E("ibnvehb", "asbagferec", "خ ت س", "Tehzîb 536"),
+  E("ibnkasimmisri", "asbagferec", "س", "Tehzîb 536"),
+  E("darevardi", "asbagferec", "د", "Tehzîb 536"),
+  E("isabyunus", "asbagferec", "—", "Tehzîb 536"),
+
+
+  /* Asbağ b. el-Ferec el-Ümevî (o. 225) -- talebeleri.
+     Tehzîb 536. Tercemede 21 kayit var, agda dugumu olan 2'i cizildi. */
+  E("asbagferec", "ebuhatimrazi", "—", "Tehzîb 536"),
+  E("asbagferec", "zuhli", "د", "Tehzîb 536"),
+  E("asbagferec", "buhari", "خ", "Tehzîb 536"),
+
+
+  /* Süreyc b. en-Nu‘mân el-Cevherî (o. 217) -- hocalari.
+     Tehzîb 2190. Tercemede 29 kayit var, agda dugumu olan 9'i cizildi. */
+  E("bakiyyevelid", "surayjnuman", "—", "Tehzîb 2190"),
+  E("cerirabdulhamid", "surayjnuman", "—", "Tehzîb 2190"),
+  E("hammadzeyd", "surayjnuman", "—", "Tehzîb 2190"),
+  E("hammadseleme", "surayjnuman", "تم س", "Tehzîb 2190"),
+  E("ibnuyeyne", "surayjnuman", "—", "Tehzîb 2190"),
+  E("ibnvehb", "surayjnuman", "—", "Tehzîb 2190"),
+  E("macisun", "surayjnuman", "—", "Tehzîb 2190"),
+  E("huseym", "surayjnuman", "—", "Tehzîb 2190"),
+  E("ebuavane", "surayjnuman", "—", "Tehzîb 2190"),
+
+
+  /* Süreyc b. en-Nu‘mân el-Cevherî (o. 217) -- talebeleri.
+     Tehzîb 2190. Tercemede 27 kayit var, agda dugumu olan 9'i cizildi. */
+  E("surayjnuman", "bh03", "—", "Tehzîb 2190"),
+  E("surayjnuman", "ahmedhanbel", "—", "Tehzîb 2190"),
+  E("surayjnuman", "ahmedmeni", "ت", "Tehzîb 2190"),
+  E("surayjnuman", "zuheyrharb", "—", "Tehzîb 2190"),
+  E("surayjnuman", "ibnebiseybe", "د ق", "Tehzîb 2190"),
+  E("surayjnuman", "ebuzuraraazi", "—", "Tehzîb 2190"),
+  E("surayjnuman", "amrnakid", "—", "Tehzîb 2190"),
+  E("surayjnuman", "ebuhatimrazi", "—", "Tehzîb 2190"),
+  E("surayjnuman", "muhammedrafi", "خ", "Tehzîb 2190"),
+  E("surayjnuman", "buhari", "خ", "Tehzîb 2190"),
+  E("surayjnuman", "abbasduri", "—", "Tehzîb 2190"),
+
+
+  /* Müslim b. el-Haccâc (o. 261) -- hocalari.
+     Siyer 12/558-561. Tercemede 157 kayit var, agda dugumu olan 11'i cizildi. */
+  E("alihucr", "muslim", "—", "Siyer 12/558-561"),
+  E("amrbnalisayrafi", "muslim", "—", "Siyer 12/558-561"),
+  E("amrnakid", "muslim", "—", "Siyer 12/558-561"),
+  E("muhammedabbadcafer", "muslim", "—", "Siyer 12/558-561"),
+  E("muhammedabdulalasanani", "muslim", "—", "Siyer 12/558-561"),
+  E("ibnebiomeradeni", "muslim", "—", "Siyer 12/558-561"),
+  E("mahmudgaylan", "muslim", "—", "Siyer 12/558-561"),
+  E("ibnmain", "muslim", "—", "Siyer 12/558-561"),
+  E("alicad", "muslim", "—", "Siyer 12/558-561"),
+  E("alimedini", "muslim", "—", "Siyer 12/558-561"),
+  E("zuhli", "muslim", "—", "Siyer 12/558-561"),
+
+
+  /* Nesâî (o. 303) -- hocalari.
+     Siyer 14/125-126. Tercemede 72 kayit var, agda dugumu olan 7'i cizildi. */
+  E("ahmedmeni", "nesai", "—", "Siyer 14/125-126"),
+  E("alihucr", "nesai", "—", "Siyer 14/125-126"),
+  E("bundar", "nesai", "—", "Siyer 14/125-126"),
+  E("muhammedubeydmuharibi", "nesai", "—", "Siyer 14/125-126"),
+  E("ibnmusenna", "nesai", "—", "Siyer 14/125-126"),
+  E("mahmudgaylan", "nesai", "—", "Siyer 14/125-126"),
+  E("hennadseri", "nesai", "—", "Siyer 14/125-126"),
+
+
+  /* Ebû Dâvûd es-Sicistânî (o. 275) -- hocalari.
+     Siyer 13/204-205. Tercemede 44 kayit var, agda dugumu olan 6'i cizildi. */
+  E("saidsuleymansadeviye", "ebudavud", "—", "Siyer 13/204-205"),
+  E("ibnrecagudani", "ebudavud", "—", "Siyer 13/204-205"),
+  E("ibnrahuye", "ebudavud", "—", "Siyer 13/204-205"),
+  E("ibrahimmusaferra", "ebudavud", "—", "Siyer 13/204-205"),
+  E("alimedini", "ebudavud", "—", "Siyer 13/204-205"),
+  E("ibnmain", "ebudavud", "—", "Siyer 13/204-205"),
+
+
+  /* Tirmizî (o. 279) -- hocalari.
+     Siyer 13/271. Tercemede 36 kayit var, agda dugumu olan 4'i cizildi. */
+  E("ibnrahuye", "tirmizi", "—", "Siyer 13/271"),
+  E("amrbnalisayrafi", "tirmizi", "—", "Siyer 13/271"),
+  E("muhammedrafi", "tirmizi", "—", "Siyer 13/271"),
+  E("nasralicehdami", "tirmizi", "—", "Siyer 13/271"),
+
+
+  /* İbn Mâce (o. 273) -- hocalari.
+     Siyer 13/277-278. Tercemede 23 kayit var, agda dugumu olan 2'i cizildi. */
+  E("ibrahimmunzirhizami", "ibnmace", "—", "Siyer 13/277-278"),
+  E("zuheyrharb", "ibnmace", "—", "Siyer 13/277-278"),
+
+
+  /* Muhammed b. Sâbık et-Temîmî (o. 214) -- hocalari.
+     Tehzîb 5230. Tercemede 18 kayit var, agda dugumu olan 9'i cizildi. */
+  E("ibrahimtahman", "muhammedsabik", "—", "Tehzîb 5230"),
+  E("israilyunus", "muhammedsabik", "—", "Tehzîb 5230"),
+  E("zaidekudame", "muhammedsabik", "—", "Tehzîb 5230"),
+  E("serikkadi", "muhammedsabik", "—", "Tehzîb 5230"),
+  E("seybannahvi", "muhammedsabik", "—", "Tehzîb 5230"),
+  E("malikmigvel", "muhammedsabik", "—", "Tehzîb 5230"),
+  E("misersukdam", "muhammedsabik", "—", "Tehzîb 5230"),
+  E("varkaomer", "muhammedsabik", "—", "Tehzîb 5230"),
+  E("ibnebizaide", "muhammedsabik", "—", "Tehzîb 5230"),
+
+
+  /* Muhammed b. Sâbık et-Temîmî (o. 214) -- talebeleri.
+     Tehzîb 5230. Tercemede 15 kayit var, agda dugumu olan 9'i cizildi. */
+  E("muhammedsabik", "ahmeddevraki", "—", "Tehzîb 5230"),
+  E("muhammedsabik", "ahmedhanbel", "—", "Tehzîb 5230"),
+  E("muhammedsabik", "zuheyrharb", "—", "Tehzîb 5230"),
+  E("muhammedsabik", "ibnebiseybe", "—", "Tehzîb 5230"),
+  E("muhammedsabik", "musnedi", "—", "Tehzîb 5230"),
+  E("muhammedsabik", "mahmudgaylan", "—", "Tehzîb 5230"),
+  E("muhammedsabik", "yakubdevraki", "—", "Tehzîb 5230"),
+  E("muhammedsabik", "zuhli", "—", "Tehzîb 5230"),
+  E("muhammedsabik", "ibnmusenna", "—", "Tehzîb 5230"),
+
+
+  /* Muhammed b. Ar‘ara el-Kuraşî (o. 213) -- hocalari.
+     Tehzîb 5463. Tercemede 10 kayit var, agda dugumu olan 3'i cizildi. */
+  E("cerirhazim", "muhammedararah", "—", "Tehzîb 5463"),
+  E("sube", "muhammedararah", "—", "Tehzîb 5463"),
+  E("abdullahavn", "muhammedararah", "—", "Tehzîb 5463"),
+
+
+  /* Muhammed b. Ar‘ara el-Kuraşî (o. 213) -- talebeleri.
+     Tehzîb 5463. Tercemede 9 kayit var, agda dugumu olan 3'i cizildi. */
+  E("muhammedararah", "bundar", "—", "Tehzîb 5463"),
+  E("muhammedararah", "ibnmusenna", "—", "Tehzîb 5463"),
+  E("muhammedararah", "nasralicehdami", "—", "Tehzîb 5463"),
+
+
+  /* Bedel b. el-Muhabber et-Temîmî (o. 215) -- hocalari.
+     Tehzîb 647. Tercemede 14 kayit var, agda dugumu olan 2'i cizildi. */
+  E("zaidekudame", "bedelmuhabber", "—", "Tehzîb 647"),
+  E("sube", "bedelmuhabber", "—", "Tehzîb 647"),
+
+
+  /* Bedel b. el-Muhabber et-Temîmî (o. 215) -- talebeleri.
+     Tehzîb 647. Tercemede 10 kayit var, agda dugumu olan 3'i cizildi. */
+  E("bedelmuhabber", "amrbnalisayrafi", "—", "Tehzîb 647"),
+  E("bedelmuhabber", "bundar", "—", "Tehzîb 647"),
+  E("bedelmuhabber", "ibnmusenna", "—", "Tehzîb 647"),
+
+
+  /* Talk b. Gannâm en-Nehaî (o. 211) -- hocalari.
+     Tehzîb 2991. Tercemede 17 kayit var, agda dugumu olan 10'i cizildi. */
+  E("hafsgiyas", "talkgannam", "—", "Tehzîb 2991"),
+  E("zaidekudame", "talkgannam", "—", "Tehzîb 2991"),
+  E("serieyyahya", "talkgannam", "—", "Tehzîb 2991"),
+  E("serikkadi", "talkgannam", "—", "Tehzîb 2991"),
+  E("seybannahvi", "talkgannam", "—", "Tehzîb 2991"),
+  E("mesudi", "talkgannam", "—", "Tehzîb 2991"),
+  E("abdusselamharb", "talkgannam", "—", "Tehzîb 2991"),
+  E("kaysrebi", "talkgannam", "—", "Tehzîb 2991"),
+  E("malikmigvel", "talkgannam", "—", "Tehzîb 2991"),
+  E("hemmamyahya", "talkgannam", "—", "Tehzîb 2991"),
+
+
+  /* Talk b. Gannâm en-Nehaî (o. 211) -- talebeleri.
+     Tehzîb 2991. Tercemede 11 kayit var, agda dugumu olan 5'i cizildi. */
+  E("talkgannam", "ahmeddevraki", "—", "Tehzîb 2991"),
+  E("talkgannam", "ahmedhanbel", "—", "Tehzîb 2991"),
+  E("talkgannam", "ibnebiseybe", "—", "Tehzîb 2991"),
+  E("talkgannam", "osmanebiseybe", "—", "Tehzîb 2991"),
+  E("talkgannam", "ebukureyb", "—", "Tehzîb 2991"),
+
+
+  /* Hallâd b. Yahyâ es-Sülemî (o. 213) -- hocalari.
+     Tehzîb 1741. Tercemede 19 kayit var, agda dugumu olan 7'i cizildi. */
+  E("sevri", "halladyahya", "—", "Tehzîb 1741"),
+  E("omerzerr", "halladyahya", "—", "Tehzîb 1741"),
+  E("fitrhalife", "halladyahya", "—", "Tehzîb 1741"),
+  E("kaysrebi", "halladyahya", "—", "Tehzîb 1741"),
+  E("malikmigvel", "halladyahya", "—", "Tehzîb 1741"),
+  E("misersukdam", "halladyahya", "—", "Tehzîb 1741"),
+  E("nafiomercumahi", "halladyahya", "—", "Tehzîb 1741"),
+
+
+  /* Hallâd b. Yahyâ es-Sülemî (o. 213) -- talebeleri.
+     Tehzîb 1741. Tercemede 7 kayit var, agda dugumu olan 1'i cizildi. */
+  E("halladyahya", "ebuzuraraazi", "—", "Tehzîb 1741"),
+
+
+  /* Ali b. Ayyâş el-Elhânî (o. 219) -- hocalari.
+     Tehzîb 4116. Tercemede 16 kayit var, agda dugumu olan 7'i cizildi. */
+  E("ismailayyas", "aliayyas", "—", "Tehzîb 4116"),
+  E("bakiyyevelid", "aliayyas", "—", "Tehzîb 4116"),
+  E("ibnuyeyne", "aliayyas", "—", "Tehzîb 4116"),
+  E("suaybebihamza", "aliayyas", "—", "Tehzîb 4116"),
+  E("macisun", "aliayyas", "—", "Tehzîb 4116"),
+  E("isabyunus", "aliayyas", "—", "Tehzîb 4116"),
+  E("leysbsad", "aliayyas", "—", "Tehzîb 4116"),
+
+
+  /* Ali b. Ayyâş el-Elhânî (o. 219) -- talebeleri.
+     Tehzîb 4116. Tercemede 13 kayit var, agda dugumu olan 4'i cizildi. */
+  E("aliayyas", "cuzcani", "—", "Tehzîb 4116"),
+  E("aliayyas", "ahmedhanbel", "—", "Tehzîb 4116"),
+  E("aliayyas", "duhaym", "—", "Tehzîb 4116"),
+  E("aliayyas", "zuhli", "—", "Tehzîb 4116"),
+
+
+  /* Ebû Müshir ed-Dımaşkī (o. 218) -- hocalari.
+     Tehzîb 3691. Tercemede 23 kayit var, agda dugumu olan 9'i cizildi. */
+  E("ismailayyas", "ebumushir", "—", "Tehzîb 3691"),
+  E("bakiyyevelid", "ebumushir", "—", "Tehzîb 3691"),
+  E("saidabdulaziz", "ebumushir", "—", "Tehzîb 3691"),
+  E("ibnuyeyne", "ebumushir", "—", "Tehzîb 3691"),
+  E("isabyunus", "ebumushir", "—", "Tehzîb 3691"),
+  E("malik", "ebumushir", "—", "Tehzîb 3691"),
+  E("muhammedharbhavlani", "ebumushir", "—", "Tehzîb 3691"),
+  E("muaviyesellam", "ebumushir", "—", "Tehzîb 3691"),
+  E("hikalziyad", "ebumushir", "—", "Tehzîb 3691"),
+
+
+  /* Ebû Müshir ed-Dımaşkī (o. 218) -- talebeleri.
+     Tehzîb 3691. Tercemede 8 kayit var, agda dugumu olan 4'i cizildi. */
+  E("ebumushir", "cuzcani", "—", "Tehzîb 3691"),
+  E("ebumushir", "ahmedsalihmisri", "—", "Tehzîb 3691"),
+  E("ebumushir", "ahmedhanbel", "—", "Tehzîb 3691"),
+  E("ebumushir", "ishakkevsec", "—", "Tehzîb 3691"),
+
+
+  /* Bişr b. Şuayb b. Ebî Hamza (o. 213) -- hocalari.
+     Tehzîb 691. Tercemede 1 kayit var, agda dugumu olan 1'i cizildi. */
+  E("suaybebihamza", "bisrsuayb", "—", "Tehzîb 691"),
+
+
+  /* Bişr b. Şuayb b. Ebî Hamza (o. 213) -- talebeleri.
+     Tehzîb 691. Tercemede 7 kayit var, agda dugumu olan 3'i cizildi. */
+  E("bisrsuayb", "ahmedhanbel", "—", "Tehzîb 691"),
+  E("bisrsuayb", "ishakkevsec", "—", "Tehzîb 691"),
+  E("bisrsuayb", "zuhli", "—", "Tehzîb 691"),
+
+
+  /* Ahmed b. Hâlid el-Vehbî el-Kindî (o. 214) -- hocalari.
+     Tehzîb 30. Tercemede 8 kayit var, agda dugumu olan 6'i cizildi. */
+  E("israilyunus", "ahmedhalidvehbi", "—", "Tehzîb 30"),
+  E("seybannahvi", "ahmedhalidvehbi", "—", "Tehzîb 30"),
+  E("mesudi", "ahmedhalidvehbi", "—", "Tehzîb 30"),
+  E("macisun", "ahmedhalidvehbi", "—", "Tehzîb 30"),
+  E("kaysrebi", "ahmedhalidvehbi", "—", "Tehzîb 30"),
+  E("ibnishak", "ahmedhalidvehbi", "—", "Tehzîb 30"),
+
+
+  /* Eyyûb b. Süleymân b. Bilâl (o. 224) -- talebeleri.
+     Tehzîb 614. Tercemede 6 kayit var, agda dugumu olan 2'i cizildi. */
+  E("eyyubsuleymanbilal", "ebuhatimrazi", "—", "Tehzîb 614"),
+  E("eyyubsuleymanbilal", "zuhli", "—", "Tehzîb 614"),
+
+
+  /* SIYER EKI, IKINCI TUR -- Buhari baglari.
+
+     Arac Buhari'yi hicbir zaman otomatik eslestirmiyor: dugumun adi
+     «محمد بن إسماعيل البخاري», tercemelerdeki kayit ise yalnizca
+     «البخاري». Bu yuzden onun kenarlari her seferinde elle yaziliyor.
+     Her biri Mizzi'nin ilgili tercemesindeki «روى عنه: البخاري»
+     kaydina dayaniyor. */
+  E("muhammedsabik", "buhari", "—", "Tehzîb 5230"),
+  E("muhammedararah", "buhari", "—", "Tehzîb 5463"),
+  E("bedelmuhabber", "buhari", "—", "Tehzîb 647"),
+  E("talkgannam", "buhari", "—", "Tehzîb 2991"),
+  E("halladyahya", "buhari", "—", "Tehzîb 1741"),
+  E("aliayyas", "buhari", "—", "Tehzîb 4116"),
+  E("ebumushir", "buhari", "—", "Tehzîb 3691"),
+  E("bisrsuayb", "buhari", "—", "Tehzîb 691"),
+  E("ahmedhalidvehbi", "buhari", "—", "Tehzîb 30"),
+  E("eyyubsuleymanbilal", "buhari", "—", "Tehzîb 614"),
+  E("sadakafadl", "buhari", "—", "Tehzîb 2867"),
+  E("hassanhassan", "buhari", "—", "Tehzîb 1189"),
+  E("abdulazizuveysi", "buhari", "—", "Tehzîb 3457"),
+  E("ahmedeskab", "buhari", "—", "Tehzîb 11"),
+
+  /* Sadaka b. el-Fadl el-Mervezî (o. 223) -- hocalari.
+     Tehzîb 2867. Tercemede 21 kayit var, agda dugumu olan 15'i cizildi. */
+  E("ibnuleyye", "sadakafadl", "—", "Tehzîb 2867"),
+  E("haccacmuhammed", "sadakafadl", "—", "Tehzîb 2867"),
+  E("hafsgiyas", "sadakafadl", "—", "Tehzîb 2867"),
+  E("ibnuyeyne", "sadakafadl", "—", "Tehzîb 2867"),
+  E("ibnvehb", "sadakafadl", "—", "Tehzîb 2867"),
+  E("ibnmehdi", "sadakafadl", "—", "Tehzîb 2867"),
+  E("abdesuleyman", "sadakafadl", "—", "Tehzîb 2867"),
+  E("gunder", "sadakafadl", "—", "Tehzîb 2867"),
+  E("ebumuaviyedarir", "sadakafadl", "—", "Tehzîb 2867"),
+  E("muazmuaz", "sadakafadl", "—", "Tehzîb 2867"),
+  E("mutemirsuleyman", "sadakafadl", "—", "Tehzîb 2867"),
+  E("veki", "sadakafadl", "—", "Tehzîb 2867"),
+  E("velidmuslim", "sadakafadl", "—", "Tehzîb 2867"),
+  E("kattan", "sadakafadl", "—", "Tehzîb 2867"),
+  E("yezidharun", "sadakafadl", "—", "Tehzîb 2867"),
+
+
+  /* Sadaka b. el-Fadl el-Mervezî (o. 223) -- talebeleri.
+     Tehzîb 2867. Tercemede 10 kayit var, agda dugumu olan 2'i cizildi. */
+  E("sadakafadl", "darimi", "—", "Tehzîb 2867"),
+  E("sadakafadl", "ebukudame", "—", "Tehzîb 2867"),
+
+
+  /* Hassân b. Hassân el-Basrî (o. 213) -- hocalari.
+     Tehzîb 1189. Tercemede 11 kayit var, agda dugumu olan 5'i cizildi. */
+  E("sube", "hassanhassan", "—", "Tehzîb 1189"),
+  E("macisun", "hassanhassan", "—", "Tehzîb 1189"),
+  E("kaysrebi", "hassanhassan", "—", "Tehzîb 1189"),
+  E("hemmamyahya", "hassanhassan", "—", "Tehzîb 1189"),
+  E("ebuavane", "hassanhassan", "—", "Tehzîb 1189"),
+
+
+  /* Hassân b. Hassân el-Basrî (o. 213) -- talebeleri.
+     Tehzîb 1189. Tercemede 6 kayit var, agda dugumu olan 2'i cizildi. */
+  E("hassanhassan", "ebuzuraraazi", "—", "Tehzîb 1189"),
+  E("hassanhassan", "ms22", "—", "Tehzîb 1189"),
+
+
+  /* Abdülazîz b. Abdillâh el-Üveysî (o. 223) -- hocalari.
+     Tehzîb 3457. Tercemede 17 kayit var, agda dugumu olan 7'i cizildi. */
+  E("ibrahimsad", "abdulazizuveysi", "—", "Tehzîb 3457"),
+  E("suleymanbilal", "abdulazizuveysi", "—", "Tehzîb 3457"),
+  E("macisun", "abdulazizuveysi", "—", "Tehzîb 3457"),
+  E("darevardi", "abdulazizuveysi", "—", "Tehzîb 3457"),
+  E("leysbsad", "abdulazizuveysi", "—", "Tehzîb 3457"),
+  E("malik", "abdulazizuveysi", "—", "Tehzîb 3457"),
+  E("nafiomercumahi", "abdulazizuveysi", "—", "Tehzîb 3457"),
+
+
+  /* Abdülazîz b. Abdillâh el-Üveysî (o. 223) -- talebeleri.
+     Tehzîb 3457. Tercemede 13 kayit var, agda dugumu olan 4'i cizildi. */
+  E("abdulazizuveysi", "ebuzuraraazi", "—", "Tehzîb 3457"),
+  E("abdulazizuveysi", "ebuhatimrazi", "—", "Tehzîb 3457"),
+  E("abdulazizuveysi", "zuhli", "—", "Tehzîb 3457"),
+  E("abdulazizuveysi", "harunhammal", "—", "Tehzîb 3457"),
+
+
+  /* Ahmed b. İşkâb el-Hadramî (o. 217) -- hocalari.
+     Tehzîb 11. Tercemede 14 kayit var, agda dugumu olan 5'i cizildi. */
+  E("serikkadi", "ahmedeskab", "—", "Tehzîb 11"),
+  E("abdusselamharb", "ahmedeskab", "—", "Tehzîb 11"),
+  E("muhammedbisrabdi", "ahmedeskab", "—", "Tehzîb 11"),
+  E("muhammedfudayl", "ahmedeskab", "—", "Tehzîb 11"),
+  E("ebubekirayyas", "ahmedeskab", "—", "Tehzîb 11"),
+
+
+  /* Ahmed b. İşkâb el-Hadramî (o. 217) -- talebeleri.
+     Tehzîb 11. Tercemede 10 kayit var, agda dugumu olan 2'i cizildi. */
+  E("ahmedeskab", "ebuhatimrazi", "—", "Tehzîb 11"),
+  E("ahmedeskab", "ibnmain", "—", "Tehzîb 11"),
 
 ];
 
