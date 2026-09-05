@@ -994,16 +994,29 @@ export function kur(V, { yay, acilis } = {}) {
        1,0 idi, fazla geldi ("bu cok fazla olmus"); su anki degerlerle
        acilista kalinlik 0,36 -> 0,66 piksel, opaklik %26 -> %51.
 
-       ARTAN TERIM `k`YE DEGIL `k * YAY`A BAGLI, tipki DERECE_MERDIVEN
-       gibi. Ham `k` YAY ile ters orantili, yani YAY 640'ta ayni goruntu
-       on kat kucuk bir k'ya dusuyor ve terim sifira yaklasiyordu:
-       deneme sayfasinda kalinlik ve opaklik ne kadar yakinlasilirsa
-       yakinlasilsin tabanda cakili kaliyordu -- derin yakinlikta
-       cizgilerin gorunmemesinin bir ayagi buydu. `/ 64` carpani eski
-       davranisi birebir koruyor (YAY 64 iken kYay * 7 / 64 = k * 7). */
+       ARTAN TERIM DENEME SAYFASINDA YOK (Mustafa, 2026-09-05: "su
+       yaklastikca siliklestirme-koyulastirma isini komple iptal
+       edelim"). Orada kalinlik da opaklik da HER OLCEKTE AYNI: cizgi
+       uzakta ne ise yakinda da o.
+
+       Nicin iptal edildi: bu terim uc gun boyunca uc ayri sikayetin
+       ortak sebebi oldu (once gurultu, sonra "yaklasinca kayboluyor",
+       sonra "yaklasinca belirginlesmiyor"). Her seferinde egriyi
+       duzeltmek yerine baska bir egri kondu. Sabit bir cizgi bu
+       sinifin tamamini ortadan kaldiriyor.
+
+       Yayindaki haritada DURUYOR (taban 0,3 + yakinlik payi): orada
+       zeytin cizgi acik krem zeminde, uzaklasinca ust uste binip
+       zemini kirletiyor ve kisilmasi dogru. Deneme sayfasinin beyaz
+       cizgisinde kisma dogrudan gorunmezlik demek.
+
+       `/ 64`: terim `k`ye degil `k * YAY`a bagli (tipki DERECE_MERDIVEN
+       gibi), cunku ham `k` YAY ile ters orantili. YAY 64 iken
+       kYay * 7 / 64 = k * 7, yani yayindaki davranis birebir ayni. */
     const kYayCizgi = durgun.k * YAY;
+    const yakinlikPayi = denemeKenarKirp ? 0 : kYayCizgi / 64;
     const cizgiCarpani = Math.min(1, (denemeZemin ? 0.55 : 0.3) +
-                                     kYayCizgi * 7 / 64);
+                                     yakinlikPayi * 7);
   
     /* Bir kenarin yol dizgisi. Iki yerde lazim: tek tek cizilen
        (vurgulu / yakin) kenarlarda ve uzakta hepsinin birlestirildigi
@@ -1026,24 +1039,28 @@ export function kur(V, { yay, acilis } = {}) {
        altindaki not). Yalnizca normal ve sonuk kenarlar bu degeri
        kullaniyor; secili kenar ile akan kenarin opakligi sabit, yani
        zemin sakinlesirken bir yolu one cikarma zayiflamiyor. */
-    /* BURADA BIR ZAMANLAR YAKINLIGA BAGLI BIR SONUM VARDI; kaldirildi,
-       yerine asagidaki KACAK KENAR + KALABALIK olcutu geldi.
+    /* BURADA UC AYRI SONUM DENENDI, UCU DE KALDIRILDI (Mustafa,
+       2026-09-05: "su yaklastikca siliklestirme-koyulastirma isini
+       komple iptal edelim"). Sirasiyla:
 
-       Hikayesi: noktalarin arkasindaki cizgi gurultusune ("telefonda
-       daha da kotu") once butun kenarlari yakinlikla ters orantili
-       soldurarak karsilik verilmisti. Iki kez yanildi. Once gurultuyu
-       durduramadi ("biraz yakinlastirinca yine ayni cizgi gurultusu
-       basliyor"), cunku 0,35 tabanina oturup orada kaliyordu. Sonra
-       KACAK KENAR eklenince iki sonum ust uste bindi ve derin
-       yakinlikta kenarlar tumden kayboldu ("asiri yaklasinca cizgiler
-       komple yok oluyor").
+       1. Yakinlikla ters orantili genel sonum -- noktalarin arkasindaki
+          cizgi gurultusune karsi. Gurultuyu durduramadi, cunku tabana
+          oturup orada kaliyordu ("biraz yakinlastirinca yine ayni cizgi
+          gurultusu basliyor"), ustelik okunmasi istenen bagi da
+          soluyordu.
+       2. "Kacak kenar" (bir ucu ekran disinda) icin sabit bir kisma --
+          birinciyle carpilinca derin yakinlikta her seyi sildi ("asiri
+          yaklasinca cizgiler komple yok oluyor").
+       3. Kalabaliga (o karede cizilecek kenar sayisina) bagli sonum --
+          egriyi tek yonlu yapti ama sorunu cozmedi: cizgi hala
+          yakinlikla degisiyordu ve istenen bu degildi.
 
-       Ders: yakinlik yanlis olcut. Gurultuyu yakin olmak yapmiyor,
-       KALABALIK yapiyor -- ayni olcekte Sube'nin cevresi bogucu,
-       Yemen'in kenari bombos. Ayrica derin yakinlikta kadraja zaten
-       birkac kenar giriyor; orasi kismanin degil, gostermenin yeri. */
+       Ders: cizginin agirligi kadrajin durumundan HIC turetilmemeli.
+       Deneme sayfasinda artik sabit; kalabalik gorunume karsi elde
+       kalan arac cizginin kendisi degil, DERECE_MERDIVEN (uzakta az
+       baglantili noktayi kuculten eleme) -- o yerinde duruyor. */
     const cizgiSaydam = Math.min(1, (denemeZemin ? 0.6 : 0.3) +
-                                    kYayCizgi * 6 / 64) *
+                                    yakinlikPayi * 6) *
                         (koyu || denemeZemin ? 1 : 0.5);
   
   
@@ -1266,52 +1283,6 @@ export function kur(V, { yay, acilis } = {}) {
       /* Bir kenar ucunun GERCEK kadrajda olup olmadigi -- `icerde`den
          ayri: o, kaba elemenin 3x3 karo penceresine bakiyor ve ekrandan
          epey genis. Bkz. asagida GECIP GIDEN KENAR. */
-      /* Ucun EKRANDA olup olmadigi. Pay ekranin onda biri: bu olcut
-         elemek icin degil, kenari "yerel mi uzak mi" diye ayirmak icin.
-         Bkz. UZAK KENAR. */
-      const payDarX = box.w * 0.1, payDarY = box.h * 0.1;
-      const ucEkranda = (p) => {
-        const x = eX(p.x), y = eY(p.y);
-        return x >= -payDarX && x <= box.w + payDarX &&
-               y >= -payDarY && y <= box.h + payDarY;
-      };
-      /* KENARIN GOVDESI KADRAJI KESIYOR MU (Mustafa, 2026-09-05:
-         "yaklastikca belirginlesmesi gerekirken yaklastikca kayboluyor").
-
-         Burada bir zamanlar UCLARA bakan bir eleme vardi: iki ucu da
-         kadrajin disinda kalan kenar cizilmiyordu. Yanlisti ve tam bu
-         sikayeti uretiyordu -- yakinlasildikca her kenarin uclari
-         kacinilmaz olarak disari cikiyor, yani eleme yakinlikla birlikte
-         her seyi yutuyor. Olculdu: bos bir noktaya yakinlasirken cizilen
-         kenar sayisi 285 -> 67 -> 18 -> 0.
-
-         Dogru soru ucun nerede oldugu degil, KENARIN EKRANI KESIP
-         KESMEDIGI. Slab yontemi: dogru parcasi ile dikdortgen kesisiyor
-         mu. Kavis govdeyi biraz disari tasiriyor, pay onu karsiliyor.
-
-         Bu olcutle sayi yakinlikla DUSUYOR (1804 -> 76), yani kalabalik
-         kendiliginden cozuluyor ve asagidaki sonum de dogru yone
-         calisiyor. */
-      const kesX = box.w * 0.25, kesY = box.h * 0.25;
-      const kadrajiKesiyor = (pa, pb) => {
-        const x0 = eX(pa.x), y0 = eY(pa.y), x1 = eX(pb.x), y1 = eY(pb.y);
-        const rx0 = -kesX, ry0 = -kesY, rx1 = box.w + kesX, ry1 = box.h + kesY;
-        if (Math.max(x0, x1) < rx0 || Math.min(x0, x1) > rx1 ||
-            Math.max(y0, y1) < ry0 || Math.min(y0, y1) > ry1) return false;
-        if ((x0 >= rx0 && x0 <= rx1 && y0 >= ry0 && y0 <= ry1) ||
-            (x1 >= rx0 && x1 <= rx1 && y1 >= ry0 && y1 <= ry1)) return true;
-        const dx = x1 - x0, dy = y1 - y0;
-        let t0 = 0, t1 = 1;
-        const dilim = (p, q) => {
-          if (p === 0) return q >= 0;
-          const r = q / p;
-          if (p < 0) { if (r > t1) return false; if (r > t0) t0 = r; }
-          else { if (r < t0) return false; if (r < t1) t1 = r; }
-          return true;
-        };
-        return dilim(-dx, x0 - rx0) && dilim(dx, rx1 - x0) &&
-               dilim(-dy, y0 - ry0) && dilim(dy, ry1 - y0);
-      };
       const vurus = { dugum: [], etiket: [], kenar: [] };
       vurusRef.current = vurus;
   
@@ -1406,7 +1377,7 @@ export function kur(V, { yay, acilis } = {}) {
       };
       const canliKenarlar = [];
       let seciliKenar = null;
-      const sonukYol = [], normalYol = [], uzakYol = [], gecenYol = [];
+      const sonukYol = [], normalYol = [];
       for (const e of EDGES) {
         const pa = POS[e.a], pb = POS[e.b];
         if (!pa || !pb || !kenarIcerde(pa, pb)) continue;
@@ -1419,13 +1390,6 @@ export function kur(V, { yay, acilis } = {}) {
         const secili = secKenar && secKenar.a === e.a && secKenar.b === e.b;
         const canli = !secili && !!(secim && secim.tur === "ravi" &&
           (e.a === secim.id || e.b === secim.id));
-        /* Govdesi kadraji hic kesmeyen kenar cizilmiyor. `kenarIcerde`
-           bunu yapmiyor: o iki ucun KUTUSUNA bakiyor ve capraz uzanan
-           uzun bir bagin kutusu ekrani kapsasa da govdesi kilometrelerce
-           oteden gecebiliyor. Secili ve vurgulu kenarlar muaf -- bir
-           raviye tiklandiginda baglari nereden gecerse gecsin gorunmeli. */
-        if (denemeKenarKirp && !secili && !canli && !kadrajiKesiyor(pa, pb))
-          continue;
         const c = kenarKubik(e);
         if (!c) continue;
         vurus.kenar.push({ e, c });
@@ -1433,25 +1397,12 @@ export function kur(V, { yay, acilis } = {}) {
         if (canli) { canliKenarlar.push(c); continue; }
         // ekranda uc pikselden kisa kalan kenar gorunmuyor
         if (Math.hypot(pb.x - pa.x, pb.y - pa.y) * k < 3) continue;
-        /* UZAK KENAR: uclarindan en az biri ekranin disinda kalan bag.
-           Uc kumeye ayriliyor, cunku tasidiklari bilgi ayni degil:
-
-           - YEREL (iki ucu da ekranda): okunabilir bir bag, hoca da
-             talebe de goruntude. Hep tam opak.
-           - UZAK (bir ucu ekranda): ekrandaki bir ravinin baska yere
-             giden bagi. Obur ucu gorunmuyor ama "buradan cikan bir bag
-             var" bilgisi duruyor.
-           - GECEN (iki ucu da disarida, govdesi ekrani kesiyor): baska
-             yerlerin trafigi. En az sey soyleyen kume.
-
-           Opakligi belirleyen sey YAKINLIK DEGIL, KALABALIK: ayni
-           olcekte Sube'nin cevresi bogucu, Yemen'in kenari bombos.
-           Bkz. asagida uzakSonum. */
-        const yerel = !denemeKenarKirp ||
-                      (ucEkranda(pa) && ucEkranda(pb));
-        const hedef = yerel ? ((kenarSonuk(e) || uzakUc) ? sonukYol : normalYol)
-                    : (ucEkranda(pa) || ucEkranda(pb)) ? uzakYol : gecenYol;
-        hedef.push(c);
+        /* Kadrajla ilgili HICBIR ayrim yok: kenar ya normal ya sonuk
+           yola giriyor, tipki yayindaki haritada oldugu gibi. Bir ara
+           burada "kacak / uzak / gecen" diye kumeler vardi ve opaklik
+           onlarin sayisindan tureniyordu; kaldirildi (bkz. cizgiSaydam
+           ustundeki not). */
+        (kenarSonuk(e) || uzakUc ? sonukYol : normalYol).push(c);
       }
       const topluCiz = (liste, renk, kalinlik, saydam) => {
         if (!liste.length) return;
@@ -1462,39 +1413,6 @@ export function kur(V, { yay, acilis } = {}) {
         for (const c of liste) kubik(ctx, c);
         ctx.stroke();
       };
-      /* UZAK KENARIN OPAKLIGI SAYIYA BAGLI, YAKINLIGA DEGIL.
-
-         Yakinliga baglamak iki kez yanlis cikti: bir kere gurultuyu
-         durduramadi, bir kere de derin yakinlikta her seyi sildi.
-         Gurultuyu yakin olmak yapmiyor, KALABALIK yapiyor.
-
-         Olcut, o karede cizilecek uzak + gecen kenar sayisi. Elli
-         kenara kadar tam opak -- o kadari doku degil, okunabilir bir
-         avuc bag; ustune ciktikca ters orantili iniyor ve %12'de
-         duruyor. Kalinlik da ayni orana biniyor: incelik ile sonukluk
-         birlikte gitmezse ince ama opak cizgi yine kesik kesik bir doku
-         birakiyor.
-
-         Kendini ayarliyor, ayrica bir olcek esigi gerekmiyor. Olculdu
-         (Su'be merkezli, masaustu): kadraji kesen kenar sayisi kYay
-         0,011'de 1804, kYay 12'de 76 -- yani yaklastikca kalabalik
-         kendiliginden dagiliyor ve ayni formul once sondurup sonra
-         aciyor. Bos bir noktada sayi 2'ye kadar iniyor, orada hepsi
-         tam opak.
-
-         GECEN kume (iki ucu da disarida) ayrica kisiliyor: en az sey
-         soyleyen kume o, ve uzaktan bakarken sayica en kalabalik olan
-         da o. Bu carpan olmadan uzak gorunume kirk kadar fazla murekkep
-         biniyor. */
-      const UZAK_DOYUM = 50, GECEN_KISMA = 0.6;
-      const uzakSonum = Math.max(0.12, Math.min(1,
-        UZAK_DOYUM / Math.max(uzakYol.length + gecenYol.length, 1)));
-      const uzakKalinlik = (0.55 + 0.45 * uzakSonum) * cizgiCarpani;
-      const uzakOpak = (vurgu ? 0.22 : 0.85) * cizgiSaydam * uzakSonum;
-      // En altta, en ince, en silik: once gecenler, sonra uzaklar.
-      topluCiz(gecenYol, C.kenarSonuk, uzakKalinlik * 0.8,
-               uzakOpak * GECEN_KISMA);
-      topluCiz(uzakYol, C.kenarSonuk, uzakKalinlik, uzakOpak);
       topluCiz(sonukYol, C.kenarSonuk, 0.7 * cizgiCarpani,
                (vurgu ? 0.22 : 0.5) * cizgiSaydam);
       topluCiz(normalYol, C.kenar, 1.2 * cizgiCarpani, 0.85 * cizgiSaydam);
