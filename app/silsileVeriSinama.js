@@ -1305,6 +1305,24 @@ export const NODES = [
     "Tehzîb terceme 30. Zehebî, Buhârî'nin Humus şeyhleri arasında sayar (Siyer 12/395). Ebû Saîd b. Ebî Mahled el-Hımsî; Muhammed b. İshak'ın Sîre'sini nakleden başlıca râvilerden. Buhârî ondan Cüz'ü'l-kırâe halfe'l-imâm ve el-Edebü'l-müfred'de rivayet eder, Sahîh'te değil. Kardeşi Muhammed b. Hâlid el-Vehbî de râvidir."),
   N("eyyubsuleymanbilal", "أيوب بن سليمان بن بلال القرشي", "Eyyûb b. Süleymân b. Bilâl", 5, 224, "Medine",
     "Tehzîb terceme 614, rumûz خ د ت س. Zehebî, Buhârî'nin Medine şeyhleri arasında sayar (Siyer 12/394). Rivayetinin tamamı babası Süleymân b. Bilâl'in nüshasıdır; ama onu babasından doğrudan değil, Ebû Bekir Abdülhamîd b. Ebî Üveys vasıtasıyla alır — Zehebî «babasına yetiştiğini görmedim» der. Buhârî'nin Medineli şeyhlerinin sonuncularından."),
+
+  /* SIYER EKI, UCUNCU TUR (2026-09-05). Ikinci turda bulunamayan dort
+     isim. Sebep her seferinde ayni: Samile'nin arama dizini sorguyu
+     bes belirtece kirpiyor ve Tehzib'in BASLIK dizini bu dort tercemeyi
+     tasimiyor. Cozum, govde metninde tercemenin KENDI bas kalibiyla
+     aramak -- Mizzi'nin yazdigi sekliyle, sonradan eklenen nisbe
+     olmadan. Sadaka b. el-Fadl'in bas kaydinda mesela «المروزي» yok,
+     «صدقة بن الفضل، أبو الفضل المروزي» diye geciyor; «صدقة بن الفضل
+     المروزي» diye arayinca yalnizca baskalarinin tercemelerindeki
+     anmalar cikiyordu. */
+  N("sadakafadl", "صدقة بن الفضل المروزي", "Sadaka b. el-Fadl el-Mervezî", 5, 223, "Horasan",
+    "Tehzîb terceme 2867, rumûz خ. Zehebî, Buhârî'nin Merv şeyhleri arasında sayar (Siyer 12/394). Abbâs b. el-Velîd en-Nersî'nin sözü onu tarif eder: «Horasan'da Sadaka b. el-Fadl derdik, Irak'ta Ahmed b. Hanbel.» Abbâs b. Abdilazîm el-Anberî de kendisiyle Allah arasında hüccet saydığı üç kişiden biri olarak anar. Merv'de «Sikketü Sadaka» ona nisbetle anılır. Nesâî sika, İbn Hibbân «hadis ve sünnet sahibi» der. Buhârî «iki yüz yirmi küsurda vefat etti» der; başkaları 223, kimi 226 verir."),
+  N("hassanhassan", "حسان بن حسان البصري", "Hassân b. Hassân el-Basrî", 5, 213, "Mekke",
+    "Tehzîb terceme 1189, rumûz خ. Zehebî, Buhârî'nin Mekke şeyhleri arasında sayar (Siyer 12/394). Ebû Alî b. Ebî Abbâd; Basralı olup Mekke'ye yerleşti. Buhârî ondan Hemmâm b. Yahyâ ve Muhammed b. Talha yoluyla rivayet eder ve «Mukri' onu överdi» der. Ebû Hâtim münkerü'l-hadîs saymış, İbn Hacer «sadûk yuhtî» demiştir. Buhârî'ye göre 213'te vefat etti."),
+  N("abdulazizuveysi", "عبد العزيز بن عبد الله الأويسي", "Abdülazîz b. Abdillâh el-Üveysî", 5, 223, "Medine",
+    "Tehzîb terceme 3457, rumûz خ. Zehebî, Buhârî'nin Medine şeyhleri arasında sayar (Siyer 12/394). Ebü'l-Kāsım el-Medenî. Mâlik'in Muvatta'ının bir kısmını ondan işitip kalanını arz yoluyla aldı; Ebû Hâtim onu Yahyâ b. Bükeyr'e tercih eder. Ya‘kūb b. Şeybe ve Ebû Dâvûd sika, Dârekutnî hüccet, Halîlî «üzerinde ittifak edilmiş sika» der. İbrâhim b. Sa‘d, Süleymân b. Bilâl ve Abdülazîz b. Ebî Hâzim'den gelen Buhârî isnadlarının Medine ayağıdır."),
+  N("ahmedeskab", "أحمد بن إشكاب الحضرمي", "Ahmed b. İşkâb el-Hadramî", 5, 217, "Mısır",
+    "Tehzîb terceme 11, rumûz خ. Zehebî, Buhârî'nin Mısır şeyhleri arasında sayar (Siyer 12/395). Ebû Abdillâh es-Saffâr; Kûfeli olup Mısır'a yerleşti. Zehretü'l-müteallimîn'e göre Buhârî'nin yaşıtıdır ve ondan sekiz hadis rivayet etmiştir. Ebû Hâtim «sika, me'mûn, sadûk — Mısır'da kendisinden yazdım», Ya‘kūb b. Şeybe «Kûfeli, sika» der; İbn Maîn ondan çok yazmıştır. Buhârî «Mısır'da onunla son görüşmem 217'dedir» der, İbn Yûnus 217 yahut 218'de vefat ettiğini kaydeder."),
 ];
 
 
@@ -6879,6 +6897,84 @@ const EDGES_HAM = [
   E("bisrsuayb", "buhari", "—", "Tehzîb 691"),
   E("ahmedhalidvehbi", "buhari", "—", "Tehzîb 30"),
   E("eyyubsuleymanbilal", "buhari", "—", "Tehzîb 614"),
+  E("sadakafadl", "buhari", "—", "Tehzîb 2867"),
+  E("hassanhassan", "buhari", "—", "Tehzîb 1189"),
+  E("abdulazizuveysi", "buhari", "—", "Tehzîb 3457"),
+  E("ahmedeskab", "buhari", "—", "Tehzîb 11"),
+
+  /* Sadaka b. el-Fadl el-Mervezî (o. 223) -- hocalari.
+     Tehzîb 2867. Tercemede 21 kayit var, agda dugumu olan 15'i cizildi. */
+  E("ibnuleyye", "sadakafadl", "—", "Tehzîb 2867"),
+  E("haccacmuhammed", "sadakafadl", "—", "Tehzîb 2867"),
+  E("hafsgiyas", "sadakafadl", "—", "Tehzîb 2867"),
+  E("ibnuyeyne", "sadakafadl", "—", "Tehzîb 2867"),
+  E("ibnvehb", "sadakafadl", "—", "Tehzîb 2867"),
+  E("ibnmehdi", "sadakafadl", "—", "Tehzîb 2867"),
+  E("abdesuleyman", "sadakafadl", "—", "Tehzîb 2867"),
+  E("gunder", "sadakafadl", "—", "Tehzîb 2867"),
+  E("ebumuaviyedarir", "sadakafadl", "—", "Tehzîb 2867"),
+  E("muazmuaz", "sadakafadl", "—", "Tehzîb 2867"),
+  E("mutemirsuleyman", "sadakafadl", "—", "Tehzîb 2867"),
+  E("veki", "sadakafadl", "—", "Tehzîb 2867"),
+  E("velidmuslim", "sadakafadl", "—", "Tehzîb 2867"),
+  E("kattan", "sadakafadl", "—", "Tehzîb 2867"),
+  E("yezidharun", "sadakafadl", "—", "Tehzîb 2867"),
+
+
+  /* Sadaka b. el-Fadl el-Mervezî (o. 223) -- talebeleri.
+     Tehzîb 2867. Tercemede 10 kayit var, agda dugumu olan 2'i cizildi. */
+  E("sadakafadl", "darimi", "—", "Tehzîb 2867"),
+  E("sadakafadl", "ebukudame", "—", "Tehzîb 2867"),
+
+
+  /* Hassân b. Hassân el-Basrî (o. 213) -- hocalari.
+     Tehzîb 1189. Tercemede 11 kayit var, agda dugumu olan 5'i cizildi. */
+  E("sube", "hassanhassan", "—", "Tehzîb 1189"),
+  E("macisun", "hassanhassan", "—", "Tehzîb 1189"),
+  E("kaysrebi", "hassanhassan", "—", "Tehzîb 1189"),
+  E("hemmamyahya", "hassanhassan", "—", "Tehzîb 1189"),
+  E("ebuavane", "hassanhassan", "—", "Tehzîb 1189"),
+
+
+  /* Hassân b. Hassân el-Basrî (o. 213) -- talebeleri.
+     Tehzîb 1189. Tercemede 6 kayit var, agda dugumu olan 2'i cizildi. */
+  E("hassanhassan", "ebuzuraraazi", "—", "Tehzîb 1189"),
+  E("hassanhassan", "ms22", "—", "Tehzîb 1189"),
+
+
+  /* Abdülazîz b. Abdillâh el-Üveysî (o. 223) -- hocalari.
+     Tehzîb 3457. Tercemede 17 kayit var, agda dugumu olan 7'i cizildi. */
+  E("ibrahimsad", "abdulazizuveysi", "—", "Tehzîb 3457"),
+  E("suleymanbilal", "abdulazizuveysi", "—", "Tehzîb 3457"),
+  E("macisun", "abdulazizuveysi", "—", "Tehzîb 3457"),
+  E("darevardi", "abdulazizuveysi", "—", "Tehzîb 3457"),
+  E("leysbsad", "abdulazizuveysi", "—", "Tehzîb 3457"),
+  E("malik", "abdulazizuveysi", "—", "Tehzîb 3457"),
+  E("nafiomercumahi", "abdulazizuveysi", "—", "Tehzîb 3457"),
+
+
+  /* Abdülazîz b. Abdillâh el-Üveysî (o. 223) -- talebeleri.
+     Tehzîb 3457. Tercemede 13 kayit var, agda dugumu olan 4'i cizildi. */
+  E("abdulazizuveysi", "ebuzuraraazi", "—", "Tehzîb 3457"),
+  E("abdulazizuveysi", "ebuhatimrazi", "—", "Tehzîb 3457"),
+  E("abdulazizuveysi", "zuhli", "—", "Tehzîb 3457"),
+  E("abdulazizuveysi", "harunhammal", "—", "Tehzîb 3457"),
+
+
+  /* Ahmed b. İşkâb el-Hadramî (o. 217) -- hocalari.
+     Tehzîb 11. Tercemede 14 kayit var, agda dugumu olan 5'i cizildi. */
+  E("serikkadi", "ahmedeskab", "—", "Tehzîb 11"),
+  E("abdusselamharb", "ahmedeskab", "—", "Tehzîb 11"),
+  E("muhammedbisrabdi", "ahmedeskab", "—", "Tehzîb 11"),
+  E("muhammedfudayl", "ahmedeskab", "—", "Tehzîb 11"),
+  E("ebubekirayyas", "ahmedeskab", "—", "Tehzîb 11"),
+
+
+  /* Ahmed b. İşkâb el-Hadramî (o. 217) -- talebeleri.
+     Tehzîb 11. Tercemede 10 kayit var, agda dugumu olan 2'i cizildi. */
+  E("ahmedeskab", "ebuhatimrazi", "—", "Tehzîb 11"),
+  E("ahmedeskab", "ibnmain", "—", "Tehzîb 11"),
+
 ];
 
 /* YINELENEN KENARLAR BURADA TEKILLESTIRILIYOR.
