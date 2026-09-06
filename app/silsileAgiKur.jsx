@@ -1137,26 +1137,33 @@ export function kur(V) {
     const kYayCizgi = durgun.k * YAY;
     /* AGIRLIK TEMAYA BAGLI (2026-09-06).
 
-       ACIK TEMA: cizgi zeytin rengine ve yari saydamliga dondugunde
-       (bkz. paletin altindaki not) agirlik da denemeden onceki
-       degerlere donduruldu -- ama SABIT olarak. Eski formul
-       `min(1, 0,3 + k*7)` idi; k acilista 0,08'de tavanli oldugu ve
-       0,1'i gectiginde ifade zaten 1'e dayandigi icin kullanilan
-       yakinliklarin nerdeyse tamaminda degeri 1 cikiyordu. Yani sabit
-       1 yazmak eski gorunumu birebir veriyor, yalnizca acilistan DAHA
-       UZAGA kacildiginda cizgi eskisi gibi incelmiyor.
+       ACIK TEMA: denemeden onceki iki ifade BIREBIR geri kopyalandi
+       (c740f12^). Arada bir tur bunlari sabit 1 ve 0,5 yapmayi
+       denedim, gerekcem "k zaten tavana dayaniyor, sabit yazmak ayni
+       seyi verir" idi; OLCU YANLISTI. Acilis yakinligi
+       `min(kSigdir * ACILIS_YAKINLIK, 0,08)` ile 0,08'de TAVANLI, yani
+       formul orada 0,86 ve 0,39 veriyor, 1 ve 0,5 degil. Sabitler
+       cizgiyi %16 kalinlastirip %29 opaklastirmis, zeytin renkle
+       birlesince kagit uzerinde katlanilmaz olmus (Mustafa: "aydinlik
+       modda cizgiler su an korkunc halde, hemen eski versiyonlardan
+       kopya cekip duzelt").
 
-       Bu kasitli: "su yaklastikca siliklestirme-koyulastirma isini
-       komple iptal edelim" (Mustafa, 2026-09-05) hala yururlukte,
-       renk geri geldi diye o karar geri gelmiyor.
+       Bu, yakinliga bagli terimi acik temada geri getiriyor. "Su
+       yaklastikca siliklestirme-koyulastirma isini komple iptal
+       edelim" (2026-09-05) o gun BEYAZ cizgi icin soylenmisti;
+       zeytin cizgi ve krem zemin geri gelince eski egri de birlikte
+       geliyor -- zaten aylarca yayinda oydu ve sikayet konusu hic
+       olmadi. Cizgiyi kadrajdan turetmeme dersi duruyor, ama olcut
+       artik "eski hali neyse o".
 
        KOYU TEMA: hicbir sey degismedi (Mustafa: "koyu moddaki baglanti
-       agi rengi daha iyi, o oyle kalsin"). Taban 0,3 ve yakinlikla
-       artan terim yerinde. Yakinliga bagli sonumun uc kez yanlis
-       ciktigi butun hikaye ACIK temada yasandi; koyu temada boyle bir
-       sikayet hic olmadi. */
+       agi rengi daha iyi, o oyle kalsin"). Terim `yakinlikPayi`
+       uzerinden, yani YAY'dan bagimsiz; acik tema ham `durgun.k`
+       kullaniyor cunku eski kod oyleydi ve YAY o gunku degerinde (32)
+       duruyor. */
     const yakinlikPayi = koyu ? kYayCizgi / 64 : 0;
-    const cizgiCarpani = koyu ? Math.min(1, 0.3 + yakinlikPayi * 7) : 1;
+    const cizgiCarpani = koyu ? Math.min(1, 0.3 + yakinlikPayi * 7)
+                              : Math.min(1, 0.3 + durgun.k * 7);
   
     /* Bir kenarin yol dizgisi. Iki yerde lazim: tek tek cizilen
        (vurgulu / yakin) kenarlarda ve uzakta hepsinin birlestirildigi
@@ -1199,16 +1206,14 @@ export function kur(V) {
        Deneme sayfasinda artik sabit; kalabalik gorunume karsi elde
        kalan arac cizginin kendisi degil, DERECE_MERDIVEN (uzakta az
        baglantili noktayi kuculten eleme) -- o yerinde duruyor. */
-    /* ACIK TEMADA 0,5 -- KIRLILIGE KARSI ASIL ARAC BU. Zeytin cizgi
-       kagit zeminde ust uste binince kirli bir doku yapiyor; yari
-       saydamlik onu zeminle kaynastirip aliyor. Beyaz cizgi
-       denemesinde bu carpan gereksizdi (kontrast ters yondeydi) ve
-       kaldirilmisti, deneme geri alininca birlikte geri geldi.
-
-       Deger yine eski formulun platosu: `min(1, 0,3 + k*6) * 0,5`
-       kullanilan yakinliklarda 0,5'e dayaniyordu. Koyu temada formul
-       oldugu gibi duruyor. */
-    const cizgiSaydam = koyu ? Math.min(1, 0.3 + yakinlikPayi * 6) : 0.5;
+    /* SONDAKI 0,5 -- ACIK TEMADA KIRLILIGE KARSI ASIL ARAC. Zeytin
+       cizgi kagit zeminde ust uste binince kirli bir doku yapiyor;
+       yari saydamlik onu zeminle kaynastirip aliyor. Beyaz cizgi
+       denemesinde gereksizdi (kontrast ters yondeydi), deneme geri
+       alininca birlikte geri geldi. Bu da c740f12^'den birebir
+       kopya -- bkz. yukarida cizgiCarpani'ndaki olcu hatasi notu. */
+    const cizgiSaydam = koyu ? Math.min(1, 0.3 + yakinlikPayi * 6)
+                             : Math.min(1, 0.3 + durgun.k * 6) * 0.5;
   
   
     const MEDINE_I = SUTUNLAR.findIndex((c) => c.belde === "Medine");
