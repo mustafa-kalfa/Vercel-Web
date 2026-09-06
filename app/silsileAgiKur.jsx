@@ -219,9 +219,13 @@ export function kur(V) {
      (`denemeZemin`, `denemeKenarKirp`); ikisi de yayina alinip
      kaldirildi. /ravi-iliski-aglari/harita ile /ag-sinamasi yine
      BIREBIR ayni. */
-  return function SilsileAgi() {
+  return function SilsileAgi({ denemeSuzgec = false } = {}) {
     const [secim, setSecim] = useState(null);   // {tur:"ravi",id} | {tur:"kenar",e}
     const [arama, setArama] = useState("");
+    /* SUZGEC (DENEME, yalnizca /ag-sinamasi). Sehir bandindaki bir isme
+       ya da yil eksenindeki bir sayiya tiklayinca ag o kumeye
+       daraltiliyor. {tur:"belde", belde} | {tur:"yil", bas, son} | null */
+    const [suzgec, setSuzgec] = useState(null);
     const [acikArama, setAcikArama] = useState(false);
     const [view, setView] = useState({ x: 0, y: 0, k: 0.4 });
     const [suruk, setSuruk] = useState(null);
@@ -346,24 +350,26 @@ export function kur(V) {
       C.kenarSonuk = "#FFFFFF";
     } else {
       /* 2026-09-06'da bir kademe daha koyulastirildi (Mustafa:
-         "aydinlik modun arka planini birazcik karartalim"), her
-         kanaldan 10. Tuval #E8E1D3 -> #DED7C9, zemin #E2DACA ->
-         #D8D0C0; izgara, kesik cerceve ve kart ayni miktarda indi,
-         yoksa aralarindaki basamak degisir ve izgara yeni zeminde
-         kaybolurdu.
+         "aydinlik modun arka planini birazcik karartalim"), ertesi
+         istekle bir kademe daha ("bir miktar daha koyulastiralim").
+         Toplam her kanaldan 20: tuval #E8E1D3 -> #D4CDBF, zemin
+         #E2DACA -> #CEC6B6. Izgara, kesik cerceve, kart ve etiket
+         halesi ayni miktarda indi -- yoksa aralarindaki basamak
+         degisir ve izgara yeni zeminde kaybolurdu.
 
-         Tuval hala sitenin kendi acik zemininden (#D2CCBE) bir tik
-         ACIK: harita kagidi cevresindeki bandin uzerinde durmali,
-         altina gommemeli. Daha da koyulastirilacaksa o sinir gozetilsin
-         -- 210,204,190'in altina inince harita sayfadan cukura duser. */
-      C.zemin = "#D8D0C0";
-      C.tuval = "#DED7C9";
-      C.kart = "rgba(222,215,201,0.97)";
-      C.cizgi = "#BCB096";
-      C.kesikCerceve = "#CBC1AC";
+         BURASI DOGAL BIR DURAK: tuval (212,205,191) artik sitenin kendi
+         acik zeminiyle (#D2CCBE = 210,204,190) neredeyse ayni, yani
+         harita kagidi ile cevresindeki bant kaynasti. Daha
+         koyulastirilacaksa `globals.css`teki --background da birlikte
+         inmeli, yoksa harita sayfadan cukura duser. */
+      C.zemin = "#CEC6B6";
+      C.tuval = "#D4CDBF";
+      C.kart = "rgba(212,205,191,0.97)";
+      C.cizgi = "#B2A68C";
+      C.kesikCerceve = "#C1B7A2";
       C.kenar = "#FFFFFF";
       C.kenarSonuk = "#FFFFFF";
-      C.etiketHale = "#DED7C9";
+      C.etiketHale = "#D4CDBF";
     }
   
     /* RAVI ADI DILE GORE. Arapca'da dugumun kendi `ar` alani, digerinde
@@ -658,8 +664,31 @@ export function kur(V) {
       return s;
     }, [secim]);
   
-    const sonuk = (id) => (vurgu ? !vurgu.has(id) : eslesen ? !eslesen.has(id) : false);
+    /* SUZGECIN KAPSADIGI DUGUMLER. Ag'dan silmiyor, KUMEYI isaretliyor:
+       disarida kalanlar minik noktaya iniyor ve soluyor (asagida tamBoy
+       ve sonuk), yani sehrin/araligin kendi ici okunur hale gelirken
+       agin genel sekli yerinde kaliyor. Tumden gizlemek denenebilirdi
+       ama o zaman "bu isim nerede duruyordu" bilgisi de gidiyor.
+
+       Yil araligi ust ucta ACIK: [bas, son) -- 150'ye tiklayinca 150 ile
+       159 arasi. Vefat yili bilinmeyen ravi (olum null) hicbir yil
+       araligina girmiyor; tahmini yil kullanilmadi, cunku suzgec bir
+       iddia degil bir SECIM ve tahmin uzerine secim yapilmamali. */
+    const suzgecKumesi = useMemo(() => {
+      if (!suzgec) return null;
+      const s = new Set();
+      for (const n of NODES) {
+        if (suzgec.tur === "belde") { if (n.belde === suzgec.belde) s.add(n.id); }
+        else if (n.olum != null && n.olum >= suzgec.bas && n.olum < suzgec.son) s.add(n.id);
+      }
+      return s;
+    }, [suzgec]);
+    const suzgecDisi = (id) => !!suzgecKumesi && !suzgecKumesi.has(id);
+
+    const sonuk = (id) => (suzgecDisi(id) ? true
+      : vurgu ? !vurgu.has(id) : eslesen ? !eslesen.has(id) : false);
     const kenarSonuk = (e) => {
+      if (suzgecKumesi) return !(suzgecKumesi.has(e.a) && suzgecKumesi.has(e.b));
       if (secim && secim.tur === "kenar") return !(secim.e.a === e.a && secim.e.b === e.b);
       if (vurgu) return !(vurgu.has(e.a) && vurgu.has(e.b));
       return false;
@@ -916,6 +945,10 @@ export function kur(V) {
        kucuk kalabilirdi. */
     const enAzDerece = dereceEsigi(durgun.k * YAY);
     const tamBoy = useCallback((id) => {
+      /* SUZGEC EN USTTE: disarida kalan dugum, derecesi ne olursa olsun
+         ve secili/vurgulu olsa bile minige iniyor. Yoksa "yalnizca bu
+         sehir" derken yuksek dereceli yabancilar tam boy kalirdi. */
+      if (suzgecKumesi && !suzgecKumesi.has(id)) return false;
       if (enAzDerece === 0) return true;
       if ((DERECE[id] || 0) >= enAzDerece) return true;
       if (KADEME(id) <= 1) return true;
@@ -923,7 +956,7 @@ export function kur(V) {
       if (vurgu && vurgu.has(id)) return true;
       if (eslesen && eslesen.has(id)) return true;
       return false;
-    }, [enAzDerece, secim, vurgu, eslesen]);
+    }, [enAzDerece, secim, vurgu, eslesen, suzgecKumesi]);
 
     const etiketliler = useMemo(() => {
       const sirali = NODES
@@ -1878,13 +1911,27 @@ export function kur(V) {
                  RTL'de SOL kenari isaret ediyor, yazi saga dogru uzayip
                  24 px'lik svg'nin disinda kaliyor ve HIC GORUNMUYORDU
                  (Mustafa, 2026-08-30). Sayilar her dilde soldan saga. */
-              <text key={y} x={SOL_BANT - 4} textAnchor="end"
-                style={{ direction: "ltr" }}>
-                <tspan x={SOL_BANT - 4} y={ky - 1} fontSize="9"
-                  fill={y % 50 === 0 ? C.ink : C.solukInk}>{y}</tspan>
-                <tspan x={SOL_BANT - 4} y={ky + 7} fontSize="7"
-                  fill={C.solukInk}>{YIL_EKI[language] ?? "h."}</tspan>
-              </text>
+              <g key={y}>
+                {/* Bkz. sehir bandindaki ayni not: tiklama alani
+                    yazinin degil, bandin tamami boyunca 22 px'lik bir
+                    serit. YILLAR on yillik adimlarla geldigi icin
+                    aralik [y, y+10). */}
+                {denemeSuzgec && (
+                  <rect x="0" y={ky - 11} width={SOL_BANT} height="22" fill="transparent"
+                    style={{ pointerEvents: "auto", cursor: "pointer" }}
+                    onClick={() => setSuzgec(
+                      suzgec?.tur === "yil" && suzgec.bas === y
+                        ? null : { tur: "yil", bas: y, son: y + 10 })} />
+                )}
+                <text x={SOL_BANT - 4} textAnchor="end"
+                  style={{ direction: "ltr", pointerEvents: "none" }}>
+                  <tspan x={SOL_BANT - 4} y={ky - 1} fontSize="9"
+                    fill={suzgec?.tur === "yil" && suzgec.bas === y ? C.vurguInk
+                        : y % 50 === 0 ? C.ink : C.solukInk}>{y}</tspan>
+                  <tspan x={SOL_BANT - 4} y={ky + 7} fontSize="7"
+                    fill={C.solukInk}>{YIL_EKI[language] ?? "h."}</tspan>
+                </text>
+              </g>
             ))}
           </svg>
   
@@ -1912,12 +1959,27 @@ export function kur(V) {
               // görünüyorsa görünen kısmın ortasına kaydırılır
               const yariGen = (Math.min(alan, tam.length * harfW)) / 2;
               const gx = Math.min(Math.max(kx, gorunurSol + yariGen), gorunurSag - yariGen);
+              const secili = suzgec?.tur === "belde" && suzgec.belde === c.belde;
               return (
                 <g key={c.belde}>
                   <line x1={sol} y1={UST_BANT - 5} x2={sol} y2={UST_BANT}
                     stroke={C.cizgi} strokeWidth="1" />
+                  {/* TIKLAMA ALANI YAZININ KENDISI DEGIL, ustundeki
+                      dikdortgen: on puntoluk bir yaziya parmakla isabet
+                      ettirmek zor. Bant yuksekligi boyunca ve sutunun
+                      gorunen genisligi kadar. Yalnizca deneme modunda
+                      tiklanabilir; oteki durumda svg'nin
+                      pointerEvents:none'i gecerli kalir. */}
+                  {denemeSuzgec && (
+                    <rect x={gorunurSol} y="0" width={Math.max(0, gorunurSag - gorunurSol)}
+                      height={UST_BANT} fill="transparent"
+                      style={{ pointerEvents: "auto", cursor: "pointer" }}
+                      onClick={() => setSuzgec(secili ? null : { tur: "belde", belde: c.belde })} />
+                  )}
                   <text x={gx + 0.8} y={16} textAnchor="middle" fontSize="10.5" letterSpacing="1.6"
-                    fill={c.belde === "Medine" ? C.vurguInk : C.solukInk}>
+                    style={{ pointerEvents: "none" }}
+                    fill={secili ? C.ink
+                        : c.belde === "Medine" ? C.vurguInk : C.solukInk}>
                     {yazi}
                   </text>
                 </g>
@@ -1925,6 +1987,27 @@ export function kur(V) {
             })}
             <rect x="0" y="0" width={SOL_BANT} height={UST_BANT} fill={C.zemin} />
           </svg>
+
+          {/* ---- etkin suzgec rozeti (DENEME) ----
+              Suzgec sessiz kalmamali: kullanici sehir adina yanlislikla
+              dokunup agin neden soldugunu anlamayabilir. Rozet hem neyin
+              secili oldugunu hem kac raviyi kapsadigini soyluyor ve
+              kapatma dugmesi tasiyor. Bandin hemen altinda, sol
+              basta -- tikladigi yerin yaninda. */}
+          {denemeSuzgec && suzgec && (
+            <div className="absolute z-20 flex items-center gap-2 px-2.5 py-1 rounded-sm border shadow-sm text-[12px]"
+              style={{ left: SOL_BANT + 8, top: UST_BANT + 8,
+                       background: C.tuval, borderColor: C.cizgi, color: C.ink }}>
+              <span>
+                {suzgec.tur === "belde"
+                  ? (BELDE_AD[language]?.[suzgec.belde] ?? suzgec.belde)
+                  : `${suzgec.bas}–${suzgec.son} ${YIL_EKI[language] ?? "h."}`}
+              </span>
+              <span style={{ color: C.solukInk }}>{suzgecKumesi ? suzgecKumesi.size : 0}</span>
+              <button onClick={() => setSuzgec(null)} aria-label="x"
+                className="leading-none px-1 -mr-1" style={{ color: C.solukInk }}>&times;</button>
+            </div>
+          )}
   
           {/* ---- sağ üst: râvi bul + yakınlaştırma ---- */}
           {/* Sag altta yalnizca ARAMA KUTUSU kaldi. Yakinlastirma

@@ -7,10 +7,11 @@ import { useLanguage } from "../LanguageContext";
 
 /* DENEME ADRESI.
 
-   /ravi-iliski-aglari/harita ile BIREBIR AYNI: ayni bilesen, ayni veri,
-   hic prop yok. Deneme adresinin isi bu -- bir degisiklik once burada
-   denenir, begenilirse yayina tasinir ve sayfa yine haritanin aynisi
-   olur.
+   Bilesen ve veri /ravi-iliski-aglari/harita ile ayni; su an TEK fark
+   `denemeSuzgec` prop'u: sehir bandindaki bir isme ya da yil
+   eksenindeki bir sayiya tiklayinca ag o kumeye daraliyor. Begenilirse
+   prop kaldirilip yayina alinir, begenilmezse bu satir silinir ve sayfa
+   yine haritanin aynisi olur.
 
    2026-09-04 ile 2026-09-06 arasinda burada uc deneme yasadi ve ucu de
    yayina alindi: ayri bir veri kopyasi (Zehebi'nin Siyer'inden gelen
@@ -53,7 +54,7 @@ export default function AgSinamasi() {
           Ust bant 2026-08-29'da %33 kuculdu: logo 72 -> 48 px, bant
           80 -> 54 px. Sayfanin ust seridi ag'dan cok yer aliyordu. */}
       <div className="mt-[54px] h-[calc(100dvh-54px)]">
-        <SilsileAgi />
+        <SilsileAgi denemeSuzgec />
       </div>
     </main>
   );
