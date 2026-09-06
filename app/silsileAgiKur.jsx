@@ -440,6 +440,21 @@ export function kur(V) {
     }, []);
   
     // Kaydırmayı sınırla: tuval kenarlarında boş beyaz alan görünmesin.
+    /* Kartin gercek yuksekligi: dar ekranda arama kumesi kartin hemen
+       ustune oturuyor. Sabit sayi tutmuyordu -- ravi karti 130,
+       kenar karti degisken (maxHeight 130). */
+    const [kartYuk, setKartYuk] = useState(0);
+    const kartGozRef = useRef(null);
+    const kartRef = useCallback((el) => {
+      kartGozRef.current?.disconnect();
+      kartGozRef.current = null;
+      if (!el) { setKartYuk(0); return; }
+      setKartYuk(el.offsetHeight);
+      const go = new ResizeObserver(() => setKartYuk(el.offsetHeight));
+      go.observe(el);
+      kartGozRef.current = go;
+    }, []);
+
     const sinirla = useCallback((v, secimKabul) => {
       const gw = box.w - SOL_BANT, gh = box.h - UST_BANT;
       const cw = W * v.k, ch = H * v.k;
@@ -478,13 +493,28 @@ export function kur(V) {
          durdugunda ekranin alti bosaliyor, o payi ayirmak kamerayi
          bosuna yukari itiyordu. */
       const secimVar = secimKabul ?? (!!secim && kartAcik);
-      const ALT_PAY = 260 + (secimVar ? (dar ? 320 : 190) : 0);
+      /* DAR EKRANDA KARTIN OLCULEN YUKSEKLIGI, sabit sayi DEGIL.
+         Kart orada tam genislikte ve altta duruyor, yani ortalanan
+         nokta ile ust uste biniyor; ayrilan pay karttan kisa kalirsa
+         nokta kartin ardina duser. Sabit 320 bir sure yetti, sonra
+         dugum notlari uzadikca (vefat yili kaynaklari kartta
+         yaziliyor) kart o sayiyi asti ve sorun geri geldi -- Mustafa,
+         2026-09-07: "ekrani biraz kucultmeye calisinca nokta komple
+         asagi kayiyor, bilgi kartinin arkasina gidiyor". Artik
+         `kartYuk` olculuyor (bkz. yukarida kartRef), yani not ne kadar
+         uzarsa uzasin pay onunla birlikte buyuyor.
+
+         GENIS EKRANDA olcum kullanilmiyor: kart orada sayfanin sol
+         yarisinda, ortalanan nokta ise sagda kaliyor, yani ust uste
+         binmiyorlar. Oradaki 190 bir ortusme payi degil, nefes payi. */
+      const kartPay = kartYuk ? kartYuk + 24 : 320;
+      const ALT_PAY = 260 + (secimVar ? (dar ? kartPay : 190) : 0);
       if (cw >= gw) x = Math.min(SOL_BANT + YAN, Math.max(box.w - cw - YAN, x));
       else x = SOL_BANT + (gw - cw) / 2;
       if (ch >= gh) y = Math.min(UST_BANT + UST_PAY, Math.max(box.h - ch - ALT_PAY, y));
       else y = Math.min(UST_BANT + (gh - ch) / 2, UST_BANT + UST_PAY);
       return { k: v.k, x, y };
-    }, [box, secim, kartAcik, dar]);
+    }, [box, secim, kartAcik, kartYuk, dar]);
   
     const gitView = useCallback((v) => setView(sinirla(v)), [sinirla]);
   
@@ -1102,20 +1132,6 @@ export function kur(V) {
        (pahali olan buydu), akis ise tek katmani adimli boyuyor. */
     const akisAnim = !azHareket;
   
-    /* Kartin gercek yuksekligi: dar ekranda arama kumesi kartin hemen
-       ustune oturuyor. Sabit sayi tutmuyordu -- ravi karti 130,
-       kenar karti degisken (maxHeight 130). */
-    const [kartYuk, setKartYuk] = useState(0);
-    const kartGozRef = useRef(null);
-    const kartRef = useCallback((el) => {
-      kartGozRef.current?.disconnect();
-      kartGozRef.current = null;
-      if (!el) { setKartYuk(0); return; }
-      setKartYuk(el.offsetHeight);
-      const go = new ResizeObserver(() => setKartYuk(el.offsetHeight));
-      go.observe(el);
-      kartGozRef.current = go;
-    }, []);
   
     /* Kenar kalinligi carpani. Kalinlik artik ekran pikseli olarak sabit
        (vectorEffect), ama 1382 kenarin tamami uzaktan tam kalinlikta
