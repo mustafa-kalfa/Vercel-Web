@@ -692,7 +692,7 @@ export const NODES = [
   // ---- Sufyan b. Uyeyne cevresinde aga giren raviler ----
   N("hisamurve", "هشام بن عروة", "Hişâm b. Urve", 5, 146, "Medine", "Urve'nin oğlu. Rumûz ع."),
   N("mansurmutemir", "منصور بن المعتمر", "Mansûr b. el-Mu‘temir", 5, 132, "Kûfe"),
-  N("mansursafiyye", "منصور بن صفية", "Mansûr b. Safiyye", 5, null, "Mekke"),
+  N("mansursafiyye", "منصور بن صفية", "Mansûr b. Safiyye", 5, 137, "Mekke", "Vefât yılı 2026-09-07'de girildi: Takrîb 6904, 137 senesi; kitap 138 varyantını da anıyor. Takrîb onu Safiyye'ye değil babasına nisbetle anıyor (Mansûr b. Abdirrahman b. Talha), Safiyye bint Şeybe'nin oğlu olduğu terceme içinde belirtiliyor."),
   N("musaukbe", "موسى بن عقبة", "Mûsâ b. Ukbe", 5, 141, "Medine"),
   N("muhammedacilan", "محمد بن عجلان", "Muhammed b. Aclân", 5, 148, "Medine"),
   N("muhammedamralkame", "محمد بن عمرو بن علقمة", "Muhammed b. Amr b. Alkame", 5, 145, "Medine"),
@@ -818,7 +818,7 @@ export const NODES = [
   N("abdulhamidcafer", "عبد الحميد بن جعفر", "Abdülhamîd b. Ca‘fer", 5, 153, "Medine"),
   N("sufyanhusayn", "سفيان بن حسين", "Süfyân b. Husayn", 5, null, "Vâsıt"),
   N("mucalidsaid", "مجالد بن سعيد", "Mücâlid b. Saîd", 5, 144, "Kûfe", "Mizzî, Ahmed b. Hanbel'den: Hüşeym ondan hiçbir şey işitmedi."),
-  N("salihhayy", "صالح بن صالح بن حي", "Sâlih b. Sâlih b. Hayy", 5, null, "Kûfe"),
+  N("salihhayy", "صالح بن صالح بن حي", "Sâlih b. Sâlih b. Hayy", 5, 153, "Kûfe", "Vefât yılı 2026-09-07'de girildi: Takrîb 2865 ve Tehzîb 2816 bağımsız olarak 153 senesini veriyor."),
   N("siyarebilhakem", "سيار أبو الحكم", "Siyâr Ebû'l-Hakem", 5, 129, "Vâsıt"),
   N("kasimmihran", "القاسم بن مهران", "Kâsım b. Mihrân", 5, null, "Basra", "Hüşeym'in dayısı."),
 
@@ -929,7 +929,7 @@ export const NODES = [
   N("amrmeymunmihran", "عمرو بن ميمون بن مهران", "Amr b. Meymûn b. Mihrân", 5, 147, "Şam", "Vefât yılı 2026-09-07'de girildi: Takrîb 5121, 147 senesi; kitap başkasının da söylendiğini ekliyor."),
   N("musacuheni", "موسى الجهني", "Mûsâ el-Cühenî", 5, 144, "Kûfe", "Vefât yılı 2026-09-07'de girildi: Takrîb 6985, 144 senesi."),
   N("nafiomercumahi", "نافع بن عمر الجمحي", "Nâfi‘ b. Ömer el-Cümahî", 5, 169, "Mekke"),
-  N("hasimhasim", "هاشم بن هاشم بن عتبة", "Hâşim b. Hâşim b. Utbe", 5, null, "Medine"),
+  N("hasimhasim", "هاشم بن هاشم بن عتبة", "Hâşim b. Hâşim b. Utbe", 5, 144, "Medine", "Vefât yılı 2026-09-07'de girildi: Takrîb 7258 belirsiz bırakıyor (\"kırk küsur\"), Tehzîb 6542 bunu 144 senesine bağlıyor."),
   N("ebumalikesceyi", "أبو مالك الأشجعي", "Ebû Mâlik el-Eşce‘î", 5, null, "Kûfe"),
   N("leysebisuleym", "ليث بن أبي سليم", "Leys b. Ebî Süleym", 5, 143, "Kûfe"),
   N("harunmaruf", "هارون بن معروف", "Hârûn b. Ma‘rûf", 5, 231, "Basra"),
