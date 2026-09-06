@@ -215,11 +215,11 @@ export function kur(V) {
      dusur"). */
   const AKIS_HIZ = 12.5;
 
-  /* 2026-09-04 ile 2026-09-06 arasi burada iki deneme prop'u vardi
-     (`denemeZemin`, `denemeKenarKirp`); ikisi de yayina alinip
-     kaldirildi. /ravi-iliski-aglari/harita ile /ag-sinamasi yine
-     BIREBIR ayni. */
-  return function SilsileAgi({ denemeSuzgec = false } = {}) {
+  /* 2026-09-04'ten 2026-09-07'ye kadar burada uc deneme prop'u vardi
+     (`denemeZemin`, `denemeKenarKirp`, `denemeSuzgec`); ucu de yayina
+     alinip kaldirildi. Bilesen artik HICBIR prop almiyor;
+     /ravi-iliski-aglari/harita ile /ag-sinamasi birebir ayni. */
+  return function SilsileAgi() {
     const [secim, setSecim] = useState(null);   // {tur:"ravi",id} | {tur:"kenar",e}
     const [arama, setArama] = useState("");
     /* SUZGEC (DENEME, yalnizca /ag-sinamasi). Sehir bandindaki isimlere
@@ -2039,11 +2039,9 @@ export function kur(V) {
                     yazinin degil, bandin tamami boyunca 22 px'lik bir
                     serit. YILLAR on yillik adimlarla geldigi icin
                     aralik [y, y+10). */}
-                {denemeSuzgec && (
-                  <rect x="0" y={ky - 11} width={SOL_BANT} height="22" fill="transparent"
-                    style={{ pointerEvents: "auto", cursor: "pointer" }}
-                    onClick={() => cevir(yilSuz, setYilSuz, y)} />
-                )}
+                <rect x="0" y={ky - 11} width={SOL_BANT} height="22" fill="transparent"
+                  style={{ pointerEvents: "auto", cursor: "pointer" }}
+                  onClick={() => cevir(yilSuz, setYilSuz, y)} />
                 <text x={SOL_BANT - 4} textAnchor="end"
                   style={{ direction: "ltr", pointerEvents: "none" }}>
                   <tspan x={SOL_BANT - 4} y={ky - 1} fontSize="9"
@@ -2088,15 +2086,13 @@ export function kur(V) {
                   {/* TIKLAMA ALANI YAZININ KENDISI DEGIL, ustundeki
                       dikdortgen: on puntoluk bir yaziya parmakla isabet
                       ettirmek zor. Bant yuksekligi boyunca ve sutunun
-                      gorunen genisligi kadar. Yalnizca deneme modunda
-                      tiklanabilir; oteki durumda svg'nin
-                      pointerEvents:none'i gecerli kalir. */}
-                  {denemeSuzgec && (
-                    <rect x={gorunurSol} y="0" width={Math.max(0, gorunurSag - gorunurSol)}
-                      height={UST_BANT} fill="transparent"
-                      style={{ pointerEvents: "auto", cursor: "pointer" }}
-                      onClick={() => cevir(beldeSuz, setBeldeSuz, c.belde)} />
-                  )}
+                      gorunen genisligi kadar. Kusatan svg
+                      pointerEvents:none oldugu icin tiklama alani
+                      burada ACIKCA geri aciliyor. */}
+                  <rect x={gorunurSol} y="0" width={Math.max(0, gorunurSag - gorunurSol)}
+                    height={UST_BANT} fill="transparent"
+                    style={{ pointerEvents: "auto", cursor: "pointer" }}
+                    onClick={() => cevir(beldeSuz, setBeldeSuz, c.belde)} />
                   <text x={gx + 0.8} y={16} textAnchor="middle" fontSize="10.5" letterSpacing="1.6"
                     style={{ pointerEvents: "none" }}
                     fill={secili ? C.ink
@@ -2124,7 +2120,7 @@ export function kur(V) {
               soyluyordu, rozetler ayni bilgiyi ikinci kez yaziyordu.
               Tek tek kaldirma da bandin uzerine yeniden tiklayarak
               yapilabiliyor. Geriye tek bir toplu cikis kaldi. */}
-          {denemeSuzgec && suzgecVar && (
+          {suzgecVar && (
             <button onClick={suzgecTemizle}
               className="absolute z-20 px-2.5 py-1 rounded-sm border shadow-sm text-[12px]"
               style={{ left: SOL_BANT + 8, top: UST_BANT + 8,

@@ -7,16 +7,21 @@ import { useLanguage } from "../LanguageContext";
 
 /* DENEME ADRESI.
 
-   Bilesen ve veri /ravi-iliski-aglari/harita ile ayni; su an TEK fark
-   `denemeSuzgec` prop'u: sehir bandindaki bir isme ya da yil
-   eksenindeki bir sayiya tiklayinca ag o kumeye daraliyor. Begenilirse
-   prop kaldirilip yayina alinir, begenilmezse bu satir silinir ve sayfa
-   yine haritanin aynisi olur.
+   SU AN HARITANIN BIREBIR AYNISI: bilesen de veri de ayni, ve bilesen
+   artik hicbir prop almiyor. Yeni bir deneme baslayana kadar burasi
+   yalnizca ikinci bir adres.
 
-   2026-09-04 ile 2026-09-06 arasinda burada uc deneme yasadi ve ucu de
-   yayina alindi: ayri bir veri kopyasi (Zehebi'nin Siyer'inden gelen
-   yirmi ravi), acik temanin koyulastirilmis zemini + beyaz baglanti
-   cizgileri, ve olcekten bagimsiz sabit cizgi agirligi.
+   2026-09-04 ile 2026-09-07 arasinda burada dort deneme yasadi ve
+   dordu de yayina alindi: ayri bir veri kopyasi (Zehebi'nin
+   Siyer'inden gelen yirmi ravi), acik temanin koyulastirilmis zemini +
+   beyaz baglanti cizgileri (bu sonradan geri alindi), olcekten
+   bagimsiz sabit cizgi agirligi, ve sehir/yil suzgeci.
+
+   Suzgec en son 2026-09-07'de yayina alindi (Mustafa: "tum
+   degisiklikleri ag sinamasinda yapmistin, bunlari ana haritaya
+   tasi"): sehir bandindaki bir isme ya da yil eksenindeki bir sayiya
+   tiklayinca secilen sutun ve satir aydinlik kaliyor, gerisi
+   kararyor.
 
    2026-08-30'da bir sure veri BURADA catallanmisti (bilgi kartlari
    Takrib'den doldurulurken yayindaki harita etkilenmesin diye);
@@ -54,7 +59,7 @@ export default function AgSinamasi() {
           Ust bant 2026-08-29'da %33 kuculdu: logo 72 -> 48 px, bant
           80 -> 54 px. Sayfanin ust seridi ag'dan cok yer aliyordu. */}
       <div className="mt-[54px] h-[calc(100dvh-54px)]">
-        <SilsileAgi denemeSuzgec />
+        <SilsileAgi />
       </div>
     </main>
   );
