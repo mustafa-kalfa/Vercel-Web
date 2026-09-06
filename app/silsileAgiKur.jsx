@@ -328,63 +328,35 @@ export function kur(V) {
        zemininde kayboldu. Renk zeytinde birakildi, kirlilik opaklikla
        aliniyor -- bkz. asagida cizgiSaydam.
 
-       /ag-sinamasi'nda bir sure `beyazKenar` prop'uyla denendi, sonra
-       ikisi de buraya alindi; iki adres yine birebir ayni.
+       KOYU TEMA O GUNDEN BERI HIC DEGISMEDI (Mustafa, 2026-09-06:
+       "asil haritamizin koyu moddaki baglanti agi rengi daha iyi, o
+       oyle kalsin"). Acik tema iki gun boyunca bambaska bir yol
+       denedi ve geri dondu; asagidaki not o turun ozeti.
 
-       KOYU TEMA 2026-09-06'DA OLDUGU GIBI BIRAKILDI (Mustafa: "asil
-       haritamizin koyu moddaki baglanti agi rengi daha iyi, o oyle
-       kalsin"). Asagidaki acik tema kolu degisti, bu kol degismedi --
-       cizgi agirligi hesabinda da (bkz. cizgiCarpani/cizgiSaydam) koyu
-       tema eski formulunu aynen koruyor. */
+       ACIK TEMADA ZEMIN KOYULASTIRMA DENEMESI, 2026-09-06'DA GERI
+       ALINDI. Deneme 2026-09-04'te /ag-sinamasi'nda basladi: cizgiyi
+       zemine uydurmak yerine ZEMINI cizgiye gore acmak, yani tuval
+       #FFFFFF -> #E8E1D3 ve cizgi net beyaz. Kagit koyulasinca beyaz
+       cizgi gercekten okunur hale geldi, begenildi, yayina alindi
+       (f7f378b) ve istek uzerine iki kademe daha koyulastirildi
+       (tuval #D4CDBF'e kadar).
 
-    /* ACIK TEMA ICIN IKINCI DENEME (Mustafa, 2026-09-04, YALNIZCA
-       /ag-sinamasi'nda): "zemin renklerini cok hafif koyulastir,
-       baglanti cizgilerini net beyaz yap."
+       Orada durdu. Mustafa: "arka planı koyulaştırmamız sebebiyle şu
+       an çok kirli bir görüntü var, sanki kirli bir sayfa gibi
+       görünüyor... bu koyulaştırma işini geri alalım, dolayısıyla
+       bağlantı çizgileri de eski rengine dönsün." Koyulastirma beyaz
+       cizgiyi okunur yapiyordu ama bedeli kagidin kendisiydi: krem
+       zemin gri bir tul altinda kalmis gibi duruyordu ve harita
+       sayfanin geri kalanindan daha SOLGUN gorunuyordu.
 
-       Yukaridaki notta acik temada beyaz cizginin kagit zemininde
-       kayboldugu yaziyor -- bu deneme tam o engeli kaldiriyor: cizgiyi
-       zemine uydurmak yerine ZEMINI cizgiye gore aciyor. Kagit birkac
-       ton koyulasinca beyaz cizgi kendiliginden okunur hale geliyor,
-       yani koyu temadaki cozumun aynisi acik temaya da tasinabiliyor.
-
-       Koyulastirma kasitli olarak KUCUK: tuval #FFFFFF -> #EFEADF,
-       zemin #FBF9F4 -> #EAE4D7, yani sayfanin krem kimligi duruyor,
-       yalnizca beyaz cizgiye kontrast acilmis oluyor. Izgara cizgisi de
-       ayni oranda koyulasiyor, yoksa yeni zeminde kayboluyordu.
-
-       Cizgi opakligi burada TAM: acik temanin yari saydam ayari
-       kirliligi zeminle kaynastirarak aliyordu, beyaz cizgide o gerekli
-       degil -- kontrast zaten ters yonde. Bkz. asagida cizgiSaydam.
-
-       2026-09-04'ten 2026-09-06'ya kadar bu blok `denemeZemin` prop'uyla
-       yalnizca /ag-sinamasi'nda calisti; begenilince YAYINA ALINDI ve
-       prop kaldirildi ("ag sinamasi sayfasindaki haritamizi asil
-       haritaya tasiyabiliriz"). Iki adres yine birebir ayni. */
+       Simdi acik tema tastamam denemeden onceki hali: zemin #FBF9F4,
+       tuval #FFFFFF, cizgi zeytin (#6F6438 / #B3A88E) ve yari saydam.
+       Kirlilige karsi elde kalan arac yine SAYDAMLIK -- bkz. asagida
+       cizgiSaydam. Ayri bir acik tema kolu kalmadi, taban palet zaten
+       o degerleri tasiyor. */
     if (koyu) {
       C.kenar = "#FFFFFF";
       C.kenarSonuk = "#FFFFFF";
-    } else {
-      /* 2026-09-06'da bir kademe daha koyulastirildi (Mustafa:
-         "aydinlik modun arka planini birazcik karartalim"), ertesi
-         istekle bir kademe daha ("bir miktar daha koyulastiralim").
-         Toplam her kanaldan 20: tuval #E8E1D3 -> #D4CDBF, zemin
-         #E2DACA -> #CEC6B6. Izgara, kesik cerceve, kart ve etiket
-         halesi ayni miktarda indi -- yoksa aralarindaki basamak
-         degisir ve izgara yeni zeminde kaybolurdu.
-
-         BURASI DOGAL BIR DURAK: tuval (212,205,191) artik sitenin kendi
-         acik zeminiyle (#D2CCBE = 210,204,190) neredeyse ayni, yani
-         harita kagidi ile cevresindeki bant kaynasti. Daha
-         koyulastirilacaksa `globals.css`teki --background da birlikte
-         inmeli, yoksa harita sayfadan cukura duser. */
-      C.zemin = "#CEC6B6";
-      C.tuval = "#D4CDBF";
-      C.kart = "rgba(212,205,191,0.97)";
-      C.cizgi = "#B2A68C";
-      C.kesikCerceve = "#C1B7A2";
-      C.kenar = "#FFFFFF";
-      C.kenarSonuk = "#FFFFFF";
-      C.etiketHale = "#D4CDBF";
     }
   
     /* RAVI ADI DILE GORE. Arapca'da dugumun kendi `ar` alani, digerinde
@@ -689,11 +661,23 @@ export function kur(V) {
        159 arasi. Vefat yili bilinmeyen ravi (olum null) hicbir yil
        araligina girmiyor; tahmini yil kullanilmadi, cunku suzgec bir
        iddia degil bir SECIM ve tahmin uzerine secim yapilmamali. */
+    /* OLCUTLER ARASI ILISKI: BIRLESIM, kesisim DEGIL (Mustafa,
+       2026-09-06: "sehir ve tarih filtreleri secildiginde yalnizca
+       kesisim yeri aydinlik kaliyor, bunu istemiyorum -- o satir ve o
+       sutun aydinlik kalacak").
+
+       Ilk surumde kesisim vardi ("Medine'nin 20'lerdeki ravileri");
+       ekranda bunun karsiligi tek bir kucuk dikdortgendi ve secilen
+       sehrin geri kalani da, secilen on yilin geri kalani da
+       kararmis oluyordu. Istenen okuma bu degil: sehre tiklamak o
+       sutunu, yila tiklamak o satiri aciyor, ikisi birden secilince
+       ekranda bir ARTI cikiyor ve kesisim ikisinin ortak alani olarak
+       zaten goruluyor -- karartmadan. */
     const suzgecKumesi = useMemo(() => {
       if (!suzgecVar) return null;
       const s = new Set();
       for (const n of NODES) {
-        if (beldeSuz.length && !beldeSuz.includes(n.belde)) continue;
+        const beldeTut = beldeSuz.includes(n.belde);
         /* YIL OLCUTU `tahminiYil` KULLANIYOR, ham `olum` DEGIL.
 
            Sebep goruntunun kendisi: harita dugumu zaten `tahminiYil`in
@@ -707,11 +691,9 @@ export function kur(V) {
            dugumun ekrandaki yerini zaten belirliyor, suzgec yalnizca
            gorulen seye sadik kaliyor. Gercek yillar girildikce tahmin
            kendiliginden devreden cikiyor. */
-        if (yilSuz.length) {
-          const y = tahminiYil(n);
-          if (!yilSuz.some((b) => y >= b && y < b + 10)) continue;
-        }
-        s.add(n.id);
+        const y = tahminiYil(n);
+        const yilTut = yilSuz.some((b) => y >= b && y < b + 10);
+        if (beldeTut || yilTut) s.add(n.id);
       }
       return s;
     }, [suzgecVar, beldeSuz, yilSuz]);
@@ -1153,15 +1135,20 @@ export function kur(V) {
        gibi), cunku ham `k` YAY ile ters orantili. YAY 64 iken
        kYay * 7 / 64 = k * 7, yani yayindaki davranis birebir ayni. */
     const kYayCizgi = durgun.k * YAY;
-    /* AGIRLIK ARTIK TEMAYA BAGLI, prop'a degil (2026-09-06).
+    /* AGIRLIK TEMAYA BAGLI (2026-09-06).
 
-       ACIK TEMA: /ag-sinamasi'nda oturmus ayar yayina alindi -- taban
-       0,275 ve yakinlikla artan terim YOK, yani cizgi her olcekte ayni.
-       Kalinlik 2026-09-05'te yariya indirilmisti (0,55 -> 0,275,
-       "kalinligini yariya indir"); opaklik ayni gun once yariya
-       indirilip sonra geri alindi, secilen ayar ikisinin birlesimi:
-       eski opaklik, yari kalinlik. Normal kenar %51 opaklikta ve 0,33
-       piksel.
+       ACIK TEMA: cizgi zeytin rengine ve yari saydamliga dondugunde
+       (bkz. paletin altindaki not) agirlik da denemeden onceki
+       degerlere donduruldu -- ama SABIT olarak. Eski formul
+       `min(1, 0,3 + k*7)` idi; k acilista 0,08'de tavanli oldugu ve
+       0,1'i gectiginde ifade zaten 1'e dayandigi icin kullanilan
+       yakinliklarin nerdeyse tamaminda degeri 1 cikiyordu. Yani sabit
+       1 yazmak eski gorunumu birebir veriyor, yalnizca acilistan DAHA
+       UZAGA kacildiginda cizgi eskisi gibi incelmiyor.
+
+       Bu kasitli: "su yaklastikca siliklestirme-koyulastirma isini
+       komple iptal edelim" (Mustafa, 2026-09-05) hala yururlukte,
+       renk geri geldi diye o karar geri gelmiyor.
 
        KOYU TEMA: hicbir sey degismedi (Mustafa: "koyu moddaki baglanti
        agi rengi daha iyi, o oyle kalsin"). Taban 0,3 ve yakinlikla
@@ -1169,8 +1156,7 @@ export function kur(V) {
        ciktigi butun hikaye ACIK temada yasandi; koyu temada boyle bir
        sikayet hic olmadi. */
     const yakinlikPayi = koyu ? kYayCizgi / 64 : 0;
-    const cizgiCarpani = Math.min(1, (koyu ? 0.3 : 0.275) +
-                                     yakinlikPayi * 7);
+    const cizgiCarpani = koyu ? Math.min(1, 0.3 + yakinlikPayi * 7) : 1;
   
     /* Bir kenarin yol dizgisi. Iki yerde lazim: tek tek cizilen
        (vurgulu / yakin) kenarlarda ve uzakta hepsinin birlestirildigi
@@ -1213,13 +1199,16 @@ export function kur(V) {
        Deneme sayfasinda artik sabit; kalabalik gorunume karsi elde
        kalan arac cizginin kendisi degil, DERECE_MERDIVEN (uzakta az
        baglantili noktayi kuculten eleme) -- o yerinde duruyor. */
-    /* Acik temada taban 0,6, koyu temada 0,3 -- bkz. yukaridaki not.
-       Eskiden acik temada bir de 0,5'lik carpan vardi: zeytin cizgi
-       kagit zeminde ust uste binip kirletiyordu ve yari saydamlik onu
-       zeminle kaynastiriyordu. Beyaz cizgi + koyulastirilmis zeminde o
-       carpan GEREKSIZ, kontrast zaten ters yonde; kaldirildi. */
-    const cizgiSaydam = Math.min(1, (koyu ? 0.3 : 0.6) +
-                                    yakinlikPayi * 6);
+    /* ACIK TEMADA 0,5 -- KIRLILIGE KARSI ASIL ARAC BU. Zeytin cizgi
+       kagit zeminde ust uste binince kirli bir doku yapiyor; yari
+       saydamlik onu zeminle kaynastirip aliyor. Beyaz cizgi
+       denemesinde bu carpan gereksizdi (kontrast ters yondeydi) ve
+       kaldirilmisti, deneme geri alininca birlikte geri geldi.
+
+       Deger yine eski formulun platosu: `min(1, 0,3 + k*6) * 0,5`
+       kullanilan yakinliklarda 0,5'e dayaniyordu. Koyu temada formul
+       oldugu gibi duruyor. */
+    const cizgiSaydam = koyu ? Math.min(1, 0.3 + yakinlikPayi * 6) : 0.5;
   
   
     const MEDINE_I = SUTUNLAR.findIndex((c) => c.belde === "Medine");
@@ -1748,34 +1737,59 @@ export function kur(V) {
          kararsin" (Mustafa, 2026-09-06).
 
          Sehir bir SUTUN, yil araligi bir SATIR: ikisi de ekranda
-         dikdortgen. Yani secim her zaman dikdortgenlerin birlesimi ve
-         perde tek bir yolla cizilebiliyor -- butun tuvali kaplayan bir
-         dikdortgen, icine de secili alanlar DELIK olarak. `evenodd`
-         doldurma kurali delikleri kendiliginde bosaltiyor.
+         dikdortgen. Aydinlik kalan bolge bu ikisinin BIRLESIMI -- yani
+         secili sutunlar bastan asagi, secili satirlar bastan sona
+         (bkz. yukarida suzgecKumesi). Ikisi birden secilince ekranda
+         bir arti cikiyor.
 
-         Delikler ust uste BINMEMELI, yoksa evenodd cakisan yeri geri
-         doldurur. Binmiyorlar: sutunlar yan yana, yil bantlari alt
-         alta, ikisinin carpimi da ayrik hucreler veriyor.
+         PERDEYI DELIK ACARAK DEGIL, KARANLIGI DOGRUDAN CIZEREK
+         yapiyoruz. Ilk surumde aydinlik alanlar tek bir yola delik
+         olarak konup `evenodd` ile bosaltiliyordu; kesisimde bu
+         calisiyordu cunku delikler ayriktir. Birlesimde ise sutun
+         dikdortgeni ile satir dikdortgeni KESISIYOR ve evenodd cakisan
+         yeri geri dolduruyor: tam da en cok istenen yer, artinin
+         merkezi, kapkara cikardi.
+
+         Karanligin kendisi ise her zaman ayrik dikdortgenlere
+         ayrilabiliyor. Aydinlik = (x secili sutunda) VEYA (y secili
+         satirda) oldugundan, karanlik = (x secili sutunda DEGIL) VE
+         (y secili satirda DEGIL) -- yani iki tumleyenin carpimi, ust
+         uste binmeyen hucreler. Hicbir secim yoksa tumleyen butun
+         araligi verir, o yuzden "yalnizca sehir secili" halinde satir
+         kisiti kendiliginden devre disi kaliyor.
 
          Perde en sonda ciziliyor -- zemin, kenar, nokta ve yazi, hepsi
          birlikte kararsin. Yalnizca noktalari soldurmak yetmiyordu;
          goz zemindeki izgaraya ve damali seride de takiliyor. */
       if (suzgecVar) {
-        const sutunlar = beldeSuz.length
-          ? SUTUNLAR.filter((c) => beldeSuz.includes(c.belde))
-              .map((c) => [eX(c.x), eX(c.x + c.genislik)])
-          : [[0, box.w]];
-        const satirlar = yilSuz.length
-          ? yilSuz.map((y) => [eY(yOf(y)), eY(yOf(y + 10))])
-          : [[0, box.h]];
+        // [bas, son] araliginda, verilen araliklarin DISINDA kalan yerler
+        const tumleyen = (araliklar, bas, son) => {
+          const sirali = araliklar
+            .map(([a, b]) => [Math.max(bas, Math.min(a, b)),
+                              Math.min(son, Math.max(a, b))])
+            .filter(([a, b]) => b > a)
+            .sort((p, q) => p[0] - q[0]);
+          const disi = [];
+          let x = bas;
+          for (const [a, b] of sirali) {
+            if (a > x) disi.push([x, a]);
+            x = Math.max(x, b);
+          }
+          if (x < son) disi.push([x, son]);
+          return disi;
+        };
+        const karaX = tumleyen(
+          SUTUNLAR.filter((c) => beldeSuz.includes(c.belde))
+            .map((c) => [eX(c.x), eX(c.x + c.genislik)]), 0, box.w);
+        const karaY = tumleyen(
+          yilSuz.map((y) => [eY(yOf(y)), eY(yOf(y + 10))]), 0, box.h);
         ctx.save();
         ctx.fillStyle = koyu ? "rgba(0,0,0,0.66)" : "rgba(52,44,30,0.5)";
         ctx.beginPath();
-        ctx.rect(0, 0, box.w, box.h);
-        for (const [x1, x2] of sutunlar)
-          for (const [y1, y2] of satirlar)
+        for (const [x1, x2] of karaX)
+          for (const [y1, y2] of karaY)
             ctx.rect(x1, y1, x2 - x1, y2 - y1);
-        ctx.fill("evenodd");
+        ctx.fill();
         ctx.restore();
       }
     }, [box, olculdu, view, pencere, secim, secRavi, secKenar, vurgu,
