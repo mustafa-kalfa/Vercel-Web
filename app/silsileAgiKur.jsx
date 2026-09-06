@@ -345,14 +345,25 @@ export function kur(V) {
       C.kenar = "#FFFFFF";
       C.kenarSonuk = "#FFFFFF";
     } else {
-      C.zemin = "#E2DACA";
-      C.tuval = "#E8E1D3";
-      C.kart = "rgba(232,225,211,0.97)";
-      C.cizgi = "#C6BAA0";
-      C.kesikCerceve = "#D5CBB6";
+      /* 2026-09-06'da bir kademe daha koyulastirildi (Mustafa:
+         "aydinlik modun arka planini birazcik karartalim"), her
+         kanaldan 10. Tuval #E8E1D3 -> #DED7C9, zemin #E2DACA ->
+         #D8D0C0; izgara, kesik cerceve ve kart ayni miktarda indi,
+         yoksa aralarindaki basamak degisir ve izgara yeni zeminde
+         kaybolurdu.
+
+         Tuval hala sitenin kendi acik zemininden (#D2CCBE) bir tik
+         ACIK: harita kagidi cevresindeki bandin uzerinde durmali,
+         altina gommemeli. Daha da koyulastirilacaksa o sinir gozetilsin
+         -- 210,204,190'in altina inince harita sayfadan cukura duser. */
+      C.zemin = "#D8D0C0";
+      C.tuval = "#DED7C9";
+      C.kart = "rgba(222,215,201,0.97)";
+      C.cizgi = "#BCB096";
+      C.kesikCerceve = "#CBC1AC";
       C.kenar = "#FFFFFF";
       C.kenarSonuk = "#FFFFFF";
-      C.etiketHale = "#E8E1D3";
+      C.etiketHale = "#DED7C9";
     }
   
     /* RAVI ADI DILE GORE. Arapca'da dugumun kendi `ar` alani, digerinde
