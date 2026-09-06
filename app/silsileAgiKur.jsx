@@ -222,10 +222,25 @@ export function kur(V) {
   return function SilsileAgi({ denemeSuzgec = false } = {}) {
     const [secim, setSecim] = useState(null);   // {tur:"ravi",id} | {tur:"kenar",e}
     const [arama, setArama] = useState("");
-    /* SUZGEC (DENEME, yalnizca /ag-sinamasi). Sehir bandindaki bir isme
-       ya da yil eksenindeki bir sayiya tiklayinca ag o kumeye
-       daraltiliyor. {tur:"belde", belde} | {tur:"yil", bas, son} | null */
-    const [suzgec, setSuzgec] = useState(null);
+    /* SUZGEC (DENEME, yalnizca /ag-sinamasi). Sehir bandindaki isimlere
+       ve yil eksenindeki sayilara tiklayarak ag daraltiliyor.
+
+       IKI AYRI LISTE, cunku iki olcut ayni sey degil (Mustafa,
+       2026-09-06: "ayni anda birden fazla sehir ya da hem sehir hem
+       tarih secilebilsin"):
+         beldeler icinde  VEYA  -- Medine + Kufe = ikisi birden
+         yillar icinde    VEYA  -- 150'ler + 200'ler = ikisi birden
+         ikisi arasinda   VE    -- "Medine ile Kufe'nin 150'lerdeki
+                                   ravileri"
+       Bos liste "bu olcut hic secilmemis" demek, yani her seyi gecirir.
+       Kesisim almak tek mantikli yol: birlesim alsaydik sehir secmek
+       yil secimini genisletirdi ve iki olcut birbirini bozardi. */
+    const [beldeSuz, setBeldeSuz] = useState([]);   // ["Medine", ...]
+    const [yilSuz, setYilSuz] = useState([]);       // [150, 200, ...] her biri on yillik
+    const suzgecVar = beldeSuz.length > 0 || yilSuz.length > 0;
+    const suzgecTemizle = () => { setBeldeSuz([]); setYilSuz([]); };
+    const cevir = (liste, kur, deger) =>
+      kur(liste.includes(deger) ? liste.filter((x) => x !== deger) : [...liste, deger]);
     const [acikArama, setAcikArama] = useState(false);
     const [view, setView] = useState({ x: 0, y: 0, k: 0.4 });
     const [suruk, setSuruk] = useState(null);
@@ -675,20 +690,38 @@ export function kur(V) {
        araligina girmiyor; tahmini yil kullanilmadi, cunku suzgec bir
        iddia degil bir SECIM ve tahmin uzerine secim yapilmamali. */
     const suzgecKumesi = useMemo(() => {
-      if (!suzgec) return null;
+      if (!suzgecVar) return null;
       const s = new Set();
       for (const n of NODES) {
-        if (suzgec.tur === "belde") { if (n.belde === suzgec.belde) s.add(n.id); }
-        else if (n.olum != null && n.olum >= suzgec.bas && n.olum < suzgec.son) s.add(n.id);
+        if (beldeSuz.length && !beldeSuz.includes(n.belde)) continue;
+        /* YIL OLCUTU `tahminiYil` KULLANIYOR, ham `olum` DEGIL.
+
+           Sebep goruntunun kendisi: harita dugumu zaten `tahminiYil`in
+           verdigi yere koyuyor, ve asagidaki perde de ekrandaki
+           dikdortgeni karartiyor. `olum`a baksaydik vefat yili
+           bilinmeyen 210 ravi (agin %29'u) secili bandin TAM ICINDE
+           duruyorken kume disi sayilirdi -- perde onlari aydinlik
+           birakip suzgec karartirdi, ikisi celisirdi.
+
+           Yani burada bir tahmine dayanmis oluyoruz; ama o tahmin
+           dugumun ekrandaki yerini zaten belirliyor, suzgec yalnizca
+           gorulen seye sadik kaliyor. Gercek yillar girildikce tahmin
+           kendiliginden devreden cikiyor. */
+        if (yilSuz.length) {
+          const y = tahminiYil(n);
+          if (!yilSuz.some((b) => y >= b && y < b + 10)) continue;
+        }
+        s.add(n.id);
       }
       return s;
-    }, [suzgec]);
-    const suzgecDisi = (id) => !!suzgecKumesi && !suzgecKumesi.has(id);
-
-    const sonuk = (id) => (suzgecDisi(id) ? true
-      : vurgu ? !vurgu.has(id) : eslesen ? !eslesen.has(id) : false);
+    }, [suzgecVar, beldeSuz, yilSuz]);
+    /* SUZGEC CIZIME KARISMIYOR: ne dugumu kuculuyor ne kenari
+       solduruyor. Butun is asagidaki PERDE'de -- secilmeyen bolge
+       kararir, secilen bolge oldugu gibi kalir. Bir sure kume uzerinden
+       soldurma da denendi, birlikte calisinca cift is oluyordu: secili
+       sutunun hemen disindaki bir isim hem kuculup hem kararıyordu. */
+    const sonuk = (id) => (vurgu ? !vurgu.has(id) : eslesen ? !eslesen.has(id) : false);
     const kenarSonuk = (e) => {
-      if (suzgecKumesi) return !(suzgecKumesi.has(e.a) && suzgecKumesi.has(e.b));
       if (secim && secim.tur === "kenar") return !(secim.e.a === e.a && secim.e.b === e.b);
       if (vurgu) return !(vurgu.has(e.a) && vurgu.has(e.b));
       return false;
@@ -945,10 +978,6 @@ export function kur(V) {
        kucuk kalabilirdi. */
     const enAzDerece = dereceEsigi(durgun.k * YAY);
     const tamBoy = useCallback((id) => {
-      /* SUZGEC EN USTTE: disarida kalan dugum, derecesi ne olursa olsun
-         ve secili/vurgulu olsa bile minige iniyor. Yoksa "yalnizca bu
-         sehir" derken yuksek dereceli yabancilar tam boy kalirdi. */
-      if (suzgecKumesi && !suzgecKumesi.has(id)) return false;
       if (enAzDerece === 0) return true;
       if ((DERECE[id] || 0) >= enAzDerece) return true;
       if (KADEME(id) <= 1) return true;
@@ -956,7 +985,7 @@ export function kur(V) {
       if (vurgu && vurgu.has(id)) return true;
       if (eslesen && eslesen.has(id)) return true;
       return false;
-    }, [enAzDerece, secim, vurgu, eslesen, suzgecKumesi]);
+    }, [enAzDerece, secim, vurgu, eslesen]);
 
     const etiketliler = useMemo(() => {
       const sirali = NODES
@@ -1713,9 +1742,45 @@ export function kur(V) {
         ctx.fillText(tarih, px, py + r + punto + altPunto + 3 * k);
       }
       ctx.globalAlpha = 1;
+
+      /* ---- SUZGEC PERDESI ----
+         "Secilmeyen kisimlar sanki isiklar sondurulmus gibi los olsun,
+         kararsin" (Mustafa, 2026-09-06).
+
+         Sehir bir SUTUN, yil araligi bir SATIR: ikisi de ekranda
+         dikdortgen. Yani secim her zaman dikdortgenlerin birlesimi ve
+         perde tek bir yolla cizilebiliyor -- butun tuvali kaplayan bir
+         dikdortgen, icine de secili alanlar DELIK olarak. `evenodd`
+         doldurma kurali delikleri kendiliginde bosaltiyor.
+
+         Delikler ust uste BINMEMELI, yoksa evenodd cakisan yeri geri
+         doldurur. Binmiyorlar: sutunlar yan yana, yil bantlari alt
+         alta, ikisinin carpimi da ayrik hucreler veriyor.
+
+         Perde en sonda ciziliyor -- zemin, kenar, nokta ve yazi, hepsi
+         birlikte kararsin. Yalnizca noktalari soldurmak yetmiyordu;
+         goz zemindeki izgaraya ve damali seride de takiliyor. */
+      if (suzgecVar) {
+        const sutunlar = beldeSuz.length
+          ? SUTUNLAR.filter((c) => beldeSuz.includes(c.belde))
+              .map((c) => [eX(c.x), eX(c.x + c.genislik)])
+          : [[0, box.w]];
+        const satirlar = yilSuz.length
+          ? yilSuz.map((y) => [eY(yOf(y)), eY(yOf(y + 10))])
+          : [[0, box.h]];
+        ctx.save();
+        ctx.fillStyle = koyu ? "rgba(0,0,0,0.66)" : "rgba(52,44,30,0.5)";
+        ctx.beginPath();
+        ctx.rect(0, 0, box.w, box.h);
+        for (const [x1, x2] of sutunlar)
+          for (const [y1, y2] of satirlar)
+            ctx.rect(x1, y1, x2 - x1, y2 - y1);
+        ctx.fill("evenodd");
+        ctx.restore();
+      }
     }, [box, olculdu, view, pencere, secim, secRavi, secKenar, vurgu,
         cizgiCarpani, cizgiSaydam, MEDINE_I, adi, koyu, akisAnim, t,
-        etiketliler, kenarKubik, tamBoy]);
+        etiketliler, kenarKubik, tamBoy, suzgecVar, beldeSuz, yilSuz]);
   
     /* TUVALDA NE TIKLANDI.
   
@@ -1919,14 +1984,12 @@ export function kur(V) {
                 {denemeSuzgec && (
                   <rect x="0" y={ky - 11} width={SOL_BANT} height="22" fill="transparent"
                     style={{ pointerEvents: "auto", cursor: "pointer" }}
-                    onClick={() => setSuzgec(
-                      suzgec?.tur === "yil" && suzgec.bas === y
-                        ? null : { tur: "yil", bas: y, son: y + 10 })} />
+                    onClick={() => cevir(yilSuz, setYilSuz, y)} />
                 )}
                 <text x={SOL_BANT - 4} textAnchor="end"
                   style={{ direction: "ltr", pointerEvents: "none" }}>
                   <tspan x={SOL_BANT - 4} y={ky - 1} fontSize="9"
-                    fill={suzgec?.tur === "yil" && suzgec.bas === y ? C.vurguInk
+                    fill={yilSuz.includes(y) ? C.vurguInk
                         : y % 50 === 0 ? C.ink : C.solukInk}>{y}</tspan>
                   <tspan x={SOL_BANT - 4} y={ky + 7} fontSize="7"
                     fill={C.solukInk}>{YIL_EKI[language] ?? "h."}</tspan>
@@ -1959,7 +2022,7 @@ export function kur(V) {
               // görünüyorsa görünen kısmın ortasına kaydırılır
               const yariGen = (Math.min(alan, tam.length * harfW)) / 2;
               const gx = Math.min(Math.max(kx, gorunurSol + yariGen), gorunurSag - yariGen);
-              const secili = suzgec?.tur === "belde" && suzgec.belde === c.belde;
+              const secili = beldeSuz.includes(c.belde);
               return (
                 <g key={c.belde}>
                   <line x1={sol} y1={UST_BANT - 5} x2={sol} y2={UST_BANT}
@@ -1974,7 +2037,7 @@ export function kur(V) {
                     <rect x={gorunurSol} y="0" width={Math.max(0, gorunurSag - gorunurSol)}
                       height={UST_BANT} fill="transparent"
                       style={{ pointerEvents: "auto", cursor: "pointer" }}
-                      onClick={() => setSuzgec(secili ? null : { tur: "belde", belde: c.belde })} />
+                      onClick={() => cevir(beldeSuz, setBeldeSuz, c.belde)} />
                   )}
                   <text x={gx + 0.8} y={16} textAnchor="middle" fontSize="10.5" letterSpacing="1.6"
                     style={{ pointerEvents: "none" }}
@@ -1988,24 +2051,40 @@ export function kur(V) {
             <rect x="0" y="0" width={SOL_BANT} height={UST_BANT} fill={C.zemin} />
           </svg>
 
-          {/* ---- etkin suzgec rozeti (DENEME) ----
+          {/* ---- etkin suzgec rozetleri (DENEME) ----
               Suzgec sessiz kalmamali: kullanici sehir adina yanlislikla
-              dokunup agin neden soldugunu anlamayabilir. Rozet hem neyin
-              secili oldugunu hem kac raviyi kapsadigini soyluyor ve
-              kapatma dugmesi tasiyor. Bandin hemen altinda, sol
-              basta -- tikladigi yerin yaninda. */}
-          {denemeSuzgec && suzgec && (
-            <div className="absolute z-20 flex items-center gap-2 px-2.5 py-1 rounded-sm border shadow-sm text-[12px]"
-              style={{ left: SOL_BANT + 8, top: UST_BANT + 8,
-                       background: C.tuval, borderColor: C.cizgi, color: C.ink }}>
-              <span>
-                {suzgec.tur === "belde"
-                  ? (BELDE_AD[language]?.[suzgec.belde] ?? suzgec.belde)
-                  : `${suzgec.bas}–${suzgec.son} ${YIL_EKI[language] ?? "h."}`}
+              dokunup agin neden karardigini anlamayabilir. Her secim
+              kendi pili olarak duruyor, pile basmak onu kaldiriyor;
+              birden fazla secim varken sona "hepsini temizle" geliyor.
+              Bandin hemen altinda, sol basta -- tikladigi yerin
+              yaninda. */}
+          {denemeSuzgec && suzgecVar && (
+            <div className="absolute z-20 flex flex-wrap items-center gap-1.5"
+              style={{ left: SOL_BANT + 8, top: UST_BANT + 8, maxWidth: box.w - SOL_BANT - 24 }}>
+              {beldeSuz.map((b) => (
+                <button key={"b" + b} onClick={() => cevir(beldeSuz, setBeldeSuz, b)}
+                  className="flex items-center gap-1.5 px-2.5 py-1 rounded-sm border shadow-sm text-[12px]"
+                  style={{ background: C.tuval, borderColor: C.cizgi, color: C.ink }}>
+                  <span>{BELDE_AD[language]?.[b] ?? b}</span>
+                  <span style={{ color: C.solukInk }}>&times;</span>
+                </button>
+              ))}
+              {yilSuz.slice().sort((a, b) => a - b).map((y) => (
+                <button key={"y" + y} onClick={() => cevir(yilSuz, setYilSuz, y)}
+                  className="flex items-center gap-1.5 px-2.5 py-1 rounded-sm border shadow-sm text-[12px]"
+                  style={{ background: C.tuval, borderColor: C.cizgi, color: C.ink }}>
+                  <span>{y}&ndash;{y + 10} {YIL_EKI[language] ?? "h."}</span>
+                  <span style={{ color: C.solukInk }}>&times;</span>
+                </button>
+              ))}
+              <span className="px-1 text-[12px]" style={{ color: C.solukInk }}>
+                {suzgecKumesi ? suzgecKumesi.size : 0}
               </span>
-              <span style={{ color: C.solukInk }}>{suzgecKumesi ? suzgecKumesi.size : 0}</span>
-              <button onClick={() => setSuzgec(null)} aria-label="x"
-                className="leading-none px-1 -mr-1" style={{ color: C.solukInk }}>&times;</button>
+              {beldeSuz.length + yilSuz.length > 1 && (
+                <button onClick={suzgecTemizle}
+                  className="px-2 py-1 text-[12px] underline"
+                  style={{ color: C.solukInk }}>{t.agTemizle ?? "temizle"}</button>
+              )}
             </div>
           )}
   
