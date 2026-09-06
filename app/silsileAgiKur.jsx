@@ -235,6 +235,17 @@ export function kur(V) {
        Bos liste "bu olcut hic secilmemis" demek, yani her seyi gecirir.
        Kesisim almak tek mantikli yol: birlesim alsaydik sehir secmek
        yil secimini genisletirdi ve iki olcut birbirini bozardi. */
+    /* KART KAPANSA DA SECIM DURUR (Mustafa, 2026-09-06: "bilgi kartini
+       kapatinca da nokta secili durmaya devam etsin").
+
+       Eskiden karti kapatmak `setSecim(null)` idi, yani tek bir state
+       hem "hangi ravi secili" hem "kart acik mi" sorusunu birden
+       tasiyordu; karti kapatmak noktanin halkasini ve vurgulanan
+       baglantilarini da goturuyordu. Ikisi ayrildi: `secim` secimi,
+       `kartAcik` yalnizca kartin gorunurlugunu tutuyor. Secim hala
+       bos tuvale tiklayarak ya da ayni noktaya kart ACIKKEN tekrar
+       tiklayarak kalkiyor. */
+    const [kartAcik, setKartAcik] = useState(true);
     const [beldeSuz, setBeldeSuz] = useState([]);   // ["Medine", ...]
     const [yilSuz, setYilSuz] = useState([]);       // [150, 200, ...] her biri on yillik
     const suzgecVar = beldeSuz.length > 0 || yilSuz.length > 0;
@@ -463,14 +474,17 @@ export function kur(V) {
          noktaya tiklayinca nokta ortalanmiyor").
 
          Bu yuzden cagiran taraf secimin OLACAGINI bildirebiliyor. */
-      const secimVar = secimKabul ?? !!secim;
+      /* Olcut SECIM degil KARTIN GORUNURLUGU: kart kapatilip secim
+         durdugunda ekranin alti bosaliyor, o payi ayirmak kamerayi
+         bosuna yukari itiyordu. */
+      const secimVar = secimKabul ?? (!!secim && kartAcik);
       const ALT_PAY = 260 + (secimVar ? (dar ? 320 : 190) : 0);
       if (cw >= gw) x = Math.min(SOL_BANT + YAN, Math.max(box.w - cw - YAN, x));
       else x = SOL_BANT + (gw - cw) / 2;
       if (ch >= gh) y = Math.min(UST_BANT + UST_PAY, Math.max(box.h - ch - ALT_PAY, y));
       else y = Math.min(UST_BANT + (gh - ch) / 2, UST_BANT + UST_PAY);
       return { k: v.k, x, y };
-    }, [box, secim, dar]);
+    }, [box, secim, kartAcik, dar]);
   
     const gitView = useCallback((v) => setView(sinirla(v)), [sinirla]);
   
@@ -919,8 +933,17 @@ export function kur(V) {
        gelir. */
 
     const odaklan = (id) => {
-      if (secim && secim.tur === "ravi" && secim.id === id) { setSecim(null); return; }
+      if (secim && secim.tur === "ravi" && secim.id === id) {
+        /* Ayni noktaya tekrar tiklamak: kart kapaliysa geri ACIYOR,
+           acikken secimi biraktigi gibi KALDIRIYOR. Kart kapaliyken de
+           secimi kaldirsaydi noktayi secili tutmanin bir anlami
+           kalmazdi -- karti kapatan kullanici genellikle agi gormek
+           isteyip sonra karta donuyor. */
+        if (!kartAcik) { setKartAcik(true); return; }
+        setSecim(null); return;
+      }
       setSecim({ tur: "ravi", id });
+      setKartAcik(true);
       // ucuncu arguman: secim HENUZ state'te yok, bkz. sinirla'daki not
       kaydir(odakKonumu(id, view.k), 620, true);
     };
@@ -1937,7 +1960,7 @@ export function kur(V) {
                  bu yuzden goze carpiyordu. */
               const vurulan = tuvaldaBul(nokta);
               if (vurulan && vurulan.tur === "ravi") odaklan(vurulan.id);
-              else setSecim(vurulan);
+              else { setSecim(vurulan); setKartAcik(true); }
               /* ARAMA KUTUSU DA SIFIRLANIYOR, yalnizca acilir liste degil.
                  Eskiden sadece `setAcikArama(false)` vardi: yazilan metin
                  kutuda kaliyordu, dolayisiyla arama sonucundaki isimler
@@ -2070,41 +2093,28 @@ export function kur(V) {
             <rect x="0" y="0" width={SOL_BANT} height={UST_BANT} fill={C.zemin} />
           </svg>
 
-          {/* ---- etkin suzgec rozetleri (DENEME) ----
+          {/* ---- suzgeci kaldirma dugmesi (DENEME) ----
               Suzgec sessiz kalmamali: kullanici sehir adina yanlislikla
-              dokunup agin neden karardigini anlamayabilir. Her secim
-              kendi pili olarak duruyor, pile basmak onu kaldiriyor;
-              birden fazla secim varken sona "hepsini temizle" geliyor.
-              Bandin hemen altinda, sol basta -- tikladigi yerin
-              yaninda. */}
+              dokunup agin neden karardigini anlamayabilir; ekranda bir
+              cikis kapisi durmali.
+
+              ONCE HER SECIM KENDI ROZETIYDI ("Medine x", "20-30 h. x")
+              ve yaninda bir de eslesen ravi sayaci vardi. Kaldirildi
+              (Mustafa, 2026-09-06: "filtreler eklendiginde sol ust
+              kosede bu filtrelere ait butonlar beliriyor, bunlara gerek
+              yok"). Zaten gereksizdiler: hangi sehrin ve hangi yilin
+              secili oldugu perdenin kendisinden okunuyor -- aydinlik
+              kalan sutun ve satir bunu rozetten daha dogrudan
+              soyluyordu, rozetler ayni bilgiyi ikinci kez yaziyordu.
+              Tek tek kaldirma da bandin uzerine yeniden tiklayarak
+              yapilabiliyor. Geriye tek bir toplu cikis kaldi. */}
           {denemeSuzgec && suzgecVar && (
-            <div className="absolute z-20 flex flex-wrap items-center gap-1.5"
-              style={{ left: SOL_BANT + 8, top: UST_BANT + 8, maxWidth: box.w - SOL_BANT - 24 }}>
-              {beldeSuz.map((b) => (
-                <button key={"b" + b} onClick={() => cevir(beldeSuz, setBeldeSuz, b)}
-                  className="flex items-center gap-1.5 px-2.5 py-1 rounded-sm border shadow-sm text-[12px]"
-                  style={{ background: C.tuval, borderColor: C.cizgi, color: C.ink }}>
-                  <span>{BELDE_AD[language]?.[b] ?? b}</span>
-                  <span style={{ color: C.solukInk }}>&times;</span>
-                </button>
-              ))}
-              {yilSuz.slice().sort((a, b) => a - b).map((y) => (
-                <button key={"y" + y} onClick={() => cevir(yilSuz, setYilSuz, y)}
-                  className="flex items-center gap-1.5 px-2.5 py-1 rounded-sm border shadow-sm text-[12px]"
-                  style={{ background: C.tuval, borderColor: C.cizgi, color: C.ink }}>
-                  <span>{y}&ndash;{y + 10} {YIL_EKI[language] ?? "h."}</span>
-                  <span style={{ color: C.solukInk }}>&times;</span>
-                </button>
-              ))}
-              <span className="px-1 text-[12px]" style={{ color: C.solukInk }}>
-                {suzgecKumesi ? suzgecKumesi.size : 0}
-              </span>
-              {beldeSuz.length + yilSuz.length > 1 && (
-                <button onClick={suzgecTemizle}
-                  className="px-2 py-1 text-[12px] underline"
-                  style={{ color: C.solukInk }}>{t.agTemizle ?? "temizle"}</button>
-              )}
-            </div>
+            <button onClick={suzgecTemizle}
+              className="absolute z-20 px-2.5 py-1 rounded-sm border shadow-sm text-[12px]"
+              style={{ left: SOL_BANT + 8, top: UST_BANT + 8,
+                       background: C.tuval, borderColor: C.cizgi, color: C.ink }}>
+              {t.agSuzgecKaldir}
+            </button>
           )}
   
           {/* ---- sağ üst: râvi bul + yakınlaştırma ---- */}
@@ -2172,7 +2182,7 @@ export function kur(V) {
           </div>
   
           {/* ---- sabit bilgi paneli ---- */}
-          {secRavi && (
+          {secRavi && kartAcik && (
             <div ref={kartRef} className="absolute z-20 shadow-lg select-text gizli-kaydirma"
               style={{
                 /* Dar ekranda kart TAM GENISLIK ve kontrol kumesinin
@@ -2196,7 +2206,9 @@ export function kur(V) {
               data-ustlik
               onPointerDown={(e) => e.stopPropagation()} onPointerUp={(e) => e.stopPropagation()}
               onWheel={(e) => e.stopPropagation()}>
-              <button onClick={() => setSecim(null)}
+              {/* Karti kapatir, SECIMI KALDIRMAZ -- nokta halkasi ve
+                  vurgulanan baglantilari yerinde kalir. */}
+              <button onClick={() => setKartAcik(false)}
                 className="absolute top-2 right-3" style={{ color: C.solukInk }}>×</button>
               <div className="flex items-baseline gap-3 flex-wrap pr-6">
                 <h2 className="text-xl">{adi(secRavi)}</h2>

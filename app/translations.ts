@@ -84,6 +84,7 @@ type Translation = {
      düğümün kendisinde duruyor (Türkçe `tr`, Arapça `ar` alanı) ve
      dile göre orada seçiliyor. Burada yalnızca arayüz metinleri var. */
   agOlum: string;
+  agSuzgecKaldir: string;
   agAra: string;
   agHocalari: string;
   agTalebeleri: string;
@@ -184,6 +185,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
       "Seçilen metni her programda çeviren masaüstü aracı (DeepL)",
     footerRights: "Tüm hakları saklıdır.",
     agOlum: "ö.",
+    agSuzgecKaldir: "Tüm Filtreleri Kaldır",
     agAra: "Râvi Ara",
     agHocalari: "Hocaları",
     agTalebeleri: "Talebeleri",
@@ -280,6 +282,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
       "أداة سطح مكتب تترجم النصّ المحدَّد في أيّ برنامج (DeepL)",
     footerRights: "جميع الحقوق محفوظة.",
     agOlum: "ت",
+    agSuzgecKaldir: "إزالة كل المرشِّحات",
     agAra: "ابحث عن راوٍ",
     agHocalari: "شيوخه",
     agTalebeleri: "تلاميذه",
@@ -378,6 +381,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
       "A desktop tool that translates selected text in any program (DeepL)",
     footerRights: "All rights reserved.",
     agOlum: "d.",
+    agSuzgecKaldir: "Clear All Filters",
     agAra: "Find a Narrator",
     agHocalari: "Teachers",
     agTalebeleri: "Students",
