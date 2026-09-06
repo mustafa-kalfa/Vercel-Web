@@ -7,16 +7,15 @@ import { useLanguage } from "../LanguageContext";
 
 /* DENEME ADRESI.
 
-   Bilesen ve veri /ravi-iliski-aglari/harita ile AYNI. Tek fark iki
-   prop: `denemeZemin` (acik temada zemin koyulastirilip baglanti
-   cizgileri beyaza cekiliyor) ve `denemeKenarKirp` (cizgi agirligi
-   olcekten bagimsiz sabit). Begenilirse yayindaki sayfa da bu iki
-   prop'u gecer; begenilmezse burada silinir ve sayfa harita ile
-   birebir ayni olur.
+   /ravi-iliski-aglari/harita ile BIREBIR AYNI: ayni bilesen, ayni veri,
+   hic prop yok. Deneme adresinin isi bu -- bir degisiklik once burada
+   denenir, begenilirse yayina tasinir ve sayfa yine haritanin aynisi
+   olur.
 
-   2026-09-04'te bir sure ayri bir bilesen (SilsileAgiSinama) ve ayri
-   bir veri kopyasi (silsileVeriSinama.js) vardi; Zehebi'nin Siyer'inden
-   gelen yirmi ravi yayina alininca ikisi de silindi.
+   2026-09-04 ile 2026-09-06 arasinda burada uc deneme yasadi ve ucu de
+   yayina alindi: ayri bir veri kopyasi (Zehebi'nin Siyer'inden gelen
+   yirmi ravi), acik temanin koyulastirilmis zemini + beyaz baglanti
+   cizgileri, ve olcekten bagimsiz sabit cizgi agirligi.
 
    2026-08-30'da bir sure veri BURADA catallanmisti (bilgi kartlari
    Takrib'den doldurulurken yayindaki harita etkilenmesin diye);
@@ -54,9 +53,7 @@ export default function AgSinamasi() {
           Ust bant 2026-08-29'da %33 kuculdu: logo 72 -> 48 px, bant
           80 -> 54 px. Sayfanin ust seridi ag'dan cok yer aliyordu. */}
       <div className="mt-[54px] h-[calc(100dvh-54px)]">
-        {/* denemeZemin: bkz. silsileAgiKur.jsx, ACIK TEMA ICIN IKINCI
-            DENEME. Yayindaki harita bu prop'u GECMIYOR. */}
-        <SilsileAgi denemeZemin denemeKenarKirp />
+        <SilsileAgi />
       </div>
     </main>
   );

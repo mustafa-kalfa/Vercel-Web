@@ -215,10 +215,11 @@ export function kur(V) {
      dusur"). */
   const AKIS_HIZ = 12.5;
 
-  /* denemeZemin: acik temada zemini koyulastirip cizgiyi beyaza ceken
-     DENEME. Yalnizca /ag-sinamasi bu prop'u geciyor; yayindaki harita
-     prop'suz cagirdigi icin degismiyor. Bkz. paletin altindaki not. */
-  return function SilsileAgi({ denemeZemin = false, denemeKenarKirp = false } = {}) {
+  /* 2026-09-04 ile 2026-09-06 arasi burada iki deneme prop'u vardi
+     (`denemeZemin`, `denemeKenarKirp`); ikisi de yayina alinip
+     kaldirildi. /ravi-iliski-aglari/harita ile /ag-sinamasi yine
+     BIREBIR ayni. */
+  return function SilsileAgi() {
     const [secim, setSecim] = useState(null);   // {tur:"ravi",id} | {tur:"kenar",e}
     const [arama, setArama] = useState("");
     const [acikArama, setAcikArama] = useState(false);
@@ -309,11 +310,13 @@ export function kur(V) {
        aliniyor -- bkz. asagida cizgiSaydam.
 
        /ag-sinamasi'nda bir sure `beyazKenar` prop'uyla denendi, sonra
-       ikisi de buraya alindi; iki adres yine birebir ayni. */
-    if (koyu) {
-      C.kenar = "#FFFFFF";
-      C.kenarSonuk = "#FFFFFF";
-    }
+       ikisi de buraya alindi; iki adres yine birebir ayni.
+
+       KOYU TEMA 2026-09-06'DA OLDUGU GIBI BIRAKILDI (Mustafa: "asil
+       haritamizin koyu moddaki baglanti agi rengi daha iyi, o oyle
+       kalsin"). Asagidaki acik tema kolu degisti, bu kol degismedi --
+       cizgi agirligi hesabinda da (bkz. cizgiCarpani/cizgiSaydam) koyu
+       tema eski formulunu aynen koruyor. */
 
     /* ACIK TEMA ICIN IKINCI DENEME (Mustafa, 2026-09-04, YALNIZCA
        /ag-sinamasi'nda): "zemin renklerini cok hafif koyulastir,
@@ -332,8 +335,16 @@ export function kur(V) {
 
        Cizgi opakligi burada TAM: acik temanin yari saydam ayari
        kirliligi zeminle kaynastirarak aliyordu, beyaz cizgide o gerekli
-       degil -- kontrast zaten ters yonde. Bkz. asagida cizgiSaydam. */
-    if (denemeZemin && !koyu) {
+       degil -- kontrast zaten ters yonde. Bkz. asagida cizgiSaydam.
+
+       2026-09-04'ten 2026-09-06'ya kadar bu blok `denemeZemin` prop'uyla
+       yalnizca /ag-sinamasi'nda calisti; begenilince YAYINA ALINDI ve
+       prop kaldirildi ("ag sinamasi sayfasindaki haritamizi asil
+       haritaya tasiyabiliriz"). Iki adres yine birebir ayni. */
+    if (koyu) {
+      C.kenar = "#FFFFFF";
+      C.kenarSonuk = "#FFFFFF";
+    } else {
       C.zemin = "#E2DACA";
       C.tuval = "#E8E1D3";
       C.kart = "rgba(232,225,211,0.97)";
@@ -1069,13 +1080,23 @@ export function kur(V) {
        gibi), cunku ham `k` YAY ile ters orantili. YAY 64 iken
        kYay * 7 / 64 = k * 7, yani yayindaki davranis birebir ayni. */
     const kYayCizgi = durgun.k * YAY;
-    const yakinlikPayi = denemeKenarKirp ? 0 : kYayCizgi / 64;
-    /* Deneme sayfasinin beyaz cizgisinde taban 2026-09-05'te YARIYA
-       indirildi, 0,55 -> 0,275 (Mustafa: "kalinligini yariya indir").
-       Normal kenar ekranda 0,66 -> 0,33 piksel. Ayni gun opaklik once
-       yariya indirilip sonra geri alinmisti; secilen ayar bu ikisinin
-       birlesimi: eski opaklik, yari kalinlik. */
-    const cizgiCarpani = Math.min(1, (denemeZemin ? 0.275 : 0.3) +
+    /* AGIRLIK ARTIK TEMAYA BAGLI, prop'a degil (2026-09-06).
+
+       ACIK TEMA: /ag-sinamasi'nda oturmus ayar yayina alindi -- taban
+       0,275 ve yakinlikla artan terim YOK, yani cizgi her olcekte ayni.
+       Kalinlik 2026-09-05'te yariya indirilmisti (0,55 -> 0,275,
+       "kalinligini yariya indir"); opaklik ayni gun once yariya
+       indirilip sonra geri alindi, secilen ayar ikisinin birlesimi:
+       eski opaklik, yari kalinlik. Normal kenar %51 opaklikta ve 0,33
+       piksel.
+
+       KOYU TEMA: hicbir sey degismedi (Mustafa: "koyu moddaki baglanti
+       agi rengi daha iyi, o oyle kalsin"). Taban 0,3 ve yakinlikla
+       artan terim yerinde. Yakinliga bagli sonumun uc kez yanlis
+       ciktigi butun hikaye ACIK temada yasandi; koyu temada boyle bir
+       sikayet hic olmadi. */
+    const yakinlikPayi = koyu ? kYayCizgi / 64 : 0;
+    const cizgiCarpani = Math.min(1, (koyu ? 0.3 : 0.275) +
                                      yakinlikPayi * 7);
   
     /* Bir kenarin yol dizgisi. Iki yerde lazim: tek tek cizilen
@@ -1119,13 +1140,13 @@ export function kur(V) {
        Deneme sayfasinda artik sabit; kalabalik gorunume karsi elde
        kalan arac cizginin kendisi degil, DERECE_MERDIVEN (uzakta az
        baglantili noktayi kuculten eleme) -- o yerinde duruyor. */
-    /* Deneme sayfasinin tabani bir sure 0,3'e indirilmisti; AYNI GUN
-       GERI ALINDI (Mustafa: "beyaz cizgilerin opakligini tekrar eski
-       haline getir"). Incelme kalinliktan gelsin istendi, opakliktan
-       degil -- bkz. yukarida cizgiCarpani. Normal kenar %51. */
-    const cizgiSaydam = Math.min(1, (denemeZemin ? 0.6 : 0.3) +
-                                    yakinlikPayi * 6) *
-                        (koyu || denemeZemin ? 1 : 0.5);
+    /* Acik temada taban 0,6, koyu temada 0,3 -- bkz. yukaridaki not.
+       Eskiden acik temada bir de 0,5'lik carpan vardi: zeytin cizgi
+       kagit zeminde ust uste binip kirletiyordu ve yari saydamlik onu
+       zeminle kaynastiriyordu. Beyaz cizgi + koyulastirilmis zeminde o
+       carpan GEREKSIZ, kontrast zaten ters yonde; kaldirildi. */
+    const cizgiSaydam = Math.min(1, (koyu ? 0.3 : 0.6) +
+                                    yakinlikPayi * 6);
   
   
     const MEDINE_I = SUTUNLAR.findIndex((c) => c.belde === "Medine");
