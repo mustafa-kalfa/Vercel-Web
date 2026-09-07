@@ -911,6 +911,17 @@ export const NODES = [
   // ---- Ibn Mehdi'nin talebeleri ve Yahya b. Adem cevresi ----
   N("abdhumeyd", "عبد بن حميد", "Abd b. Humeyd", 5, 249, "Horasan", "el-Müsned ve Tefsîr sahibi. Rumûz م."),
   N("ebukureyb", "أبو كريب محمد بن العلاء", "Ebû Küreyb Muhammed b. el-Alâ", 5, 248, "Kûfe"),
+  /* 2026-09-07'de eklendi. Takrib'de 230-300 arasi vefat eden 668
+     tercemenin haritadaki karsiliklari tarandiginda ortaya cikan uc
+     bosluk; ucu de rumuzu ع, yani hadisleri alti kitabin hepsinde
+     geciyor. Kenarlari Tehzib'in kendi seyh/talebe listelerinden
+     esle.cjs ile cikarildi. */
+  N("ebumusabzuhri", "أحمد بن أبي بكر الزهري", "Ebû Mus‘ab ez-Zührî", 5, 242, "Medine",
+    "Muvatta'ın râvilerinden; Buhârî ve Müslim'in şeyhi. Vefât yılı Takrîb 17 ve Tehzîb 17: 242. Rumûz ع."),
+  N("ziyadyahyahassani", "زياد بن يحيى الحساني", "Ziyâd b. Yahyâ el-Hassânî", 5, 254, "Basra",
+    "Ebü'l-Hattâb en-Nükrî. Vefât yılı Takrîb 2104 ve Tehzîb 2073: 254. Rumûz ع."),
+  N("ebusaidesecc", "عبد الله بن سعيد الأشج", "Ebû Saîd el-Eşecc", 5, 257, "Kûfe",
+    "Abdullah b. Saîd b. Husayn el-Kindî. Vefât yılı Takrîb 3354 ve Tehzîb 3303: 257. Rumûz ع."),
   N("muhammedrafi", "محمد بن رافع النيسابوري", "Muhammed b. Râfi‘ en-Nîsâbûrî", 5, 245, "Horasan"),
   N("zuhli", "محمد بن يحيى الذهلي", "Muhammed b. Yahyâ ez-Zühlî", 5, 258, "Horasan"),
   N("muhammedabdulalasanani", "محمد بن عبد الأعلى الصنعاني", "Muhammed b. Abdil'alâ es-San‘ânî", 5, 245, "Yemen"),
@@ -6968,6 +6979,73 @@ const EDGES_HAM = [
      Tehzîb 11. Tercemede 10 kayit var, agda dugumu olan 2'i cizildi. */
   E("ahmedeskab", "ebuhatimrazi", "—", "Tehzîb 11"),
   E("ahmedeskab", "ibnmain", "—", "Tehzîb 11"),
+
+
+  /* Ebû Mus‘ab ez-Zührî (o. 242) -- hocalari.
+     Tehzîb 17. Tercemede 19 kayit var, agda dugumu olan 3'i cizildi. */
+  E("ibrahimsad", "ebumusabzuhri", "—", "Tehzîb 17"),
+  E("darevardi", "ebumusabzuhri", "2", "Tehzîb 17"),
+  E("malik", "ebumusabzuhri", "م ت كن ق", "Tehzîb 17"),
+
+
+  /* Ebû Mus‘ab ez-Zührî (o. 242) -- talebeleri.
+     Tehzîb 17. Tercemede 23 kayit var, agda dugumu olan 3'i cizildi. */
+  E("ebumusabzuhri", "ebuzuraraazi", "—", "Tehzîb 17"),
+  E("ebumusabzuhri", "ebuhatimrazi", "—", "Tehzîb 17"),
+  E("ebumusabzuhri", "zuhli", "—", "Tehzîb 17"),
+
+
+  /* Ziyâd b. Yahyâ el-Hassânî (o. 254) -- hocalari.
+     Tehzîb 2073. Tercemede 51 kayit var, agda dugumu olan 4'i cizildi. */
+  E("ibnuyeyne", "ziyadyahyahassani", "—", "Tehzîb 2073"),
+  E("ebudavudtayalisi", "ziyadyahyahassani", "س", "Tehzîb 2073"),
+  E("abdulalaabdulala", "ziyadyahyahassani", "—", "Tehzîb 2073"),
+  E("muhammedebiadi", "ziyadyahyahassani", "م", "Tehzîb 2073"),
+
+
+  /* Ziyâd b. Yahyâ el-Hassânî (o. 254) -- talebeleri.
+     Tehzîb 2073. Tercemede 38 kayit var, agda dugumu olan 10'i cizildi. */
+  E("ziyadyahyahassani", "ms02", "—", "Tehzîb 2073"),
+  E("ziyadyahyahassani", "bh05", "—", "Tehzîb 2073"),
+  E("ziyadyahyahassani", "ms12", "—", "Tehzîb 2073"),
+  E("ziyadyahyahassani", "ed17", "—", "Tehzîb 2073"),
+  E("ziyadyahyahassani", "ed19", "—", "Tehzîb 2073"),
+  E("ziyadyahyahassani", "ed20", "—", "Tehzîb 2073"),
+  E("ziyadyahyahassani", "ed18", "—", "Tehzîb 2073"),
+  E("ziyadyahyahassani", "ebuhatimrazi", "—", "Tehzîb 2073"),
+  E("ziyadyahyahassani", "bh10", "—", "Tehzîb 2073"),
+  E("ziyadyahyahassani", "ms28", "—", "Tehzîb 2073"),
+
+
+  /* Ebû Saîd el-Eşecc (o. 257) -- hocalari.
+     Tehzîb 3303. Tercemede 80 kayit var, agda dugumu olan 16'i cizildi. */
+  E("ibnuleyye", "ebusaidesecc", "ق", "Tehzîb 3303"),
+  E("hafsgiyas", "ebusaidesecc", "م ت", "Tehzîb 3303"),
+  E("ebuusamehammad", "ebusaidesecc", "م", "Tehzîb 3303"),
+  E("ibnidris", "ebusaidesecc", "م", "Tehzîb 3303"),
+  E("abdusselamharb", "ebusaidesecc", "ت", "Tehzîb 3303"),
+  E("abdesuleyman", "ebusaidesecc", "ت ق", "Tehzîb 3303"),
+  E("ubeydullahmusa", "ebusaidesecc", "—", "Tehzîb 3303"),
+  E("isabyunus", "ebusaidesecc", "—", "Tehzîb 3303"),
+  E("ebunuaymfadl", "ebusaidesecc", "م", "Tehzîb 3303"),
+  E("muhammedfudayl", "ebusaidesecc", "م", "Tehzîb 3303"),
+  E("huseym", "ebusaidesecc", "—", "Tehzîb 3303"),
+  E("veki", "ebusaidesecc", "—", "Tehzîb 3303"),
+  E("yalaubeyd", "ebusaidesecc", "—", "Tehzîb 3303"),
+  E("yunusbukeyr", "ebusaidesecc", "د ت", "Tehzîb 3303"),
+  E("ebubekirayyas", "ebusaidesecc", "—", "Tehzîb 3303"),
+  E("ebumuaviyedarir", "ebusaidesecc", "ص: 29", "Tehzîb 3303"),
+
+
+  /* Ebû Saîd el-Eşecc (o. 257) -- talebeleri.
+     Tehzîb 3303. Tercemede 17 kayit var, agda dugumu olan 7'i cizildi. */
+  E("ebusaidesecc", "ms04", "—", "Tehzîb 3303"),
+  E("ebusaidesecc", "ed17", "—", "Tehzîb 3303"),
+  E("ebusaidesecc", "ms20", "—", "Tehzîb 3303"),
+  E("ebusaidesecc", "ebuzuraraazi", "—", "Tehzîb 3303"),
+  E("ebusaidesecc", "bh11", "—", "Tehzîb 3303"),
+  E("ebusaidesecc", "ebuhatimrazi", "—", "Tehzîb 3303"),
+  E("ebusaidesecc", "hennadseri", "—", "Tehzîb 3303"),
 
 ];
 
