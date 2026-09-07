@@ -85,6 +85,7 @@ type Translation = {
      dile göre orada seçiliyor. Burada yalnızca arayüz metinleri var. */
   agOlum: string;
   agSuzgecKaldir: string;
+  agSuzgecIpucu: string;
   agAra: string;
   agHocalari: string;
   agTalebeleri: string;
@@ -186,6 +187,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     footerRights: "Tüm hakları saklıdır.",
     agOlum: "ö.",
     agSuzgecKaldir: "Tüm Filtreleri Kaldır",
+    agSuzgecIpucu: "Yıllara ve bölgelere göre filtreleme yapmak için kenar verilerini kullanabilirsiniz.",
     agAra: "Râvi Ara",
     agHocalari: "Hocaları",
     agTalebeleri: "Talebeleri",
@@ -283,6 +285,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     footerRights: "جميع الحقوق محفوظة.",
     agOlum: "ت",
     agSuzgecKaldir: "إزالة كل المرشِّحات",
+    agSuzgecIpucu: "يمكنك التصفية حسب السنوات والأقاليم بالنقر على الشريطين الجانبيين.",
     agAra: "ابحث عن راوٍ",
     agHocalari: "شيوخه",
     agTalebeleri: "تلاميذه",
@@ -382,6 +385,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     footerRights: "All rights reserved.",
     agOlum: "d.",
     agSuzgecKaldir: "Clear All Filters",
+    agSuzgecIpucu: "You can filter by year and region using the bands along the edges.",
     agAra: "Find a Narrator",
     agHocalari: "Teachers",
     agTalebeleri: "Students",

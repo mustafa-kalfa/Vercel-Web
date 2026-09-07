@@ -215,11 +215,11 @@ export function kur(V) {
      dusur"). */
   const AKIS_HIZ = 12.5;
 
-  /* 2026-09-04'ten 2026-09-07'ye kadar burada uc deneme prop'u vardi
+  /* 2026-09-04'ten 2026-09-07'ye kadar burada uc deneme prop'u yasadi
      (`denemeZemin`, `denemeKenarKirp`, `denemeSuzgec`); ucu de yayina
-     alinip kaldirildi. Bilesen artik HICBIR prop almiyor;
-     /ravi-iliski-aglari/harita ile /ag-sinamasi birebir ayni. */
-  return function SilsileAgi() {
+     alinip kaldirildi. `denemeIpucu` dorduncusu, yalnizca
+     /ag-sinamasi geciyor. */
+  return function SilsileAgi({ denemeIpucu = false } = {}) {
     const [secim, setSecim] = useState(null);   // {tur:"ravi",id} | {tur:"kenar",e}
     const [arama, setArama] = useState("");
     /* SUZGEC (DENEME, yalnizca /ag-sinamasi). Sehir bandindaki isimlere
@@ -246,12 +246,27 @@ export function kur(V) {
        bos tuvale tiklayarak ya da ayni noktaya kart ACIKKEN tekrar
        tiklayarak kalkiyor. */
     const [kartAcik, setKartAcik] = useState(true);
+    /* SUZGEC IPUCU (DENEME, yalnizca /ag-sinamasi).
+
+       Sehir bandi ile yil ekseni tiklanabilir ama bunu gosteren hicbir
+       sey yok: imlec degisiyor, o kadar. Suzgeci bilmeyen kullanici
+       ozelligin varligindan haberdar olmuyor. Balon acilista cikiyor ve
+       IKI yolla kayboluyor -- ya kapatilarak, ya da kullanici zaten bir
+       suzgec secerek. Ikincisi onemli: ipucunu okumus olsun olmasin,
+       isi ogrenen birine ayni cumleyi tutmaya devam etmek gereksiz. */
+    const [ipucuAcik, setIpucuAcik] = useState(true);
     const [beldeSuz, setBeldeSuz] = useState([]);   // ["Medine", ...]
     const [yilSuz, setYilSuz] = useState([]);       // [150, 200, ...] her biri on yillik
     const suzgecVar = beldeSuz.length > 0 || yilSuz.length > 0;
     const suzgecTemizle = () => { setBeldeSuz([]); setYilSuz([]); };
-    const cevir = (liste, kur, deger) =>
+    const cevir = (liste, kur, deger) => {
+      /* Suzgece BIR KEZ dokunmak ipucunu kalicI olarak kapatiyor.
+         Once yalnizca `!suzgecVar` kosuluna bagliydi ve secim
+         temizlenince balon geri geliyordu -- isi ogrenmis birine ayni
+         cumleyi tekrar tutmak tam da kacinilmak istenen seydi. */
+      setIpucuAcik(false);
       kur(liste.includes(deger) ? liste.filter((x) => x !== deger) : [...liste, deger]);
+    };
     const [acikArama, setAcikArama] = useState(false);
     const [view, setView] = useState({ x: 0, y: 0, k: 0.4 });
     const [suruk, setSuruk] = useState(null);
@@ -2120,6 +2135,21 @@ export function kur(V) {
               soyluyordu, rozetler ayni bilgiyi ikinci kez yaziyordu.
               Tek tek kaldirma da bandin uzerine yeniden tiklayarak
               yapilabiliyor. Geriye tek bir toplu cikis kaldi. */}
+          {denemeIpucu && ipucuAcik && (
+            <div className="absolute z-20 shadow-sm flex items-start gap-2"
+              style={{ left: SOL_BANT + 8, top: UST_BANT + 8,
+                       maxWidth: dar ? "calc(100vw - 48px)" : 330,
+                       background: C.kart, border: "1px solid " + C.cizgi,
+                       borderRadius: 2, padding: "8px 10px" }}>
+              <span className="text-[12px] leading-relaxed" style={{ color: C.ink }}>
+                {t.agSuzgecIpucu}
+              </span>
+              <button onClick={() => setIpucuAcik(false)}
+                className="shrink-0 leading-none" style={{ color: C.solukInk }}
+                aria-label="Kapat">&times;</button>
+            </div>
+          )}
+
           {suzgecVar && (
             <button onClick={suzgecTemizle}
               className="absolute z-20 px-2.5 py-1 rounded-sm border shadow-sm text-[12px]"

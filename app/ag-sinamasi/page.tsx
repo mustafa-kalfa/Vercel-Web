@@ -7,9 +7,9 @@ import { useLanguage } from "../LanguageContext";
 
 /* DENEME ADRESI.
 
-   SU AN HARITANIN BIREBIR AYNISI: bilesen de veri de ayni, ve bilesen
-   artik hicbir prop almiyor. Yeni bir deneme baslayana kadar burasi
-   yalnizca ikinci bir adres.
+   SU AN TEK FARK `denemeIpucu` prop'u: acilista sehir bandi ile yil
+   ekseninin tiklanabilir oldugunu soyleyen bir balon cikiyor. Begenilirse
+   prop kaldirilip yayina alinir, begenilmezse bu satir silinir.
 
    2026-09-04 ile 2026-09-07 arasinda burada dort deneme yasadi ve
    dordu de yayina alindi: ayri bir veri kopyasi (Zehebi'nin
@@ -59,7 +59,7 @@ export default function AgSinamasi() {
           Ust bant 2026-08-29'da %33 kuculdu: logo 72 -> 48 px, bant
           80 -> 54 px. Sayfanin ust seridi ag'dan cok yer aliyordu. */}
       <div className="mt-[54px] h-[calc(100dvh-54px)]">
-        <SilsileAgi />
+        <SilsileAgi denemeIpucu />
       </div>
     </main>
   );
