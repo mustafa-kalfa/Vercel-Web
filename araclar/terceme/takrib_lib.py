@@ -59,7 +59,14 @@ def takrib_tabaka(n_metin):
     # ya da "kucuklerinden" diyor. Bu ek olmadan tabaka hic
     # yakalanmiyor ve yuz basamagi bizim kaba `tab`a dusuyordu --
     # 3. yuzyil ravileri bir yuzyil geriye kayiyordu (Muslim 261 -> 161).
-    m = re.search(r"من (?:كبار |صغار |اوساط |وسطي )?(الحاديه عشره|الثانيه عشره|[ا-ي]+ه)", n_metin)
+    #
+    # 2026-09-07: bu kalibin sonunda GERCEK BIR BACKSPACE BAYTI (0x08)
+    # duruyordu. Ilk surumde Arapca regexte \b yazilmis, kabuk
+    # here-document'i onu kacis dizisi olarak degil ham bayt olarak
+    # gecirmis. Kalip hicbir zaman tutmadi, yani tabaka capasi bastan
+    # beri OLUYDU ve yuz basamagi her seferinde kaba `tab`a dusuyordu.
+    # (Arapca regexte \b kullanilmaz -- kural zaten buydu.)
+    m = re.search(r"من (?:كبار |صغار |اوساط |وسطي )?(الحاديه عشره|الثانيه عشره|[ا-ي]+ه)", n_metin)
     if not m:
         return None
     return TAKRIB_TAB.get(m.group(1))
