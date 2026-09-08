@@ -1025,6 +1025,27 @@ export const NODES = [
     "Ebû Muâviye el-Mısrî, kadı. Takrîb 6858: sekizinci tabakadan, 181 senesi. Rumûz ع."),
   N("zeydcubeyr", "زيد بن جبير الطائي", "Zeyd b. Cübeyr et-Tâî", 4, null, "Kûfe",
     "İbn Harmel. Takrîb 2121: dördüncü tabakadan. VEFÂT YILI GİRİLMEDİ: Takrîb yıl vermiyor. Rumûz ع."),
+
+  /* ---- altinci parti (2026-09-08) ----
+     Terceme aramasinda artik once BITISIK kalip deneniyor. Besinci
+     partide ad parcalarini ayri aramak, parcalarin baskasinin
+     NESEBINE dagilmis olmasi yuzunden yanlis tercemeyi getirmisti. */
+  N("urvecad", "عروة بن الجعد البارقي", "Urve b. el-Ca‘d el-Bârikī", 1, null, "Kûfe",
+    "Sahâbî; Kûfe'ye yerleşti ve oranın ilk kadısı oldu. Takrîb 4558. VEFÂT YILI GİRİLMEDİ: Takrîb yıl vermiyor. Rumûz ع."),
+  N("sehlebihasme", "سهل بن أبي حثمة الأنصاري", "Sehl b. Ebî Hasme el-Ensârî", 1, null, "Medine",
+    "el-Hazrecî. Küçük sahâbîlerden, hicretin üçüncü yılında doğdu. Takrîb 2653. VEFÂT YILI GİRİLMEDİ: Takrîb yıl yerine dönem veriyor, Muâviye'nin hilâfeti. Rumûz ع."),
+  N("muhammedmuntesir", "محمد بن المنتشر الهمداني", "Muhammed b. el-Müntesir el-Hemdânî", 3, null, "Kûfe",
+    "İbnü'l-Ecda‘. Takrîb 6324: dördüncü tabakadan. VEFÂT YILI GİRİLMEDİ: Takrîb yıl vermiyor. Rumûz ع."),
+  N("yahyaatik", "يحيى بن عتيق الطفاوي", "Yahyâ b. Atîk et-Tufâvî", 4, null, "Basra",
+    "Takrîb 7603: altıncı tabakadan. VEFÂT YILI GİRİLMEDİ: Takrîb yıl yerine ölçü veriyor, «Eyyûb'dan önce öldü ve ondan küçüktü» (Eyyûb es-Sahtiyânî ö. 131). Rumûz ع."),
+  N("ibrahimmeysere", "إبراهيم بن ميسرة الطائفي", "İbrâhim b. Meysere et-Tâifî", 4, 132, "Mekke",
+    "Tâifli, Mekke'ye yerleşti ve sütun oraya verildi. Takrîb 260: beşinci tabakadan, 132 senesi. Rumûz ع."),
+  N("saibferruh", "السائب بن فروخ المكي", "Sâib b. Ferrûh Ebû'l-Abbâs el-Mekkî", 3, null, "Mekke",
+    "Şair, âmâ. Takrîb 2199: üçüncü tabakadan. VEFÂT YILI GİRİLMEDİ: Takrîb yıl vermiyor. Rumûz ع."),
+  N("semurecundeb", "سمرة بن جندب الفزاري", "Semüre b. Cündeb el-Fezârî", 1, 58, "Basra",
+    "Ensarın müttefiki, meşhur sahâbî. Takrîb 2630: Basra'da 58 senesinde vefat etti. Oğlu Câbir b. Semüre ile karıştırılmamalı. Rumûz ع."),
+  N("umarekaka", "عمارة بن القعقاع بن شبرمة", "Umâre b. el-Ka‘kā‘ b. Şübrüme", 4, null, "Kûfe",
+    "ed-Dabbî el-Kûfî. Takrîb 4859: altıncı tabakadan; İbn Mes‘ûd'dan mürsel rivayet ettiği belirtiliyor. VEFÂT YILI GİRİLMEDİ: Takrîb yıl vermiyor. Rumûz ع."),
   /* 2026-09-07'de eklendi. Takrib'de 230-300 arasi vefat eden 668
      tercemenin haritadaki karsiliklari tarandiginda ortaya cikan uc
      bosluk; ucu de rumuzu ع, yani hadisleri alti kitabin hepsinde
@@ -8116,6 +8137,91 @@ const EDGES_HAM = [
   E("zeydcubeyr", "sevri", "ق", "Tehzîb"),
   E("zeydcubeyr", "sube", "—", "Tehzîb"),
   E("zeydcubeyr", "ms29", "خ م س", "Tehzîb"),
+
+
+  /* Urve b. el-Ca‘d el-Bârikī (o. ?) -- hocalari.
+     Tehzîb. Tercemede 3 kayit var, agda dugumu olan 1'i cizildi. */
+  E("omer", "urvecad", "—", "Tehzîb"),
+
+
+  /* Urve b. el-Ca‘d el-Bârikī (o. ?) -- talebeleri.
+     Tehzîb. Tercemede 40 kayit var, agda dugumu olan 7'i cizildi. */
+  E("urvecad", "simakharb", "—", "Tehzîb"),
+  E("urvecad", "sebibgarkade", "خ م د(1", "Tehzîb"),
+  E("urvecad", "sureyhhani", "—", "Tehzîb"),
+  E("urvecad", "sabi", "خ م ت س ق", "Tehzîb"),
+  E("urvecad", "kayshazim", "—", "Tehzîb"),
+  E("urvecad", "muhammedmuntesir", "—", "Tehzîb"),
+  E("urvecad", "ebuishaksebii", "—", "Tehzîb"),
+
+
+  /* Sehl b. Ebî Hasme el-Ensârî (o. ?) -- talebeleri.
+     Tehzîb. Tercemede 9 kayit var, agda dugumu olan 4'i cizildi. */
+  E("sehlebihasme", "bisryesar", "خ م د ت س", "Tehzîb"),
+  E("sehlebihasme", "urve", "د", "Tehzîb"),
+  E("sehlebihasme", "ibnsihab", "—", "Tehzîb"),
+  E("sehlebihasme", "naficubeyr", "د س", "Tehzîb"),
+
+
+  /* Muhammed b. el-Müntesir el-Hemdânî (o. ?) -- hocalari.
+     Tehzîb. Tercemede 4 kayit var, agda dugumu olan 1'i cizildi. */
+  E("enes", "muhammedmuntesir", "—", "Tehzîb"),
+
+
+  /* Muhammed b. el-Müntesir el-Hemdânî (o. ?) -- talebeleri.
+     Tehzîb. Tercemede 13 kayit var, agda dugumu olan 5'i cizildi. */
+  E("muhammedmuntesir", "cerirabdulhamid", "م س", "Tehzîb"),
+  E("muhammedmuntesir", "sevri", "خ م س", "Tehzîb"),
+  E("muhammedmuntesir", "ibnuyeyne", "ق", "Tehzîb"),
+  E("muhammedmuntesir", "sube", "خ م د س", "Tehzîb"),
+  E("muhammedmuntesir", "misersukdam", "م س", "Tehzîb"),
+
+
+  /* Yahyâ b. Atîk et-Tufâvî (o. ?) -- hocalari.
+     Tehzîb. Tercemede 4 kayit var, agda dugumu olan 3'i cizildi. */
+  E("hasanbasri", "yahyaatik", "خت", "Tehzîb"),
+  E("mucahid", "yahyaatik", "—", "Tehzîb"),
+  E("ibnsirin", "yahyaatik", "عخ م د س", "Tehzîb"),
+
+
+  /* Yahyâ b. Atîk et-Tufâvî (o. ?) -- talebeleri.
+     Tehzîb. Tercemede 37 kayit var, agda dugumu olan 3'i cizildi. */
+  E("yahyaatik", "ibnuleyye", "س", "Tehzîb"),
+  E("yahyaatik", "hammadzeyd", "خت د س", "Tehzîb"),
+  E("yahyaatik", "hammadseleme", "د", "Tehzîb"),
+
+
+  /* İbrâhim b. Meysere et-Tâifî (o. 132) -- hocalari.
+     Tehzîb. Tercemede 12 kayit var, agda dugumu olan 5'i cizildi. */
+  E("enes", "ibrahimmeysere", "خ م د ت س", "Tehzîb"),
+  E("saidcubeyr", "ibrahimmeysere", "—", "Tehzîb"),
+  E("saidmusayyeb", "ibrahimmeysere", "—", "Tehzîb"),
+  E("tavus", "ibrahimmeysere", "خ م س ق", "Tehzîb"),
+  E("abdulazizomer", "ibrahimmeysere", "—", "Tehzîb"),
+
+
+  /* Sâib b. Ferrûh Ebû'l-Abbâs el-Mekkî (o. ?) -- hocalari.
+     Tehzîb. Tercemede 2 kayit var, agda dugumu olan 2'i cizildi. */
+  E("ibnomer", "saibferruh", "خ م س", "Tehzîb"),
+  E("abdullahamr", "saibferruh", "ع", "Tehzîb"),
+
+
+  /* Sâib b. Ferrûh Ebû'l-Abbâs el-Mekkî (o. ?) -- talebeleri.
+     Tehzîb. Tercemede 3 kayit var, agda dugumu olan 3'i cizildi. */
+  E("saibferruh", "habibebisabit", "ع", "Tehzîb"),
+  E("saibferruh", "ataebirebah", "خ م س", "Tehzîb"),
+  E("saibferruh", "amrdinar", "خ م س", "Tehzîb"),
+
+
+  /* Umâre b. el-Ka‘kā‘ b. Şübrüme (o. ?) -- talebeleri.
+     Tehzîb. Tercemede 38 kayit var, agda dugumu olan 7'i cizildi. */
+  E("umarekaka", "cerirabdulhamid", "خ م س", "Tehzîb"),
+  E("umarekaka", "sevri", "خ د س", "Tehzîb"),
+  E("umarekaka", "ibnuyeyne", "ق", "Tehzîb"),
+  E("umarekaka", "amess", "م ت ق", "Tehzîb"),
+  E("umarekaka", "serikkadi", "م ق", "Tehzîb"),
+  E("umarekaka", "abdulvahidziyad", "خ م د ص", "Tehzîb"),
+  E("umarekaka", "muhammedfudayl", "ع", "Tehzîb"),
 
 ];
 
