@@ -1266,7 +1266,12 @@ export function kur(V) {
        denemesinde gereksizdi (kontrast ters yondeydi), deneme geri
        alininca birlikte geri geldi. Bu da c740f12^'den birebir
        kopya -- bkz. yukarida cizgiCarpani'ndaki olcu hatasi notu. */
-    const cizgiSaydam = koyu ? Math.min(1, 0.3 + yakinlikPayi * 6)
+    /* KOYU TEMADA SONDAKI 0,8 (Mustafa, 2026-09-09: "karanlik modda
+       baglanti cizgilerinin opakligini %20 oraninda dusur"). Egrinin
+       kendisi degismedi, yalnizca %20 kisildi -- yani yakinlikla artan
+       davranis korunuyor, cizgi her olcekte biraz daha geri cekilmis
+       oluyor. Acik tema DOKUNULMADI. */
+    const cizgiSaydam = koyu ? Math.min(1, 0.3 + yakinlikPayi * 6) * 0.8
                              : Math.min(1, 0.3 + durgun.k * 6) * 0.5;
   
   
