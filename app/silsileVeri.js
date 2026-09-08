@@ -939,6 +939,31 @@ export const NODES = [
     "Ebû Yahyâ el-Medenî el-Kazzâz. Ebû Hâtim onu Mâlik'in talebeleri içinde en sağlamı sayar. Takrîb 6820: onuncu tabakanın büyüklerinden, 198 senesi. Rumûz ع."),
   N("ebumiclez", "لاحق بن حميد أبو مجلز", "Ebû Miclez Lâhik b. Humeyd", 3, 106, "Basra",
     "es-Sedûsî el-Basrî, künyesiyle meşhur. Takrîb 7490: üçüncü tabakanın büyüklerinden, 106 senesi; kitap 109 ve daha öncesi varyantlarını da anıyor. Rumûz ع."),
+
+  /* ---- ikinci parti (2026-09-08) ----
+     Ayni olcut: mevcut dugumlere en cok kenar getirenler. Ebu Zerr
+     el-Gifari listenin tepesindeydi ama YAZILMADI -- haritada zaten
+     vardi (`ebuzer`, o.32). "Eksik" tespiti yanlis pozitif uretmisti:
+     Takrib onu kunyesiyle aniyor, bizim dugumun Arapca alani baska
+     yazilmis ve iki-kelime ortusmesi tutmamisti. Mukerrer dugum
+     eklemek yanlis yildan beter, o yuzden her aday once haritada
+     aranıyor. */
+  N("ebuhazimseleme", "سلمة بن دينار أبو حازم", "Ebû Hâzim Seleme b. Dînâr", 4, null, "Medine",
+    "el-A‘rec et-Temmâr, Esved b. Süfyân'ın mevlâsı. Takrîb 2489: beşinci tabakadan. VEFÂT YILI GİRİLMEDİ: Takrîb yıl yerine dönem veriyor, «Mansûr'un hilâfetinde» (136-158). Rumûz ع."),
+  N("saidyezidtahi", "سعيد بن يزيد الطاحي", "Saîd b. Yezîd et-Tâhî", 4, null, "Basra",
+    "Ebû Mesleme el-Basrî el-Kasîr. Takrîb 2419: dördüncü tabakadan. VEFÂT YILI GİRİLMEDİ: Takrîb yıl vermiyor. Rumûz ع."),
+  N("muallamansur", "معلى بن منصور الرازي", "Muallâ b. Mansûr er-Râzî", 5, 211, "Cibâl",
+    "Ebû Ya‘lâ. Takrîb 6806: onuncu tabakadan, «doğrusu» kaydıyla 211 senesi. Bağdat'a yerleşti; Bağdat sütunlarda yok, nisbesi er-Râzî olduğu için Cibâl sütununa konuldu. Rumûz ع."),
+  N("ebucemrenasr", "نصر بن عمران أبو جمرة الضبعي", "Ebû Cemre Nasr b. İmrân ed-Dubaî", 4, 128, "Basra",
+    "Künyesiyle meşhur. Takrîb 7122: üçüncü tabakadan, 128 senesi. Horasan'a yerleşti, sütun nisbesine göre Basra alındı. Rumûz ع."),
+  N("eburafinufey", "نفيع الصائغ أبو رافع", "Ebû Râfi‘ Nüfey‘ es-Sâiğ", 2, null, "Basra",
+    "Künyesiyle meşhur, aslen Medineli, Basra'ya yerleşti ve sütun oraya verildi. Takrîb 7182: ikinci tabakadan. VEFÂT YILI GİRİLMEDİ: Takrîb yıl vermiyor. Rumûz ع."),
+  N("vasilahdeb", "واصل بن حيان الأحدب", "Vâsıl b. Hayyân el-Ahdeb", 4, 120, "Kûfe",
+    "el-Esedî, sâbirî kumaşı satardı. Takrîb 7382: altıncı tabakadan, 120 senesi. Rumûz ع."),
+  N("yusufmahek", "يوسف بن ماهك", "Yûsuf b. Mâhek", 3, 106, "Mekke",
+    "el-Fârisî el-Mekkî. Takrîb 7878: üçüncü tabakadan, 106 senesi; kitap daha öncesi varyantını da anıyor. Rumûz ع."),
+  N("museyyebrafi", "المسيب بن رافع الأسدي", "Müseyyeb b. Râfi‘ el-Esedî", 3, 105, "Kûfe",
+    "el-Kâhilî, Ebü'l-Alâ el-Kûfî. Takrîb 6675: dördüncü tabakadan, 105 senesi. Rumûz ع."),
   /* 2026-09-07'de eklendi. Takrib'de 230-300 arasi vefat eden 668
      tercemenin haritadaki karsiliklari tarandiginda ortaya cikan uc
      bosluk; ucu de rumuzu ع, yani hadisleri alti kitabin hepsinde
@@ -7327,6 +7352,210 @@ const EDGES_HAM = [
   E("ebumiclez", "asimahvel", "خ س ق", "Tehzîb"),
   E("ebumiclez", "katade", "م د ت س", "Tehzîb"),
   E("ebumiclez", "hisamhassan", "—", "Tehzîb"),
+
+
+  /* Ebû Hâzim Seleme b. Dînâr (o. ?) -- hocalari.
+     Tehzîb. Tercemede 69 kayit var, agda dugumu olan 13'i cizildi. */
+  E("bece", "ebuhazimseleme", "م س ق", "Tehzîb"),
+  E("saidmusayyeb", "ebuhazimseleme", "—", "Tehzîb"),
+  E("sehlsad", "ebuhazimseleme", "ع", "Tehzîb"),
+  E("ibnomer", "ebuhazimseleme", "دق", "Tehzîb"),
+  E("abdullahebikatade", "ebuhazimseleme", "خ م س", "Tehzîb"),
+  E("ataebirebah", "ebuhazimseleme", "—", "Tehzîb"),
+  E("atayesar", "ebuhazimseleme", "—", "Tehzîb"),
+  E("amrsuayb", "ebuhazimseleme", "—", "Tehzîb"),
+  E("ibnmunkedir", "ebuhazimseleme", "م س", "Tehzîb"),
+  E("numanebiayyas", "ebuhazimseleme", "خ م", "Tehzîb"),
+  E("ebuidrishavlani", "ebuhazimseleme", "—", "Tehzîb"),
+  E("ebuumamesehl", "ebuhazimseleme", "س", "Tehzîb"),
+  E("ebuselemeavf", "ebuhazimseleme", "م س", "Tehzîb"),
+
+
+  /* Ebû Hâzim Seleme b. Dînâr (o. ?) -- talebeleri.
+     Tehzîb. Tercemede 57 kayit var, agda dugumu olan 17'i cizildi. */
+  E("ebuhazimseleme", "usamezeydleysi", "م", "Tehzîb"),
+  E("ebuhazimseleme", "enesiyaz", "—", "Tehzîb"),
+  E("ebuhazimseleme", "hammadzeyd", "خ م د س", "Tehzîb"),
+  E("ebuhazimseleme", "hammadseleme", "—", "Tehzîb"),
+  E("ebuhazimseleme", "saidebihilal", "م", "Tehzîb"),
+  E("ebuhazimseleme", "sevri", "ع", "Tehzîb"),
+  E("ebuhazimseleme", "suleymanbilal", "خ م", "Tehzîb"),
+  E("ebuhazimseleme", "mesudi", "—", "Tehzîb"),
+  E("ebuhazimseleme", "macisun", "م", "Tehzîb"),
+  E("ebuhazimseleme", "ubeydullahomeri", "م س", "Tehzîb"),
+  E("ebuhazimseleme", "malik", "ع", "Tehzîb"),
+  E("ebuhazimseleme", "ibnishak", "—", "Tehzîb"),
+  E("ebuhazimseleme", "ibnebizib", "—", "Tehzîb"),
+  E("ebuhazimseleme", "muhammedacilan", "—", "Tehzîb"),
+  E("ebuhazimseleme", "ibnsihab", "خ م د س", "Tehzîb"),
+  E("ebuhazimseleme", "mamer", "—", "Tehzîb"),
+  E("ebuhazimseleme", "vuheybhalid", "خ م", "Tehzîb"),
+
+
+  /* Saîd b. Yezîd et-Tâhî (o. ?) -- hocalari.
+     Tehzîb. Tercemede 12 kayit var, agda dugumu olan 5'i cizildi. */
+  E("enes", "saidyezidtahi", "خ م ت س", "Tehzîb"),
+  E("hasanbasri", "saidyezidtahi", "—", "Tehzîb"),
+  E("ebukilabe", "saidyezidtahi", "—", "Tehzîb"),
+  E("ikrime", "saidyezidtahi", "—", "Tehzîb"),
+  E("ebunadra", "saidyezidtahi", "بخ م 4", "Tehzîb"),
+
+
+  /* Saîd b. Yezîd et-Tâhî (o. ?) -- talebeleri.
+     Tehzîb. Tercemede 13 kayit var, agda dugumu olan 6'i cizildi. */
+  E("saidyezidtahi", "ibrahimtahman", "—", "Tehzîb"),
+  E("saidyezidtahi", "ibnuleyye", "م ت", "Tehzîb"),
+  E("saidyezidtahi", "bisrmufaddal", "خ م د ت سي ق", "Tehzîb"),
+  E("saidyezidtahi", "hammadzeyd", "خ د", "Tehzîb"),
+  E("saidyezidtahi", "sube", "خ م س", "Tehzîb"),
+  E("saidyezidtahi", "yezidzurey", "س", "Tehzîb"),
+
+
+  /* Muallâ b. Mansûr er-Râzî (o. 211) -- hocalari.
+     Tehzîb. Tercemede 71 kayit var, agda dugumu olan 14'i cizildi. */
+  E("hammadzeyd", "muallamansur", "خ", "Tehzîb"),
+  E("ibnuyeyne", "muallamansur", "—", "Tehzîb"),
+  E("suleymanbilal", "muallamansur", "م", "Tehzîb"),
+  E("serikkadi", "muallamansur", "—", "Tehzîb"),
+  E("ibnmubarek", "muallamansur", "د", "Tehzîb"),
+  E("darevardi", "muallamansur", "—", "Tehzîb"),
+  E("alimushir", "muallamansur", "د", "Tehzîb"),
+  E("isabyunus", "muallamansur", "مق", "Tehzîb"),
+  E("leysbsad", "muallamansur", "—", "Tehzîb"),
+  E("malik", "muallamansur", "ق", "Tehzîb"),
+  E("huseym", "muallamansur", "خ د", "Tehzîb"),
+  E("ebuavane", "muallamansur", "—", "Tehzîb"),
+  E("ibnebizaide", "muallamansur", "س", "Tehzîb"),
+  E("ebubekirayyas", "muallamansur", "—", "Tehzîb"),
+
+
+  /* Muallâ b. Mansûr er-Râzî (o. 211) -- talebeleri.
+     Tehzîb. Tercemede 29 kayit var, agda dugumu olan 5'i cizildi. */
+  E("muallamansur", "haccacsair", "د", "Tehzîb"),
+  E("muallamansur", "ibnebiseybe", "م ق", "Tehzîb"),
+  E("muallamansur", "alimedini", "—", "Tehzîb"),
+  E("muallamansur", "buhari", "د", "Tehzîb"),
+  E("muallamansur", "zuhli", "ق", "Tehzîb"),
+
+
+  /* Ebû Cemre Nasr b. İmrân ed-Dubaî (o. 128) -- hocalari.
+     Tehzîb. Tercemede 14 kayit var, agda dugumu olan 4'i cizildi. */
+  E("enes", "ebucemrenasr", "—", "Tehzîb"),
+  E("aizamr", "ebucemrenasr", "خ", "Tehzîb"),
+  E("ibnabbas", "ebucemrenasr", "ع", "Tehzîb"),
+  E("ibnomer", "ebucemrenasr", "—", "Tehzîb"),
+
+
+  /* Ebû Cemre Nasr b. İmrân ed-Dubaî (o. 128) -- talebeleri.
+     Tehzîb. Tercemede 45 kayit var, agda dugumu olan 9'i cizildi. */
+  E("ebucemrenasr", "ebansattar", "—", "Tehzîb"),
+  E("ebucemrenasr", "ibrahimtahman", "خ د", "Tehzîb"),
+  E("ebucemrenasr", "eyyubsahtiyani", "—", "Tehzîb"),
+  E("ebucemrenasr", "hammadzeyd", "خ م د ت", "Tehzîb"),
+  E("ebucemrenasr", "hammadseleme", "م", "Tehzîb"),
+  E("ebucemrenasr", "zaidekudame", "—", "Tehzîb"),
+  E("ebucemrenasr", "sube", "خ م د ت س", "Tehzîb"),
+  E("ebucemrenasr", "hisamhassan", "—", "Tehzîb"),
+  E("ebucemrenasr", "hemmamyahya", "خ م", "Tehzîb"),
+
+
+  /* Ebû Râfi‘ Nüfey‘ es-Sâiğ (o. ?) -- hocalari.
+     Tehzîb. Tercemede 40 kayit var, agda dugumu olan 10'i cizildi. */
+  E("zeydarkam", "eburafinufey", "—", "Tehzîb"),
+  E("omer", "eburafinufey", "—", "Tehzîb"),
+  E("zeydsabit", "eburafinufey", "—", "Tehzîb"),
+  E("ibnmesud", "eburafinufey", "1", "Tehzîb"),
+  E("osman", "eburafinufey", "—", "Tehzîb"),
+  E("ali", "eburafinufey", "—", "Tehzîb"),
+  E("kabahbar", "eburafinufey", "د", "Tehzîb"),
+  E("ebubekir", "eburafinufey", "—", "Tehzîb"),
+  E("ebumusa", "eburafinufey", "س", "Tehzîb"),
+  E("ebuhureyre", "eburafinufey", "ع", "Tehzîb"),
+
+
+  /* Ebû Râfi‘ Nüfey‘ es-Sâiğ (o. ?) -- talebeleri.
+     Tehzîb. Tercemede 17 kayit var, agda dugumu olan 8'i cizildi. */
+  E("eburafinufey", "bekirmuzeni", "ع", "Tehzîb"),
+  E("eburafinufey", "sabitbunani", "خ م د س ق", "Tehzîb"),
+  E("eburafinufey", "hasanbasri", "خ م د س ق", "Tehzîb"),
+  E("eburafinufey", "hilas", "م د س ق", "Tehzîb"),
+  E("eburafinufey", "suleymanteymi", "—", "Tehzîb"),
+  E("eburafinufey", "alizeydcudan", "قد", "Tehzîb"),
+  E("eburafinufey", "kasimmihran", "م س ق", "Tehzîb"),
+  E("eburafinufey", "katade", "خ د ت ق", "Tehzîb"),
+
+
+  /* Vâsıl b. Hayyân el-Ahdeb (o. 120) -- hocalari.
+     Tehzîb. Tercemede 11 kayit var, agda dugumu olan 6'i cizildi. */
+  E("nehai", "vasilahdeb", "م", "Tehzîb"),
+  E("zirhubeys", "vasilahdeb", "—", "Tehzîb"),
+  E("sureyh", "vasilahdeb", "—", "Tehzîb"),
+  E("ebuvail", "vasilahdeb", "م 4", "Tehzîb"),
+  E("mucahid", "vasilahdeb", "—", "Tehzîb"),
+  E("mearrursuveyd", "vasilahdeb", "خ م ت سي", "Tehzîb"),
+
+
+  /* Vâsıl b. Hayyân el-Ahdeb (o. 120) -- talebeleri.
+     Tehzîb. Tercemede 47 kayit var, agda dugumu olan 10'i cizildi. */
+  E("vasilahdeb", "cerirhazim", "—", "Tehzîb"),
+  E("vasilahdeb", "zuhayrmuaviye", "—", "Tehzîb"),
+  E("vasilahdeb", "sevri", "ت", "Tehzîb"),
+  E("vasilahdeb", "sube", "م سي", "Tehzîb"),
+  E("vasilahdeb", "mesudi", "—", "Tehzîb"),
+  E("vasilahdeb", "kaysrebi", "—", "Tehzîb"),
+  E("vasilahdeb", "leysebisuleym", "—", "Tehzîb"),
+  E("vasilahdeb", "misersukdam", "م", "Tehzîb"),
+  E("vasilahdeb", "mugirmiksem", "م", "Tehzîb"),
+  E("vasilahdeb", "ismailebiislamsibani", "دق", "Tehzîb"),
+
+
+  /* Yûsuf b. Mâhek (o. 106) -- hocalari.
+     Tehzîb. Tercemede 20 kayit var, agda dugumu olan 7'i cizildi. */
+  E("ubey", "yusufmahek", "—", "Tehzîb"),
+  E("ibnabbas", "yusufmahek", "د ق", "Tehzîb"),
+  E("ibnomer", "yusufmahek", "س", "Tehzîb"),
+  E("abdullahamr", "yusufmahek", "خ م د س", "Tehzîb"),
+  E("ubeydumeyr", "yusufmahek", "بخ ق", "Tehzîb"),
+  E("ebuhureyre", "yusufmahek", "د ت ق", "Tehzîb"),
+  E("aise", "yusufmahek", "خ س", "Tehzîb"),
+
+
+  /* Yûsuf b. Mâhek (o. 106) -- talebeleri.
+     Tehzîb. Tercemede 20 kayit var, agda dugumu olan 10'i cizildi. */
+  E("yusufmahek", "eyyubsahtiyani", "ت س", "Tehzîb"),
+  E("yusufmahek", "caferebivahsiyye", "ع", "Tehzîb"),
+  E("yusufmahek", "humeydtavil", "د", "Tehzîb"),
+  E("yusufmahek", "asimahvel", "—", "Tehzîb"),
+  E("yusufmahek", "ibnhuseymkhaysem", "د ت ق", "Tehzîb"),
+  E("yusufmahek", "abdulkerimcezeri", "—", "Tehzîb"),
+  E("yusufmahek", "ibncureyc", "خ س", "Tehzîb"),
+  E("yusufmahek", "ataebirebah", "د ت ق", "Tehzîb"),
+  E("yusufmahek", "alizeydcudan", "—", "Tehzîb"),
+  E("yusufmahek", "ebuimrancevni", "—", "Tehzîb"),
+
+
+  /* Müseyyeb b. Râfi‘ el-Esedî (o. 105) -- hocalari.
+     Tehzîb. Tercemede 61 kayit var, agda dugumu olan 8'i cizildi. */
+  E("esvedyezid", "museyyebrafi", "—", "Tehzîb"),
+  E("bera", "museyyebrafi", "خ س", "Tehzîb"),
+  E("cabirsemura", "museyyebrafi", "—", "Tehzîb"),
+  E("sadvakkas", "museyyebrafi", "—", "Tehzîb"),
+  E("alkame", "museyyebrafi", "—", "Tehzîb"),
+  E("kayshazim", "museyyebrafi", "—", "Tehzîb"),
+  E("musatalha", "museyyebrafi", "—", "Tehzîb"),
+  E("ebusaid", "museyyebrafi", "—", "Tehzîb"),
+
+
+  /* Müseyyeb b. Râfi‘ el-Esedî (o. 105) -- talebeleri.
+     Tehzîb. Tercemede 14 kayit var, agda dugumu olan 8'i cizildi. */
+  E("museyyebrafi", "ismailebihalid", "س ق", "Tehzîb"),
+  E("museyyebrafi", "husaynabdrahman", "س", "Tehzîb"),
+  E("museyyebrafi", "saidmesrukhsevri", "—", "Tehzîb"),
+  E("museyyebrafi", "amess", "م د س ق", "Tehzîb"),
+  E("museyyebrafi", "asimbehdele", "د س ق", "Tehzîb"),
+  E("museyyebrafi", "avvamhavseb", "—", "Tehzîb"),
+  E("museyyebrafi", "mansurmutemir", "خ م س", "Tehzîb"),
+  E("museyyebrafi", "ebuishaksebii", "ت س", "Tehzîb"),
 
 ];
 
