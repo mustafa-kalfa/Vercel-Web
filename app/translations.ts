@@ -242,7 +242,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     agMedar2: "II. tabaka — musannifler",
     agMedar3: "III. tabaka — münekkit ve fakîh muhaddisler",
     agGiris:
-      "Tercemeler ve bağlar Mizzî'nin Tehzîbü'l-Kemâl'inden, tabaka tasnifi İbn Hacer'in Takrîbü't-Tehzîb'inden, Kütüb-i Sitte müelliflerinin talebe halkaları Zehebî'nin Siyeru a'lâmi'n-nübelâ'sından alındı; ağ Ali b. el-Medînî'nin medâr saydığı isimlerle müksirûndan başladı, ama artık onlarla sınırlı değil: on iki beldedeki 711 râvinin ancak otuz yedisi o çekirdekten geliyor, gerisi işlenen tercemelerin hoca ve talebe listelerinden çıktı ve aradaki bağ sayısı 4.521. Ağ Kütüb-i Sitte râvileriyle bitiyor; müelliflerin kendi hocaları olan tabaka bir hayli genişledi ama hâlâ eksik, bir kısım râvinin de yalnızca hocaları ya da yalnızca talebeleri işlenmiş durumda.",
+      "Tercemeler ve bağlar Mizzî'nin Tehzîbü'l-Kemâl'i ile İbn Hacer'in Takrîbü't-Tehzîb ve Tehzîbü't-Tehzîb'inden, Kütüb-i Sitte müelliflerinin talebe halkaları Zehebî'nin Siyeru a'lâmi'n-nübelâ'sından alındı; tabaka tasnifi Takrîb'e, vefat yıllarının bir kısmı DİA'ya dayanıyor. Ağ Ali b. el-Medînî'nin medâr saydığı isimlerle müksirûndan başladı, ama artık onlarla sınırlı değil: on üç beldedeki 821 râvinin ancak otuz biri o çekirdekten geliyor, gerisi işlenen tercemelerin hoca ve talebe listelerinden çıktı ve aradaki bağ sayısı 5.904. Ağ Kütüb-i Sitte râvileriyle bitiyor; müelliflerin kendi hocaları olan tabaka bir hayli genişledi ama hâlâ eksik, bir kısım râvinin de yalnızca hocaları ya da yalnızca talebeleri işlenmiş durumda.",
     agHaritayaGit: "Haritaya erişmek için tıklayınız",
   },
   ar: {
@@ -357,7 +357,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     agMedar2: "الطبقة الثانية — المصنِّفون",
     agMedar3: "الطبقة الثالثة — النقاد والفقهاء من المحدِّثين",
     agGiris:
-      "التراجم والصلات في هذه الخريطة مأخوذة من تهذيب الكمال للمزّيّ، وتصنيف الطبقات من تقريب التهذيب لابن حجر، وحلقات تلاميذ أصحاب الكتب الستّة من سير أعلام النبلاء للذهبيّ؛ وقد بدأت الشبكة بمن عدّهم عليّ بن المدينيّ مدارًا للإسناد وبالمكثرين من الصحابة، غير أنّها لم تعد مقصورة عليهم: فمن رواتها البالغين 711 راويًا في اثنتي عشرة بلدة سبعةٌ وثلاثون فحسب من تلك النواة، وسائرهم جاء من قوائم الشيوخ والتلاميذ في التراجم المعالَجة، وعدد الصلات بينهم 4521. وتنتهي الشبكة عند رواة الكتب الستّة؛ وطبقة شيوخ المؤلّفين أنفسهم قد اتّسعت كثيرًا لكنّها ما زالت ناقصة، كما أنّ بعض الرواة لم يُعالَج منهم إلّا الشيوخ أو إلّا التلاميذ.",
+      "التراجم والصلات في هذه الخريطة مأخوذة من تهذيب الكمال للمزّيّ ومن تقريب التهذيب وتهذيب التهذيب لابن حجر، وحلقات تلاميذ أصحاب الكتب الستّة من سير أعلام النبلاء للذهبيّ؛ وتصنيف الطبقات على التقريب، وبعض سنيّ الوفيات على دائرة المعارف الإسلاميّة التركيّة. وقد بدأت الشبكة بمن عدّهم عليّ بن المدينيّ مدارًا للإسناد وبالمكثرين من الصحابة، غير أنّها لم تعد مقصورة عليهم: فمن رواتها البالغين 821 راويًا في ثلاث عشرة بلدة واحدٌ وثلاثون فحسب من تلك النواة، وسائرهم جاء من قوائم الشيوخ والتلاميذ في التراجم المعالَجة، وعدد الصلات بينهم 5904. وتنتهي الشبكة عند رواة الكتب الستّة؛ وطبقة شيوخ المؤلّفين أنفسهم قد اتّسعت كثيرًا لكنّها ما زالت ناقصة، كما أنّ بعض الرواة لم يُعالَج منهم إلّا الشيوخ أو إلّا التلاميذ.",
     agHaritayaGit: "اضغط للوصول إلى الخريطة",
   },
   en: {
@@ -474,7 +474,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     agMedar2: "Tier II — arrangers (taṣnīf)",
     agMedar3: "Tier III — critic and jurist traditionists",
     agGiris:
-      "The entries and the links come from al-Mizzī's Tahdhīb al-Kamāl, the ṭabaqāt classification from Ibn Ḥajar's Taqrīb al-Tahdhīb, and the student circles of the authors of the Six Books from al-Dhahabī's Siyar aʿlām al-nubalāʾ; the network began with the narrators ʿAlī b. al-Madīnī counts as madār and with the muksirūn among the Companions, but it is no longer confined to them: of its 711 narrators across twelve towns only thirty-seven come from that core, the rest having emerged from the teacher and student lists of the entries worked through, with 4,521 links between them. The network stops at the transmitters of the Six Books; the ṭabaqa of the authors' own teachers has grown a great deal but is still incomplete, and for some narrators only the teachers or only the students have been worked through.",
+      "The entries and the links come from al-Mizzī's Tahdhīb al-Kamāl and from Ibn Ḥajar's Taqrīb al-Tahdhīb and Tahdhīb al-Tahdhīb, and the student circles of the authors of the Six Books from al-Dhahabī's Siyar aʿlām al-nubalāʾ; the ṭabaqāt classification rests on the Taqrīb, and some of the death dates on the Turkish Encyclopaedia of Islam. The network began with the narrators ʿAlī b. al-Madīnī counts as madār and with the muksirūn among the Companions, but it is no longer confined to them: of its 821 narrators across thirteen towns only thirty-one come from that core, the rest having emerged from the teacher and student lists of the entries worked through, with 5,904 links between them. The network stops at the transmitters of the Six Books; the ṭabaqa of the authors' own teachers has grown a great deal but is still incomplete, and for some narrators only the teachers or only the students have been worked through.",
     agHaritayaGit: "Click to open the map",
   },
 };
