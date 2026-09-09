@@ -562,7 +562,8 @@ export const NODES = [
   N("sabitbunani", "ثابت البناني", "Sâbit el-Bünânî", 4, 127, "Basra",
     "Basralı tâbiîn râvisi ve zâhid. İbn Hacer onu \"sika, âbid\" diye niteler ve dördüncü tabakadan sayar; Kütüb-i Sitte'nin altısı da ondan rivayet eder. Enes b. Mâlik'in en çok rivayet eden talebelerinden olup Enes yoluyla gelen haberlerin başlıca nâkilidir; kendisinden Hammâd b. Seleme, Şu'be ve Süleymân et-Teymî rivayet etmiştir. 127 yılı dolaylarında, seksen altı yaşında vefat etti."),
   N("dahhak", "الضحاك بن مزاحم", "Dahhâk b. Müzâhim", 4, 105, "Horasan"),
-  N("sehrhavseb", "شهر بن حوشب", "Şehr b. Havşeb", 3, 112, "Şam"),
+  N("sehrhavseb", "شهر بن حوشب", "Şehr b. Havşeb", 3, 112, "Şam",
+    "Tehzîbü't-Tehzîb. Esmâ bint Yezîd'in mevlâsı, Şamlı. Tenkidin merkezindeki isimlerden. Şu‘be onu «mızrakladı», İbn Avn «Şehr'i ne yapacaksın, Şu‘be onu mızrakladı» diye rivayetten çekindi. Yahyâ el-Kattân ondan hiç rivayet etmemiş, Abdurrahman b. Mehdî etmiştir. Cûzcânî «hadisleri insanların hadisine benzemez» der. Aleyhindeki en meşhur haber beytülmâl görevliyken bir kese aldığı iddiasıdır ve dönemin şairi bunu «Şehr dinini bir keseye sattı» diye hicvetmiştir."),
   N("hakemarac", "الحكم بن الأعرج", "Hakem b. el-A‘rec", 3, null, "Basra"),
   N("ebuzabyan", "أبو ظبيان حصين بن جندب", "Ebû Zabyân Hüsayn b. Cündeb", 2, 90, "Kûfe"),
   N("abdullahmabed", "عبد الله بن معبد بن عباس", "Abdullah b. Ma‘bed b. Abbâs", 3, null, "Medine"),
@@ -814,7 +815,8 @@ export const NODES = [
   N("hebbanhilal", "هدبة بن خالد", "Hüdbe b. Hâlid", 5, 235, "Basra"),
   N("musaismailtebuzeki", "موسى بن إسماعيل التبوذكي", "Mûsâ b. İsmâîl et-Tebûzekî", 5, 223, "Basra"),
   N("hisamtayalisi", "أبو الوليد هشام الطيالسي", "Ebû'l-Velîd Hişâm et-Tayâlisî", 5, 227, "Basra"),
-  N("muslimibrahim", "مسلم بن إبراهيم", "Müslim b. İbrâhim", 5, 222, "Basra"),
+  N("muslimibrahim", "مسلم بن إبراهيم", "Müslim b. İbrâhim", 5, 222, "Basra",
+    "Tehzîbü't-Tehzîb. Basralı hâfız. Ebû Dâvûd bin kadar şeyhten yazdığını, hiç kimseye rihle yapmadığını, Kurre, Hişâm ve Ebân el-Attâr'ın hadisini ezbere döktüğünü söyler ve onu İbn Kesîr'e tercih eder. İbn Maîn «sika me'mûn» der ve Muâz b. Hişâm'ın önüne koyar, gerekçesi şudur. «Yalnız babasından rivayet eden bir adamı, insanlardan rivayet eden bir adamla bir tutmam.» Ömrünün sonunda gözlerini kaybetti."),
   N("amrmerzuk", "عمرو بن مرزوق", "Amr b. Merzûk", 5, 224, "Basra"),
   N("ebunasrtemmar", "أبو نصر التمار", "Ebû Nasr et-Temmâr", 5, 228, "Basra"),
 
@@ -1504,7 +1506,8 @@ export const NODES = [
      akranlari ve talebeleri, ustteki 250-280 boslugunu dolduruyorlar. */
   N("ebuamirakadi", "عبد الملك بن عمرو القيسي أبو عامر العقدي", "Ebû Âmir el-Akadî", 5, 205, "Basra",
     "Tehzîbü't-Tehzîb. Ahmed b. Hanbel, Basra'ya gidip kimden yazacağını soran talebesine Vehb b. Cerîr ile birlikte onu göstermiştir. İbn Mehdî «İbn Ebî Zi'b'in hadisini şeyhlerin en sağlamından, Ebû Âmir el-Akadî'den yazdım» der. Nesâî «sika me'mûn», İbn Maîn ve Ebû Hâtim sadûk der. İshak b. Râhûye ondan rivayet ederken «bize Ebû Âmir es-Sika el-Emîn anlattı» diye anardı."),
-  N("ebuahmedzubeyri", "محمد بن عبد الله بن الزبير بن عمر بن درهم أبو أحمد الزبيري", "Ebû Ahmed ez-Zübeyrî", 5, 203, "Kûfe"),
+  N("ebuahmedzubeyri", "محمد بن عبد الله بن الزبير بن عمر بن درهم أبو أحمد الزبيري", "Ebû Ahmed ez-Zübeyrî", 5, 203, "Kûfe",
+    "Tehzîbü't-Tehzîb. Kûfeli, Ebû Nuaym'ın dostu. Kendisi «Süfyân'ın kitabı çalınsa aldırmam, hepsini ezberliyorum» derdi; Bündâr «ondan daha hâfız kimse görmedim» der. İbn Nümeyr Sevrî'nin talebelerinin üçüncü tabakasından sayıp «sika, kitabı sahih» der. Zaafı da Sevrî rivayetindedir — Ahmed b. Hanbel «Süfyân'ın hadisinde çok yanılırdı», Ebû Hâtim «âbid, müctehid, hadisin hâfızı, evhâmı var» der. İclî teşeyyu‘ını kaydeder. Bütün yılı oruçlu geçirirdi."),
   N("ibnsabbahdulabi", "محمد بن الصباح الدولابي البزاز", "Muhammed b. es-Sabbâh ed-Dûlâbî", 5, 227, "Bağdat",
     "Tehzîbü't-Tehzîb. Bağdatlı bezzâz, Sünen sahibi. Rey'in Dûlâb köyünde doğdu. Ahmed b. Hanbel «şeyhimiz, sikadır» der ve onu büyütürdü, İbn Maîn «sika me'mûn», Ebû Hâtim «hadisiyle ihticâc edilenlerden» der. Ya‘kūb b. Şeybe ayrıca Hüşeym'i iyi bildiğini kaydeder. Buhârî ondan on iki, Müslim yirmi hadis rivayet eder."),
   N("ibnrecagudani", "عبد الله بن رجاء بن عمر الغداني البصري", "Abdullah b. Recâ el-Gudânî", 5, 219, "Basra"),
@@ -1544,7 +1547,8 @@ export const NODES = [
      serhat sehri. */
   N("atayesar", "عطاء بن يسار الهلالي أبو محمد المدني", "Atâ b. Yesâr", 3, 103, "Medine",
     "Tehzîbü't-Tehzîb. Hz. Peygamber'in eşi Meymûne'nin mevlâsı, Medineli kıssacı. İbn Maîn, Ebû Zür‘a ve Nesâî sika der, İbn Sa‘d «sika, çok hadisli» diye ekler. Şam'a gittiğinde oranın halkı ona Ebû Abdillâh, Mısır'a gittiğinde Ebû Yesâr künyesini verirdi (İbn Hibbân). 19'da doğdu, İskenderiye'de vefat etti."),
-  N("makburi", "سعيد بن أبي سعيد كيسان المقبري أبو سعد المدني", "Saîd b. Ebî Saîd el-Makburî", 3, 123, "Medine"),
+  N("makburi", "سعيد بن أبي سعيد كيسان المقبري أبو سعد المدني", "Saîd b. Ebî Saîd el-Makburî", 3, 123, "Medine",
+    "Tehzîbü't-Tehzîb. Babası Benî Leys'ten bir kadının mükâtebiydi; Makburî nisbesi Medine'deki kabristana komşu oturmasından gelir. İbnü'l-Medînî, İbn Sa‘d, İclî, Ebû Zür‘a ve Nesâî sika der, İbn Hırâş «sika celîl» deyip ondan en sağlam rivayet edenin Leys b. Sa‘d olduğunu söyler. Ölümünden dört yıl önce ihtilât etti; Şu‘be «bize Saîd el-Makburî yaşlandıktan sonra anlattı» diye kayıt düşer."),
   N("ebuosmannehdi", "عبد الرحمن بن مل أبو عثمان النهدي", "Ebû Osmân en-Nehdî", 2, 95, "Basra"),
   N("cubeyrnufeyr", "جبير بن نفير بن مالك بن عامر الحضرمي الحمصي", "Cübeyr b. Nüfeyr", 2, 80, "Humus"),
   N("ibnganm", "عبد الرحمن بن غنم الأشعري الشامي", "Abdurrahman b. Ganm", 2, 78, "Şam"),
@@ -10310,9 +10314,6 @@ const EDGES_HAM = [
      Ebû Zür‘a er-Râzî. */
   E("ibnebiomeradeni", "ebuzuraraazi", "—", "Tehzîbü't-Tehzîb, İbn Ebî Ömer el-Adenî tercemesi"),
 
-  /* Nasr b. Ali el-Cehdamî (o. 250) -- talebeleri, kisa ad taramasi.
-     Müslim b. İbrâhim. */
-  E("nasralicehdami", "muslimibrahim", "—", "Tehzîbü't-Tehzîb, Nasr b. Ali el-Cehdamî tercemesi"),
 
   /* İbrâhim b. Tahmân (o. 168) -- hocalari, kisa ad taramasi.
      Ebû İshak es-Sebîî, Ebû İshak eş-Şeybânî. */
@@ -11579,10 +11580,6 @@ const EDGES_HAM = [
   E("darevardi", "ibnebiomeradeni", "—", "Tehzîbü't-Tehzîb, İbn Ebî Ömer el-Adenî tercemesi"),
   E("mervanfezari", "ibnebiomeradeni", "—", "Tehzîbü't-Tehzîb, İbn Ebî Ömer el-Adenî tercemesi"),
 
-  /* Nasr b. Ali el-Cehdamî (o. 250) -- talebeleri, kisa ad taramasi.
-     Ubeydullah b. Mûsâ el-Absî, Ebû Nuaym el-Fazl b. Dükeyn. */
-  E("nasralicehdami", "ubeydullahmusa", "—", "Tehzîbü't-Tehzîb, Nasr b. Ali el-Cehdamî tercemesi"),
-  E("nasralicehdami", "ebunuaymfadl", "—", "Tehzîbü't-Tehzîb, Nasr b. Ali el-Cehdamî tercemesi"),
 
   /* İbrâhim b. Tahmân (o. 168) -- hocalari, kisa ad taramasi.
      A‘meş. */

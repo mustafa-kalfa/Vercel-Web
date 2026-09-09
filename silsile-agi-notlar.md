@@ -337,6 +337,17 @@ Bunlardan **518 kenar** cikti (7204 -> 7722) ve ayni tarama zaten
 cizili **4359** kenari da yeniden buldu -- baslik seciminin dogrulugu
 asil bu orandan okunuyor.
 
+**TEKIL ESLESME DE YANLIS OLABILIR.** Yil olcutu yalnizca birden
+fazla aday varken calisiyor. Nasr b. Ali el-Cehdami'de dugumumuz torun
+(o. 250), Ibn Hacer'in basliklarinda ise yalnizca DEDE var
+("el-Cehdami el-Kebir", 2. yuzyil); tek aday oldugu icin yil hic
+sorulmadi ve dedenin talebe listesi torunun kenari olarak yazildi.
+Uc kenar bu sekilde girdi, sonra silindi. Ayni denetim butun tekil
+eslesmelere uygulandiginda tek gercek hata bu cikti -- Ebu Bekir
+es-Siddik da yanlis bir tercemeye ("Bekr b. Amr, Ebu's-Siddik
+en-Naci") dusmustu ama teyit sarti onu zaten elemisti. Yeni bir
+tarama kosulacaksa tekil eslesmeler de yila vurulmali.
+
 Kalan 315 dugumde terceme hala acilmiyor: 262'sinde hic aday yok
 (kaydettigimiz ad Ibn Hacer'inkinden farkli), 41'inde yil ayirmadi,
 9'unda basliklar birbirine cok yakin, 3'unde ad tek belirtecli.
