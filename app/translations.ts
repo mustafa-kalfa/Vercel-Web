@@ -125,7 +125,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     languageToggle: "Dili değiştir",
     greetingLead: "Merhaba, ben Mustafâ.",
     greetingBody:
-      "İlahiyatçı ve yazılımcıyım. Ama daha çok ilahiyatçı. Akademik koşuşturmacadan bir nebze uzaklaşmak için bu sayfayı kurdum. Buraya hadis ve dijitali birleştirmeyi denediğim çalışmaları yükleyeceğim. Ne kadar malzeme çıkar ve ne kadar devam ettirebilirim bilmiyorum. Şimdilik buradayım :D",
+      "İlahiyatçı ve yazılımcıyım. Ama daha çok ilahiyatçı. Bu sayfayı, klasik hadis ilimleriyle dijital araçları bir araya getiren çalışmalarımı paylaşmak için kurdum. Yapılacak çok işimiz var.",
     greetingMore: "Daha fazla bilgi için tıklayın.",
     workingOnIt: "Mustafâ bu iş üzerinde çalışıyor.",
     journeyAhead:
@@ -226,7 +226,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     languageToggle: "تغيير اللغة",
     greetingLead: "مرحبًا، أنا مصطفى.",
     greetingBody:
-      "باحث شرعي ومبرمج، لكنني باحث شرعي أكثر. أنشأت هذه الصفحة للابتعاد قليلاً عن زحمة العمل الأكاديمي. سأرفع هنا الأعمال التي أحاول فيها الجمع بين الحديث والديجيتالية. لا أدري كم ستخرج من مادة ولا إلى متى أستطيع الاستمرار. أنا هنا في الوقت الحالي :ᗡ",
+      "باحث شرعي ومبرمج، لكنني باحث شرعي أكثر. أنشأت هذه الصفحة لأنشر فيها أعمالي التي أجمع فيها بين علوم الحديث الكلاسيكية والأدوات الرقمية. أمامنا عمل كثير.",
     greetingMore: "اضغط لمزيد من المعلومات.",
     workingOnIt: "مصطفى يعمل على هذا الأمر.",
     journeyAhead:
@@ -325,7 +325,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     languageToggle: "Change language",
     greetingLead: "Hi, I'm Mustafâ.",
     greetingBody:
-      "I'm a theologian and a developer. But more of a theologian. I set this page up to get some distance from the academic rush. I'll be posting the work where I try to combine hadith and digital here. I don't know how much will come of it, or how long I can keep it going. For now, I'm here :D",
+      "I'm a theologian and a developer. But more of a theologian. I set this page up to share the work where I bring the classical hadith sciences together with digital tools. There is a lot of work ahead of us.",
     greetingMore: "Click for more information.",
     workingOnIt: "Mustafâ is working on this.",
     journeyAhead:
