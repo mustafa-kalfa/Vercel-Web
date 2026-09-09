@@ -16,9 +16,14 @@
    yeniden koşturulmalı. */
 export type HadisSima = {
   ad: string;
+  /** Hicrî vefat yılı. Oyunun sıralama ve karşılaştırma alanı budur. */
   olum: number;
   devir: string;
   zorluk: 1 | 2 | 3 | 4 | 5;
+  /** Mîlâdî karşılık, yalnızca hicrî 1300'den sonrası için.
+   *  Gösterimde `olum/miladi` biçiminde okunur (1304/1886). Ayrı bir
+   *  alan, çünkü `olum` sayısal kalmalı — oyun onunla sıralıyor. */
+  miladi?: number;
 };
 
 export const HADIS_SIMALARI: HadisSima[] = [
@@ -274,19 +279,19 @@ export const HADIS_SIMALARI: HadisSima[] = [
   { ad: "Şah Veliyyullah ed-Dihlevî", olum: 1176, devir: "Geç dönem", zorluk: 2 },
   { ad: "Zebîdî, Murtazâ", olum: 1205, devir: "Geç dönem", zorluk: 3 },
   { ad: "Şevkânî", olum: 1250, devir: "Geç dönem", zorluk: 2 },
-  { ad: "Leknevî", olum: 1304, devir: "Geç dönem", zorluk: 3 },
-  { ad: "Sıddîk Hasan Han", olum: 1307, devir: "Geç dönem", zorluk: 4 },
-  { ad: "Gümüşhânevî, Ahmed Ziyâüddin", olum: 1311, devir: "Geç dönem", zorluk: 3 },
-  { ad: "Kettânî, Muhammed b. Ca‘fer", olum: 1345, devir: "Geç dönem", zorluk: 4 },
-  { ad: "Babanzâde Ahmed Naim", olum: 1353, devir: "Geç dönem", zorluk: 3 },
-  { ad: "Zâhid el-Kevserî", olum: 1371, devir: "Geç dönem", zorluk: 3 },
-  { ad: "Kâmil Miras", olum: 1376, devir: "Geç dönem", zorluk: 3 },
-  { ad: "Ahmed Muhammed Şâkir", olum: 1377, devir: "Geç dönem", zorluk: 2 },
-  { ad: "Mustafa es-Sibâî", olum: 1384, devir: "Geç dönem", zorluk: 3 },
-  { ad: "Abdurrahman el-Muallimî", olum: 1386, devir: "Geç dönem", zorluk: 4 },
-  { ad: "Abdülfettâh Ebû Gudde", olum: 1417, devir: "Geç dönem", zorluk: 3 },
-  { ad: "Elbânî", olum: 1420, devir: "Geç dönem", zorluk: 2 },
-  { ad: "Şuayb el-Arnaût", olum: 1438, devir: "Geç dönem", zorluk: 3 },
-  { ad: "Muhammed Mustafa el-A‘zamî", olum: 1438, devir: "Geç dönem", zorluk: 3 },
-  { ad: "Nûreddin Itr", olum: 1441, devir: "Geç dönem", zorluk: 3 },
+  { ad: "Leknevî", olum: 1304, devir: "Geç dönem", zorluk: 3, miladi: 1886 },
+  { ad: "Sıddîk Hasan Han", olum: 1307, devir: "Geç dönem", zorluk: 4, miladi: 1890 },
+  { ad: "Gümüşhânevî, Ahmed Ziyâüddin", olum: 1311, devir: "Geç dönem", zorluk: 3, miladi: 1893 },
+  { ad: "Kettânî, Muhammed b. Ca‘fer", olum: 1345, devir: "Geç dönem", zorluk: 4, miladi: 1927 },
+  { ad: "Babanzâde Ahmed Naim", olum: 1353, devir: "Geç dönem", zorluk: 3, miladi: 1934 },
+  { ad: "Zâhid el-Kevserî", olum: 1371, devir: "Geç dönem", zorluk: 3, miladi: 1952 },
+  { ad: "Kâmil Miras", olum: 1376, devir: "Geç dönem", zorluk: 3, miladi: 1957 },
+  { ad: "Ahmed Muhammed Şâkir", olum: 1377, devir: "Geç dönem", zorluk: 2, miladi: 1958 },
+  { ad: "Mustafa es-Sibâî", olum: 1384, devir: "Geç dönem", zorluk: 3, miladi: 1964 },
+  { ad: "Abdurrahman el-Muallimî", olum: 1386, devir: "Geç dönem", zorluk: 4, miladi: 1966 },
+  { ad: "Abdülfettâh Ebû Gudde", olum: 1417, devir: "Geç dönem", zorluk: 3, miladi: 1997 },
+  { ad: "Elbânî", olum: 1420, devir: "Geç dönem", zorluk: 2, miladi: 1999 },
+  { ad: "Şuayb el-Arnaût", olum: 1438, devir: "Geç dönem", zorluk: 3, miladi: 2016 },
+  { ad: "Muhammed Mustafa el-A‘zamî", olum: 1439, devir: "Geç dönem", zorluk: 3, miladi: 2017 },
+  { ad: "Nûreddin Itr", olum: 1442, devir: "Geç dönem", zorluk: 3, miladi: 2020 },
 ];
