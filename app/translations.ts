@@ -33,6 +33,7 @@ type Translation = {
   workingOnIt: string;
   journeyAhead: string;
   pageNotCreated: string;
+  cardPreparing: string;
   podcastHadithHistory: string;
   podcastCatGeography: string;
   podcastCatTerms: string;
@@ -148,28 +149,29 @@ export const TRANSLATIONS: Record<Language, Translation> = {
       "Bir yolculuk yaklaşıyor. Kütüb-i Sitte müelliflerinin rihle güzergâhlarını öğrenelim. Ama önce hazırlık yapmalıyım. Mustafâ bu iş üzerinde çalışıyor.",
     pageNotCreated:
       "Şu anda buradasınız. Mustafâ henüz böyle bir sayfa oluşturmadı. Fakat... Neden olmasın?",
+    cardPreparing: "Hazırlanıyor",
     podcastHadithHistory: "Hadis Tarihi",
-    podcastCatGeography: "Coğrafya, Tabakat ve Tarih Yazımı",
-    podcastCatTerms: "Usul Istılahları",
-    podcastCatUsulLit: "Usul Literatürünün Gelişimi",
-    podcastCatRijal: "Rical ve Cerh-Ta'dil",
+    podcastCatGeography: "Coğrafya, Tabakât ve Tarih Yazımı",
+    podcastCatTerms: "Usûl Istılahları",
+    podcastCatUsulLit: "Usûl Literatürünün Gelişimi",
+    podcastCatRijal: "Ricâl ve Cerh-Ta'dîl",
     podcastCatIlal: "İlel ve Tenkit Yöntemi",
-    podcastCatTahammul: "Rivayet Usulü, Tahammül ve Eda",
+    podcastCatTahammul: "Rivâyet Usûlü, Tahammül ve Edâ",
     podcastCatSources: "Kaynak Türleri ve Literatür Bilgisi",
     podcastCatSitte: "Kütüb-i Sitte ve Tis'a",
     podcastCatFiqh: "Hadis-Fıkıh ve Mezhep",
-    podcastCatKalam: "Hadis-Kelam ve İtikad",
+    podcastCatKalam: "Hadis-Kelâm ve İtikad",
     podcastCatQuran: "Sünnet ve Kur'an",
     podcastCatOrientalism: "Oryantalizm ve Modern Tartışmalar",
     podcastCatCurrent: "Güncel Meseleler ve Diğer Alanlarla İlişki",
-    podcastEp001: "K2 001 Hz. Peygamber ve sahabe döneminde rivayet",
+    podcastEp001: "K2 001 Hz. Peygamber ve sahâbe döneminde rivâyet",
     podcastEp002: "K1 002 Hadislerin yazılması, sadrın zabtından satrın zabtına",
-    podcastEp003: "K1 003 Fitne ve isnadın başlangıcı",
-    podcastEp004: "K1 004 Tedvin süreci",
-    podcastEp005: "K1 005 Tasnif dönemi, öncesi ve sonrası",
-    podcastEp006: "K2 006 İkinci asır rivayetleri ve ilk musannifler",
-    podcastEp007: "K2 007 Mihne Hadisesi",
-    podcastEp008: "K2 008 Ref' olgusu ve rivayetin dönüşümü",
+    podcastEp003: "K1 003 Fitne ve isnâdın başlangıcı",
+    podcastEp004: "K1 004 Tedvîn süreci",
+    podcastEp005: "K1 005 Tasnîf dönemi, öncesi ve sonrası",
+    podcastEp006: "K2 006 İkinci asır rivâyetleri ve ilk musannifler",
+    podcastEp007: "K2 007 Mihne Hâdisesi",
+    podcastEp008: "K2 008 Ref' olgusu ve rivâyetin dönüşümü",
     playerPlay: "Oynat",
     playerPause: "Duraklat",
     playerBack5: "5 saniye geri",
@@ -265,6 +267,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
       "رحلةٌ تقترب. لنتعرّف على مسارات رحلات مؤلّفي الكتب الستّة. ولكن لا بدّ لي من الاستعداد أوّلًا. مصطفى يعمل على هذا الأمر.",
     pageNotCreated:
       "أنتم الآن هنا. لم يُنشئ مصطفى هذه الصفحة بعدُ. ولكن... لِمَ لا؟",
+    cardPreparing: "قيد الإعداد",
     podcastHadithHistory: "تاريخ الحديث",
     podcastCatGeography: "الجغرافيا والطبقات والتأريخ",
     podcastCatTerms: "مصطلحات علوم الحديث",
@@ -380,6 +383,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
       "A journey is drawing near. Let us learn the travel routes of the authors of the Six Books. But first I must prepare. Mustafâ is working on this.",
     pageNotCreated:
       "You are here right now. Mustafâ hasn't made such a page yet. But... Why not?",
+    cardPreparing: "In preparation",
     podcastHadithHistory: "History of Hadith",
     podcastCatGeography: "Geography, Ṭabaqāt and Historiography",
     podcastCatTerms: "Terminology of Uṣūl al-Ḥadīth",

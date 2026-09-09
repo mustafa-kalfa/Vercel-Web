@@ -26,6 +26,14 @@
      zinc-300 / zinc-400 idi). */
   --color-cream-dim: #cdc6b4;
   --color-cream-dimmer: #ada693;
+  /* Metin secim rengi. Burada duruyor cunku artik iki yerde kullaniliyor:
+     asagidaki ::selection kurali ve anasayfadaki "Hazirlaniyor" rozeti
+     (Mustafa rozetin rengini "metin secince cikan renk" diye tarif etti,
+     2026-09-09). Tek kaynak olmasi ikisinin birbirinden ayrilmasini
+     engelliyor. Tailwind bundan `bg-secim` / `text-secim-metin`
+     yardimci siniflarini uretiyor. */
+  --color-secim: #6FE7A0;
+  --color-secim-metin: #171717;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -351,13 +359,17 @@ html[lang="ar"] .ar-greeting {
    destekliyor, zaten yazilsa da derleyici (Lightning CSS) hedef tarayici
    listesine bakip cikti dosyasindan atiyor.
 
+   Deger artik burada DEGIL, yukaridaki `--color-secim` degiskeninde:
+   anasayfadaki "Hazirlaniyor" rozeti de ayni rengi kullaniyor ve ikisi
+   birbirinden ayrilmasin isteniyor.
+
    AYNI KURAL public/resule-kavusmak-game.html ICINDE DE VAR. Oyun bir
    iframe'de aciliyor, iframe ayri bir belge sayildigi icin buradaki
-   kural oraya HIC ulasmiyor. Rengi degistirirsen ikisini birden
-   degistir. */
+   kural oraya HIC ulasmiyor. Rengi degistirirsen oyun dosyasini da
+   elle degistir. */
 ::selection {
-  background-color: #6FE7A0;
-  color: #171717;
+  background-color: var(--color-secim);
+  color: var(--color-secim-metin);
 }
 
 /* --- Tema gecisi ---------------------------------------------------

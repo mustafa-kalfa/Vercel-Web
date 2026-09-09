@@ -105,6 +105,9 @@ export default function Home() {
     adAnahtar: CeviriAnahtari;
     altAnahtar: CeviriAnahtari;
     ikon: React.ReactNode;
+    /* Istege bagli durum rozeti. Verilmezse kart rozetsiz cizilir --
+       yani rozet eklemek/kaldirmak tek satirlik bir is. */
+    rozetAnahtar?: CeviriAnahtari;
   }[] = [
     {
       href: "/ravi-iliski-aglari",
@@ -119,12 +122,6 @@ export default function Home() {
       ikon: <MikrofonIcon />,
     },
     {
-      href: "/rihleler",
-      adAnahtar: "cardRihle",
-      altAnahtar: "cardRihleDesc",
-      ikon: <YolIcon />,
-    },
-    {
       href: "/oyunlar",
       adAnahtar: "cardGames",
       altAnahtar: "cardGamesDesc",
@@ -135,6 +132,16 @@ export default function Home() {
       adAnahtar: "cardEducation",
       altAnahtar: "cardEducationDesc",
       ikon: <KitapIcon />,
+    },
+    /* Rihleler EN SONDA (Mustafa'nin karari, 2026-09-09) ve tek rozetli
+       kart: sayfasi henuz hazir degil. Icerik gelince rozet satirini
+       silmek yetiyor, baska hicbir yere dokunmak gerekmiyor. */
+    {
+      href: "/rihleler",
+      adAnahtar: "cardRihle",
+      altAnahtar: "cardRihleDesc",
+      ikon: <YolIcon />,
+      rozetAnahtar: "cardPreparing",
     },
   ];
 
@@ -248,6 +255,30 @@ export default function Home() {
                     }
                     cokSatir
                   />
+                  {/* Rozet ikonun SOLUNDA, ayni ust satirda. Karta
+                      `absolute` ile kosenin disina asilmadi: ikon zaten
+                      sag ustte duruyor ve ikisi ust uste binerdi.
+
+                      Rengi metin secim rengiyle AYNI kaynaktan geliyor
+                      (globals.css'teki `--color-secim`), Mustafa oyle
+                      istedi. Yazi rengi de secimin yazi rengi: acik
+                      yesil zeminde okunakli olan koyu ton.
+
+                      `shrink-0` ve `whitespace-nowrap`: dar ekranda
+                      baslik uzunsa rozet ezilmesin, kendi genisligini
+                      korusun. */}
+                  {kart.rozetAnahtar && (
+                    <SwapContent
+                      className="mt-1 shrink-0 whitespace-nowrap rounded-full bg-secim px-2 py-0.5 text-xs font-medium text-secim-metin"
+                      current={language}
+                      outgoing={outgoingLanguage}
+                      render={(anahtar) =>
+                        TRANSLATIONS[anahtar as Language][
+                          kart.rozetAnahtar as CeviriAnahtari
+                        ]
+                      }
+                    />
+                  )}
                   <span className="mt-1 text-zinc-500 dark:text-cream-dimmer">
                     {kart.ikon}
                   </span>
