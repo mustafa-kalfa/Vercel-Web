@@ -10,7 +10,7 @@ Son güncelleme 2026-09-09. Önceki not dosyasının yerini alır.
 | `/ravi-iliski-aglari/harita` | `app/SilsileAgi.jsx` → `silsileVeri.js` | **Yayındaki sürüm**, canvas. Sayfa adı "Rivayet Haritası". Çalışma burada yürüyor |
 | `/ag-sinamasi` | `app/SilsileAgi.jsx` → `silsileVeri.js` | Deneme adresi, `noindex`. Şu an yayındakiyle birebir aynı |
 | — | `app/silsileAgiKur.jsx` | Çizim kodu. İki sayfa da bunu kullanıyor |
-| — | `app/silsileVeri.js` | 821 râvi, 7204 bağ, çeviriler, konum hesabı |
+| — | `app/silsileVeri.js` | 821 râvi, 7722 bağ, çeviriler, konum hesabı |
 
 ÇİZİM KODU TEK, VERİ İKİ. `silsileAgiKur.jsx` bir fabrika — `kur(V)` bir veri modülü alıp ondan beslenen bileşen döndürüyor. İki sayfa birer satırlık sarmalayıcı. Bileşeni kopyalamak da bir seçenekti ama 1400 satır iki yerde yaşardı ve her düzeltmeyi iki kez uygulamak gerekirdi — SVG sürümü son günlerin bütün iyileştirmelerini tam da bu yüzden kaçırmıştı.
 
@@ -20,7 +20,7 @@ Veri bir süre çatallanmıştı (kart doldurma yayındaki haritayı etkilemesin
 
 ## Veri durumu
 
-- **821 râvi, 7204 bağ.**
+- **821 râvi, 7722 bağ.**
 - **160 boşluk** — kendi tercemesi hiç açılmamış, yani talebe tarafı boş râviler.
 - **Bilgi kartları 208/661.** Kaynak İbn Hacer, *Takrîbü't-Tehzîb* (Şâmile 8609). Medâr, müksirûn, müellif ve "en önemli 60" listesi tamamlandı; kalanı düz taramayla sürüyor.
 
@@ -298,6 +298,48 @@ dogru kenari kacirmak, bir yanlisini cizmekten iyi.
 (babasi), «عمه» (amcasi) gibi AKRABALIK ZAMIRLERI hic cozulmedi --
 bunlar dugumun kendi nesebinden cikarilabilir; Hamza b. Abdillah b.
 Omer'in uc hocasi elle boyle bulundu.
+
+### Terceme basligini secmek: yil capasi, belde DEGIL
+
+Ilk taramada 821 dugumun yalnizca **405'inin** tercemesi acilabildi.
+Sebep sudur: kaydettigimiz Arapca ad, Ibn Hacer'in baslik satirlarindan
+(«• rumuz - tam nesep.») ya HICBIRINE ya da BIRDEN FAZLASINA uyuyor.
+Ikisinde de terceme aciilmadi -- yanlis terceme secmek, baskasinin
+butun hoca-talebe listesini iceri almak demek.
+
+Ilk cozum denemesi adaylari **beldeye** gore ayirdi ve yanlis kisileri
+sectti, cunku adaslarin cogu ayni sehirli:
+
+| dugum | secilen |
+|---|---|
+| Abdullah b. Omer (sahabi) | Abdullah b. Omer el-**Omeri** (o. 171) |
+| Ebu Said el-Hudri | **torunu** Said b. Abdirrahman |
+| Abdurrahman b. Ebza | **oglu** Abdullah |
+| Omer b. Ali b. Ebi Talib | Omer b. Ali b. el-**Huseyin** |
+
+Hepsi ayni kaliptan: bizim ad, uzun bir nesebin ICINDE ata olarak
+geciyor. Olcut **vefat yili** oldu: tercemenin govdesi dugumun yilini
+soylemeli (+-2); soylemiyorsa terceme BIRAKILIYOR, baska olcute
+dusulmuyor.
+
+**Yil hem rakamla hem YAZIYLA aranmali.** Ilk surum yalnizca
+«مات سنة (73)» bicimini ariyordu. Sahabe tercemelerinde yil cogunlukla
+yaziyla geciyor («مات سنة ثلاث وسبعين») ve o kayitlar bos donuyordu:
+Abdullah b. Omer'in dogru tercemesi hic yil vermedi, adasi el-Omeri'nin
+tercemesindeki «(71)» ise +-2 penceresine girdi. Yani sahabinin yerine
+171'de olen birinin hoca-talebe listesi alinacakti. `takrib_lib`in
+`yil_coz`u ikisini de okuyor.
+
+Sonuc **506 terceme** (405'ten). Acilanlar arasinda haritanin en buyuk
+dugumleri var ve hicbirinin tercemesi daha once okunmamisti: Ibn Omer,
+Enes, Ibn Abbas, Malik, Sevri, Ibn Uyeyne, Nafi', Hasan-i Basri.
+Bunlardan **518 kenar** cikti (7204 -> 7722) ve ayni tarama zaten
+cizili **4359** kenari da yeniden buldu -- baslik seciminin dogrulugu
+asil bu orandan okunuyor.
+
+Kalan 315 dugumde terceme hala acilmiyor: 262'sinde hic aday yok
+(kaydettigimiz ad Ibn Hacer'inkinden farkli), 41'inde yil ayirmadi,
+9'unda basliklar birbirine cok yakin, 3'unde ad tek belirtecli.
 
 ### esle.cjs'in kacirdiklari ve kenar-ekle.cjs
 

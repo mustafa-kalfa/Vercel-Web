@@ -98,6 +98,34 @@ yetmiyor — mukaddimenin dipnotları dosyanın başında 1'den başladığı
 için sayaç onlara kilitleniyor. **En uzun artan altdizi** doğru
 çözüm: 6538 terceme, numaralar 1..8045 (kitabın bilinen toplamı).
 
+## Kenar çıkarma (2026-09-09)
+
+Yıl için değil **kenar** için iki betik daha var. İkisi de
+Tehzîbü't-Tehzîb metni üzerinde çalışıyor; o kitapta her terceme
+`• <rumûz> - <tam neseb>.` biçiminde tek satırlık bir başlıkla açılıyor
+ve hoca/talebe listeleri hemen altında duruyor.
+
+```bash
+python araclar/terceme/baslik-coz.py cozum.json kalan.json
+python araclar/terceme/kenar-tara.py kenarlar.json cozum.json yeni.json
+node araclar/kenar-toplu.cjs yeni.json "Tehzîbü't-Tehzîb"
+```
+
+`baslik-coz.py` her düğüm için doğru tercemeyi bulur. **Ayırt edici
+ölçüt vefat yılıdır, belde değil** — belde denendi ve yanlış kişileri
+seçti (Abdullah b. Ömer yerine el-Ömerî, Ebû Saîd el-Hudrî yerine
+torunu), çünkü adaşların çoğu aynı şehirli. Yıl hem rakamla hem
+**yazıyla** aranıyor; sahâbe tercemelerinde yıl neredeyse hep yazıyla
+geçiyor.
+
+`kenar-tara.py` çözülen tercemelerin listelerini tarar ve ağda düğümü
+olup da kenarı olmayan çiftleri çıkarır. Karar vermez, aday gösterir.
+
+`kenar-toplu.cjs` kabul edilenleri yazar; kenarlar öznesine göre
+bloklara ayrılır.
+
+Ayrıntılı gerekçeler ve tuzaklar `silsile-agi-notlar.md`'de.
+
 ## Bu yolun tavanı
 
 Boru hattı 195 tarihsiz isimde **sıfır** sonuç veriyor, ve sebep ayarla
