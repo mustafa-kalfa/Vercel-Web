@@ -197,7 +197,18 @@ export default function Home() {
         <h1 className="sr-only">{t.brandAlt}</h1>
 
         <div className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-start">
-          <p className="site-description max-w-md text-lg leading-8 text-zinc-600 dark:text-cream-dimmer">
+          {/* Renk 2026-09-09'da KOYULASTIRILDI: acik modda zinc-600 ->
+              zinc-800, koyu modda cream-dimmer -> cream-dim. Eskisi
+              soluk kaliyordu -- ozellikle acik modda, cunku zemin bej
+              (#d2ccbe) ve orta gri bir metin bej uzerinde beyaz uzerinde
+              oldugundan cok daha az okunuyor. Olculdu: karsitlik acik
+              modda 4.83:1'den 9.31:1'e, koyu modda 8.65:1'den
+              12.33:1'e cikti.
+
+              Tam foreground'a (#171717 / #e5dfd0) cikilmadi bilerek:
+              paragrafin bir tik altta kalmasi, icindeki kalin "Hadis" ve
+              "Dijital" kelimelerinin one cikmasini sagliyor. */}
+          <p className="site-description max-w-md text-lg leading-8 text-zinc-800 dark:text-cream-dim">
             {t.descriptionQuestion}
             <br />
             {t.descriptionRephrase}
