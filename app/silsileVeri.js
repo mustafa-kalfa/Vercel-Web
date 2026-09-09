@@ -298,7 +298,8 @@ export const NODES = [
   N("huseyn", "الحسين بن علي", "Hüseyin b. Ali", 1, 61, "Medine",
     "Hz. Peygamber'in torunu ve reyhânı; Hz. Ali ile Hz. Fâtıma'nın küçük oğlu. Dedesine yetişip ondan hadis belledi. Yezîd b. Muâviye'ye bey'atı reddedip Kûfelilerin davetiyle Irak'a yöneldi ve Kerbelâ'da, 61 yılı Muharrem'inin onunda (Âşûrâ günü) ailesinden pek çok kişiyle birlikte şehid edildi; elli altı yaşındaydı. Kütüb-i Sitte'nin altısı da ondan rivayet eder."),
   N("amrhurays", "عمرو بن حريث المخزومي", "Amr b. Hurays", 1, 85, "Kûfe"),
-  N("tariksihab", "طارق بن شهاب الأحمسي", "Târık b. Şihâb el-Ahmesî", 1, 83, "Kûfe"),
+  N("tariksihab", "طارق بن شهاب الأحمسي", "Târık b. Şihâb el-Ahmesî", 1, 83, "Kûfe",
+    "Tehzîbü't-Tehzîb. Kûfeli, sahâbî sayılıp sayılmayacağı tartışılan bir isim. Hz. Peygamber'i görmüş fakat ondan bir şey işitmemiştir — Ebû Dâvûd bunu açıkça söyler, Ebû Hâtim de sohbetinin bulunmadığını ve ondan naklettiği «hangi cihad efdaldir» hadisinin mürsel olduğunu belirtir. Kendisine «madem öyle, niçin onu Müsnedü'l-vuhdân'a aldın» diye sorulunca verdiği cevap ölçüyü gösteriyor — «Nebî'yi gördüğü nakledildiği için.» Rivayeti sağlamdır, İbn Maîn sika der, İclî onu İbn Mes‘ûd'un talebeleri arasında sayıp sika sayar. Dört halifenin dördünden birden rivayet eder."),
   N("besrsuhaym", "بشر بن سحيم الغفاري", "Bişr b. Süheym el-Gıfârî", 1, null, "Medine"),
   N("ibncafer", "عبد الله بن جعفر", "Abdullah b. Ca‘fer", 1, 80, "Medine"),
 
@@ -310,7 +311,8 @@ export const NODES = [
   N("ubeydesel", "عبيدة السلماني", "Ubeyde es-Selmânî", 2, 72, "Kûfe"),
   N("suveydgafle", "سويد بن غفلة الجعفي", "Süveyd b. Gafele", 2, 80, "Kûfe"),
   N("ebuvail", "أبو وائل شقيق بن سلمة", "Ebû Vâil Şakīk b. Seleme", 2, 82, "Kûfe"),
-  N("zirhubeys", "زر بن حبيش الأسدي", "Zir b. Hubeyş el-Esedî", 2, 82, "Kûfe"),
+  N("zirhubeys", "زر بن حبيش الأسدي", "Zir b. Hubeyş el-Esedî", 2, 82, "Kûfe",
+    "Tehzîbü't-Tehzîb. Kûfeli muhadram, Câhiliye'ye yetişti ve yüz yirmi yaşını aştı — İsmâîl yaşını sorunca «yüz yirmi yaşındayım» demiş. İbn Maîn sika, İbn Sa‘d «sika, çok hadisli» der, Ahmed b. Hanbel onu Alkame ve Esved'le birlikte anıp «bunlar İbn Mes‘ûd'un talebeleridir ve onda sebttirler» der. Arapçadaki yeri ayrıca kayıtlı, Âsım «insanların en fasihlerindendi, Abdullah ona Arapça sorardı» der. Yolculuğunu kendisi anlatır — «beni bu heyete katılmaya iten tek şey Muhammed'in ashâbıyla buluşmaktı, Abdurrahman b. Avf ile Übey b. Kâ‘b'a kavuştum ve ikisi de meclis arkadaşım oldu.» Mezhep ayrılığının dostluğu bozmadığına dair bir kayıt da var, Ebû Vâil osmânî Zir alevî idi, aynı mescidde namaz kılarlar ve Ebû Vâil Zir'i tazim ederdi."),
   N("sureyh", "شريح بن الحارث القاضي", "Şüreyh b. el-Hâris el-Kādî", 2, 78, "Kûfe"),
   N("saidmusayyeb", "سعيد بن المسيب", "Saîd b. el-Müseyyeb", 2, 94, "Medine", "Hem Ali'den hem Ebû Hüreyre'den rivayeti var."),
   N("hasanbasri", "الحسن البصري", "Hasan-ı Basrî", 2, 110, "Basra", "İki merkezden de rivayeti var. Ali'den ت س, Ebû Hüreyre'den خ ٤."),
@@ -499,7 +501,8 @@ export const NODES = [
   N("cerirabdulhamid", "جرير بن عبد الحميد", "Cerîr b. Abdilhamîd", 5, 188, "Kûfe", "Rumûz ع."),
   N("hafsgiyas", "حفص بن غياث", "Hafs b. Giyâs", 5, 194, "Kûfe", "Rumûz ع."),
   N("leysbsad", "الليث بن سعد", "Leys b. Sa‘d", 5, 175, "Mısır", "Mizzî: Katâde ile görüşmedi («ve lem yelkahu»)."),
-  N("amrharis", "عمرو بن الحارث", "Amr b. el-Hâris", 5, null, "Mısır"),
+  N("amrharis", "عمرو بن الحارث", "Amr b. el-Hâris", 5, null, "Mısır",
+    "Tehzîbü't-Tehzîb. Mısır'ın Leys b. Sa‘d ile birlikte âlimi, müftüsü ve muhaddisi. Övgüler uçta — İbn Vehb «üç yüz yetmiş şeyhten işittim, Amr b. el-Hâris'ten daha hâfızını görmedim» der, Ebû Hâtim «zamanının en hâfızıydı, hıfızda nazîri yoktu» der, Rabîa ise «Amr bize kalsaydı Mâlik'e ihtiyacımız olmazdı» diyecek kadar ileri gider. Ya‘kūb b. Şeybe İbn Maîn'in onu ziyadesiyle tevsîk ettiğini nakleder, Ebû Zür'a, Nesâî ve İclî de sika der. Ahmed b. Hanbel ise ölçüyü Leys'e göre kurar — «Mısırlılar içinde Leys'ten daha sahih hadislisi yoktur, Amr ona yaklaşır» der, sonra bir çekince ekler, «Amr benim yanımda makbuldü, sonra onda münker rivayetler gördüm» ve Katâde'den gelenlerde ıztırâba düşüp yanıldığını söyler. Leys'in anlattığı bir sahne de var, üzerinde bir dinarlık elbise gördüğü adamı aradan geceler geçmeden işlemeli kumaş sürürken görmüş ve «innâ lillâh» demiş."),
   N("misersukdam", "مسعر بن كدام", "Mis‘ar b. Kedâm", 5, 155, "Kûfe",
     "Tehzîbü't-Tehzîb. Şu‘be'nin «Mushaf», İbrâhim b. Saîd el-Cevherî'nin «Terazi» diye andığı râvi; Vekî‘ «Mis‘ar'ın şüphesi başkasının kesin bilgisi gibidir» der. Sevrî bir konuda ihtilâf ettiklerinde ona sorardı. Ebû Hâtim isnadını Sevrî'ninkinden yüksek, hadisini daha sağlam bulur ve Hammâd b. Zeyd'den sağlam sayar. Ebû Dâvûd «şeyh sahibiydi, Sevrî'nin rivayet etmediği yüz kişiden rivayet etti» der. Sevrî, irca'ya meyli sebebiyle cenazesine katılmamıştır."),
   N("suleymanteymi", "سليمان التيمي", "Süleymân et-Teymî", 5, 143, "Basra",
@@ -612,7 +615,8 @@ export const NODES = [
     "Vefât yılı 2026-09-06'da girildi: Takrîb 5676 «sika sebt, ikinci tabakadan, yüz yılında vefat etti». Asıl adı Keysân."),
   N("numanebiayyas", "النعمان بن أبي عياش الزرقي", "Nu‘mân b. Ebî Ayyâş ez-Zürakī", 3, null, "Medine"),
   N("ebussiddiknaci", "أبو الصديق الناجي", "Ebû's-Sıddīk en-Nâcî", 3, 108, "Basra", "Rumûz ع."),
-  N("ebuidrishavlani", "أبو إدريس الخولاني", "Ebû İdrîs el-Havlânî", 3, 80, "Şam"),
+  N("ebuidrishavlani", "أبو إدريس الخولاني", "Ebû İdrîs el-Havlânî", 3, 80, "Şam",
+    "Tehzîbü't-Tehzîb. Asıl adı Âizullah b. Abdillâh, Huneyn günü doğdu. Şam'ın kāssı ve kadısı oldu, Abdülmelik onu Bilâl b. Ebü'd-Derdâ'nın yerine kadılığa getirdi. Mekhûl «ondan daha âlimini görmedim» der, Saîd b. Abdilazîz onu «Ebü'd-Derdâ'dan sonra Şam'ın âlimi» sayar, Ebû Zür'a ed-Dımaşkī büyük sahâbîlerle en iyi buluşan iki Şamlıdan biri olarak anar ve Duhaym'a hangisinin önde olduğu sorulunca «Ebû İdrîs» cevabını alır. Tercemesinin can alıcı yeri Muâz b. Cebel'den semâı meselesi. Zührî onun Muâz'a yetişemediğini hıfzeder ve Ebû İdrîs Muâz'dan rivayet edince araya Yezîd b. Umeyre'yi koyar, buna karşılık İbn Abdilber ile Tahâvî semâını sahih görür. İbn Hacer yaş hesabıyla karşı çıkıyor — Huneyn'de doğduysa Muâz öldüğünde dokuz buçuk yaşındadır ve o yaşta mescidde onunla bu şekilde konuşması âdete uzaktır."),
   N("zekvanmevlaaise", "ذكوان مولى عائشة", "Zekvân mevlâ Âişe", 3, 63, "Medine", "Vefât yılı 2026-09-07'de girildi: Tehzîb 1815, Harre gecelerinde vefat ettiği kaydıyla; Heysem b. Adî onu Zilhicce 63'te Harre'de öldürülenler arasında sayıyor."),
   N("abbadabdullahzubeyr", "عباد بن عبد الله بن الزبير", "Abbâd b. Abdillâh b. ez-Zübeyr", 3, null, "Medine", "Rumûz ع."),
   N("sureyhhani", "شريح بن هانئ الحارثي", "Şüreyh b. Hâni’ el-Hârisî", 2, 78, "Kûfe"),
@@ -1619,7 +1623,8 @@ export const NODES = [
     "Tehzîbü't-Tehzîb. Kudâa'dan, Câhiliye'ye yetişti ve Hz. Peygamber zamanında müslüman oldu ama onu göremedi. Önce Kûfe'ye, Hüseyin'in şehâdetinden sonra Basra'ya yerleşti. Ebû Hâtim, Ebû Zür‘a, Nesâî ve İbn Hırâş sika der; Ebû Hâtim ayrıca kavminin arîfi olduğunu kaydeder. Süleymân et-Teymî «Ebû Osmân'ın bir günah işlediğini sanmıyorum — gecesi kıyamda, gündüzü oruçluydu» der. Kendisi yüz otuz yaşına ulaştığını ve emelinden başka her şeyinin zayıfladığını söylerdi."),
   N("cubeyrnufeyr", "جبير بن نفير بن مالك بن عامر الحضرمي الحمصي", "Cübeyr b. Nüfeyr", 2, 80, "Humus"),
   N("ibnganm", "عبد الرحمن بن غنم الأشعري الشامي", "Abdurrahman b. Ganm", 2, 78, "Şam"),
-  N("saidebihilal", "سعيد بن أبي هلال الليثي أبو العلاء المصري", "Saîd b. Ebî Hilâl", 4, 135, "Mısır"),
+  N("saidebihilal", "سعيد بن أبي هلال الليثي أبو العلاء المصري", "Saîd b. Ebî Hilâl", 4, 135, "Mısır",
+    "Tehzîbü't-Tehzîb. Mısır'da doğdu, Medine'de yetişti, Hişâm'ın hilâfetinde Mısır'a döndü. Çoğunluk sika tarafında — İclî «Mısırlı sika», İbn Sa‘d «sika inşallah» der, İbn Huzeyme, Dârekutnî, Beyhakī, Hatîb ve İbn Abdilber de sika sayar, Ebû Hâtim «be's yok» der. Buna karşılık Ahmed b. Hanbel'den Sâcî'nin naklettiği tek bir cümle var — «hadislerde ne karıştırıyor bilmiyorum.» İbn Hazm'ın «kavî değil» hükmü büyük ihtimalle o cümleye dayanıyor, yani münferit bir kayıt sonraki bir tenkitçide topyekûn zayıflatmaya dönüşmüş. Câbir'den rivayeti mürseldir, Tirmizî ona yetişmediğini açıkça söyler."),
 
   /* ALTINCI PARTI, yine tabiin. Bunlar Medine halkasinin dugumleri;
      besi de Ebu Hureyre, Ibn Omer ve Ibn Abbas ile alti muellifin
@@ -1634,7 +1639,8 @@ export const NODES = [
   N("bukeyresec", "بكير بن عبد الله بن الأشج القرشي المدني", "Bükeyr b. Abdillâh b. el-Eşec", 4, 122, "Mısır"),
   N("naficubeyr", "نافع بن جبير بن مطعم القرشي النوفلي المدني", "Nâfi b. Cübeyr b. Mut‘im", 3, 99, "Medine"),
   N("musabsad", "مصعب بن سعد بن أبي وقاص القرشي الزهري", "Mus‘ab b. Sa‘d", 3, 103, "Medine"),
-  N("irakmalik", "عراك بن مالك الغفاري الكناني المدني", "İrâk b. Mâlik", 3, 105, "Medine"),
+  N("irakmalik", "عراك بن مالك الغفاري الكناني المدني", "İrâk b. Mâlik", 3, 105, "Medine",
+    "Tehzîbü't-Tehzîb. Medineli tâbiî. Ebû Zür'a ve Ebû Hâtim sika der, İclî onu «tâbiînin hayırlılarından» sayar, Abdülazîz b. Ömer b. Abdilazîz «babam İrâk'a kimseyi denk tutmazdı» der, Ebü'l-Gusn de onu dehri oruç tutarken görmüştür. Tercemesindeki uzun kayıt ise siyasî. Ömer b. Abdilazîz'in yanında Benî Mervân'ın elindeki fey' ve mezâlimi geri almakta en sert duranlardandı, Yezîd b. Abdilmelik başa geçince Kızıldeniz'deki Dehlek'e sürüldü. Ukayl b. Hâlid sahneyi anlatır — ikindiden sonra bir adam insanların arasından geçip yaşlı İrâk'a yaklaşmış, tokatlayıp yere düşürmüş, ayağından sürükleyip doğruca gemiye bindirmiş. Dehlek halkı sonradan «Allah Yezîd'den razı olsun, bize elleriyle hayrı öğreten bir adam gönderdi» dermiş. Hz. Âişe'den doğrudan semâı sabit değildir, Ahmed b. Hanbel onun bu rivayetleri Urve'den aldığını söyler."),
   /* ---- SIYER EKI ----
      Zehebi, Buhari'nin seyhlerini sehir sehir sayarken (Siyer 12/394-395)
      gecen ve agda HIC BULUNMAYAN isimler. Her biri Tehzib'de mustakil

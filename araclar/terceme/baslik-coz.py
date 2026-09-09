@@ -128,6 +128,13 @@ for d in dug:
         kalan.append(dict(d, durum="ad-kisa"))
         continue
     if d["id"] in ELLE:
+        if ELLE[d["id"]] is None:
+            # null = "bu dugumun Tehzib'de tercemesi YOK". Cozucu
+            # yakin bir ada carpip yanlis terceme baglamasin diye
+            # elle kapatiliyor.
+            sayac["elle: tercemesi yok"] += 1
+            kalan.append(dict(d, durum="elle-terceme-yok"))
+            continue
         k = next((k for k, b in enumerate(basliklar)
                   if ELLE[d["id"]] in b["ad"]), None)
         if k is None:
