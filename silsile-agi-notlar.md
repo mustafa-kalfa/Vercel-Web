@@ -196,11 +196,13 @@ gerçekte Bağdat'tı: İbn Maîn, Ali b. el-Ca‘d, Züheyr b. Harb, Affân b.
 Müslim, Amr en-Nâkıd hep oradaydı. Bilgi kartlarının bir kısmı bunu
 zaten yazıyordu ("Bağdat sütunlarda yok") — o cümleler artık kaldırıldı.
 
-**28 râvi taşındı**, Basra 209'dan 189'a indi. Sütun coğrafî sırada
+**30 râvi taşındı**, Basra 209'dan 187'ye indi. Sütun coğrafî sırada
 Kûfe ile Cibâl arasında.
 
-Hâlâ sütunu olmayan yerler: Cezîre (Rakka, Harrân, Musul), Yemâme,
-Medâin, Tâif, Askalan, Eyle, Filistin. Her biri bir elin parmakları
+Hâlâ sütunu olmayan yerler: **Cezîre** (Rakka, Harrân, Musul; en
+kalabalığı bu — Meymûn b. Mihrân, oğlu Amr, Abdülkerîm el-Cezerî,
+Ca‘fer b. Burkān, Züheyr b. Muâviye, Me‘âfâ b. İmrân), Yemâme,
+Medâin, Tâif, Askalan, Eyle, Filistin, Hadîse. Her biri bir elin parmakları
 kadar râvi tutuyor; sütun açmak yerine en yakın merkeze konuldular ve
 **bu tercih ilgili düğümün `not` alanında yazılı**.
 

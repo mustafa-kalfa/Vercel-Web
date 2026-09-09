@@ -667,7 +667,7 @@ export const NODES = [
   N("esvedkays", "الأسود بن قيس", "Esved b. Kays", 5, null, "Kûfe", "Rumûz ع."),
   N("hasanubeydullah", "الحسن بن عبيد الله النخعي", "Hasan b. Ubeydillâh en-Nehaî", 5, 139, "Kûfe",
     "Kûfeli râvi, künyesi Ebû Urve. İbn Hacer onu \"sika, fâzıl\" diye niteler ve altıncı tabakadan sayar; Müslim ve dört Sünen ondan rivayet eder. İbrâhim en-Nehaî ve Ebû Vâil'den aldığı rivayetlerle Kûfe'nin sağlam râvilerindendir. 139 (bir rivayete göre 142) yılında vefat etti."),
-  N("sevryezid", "ثور بن يزيد الرحبي", "Sevr b. Yezîd er-Rahbî", 5, 153, "Şam"),
+  N("sevryezid", "ثور بن يزيد الرحبي", "Sevr b. Yezîd er-Rahbî", 5, 153, "Humus"),
   N("ismailumeyye", "إسماعيل بن أمية", "İsmâîl b. Ümeyye", 5, 144, "Mekke"),
   N("suddi", "إسماعيل السدي", "İsmâîl es-Süddî", 5, 127, "Kûfe",
     "Kûfeli müfessir ve râvi, es-Süddiyyü'l-kebîr diye bilinir. İbn Hacer onu \"sadûk\" sayar, vehmettiğini ve teşeyyu'la itham edildiğini belirtir; Müslim ve dört Sünen ondan rivayet eder. Tefsir alanındaki rivayetleri klasik tefsirlerin başlıca kaynaklarındandır. 127'de vefat etti."),
@@ -1190,7 +1190,7 @@ export const NODES = [
   N("ebumalikesceyi", "أبو مالك الأشجعي", "Ebû Mâlik el-Eşce‘î", 5, null, "Kûfe"),
   N("leysebisuleym", "ليث بن أبي سليم", "Leys b. Ebî Süleym", 5, 143, "Kûfe"),
   N("harunmaruf", "هارون بن معروف", "Hârûn b. Ma‘rûf", 5, 231, "Bağdat"),
-  N("ibrahimmusaferra", "إبراهيم بن موسى الفراء", "İbrâhim b. Mûsâ el-Ferrâ", 5, 220, "Kûfe",
+  N("ibrahimmusaferra", "إبراهيم بن موسى الفراء", "İbrâhim b. Mûsâ el-Ferrâ", 5, 220, "Cibâl",
     "Takrîb 259: «ثقة حافظ». Rey'li, «es-Sagīr» lakabıyla anılır. 220'den sonra vefat etti."),
   N("sericyunus", "سريج بن يونس", "Serîc b. Yûnus", 5, 235, "Bağdat"),
   N("hasanarafe", "الحسن بن عرفة", "Hasan b. Arafe", 5, 257, "Bağdat"),
@@ -1200,7 +1200,7 @@ export const NODES = [
   N("buhari", "محمد بن إسماعيل البخاري", "Buhârî", 5, 256, "Mâverâünnehir", "el-Câmi‘u's-sahîh sahibi. Mizzî: «bu işin imâmı, kendisine uyulanı ve kitabı bütün İslâm ehli arasında dayanak olan.» Horasan, Cibâl, bütün Irak şehirleri, Hicaz, Şam ve Mısır'da hadis yazdı."),
   N("muslim", "مسلم بن الحجاج القشيري", "Müslim b. el-Haccâc", 5, 261, "Horasan", "es-Sahîh sahibi. Tehzîb 6245, Nîsâbûrî."),
   N("ebudavud", "أبو داود السجستاني", "Ebû Dâvûd es-Sicistânî", 5, 275, "Basra", "es-Sünen sahibi."),
-  N("tirmizi", "محمد بن عيسى الترمذي", "Tirmizî", 5, 279, "Horasan", "el-Câmi‘ ve el-İlel sahibi."),
+  N("tirmizi", "محمد بن عيسى الترمذي", "Tirmizî", 5, 279, "Mâverâünnehir", "el-Câmi‘ ve el-İlel sahibi."),
   N("nesai", "أحمد بن شعيب النسائي", "Nesâî", 5, 303, "Mısır", "es-Sünen sahibi. Nisbesi Horasan'daki Nesâ'ya ait; Zehebî, Siyer 14/127: «Horasan, Hicaz, Mısır, Irak, Cezîre, Şam ve serhat boylarında ilim için dolaştı, sonra Mısır'a yerleşti ve hâfızlar ona rihle etti» — «ثم استوطن مصر، ورحل الحفاظ إليه»."),
 
   /* ---- Muslim'in talebeleri — Tehzîb 5923 (Samile 3722, s. 27/504-505) ----
@@ -1295,7 +1295,8 @@ export const NODES = [
   N("ed16", "الحسين بن إدريس الهروي", "Hüseyin b. İdrîs el-Herevî", 6, null, "Horasan"),
   N("ed17", "زكريا بن يحيى الساجي", "Zekeriyyâ b. Yahyâ es-Sâcî", 6, 307, "Basra", "Vefât yılı 2026-09-07'de girildi: Takrîb 2029, 307 senesi; yüzler basamağı metinde açıkça yazılı."),
   N("ed18", "عبدان عبد الله بن أحمد الأهوازي", "Abdân Abdullah b. Ahmed el-Ahvâzî", 6, null, "Cibâl"),
-  N("ed19", "أبو بكر بن أبي داود", "Ebû Bekir b. Ebî Dâvûd", 6, null, "Basra"),
+  N("ed19", "أبو بكر بن أبي داود", "Ebû Bekir b. Ebî Dâvûd", 6, null, "Bağdat",
+    "Ebû Dâvûd'un oğlu. Sicistan'da doğdu, Bağdat'a yerleşti ve orada vefat etti (316); şehrin hadis reisiydi. Sütun babasının Basra'sı değil kendi halkasının yeri. Tehzîb'de tercemesi yok, Takrîb'de onunla başlayan kayıt Kûfeli bir başkasına ait."),
   N("ed20", "أبو بكر بن أبي الدنيا", "Ebû Bekir İbn Ebi'd-Dünyâ", 6, 281, "Basra", "Vefât yılı 2026-09-07'de girildi: Takrîb 3591, on ikinci tabakadan, 281 senesi. Takrîb'de asıl adıyla geçiyor (Abdullah b. Muhammed b. Ubeyd b. Süfyân el-Kureşî), İbn Ebi'd-Dünyâ künyesi terceme içinde veriliyor."),
   N("ed21", "عبد الرحمن بن خلاد الرامهرمزي", "Abdurrahman b. Hallâd er-Râmhürmüzî", 6, null, "Cibâl"),
   N("ed22", "علي بن الحسن بن العبد الأنصاري", "Ali b. el-Hasen b. el-Abd el-Ensârî", 6, null, "Basra"),
@@ -1371,12 +1372,12 @@ export const NODES = [
   N("bh21", "محمود بن عنبر النسفي", "Mahmûd b. Anber en-Nesefî", 6, null, "Mâverâünnehir"),
 
   N("ibnmace", "محمد بن يزيد ابن ماجه", "İbn Mâce", 5, 273, "Cibâl", "es-Sünen sahibi."),
-  N("darimi", "عبد الله بن عبد الرحمن الدارمي", "Dârimî", 5, 255, "Horasan"),
+  N("darimi", "عبد الله بن عبد الرحمن الدارمي", "Dârimî", 5, 255, "Mâverâünnehir"),
   N("ebuzuraraazi", "أبو زرعة الرازي", "Ebû Zür‘a er-Râzî", 5, 264, "Cibâl"),
   N("ebuhatimrazi", "أبو حاتم الرازي", "Ebû Hâtim er-Râzî", 5, 277, "Cibâl"),
   N("harmalayahya", "حرملة بن يحيى التجيبي", "Harmala b. Yahyâ et-Tüceybî", 5, 243, "Mısır",
     "Mısırlı râvi ve fakih; İmam Şâfiî'nin Mısır'daki en yakın talebelerinden. Şâfiî'nin el-Ümm dışında kalan bazı eserleri onun rivayetiyle bilinir. İbn Hacer onu \"sadûk\" sayar ve on birinci tabakadan gösterir; Müslim, Nesâî ve İbn Mâce ondan rivayet eder. Dedesi Harmele b. İmrân da bir râvidir. 243 (veya 244) yılında vefat etti."),
-  N("ishakkevsec", "إسحاق بن منصور الكوسج", "İshak b. Mansûr el-Kevsec", 5, 251, "Şam",
+  N("ishakkevsec", "إسحاق بن منصور الكوسج", "İshak b. Mansûr el-Kevsec", 5, 251, "Horasan",
     "Merv'e yerleşmiş râvi ve fakih. İbn Hacer onu \"sika, sebt\" diye niteler ve on birinci tabakadan sayar; Buhârî, Müslim, Tirmizî, Nesâî ve İbn Mâce ondan rivayet eder. Ahmed b. Hanbel ile İshak b. Râhûye'ye yönelttiği fıkhî soruları derlediği Mesâil'iyle tanınır. 251'de vefat etti."),
   N("ibrahimmunzirhizami", "إبراهيم بن المنذر الحزامي", "İbrâhim b. el-Münzir el-Hizâmî", 5, 236, "Medine"),
   N("ademebiiyas", "آدم بن أبي إياس", "Âdem b. Ebî İyâs el-Askalânî", 5, 220, "Şam"),
@@ -1476,7 +1477,7 @@ export const NODES = [
      nisbe basliga «المعروف بالرمادي» gibi bir ON EKLE giriyor ve
      «الرمادي» belirteci tutmuyor. Cozum: «من اسمه X» agacini listeleyip
      dogrudan okumak. Bu yol yavas ama sasmiyor. */
-  N("haccacsair", "حجاج بن يوسف بن حجاج الثقفي ابن الشاعر", "Haccâc b. eş-Şâir", 6, 259, "Basra"),
+  N("haccacsair", "حجاج بن يوسف بن حجاج الثقفي ابن الشاعر", "Haccâc b. eş-Şâir", 6, 259, "Bağdat"),
   N("cuzcani", "إبراهيم بن يعقوب بن إسحاق السعدي الجوزجاني", "İbrâhim b. Ya‘kūb el-Cûzcânî", 6, 259, "Şam"),
   N("ramadi", "أحمد بن منصور بن سيار الرمادي البغدادي", "Ahmed b. Mansûr er-Ramâdî", 6, 265, "Basra"),
   N("ahmedabde", "أحمد بن عبدة بن موسى الضبي البصري", "Ahmed b. Abde ed-Dabbî", 5, 245, "Basra"),
