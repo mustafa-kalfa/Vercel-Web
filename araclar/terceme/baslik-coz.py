@@ -75,6 +75,24 @@ def govde(k):
     return HAREKE.sub("", "\n".join(ham[i:son]))
 
 
+ROA = re.compile("روى عن")
+
+
+def govdesi_var(k):
+    """Aday gercek bir terceme mi, yoksa isaret kaydi mi?
+
+    Ibn Hacer muhtasarinda gercek tercemelerin yaninda kisa isaret
+    kayitlari da var -- «عثمان بن أبي شيبة يأتي في عثمان بن محمد»,
+    «أبو حاتم الرازي. هو محمد بن إدريس الحنظلي» gibi. Ikisi de ayni
+    adla basliyor ve gercek tercemeden KISA, dolayisiyla asagidaki
+    "en kisa basligi al" tercihi tam da yanlis tarafi seciyordu;
+    sonuc hoca-talebe listesi olmayan bos bir govde oluyordu. Bir de
+    tercemesi olmayan isimlerde gecerken dusulmus isnad notlari var
+    (Simak b. Harb, Zuhli). Hepsini ayni sart eliyor."""
+    g = govde(k)
+    return len(g) > 300 and bool(ROA.search(g))
+
+
 def kuyruk_lakap(ad_tok, bol_tok):
     """Bosluk sinirini YALNIZCA son belirtec icin gevsetir.
 
@@ -102,6 +120,14 @@ for d in dug:
         continue
     idx = [k for k, b in enumerate(basliklar)
            if altdizi_esle(tok, b["tok"]) or kuyruk_lakap(tok, b["tok"])]
+    gercek = [k for k in idx if govdesi_var(k)]
+    if gercek:
+        idx = gercek
+    elif idx:
+        sayac["yalnizca isaret kaydi"] += 1
+        kalan.append(dict(d, durum="isaret-kaydi",
+                          adaylar=[basliklar[k]["ad"][:120] for k in idx[:3]]))
+        continue
     if not idx:
         sayac["aday yok"] += 1
         kalan.append(dict(d, durum="aday-yok"))

@@ -10,7 +10,7 @@ Son güncelleme 2026-09-09. Önceki not dosyasının yerini alır.
 | `/ravi-iliski-aglari/harita` | `app/SilsileAgi.jsx` → `silsileVeri.js` | **Yayındaki sürüm**, canvas. Sayfa adı "Rivayet Haritası". Çalışma burada yürüyor |
 | `/ag-sinamasi` | `app/SilsileAgi.jsx` → `silsileVeri.js` | Deneme adresi, `noindex`. Şu an yayındakiyle birebir aynı |
 | — | `app/silsileAgiKur.jsx` | Çizim kodu. İki sayfa da bunu kullanıyor |
-| — | `app/silsileVeri.js` | 821 râvi, 7722 bağ, çeviriler, konum hesabı |
+| — | `app/silsileVeri.js` | 821 râvi, 7779 bağ, çeviriler, konum hesabı |
 
 ÇİZİM KODU TEK, VERİ İKİ. `silsileAgiKur.jsx` bir fabrika — `kur(V)` bir veri modülü alıp ondan beslenen bileşen döndürüyor. İki sayfa birer satırlık sarmalayıcı. Bileşeni kopyalamak da bir seçenekti ama 1400 satır iki yerde yaşardı ve her düzeltmeyi iki kez uygulamak gerekirdi — SVG sürümü son günlerin bütün iyileştirmelerini tam da bu yüzden kaçırmıştı.
 
@@ -20,7 +20,7 @@ Veri bir süre çatallanmıştı (kart doldurma yayındaki haritayı etkilemesin
 
 ## Veri durumu
 
-- **821 râvi, 7722 bağ.**
+- **821 râvi, 7779 bağ.**
 - **160 boşluk** — kendi tercemesi hiç açılmamış, yani talebe tarafı boş râviler.
 - **Bilgi kartları 208/661.** Kaynak İbn Hacer, *Takrîbü't-Tehzîb* (Şâmile 8609). Medâr, müksirûn, müellif ve "en önemli 60" listesi tamamlandı; kalanı düz taramayla sürüyor.
 
@@ -336,6 +336,30 @@ Enes, Ibn Abbas, Malik, Sevri, Ibn Uyeyne, Nafi', Hasan-i Basri.
 Bunlardan **518 kenar** cikti (7204 -> 7722) ve ayni tarama zaten
 cizili **4359** kenari da yeniden buldu -- baslik seciminin dogrulugu
 asil bu orandan okunuyor.
+
+**ISARET KAYDI TERCEME SANILIYORDU.** Ibn Hacer'in muhtasarinda
+gercek tercemelerin yaninda kisa isaret kayitlari da var --
+«عثمان بن أبي شيبة يأتي في عثمان بن محمد» (falancada gelecek),
+«أبو حاتم الرازي. هو محمد بن إدريس الحنظلي» (o sudur), bir de tercemesi
+olmayan isimlerde gecerken dusulmus isnad notlari. Bunlar ayni adla
+basliyor ve gercek tercemeden KISA, dolayisiyla cozucunun "en kisa
+basligi al" tercihi tam da yanlis tarafi seciyordu. «تقدم/يأتي» filtresi
+yetmedi, cunku o kelimeler kaydin sonunda degil ortasinda geciyor.
+
+Ayirici sart sudur: **gercek tercemenin hoca listesi vardir.** Aday
+basliklar artik govdesine bakilarak eleniyor (300 karakterden uzun ve
+icinde «روى عن» gecen). Sonuc: **37 dugum** bu sekilde yanlis tercemeye
+baglanmisti, alti tanesinin hedefi degisti. Hicbiri kenar uretmemisti
+-- isaret kaydinda liste olmadigi icin aday cikmiyor, teyit sarti da
+zaten elerdi. Ama kart yazilacak olsaydi bos govdeden yazilacakti.
+
+Duzeltmeden sonra 494 terceme aciliyor ve 60 kenar daha cikti.
+
+Ibn Sihab ez-Zuhri gibi buyuk isimler bu elemede DUSTU, cunku
+kaydettigimiz kisa ad («ابن شهاب الزهري») onun gercek basligiyla
+(«محمد بن مسلم بن عبيد الله بن شهاب») ilk belirtecten tutmuyor; eskiden
+«الزهري، هو محمد بن مسلم» isaret kaydina baglaniyordu. Onlar icin
+baslik elle sabitlenmeli (`araclar/terceme/elle-baslik.py`).
 
 **TEKIL ESLESME DE YANLIS OLABILIR.** Yil olcutu yalnizca birden
 fazla aday varken calisiyor. Nasr b. Ali el-Cehdami'de dugumumuz torun
