@@ -9,11 +9,11 @@ okumak**, sonra "Havuzu tazele" bölümündeki iki komutu çalıştırmak.
 |---|---|
 | düğüm | 821 |
 | kenar | 8220 |
-| bilgi kartı | **531** |
+| bilgi kartı | **543** |
 | tercemesi çözülmüş düğüm | 622 / 821 |
-| kart yazılabilir havuz | **156** |
+| kart yazılabilir havuz | **144** |
 
-Son commit `161adda` (Bilgi kartlari on besinci parti). Çalışma ağacı
+Son commit `2812d1b` (Bilgi kartlari on yedinci parti). Çalışma ağacı
 temiz. **Push edilmedi** — `main`'e push canlıya deploy demek, o yüzden
 Mustafâ söyleyince atılıyor. Son doğrulanan build `✓ Compiled
 successfully`.
@@ -32,7 +32,7 @@ node araclar/terceme/kart-havuzu.cjs "$S/cozum.json" "$S/havuz.json"
 ```
 
 Birincisi `COZULEN: 622 / 821` yazmalı, ikincisi
-`yazilabilir havuz: 156`. Sayılar tutmuyorsa bir şey bozulmuş demektir,
+`yazilabilir havuz: 144`. Sayılar tutmuyorsa bir şey bozulmuş demektir,
 kart yazmadan önce ona bak.
 
 Havuz **dereceye göre sıralı** — en çok kenarı olan düğüm başta, çünkü
@@ -72,7 +72,7 @@ kazara silmemek için.
 npm run build
 ```
 
-Commit mesajı biçimi `Bilgi kartlari on altinci parti: alti kart`.
+Commit mesajı biçimi `Bilgi kartlari on sekizinci parti: alti kart`.
 
 ## Kural olmuş şeyler
 
