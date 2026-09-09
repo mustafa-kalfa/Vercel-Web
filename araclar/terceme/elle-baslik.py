@@ -10,11 +10,13 @@ Boyle dugumlerde dogru baslik gozle secilip buraya yaziliyor.
 """
 import io, json, os, re, sys
 B = os.path.abspath("araclar/terceme")
+sys.path.insert(0, B)
+from tt_lib import basliksa, satir_sadelestir
 HAREKE = re.compile("[ً-ْٰـ‌‍]")
 ham = io.open(os.path.join(B, "metin", "tehzibut.txt"),
               encoding="utf-8").read().split("\n")
 satirlar = [i for i, l in enumerate(ham)
-            if HAREKE.sub("", l).strip().startswith("•")]
+            if basliksa(l)]
 KES = re.compile("قال |وقال |ذكره |قلت |روى له ")
 for parca in sys.argv[1:]:
     ad, kalip = parca.split("=", 1)

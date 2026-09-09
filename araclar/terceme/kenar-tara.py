@@ -13,13 +13,14 @@ import io, json, os, re, sys, collections
 
 B = os.path.abspath("araclar/terceme")
 sys.path.insert(0, B)
+from tt_lib import basliksa, baslik_coz, temyiz_mi, satir_sadelestir
 from takrib_lib import nrm, serhi_at, parcala, DUR
 
 HAREKE = re.compile("[ً-ْٰـ‌‍]")
 ham = io.open(os.path.join(B, "metin", "tehzibut.txt"),
               encoding="utf-8").read().split("\n")
 satirlar = [i for i, l in enumerate(ham)
-            if HAREKE.sub("", l).strip().startswith("•")]
+            if basliksa(l)]
 
 AN = re.compile("روى عن(?!ه)")
 ANHU = re.compile("(?:روى عنه|وروى عنه|وعنه)")
@@ -78,8 +79,15 @@ def kapi(kayit, hedef):
             if hh[i] in KUN and hh[i + 1] == kt[0]:
                 return "kunye"
         return None
+    # KAYIT DUGUMUN ADININ BASINDAN BASLAMALI. Once 0 ya da 1'inci
+    # belirtece izin veriliyordu ve 1 tam da OGUL kalibi: dugum
+    # "Ibrahim b. Abdillah b. Huneyn" iken kayit "Abdullah b. Huneyn"
+    # (babasi) kabul ediliyordu. Ebu Eyyub el-Ensari'nin talebe
+    # listesindeki «عبد الله بن حنين» boyle ogluna baglanmisti.
+    # 1'inci belirtece izin yalnizca kayit "ابن" ile ya da kunye ile
+    # basliyorsa var; ikisi de asagida ayri sebep olarak isaretli.
     i = ht.index(kt[0]) if kt[0] in ht else -1
-    if 0 <= i <= 1:
+    if i == 0:
         return "bas"
     if nrm(kayit).startswith("بن "):
         return "ibn"

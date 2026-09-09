@@ -10,7 +10,7 @@ Son güncelleme 2026-09-09. Önceki not dosyasının yerini alır.
 | `/ravi-iliski-aglari/harita` | `app/SilsileAgi.jsx` → `silsileVeri.js` | **Yayındaki sürüm**, canvas. Sayfa adı "Rivayet Haritası". Çalışma burada yürüyor |
 | `/ag-sinamasi` | `app/SilsileAgi.jsx` → `silsileVeri.js` | Deneme adresi, `noindex`. Şu an yayındakiyle birebir aynı |
 | — | `app/silsileAgiKur.jsx` | Çizim kodu. İki sayfa da bunu kullanıyor |
-| — | `app/silsileVeri.js` | 821 râvi, 8260 bağ, çeviriler, konum hesabı |
+| — | `app/silsileVeri.js` | 821 râvi, 8220 bağ, çeviriler, konum hesabı |
 
 ÇİZİM KODU TEK, VERİ İKİ. `silsileAgiKur.jsx` bir fabrika — `kur(V)` bir veri modülü alıp ondan beslenen bileşen döndürüyor. İki sayfa birer satırlık sarmalayıcı. Bileşeni kopyalamak da bir seçenekti ama 1400 satır iki yerde yaşardı ve her düzeltmeyi iki kez uygulamak gerekirdi — SVG sürümü son günlerin bütün iyileştirmelerini tam da bu yüzden kaçırmıştı.
 
@@ -20,7 +20,7 @@ Veri bir süre çatallanmıştı (kart doldurma yayındaki haritayı etkilemesin
 
 ## Veri durumu
 
-- **821 râvi, 8260 bağ.**
+- **821 râvi, 8220 bağ.**
 - **160 boşluk** — kendi tercemesi hiç açılmamış, yani talebe tarafı boş râviler.
 - **Bilgi kartları 208/661.** Kaynak İbn Hacer, *Takrîbü't-Tehzîb* (Şâmile 8609). Medâr, müksirûn, müellif ve "en önemli 60" listesi tamamlandı; kalanı düz taramayla sürüyor.
 
@@ -298,6 +298,44 @@ dogru kenari kacirmak, bir yanlisini cizmekten iyi.
 (babasi), «عمه» (amcasi) gibi AKRABALIK ZAMIRLERI hic cozulmedi --
 bunlar dugumun kendi nesebinden cikarilabilir; Hamza b. Abdillah b.
 Omer'in uc hocasi elle boyle bulundu.
+
+### Kayip baslik degil, GIZLENMIS baslik
+
+"Samile'nin kaybettigi basliklar" diye gecistirdigim seyin bir kismi
+mekanik bir bicim hatasiymis. Disa aktarma sayfa basligini
+(«تهذيب التهذيب - ط الرسالة - ج 3(ص: 471)») bazen ayri satira degil,
+bir sonraki satirin ONUNE yapistiriyor. O zaman satir «•» ile
+baslamiyor ve terceme basligi gorunmez oluyor. **180 baslik** boyle
+gizlenmisti; Ka'b el-Ahbar bunlardan biri.
+
+Bunun iki ayri zarari vardi. Birincisi o tercemeler hic acilmiyordu.
+Ikincisi daha sinsi: basliklar ayni zamanda SINIR isi goruyor, gizli
+bir baslik onceki tercemenin govdesini bir sonrakinin icine tasiriyor.
+On bir tercemenin govdesi boyle tasmisti.
+
+Baslik tanima artik ortak bir katmanda (`araclar/terceme/tt_lib.py`)
+ve butun betikler onu kullaniyor -- ayni hatayi bes yerde ayri ayri
+duzeltmemek icin.
+
+### Ogul kalibi: "bas" kapisi bir belirtec fazla acikti
+
+Kisaltilmis ad eslesmesinde kaydin dugum adinin BASINDAN baslamasi
+sartti ama ilk iki belirtecten birine izin veriliyordu. Ikinci
+belirtec tam da OGUL kalibi. Ebu Eyyub el-Ensari'nin talebe
+listesindeki «عبد الله بن حنين» kaydi, "Ibrahim b. Abdillah b. Huneyn"
+dugumune (OGLUNA) baglanmisti; kaydin butun belirtecleri dugumun
+adinda ve sirali geciyor, yalnizca basta bir belirtec eksik.
+
+Kapi sifirinci belirtece cekildi. Bir belirtec kaydirmaya izin
+yalnizca kayit «ابن» ile ya da kunye ile basliyorsa var, ikisi de ayri
+sebep olarak isaretli.
+
+Sikilastirmadan sonra tarama, daha once uretmis oldugu **59 kenari**
+yeniden uretemedi. Hepsi silindi. Bir kismi dogru olabilirdi ama
+aralarinda Ebu Eyyub'un yanlisi, Nasr b. Ali'nin ters yonlu uc kenari
+ve Ebu Avane el-Isferayini'nin (o. 316) ikinci yuzyil ravileriyle
+eslestigi kayitlar vardi. **Bir dogru kenari kacirmak, yanlisini
+cizmekten iyi.**
 
 ### Terceme basligini secmek: yil capasi, belde DEGIL
 

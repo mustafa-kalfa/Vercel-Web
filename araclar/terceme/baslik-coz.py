@@ -23,6 +23,7 @@ import io, json, os, re, sys, collections
 
 B = os.path.abspath("araclar/terceme")
 sys.path.insert(0, B)
+from tt_lib import basliksa, baslik_coz, temyiz_mi, satir_sadelestir
 from takrib_lib import (nrm, serhi_at, parcala, altdizi_esle, DUR,
                         vefat_ifadeleri, yil_coz)
 
@@ -34,7 +35,7 @@ ham = io.open(os.path.join(B, "metin", "tehzibut.txt"),
               encoding="utf-8").read().split("\n")
 basliklar = []
 for i, satir in enumerate(ham):
-    s = HAREKE.sub("", satir).strip()
+    s = satir_sadelestir(satir)
     if not s.startswith("•"):
         continue
     m = BASLIK.match(s)

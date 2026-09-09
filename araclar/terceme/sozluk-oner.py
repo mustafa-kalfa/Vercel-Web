@@ -17,6 +17,7 @@ yazmiyor.
 import io, json, os, re, sys
 B = os.path.abspath("araclar/terceme")
 sys.path.insert(0, B)
+from tt_lib import basliksa, baslik_coz, temyiz_mi, satir_sadelestir
 from takrib_lib import (nrm, serhi_at, parcala, DUR,
                         vefat_ifadeleri, yil_coz)
 
@@ -28,10 +29,10 @@ ROA = re.compile("روى عن")
 ham = io.open(os.path.join(B, "metin", "tehzibut.txt"),
               encoding="utf-8").read().split("\n")
 satirlar = [i for i, l in enumerate(ham)
-            if HAREKE.sub("", l).strip().startswith("•")]
+            if basliksa(l)]
 basliklar = []
 for i in satirlar:
-    d = HAREKE.sub("", ham[i]).strip()
+    d = satir_sadelestir(ham[i])
     m = BASLIK.match(d)
     if not m or "تمييز" in d[:60]:
         continue
