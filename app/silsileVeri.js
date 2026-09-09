@@ -350,7 +350,8 @@ export const NODES = [
     "Takrîb 3092: «ثقة مشهور فقيه فاضل من الثالثة». Mekhûl onun için «ما رأيت أفقه منه» demiş. Yüzden sonra, seksen yaşlarında vefat etti."),
   N("ibnebileyla", "عبد الرحمن بن أبي ليلى", "Abdurrahman b. Ebî Leylâ", 3, 83, "Kûfe"),
   N("urve", "عروة بن الزبير", "Urve b. ez-Zübeyr", 3, 94, "Medine", "Zührî'nin başlıca hocası; Medine'nin yedi fakihinden."),
-  N("ikrime", "عكرمة مولى ابن عباس", "İkrime mevlâ İbn Abbâs", 3, 105, "Medine"),
+  N("ikrime", "عكرمة مولى ابن عباس", "İkrime mevlâ İbn Abbâs", 3, 105, "Medine",
+    "Tehzîbü't-Tehzîb. Aslen Berberî, Husayn b. Ebî'l-Hurr'un kölesiyken Ali onu Basra'ya vali tayin edince İbn Abbâs'a hediye edilmiş. İbn Abbâs kendisine fetva izni vermiş ve şu ölçüyü koymuş. «İnsanlara fetva ver. Sana kendini ilgilendireni sorana cevap ver, ilgilendirmeyeni sorana verme — böylece insanların yükünün üçte ikisini üzerinden atarsın.» Şehr b. Havşeb onu «bu ümmetin hibri» diye anar. İbn Abbâs vefat ettiğinde henüz âzâd edilmemişti, oğlu Ali onu satmış sonra geri almıştır."),
   N("zeynelabidin", "علي بن الحسين", "Ali b. el-Hüseyin (Zeynelâbidîn)", 3, 94, "Medine", "Ali'den rivayeti mürseldir."),
   N("ubeydullaherafi", "عبيد الله بن أبي رافع", "Ubeydullah b. Ebî Râfi‘", 3, null, "Medine", "Hz. Ali'nin kâtibi («وكان كاتبه»)."),
   N("umerbali", "عمر بن علي بن أبي طالب", "Ömer b. Ali b. Ebî Tâlib", 3, 77, "Medine"),
@@ -761,7 +762,8 @@ export const NODES = [
     "Tehzîbü't-Tehzîb. Basralı, kirbas tüccarı. İbn Maîn'e Basralı şeyhlerin en sağlamı sorulduğunda ilk onu sayar; İbn Mehdî onu İbn Uleyye ile ihtilâf ettiklerinde tercih eder, «arkadaşları içinde hadisi ve ricâli en iyi göreni» diye anar. Ebû Hâtim «hadisi ne kadar temiz, zayıflardan rivayet ettiğini neredeyse bulamazsın» der ve onu Basra'nın dördüncü hâfızı sayar; Şu‘be'den sonra ricâli ondan iyi bilen olmadığı söylenmiştir. Hapsedilmiş ve gözlerini kaybetmişti, ezberinden imlâ ederdi."),
   N("ebansattar", "أبان بن يزيد العطار", "Ebân b. Yezîd el-Attâr", 5, 160, "Basra",
     "Takrîb 143: «ثقة له أفراد». Altmışlı yılların civarında vefat etti."),
-  N("mervanfezari", "مروان بن معاوية الفزاري", "Mervân b. Muâviye el-Fezârî", 5, 193, "Kûfe"),
+  N("mervanfezari", "مروان بن معاوية الفزاري", "Mervân b. Muâviye el-Fezârî", 5, 193, "Kûfe",
+    "Tehzîbü't-Tehzîb. Kûfeli hâfız, Mekke ve Dımaşk'ta oturdu, Ebû İshak el-Fezârî'nin amcaoğlu. Ahmed b. Hanbel «sebt, hâfız — ne kadar hâfızdı, hadisini ezberlerdi» der, İbn Maîn ve Nesâî sika der. Ama tenkit bir noktada toplanır. İbnü'l-Medînî «tanınmışlardan rivayetinde sika, meçhullerden rivayetinde zayıf» diye ayırır, İclî aynısını tekrar eder, İbn Nümeyr «şeyhleri sokaklardan devşirirdi» der, Ebû Hâtim «sadûk, sıdkından döndürülemez, fakat meçhul şeyhlerden çok rivayet eder» der. İbn Maîn ayrıca tedlîse en yatkın kişi olarak onu anar."),
   N("vakidi", "محمد بن عمر الواقدي", "Vâkıdî, Muhammed b. Ömer", 5, 207, "Bağdat"),
 
   // ---- Evzai cevresinde aga giren raviler ----
@@ -940,8 +942,10 @@ export const NODES = [
 
   // ---- Kattan'in talebeleri ve Ibn Mehdi cevresi ----
   N("bundar", "محمد بن بشار بندار", "Muhammed b. Beşşâr (Bündâr)", 5, 252, "Basra", "Rumûz ع."),
-  N("ibnmusenna", "محمد بن المثنى أبو موسى", "Muhammed b. el-Müsennâ (Ez-Zemin)", 5, 252, "Basra"),
-  N("amrbnalisayrafi", "عمرو بن علي الصيرفي الفلاس", "Amr b. Ali es-Sayrafî (el-Fellâs)", 5, 249, "Basra"),
+  N("ibnmusenna", "محمد بن المثنى أبو موسى", "Muhammed b. el-Müsennâ (Ez-Zemin)", 5, 252, "Basra",
+    "Tehzîbü't-Tehzîb. Basralı hâfız, «ez-Zemin» diye bilinir. İbn Maîn sika, Zühlî hüccet, Ebû Hâtim «sâlihu'l-hadîs, sadûk», Hatîb «sika sebt, bütün imamlar hadisiyle ihticâc etti» der. İbn Hibbân onu kitap sahibi sayar — yalnızca kitabından okurdu. Ebû Arûbe «Basra'da Ebû Mûsâ ile Yahyâ b. Hakîm'den daha sağlamını görmedim» der. Bündâr'la kıyaslanması coğrafî bir tercihe dönüşmüş. Basralılar Ebû Mûsâ'yı, dışarıdan gelenler Bündâr'ı öne alırdı. 167'de doğdu."),
+  N("amrbnalisayrafi", "عمرو بن علي الصيرفي الفلاس", "Amr b. Ali es-Sayrafî (el-Fellâs)", 5, 249, "Basra",
+    "Tehzîbü't-Tehzîb. Basralı, el-Fellâs diye bilinir. Nesâî «sika, hadis sahibi, hâfız», Ebû Zür‘a «hadisin süvarilerindendi» der. Ebû Hâtim onu İbnü'l-Medînî'den daha zeki bulur ve Anberî'nin «hadisi ancak Amr b. Ali'den öğrendim» sözünü aktarır. Haccâc eş-Şâir «ezberinden mi kitabından mı rivayet ettiğine aldırmazdı» der. Dârekutnî hâfızlardan sayar ve bazı hadisçilerin onu İbnü'l-Medînî'ye tercih edip taraf tuttuğunu kaydeder; Müsned, İlel ve Târîh telif etmiştir."),
   N("abbasanberi", "عباس بن عبد العظيم العنبري", "Abbâs b. Abdil‘azīm el-Anberî", 5, 246, "Basra",
     "Tehzîbü't-Tehzîb. Basralı hâfız. Nesâî «sika me'mûn», Ebû Hâtim sadûk, Mesleme sika der. Muâviye b. Abdilkerîm ez-Ziyâdî Basra'nın en akıllı üç kişisini sayarken onu üçüncü koyar — Ebû'l-Velîd, sonra Ebû Bekir b. Hallâd, sonra Abbâs. Bişr b. el-Hâris'in meclisinde bulunduğu ve «Müslümanların seyyidlerinden» sayıldığı kaydedilir."),
   N("ubeydullahmuazanberi", "عبيد الله بن معاذ العنبري", "Ubeydullah b. Muâz el-Anberî", 5, 237, "Basra"),
@@ -1431,7 +1435,8 @@ export const NODES = [
 
   N("ibnmace", "محمد بن يزيد ابن ماجه", "İbn Mâce", 5, 273, "Cibâl", "es-Sünen sahibi."),
   N("darimi", "عبد الله بن عبد الرحمن الدارمي", "Dârimî", 5, 255, "Mâverâünnehir"),
-  N("ebuzuraraazi", "أبو زرعة الرازي", "Ebû Zür‘a er-Râzî", 5, 264, "Cibâl"),
+  N("ebuzuraraazi", "أبو زرعة الرازي", "Ebû Zür‘a er-Râzî", 5, 264, "Cibâl",
+    "Tehzîbü't-Tehzîb. Reyli, hâfız imamlardan. Ahmed b. Hanbel'e hâfızların kim olduğu sorulduğunda «yanımızda bulunan Horasanlı gençler» deyip dördünü sayar. Buhârî, Ebû Zür‘a, Dârimî ve Hasan b. Şücâ‘. Aynı Ahmed «köprüyü İshak'tan daha fakih, Ebû Zür‘a'dan daha hâfız kimse geçmedi» der ve ona dua ederdi. Rey'e geldiğinde Ahmed'in evine misafir oldu, o kadar müzâkere ettiler ki Ahmed bir gün «farzdan başka namaz kılmadım, Ebû Zür‘a ile müzâkereyi tercih ettim» demiştir. Ebû Hâtim «imam», Nesâî sika, Hatîb «rabbânî imam, çok rivayet eden hâfız, sâdık» der."),
   N("ebuhatimrazi", "أبو حاتم الرازي", "Ebû Hâtim er-Râzî", 5, 277, "Cibâl",
     "Tehzîbü't-Tehzîb. Reyli büyük hâfız, oğlu İbn Ebî Hâtim'in Cerh ve Ta‘dîl'i onun hükümleri üzerine kuruludur. Hallâl «hadiste imam, Ahmed'den bize dağınık gelen ve hepsi garîb olan pek çok mesele rivayet etti» der. Nesâî sika, Ebû Nuaym «hıfzda imam», Lâlekâî «imam, hadisi bilen, hâfız, mütkın, sebt» der, İbn Hırâş «emanet ve marifet ehlindendi» diye anar. Kendi şeyhlerinden bir kısmı da (Rebî‘ b. Süleymân, Yûnus b. Abdil'a‘lâ, Muhammed b. Avf) ondan rivayet etmiştir. Ebû Zür‘a er-Râzî yol arkadaşıydı."),
   N("harmalayahya", "حرملة بن يحيى التجيبي", "Harmala b. Yahyâ et-Tüceybî", 5, 243, "Mısır",
@@ -1569,7 +1574,8 @@ export const NODES = [
     "Tehzîbü't-Tehzîb. Hz. Peygamber'in eşi Meymûne'nin mevlâsı, Medineli kıssacı. İbn Maîn, Ebû Zür‘a ve Nesâî sika der, İbn Sa‘d «sika, çok hadisli» diye ekler. Şam'a gittiğinde oranın halkı ona Ebû Abdillâh, Mısır'a gittiğinde Ebû Yesâr künyesini verirdi (İbn Hibbân). 19'da doğdu, İskenderiye'de vefat etti."),
   N("makburi", "سعيد بن أبي سعيد كيسان المقبري أبو سعد المدني", "Saîd b. Ebî Saîd el-Makburî", 3, 123, "Medine",
     "Tehzîbü't-Tehzîb. Babası Benî Leys'ten bir kadının mükâtebiydi; Makburî nisbesi Medine'deki kabristana komşu oturmasından gelir. İbnü'l-Medînî, İbn Sa‘d, İclî, Ebû Zür‘a ve Nesâî sika der, İbn Hırâş «sika celîl» deyip ondan en sağlam rivayet edenin Leys b. Sa‘d olduğunu söyler. Ölümünden dört yıl önce ihtilât etti; Şu‘be «bize Saîd el-Makburî yaşlandıktan sonra anlattı» diye kayıt düşer."),
-  N("ebuosmannehdi", "عبد الرحمن بن مل أبو عثمان النهدي", "Ebû Osmân en-Nehdî", 2, 95, "Basra"),
+  N("ebuosmannehdi", "عبد الرحمن بن مل أبو عثمان النهدي", "Ebû Osmân en-Nehdî", 2, 95, "Basra",
+    "Tehzîbü't-Tehzîb. Kudâa'dan, Câhiliye'ye yetişti ve Hz. Peygamber zamanında müslüman oldu ama onu göremedi. Önce Kûfe'ye, Hüseyin'in şehâdetinden sonra Basra'ya yerleşti. Ebû Hâtim, Ebû Zür‘a, Nesâî ve İbn Hırâş sika der; Ebû Hâtim ayrıca kavminin arîfi olduğunu kaydeder. Süleymân et-Teymî «Ebû Osmân'ın bir günah işlediğini sanmıyorum — gecesi kıyamda, gündüzü oruçluydu» der. Kendisi yüz otuz yaşına ulaştığını ve emelinden başka her şeyinin zayıfladığını söylerdi."),
   N("cubeyrnufeyr", "جبير بن نفير بن مالك بن عامر الحضرمي الحمصي", "Cübeyr b. Nüfeyr", 2, 80, "Humus"),
   N("ibnganm", "عبد الرحمن بن غنم الأشعري الشامي", "Abdurrahman b. Ganm", 2, 78, "Şam"),
   N("saidebihilal", "سعيد بن أبي هلال الليثي أبو العلاء المصري", "Saîd b. Ebî Hilâl", 4, 135, "Mısır"),
