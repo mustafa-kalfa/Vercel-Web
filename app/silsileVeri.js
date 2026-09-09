@@ -8905,6 +8905,141 @@ const EDGES_HAM = [
   E("salimebulgays", "safvansuleym", "—", "Tehzîbü't-Tehzîb"),
   E("salimebulgays", "yezidhusayfe", "—", "Tehzîbü't-Tehzîb"),
 
+
+  /* Ali b. Müdrik en-Nehaî (o. 120) -- talebeleri.
+     Tehzîbü't-Tehzîb, Ali b. Müdrik tercemesi. Elle secildi: A‘meş, Mes‘ûdî, Abdurrahman b. Abdillâh, Şu‘be b. el-Haccâc. */
+  E("alimudrik", "amess", "—", "Tehzîbü't-Tehzîb, Ali b. Müdrik tercemesi"),
+  E("alimudrik", "mesudi", "—", "Tehzîbü't-Tehzîb, Ali b. Müdrik tercemesi"),
+  E("alimudrik", "sube", "—", "Tehzîbü't-Tehzîb, Ali b. Müdrik tercemesi"),
+
+
+  /* İbrâhim b. Meysere et-Tâifî (o. 132) -- talebeleri.
+     Tehzîbü't-Tehzîb, İbrâhim b. Meysere tercemesi. Elle secildi: Eyyûb es-Sahtiyânî, Şu‘be b. el-Haccâc, Süfyân es-Sevrî, Süfyân b. Uyeyne, İbn Cüreyc. */
+  E("ibrahimmeysere", "eyyubsahtiyani", "—", "Tehzîbü't-Tehzîb, İbrâhim b. Meysere tercemesi"),
+  E("ibrahimmeysere", "sube", "—", "Tehzîbü't-Tehzîb, İbrâhim b. Meysere tercemesi"),
+  E("ibrahimmeysere", "sevri", "—", "Tehzîbü't-Tehzîb, İbrâhim b. Meysere tercemesi"),
+  E("ibrahimmeysere", "ibnuyeyne", "—", "Tehzîbü't-Tehzîb, İbrâhim b. Meysere tercemesi"),
+  E("ibrahimmeysere", "ibncureyc", "—", "Tehzîbü't-Tehzîb, İbrâhim b. Meysere tercemesi"),
+
+
+  /* Yahyâ b. Umâre el-Mâzinî (o. ?) -- talebeleri.
+     Tehzîbü't-Tehzîb, Yahyâ b. Umâre tercemesi. Elle secildi: İbn Şihâb ez-Zührî. */
+  E("yahyaumare", "ibnsihab", "—", "Tehzîbü't-Tehzîb, Yahyâ b. Umâre tercemesi"),
+
+
+  /* Ya‘lâ b. Ümeyye et-Temîmî (o. ?) -- talebeleri.
+     Tehzîbü't-Tehzîb, Ya‘lâ b. Ümeyye tercemesi. Elle secildi: Atâ b. Ebî Rebâh, Mücâhid b. Cebr. */
+  E("yalaumeyye", "ataebirebah", "—", "Tehzîbü't-Tehzîb, Ya‘lâ b. Ümeyye tercemesi"),
+  E("yalaumeyye", "mucahid", "—", "Tehzîbü't-Tehzîb, Ya‘lâ b. Ümeyye tercemesi"),
+
+
+  /* Sâbit b. ed-Dahhâk el-Eşhelî (o. 45) -- talebeleri.
+     Tehzîbü't-Tehzîb, Sâbit b. ed-Dahhâk tercemesi. Elle secildi: Ebû Kılâbe el-Cermî. */
+  E("sabitdahhak", "ebukilabe", "—", "Tehzîbü't-Tehzîb, Sâbit b. ed-Dahhâk tercemesi"),
+
+
+  /* Semüre b. Cündeb el-Fezârî (o. 58) -- talebeleri.
+     Tehzîbü't-Tehzîb, Semüre b. Cündeb tercemesi. Elle secildi: Abdurrahman b. Ebî Leylâ, Ebû Nadra el-Abdî, Hasan-ı Basrî. */
+  E("semurecundeb", "ibnebileyla", "—", "Tehzîbü't-Tehzîb, Semüre b. Cündeb tercemesi"),
+  E("semurecundeb", "ebunadra", "—", "Tehzîbü't-Tehzîb, Semüre b. Cündeb tercemesi"),
+  E("semurecundeb", "hasanbasri", "—", "Tehzîbü't-Tehzîb, Semüre b. Cündeb tercemesi"),
+
+
+  /* Abdullah b. Şeddâd b. el-Hâd (o. 81) -- talebeleri.
+     Tehzîbü't-Tehzîb, Abdullah b. Şeddâd tercemesi. Elle secildi: Sa‘d b. İbrâhim, Ebû İshak eş-Şeybânî, Hakem b. Uteybe, Rib‘î b. Hırâş, Tâvûs b. Keysân. */
+  E("abdullahsedddad", "sadibrahim", "—", "Tehzîbü't-Tehzîb, Abdullah b. Şeddâd tercemesi"),
+  E("abdullahsedddad", "ismailebiislamsibani", "—", "Tehzîbü't-Tehzîb, Abdullah b. Şeddâd tercemesi"),
+  E("abdullahsedddad", "hakemuteybe", "—", "Tehzîbü't-Tehzîb, Abdullah b. Şeddâd tercemesi"),
+  E("abdullahsedddad", "rebihiras", "—", "Tehzîbü't-Tehzîb, Abdullah b. Şeddâd tercemesi"),
+  E("abdullahsedddad", "tavus", "—", "Tehzîbü't-Tehzîb, Abdullah b. Şeddâd tercemesi"),
+
+
+  /* Abdurrahman b. Yerbû‘ (o. ?) -- talebeleri.
+     Tehzîbü't-Tehzîb, Abdurrahman b. Yerbû‘ tercemesi. Elle secildi: Muhammed b. el-Münkedir. */
+  E("abdrahmanyerbu", "ibnmunkedir", "—", "Tehzîbü't-Tehzîb, Abdurrahman b. Yerbû‘ tercemesi"),
+
+
+  /* Beşîr b. Yesâr (o. ?) -- talebeleri.
+     Tehzîbü't-Tehzîb, Beşîr b. Yesâr tercemesi. Elle secildi: Rabîa b. Ebî Abdirrahman (Rabîatü'r-re'y), Saîd b. Ubeyd et-Tâî, Muhammed b. İshak, Yahyâ b. Saîd el-Ensârî. */
+  E("bisryesar", "rebiaebiabdrahman", "—", "Tehzîbü't-Tehzîb, Beşîr b. Yesâr tercemesi"),
+  E("bisryesar", "saidubeydtai", "—", "Tehzîbü't-Tehzîb, Beşîr b. Yesâr tercemesi"),
+  E("bisryesar", "ibnishak", "—", "Tehzîbü't-Tehzîb, Beşîr b. Yesâr tercemesi"),
+  E("bisryesar", "yahyasaidensari", "—", "Tehzîbü't-Tehzîb, Beşîr b. Yesâr tercemesi"),
+
+
+  /* Hamza b. Abdillâh b. Ömer (o. ?) -- hocalari.
+     Tehzîbü't-Tehzîb, Hamza b. Abdillâh b. Ömer tercemesi. Elle secildi: Abdullah b. Ömer, Hafsa bint Ömer, Âişe bint Ebî Bekir. */
+  E("ibnomer", "hamzaibnomer", "—", "Tehzîbü't-Tehzîb, Hamza b. Abdillâh b. Ömer tercemesi"),
+  E("hafsa", "hamzaibnomer", "—", "Tehzîbü't-Tehzîb, Hamza b. Abdillâh b. Ömer tercemesi"),
+  E("aise", "hamzaibnomer", "—", "Tehzîbü't-Tehzîb, Hamza b. Abdillâh b. Ömer tercemesi"),
+
+
+  /* Abdullah b. Ebî Katâde (o. 95) -- hocalari.
+     Tehzîbü't-Tehzîb, Abdullah b. Ebî Katâde tercemesi. Elle secildi: Ebû Katâde el-Ensârî, Câbir b. Abdullah. */
+  E("ebukatade", "abdullahebikatade", "—", "Tehzîbü't-Tehzîb, Abdullah b. Ebî Katâde tercemesi"),
+  E("cabir", "abdullahebikatade", "—", "Tehzîbü't-Tehzîb, Abdullah b. Ebî Katâde tercemesi"),
+
+
+  /* Cu‘ayd b. Abdirrahman (o. ?) -- hocalari.
+     Tehzîbü't-Tehzîb, Cu‘ayd b. Abdirrahman tercemesi. Elle secildi: Sâib b. Yezîd, Yezîd b. Husıyfe. */
+  E("saibyezid", "hasanisad", "—", "Tehzîbü't-Tehzîb, Cu‘ayd b. Abdirrahman tercemesi"),
+  E("yezidhusayfe", "hasanisad", "—", "Tehzîbü't-Tehzîb, Cu‘ayd b. Abdirrahman tercemesi"),
+
+
+  /* Hilâl b. Ebî Meymûne (o. ?) -- hocalari.
+     Tehzîbü't-Tehzîb, Hilâl b. Ebî Meymûne tercemesi. Elle secildi: Enes b. Mâlik, Ebû Seleme b. Abdirrahman, Atâ b. Yesâr. */
+  E("enes", "hilalebimeymune", "—", "Tehzîbü't-Tehzîb, Hilâl b. Ebî Meymûne tercemesi"),
+  E("ebuselemeavf", "hilalebimeymune", "—", "Tehzîbü't-Tehzîb, Hilâl b. Ebî Meymûne tercemesi"),
+  E("atayesar", "hilalebimeymune", "—", "Tehzîbü't-Tehzîb, Hilâl b. Ebî Meymûne tercemesi"),
+
+
+  /* Mansûr b. Safiyye (o. 137) -- hocalari.
+     Tehzîbü't-Tehzîb, Mansûr b. Safiyye tercemesi. Elle secildi: Saîd b. Cübeyr, Muhammed b. Abbâd b. Ca‘fer. */
+  E("saidcubeyr", "mansursafiyye", "—", "Tehzîbü't-Tehzîb, Mansûr b. Safiyye tercemesi"),
+  E("muhammedabbadcafer", "mansursafiyye", "—", "Tehzîbü't-Tehzîb, Mansûr b. Safiyye tercemesi"),
+
+
+  /* İbrâhim b. Ukbe (o. ?) -- hocalari.
+     Tehzîbü't-Tehzîb, İbrâhim b. Ukbe tercemesi. Elle secildi: Küreyb mevlâ İbn Abbâs, Urve b. ez-Zübeyr. */
+  E("kureyb", "ibrahimukbe", "—", "Tehzîbü't-Tehzîb, İbrâhim b. Ukbe tercemesi"),
+  E("urve", "ibrahimukbe", "—", "Tehzîbü't-Tehzîb, İbrâhim b. Ukbe tercemesi"),
+
+
+  /* Seyf b. Süleymân el-Mekkî (o. ?) -- hocalari.
+     Tehzîbü't-Tehzîb, Seyf b. Süleymân tercemesi. Elle secildi: Mücâhid b. Cebr. */
+  E("mucahid", "seyfsuleymanmekki", "—", "Tehzîbü't-Tehzîb, Seyf b. Süleymân tercemesi"),
+
+
+  /* Amr b. Meymûn b. Mihrân (o. 147) -- hocalari.
+     Tehzîbü't-Tehzîb, Amr b. Meymûn b. Mihrân tercemesi. Elle secildi: Meymûn b. Mihrân, Süleymân b. Yesâr, Âmir b. Şerâhîl eş-Şa‘bî, Ebû Kılâbe el-Cermî, Nâfi‘ mevlâ İbn Ömer, Mekhûl eş-Şâmî, Hasan-ı Basrî, İbn Şihâb ez-Zührî. */
+  E("meymunmihran", "amrmeymunmihran", "—", "Tehzîbü't-Tehzîb, Amr b. Meymûn b. Mihrân tercemesi"),
+  E("suleymanyesar", "amrmeymunmihran", "—", "Tehzîbü't-Tehzîb, Amr b. Meymûn b. Mihrân tercemesi"),
+  E("sabi", "amrmeymunmihran", "—", "Tehzîbü't-Tehzîb, Amr b. Meymûn b. Mihrân tercemesi"),
+  E("ebukilabe", "amrmeymunmihran", "—", "Tehzîbü't-Tehzîb, Amr b. Meymûn b. Mihrân tercemesi"),
+  E("nafiibnomer", "amrmeymunmihran", "—", "Tehzîbü't-Tehzîb, Amr b. Meymûn b. Mihrân tercemesi"),
+  E("mekhul", "amrmeymunmihran", "—", "Tehzîbü't-Tehzîb, Amr b. Meymûn b. Mihrân tercemesi"),
+  E("hasanbasri", "amrmeymunmihran", "—", "Tehzîbü't-Tehzîb, Amr b. Meymûn b. Mihrân tercemesi"),
+  E("ibnsihab", "amrmeymunmihran", "—", "Tehzîbü't-Tehzîb, Amr b. Meymûn b. Mihrân tercemesi"),
+
+
+  /* Hâşim b. Hâşim b. Utbe (o. 144) -- hocalari.
+     Tehzîbü't-Tehzîb, Hâşim b. Hâşim tercemesi. Elle secildi: Saîd b. el-Müseyyeb. */
+  E("saidmusayyeb", "hasimhasim", "—", "Tehzîbü't-Tehzîb, Hâşim b. Hâşim tercemesi"),
+
+
+  /* Abdurrahman b. el-Kâsım (o. 126) -- hocalari.
+     Tehzîbü't-Tehzîb, Abdurrahman b. el-Kâsım tercemesi. Elle secildi: Kâsım b. Muhammed b. Ebî Bekir, Saîd b. el-Müseyyeb, Sâlim b. Abdillâh b. Ömer, Nâfi‘ mevlâ İbn Ömer. */
+  E("kasimmuhammed", "ubeydullahomeri2", "—", "Tehzîbü't-Tehzîb, Abdurrahman b. el-Kâsım tercemesi"),
+  E("saidmusayyeb", "ubeydullahomeri2", "—", "Tehzîbü't-Tehzîb, Abdurrahman b. el-Kâsım tercemesi"),
+  E("salimibnomer", "ubeydullahomeri2", "—", "Tehzîbü't-Tehzîb, Abdurrahman b. el-Kâsım tercemesi"),
+  E("nafiibnomer", "ubeydullahomeri2", "—", "Tehzîbü't-Tehzîb, Abdurrahman b. el-Kâsım tercemesi"),
+
+
+  /* Hilâl el-Vezzân (o. ?) -- hocalari.
+     Tehzîbü't-Tehzîb, Hilâl el-Vezzân tercemesi. Elle secildi: Abdurrahman b. Ebî Leylâ, Urve b. ez-Zübeyr. */
+  E("ibnebileyla", "hilalvezzan", "—", "Tehzîbü't-Tehzîb, Hilâl el-Vezzân tercemesi"),
+  E("urve", "hilalvezzan", "—", "Tehzîbü't-Tehzîb, Hilâl el-Vezzân tercemesi"),
+
 ];
 
 /* YINELENEN KENARLAR BURADA TEKILLESTIRILIYOR.

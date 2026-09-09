@@ -212,6 +212,55 @@ kadar râvi tutuyor; sütun açmak yerine en yakın merkeze konuldular ve
 olmayan bir belde yazılmasını reddeder. Yemen eklenirken dört râvi tam
 bu yüzden sessizce haritadan düşmüştü.
 
+## Yarim islenmis dugumler (2026-09-09)
+
+Bir dugumun yalnizca hocalari ya da yalnizca talebeleri islenmis
+olabiliyor. Bunlar **en ucuz kenarlar**: kisi zaten haritada, yalnizca
+tercemesinin bir yarisi okunmamis. Tarama basit —
+`dugumleri-cikar.cjs`'in "kalan bosluk" sayaci talebe tarafini, ayni
+hesabin tersi hoca tarafini veriyor.
+
+Yirmi sekiz yarim dugumden yirmisi acildi, **55 kenar**. Geriye sekizi
+kaldi ve hepsinde sebep ayni: karsi taraftaki isimler haritada yok
+(Ebu Cuhayfe, Cundeb b. Abdillah el-Beceli, Musafi' b. Seybe...).
+
+### Cikarirken cikan iki tuzak
+
+**Talebe basligi iki bicimde geciyor.** Tehzibu't-Tehzib cogu yerde
+«روى عنه» degil kisaca **«وعنه»** yaziyor. Yalnizca uzun bicimi aramak
+Ali b. Mudrik, Ibrahim b. Meysere ve Yahya b. Umare'nin talebe
+listesini BOS gosteriyordu.
+
+**Kaydettigimiz ad cogu kez kisa.** "Mansur b. Safiyye" Ibn Hacer'de
+"Mansur b. Abdirrahman b. Talha" (Safiyye annesi); "Hilal el-Vezzan"
+"Hilal b. Ebi Humeyd ... el-Kufi es-Sayrafi el-Cehbez el-Vezzan". Bu
+dugumlerde mekanik eslesme ya sifir ya cok aday veriyor; dogru baslik
+gozle secilip betige yazildi.
+
+### esle.cjs'in kacirdiklari ve kenar-ekle.cjs
+
+`esle.cjs` bilerek siki: kayit dugumun adiyla BASLAMALI. Bu kural
+yanlis kenari onluyor ama terceme listelerindeki **kisa bicimleri** de
+eliyor — «الاعمش», «شعبة», «الزهري», «عائشة» gibi sohret adlari ve
+«ابيه» (babasi), «عمته حفصة» (halasi Hafsa) gibi akrabalik zamirleri.
+Kaybedilenlerin degeri yuksek, cunku bunlar cogu zaman haritanin en
+buyuk dugumleri. Hamza b. Abdillah b. Omer'in uc hocasi da
+(«ابيه، وعمته حفصة، وعائشة») bu yuzden hic cizilmemisti.
+
+Cozum eslestiriciyi gevsetmek DEGIL: gevsek surum yalnizca aday
+gosteriyor, secim goze kaliyor, kabul edilenler
+`node araclar/kenar-ekle.cjs <ozneId> <talebe|hoca> "<kaynak>" <id>...`
+ile yaziliyor. Gevsek surumun neden karar veremeyecegi de olculdu --
+"عبد الله بن وهب بن زمعة" (Medineli tabii) kaydi Misirli Abdullah b.
+Vehb'e (o. 197), "وابي بشر" kaydi Ebu Bisr ed-Dulabi'ye (o. 310)
+dusuyordu.
+
+Bir de sessiz bir tercih hatasi: Besir b. Yesar'in talebesi
+«ويحيى بن سعيد» icin esle.cjs **el-Kattan**'i (o. 198, Basra) sectti;
+dogrusu Medineli **Yahya b. Said el-Ensari** (o. 143). Ayni ada sahip
+iki dugumden birini secerken kronoloji penceresi yetmiyor, belde de
+bakilmali.
+
 ## Kurallar
 
 - `git add -A` **kullanma.** Bir kez kullanıcının işlenmemiş işini commit'e süpürdü. Yalnızca dokunduğun dosyaları evrele.
