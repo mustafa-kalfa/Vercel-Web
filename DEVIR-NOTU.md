@@ -9,13 +9,14 @@ okumak**, sonra "Havuzu tazele" bölümündeki iki komutu çalıştırmak.
 |---|---|
 | düğüm | 821 |
 | kenar | 8220 |
-| bilgi kartı | **524** |
+| bilgi kartı | **531** |
 | tercemesi çözülmüş düğüm | 622 / 821 |
-| kart yazılabilir havuz | **163** |
+| kart yazılabilir havuz | **156** |
 
-Son commit `c1939f8` (Bilgi kartlari on dorduncu parti). Çalışma ağacı
-temiz, `main`'e push edilmiş durumda. Son doğrulanan build
-`✓ Compiled successfully`.
+Son commit `161adda` (Bilgi kartlari on besinci parti). Çalışma ağacı
+temiz. **Push edilmedi** — `main`'e push canlıya deploy demek, o yüzden
+Mustafâ söyleyince atılıyor. Son doğrulanan build `✓ Compiled
+successfully`.
 
 **Açık iş tek** — kart yazmaya devam. Kullanıcının son talimatı
 "kartlara devam et". Başka bekleyen istek yok.
@@ -31,7 +32,7 @@ node araclar/terceme/kart-havuzu.cjs "$S/cozum.json" "$S/havuz.json"
 ```
 
 Birincisi `COZULEN: 622 / 821` yazmalı, ikincisi
-`yazilabilir havuz: 163`. Sayılar tutmuyorsa bir şey bozulmuş demektir,
+`yazilabilir havuz: 156`. Sayılar tutmuyorsa bir şey bozulmuş demektir,
 kart yazmadan önce ona bak.
 
 Havuz **dereceye göre sıralı** — en çok kenarı olan düğüm başta, çünkü
@@ -71,7 +72,7 @@ kazara silmemek için.
 npm run build
 ```
 
-Commit mesajı biçimi `Bilgi kartlari on besinci parti: alti kart`.
+Commit mesajı biçimi `Bilgi kartlari on altinci parti: alti kart`.
 
 ## Kural olmuş şeyler
 
@@ -128,13 +129,14 @@ haritadan düştü.
 Terceme başına teyit şartı (doğru terceme, düğümün zaten çizilmiş
 kenarlarından bir kısmını yeniden üretmeli) en güçlü tek koruma çıktı.
 
-## Bir düğüm atlandı
+## Kapanan iş
 
-`ibnrecagudani` — Abdullah b. Recâ el-Gudânî. Cerh-ta'dîl bölümü
-gövdenin ilerisinde kalıyor, `terceme-oku.py`'nin `KES` regex'i talebe
-listesindeki "روى له" ifadesinde kesiyor. Kart yazacak malzeme
-çıkmıyor. Ya okuyucunun kesme noktası düzeltilecek ya da bu terceme
-elle okunacak.
+`ibnrecagudani` on dördüncü partide "malzeme çıkmıyor" diye atlanmıştı,
+doğru değilmiş. `KES` gerçekten talebe listesindeki "روى له" ifadesinde
+kesiyor ama cerh-ta'dîl bölümü o listenin hemen ardından geliyor ve
+2600 karakterlik pencerenin içinde kalıyor. On beşinci partide yazıldı,
+okuyucuda düzeltme gerekmedi. **Uzun talebe listesi olan tercemelerde
+çıktının sonuna kadar bak, ilk ekrana bakıp vazgeçme.**
 
 ## İstenmedi, not düşüldü
 
