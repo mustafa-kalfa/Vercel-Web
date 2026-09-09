@@ -9,11 +9,11 @@ okumak**, sonra "Havuzu tazele" bölümündeki iki komutu çalıştırmak.
 |---|---|
 | düğüm | 821 |
 | kenar | 8220 |
-| bilgi kartı | **543** |
-| tercemesi çözülmüş düğüm | 622 / 821 |
-| kart yazılabilir havuz | **144** |
+| bilgi kartı | **555** |
+| tercemesi çözülmüş düğüm | 621 / 821 |
+| kart yazılabilir havuz | **131** |
 
-Son commit `2812d1b` (Bilgi kartlari on yedinci parti). Çalışma ağacı
+Son commit `7519e50` (Bilgi kartlari on dokuzuncu parti). Çalışma ağacı
 temiz. **Push edilmedi** — `main`'e push canlıya deploy demek, o yüzden
 Mustafâ söyleyince atılıyor. Son doğrulanan build `✓ Compiled
 successfully`.
@@ -31,8 +31,8 @@ PYTHONIOENCODING=utf-8 python araclar/terceme/baslik-coz.py "$S/cozum.json" "$S/
 node araclar/terceme/kart-havuzu.cjs "$S/cozum.json" "$S/havuz.json"
 ```
 
-Birincisi `COZULEN: 622 / 821` yazmalı, ikincisi
-`yazilabilir havuz: 144`. Sayılar tutmuyorsa bir şey bozulmuş demektir,
+Birincisi `COZULEN: 621 / 821` yazmalı, ikincisi
+`yazilabilir havuz: 131`. Sayılar tutmuyorsa bir şey bozulmuş demektir,
 kart yazmadan önce ona bak.
 
 Havuz **dereceye göre sıralı** — en çok kenarı olan düğüm başta, çünkü
@@ -72,7 +72,7 @@ kazara silmemek için.
 npm run build
 ```
 
-Commit mesajı biçimi `Bilgi kartlari on sekizinci parti: alti kart`.
+Commit mesajı biçimi `Bilgi kartlari yirminci parti: alti kart`.
 
 ## Kural olmuş şeyler
 
@@ -128,6 +128,24 @@ haritadan düştü.
 **İlke.** "Bir doğru kenarı kaçırmak, yanlışını çizmekten iyi."
 Terceme başına teyit şartı (doğru terceme, düğümün zaten çizilmiş
 kenarlarından bir kısmını yeniden üretmeli) en güçlü tek koruma çıktı.
+
+## Yanlış terceme taraması
+
+On sekizinci partide iki düğümün **yanlış tercemeye** bağlandığı
+görüldü, kart yazılmadan önce yakalandı. Tarama şu kalıpla yapıldı —
+düğümün Arapça adının ilk üç belirteci (`X بن Y`) başlıkta bitişik
+geçmiyorsa bayrak. 144 düğümden 7'si bayraklandı, 5'i yanlış alarmdı
+(dedesiyle meşhur olan râviler — Selemetü'bnü'l-Ekva‘, Mikdâd b.
+el-Esved, İbn Husayfe, el-Hakem el-A‘rec, Selîm b. Hayyân).
+
+- `amrharis` Humuslu bir adaşa bağlanmıştı, doğrusu 58274. satır.
+  `baslik-elle.json`'a yazıldı.
+- `ms03` (İbrâhim b. Muhammed b. Hamza) — bu adın Tehzîb'de tercemesi
+  **yok**, çözücü Medineli başka birine çarpıyordu.
+
+İkincisi için `baslik-elle.json` artık **`null`** değeri kabul ediyor,
+anlamı "bu düğümün tercemesi yok, çözme". Aynı durum yine çıkarsa
+oraya `null` yaz, betiği değiştirme.
 
 ## Kapanan iş
 
