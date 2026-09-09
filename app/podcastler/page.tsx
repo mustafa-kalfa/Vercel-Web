@@ -77,8 +77,17 @@ export default function Podcastler() {
             ayrilsin.
 
             Renk anasayfadaki tanitim paragrafiyla ayni (zinc-800 /
-            cream-dim) -- orada da ayni gerekceyle koyulastirilmisti. */}
-        <p className="mb-3 max-w-sm text-center text-base leading-7 text-zinc-800 dark:text-cream-dim">
+            cream-dim) -- orada da ayni gerekceyle koyulastirilmisti.
+
+            SOLA YASLI (Mustafa'nin istegi, 2026-09-09). Kutu dugmelerle
+            AYNI olculerde (`w-full max-w-sm`): kap `items-center`
+            oldugu icin daha dar bir paragraf ortalanir ve sola yasli
+            metnin sol kenari dugmelerin sol kenarindan iceride kalirdi.
+            Ayni genislikte olunca iki kenar cakisiyor.
+
+            `text-start`, `text-left` DEGIL: mantiksal ozellik,
+            Arapca'da (rtl) metni kendiliginden saga yasliyor. */}
+        <p className="mb-3 w-full max-w-sm text-start text-base leading-7 text-zinc-800 dark:text-cream-dim">
           {t.podcastLead}
         </p>
         {kategoriler.map((ad, i) =>

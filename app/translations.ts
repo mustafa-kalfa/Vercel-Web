@@ -151,7 +151,8 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     pageNotCreated:
       "Şu anda buradasınız. Mustafâ henüz böyle bir sayfa oluşturmadı. Fakat... Neden olmasın?",
     cardPreparing: "Hazırlanıyor",
-    podcastLead: "Hadis ilmi üzerine yapay zekâ destekli podcastleri burada bulabilirsiniz.",
+    podcastLead:
+      "Hadis ilminin başlıklarını yapay zekâ destekli podcastlerle tek tek ele alıyorum. Kayıtlar tamamlandıkça başlıklar burada açılacak.",
     podcastHadithHistory: "Hadis Tarihi",
     podcastCatGeography: "Coğrafya, Tabakât ve Tarih Yazımı",
     podcastCatTerms: "Usûl Istılahları",
@@ -269,7 +270,8 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     pageNotCreated:
       "أنتم الآن هنا. لم يُنشئ مصطفى هذه الصفحة بعدُ. ولكن... لِمَ لا؟",
     cardPreparing: "قيد الإعداد",
-    podcastLead: "تجد هنا بودكاست عن علم الحديث بمساعدة الذكاء الاصطناعيّ.",
+    podcastLead:
+      "أتناول موضوعات علم الحديث واحدًا تلو الآخر في بودكاست بمساعدة الذكاء الاصطناعيّ. ويُفتح كلّ عنوان هنا متى اكتمل تسجيله.",
     podcastHadithHistory: "تاريخ الحديث",
     podcastCatGeography: "الجغرافيا والطبقات والتأريخ",
     podcastCatTerms: "مصطلحات علوم الحديث",
@@ -385,7 +387,8 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     pageNotCreated:
       "You are here right now. Mustafâ hasn't made such a page yet. But... Why not?",
     cardPreparing: "In preparation",
-    podcastLead: "Here you will find AI-assisted podcasts on the science of hadith.",
+    podcastLead:
+      "I'm working through the topics of hadith scholarship one by one, in AI-assisted podcasts. Each topic opens here as its recording is finished.",
     podcastHadithHistory: "History of Hadith",
     podcastCatGeography: "Geography, Ṭabaqāt and Historiography",
     podcastCatTerms: "Terminology of Uṣūl al-Ḥadīth",
