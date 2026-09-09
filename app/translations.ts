@@ -34,6 +34,7 @@ type Translation = {
   journeyAhead: string;
   pageNotCreated: string;
   cardPreparing: string;
+  podcastLead: string;
   podcastHadithHistory: string;
   podcastCatGeography: string;
   podcastCatTerms: string;
@@ -150,6 +151,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     pageNotCreated:
       "Şu anda buradasınız. Mustafâ henüz böyle bir sayfa oluşturmadı. Fakat... Neden olmasın?",
     cardPreparing: "Hazırlanıyor",
+    podcastLead: "Hadis ilmi üzerine yapay zekâ destekli podcastleri burada bulabilirsiniz.",
     podcastHadithHistory: "Hadis Tarihi",
     podcastCatGeography: "Coğrafya, Tabakât ve Tarih Yazımı",
     podcastCatTerms: "Usûl Istılahları",
@@ -189,8 +191,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     cardGames: "Oyunlar",
     cardGamesDesc: "Oynarken öğrenelim.",
     cardPodcasts: "Podcastler",
-    cardPodcastsDesc:
-      "Hadis tarihi, usûlü, edebiyatı ve oryantalizm üzerine yapay zekâ destekli podcastler.",
+    cardPodcastsDesc: "Hadis ilmi üzerine yapay zekâ destekli podcastler.",
     cardRihle: "Rihleler",
     cardRihleDesc:
       "Kütüb-i Sitte müelliflerinin rihle güzergâhlarını görelim.",
@@ -268,6 +269,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     pageNotCreated:
       "أنتم الآن هنا. لم يُنشئ مصطفى هذه الصفحة بعدُ. ولكن... لِمَ لا؟",
     cardPreparing: "قيد الإعداد",
+    podcastLead: "تجد هنا بودكاست عن علم الحديث بمساعدة الذكاء الاصطناعيّ.",
     podcastHadithHistory: "تاريخ الحديث",
     podcastCatGeography: "الجغرافيا والطبقات والتأريخ",
     podcastCatTerms: "مصطلحات علوم الحديث",
@@ -307,8 +309,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     cardGames: "الألعاب",
     cardGamesDesc: "لنتعلّم ونحن نلعب.",
     cardPodcasts: "التسجيلات الصوتية",
-    cardPodcastsDesc:
-      "تسجيلات في تاريخ الحديث وأصوله وأدبه والاستشراق.",
+    cardPodcastsDesc: "بودكاست عن علم الحديث بمساعدة الذكاء الاصطناعيّ.",
     cardRihle: "الرحلات",
     cardRihleDesc: "لنتعرّف على مسارات رحلات مؤلّفي الكتب الستّة.",
     cardEducation: "المحتوى التعليمي وخدمات أخرى",
@@ -384,6 +385,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     pageNotCreated:
       "You are here right now. Mustafâ hasn't made such a page yet. But... Why not?",
     cardPreparing: "In preparation",
+    podcastLead: "Here you will find AI-assisted podcasts on the science of hadith.",
     podcastHadithHistory: "History of Hadith",
     podcastCatGeography: "Geography, Ṭabaqāt and Historiography",
     podcastCatTerms: "Terminology of Uṣūl al-Ḥadīth",
@@ -423,8 +425,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     cardGames: "Games",
     cardGamesDesc: "Let us learn while playing.",
     cardPodcasts: "Podcasts",
-    cardPodcastsDesc:
-      "Podcasts on hadith history, methodology, literature and orientalism.",
+    cardPodcastsDesc: "AI-assisted podcasts on the science of hadith.",
     cardRihle: "Journeys",
     cardRihleDesc:
       "Let us learn the travel routes of the authors of the Six Books.",

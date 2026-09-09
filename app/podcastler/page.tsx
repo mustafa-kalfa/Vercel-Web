@@ -69,6 +69,18 @@ export default function Podcastler() {
       {/* Bosluk `gap-4`ten `gap-3`e indi: dort dugmeyken bol duruyordu,
           on dortte sayfayi gereksiz uzatiyordu. */}
       <div className="flex w-full flex-1 flex-col items-center justify-center gap-3 px-6 pb-16 pt-32 sm:px-10">
+        {/* Sayfanin ne oldugunu soyleyen giris. Dugmelerin USTUNDE, cunku
+            ziyaretci once nereye geldigini anlamali.
+
+            `mb-3` fazladan bosluk: kabin `gap-3`u tek basina paragrafi
+            ilk dugmeye fazla yaklastiriyordu, giris metni listeden
+            ayrilsin.
+
+            Renk anasayfadaki tanitim paragrafiyla ayni (zinc-800 /
+            cream-dim) -- orada da ayni gerekceyle koyulastirilmisti. */}
+        <p className="mb-3 max-w-sm text-center text-base leading-7 text-zinc-800 dark:text-cream-dim">
+          {t.podcastLead}
+        </p>
         {kategoriler.map((ad, i) =>
           i === 0 ? (
             <Link key={ad} href="/hadis-tarihi" className={acikSinifi}>
@@ -92,23 +104,6 @@ export default function Podcastler() {
         )}
       </div>
 
-      {/* Yagmur klibi. Kediler gibi bu da eskiden anasayfanin acilis
-          videolarindan biriydi (bkz. IntroVideo); orasi tek klibe
-          indirilince sayfalara dagitildi.
-
-          Konum `absolute`, `fixed` DEGIL -- /selam'daki ile ayni gerekce:
-          fixed iken klip gorunum alaninin dibine yapisip footer'in
-          uzerini ortuyor. absolute olunca sarmalayici <main>'in dibinde,
-          yani tam footer'in ustunde duruyor.
-
-          Olculer IntroVideo'daki ayarindan geliyor: telefonda tam ekran
-          genisligi, masaustunde sola yasli 22.5vh. Gokyuzu yesil cekilip
-          seffaflastirildigi icin klibin kendi kenari yok, maske
-          gerekmiyor. */}
-      <ChromaKeyVideo
-        src="/Mustafa%20Yagmur_seffaf.mp4"
-        className="absolute bottom-0 left-0 h-auto w-full object-contain md:h-[22.5vh] md:w-auto md:max-w-none"
-      />
     </main>
   );
 }
