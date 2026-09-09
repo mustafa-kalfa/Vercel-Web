@@ -243,8 +243,41 @@ export default function Home() {
               <li key={kart.href}>
                 <Link
                   href={kart.href}
-                  className="flex h-full flex-col gap-1 rounded-2xl border border-solid border-black/20 p-4 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
+                  className="relative flex h-full flex-col gap-1 rounded-2xl border border-solid border-black/20 p-4 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
                 >
+                  {/* Rozet KARTIN KOSESINDE, kenarligin bir miktar
+                      disinda (`-top-2 -end-2`). Bir sure baslik satirinda,
+                      ikonun solunda duruyordu; Mustafa "kosede olmali"
+                      dedi (2026-09-09).
+
+                      Kartin ICINDE bir kose olamazdi: sag ust zaten
+                      ikonun yeri, ikisi ust uste binerdi. Disariya
+                      tasinca binme sorunu kendiliginden bitiyor --
+                      rozetin alt kenari kartin ust kenarindan 12px
+                      asagida kaliyor, ikon ise 20px'ten sonra basliyor.
+
+                      `-end-2`, `-right-2` DEGIL: mantiksal ozellik,
+                      Arapca'da (rtl) rozeti kendiliginden sol ust koseye
+                      aliyor -- kartin geri kalani zaten aynalaniyor.
+
+                      Bicim disaridaki span'de, metin SwapContent'in
+                      icinde: SwapContent kok ogesine `relative` veriyor,
+                      className'e `absolute` yazmak ikisini ayni ozellik
+                      uzerinde yaristirirdi. */}
+                  {kart.rozetAnahtar && (
+                    <span className="absolute -top-2 -end-2 rounded-full bg-secim px-2 py-0.5 text-xs font-medium text-secim-metin">
+                      <SwapContent
+                        className="whitespace-nowrap"
+                        current={language}
+                        outgoing={outgoingLanguage}
+                        render={(anahtar) =>
+                          TRANSLATIONS[anahtar as Language][
+                            kart.rozetAnahtar as CeviriAnahtari
+                          ]
+                        }
+                      />
+                    </span>
+                  )}
                   <span className="flex items-start justify-between gap-3">
                   {/* Baslik ve aciklama SwapContent'ten geciyor: dil
                       degisince eski metin yukari kayip cikiyor, yenisi
@@ -266,30 +299,6 @@ export default function Home() {
                     }
                     cokSatir
                   />
-                  {/* Rozet ikonun SOLUNDA, ayni ust satirda. Karta
-                      `absolute` ile kosenin disina asilmadi: ikon zaten
-                      sag ustte duruyor ve ikisi ust uste binerdi.
-
-                      Rengi metin secim rengiyle AYNI kaynaktan geliyor
-                      (globals.css'teki `--color-secim`), Mustafa oyle
-                      istedi. Yazi rengi de secimin yazi rengi: acik
-                      yesil zeminde okunakli olan koyu ton.
-
-                      `shrink-0` ve `whitespace-nowrap`: dar ekranda
-                      baslik uzunsa rozet ezilmesin, kendi genisligini
-                      korusun. */}
-                  {kart.rozetAnahtar && (
-                    <SwapContent
-                      className="mt-1 shrink-0 whitespace-nowrap rounded-full bg-secim px-2 py-0.5 text-xs font-medium text-secim-metin"
-                      current={language}
-                      outgoing={outgoingLanguage}
-                      render={(anahtar) =>
-                        TRANSLATIONS[anahtar as Language][
-                          kart.rozetAnahtar as CeviriAnahtari
-                        ]
-                      }
-                    />
-                  )}
                   <span className="mt-1 text-zinc-500 dark:text-cream-dimmer">
                     {kart.ikon}
                   </span>
