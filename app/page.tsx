@@ -246,7 +246,7 @@ export default function Home() {
                   className="relative flex h-full flex-col gap-1 rounded-2xl border border-solid border-black/20 p-4 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
                 >
                   {/* Rozet KARTIN KOSESINDE, kenarligin bir miktar
-                      disinda (`-top-2 -end-2`). Bir sure baslik satirinda,
+                      disinda (`-top-1.5 -end-1.5`). Bir sure baslik satirinda,
                       ikonun solunda duruyordu; Mustafa "kosede olmali"
                       dedi (2026-09-09).
 
@@ -265,7 +265,7 @@ export default function Home() {
                       className'e `absolute` yazmak ikisini ayni ozellik
                       uzerinde yaristirirdi. */}
                   {kart.rozetAnahtar && (
-                    <span className="absolute -top-2 -end-2 rounded-full bg-secim px-2 py-0.5 text-xs font-medium text-secim-metin">
+                    <span className="absolute -top-1.5 -end-1.5 rounded-full bg-secim px-1.5 py-[1.5px] text-[9px] font-medium leading-3 text-secim-metin">
                       <SwapContent
                         className="whitespace-nowrap"
                         current={language}

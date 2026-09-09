@@ -12,7 +12,7 @@ import { useLanguage } from "./LanguageContext";
    yok.
 
    KONUM: dugmenin KOSESINDE, kenarligin bir miktar disinda
-   (`-top-2 -end-2`). Bir sure dugme metninin yaninda, akisin icinde
+   (`-top-1.5 -end-1.5`). Bir sure dugme metninin yaninda, akisin icinde
    duruyordu; Mustafa "kosede olmali" dedi (2026-09-09) ve anasayfa
    kartindaki rozet de ayni gun oraya tasindi.
 
@@ -29,7 +29,7 @@ import { useLanguage } from "./LanguageContext";
 export default function HazirlaniyorRozeti() {
   const { t } = useLanguage();
   return (
-    <span className="absolute -top-2 -end-2 whitespace-nowrap rounded-full bg-secim px-2 py-0.5 text-xs font-medium text-secim-metin">
+    <span className="absolute -top-1.5 -end-1.5 whitespace-nowrap rounded-full bg-secim px-1.5 py-[1.5px] text-[9px] font-medium leading-3 text-secim-metin">
       {t.cardPreparing}
     </span>
   );
