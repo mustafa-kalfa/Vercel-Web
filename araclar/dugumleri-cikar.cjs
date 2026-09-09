@@ -19,7 +19,8 @@ const { NODES, EDGES } = eval(kod + '\n;({ NODES, EDGES })');
 
 fs.writeFileSync(path.join(__dirname, 'dugumler.json'),
   JSON.stringify(NODES.map((n) => ({ id: n.id, ar: n.ar, tr: n.tr,
-                                     olum: n.olum, tab: n.tab }))));
+                                     olum: n.olum, tab: n.tab,
+                                     belde: n.belde }))));
 
 /* Is listesi: kendi tercemesi hic acilmamis raviler. 6. tabaka disarida
    -- muelliflerin ogrencileri bilerek son sinir, talebeleri olmayacak. */

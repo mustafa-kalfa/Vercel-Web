@@ -1,6 +1,6 @@
 # Silsile ağı — devir notları
 
-Son güncelleme 2026-08-30. Önceki not dosyasının yerini alır.
+Son güncelleme 2026-09-09. Önceki not dosyasının yerini alır.
 
 ## Nerede ne var
 
@@ -10,7 +10,7 @@ Son güncelleme 2026-08-30. Önceki not dosyasının yerini alır.
 | `/ravi-iliski-aglari/harita` | `app/SilsileAgi.jsx` → `silsileVeri.js` | **Yayındaki sürüm**, canvas. Sayfa adı "Rivayet Haritası". Çalışma burada yürüyor |
 | `/ag-sinamasi` | `app/SilsileAgi.jsx` → `silsileVeri.js` | Deneme adresi, `noindex`. Şu an yayındakiyle birebir aynı |
 | — | `app/silsileAgiKur.jsx` | Çizim kodu. İki sayfa da bunu kullanıyor |
-| — | `app/silsileVeri.js` | 657 râvi, 1647 bağ, çeviriler, konum hesabı |
+| — | `app/silsileVeri.js` | 821 râvi, 5904 bağ, çeviriler, konum hesabı |
 
 ÇİZİM KODU TEK, VERİ İKİ. `silsileAgiKur.jsx` bir fabrika — `kur(V)` bir veri modülü alıp ondan beslenen bileşen döndürüyor. İki sayfa birer satırlık sarmalayıcı. Bileşeni kopyalamak da bir seçenekti ama 1400 satır iki yerde yaşardı ve her düzeltmeyi iki kez uygulamak gerekirdi — SVG sürümü son günlerin bütün iyileştirmelerini tam da bu yüzden kaçırmıştı.
 
@@ -20,7 +20,7 @@ Veri bir süre çatallanmıştı (kart doldurma yayındaki haritayı etkilemesin
 
 ## Veri durumu
 
-- **657 râvi, 1647 bağ.**
+- **821 râvi, 5904 bağ.**
 - **160 boşluk** — kendi tercemesi hiç açılmamış, yani talebe tarafı boş râviler.
 - **Bilgi kartları 208/661.** Kaynak İbn Hacer, *Takrîbü't-Tehzîb* (Şâmile 8609). Medâr, müksirûn, müellif ve "en önemli 60" listesi tamamlandı; kalanı düz taramayla sürüyor.
 
@@ -124,9 +124,91 @@ Açılış kadrajı: beş belde şeridi, Hz. Peygamber / Fâtıma / Ebû Bekir /
 
 - **156 terceme.** Ölçülen hız râvi başına ~30 bin token, toplam kabaca 4-5 milyon.
 - **KAVIS eğri tablosu bayat.** Yerleşim sabitleri (`SERIT_W`, `ASGARI_DY`, `H`, `YIL_MAX`) değiştiğinde yeniden üretilmesi gerekiyordu, yalnızca orantılı ölçeklendi. Çakışma verisi artık geçerli değil.
-- **Bağdat sütunu yok.** 3. yüzyılın büyük merkezi. `ms28` (İbn Sâid) bu yüzden öldüğü yere, Kûfe'ye kondu.
 - **İngilizce isimlerde mekanik çevrim boşlukları** — "Eslem mevla Omer", "Fatima bint Resulillah" gibi. `ING_SOZLUK` elle genişletilebilir.
-- **Belde ataması en zayıf halka.** Nisbe ile belde alanı çelişenler taranmalı.
+- **Belde ataması denetlendi ama bitmedi.** Aşağıya bak: 821 düğümün
+  332'si kaynakla teyitli, 274'ünde Takrîb/Tehzîb tercemesi hiç
+  bulunamadı. O 274'ün çoğu sahâbe (kısa künye) ve şöhret adıyla
+  kayıtlı meşhurlar.
+
+## Belde denetimi (2026-09-09)
+
+Belde haritanın **yatay ekseni**: yanlış belde noktayı yanlış sütuna
+koyar. Yıl tarafındaki `DIA` gibi bir koruma yok, değer tek yerden —
+`N()`'in 6. argümanından — geliyor.
+
+Denetim mekanik tarama + hakemlik olarak yürüdü. Tarama, her düğümün
+Takrîb (ve bulamazsa Tehzîbü't-Tehzîb) tercemesini bulup **ad
+bölgesindeki nisbeyi** belde alanıyla karşılaştırıyor; kararı vermiyor,
+yalnızca aday çıkarıyor. 821 düğümde: 332 uyuyor, 27 çelişki, 32'si
+sütunu olmayan bir şehir, 110 çok aday, 131 nisbesiz, 274'ünde terceme
+bulunamadı.
+
+Ardından şüpheli olanlar tek tek karara bağlandı ve **her öneri ayrı bir
+çürütme turundan geçti**. Çürütme boşuna değildi: on öneri orada
+elendi.
+
+### Tarayıcının tuzakları
+
+**Eşleştirici yanılıyor ve yanıldığında sonuç makul görünüyor.**
+"Abdurrahman b. Avf" (sahâbî) "Abdurrahman b. **Ebî** Avf el-Cüreşî
+el-Hımsî"ye, "Nâfi‘ mevlâ İbn Ömer" "Nâfi‘ b. Ömer el-Cumahî
+el-Mekkî"ye düştü. Her kararda kimlik ayrıca soruldu; vefat yılı en iyi
+tutarlılık ölçüsü.
+
+**Takrîb'in `تمييز` kayıtları râvinin kendisi değil adaşıdır.** Ebû
+İmrân el-Cevnî (Basralı, ö. 128) "Bağdat'a yerleşti" diyen bir temyîz
+kaydına düştü — Bağdat 145'te kurulduğu için ölüm yılı tek başına
+yeterdi. Temyîz satırları artık taramada eleniyor.
+
+**Ad iki tarafta da aynı süzgeçten geçmeli.** `parcala()` durak
+sözcüklerini (bn, ebû, ebî, mevlâ) atıyordu ama terceme tarafında
+atmıyordum; ilk belirteç eşitliği şartı yüzünden künyeyle başlayan her
+isim sıfır aday veriyordu. Tek satırlık düzeltme 387 "terceme yok"u
+274'e indirdi.
+
+**Nisbe sanılan kabile adları.** `الهمداني` Hemdân **kabilesi**, Hemedân
+şehri değil; Ebû'd-Duhâ bu yüzden Kûfe'den çıkarılacaktı.
+
+**Düğümün kendi `not` alanı çoğu zaman kararı zaten yazmış.** "Yemâme
+sütunlarda yok, ... Kûfe alındı", "Tâif sütunlarda yok, Mekke sütununa
+konuldu" gibi. Hakem notu okumadığı için üç öneri bilinçli bir kararı
+bozacaktı; çürütme turu yakaladı. **Belde önerirken önce `not` okunmalı.**
+
+### Ölçüt: nereli değil, nerede rivayet etti
+
+Mevcut veriden okunan kural şu: râvi **yerleştiği** yere konuyor, aslen
+nereli olduğuna değil. Ma‘mer b. Râşid Takrîb'de "el-Basrî nezîlü'l-Yemen"
+ama haritada Yemen; Saîd b. Mansûr "el-Horasânî nezîlü Mekke" ama
+Mekke; Ebû Râfi‘ Nüfey‘ "el-Medenî nezîlü'l-Basra" ama Basra. Yani
+`نزل / سكن` aslî nisbeyi yener.
+
+Ama **uğramak yerleşmek değil**. İbrâhim b. Tahmân Bağdat'a geldi ve
+Mekke'de öldü; Hafs b. Giyâs Bağdat'ta kadılık edip Kûfe'ye döndü. İkisi
+de taşınmadı. Ebû Müshir ed-Dımaşkī mihnede Bağdat'a **sevk edilip**
+orada öldü — Şam'da kaldı.
+
+### Bağdat sütunu açıldı
+
+Şehir 145'te kuruldu ve 3. yüzyılın hadis merkezi oldu; sütunu
+olmadığı için orada yaşayan râviler başka şeritlere dağılmıştı ve
+neredeyse hepsi **Basra**'ya düşmüştü. Yani haritanın 3. yüzyıl Basra'sı
+gerçekte Bağdat'tı: İbn Maîn, Ali b. el-Ca‘d, Züheyr b. Harb, Affân b.
+Müslim, Amr en-Nâkıd hep oradaydı. Bilgi kartlarının bir kısmı bunu
+zaten yazıyordu ("Bağdat sütunlarda yok") — o cümleler artık kaldırıldı.
+
+**28 râvi taşındı**, Basra 209'dan 189'a indi. Sütun coğrafî sırada
+Kûfe ile Cibâl arasında.
+
+Hâlâ sütunu olmayan yerler: Cezîre (Rakka, Harrân, Musul), Yemâme,
+Medâin, Tâif, Askalan, Eyle, Filistin. Her biri bir elin parmakları
+kadar râvi tutuyor; sütun açmak yerine en yakın merkeze konuldular ve
+**bu tercih ilgili düğümün `not` alanında yazılı**.
+
+### Araç
+
+`node araclar/belde-guncelle.cjs <id>=<Belde> ...` — `BELDELER`'de
+olmayan bir belde yazılmasını reddeder. Yemen eklenirken dört râvi tam
+bu yüzden sessizce haritadan düşmüştü.
 
 ## Kurallar
 

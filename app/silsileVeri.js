@@ -467,8 +467,8 @@ export const NODES = [
 
   // ---- Zuhri'nin Tehzib'de gecen talebeleri ----
   N("salihkeysan", "صالح بن كيسان", "Sâlih b. Keysân", 5, null, "Medine", "Rumûz ع."),
-  N("suaybebihamza", "شعيب بن أبي حمزة", "Şuayb b. Ebî Hamza", 5, null, "Şam", "Rumûz ع."),
-  N("ibrahimsad", "إبراهيم بن سعد الزهري", "İbrâhim b. Sa‘d ez-Zührî", 5, null, "Medine",
+  N("suaybebihamza", "شعيب بن أبي حمزة", "Şuayb b. Ebî Hamza", 5, null, "Humus", "Rumûz ع."),
+  N("ibrahimsad", "إبراهيم بن سعد الزهري", "İbrâhim b. Sa‘d ez-Zührî", 5, null, "Bağdat",
     "Takrîb 177: «ثقة حجة تُكُلِّم فيه بلا قادح». Abdurrahman b. Avf'ın torununun oğlu; Medineli, Bağdat'a yerleşti. Takrîb vefatını 185 verir."),
   N("eyyubsahtiyani", "أيوب السختياني", "Eyyûb es-Sahtiyânî", 5, 131, "Basra",
     "Basra'nın önde gelen muhaddis ve fakihlerinden. İbn Hacer onun için \"sika, sebt, hüccet; fakihlerin ve zâhidlerin büyüklerinden\" der ve beşinci tabakadan sayar; Kütüb-i Sitte'nin altısı da ondan rivayet eder. Nâfi', İbn Sîrîn ve Hasan-ı Basrî'den aldığı rivayetler Basra hadisinin ana damarlarındandır; Hammâd b. Zeyd, Süfyân es-Sevrî ve Şu'be gibi isimler ondan rivayet etmiştir. 131'de, altmış beş yaşında vefat etti."),
@@ -556,7 +556,7 @@ export const NODES = [
     "Basralı tâbiîn râvisi, meşhur muhaddis ve muabbir Muhammed b. Sîrîn'in kardeşi. İbn Hacer onu \"sika\" sayar ve üçüncü tabakadan gösterir; Kütüb-i Sitte'nin altısı da ondan rivayet eder. Enes b. Mâlik'ten yaptığı rivayetlerle tanınır. 118 (bir rivayete göre 120) yılında vefat etti."),
   N("sabitbunani", "ثابت البناني", "Sâbit el-Bünânî", 4, 127, "Basra",
     "Basralı tâbiîn râvisi ve zâhid. İbn Hacer onu \"sika, âbid\" diye niteler ve dördüncü tabakadan sayar; Kütüb-i Sitte'nin altısı da ondan rivayet eder. Enes b. Mâlik'in en çok rivayet eden talebelerinden olup Enes yoluyla gelen haberlerin başlıca nâkilidir; kendisinden Hammâd b. Seleme, Şu'be ve Süleymân et-Teymî rivayet etmiştir. 127 yılı dolaylarında, seksen altı yaşında vefat etti."),
-  N("dahhak", "الضحاك بن مزاحم", "Dahhâk b. Müzâhim", 4, 105, "Basra"),
+  N("dahhak", "الضحاك بن مزاحم", "Dahhâk b. Müzâhim", 4, 105, "Horasan"),
   N("sehrhavseb", "شهر بن حوشب", "Şehr b. Havşeb", 3, 112, "Şam"),
   N("hakemarac", "الحكم بن الأعرج", "Hakem b. el-A‘rec", 3, null, "Basra"),
   N("ebuzabyan", "أبو ظبيان حصين بن جندب", "Ebû Zabyân Hüsayn b. Cündeb", 2, 90, "Kûfe"),
@@ -658,8 +658,8 @@ export const NODES = [
   N("ebudavudtayalisi", "أبو داود الطيالسي", "Ebû Dâvûd et-Tayâlisî", 5, 204, "Basra",
     "Takrîb 2550: «ثقة حافظ غلط في أحاديث». İbn Hacer sikalığını teslim ederken bazı hadislerde yanıldığını da kaydediyor. 204'te vefat etti."),
   N("muazmuaz", "معاذ بن معاذ العنبري", "Muâz b. Muâz el-Anberî", 5, 196, "Basra"),
-  N("affanmuslim", "عفان بن مسلم", "Affân b. Müslim", 5, 220, "Basra"),
-  N("alicad", "علي بن الجعد", "Ali b. el-Ca‘d", 5, 230, "Basra"),
+  N("affanmuslim", "عفان بن مسلم", "Affân b. Müslim", 5, 220, "Bağdat"),
+  N("alicad", "علي بن الجعد", "Ali b. el-Ca‘d", 5, 230, "Bağdat"),
   N("abdussamed", "عبد الصمد بن عبد الوارث", "Abdüssamed b. Abdilvâris", 5, 207, "Basra"),
   N("isabyunus", "عيسى بن يونس السبيعي", "Ísâ b. Yûnus", 5, 191, "Şam"),
 
@@ -699,7 +699,7 @@ export const NODES = [
   N("muhammedsuka", "محمد بن سوقة", "Muhammed b. Sûka", 5, null, "Kûfe"),
   N("mutarriftarif", "مطرف بن طريف", "Mutarrif b. Tarîf", 5, 141, "Kûfe"),
   N("ismailebiislamsibani", "أبو إسحاق الشيباني", "Ebû İshak eş-Şeybânî", 5, 141, "Kûfe"),
-  N("velidkesir", "الوليد بن كثير", "Velîd b. Kesîr", 5, 151, "Medine"),
+  N("velidkesir", "الوليد بن كثير", "Velîd b. Kesîr", 5, 151, "Kûfe"),
   N("yezidhusayfe", "يزيد بن خصيفة", "Yezîd b. Husıyfe", 5, null, "Medine"),
   N("ahmedhanbel", "أحمد بن حنبل", "Ahmed b. Hanbel", 5, 241, "Basra", "el-Müsned sahibi. Rumûz م د."),
   N("ibnrahuye", "إسحاق بن راهويه", "İshak b. Râhûye", 5, 238, "Horasan", "Rumûz خ م س."),
@@ -719,7 +719,7 @@ export const NODES = [
   N("ibnhuseymkhaysem", "عبد الله بن عثمان بن خثيم", "Abdullah b. Osmân b. Husıym", 5, 132, "Mekke"),
   N("ubeydullahomeri", "عبيد الله بن عمر العمري", "Ubeydullah b. Ömer el-Ömerî", 5, 147, "Medine", "Mizzî: İbn Cüreyc'in akranı."),
   N("haccacmuhammed", "حجاج بن محمد المصيصي", "Haccâc b. Muhammed el-Masīsī", 5, 206, "Şam", "İbn Cüreyc'in başlıca râvisi. Rumûz ع."),
-  N("ismailayyas", "إسماعيل بن عياش", "İsmâîl b. Ayyâş", 5, 181, "Şam",
+  N("ismailayyas", "إسماعيل بن عياش", "İsmâîl b. Ayyâş", 5, 181, "Humus",
     "Humuslu râvi. İbn Hacer'in hakkındaki hükmü hadis tenkidinde meşhur bir örnektir: kendi beldesi olan Şamlılardan yaptığı rivayetlerde \"sadûk\", başka beldelerin râvilerinden yaptıklarında ise karıştırıcıdır. Bu ayrım, aynı râvinin rivayetlerinin kaynağına göre farklı değerlendirilebileceğini gösteren temel bir ölçüdür. 181 (veya 182) yılında vefat etti."),
   N("enesiyaz", "أنس بن عياض", "Enes b. İyâz", 5, 200, "Medine",
     "Medineli râvi, künyesi Ebû Damra. İbn Hacer onu \"sika\" sayar ve sekizinci tabakadan gösterir; Kütüb-i Sitte'nin altısı da ondan rivayet eder. Uzun ömrü sayesinde Medine'nin hadis birikimini sonraki nesle taşıyan râvilerdendir. 200 yılında, doksan altı yaşında vefat etti."),
@@ -734,7 +734,7 @@ export const NODES = [
   N("ebansattar", "أبان بن يزيد العطار", "Ebân b. Yezîd el-Attâr", 5, 160, "Basra",
     "Takrîb 143: «ثقة له أفراد». Altmışlı yılların civarında vefat etti."),
   N("mervanfezari", "مروان بن معاوية الفزاري", "Mervân b. Muâviye el-Fezârî", 5, 193, "Kûfe"),
-  N("vakidi", "محمد بن عمر الواقدي", "Vâkıdî, Muhammed b. Ömer", 5, 207, "Medine"),
+  N("vakidi", "محمد بن عمر الواقدي", "Vâkıdî, Muhammed b. Ömer", 5, 207, "Bağdat"),
 
   // ---- Evzai cevresinde aga giren raviler ----
   N("mekhul", "مكحول الشامي", "Mekhûl eş-Şâmî", 4, 112, "Şam", "Şam fakihlerinin önde geleni."),
@@ -742,7 +742,7 @@ export const NODES = [
   N("rebiayezid", "ربيعة بن يزيد", "Rabîa b. Yezîd", 5, 123, "Şam"),
   N("umeyrhani", "عمير بن هانئ", "Umeyr b. Hâni’", 4, 127, "Şam", "Rumûz ع. Vefât yılı 2026-09-07'de girildi: Takrîb 5189, 127 senesinde öldürüldüğü kaydıyla; kitap \"daha öncesi de denildi\" diye ekliyor."),
   N("abdelubabe", "عبدة بن أبي لبابة", "Abde b. Ebî Lübâbe", 5, null, "Şam"),
-  N("muhammedvelidzubeydi", "محمد بن الوليد الزبيدي", "Muhammed b. el-Velîd ez-Zübeydî", 5, 149, "Şam"),
+  N("muhammedvelidzubeydi", "محمد بن الوليد الزبيدي", "Muhammed b. el-Velîd ez-Zübeydî", 5, 149, "Humus"),
   N("suleymanhabib", "سليمان بن حبيب المحاربي", "Süleymân b. Habîb el-Muhâribî", 4, 126, "Şam", "Vefât yılı 2026-09-07'de girildi: Takrîb 2544, 126 senesi."),
   N("suleymanmusadimaski", "سليمان بن موسى الدمشقي", "Süleymân b. Mûsâ ed-Dımaşkī", 5, 119, "Şam"),
   N("saddadebuammar", "شداد أبو عمار", "Şeddâd Ebû Ammâr", 3, null, "Şam"),
@@ -768,7 +768,7 @@ export const NODES = [
   N("alizeydcudan", "علي بن زيد بن جدعان", "Ali b. Zeyd b. Cüd‘ân", 5, 131, "Basra"),
   N("amiralhavl", "عامر الأحول", "Âmir el-Ahvel", 5, null, "Basra"),
   N("abdulvarissaid", "عبد الوارث بن سعيد", "Abdülvâris b. Saîd", 5, 180, "Basra"),
-  N("abdulvehhabata", "عبد الوهاب بن عطاء", "Abdülvehhâb b. Atâ", 5, 204, "Basra"),
+  N("abdulvehhabata", "عبد الوهاب بن عطاء", "Abdülvehhâb b. Atâ", 5, 204, "Bağdat"),
   N("abdesuleyman", "عبدة بن سليمان", "Abde b. Süleymân", 5, 187, "Kûfe"),
   N("muhammedbisrabdi", "محمد بن بشر العبدي", "Muhammed b. Bişr el-Abdî", 5, 203, "Kûfe"),
   N("muhammedebiadi", "محمد بن أبي عدي", "Muhammed b. Ebî Adî", 5, 194, "Basra"),
@@ -805,11 +805,11 @@ export const NODES = [
   N("yalaata", "يعلى بن عطاء العامري", "Ya‘lâ b. Atâ el-Âmirî", 5, 120, "Vâsıt"),
   N("hilalvezzan", "هلال الوزان", "Hilâl el-Vezzân", 5, null, "Kûfe"),
   N("said_mansur", "سعيد بن منصور", "Saîd b. Mansûr", 5, 227, "Mekke", "es-Sünen sahibi. Rumûz م."),
-  N("kavariri", "عبيد الله بن عمر القواريري", "Kavârîrî, Ubeydullah b. Ömer", 5, 235, "Basra"),
+  N("kavariri", "عبيد الله بن عمر القواريري", "Kavârîrî, Ubeydullah b. Ömer", 5, 235, "Bağdat"),
   N("seybanferruh", "شيبان بن فروخ", "Şeybân b. Ferrûh", 5, 236, "Basra"),
   N("haccacminhal", "حجاج بن منهال", "Haccâc b. Minhâl", 5, 217, "Basra",
     "Basralı râvi. İbn Hacer onu \"sika, fâzıl\" diye niteler ve dokuzuncu tabakadan sayar; Kütüb-i Sitte'nin altısı da ondan rivayet eder. Şu'be, Hammâd b. Seleme ve Abdullah b. Avn'dan aldığı rivayetlerle Basra hadisini üçüncü asrın hâfızlarına ulaştıran isimlerdendir. 217 (bir rivayete göre 216) yılında vefat etti."),
-  N("halefhisam", "خلف بن هشام البزار", "Halef b. Hişâm el-Bezzâr", 5, 229, "Basra"),
+  N("halefhisam", "خلف بن هشام البزار", "Halef b. Hişâm el-Bezzâr", 5, 229, "Bağdat"),
 
   // ---- Huseym cevresinde aga giren raviler ----
   N("avvamhavseb", "العوام بن حوشب", "Avvâm b. Havşeb", 5, 148, "Vâsıt"),
@@ -823,15 +823,15 @@ export const NODES = [
   N("kasimmihran", "القاسم بن مهران", "Kâsım b. Mihrân", 5, null, "Basra", "Hüşeym'in dayısı."),
 
   // ---- Huseym'in talebeleri ve Ibn Ishak cevresi ----
-  N("saidsuleymansadeviye", "سعيد بن سليمان الواسطي", "Saîd b. Süleymân (Sa‘deveyh)", 5, 225, "Vâsıt", "Mizzî: Hüşeym'in hadisinin kıyyımı («ve hüve kayyimun bi-hadîsihî»)."),
+  N("saidsuleymansadeviye", "سعيد بن سليمان الواسطي", "Saîd b. Süleymân (Sa‘deveyh)", 5, 225, "Bağdat", "Mizzî: Hüşeym'in hadisinin kıyyımı («ve hüve kayyimun bi-hadîsihî»)."),
   N("ibnebiseybe", "أبو بكر بن أبي شيبة", "Ebû Bekir b. Ebî Şeybe", 5, 235, "Kûfe", "el-Musannef sahibi. Rumûz م ق."),
-  N("zuheyrharb", "زهير بن حرب أبو خيثمة", "Züheyr b. Harb Ebû Hayseme", 5, 234, "Basra"),
+  N("zuheyrharb", "زهير بن حرب أبو خيثمة", "Züheyr b. Harb Ebû Hayseme", 5, 234, "Bağdat"),
   N("alimedini", "علي بن المديني", "Ali b. el-Medînî", 5, 234, "Basra", "el-İlel sahibi. Bu ağın tabaka tasnifi ona aittir."),
   N("alihucr", "علي بن حجر المروزي", "Ali b. Hucr el-Mervezî", 5, 244, "Horasan"),
-  N("amrnakid", "عمرو بن محمد الناقد", "Amr b. Muhammed en-Nâkıd", 5, 232, "Basra"),
+  N("amrnakid", "عمرو بن محمد الناقد", "Amr b. Muhammed en-Nâkıd", 5, 232, "Bağdat"),
   N("osmanebiseybe", "عثمان بن أبي شيبة", "Osmân b. Ebî Şeybe", 5, 239, "Kûfe"),
-  N("ahmeddevraki", "أحمد بن إبراهيم الدورقي", "Ahmed b. İbrâhim ed-Devrakī", 5, 246, "Basra"),
-  N("muhammedisataba", "محمد بن عيسى ابن الطباع", "Muhammed b. Ísâ İbnü't-Tabbâ‘", 5, 224, "Basra", "Mizzî: Hüşeym'i en iyi bilen («ve hüve a‘lemühum bihî»)."),
+  N("ahmeddevraki", "أحمد بن إبراهيم الدورقي", "Ahmed b. İbrâhim ed-Devrakī", 5, 246, "Bağdat"),
+  N("muhammedisataba", "محمد بن عيسى ابن الطباع", "Muhammed b. Ísâ İbnü't-Tabbâ‘", 5, 224, "Şam", "Mizzî: Hüşeym'i en iyi bilen («ve hüve a‘lemühum bihî»)."),
   N("yezidebihabib", "يزيد بن أبي حبيب", "Yezîd b. Ebî Habîb", 5, 128, "Mısır", "Mısır fakihlerinin önde geleni. Mizzî: İbn İshak'ın hocalarından."),
   N("yalaubeyd", "يعلى بن عبيد الطنافسي", "Ya‘lâ b. Ubeyd et-Tanâfisî", 5, 209, "Kûfe"),
   N("yunusbukeyr", "يونس بن بكير الشيباني", "Yûnus b. Bükeyr eş-Şeybânî", 5, 199, "Kûfe", "İbn İshak'ın Megâzî'sinin râvilerinden."),
@@ -848,12 +848,12 @@ export const NODES = [
   N("davudkaysferra", "داود بن قيس الفراء", "Dâvûd b. Kays el-Ferrâ", 5, null, "Medine"),
   N("hanzalasufyan", "حنظلة بن أبي سفيان", "Hanzala b. Ebî Süfyân", 5, 151, "Mekke",
     "Mekkeli râvi; Cumah kabilesinden, Ümeyye b. Halef'in soyundan gelir. İbn Hacer onu \"sika, hüccet\" diye niteler ve altıncı tabakadan sayar; Kütüb-i Sitte'nin altısı da ondan rivayet eder. Tâvûs, Sâlim b. Abdillâh ve Kāsım b. Muhammed'den aldığı rivayetlerle tanınır. 151 yılında vefat etti."),
-  N("abdulazizomer", "عبد العزيز بن عمر بن عبد العزيز", "Abdülazîz b. Ömer b. Abdil‘azîz", 5, null, "Şam"),
+  N("abdulazizomer", "عبد العزيز بن عمر بن عبد العزيز", "Abdülazîz b. Ömer b. Abdil‘azîz", 5, null, "Kûfe"),
   N("misned", "مسدد بن مسرهد", "Müsedded b. Müserhed", 5, 228, "Basra"),
   N("hennadseri", "هناد بن السري", "Hennâd b. es-Serî", 5, 243, "Kûfe"),
-  N("ibnmain", "يحيى بن معين", "Yahyâ b. Ma‘în", 5, 233, "Basra", "Cerh-ta‘dîl imâmı. Bu ağdaki semâ kayıtlarının çoğu ondan nakledilir."),
+  N("ibnmain", "يحيى بن معين", "Yahyâ b. Ma‘în", 5, 233, "Bağdat", "Cerh-ta‘dîl imâmı. Bu ağdaki semâ kayıtlarının çoğu ondan nakledilir."),
   N("yahyayahyanisaburi", "يحيى بن يحيى النيسابوري", "Yahyâ b. Yahyâ en-Nîsâbûrî", 5, 226, "Horasan"),
-  N("mahmudgaylan", "محمود بن غيلان", "Mahmûd b. Gaylân", 5, 239, "Horasan"),
+  N("mahmudgaylan", "محمود بن غيلان", "Mahmûd b. Gaylân", 5, 239, "Bağdat"),
   N("ibnebiomeradeni", "محمد بن يحيى بن أبي عمر العدني", "İbn Ebî Ömer el-Adenî", 5, 243, "Mekke"),
   N("nasralicehdami", "نصر بن علي الجهضمي", "Nasr b. Ali el-Cehdamî", 5, 250, "Basra"),
 
@@ -898,10 +898,10 @@ export const NODES = [
   N("abbasanberi", "عباس بن عبد العظيم العنبري", "Abbâs b. Abdil‘azīm el-Anberî", 5, 246, "Basra"),
   N("ubeydullahmuazanberi", "عبيد الله بن معاذ العنبري", "Ubeydullah b. Muâz el-Anberî", 5, 237, "Basra"),
   N("yakubdevraki", "يعقوب بن إبراهيم الدورقي", "Ya‘kûb b. İbrâhim ed-Devrakī", 5, 252, "Basra"),
-  N("muaviyesalih", "معاوية بن صالح الحضرمي", "Muâviye b. Sâlih el-Hadramî", 5, 158, "Mısır", "Rumûz م ٤."),
+  N("muaviyesalih", "معاوية بن صالح الحضرمي", "Muâviye b. Sâlih el-Hadramî", 5, 158, "Humus", "Rumûz م ٤."),
   N("israilyunus", "إسرائيل بن يونس", "İsrâîl b. Yûnus", 5, 160, "Kûfe", "Ebû İshak es-Sebîî'nin torunu."),
   N("darevardi", "عبد العزيز بن محمد الدراوردي", "Abdülazîz b. Muhammed ed-Derâverdî", 5, 187, "Medine"),
-  N("macisun", "عبد العزيز بن أبي سلمة الماجشون", "Abdülazîz b. Ebî Seleme el-Mâcişûn", 5, 164, "Medine"),
+  N("macisun", "عبد العزيز بن أبي سلمة الماجشون", "Abdülazîz b. Ebî Seleme el-Mâcişûn", 5, 164, "Bağdat"),
   N("harbseddad", "حرب بن شداد", "Harb b. Şeddâd", 5, 161, "Basra",
     "Basralı râvi, künyesi Ebü'l-Hattâb. İbn Hacer onu \"sika\" sayar ve yedinci tabakadan gösterir; Buhârî, Müslim, Ebû Dâvûd, Tirmizî ve Nesâî ondan rivayet eder. Yahyâ b. Ebî Kesîr ve Katâde'den aldığı rivayetlerle tanınır. 161 yılında vefat etti."),
   N("abdulvahidziyad", "عبد الواحد بن زياد", "Abdülvâhid b. Ziyâd", 5, 176, "Basra"),
@@ -909,7 +909,7 @@ export const NODES = [
   N("sallamebimuti", "سلام بن أبي مطيع", "Sellâm b. Ebî Mutī‘", 5, 164, "Basra"),
 
   // ---- Ibn Mehdi'nin talebeleri ve Yahya b. Adem cevresi ----
-  N("abdhumeyd", "عبد بن حميد", "Abd b. Humeyd", 5, 249, "Horasan", "el-Müsned ve Tefsîr sahibi. Rumûz م."),
+  N("abdhumeyd", "عبد بن حميد", "Abd b. Humeyd", 5, 249, "Mâverâünnehir", "el-Müsned ve Tefsîr sahibi. Rumûz م."),
   N("ebukureyb", "أبو كريب محمد بن العلاء", "Ebû Küreyb Muhammed b. el-Alâ", 5, 248, "Kûfe"),
 
   /* ---- Takrib'in ع kadrosundan ilk parti (2026-09-08) ----
@@ -952,8 +952,8 @@ export const NODES = [
     "el-A‘rec et-Temmâr, Esved b. Süfyân'ın mevlâsı. Takrîb 2489: beşinci tabakadan. VEFÂT YILI GİRİLMEDİ: Takrîb yıl yerine dönem veriyor, «Mansûr'un hilâfetinde» (136-158). Rumûz ع."),
   N("saidyezidtahi", "سعيد بن يزيد الطاحي", "Saîd b. Yezîd et-Tâhî", 4, null, "Basra",
     "Ebû Mesleme el-Basrî el-Kasîr. Takrîb 2419: dördüncü tabakadan. VEFÂT YILI GİRİLMEDİ: Takrîb yıl vermiyor. Rumûz ع."),
-  N("muallamansur", "معلى بن منصور الرازي", "Muallâ b. Mansûr er-Râzî", 5, 211, "Cibâl",
-    "Ebû Ya‘lâ. Takrîb 6806: onuncu tabakadan, «doğrusu» kaydıyla 211 senesi. Bağdat'a yerleşti; Bağdat sütunlarda yok, nisbesi er-Râzî olduğu için Cibâl sütununa konuldu. Rumûz ع."),
+  N("muallamansur", "معلى بن منصور الرازي", "Muallâ b. Mansûr er-Râzî", 5, 211, "Bağdat",
+    "Ebû Ya‘lâ. Takrîb 6806: onuncu tabakadan, «doğrusu» kaydıyla 211 senesi. Bağdat'a yerleşti. Rumûz ع."),
   N("ebucemrenasr", "نصر بن عمران أبو جمرة الضبعي", "Ebû Cemre Nasr b. İmrân ed-Dubaî", 4, 128, "Basra",
     "Künyesiyle meşhur. Takrîb 7122: üçüncü tabakadan, 128 senesi. Horasan'a yerleşti, sütun nisbesine göre Basra alındı. Rumûz ع."),
   N("eburafinufey", "نفيع الصائغ أبو رافع", "Ebû Râfi‘ Nüfey‘ es-Sâiğ", 2, null, "Basra",
@@ -1013,8 +1013,8 @@ export const NODES = [
     "Takrîb 2743: dördüncü tabakadan. VEFÂT YILI GİRİLMEDİ: Takrîb yıl vermiyor. Rumûz ع."),
   N("alirebianadle", "علي بن ربيعة الوالبي", "Ali b. Rebîa el-Vâlibî", 3, null, "Kûfe",
     "Ebü'l-Mugīre el-Kûfî. Takrîb 4733: üçüncü tabakanın büyüklerinden. VEFÂT YILI GİRİLMEDİ: Takrîb yıl vermiyor. Rumûz ع."),
-  N("muaviyeamrezdi", "معاوية بن عمرو الأزدي", "Muâviye b. Amr el-Ezdî", 5, 214, "Kûfe",
-    "Ebû Amr el-Bağdâdî, İbnü'l-Kirmânî diye bilinir. Takrîb 6768: dokuzuncu tabakadan, 214 senesi. Bağdatlı; Bağdat sütunlarda yok. Doğrulanmış kenarları neredeyse eşit bölünüyor (Basra 7, Kûfe 6), yani sütun bir bulgu değil bir kabul. Rumûz ع."),
+  N("muaviyeamrezdi", "معاوية بن عمرو الأزدي", "Muâviye b. Amr el-Ezdî", 5, 214, "Bağdat",
+    "Ebû Amr el-Bağdâdî, İbnü'l-Kirmânî diye bilinir. Takrîb 6768: dokuzuncu tabakadan, 214 senesi. Bağdatlı. Doğrulanmış kenarları Basra ile Kûfe arasında neredeyse eşit bölünüyor (7 ve 6), yani sütunu nisbesi veriyor, kenarları değil. Rumûz ع."),
   N("yahyayamer", "يحيى بن يعمر", "Yahyâ b. Ya‘mer", 3, null, "Horasan",
     "Basralı, Merv'e yerleşip oranın kadısı oldu; sütun bu sebeple Horasan verildi. Takrîb 7678: üçüncü tabakadan, mürsel rivayet ederdi. VEFÂT YILI GİRİLMEDİ: Takrîb «yüzden önce» diyor, kesin yıl vermiyor. Rumûz ع."),
   N("huseynzekvan", "الحسين بن ذكوان المعلم", "Hüseyin b. Zekvân el-Muallim", 4, 145, "Basra",
@@ -1058,8 +1058,8 @@ export const NODES = [
     "Sahâbî, Hassân b. Sâbit'in kardeşinin oğlu; Şam'da vefat etti ve sütun oraya verildi. Takrîb 2752. VEFÂT YILI GİRİLMEDİ: «altmıştan önce ya da sonra» deniyor. Rumûz ع."),
   N("ebuuseydsaidi", "مالك بن ربيعة أبو أسيد الساعدي", "Ebû Üseyd Mâlik b. Rebîa es-Sâidî", 1, null, "Medine",
     "Bedir ehlinden. Takrîb 6436. VEFÂT YILI GİRİLMEDİ: kayıtlar 30 ile 60 arasında ayrışıyor; Medâinî 60 der ve onu Bedir ehlinin son vefat edeni sayar. Rumûz ع."),
-  N("ebunadrhasim", "هاشم بن القاسم أبو النضر", "Ebû'n-Nadr Hâşim b. el-Kāsım", 5, 207, "Kûfe",
-    "el-Leysî, lakabı Kayser. Takrîb 7256: dokuzuncu tabakadan, 207 senesi, yetmiş üç yaşında. Bağdatlı; Bağdat sütunlarda yok. Rumûz ع."),
+  N("ebunadrhasim", "هاشم بن القاسم أبو النضر", "Ebû'n-Nadr Hâşim b. el-Kāsım", 5, 207, "Bağdat",
+    "el-Leysî, lakabı Kayser. Takrîb 7256: dokuzuncu tabakadan, 207 senesi, yetmiş üç yaşında. Bağdatlı. Rumûz ع."),
   N("yezidmunbais", "يزيد مولى المنبعث", "Yezîd mevlâ el-Münbaʿis", 3, null, "Medine",
     "Takrîb 7798: üçüncü tabakadan. VEFÂT YILI GİRİLMEDİ: Takrîb yıl vermiyor. Rumûz ع."),
 
@@ -1135,8 +1135,8 @@ export const NODES = [
     "Takrîb 4856: dördüncü tabakadan. VEFÂT YILI GİRİLMEDİ: «yüzden sonra, iki yıl öncesi de denildi». Rumûz ع."),
 
   /* ---- on birinci parti (2026-09-09), kaynak Tehzibu't-Tehzib ---- */
-  N("yahyaebibukeyr", "يحيى بن أبي بكير الكرماني", "Yahyâ b. Ebî Bükeyr el-Kirmânî", 5, 208, "Kûfe",
-    "Adı Nesr; Kûfe asıllı, Bağdat'a yerleşti. Takrîb 7516: dokuzuncu tabakadan, 208 senesi (209 varyantıyla). Bağdat sütunlarda yok. Rumûz ع."),
+  N("yahyaebibukeyr", "يحيى بن أبي بكير الكرماني", "Yahyâ b. Ebî Bükeyr el-Kirmânî", 5, 208, "Bağdat",
+    "Adı Nesr; Kûfe asıllı, Bağdat'a yerleşti. Takrîb 7516: dokuzuncu tabakadan, 208 senesi (209 varyantıyla). Rumûz ع."),
   N("harisevehb", "حارثة بن وهب الخزاعي", "Hârise b. Vehb el-Huzâî", 1, null, "Kûfe",
     "Sahâbî; Kûfe'ye yerleşti. Hz. Ömer annesiyle evliydi. Takrîb 1064. VEFÂT YILI GİRİLMEDİ. Rumûz ع."),
   N("yalaumeyye", "يعلى بن أمية التميمي", "Ya‘lâ b. Ümeyye et-Temîmî", 1, null, "Mekke",
@@ -1171,7 +1171,7 @@ export const NODES = [
   N("muhammedrafi", "محمد بن رافع النيسابوري", "Muhammed b. Râfi‘ en-Nîsâbûrî", 5, 245, "Horasan"),
   N("zuhli", "محمد بن يحيى الذهلي", "Muhammed b. Yahyâ ez-Zühlî", 5, 258, "Horasan"),
   N("muhammedabdulalasanani", "محمد بن عبد الأعلى الصنعاني", "Muhammed b. Abdil'alâ es-San‘ânî", 5, 245, "Yemen"),
-  N("mucahidmusa", "مجاهد بن موسى", "Mücâhid b. Mûsâ", 5, 244, "Basra"),
+  N("mucahidmusa", "مجاهد بن موسى", "Mücâhid b. Mûsâ", 5, 244, "Bağdat"),
   N("ebubekirayyas", "أبو بكر بن عياش", "Ebû Bekir b. Ayyâş", 5, 193, "Kûfe"),
   N("ebumuaviyedarir", "أبو معاوية الضرير", "Ebû Muâviye ed-Darîr", 5, 195, "Kûfe"),
   N("muhammedfudayl", "محمد بن فضيل بن غزوان", "Muhammed b. Fudayl b. Gazvân", 5, 195, "Kûfe"),
@@ -1189,11 +1189,11 @@ export const NODES = [
   N("hasimhasim", "هاشم بن هاشم بن عتبة", "Hâşim b. Hâşim b. Utbe", 5, 144, "Medine", "Vefât yılı 2026-09-07'de girildi: Takrîb 7258 belirsiz bırakıyor (\"kırk küsur\"), Tehzîb 6542 bunu 144 senesine bağlıyor."),
   N("ebumalikesceyi", "أبو مالك الأشجعي", "Ebû Mâlik el-Eşce‘î", 5, null, "Kûfe"),
   N("leysebisuleym", "ليث بن أبي سليم", "Leys b. Ebî Süleym", 5, 143, "Kûfe"),
-  N("harunmaruf", "هارون بن معروف", "Hârûn b. Ma‘rûf", 5, 231, "Basra"),
+  N("harunmaruf", "هارون بن معروف", "Hârûn b. Ma‘rûf", 5, 231, "Bağdat"),
   N("ibrahimmusaferra", "إبراهيم بن موسى الفراء", "İbrâhim b. Mûsâ el-Ferrâ", 5, 220, "Kûfe",
     "Takrîb 259: «ثقة حافظ». Rey'li, «es-Sagīr» lakabıyla anılır. 220'den sonra vefat etti."),
-  N("sericyunus", "سريج بن يونس", "Serîc b. Yûnus", 5, 235, "Basra"),
-  N("hasanarafe", "الحسن بن عرفة", "Hasan b. Arafe", 5, 257, "Basra"),
+  N("sericyunus", "سريج بن يونس", "Serîc b. Yûnus", 5, 235, "Bağdat"),
+  N("hasanarafe", "الحسن بن عرفة", "Hasan b. Arafe", 5, 257, "Bağdat"),
   N("muhammedubeydmuharibi", "محمد بن عبيد المحاربي", "Muhammed b. Ubeyd el-Muhâribî", 5, 245, "Kûfe"),
 
   // ---- Kütüb-i Sitte müellifleri ----
@@ -1260,7 +1260,7 @@ export const NODES = [
   N("ms25", "أبو بكر محمد بن النضر بن سلمة بن الجارود الجارودي", "Ebû Bekir Muhammed b. en-Nadr el-Cârûdî", 6, 291, "Horasan", "Müslim'in rihlede yol arkadaşı; Hâkim onu «şeyhu vaktihî» sayar. Siyer 13/543: «فدفن عشية الخميس السابع عشر من شهر ربيع الأول سنة إحدى وتسعين ومئتين»."),
   N("ms26", "أبو حاتم مكي بن عبدان التميمي", "Ebû Hâtim Mekkî b. Abdân et-Temîmî", 6, null, "Horasan"),
   N("ms27", "أبو محمد نصر بن أحمد بن نصر الحافظ المعروف بنصرك", "Ebû Muhammed Nasr b. Ahmed (Nasrek)", 6, 293, "Horasan", "Buhârâ'ya yerleşti, el-Müsned'i tasnif etti. Siyer 13/538: «توفي سنة ثلاث وتسعين ومئتين»."),
-  N("ms28", "يحيى بن محمد بن صاعد", "Yahyâ b. Muhammed b. Sâid", 6, 318, "Kûfe", "Bağdatlı; sünenleri ahkâma göre tasnif etti. Siyer 14/505, İbn Şâhîn'den: «توفي ابن صاعد بالكوفة في ذي القعدة سنة ثمان عشرة وثلاث مئة عن تسعين سنة وأشهر». Ağda Bağdat sütunu olmadığı için vefat ettiği yere, Kûfe'ye konuldu."),
+  N("ms28", "يحيى بن محمد بن صاعد", "Yahyâ b. Muhammed b. Sâid", 6, 318, "Bağdat", "Bağdatlı; sünenleri ahkâma göre tasnif etti. Siyer 14/505, İbn Şâhîn'den: «توفي ابن صاعد بالكوفة في ذي القعدة سنة ثمان عشرة وثلاث مئة عن تسعين سنة وأشهر». Kûfe'de vefat etti ama ders halkası Bağdat'taydı; sütun oraya verildi."),
   N("ms29", "أبو عوانة الإسفراييني", "Ebû Avâne el-İsferâyînî", 6, null, "Horasan"),
 
   /* ---- Ebû Dâvûd, Tirmizî, Nesâî ve İbn Mâce'nin talebeleri ----
@@ -1461,10 +1461,10 @@ export const NODES = [
      akranlari ve talebeleri, ustteki 250-280 boslugunu dolduruyorlar. */
   N("ebuamirakadi", "عبد الملك بن عمرو القيسي أبو عامر العقدي", "Ebû Âmir el-Akadî", 5, 205, "Basra"),
   N("ebuahmedzubeyri", "محمد بن عبد الله بن الزبير بن عمر بن درهم أبو أحمد الزبيري", "Ebû Ahmed ez-Zübeyrî", 5, 203, "Kûfe"),
-  N("ibnsabbahdulabi", "محمد بن الصباح الدولابي البزاز", "Muhammed b. es-Sabbâh ed-Dûlâbî", 5, 227, "Basra"),
+  N("ibnsabbahdulabi", "محمد بن الصباح الدولابي البزاز", "Muhammed b. es-Sabbâh ed-Dûlâbî", 5, 227, "Bağdat"),
   N("ibnrecagudani", "عبد الله بن رجاء بن عمر الغداني البصري", "Abdullah b. Recâ el-Gudânî", 5, 219, "Basra"),
-  N("zaferani", "الحسن بن محمد بن الصباح الزعفراني البغدادي", "Hasan b. Muhammed ez-Za‘ferânî", 6, 260, "Basra"),
-  N("abbasduri", "عباس بن محمد بن حاتم بن واقد الدوري البغدادي", "Abbâs b. Muhammed ed-Dûrî", 6, 271, "Basra"),
+  N("zaferani", "الحسن بن محمد بن الصباح الزعفراني البغدادي", "Hasan b. Muhammed ez-Za‘ferânî", 6, 260, "Bağdat"),
+  N("abbasduri", "عباس بن محمد بن حاتم بن واقد الدوري البغدادي", "Abbâs b. Muhammed ed-Dûrî", 6, 271, "Bağdat"),
 
   /* DORDUNCU PARTI. Muelliflerin akranlari ve onlarla ayni halkalarda
      oturan hafizlar: Haccac b. es-Sair, Cuzcani, Ramadi, Ahmed b. Abde
@@ -1528,15 +1528,15 @@ export const NODES = [
     "Tehzîb terceme 1652, rumûz ع كد. Zehebî, Buhârî'nin Kûfe şeyhleri arasında sayar (Siyer 12/394). Buhârî'nin Rikāk'ta tek başına rivayet ettiği meşhur «من عادى لي وليا» hadisinin râvisi. Teşeyyu‘ ile itham edilmiş; Ebû Dâvûd «صدوق ولكنه يتشيع» der. Vefatı 213 (Mutayyen, İbn Sa‘d); İbn Kāni‘ 214 der."),
   N("asbagferec", "أصبغ بن الفرج بن سعيد الأموي", "Asbağ b. el-Ferec el-Ümevî", 5, 225, "Mısır",
     "Tehzîb terceme 536, rumûz خ د ت س. Zehebî, Buhârî'nin Mısır şeyhleri arasında sayar (Siyer 12/395). İbn Vehb'in verrâkı ve Ebû Hâtim'e göre onun en büyük talebesi; İbn Maîn «Mâlik'in görüşünü meseleye kadar bilen en âlim kişi» der. Şevval 225'te vefat etti."),
-  N("surayjnuman", "سريج بن النعمان بن مروان الجوهري", "Süreyc b. en-Nu‘mân el-Cevherî", 5, 217, "Basra",
-    "Tehzîb terceme 2190, rumûz خ ٤. Zehebî, Buhârî'nin Bağdat şeyhleri arasında sayar (Siyer 12/394). Aslı Horasanlı, Bağdat'ta yerleşti; kurban bayramı günü 217'de vefat etti. Belde olarak Basra yazılı — haritada Irak sütunu o; Ahmed b. Hanbel ve İbn Maîn gibi Bağdatlılar da orada duruyor."),
+  N("surayjnuman", "سريج بن النعمان بن مروان الجوهري", "Süreyc b. en-Nu‘mân el-Cevherî", 5, 217, "Bağdat",
+    "Tehzîb terceme 2190, rumûz خ ٤. Zehebî, Buhârî'nin Bağdat şeyhleri arasında sayar (Siyer 12/394). Aslı Horasanlı, Bağdat'a yerleşti; kurban bayramı günü 217'de vefat etti. İbn Sa‘d evinin Askerü'l-Mehdî'de olduğunu kaydeder."),
 
   /* SIYER EKI, IKINCI TUR (2026-09-05). Zehebi'nin Buhari listesinde
      (Siyer 12/394-395) gecip agda bulunmayan isimlerden Tehzib'de
      tercemesi bulunabilenler. Ilk turda tespit edilmis ama o zaman
      Tehzib'in baslik dizininde bulunamamislardi; govde metninde
      tam kunyeyle arayinca cikti. */
-  N("muhammedsabik", "محمد بن سابق التميمي", "Muhammed b. Sâbık et-Temîmî", 5, 214, "Basra",
+  N("muhammedsabik", "محمد بن سابق التميمي", "Muhammed b. Sâbık et-Temîmî", 5, 214, "Bağdat",
     "Tehzîb terceme 5230, rumûz خ م د ت س. Zehebî, Buhârî'nin şeyhleri arasında sayar (Siyer 12/394). Aslı Faris'ten, Kûfe'de yetişti, Bağdat'a yerleşip orada vefat etti. Ahmed b. Hanbel'e sorulunca «Ebû Nuaym'ı istiyorsan İbn Sâbık'a git» demiş. Buhârî ondan el-Edeb'de, Sahîh'in Vesâyâ bölümünde ise «Muhammed b. Sâbık ya da Fadl b. Ya‘kūb» diyerek rivayet eder. İbn Maîn zayıf saymış, Ya‘kūb b. Şeybe «sadûk sika ama zabtıyla anılmaz» demiş; İbn Hacer sadûk der. Vefatı 213 (Hadramî) yahut 214 (İbn Kâni‘, İbn Hibbân)."),
   N("muhammedararah", "محمد بن عرعرة بن البرند القرشي", "Muhammed b. Ar‘ara el-Kuraşî", 5, 213, "Basra",
     "Tehzîb terceme 5463, rumûz خ م د. Zehebî, Buhârî'nin Basra şeyhleri arasında sayar (Siyer 12/394). Şu‘be'nin talebesi; Buhârî ondan Şu‘be yoluyla rivayet eder. Ebû Hâtim «sika sadûk», Nesâî «leyse bihî be's» der. 213'te yetmiş beş yaşında vefat etti. Oğlu İbrâhim b. Muhammed b. Ar‘ara da Müslim ve Nesâî'nin şeyhidir."),
@@ -8974,8 +8974,8 @@ NODES.filter((n) => n.tab === 1 && n.id !== "nebi").forEach((n) => {
    (Abdurrezzak, Ma'mer, Hemmam ve Vehb b. Munebbih) sessizce ag'dan
    dustu -- yerleri hesaplanmadigi icin hicbir yerde cizilmediler.
    Asagidaki denetim ayni hatanin bir daha sessiz kalmamasi icin. */
-export const BELDELER = ["Medine", "Mekke", "Kûfe", "Basra", "Şam", "Vâsıt", "Mısır", "Humus",
-                  "Yemen", "Horasan", "Mâverâünnehir", "Cibâl"];
+export const BELDELER = ["Medine", "Mekke", "Kûfe", "Basra", "Bağdat", "Şam", "Vâsıt", "Mısır",
+                  "Humus", "Yemen", "Horasan", "Mâverâünnehir", "Cibâl"];
 
 /* Belde adlarinin dil karsiliklari. translations.ts'te DEGIL, burada:
    bunlar arayuz metni degil VERI -- dugumun `belde` alani bu Turkce
@@ -8985,10 +8985,12 @@ export const BELDELER = ["Medine", "Mekke", "Kûfe", "Basra", "Şam", "Vâsıt",
    Eksik bir dil olursa Turkce ad kullaniliyor. */
 export const BELDE_AD = {
   ar: { "Medine": "المدينة", "Mekke": "مكة", "Kûfe": "الكوفة", "Basra": "البصرة",
+        "Bağdat": "بغداد",
         "Şam": "الشام", "Vâsıt": "واسط", "Mısır": "مصر", "Humus": "حمص",
         "Yemen": "اليمن", "Horasan": "خراسان", "Mâverâünnehir": "ما وراء النهر",
         "Cibâl": "الجبال" },
   en: { "Medine": "MEDINA", "Mekke": "MECCA", "Kûfe": "KUFA", "Basra": "BASRA",
+        "Bağdat": "BAGHDAD",
         "Şam": "SYRIA", "Vâsıt": "WASIT", "Mısır": "EGYPT", "Humus": "HIMS",
         "Yemen": "YEMEN", "Horasan": "KHURASAN", "Mâverâünnehir": "TRANSOXIANA",
         "Cibâl": "JIBAL" },
@@ -9141,8 +9143,19 @@ export const { POS, SUTUNLAR, W, MEDINE } = (() => {
      talebe halkasini orada kuran -- Ma'mer b. Rasid de tasindi.
      Cografi sirada Mekke ile Medine arasina degil, Mekke'nin
      GUNEYINE, yani Mekke'den sonraya konuldu. */
+  /* Bagdat 2026-09-09'da eklendi. Sehir 145'te kuruldu ve 3. yuzyilin
+     hadis merkezi oldu; sutunu olmadigi icin orada yasayan raviler baska
+     seritlere dagilmisti ve neredeyse hepsi BASRA'ya dusmustu -- Ibn
+     Main, Ali b. el-Ca'd, Zuheyr b. Harb, Affan b. Muslim, Amr en-Nakid
+     hep oradaydi. Yani haritanin 3. yuzyil Basra'si gercekte Bagdat'ti.
+     Tasinan yirmi alti ismin her biri Takrib ve Tehzib metninden
+     "el-Bagdadi" nisbesi ya da bir yerlesme kaydiyla (nezele/sekene +
+     olum yeri) dogrulandi; yalnizca ugrayanlar (Ibrahim b. Tahman) ve
+     kadilik edip donenler (Hafs b. Giyas) tasinmadi.
+     Cografi sirada Kufe'nin KUZEYINE, yani Kufe ile Cibal arasina. */
   const COGRAFI = ["Mısır", "Humus", "Şam", "Mekke", "Yemen", "Medine",
-                   "Basra", "Vâsıt", "Kûfe", "Cibâl", "Horasan", "Mâverâünnehir"];
+                   "Basra", "Vâsıt", "Kûfe", "Bağdat", "Cibâl", "Horasan",
+                   "Mâverâünnehir"];
   const sira = COGRAFI.filter((b) => plan[b]);
 
   /* 3) konumlar. BUTUN SUTUNLAR AYNI GENISLIKTE -- en cok serit
