@@ -10,7 +10,7 @@ Son güncelleme 2026-09-09. Önceki not dosyasının yerini alır.
 | `/ravi-iliski-aglari/harita` | `app/SilsileAgi.jsx` → `silsileVeri.js` | **Yayındaki sürüm**, canvas. Sayfa adı "Rivayet Haritası". Çalışma burada yürüyor |
 | `/ag-sinamasi` | `app/SilsileAgi.jsx` → `silsileVeri.js` | Deneme adresi, `noindex`. Şu an yayındakiyle birebir aynı |
 | — | `app/silsileAgiKur.jsx` | Çizim kodu. İki sayfa da bunu kullanıyor |
-| — | `app/silsileVeri.js` | 821 râvi, 6701 bağ, çeviriler, konum hesabı |
+| — | `app/silsileVeri.js` | 821 râvi, 7204 bağ, çeviriler, konum hesabı |
 
 ÇİZİM KODU TEK, VERİ İKİ. `silsileAgiKur.jsx` bir fabrika — `kur(V)` bir veri modülü alıp ondan beslenen bileşen döndürüyor. İki sayfa birer satırlık sarmalayıcı. Bileşeni kopyalamak da bir seçenekti ama 1400 satır iki yerde yaşardı ve her düzeltmeyi iki kez uygulamak gerekirdi — SVG sürümü son günlerin bütün iyileştirmelerini tam da bu yüzden kaçırmıştı.
 
@@ -20,7 +20,7 @@ Veri bir süre çatallanmıştı (kart doldurma yayındaki haritayı etkilemesin
 
 ## Veri durumu
 
-- **821 râvi, 6701 bağ.**
+- **821 râvi, 7204 bağ.**
 - **160 boşluk** — kendi tercemesi hiç açılmamış, yani talebe tarafı boş râviler.
 - **Bilgi kartları 208/661.** Kaynak İbn Hacer, *Takrîbü't-Tehzîb* (Şâmile 8609). Medâr, müksirûn, müellif ve "en önemli 60" listesi tamamlandı; kalanı düz taramayla sürüyor.
 
@@ -267,11 +267,37 @@ Kabul olcutu uc kath:
 Toplu yazim `node araclar/kenar-toplu.cjs <json> "<kaynak>"` ile;
 kenarlar oznesine gore bloklara ayriliyor.
 
-**Bu kovada is bitmedi.** Kisaltilmis (tam olmayan) ad eslesmelerinden
-595 aday ile teyitsiz 44 aday daha var; ikisi de gozle okunmayi
-bekliyor. Ayrica "ابيه" (babasi), "عمه" (amcasi) gibi AKRABALIK
-ZAMIRLERI hic cozulmedi -- bunlar dugumun kendi nesebinden
-cikarilabilir.
+Ardindan **kisaltilmis** (tam olmayan) ad eslesmeleri isledi: 564
+teyitli adaydan 503'u kabul edildi, kenar 6701'den **7204**'e cikti.
+Burada dort ek kapi var, hepsi gercek yanlislardan dogdu:
+
+- **Kunye, hedefin adinda da gecmeli.** «ابو ضمرة» Enes b. Iyad'in
+  kunyesi, Damra b. Rabia'nin ADI; «ابو ثور» Ibrahim b. Halid'in,
+  «ابو معمر» Abdullah b. Sahbere'nin. Kunye "filancanin babasi"
+  demektir, adin kendisi degil. Kaydettigimiz adlarin cogu kunyeyi
+  zaten tasiyor («ابو هريرة الدوسي», «ابو نعيم الفضل بن دكين»);
+  tasimayanlar tam da bu yanlislar.
+- **Kisa eslesmede iki tarafin da yili olmali.** Kisa bicim adasi
+  ayirt edemiyor, ayiran tek sey kronoloji. «ابو عوانة» kaydi Sabit
+  el-Bunani'nin (o. 127) talebesi olarak Ebu Avane el-**Isferayini**'ye
+  dusmustu; dogrusu Ebu Avane el-**Vasiti** (o. 176). Isferayini'nin
+  dugumunde yil olmadigi icin pencere calismamisti.
+- **Kayit dugumun adinin BASINDA baslamali** (ilk iki belirtecten
+  birinde) -- yoksa kayit sona denk geliyor ve cogu zaman babayi
+  anlatiyor. «عمر بن عبد العزيز» (halife) boyle «عبد العزيز بن عمر بن
+  عبد العزيز» (oglu) dugumune dusmustu.
+- Bu sarti asmanin uc mesru yolu var ve ucu de isaretli: kayit «ابن»
+  ile basliyorsa, kunye ile basliyorsa, ya da tek kelimelik bir
+  lakap/nisbe ise («الاعمش», «الشعبي», «بندار», «دحيم»).
+
+Elenen 61 adayin bir kismi dogru kenardi ama yil eksikligi yuzunden
+dusuruldu (Deraverdi, Ibn Huzeyme, Mutayyen). **Bu kasitli:** bir
+dogru kenari kacirmak, bir yanlisini cizmekten iyi.
+
+**Kovada is bitmedi.** Teyitsiz 44 aday hala duruyor. Ayrica «ابيه»
+(babasi), «عمه» (amcasi) gibi AKRABALIK ZAMIRLERI hic cozulmedi --
+bunlar dugumun kendi nesebinden cikarilabilir; Hamza b. Abdillah b.
+Omer'in uc hocasi elle boyle bulundu.
 
 ### esle.cjs'in kacirdiklari ve kenar-ekle.cjs
 
