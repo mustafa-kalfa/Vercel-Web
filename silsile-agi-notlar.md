@@ -10,7 +10,7 @@ Son güncelleme 2026-09-09. Önceki not dosyasının yerini alır.
 | `/ravi-iliski-aglari/harita` | `app/SilsileAgi.jsx` → `silsileVeri.js` | **Yayındaki sürüm**, canvas. Sayfa adı "Rivayet Haritası". Çalışma burada yürüyor |
 | `/ag-sinamasi` | `app/SilsileAgi.jsx` → `silsileVeri.js` | Deneme adresi, `noindex`. Şu an yayındakiyle birebir aynı |
 | — | `app/silsileAgiKur.jsx` | Çizim kodu. İki sayfa da bunu kullanıyor |
-| — | `app/silsileVeri.js` | 821 râvi, 7885 bağ, çeviriler, konum hesabı |
+| — | `app/silsileVeri.js` | 821 râvi, 8126 bağ, çeviriler, konum hesabı |
 
 ÇİZİM KODU TEK, VERİ İKİ. `silsileAgiKur.jsx` bir fabrika — `kur(V)` bir veri modülü alıp ondan beslenen bileşen döndürüyor. İki sayfa birer satırlık sarmalayıcı. Bileşeni kopyalamak da bir seçenekti ama 1400 satır iki yerde yaşardı ve her düzeltmeyi iki kez uygulamak gerekirdi — SVG sürümü son günlerin bütün iyileştirmelerini tam da bu yüzden kaçırmıştı.
 
@@ -20,7 +20,7 @@ Veri bir süre çatallanmıştı (kart doldurma yayındaki haritayı etkilemesin
 
 ## Veri durumu
 
-- **821 râvi, 7885 bağ.**
+- **821 râvi, 8126 bağ.**
 - **160 boşluk** — kendi tercemesi hiç açılmamış, yani talebe tarafı boş râviler.
 - **Bilgi kartları 208/661.** Kaynak İbn Hacer, *Takrîbü't-Tehzîb* (Şâmile 8609). Medâr, müksirûn, müellif ve "en önemli 60" listesi tamamlandı; kalanı düz taramayla sürüyor.
 
@@ -369,9 +369,26 @@ yil hic sorulmuyor; Ebu Ishak es-Seybani ile oglu Ishak b. Suleyman da
 oyle.
 
 Sabit basliklar `araclar/terceme/baslik-elle.json`'da (id -> baslik
-parcasi), `baslik-coz.py` onu once okuyor. Simdilik on bes kayit;
-adaylari `araclar/terceme/elle-baslik.py` gosteriyor. Bu on bes,
-**106 kenar** getirdi (7779 -> 7885).
+parcasi), `baslik-coz.py` onu once okuyor. **76 kayit**, terceme
+sayisini 494'ten **568**'e cikardi ve toplam **347 kenar** getirdi
+(7779 -> 8126).
+
+Sozluge aday `araclar/terceme/sozluk-oner.py` ile uretiliyor. Orada
+sart gevsetiliyor -- belirtecler basligin herhangi bir yerinde sirali
+gecsin -- ve gevsek sart ata karismasi getirdigi icin IKI KAPI var:
+
+1. **Yil.** Terceme govdesi dugumun yilini soylemeli (+-2). Yili
+   olmayan dugum hic onerilmiyor.
+2. **Baslik bizim adla baslamali ya da ad kunye olmali.** Yil tek
+   basina yetmiyor, cunku terceme baskasinin yilini da aniyor. Ilk
+   surumde bu kapi yoktu ve su yanlislari uretti: «كريب مولي ابن عباس»
+   -> OGLU «محمد بن كريب», «يعلى بن أمية» -> OGLU «صفوان بن يعلى»,
+   Hz. Peygamber -> «عبد الله بن عامر» (tercemede "Hz. Peygamber
+   doneminde dogdu" cumlesi geciyor diye). Kunye istisnasi sart, cunku
+   kaydettigimiz ad kunyeyse baslik verilen adla baslar
+   («ابو سعيد الخدري» -> «سعد بن مالك بن سنان»).
+
+Kapilari gecemeyen 135 aday "gozle bak" listesinde bekliyor.
 
 **TEKIL ESLESME DE YANLIS OLABILIR.** Yil olcutu yalnizca birden
 fazla aday varken calisiyor. Nasr b. Ali el-Cehdami'de dugumumuz torun
