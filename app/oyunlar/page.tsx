@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import ChromaKeyVideo from "../ChromaKeyVideo";
+import HazirlaniyorRozeti from "../HazirlaniyorRozeti";
 import { useLanguage } from "../LanguageContext";
 
 /* Oyunlarin arasayfasi. Onceden "Oyunlar" karti dogrudan tek oyuna
@@ -57,9 +58,10 @@ export default function Oyunlar() {
             disabled
             aria-label={t.comingSoon}
             title={t.comingSoon}
-            className={`${dugmeSinifi} cursor-default opacity-50`}
+            className={`${dugmeSinifi} cursor-default gap-2 border-black/10 dark:border-white/30`}
           >
-            ?
+            <span className="opacity-50">?</span>
+            <HazirlaniyorRozeti />
           </button>
         ))}
       </div>

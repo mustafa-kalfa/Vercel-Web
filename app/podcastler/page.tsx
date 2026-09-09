@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import ChromaKeyVideo from "../ChromaKeyVideo";
+import HazirlaniyorRozeti from "../HazirlaniyorRozeti";
 import { useLanguage } from "../LanguageContext";
 
 export default function Podcastler() {
@@ -16,7 +17,12 @@ export default function Podcastler() {
   const dugmeSinifi =
     "flex min-h-12 w-full max-w-sm items-center justify-center rounded-full border border-solid border-black/20 px-5 py-2.5 text-center text-base font-medium transition-colors dark:border-white/70";
   const acikSinifi = `${dugmeSinifi} hover:border-transparent hover:bg-black/[.04] dark:hover:bg-[#1a1a1a]`;
-  const kapaliSinifi = `${dugmeSinifi} cursor-default opacity-50`;
+  /* Kapali dugmede SOLUKLUK ARTIK BUTUN DUGMEDE DEGIL, yalnizca
+     yazida ve kenarlikta. Eskiden `opacity-50` dugmenin tamamina
+     veriliyordu; icine "Hazirlaniyor" rozeti girince rozet de
+     yariya soluyor ve okunmuyordu. Durumu bildiren asil isaret artik
+     rozet, o yuzden net duruyor. */
+  const kapaliSinifi = `${dugmeSinifi} cursor-default gap-2 border-black/10 dark:border-white/30`;
 
   /* On dort kategori, Mustafa'nin verdigi sirayla (2026-09-09). Listede
      numara YOK: kendisi "basindaki rakamlari kaldir" dedi, o yuzden
@@ -79,7 +85,8 @@ export default function Podcastler() {
               title={t.comingSoon}
               className={kapaliSinifi}
             >
-              {ad}
+              <span className="opacity-50">{ad}</span>
+              <HazirlaniyorRozeti />
             </button>
           ),
         )}

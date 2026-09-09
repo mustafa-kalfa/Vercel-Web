@@ -4,13 +4,15 @@ import Link from "next/link";
 import { useState } from "react";
 import AudioPlayer from "../AudioPlayer";
 import ChromaKeyVideo from "../ChromaKeyVideo";
+import HazirlaniyorRozeti from "../HazirlaniyorRozeti";
 import { useLanguage } from "../LanguageContext";
 
 const MIHNE_SRC = "/podcast/mihne-hadisesi.mp3";
 
 /* Hadis Tarihi kategorisinin sekiz bolumu, Mustafa'nin verdigi sirayla
-   (2026-09-09). Basliklardaki "K2 007" gibi onekler KIMLIK: hangi kayit
-   olduklarini soyluyorlar, ceviride de aynen duruyorlar.
+   (2026-09-09). Basliklarda eskiden "K2 007" gibi kayit onekleri vardi,
+   Mustafa'nin istegiyle kaldirildi (2026-09-09) -- ziyaretciye bir sey
+   soylemiyorlardi, sira zaten dizinin kendi sirasi.
 
    Simdilik YALNIZCA Mihne kaydi var. Digerleri tiklanamiyor -- boyle
    olmasi Mustafa'nin karari: kaydi olmayan bir bolum, ziyaretciyi baska
@@ -36,15 +38,22 @@ export default function HadisTarihi() {
      anda yalnizca bir oynatici acik kalsin. */
   const [acikBolum, setAcikBolum] = useState<string | null>(null);
 
-  /* Basliklar uzun ("K1 002 Hadislerin yazilmasi, sadrin zabtindan
-     satrin zabtina"), o yuzden sabit `h-12` ve `whitespace-nowrap`
-     birakildi: kutu `min-h-12` ile alt sinira oturuyor ve metin
-     sarmalayabiliyor. Genislik `max-w-md` -- /podcastler'deki
-     kategorilerden bir kademe genis, cunku bu basliklar daha uzun. */
+  /* Basliklar uzun ("Hadislerin yazilmasi, sadrin zabtindan satrin
+     zabtina"), o yuzden sabit `h-12` ve `whitespace-nowrap` birakildi:
+     kutu `min-h-12` ile alt sinira oturuyor ve metin sarmalayabiliyor.
+     Genislik `max-w-lg` -- /podcastler'deki kategorilerden iki kademe
+     genis, cunku bu basliklar daha uzun ve yanlarinda "Hazirlaniyor"
+     rozeti duruyor; `max-w-md`de ilk iki baslik rozet yuzunden
+     masaustunde bile iki satira dusuyordu. */
   const dugmeSinifi =
-    "flex min-h-12 w-full max-w-md items-center justify-center rounded-full border border-solid border-black/20 px-5 py-2.5 text-center text-base font-medium transition-colors dark:border-white/70";
+    "flex min-h-12 w-full max-w-lg items-center justify-center rounded-full border border-solid border-black/20 px-5 py-2.5 text-center text-base font-medium transition-colors dark:border-white/70";
   const acikSinifi = `${dugmeSinifi} hover:border-transparent hover:bg-black/[.04] dark:hover:bg-[#1a1a1a]`;
-  const kapaliSinifi = `${dugmeSinifi} cursor-default opacity-50`;
+  /* Kapali dugmede SOLUKLUK ARTIK BUTUN DUGMEDE DEGIL, yalnizca
+     yazida ve kenarlikta. Eskiden `opacity-50` dugmenin tamamina
+     veriliyordu; icine "Hazirlaniyor" rozeti girince rozet de
+     yariya soluyor ve okunmuyordu. Durumu bildiren asil isaret artik
+     rozet, o yuzden net duruyor. */
+  const kapaliSinifi = `${dugmeSinifi} cursor-default gap-2 border-black/10 dark:border-white/30`;
   const basiliSinifi = `${acikSinifi} border-transparent bg-black/[.04] dark:bg-[#1a1a1a]`;
 
   return (
@@ -73,7 +82,8 @@ export default function HadisTarihi() {
                 title={t.comingSoon}
                 className={kapaliSinifi}
               >
-                {ad}
+                <span className="opacity-50">{ad}</span>
+                <HazirlaniyorRozeti />
               </button>
             );
           }
