@@ -55,8 +55,8 @@ export default function Oyunlar() {
             key={i}
             type="button"
             disabled
-            aria-label={t.gamesSoon}
-            title={t.gamesSoon}
+            aria-label={t.comingSoon}
+            title={t.comingSoon}
             className={`${dugmeSinifi} cursor-default opacity-50`}
           >
             ?

@@ -34,11 +34,27 @@ type Translation = {
   journeyAhead: string;
   pageNotCreated: string;
   podcastHadithHistory: string;
-  podcastHadithMethodology: string;
-  podcastHadithLiterature: string;
-  podcastOrientalism: string;
-  podcastMihna: string;
-  podcastOtherTopics: string;
+  podcastCatGeography: string;
+  podcastCatTerms: string;
+  podcastCatUsulLit: string;
+  podcastCatRijal: string;
+  podcastCatIlal: string;
+  podcastCatTahammul: string;
+  podcastCatSources: string;
+  podcastCatSitte: string;
+  podcastCatFiqh: string;
+  podcastCatKalam: string;
+  podcastCatQuran: string;
+  podcastCatOrientalism: string;
+  podcastCatCurrent: string;
+  podcastEp001: string;
+  podcastEp002: string;
+  podcastEp003: string;
+  podcastEp004: string;
+  podcastEp005: string;
+  podcastEp006: string;
+  podcastEp007: string;
+  podcastEp008: string;
   playerPlay: string;
   playerPause: string;
   playerBack5: string;
@@ -47,7 +63,7 @@ type Translation = {
   playerSeek: string;
   playerReplay: string;
   playerFailed: string;
-  gamesSoon: string;
+  comingSoon: string;
   gameResuleKavusmak: string;
   gameDilAntrenmani: string;
   // /sinama'daki 'burada neler var' kart izgarasi. Anasayfa henuz
@@ -133,11 +149,27 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     pageNotCreated:
       "Şu anda buradasınız. Mustafâ henüz böyle bir sayfa oluşturmadı. Fakat... Neden olmasın?",
     podcastHadithHistory: "Hadis Tarihi",
-    podcastHadithMethodology: "Hadis Usûlü",
-    podcastHadithLiterature: "Hadis Edebiyatı",
-    podcastOrientalism: "Oryantalizm",
-    podcastMihna: "Mihne Hâdisesi",
-    podcastOtherTopics: "Diğer Konular",
+    podcastCatGeography: "Coğrafya, Tabakat ve Tarih Yazımı",
+    podcastCatTerms: "Usul Istılahları",
+    podcastCatUsulLit: "Usul Literatürünün Gelişimi",
+    podcastCatRijal: "Rical ve Cerh-Ta'dil",
+    podcastCatIlal: "İlel ve Tenkit Yöntemi",
+    podcastCatTahammul: "Rivayet Usulü, Tahammül ve Eda",
+    podcastCatSources: "Kaynak Türleri ve Literatür Bilgisi",
+    podcastCatSitte: "Kütüb-i Sitte ve Tis'a",
+    podcastCatFiqh: "Hadis-Fıkıh ve Mezhep",
+    podcastCatKalam: "Hadis-Kelam ve İtikad",
+    podcastCatQuran: "Sünnet ve Kur'an",
+    podcastCatOrientalism: "Oryantalizm ve Modern Tartışmalar",
+    podcastCatCurrent: "Güncel Meseleler ve Diğer Alanlarla İlişki",
+    podcastEp001: "K2 001 Hz. Peygamber ve sahabe döneminde rivayet",
+    podcastEp002: "K1 002 Hadislerin yazılması, sadrın zabtından satrın zabtına",
+    podcastEp003: "K1 003 Fitne ve isnadın başlangıcı",
+    podcastEp004: "K1 004 Tedvin süreci",
+    podcastEp005: "K1 005 Tasnif dönemi, öncesi ve sonrası",
+    podcastEp006: "K2 006 İkinci asır rivayetleri ve ilk musannifler",
+    podcastEp007: "K2 007 Mihne Hadisesi",
+    podcastEp008: "K2 008 Ref' olgusu ve rivayetin dönüşümü",
     playerPlay: "Oynat",
     playerPause: "Duraklat",
     playerBack5: "5 saniye geri",
@@ -146,7 +178,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     playerSeek: "Ses konumu",
     playerReplay: "Baştan çal",
     playerFailed: "Ses dosyası yüklenemedi.",
-    gamesSoon: "Yakında",
+    comingSoon: "Yakında",
     gameResuleKavusmak: "Resûle Kavuşmak",
     gameDilAntrenmani: "1 Kelime 3 Dil",
     indexLead: "Burada neler var",
@@ -234,11 +266,27 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     pageNotCreated:
       "أنتم الآن هنا. لم يُنشئ مصطفى هذه الصفحة بعدُ. ولكن... لِمَ لا؟",
     podcastHadithHistory: "تاريخ الحديث",
-    podcastHadithMethodology: "علم مصطلح الحديث",
-    podcastHadithLiterature: "أدب الحديث",
-    podcastOrientalism: "الاستشراق",
-    podcastMihna: "حادثة المحنة",
-    podcastOtherTopics: "مواضيع أخرى",
+    podcastCatGeography: "الجغرافيا والطبقات والتأريخ",
+    podcastCatTerms: "مصطلحات علوم الحديث",
+    podcastCatUsulLit: "تطور مصنفات علوم الحديث",
+    podcastCatRijal: "الرجال والجرح والتعديل",
+    podcastCatIlal: "العلل ومنهج النقد",
+    podcastCatTahammul: "أصول الرواية والتحمل والأداء",
+    podcastCatSources: "أنواع المصادر ومعرفة المصنفات",
+    podcastCatSitte: "الكتب الستة والتسعة",
+    podcastCatFiqh: "الحديث والفقه والمذاهب",
+    podcastCatKalam: "الحديث والكلام والعقيدة",
+    podcastCatQuran: "السنة والقرآن",
+    podcastCatOrientalism: "الاستشراق والنقاشات المعاصرة",
+    podcastCatCurrent: "القضايا الراهنة وصلة الحديث بسائر العلوم",
+    podcastEp001: "K2 001 الرواية في عهد النبي ﷺ والصحابة",
+    podcastEp002: "K1 002 كتابة الحديث، من ضبط الصدور إلى ضبط السطور",
+    podcastEp003: "K1 003 الفتنة وبداية الإسناد",
+    podcastEp004: "K1 004 عملية التدوين",
+    podcastEp005: "K1 005 عصر التصنيف، ما قبله وما بعده",
+    podcastEp006: "K2 006 روايات القرن الثاني والمصنفون الأوائل",
+    podcastEp007: "K2 007 محنة خلق القرآن",
+    podcastEp008: "K2 008 ظاهرة الرفع وتحول الرواية",
     playerPlay: "تشغيل",
     playerPause: "إيقاف مؤقت",
     playerBack5: "خمس ثوانٍ إلى الوراء",
@@ -247,7 +295,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     playerSeek: "موضع الصوت",
     playerReplay: "التشغيل من البداية",
     playerFailed: "تعذّر تحميل الملف الصوتي.",
-    gamesSoon: "قريبًا",
+    comingSoon: "قريبًا",
     gameResuleKavusmak: "لقاء الرسول",
     gameDilAntrenmani: "كلمة واحدة، ثلاث لغات",
     indexLead: "ما الذي تجده هنا",
@@ -333,11 +381,27 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     pageNotCreated:
       "You are here right now. Mustafâ hasn't made such a page yet. But... Why not?",
     podcastHadithHistory: "History of Hadith",
-    podcastHadithMethodology: "Hadith Methodology",
-    podcastHadithLiterature: "Hadith Literature",
-    podcastOrientalism: "Orientalism",
-    podcastMihna: "The Mihna",
-    podcastOtherTopics: "Other Topics",
+    podcastCatGeography: "Geography, Ṭabaqāt and Historiography",
+    podcastCatTerms: "Terminology of Uṣūl al-Ḥadīth",
+    podcastCatUsulLit: "Development of the Uṣūl al-Ḥadīth Literature",
+    podcastCatRijal: "Rijāl and al-Jarḥ wa-l-Taʿdīl",
+    podcastCatIlal: "ʿIlal and the Critical Method",
+    podcastCatTahammul: "Uṣūl al-Riwāya, Taḥammul and Adāʾ",
+    podcastCatSources: "Source Types and Knowledge of the Literature",
+    podcastCatSitte: "Kutub al-Sitta and al-Tisʿa",
+    podcastCatFiqh: "Ḥadīth, Fiqh and the Madhhabs",
+    podcastCatKalam: "Ḥadīth, Kalām and ʿAqīda",
+    podcastCatQuran: "Sunna and Qurʾān",
+    podcastCatOrientalism: "Orientalism and Modern Debates",
+    podcastCatCurrent: "Contemporary Issues and Relations with Other Disciplines",
+    podcastEp001: "K2 001 Transmission in the era of the Prophet and the Companions",
+    podcastEp002: "K1 002 The writing down of ḥadīth, from ḍabṭ al-ṣudūr to ḍabṭ al-suṭūr",
+    podcastEp003: "K1 003 The Fitna and the beginning of the isnād",
+    podcastEp004: "K1 004 The process of tadwīn",
+    podcastEp005: "K1 005 The era of taṣnīf, before and after",
+    podcastEp006: "K2 006 Second-century narrations and the earliest muṣannifs",
+    podcastEp007: "K2 007 The Miḥna",
+    podcastEp008: "K2 008 The phenomenon of rafʿ and the transformation of transmission",
     playerPlay: "Play",
     playerPause: "Pause",
     playerBack5: "Back 5 seconds",
@@ -346,7 +410,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     playerSeek: "Seek",
     playerReplay: "Play from start",
     playerFailed: "The audio file could not be loaded.",
-    gamesSoon: "Coming soon",
+    comingSoon: "Coming soon",
     gameResuleKavusmak: "Meeting the Messenger",
     gameDilAntrenmani: "1 Word 3 Languages",
     indexLead: "What's here",

@@ -7,18 +7,43 @@ import { useLanguage } from "../LanguageContext";
 export default function Podcastler() {
   const { t } = useLanguage();
 
-  const buttonClass =
-    "flex h-12 w-full max-w-xs items-center justify-center whitespace-nowrap rounded-full border border-solid border-black/20 px-5 text-center text-base font-medium transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]";
+  /* Eskiden `h-12` ve `whitespace-nowrap` vardi: butun basliklar tek
+     kelimelikti ("Hadis Tarihi", "Oryantalizm"). Yeni kategori adlari
+     uzun ("Guncel Meseleler ve Diger Alanlarla Iliski"), sarmalari
+     gerekiyor. `min-h-12` sabit yukseklik yerine ALT SINIR koyuyor,
+     `py-2.5` de iki satirlik kutuya nefes veriyor. Kutu `max-w-xs`ten
+     `max-w-sm`e genisledi ki cogu baslik tek satirda kalabilsin. */
+  const dugmeSinifi =
+    "flex min-h-12 w-full max-w-sm items-center justify-center rounded-full border border-solid border-black/20 px-5 py-2.5 text-center text-base font-medium transition-colors dark:border-white/70";
+  const acikSinifi = `${dugmeSinifi} hover:border-transparent hover:bg-black/[.04] dark:hover:bg-[#1a1a1a]`;
+  const kapaliSinifi = `${dugmeSinifi} cursor-default opacity-50`;
 
-  /* Yalnizca Hadis Tarihi'nin kendi sayfasi var. Digerleri simdilik
-     /mustafa-calisiyor'a gidiyor (Mustafa'nin talebi, 2026-08-29): o
-     sayfa "Mustafa bu is uzerinde calisiyor" diyor, yani ziyaretci
-     tiklayinca bos bir yere degil, durumu anlatan bir yere dusuyor.
-     Bolum eklendikce buradaki `href` kendi sayfasiyla degistirilecek. */
-  const categories = [
-    t.podcastHadithMethodology,
-    t.podcastHadithLiterature,
-    t.podcastOrientalism,
+  /* On dort kategori, Mustafa'nin verdigi sirayla (2026-09-09). Listede
+     numara YOK: kendisi "basindaki rakamlari kaldir" dedi, o yuzden
+     sira yalnizca dizinin kendi sirasi.
+
+     YALNIZCA ILKI TIKLANABILIR. Digerleri /mustafa-calisiyor'a
+     gitmiyor artik, hic tiklanamiyor -- yine Mustafa'nin karari:
+     icerigi olmayan bir baslik, ziyaretciyi baska bir sayfaya
+     gonderecegine hic tepki vermesin.
+
+     Bir kategori hazir olunca buraya `href` eklenip
+     `kapaliSinifi` yerine `acikSinifi` verilmesi yetiyor. */
+  const kategoriler = [
+    t.podcastHadithHistory,
+    t.podcastCatGeography,
+    t.podcastCatTerms,
+    t.podcastCatUsulLit,
+    t.podcastCatRijal,
+    t.podcastCatIlal,
+    t.podcastCatTahammul,
+    t.podcastCatSources,
+    t.podcastCatSitte,
+    t.podcastCatFiqh,
+    t.podcastCatKalam,
+    t.podcastCatQuran,
+    t.podcastCatOrientalism,
+    t.podcastCatCurrent,
   ];
 
   return (
@@ -35,16 +60,29 @@ export default function Podcastler() {
         />
       </Link>
 
-      <div className="flex w-full flex-1 flex-col items-center justify-center gap-4 px-6 pb-16 pt-32 sm:px-10">
-        <Link href="/hadis-tarihi" className={buttonClass}>
-          {t.podcastHadithHistory}
-        </Link>
-
-        {categories.map((label) => (
-          <Link key={label} href="/mustafa-calisiyor" className={buttonClass}>
-            {label}
-          </Link>
-        ))}
+      {/* Bosluk `gap-4`ten `gap-3`e indi: dort dugmeyken bol duruyordu,
+          on dortte sayfayi gereksiz uzatiyordu. */}
+      <div className="flex w-full flex-1 flex-col items-center justify-center gap-3 px-6 pb-16 pt-32 sm:px-10">
+        {kategoriler.map((ad, i) =>
+          i === 0 ? (
+            <Link key={ad} href="/hadis-tarihi" className={acikSinifi}>
+              {ad}
+            </Link>
+          ) : (
+            /* `disabled` gercekten tiklanamaz yapiyor; `title` ise fareyle
+               uzerine gelen ziyaretciye neden tepki vermedigini soyluyor.
+               Ayni kalip /oyunlar'daki "?" dugmelerinde de var. */
+            <button
+              key={ad}
+              type="button"
+              disabled
+              title={t.comingSoon}
+              className={kapaliSinifi}
+            >
+              {ad}
+            </button>
+          ),
+        )}
       </div>
 
       {/* Yagmur klibi. Kediler gibi bu da eskiden anasayfanin acilis
