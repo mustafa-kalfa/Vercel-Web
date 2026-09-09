@@ -15,7 +15,7 @@ export default function Podcastler() {
      `py-2.5` de iki satirlik kutuya nefes veriyor. Kutu `max-w-xs`ten
      `max-w-sm`e genisledi ki cogu baslik tek satirda kalabilsin. */
   const dugmeSinifi =
-    "flex min-h-12 w-full max-w-sm items-center justify-center rounded-full border border-solid border-black/20 px-5 py-2.5 text-center text-base font-medium transition-colors dark:border-white/70";
+    "relative flex min-h-12 w-full max-w-sm items-center justify-center rounded-full border border-solid border-black/20 px-5 py-2.5 text-center text-base font-medium transition-colors dark:border-white/70";
   const acikSinifi = `${dugmeSinifi} hover:border-transparent hover:bg-black/[.04] dark:hover:bg-[#1a1a1a]`;
   /* Kapali dugmede SOLUKLUK ARTIK BUTUN DUGMEDE DEGIL, yalnizca
      yazida ve kenarlikta. Eskiden `opacity-50` dugmenin tamamina

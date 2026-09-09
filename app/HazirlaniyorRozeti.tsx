@@ -11,12 +11,25 @@ import { useLanguage } from "./LanguageContext";
    yapiyor; bu sayfalar dogrudan `t` okudugu icin o sarmalayiciya gerek
    yok.
 
-   `shrink-0` ve `whitespace-nowrap`: baslik uzun olup sardiginda rozet
-   ezilmesin, kendi genisligini korusun. */
+   KONUM: dugmenin KOSESINDE, kenarligin bir miktar disinda
+   (`-top-2 -end-2`). Bir sure dugme metninin yaninda, akisin icinde
+   duruyordu; Mustafa "kosede olmali" dedi (2026-09-09) ve anasayfa
+   kartindaki rozet de ayni gun oraya tasindi.
+
+   Rozet akistan CIKTIGI icin dugmeyi genisletmiyor: uzun basliklar artik
+   rozete yer acmak zorunda degil. Buna karsilik KAPSAYAN DUGME
+   `relative` OLMALI, yoksa rozet en yakin konumlandirilmis ataya --
+   muhtemelen sayfanin tamamina -- gore yerlesir. Uc cagiran sayfanin
+   `dugmeSinifi` dizisinde bu yuzden `relative` var.
+
+   `-end-2`, `-right-2` DEGIL: mantiksal ozellik, Arapca'da (rtl) rozeti
+   kendiliginden sol ust koseye aliyor.
+
+   `whitespace-nowrap`: rozet metni hicbir ekranda iki satira inmesin. */
 export default function HazirlaniyorRozeti() {
   const { t } = useLanguage();
   return (
-    <span className="shrink-0 whitespace-nowrap rounded-full bg-secim px-2 py-0.5 text-xs font-medium text-secim-metin">
+    <span className="absolute -top-2 -end-2 whitespace-nowrap rounded-full bg-secim px-2 py-0.5 text-xs font-medium text-secim-metin">
       {t.cardPreparing}
     </span>
   );

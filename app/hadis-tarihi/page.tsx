@@ -46,7 +46,7 @@ export default function HadisTarihi() {
      rozeti duruyor; `max-w-md`de ilk iki baslik rozet yuzunden
      masaustunde bile iki satira dusuyordu. */
   const dugmeSinifi =
-    "flex min-h-12 w-full max-w-lg items-center justify-center rounded-full border border-solid border-black/20 px-5 py-2.5 text-center text-base font-medium transition-colors dark:border-white/70";
+    "relative flex min-h-12 w-full max-w-lg items-center justify-center rounded-full border border-solid border-black/20 px-5 py-2.5 text-center text-base font-medium transition-colors dark:border-white/70";
   const acikSinifi = `${dugmeSinifi} hover:border-transparent hover:bg-black/[.04] dark:hover:bg-[#1a1a1a]`;
   /* Kapali dugmede SOLUKLUK ARTIK BUTUN DUGMEDE DEGIL, yalnizca
      yazida ve kenarlikta. Eskiden `opacity-50` dugmenin tamamina
