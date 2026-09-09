@@ -365,6 +365,25 @@ dogrusu Medineli **Yahya b. Said el-Ensari** (o. 143). Ayni ada sahip
 iki dugumden birini secerken kronoloji penceresi yetmiyor, belde de
 bakilmali.
 
+## Bilgi kartlari
+
+Kart metni artik **yerel Tehzibu't-Tehzib metninden** yaziliyor, MCP'ye
+ugramadan. `baslik-coz.py` dogru tercemenin satirini veriyor,
+`terceme-oku.py` govdeyi hoca/talebe listelerini atlayip cerh-ta'dil
+bolumunden okuyor, karti insan yaziyor.
+
+Yazma araci: `node araclar/not-guncelle.cjs <json>` --
+`[{"id": "...", "not": "..."}]`. Metin komut satirindan degil
+DOSYADAN aliniyor (kart metinleri uzun ve icinde hem Turkce hem
+Arapca tirnak var) ve **var olan notu ezmiyor**; ustune yazmak icin
+kayda `"ez": true` konmali. Kartlarin bir kismi arastirma sonucu, bir
+kismi da yil calismasindan kalma kisa kayit ("Vefat yili ... girildi");
+ikisini de kazara silmemek icin.
+
+Kartsiz 398 dugumun **203'unde** terceme acilabiliyor; digerlerinde
+once baslik cozulmeli. Sira dereceye gore: en cok kenari olan dugumun
+karti en cok goruluyor.
+
 ## Kurallar
 
 - `git add -A` **kullanma.** Bir kez kullanıcının işlenmemiş işini commit'e süpürdü. Yalnızca dokunduğun dosyaları evrele.
