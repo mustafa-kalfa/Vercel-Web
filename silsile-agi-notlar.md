@@ -10,7 +10,7 @@ Son güncelleme 2026-09-09. Önceki not dosyasının yerini alır.
 | `/ravi-iliski-aglari/harita` | `app/SilsileAgi.jsx` → `silsileVeri.js` | **Yayındaki sürüm**, canvas. Sayfa adı "Rivayet Haritası". Çalışma burada yürüyor |
 | `/ag-sinamasi` | `app/SilsileAgi.jsx` → `silsileVeri.js` | Deneme adresi, `noindex`. Şu an yayındakiyle birebir aynı |
 | — | `app/silsileAgiKur.jsx` | Çizim kodu. İki sayfa da bunu kullanıyor |
-| — | `app/silsileVeri.js` | 821 râvi, 7779 bağ, çeviriler, konum hesabı |
+| — | `app/silsileVeri.js` | 821 râvi, 7885 bağ, çeviriler, konum hesabı |
 
 ÇİZİM KODU TEK, VERİ İKİ. `silsileAgiKur.jsx` bir fabrika — `kur(V)` bir veri modülü alıp ondan beslenen bileşen döndürüyor. İki sayfa birer satırlık sarmalayıcı. Bileşeni kopyalamak da bir seçenekti ama 1400 satır iki yerde yaşardı ve her düzeltmeyi iki kez uygulamak gerekirdi — SVG sürümü son günlerin bütün iyileştirmelerini tam da bu yüzden kaçırmıştı.
 
@@ -20,7 +20,7 @@ Veri bir süre çatallanmıştı (kart doldurma yayındaki haritayı etkilemesin
 
 ## Veri durumu
 
-- **821 râvi, 7779 bağ.**
+- **821 râvi, 7885 bağ.**
 - **160 boşluk** — kendi tercemesi hiç açılmamış, yani talebe tarafı boş râviler.
 - **Bilgi kartları 208/661.** Kaynak İbn Hacer, *Takrîbü't-Tehzîb* (Şâmile 8609). Medâr, müksirûn, müellif ve "en önemli 60" listesi tamamlandı; kalanı düz taramayla sürüyor.
 
@@ -355,11 +355,23 @@ zaten elerdi. Ama kart yazilacak olsaydi bos govdeden yazilacakti.
 
 Duzeltmeden sonra 494 terceme aciliyor ve 60 kenar daha cikti.
 
-Ibn Sihab ez-Zuhri gibi buyuk isimler bu elemede DUSTU, cunku
-kaydettigimiz kisa ad («ابن شهاب الزهري») onun gercek basligiyla
-(«محمد بن مسلم بن عبيد الله بن شهاب») ilk belirtecten tutmuyor; eskiden
-«الزهري، هو محمد بن مسلم» isaret kaydina baglaniyordu. Onlar icin
-baslik elle sabitlenmeli (`araclar/terceme/elle-baslik.py`).
+**SOHRET ADI OLAN DUGUMLER ELLE SABITLENIYOR.** Cozucu adin ILK
+belirtecini basliga cakiyor -- bu kural ata karismasini onluyor ama
+kaydettigimiz ad sohret adiysa gercek baslikla ilk belirtecten
+tutmuyor. «ابن شهاب الزهري» ile «محمد بن مسلم بن عبيد الله بن شهاب»,
+«أبو إسحاق السبيعي» ile «عمرو بن عبد الله بن عبيد», «أبو بكر بن أبي شيبة»
+ile «عبد الله بن محمد بن أبي شيبة» hep boyle. Bu dugumler eskiden
+isaret kaydina dusuyordu, govde sarti gelince tamamen dustuler.
+
+Ayni ailede ayni ad da elle sabitleme istiyor. Nasr b. Ali
+el-Cehdami'nin hem dedesi hem torunu Tehzib'de var ve tek aday cikinca
+yil hic sorulmuyor; Ebu Ishak es-Seybani ile oglu Ishak b. Suleyman da
+oyle.
+
+Sabit basliklar `araclar/terceme/baslik-elle.json`'da (id -> baslik
+parcasi), `baslik-coz.py` onu once okuyor. Simdilik on bes kayit;
+adaylari `araclar/terceme/elle-baslik.py` gosteriyor. Bu on bes,
+**106 kenar** getirdi (7779 -> 7885).
 
 **TEKIL ESLESME DE YANLIS OLABILIR.** Yil olcutu yalnizca birden
 fazla aday varken calisiyor. Nasr b. Ali el-Cehdami'de dugumumuz torun

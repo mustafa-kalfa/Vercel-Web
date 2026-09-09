@@ -109,6 +109,14 @@ def kuyruk_lakap(ad_tok, bol_tok):
     return altdizi_esle(ad_tok[:-1], bol_tok[:-1], 3)
 
 
+# Elle sabitlenen basliklar. Cozucu adin ILK belirtecini basliga
+# cakiyor; kaydettigimiz ad sohret adiysa ("Ibn Sihab ez-Zuhri", "Ebu
+# Ishak es-Sebii") bu tutmuyor, ayni ailede ayni ad varsa da (Nasr b.
+# Ali el-Cehdami'nin dedesi ile torunu) tek aday cikip yil hic
+# sorulmuyor. O dugumlerde dogru baslik gozle secilip yaziliyor.
+ELLE = json.load(io.open(os.path.join(B, "baslik-elle.json"),
+                         encoding="utf-8"))
+
 dug = json.load(io.open("araclar/dugumler.json", encoding="utf-8"))
 sayac = collections.Counter()
 cozum, kalan = [], []
@@ -117,6 +125,17 @@ for d in dug:
     if len(tok) < 2:
         sayac["ad cok kisa"] += 1
         kalan.append(dict(d, durum="ad-kisa"))
+        continue
+    if d["id"] in ELLE:
+        k = next((k for k, b in enumerate(basliklar)
+                  if ELLE[d["id"]] in b["ad"]), None)
+        if k is None:
+            sayac["elle baslik tutmadi"] += 1
+            kalan.append(dict(d, durum="elle-tutmadi"))
+        else:
+            sayac["elle sabit"] += 1
+            cozum.append(dict(d, satir=basliklar[k]["satir"],
+                              baslik=basliklar[k]["ad"][:150], olcut="elle"))
         continue
     idx = [k for k, b in enumerate(basliklar)
            if altdizi_esle(tok, b["tok"]) or kuyruk_lakap(tok, b["tok"])]
