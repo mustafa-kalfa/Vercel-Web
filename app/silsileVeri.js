@@ -504,7 +504,8 @@ export const NODES = [
     "Tehzîbü't-Tehzîb. Hemdân'ın Hârif koluna mensup Kûfeli. Sevrî'ye Ebû Hâlid el-Ahmer sorulunca «adam dediğin Abdullah b. Nümeyr'dir» demiş. İbn Maîn, A‘meş rivayetinde onu İbn İdrîs'le eşit sika sayar; Ebû Hâtim «işi düzgündü», İclî «sika, sâlihu'l-hadîs, sünnet ehli», İbn Sa‘d «sika, çok hadisli, sadûk» der. 115'te doğduğu söylenir."),
   N("ibnidris", "عبد الله بن إدريس", "Abdullah b. İdrîs", 5, 192, "Kûfe",
     "Tehzîbü't-Tehzîb. Ahmed b. Hanbel «kendi başına bir dokumaydı» der. İbn Maîn onu İbn Nümeyr'le birlikte sika sayıp «ama İbn İdrîs daha yüksek, her şeyde sika» diye ayırır; İbnü'l-Medînî hadiste babasının üstünde görür, Ebû Hâtim hüccet sayar. Ya‘kūb b. Şeybe fetva ve mezhebinin çoğunda Medinelilerin yolunu tuttuğunu, Mâlik ile arasında dostluk bulunduğunu söyler — Mâlik'in belâğlarını ondan işittiği bile söylenmiştir. Yanında konuşurken dil yanlışı yapana hadis rivayet etmezdi."),
-  N("alimushir", "علي بن مسهر", "Ali b. Müshir", 5, 189, "Kûfe"),
+  N("alimushir", "علي بن مسهر", "Ali b. Müshir", 5, 189, "Kûfe",
+    "Tehzîbü't-Tehzîb. Kûfeli hâfız, Musul kadısı. Ahmed b. Hanbel «sâlihu'l-hadîs, Ebû Muâviye'den sağlam» der; İbn Maîn onu Ebû Hâlid el-Ahmer ile İshak el-Ezrak'a tercih eder ve İbn Nümeyr'den de sağlam sayar. İclî hem hadis hem fıkıh toplayanlardan sayar. Ermîniye kadılığındayken gözünden şikâyet etmiş, oradaki kadının gönderdiği tabip sürme çekince gözünü kaybetmiş ve Kûfe'ye kör dönmüştür. Kitaplarını gömdüğü de nakledilir."),
 
   // ---- Amr b. Dinar cevresinde aga giren raviler ----
   N("saidcubeyr", "سعيد بن جبير", "Saîd b. Cübeyr", 4, 95, "Kûfe", "Rumûz ع."),
@@ -700,7 +701,8 @@ export const NODES = [
     "Tehzîbü't-Tehzîb. İbnü'l-Medînî onun yüz binden fazla hadisine bakıp on binini yazdığını söyler ve onu «hiç ara vermeden hadisle uğraşan, önce talep edip sonra tasnif eden, sonra rivayete geçen» muhaddislerden sayar. Ya‘kūb b. Şeybe «çok hadisli, sadûk» der. Yahyâ el-Kattân'ın onun hakkında konuştuğu söylentisini İbn Maîn «bâtıl» diye reddeder, İbnü'l-Medînî de Kattân'ın onu yalnızca hadis talebiyle tanıdığını nakleder."),
   N("abdurrezzak", "عبد الرزاق بن همام", "Abdürrezzâk b. Hemmâm", 5, 211, "Yemen", "Ma‘mer'in başlıca râvisi, el-Musannef sahibi."),
   N("damrarebia", "ضمرة بن ربيعة", "Damra b. Rabîa", 5, 202, "Şam"),
-  N("suleymanbilal", "سليمان بن بلال", "Süleymân b. Bilâl", 5, 172, "Medine"),
+  N("suleymanbilal", "سليمان بن بلال", "Süleymân b. Bilâl", 5, 172, "Medine",
+    "Tehzîbü't-Tehzîb. Medineli, Teym'in mevlâsı. Ahmed b. Hanbel ve İbn Maîn sika der, İbn Maîn onu Derâverdî'ye tercih eder, Ebû Zür‘a da Hişâm b. Sa‘d'dan üstün tutar. İbn Sa‘d «Berberî, yakışıklı, akıllı, güzel görünüşlü; şehirde fetva verirdi ve Medine haracına bakardı» diye anlatır. Zühlî, İbn Ebî Üveys'in kitabına bakana kadar onun bu kadar hadisi olduğunu bilmediğini, Medinelilerin hadisinde derinleştiğini söyler."),
   N("bisrsari", "بشر بن السري", "Bişr b. es-Serî", 5, 195, "Basra",
     "Basra asıllı râvi ve vâiz, sonradan Mekke'ye yerleşti. İbn Hacer onu \"sika, mütkın\" diye niteler ve dokuzuncu tabakadan sayar; Kütüb-i Sitte'nin altısı da ondan rivayet eder. Cehm'in görüşünü benimsediği gerekçesiyle tenkit edilmiş, ancak özür beyan edip bu görüşten dönmüştür — bu, akîde yönünden tenkit edilen bir râvinin rücûu sebebiyle rivayetinin kabul edilmesine örnektir. 195 (veya 196) yılında, altmış üç yaşında vefat etti."),
 
@@ -749,7 +751,8 @@ export const NODES = [
   N("hisamyusufsanani", "هشام بن يوسف الصنعاني", "Hişâm b. Yûsuf es-San‘ânî", 5, 197, "Yemen"),
   N("mutemirsuleyman", "معتمر بن سليمان", "Mu‘temir b. Süleymân", 5, 187, "Basra",
     "Tehzîbü't-Tehzîb. Süleymân et-Teymî'nin oğlu. Kurra b. Hâlid «bizce Mu‘temir babasından aşağı değildir», Ahmed b. Hanbel «ne kadar hâfızdı — ne sorsak yanında bir şey bulunurdu» der. Ama Yahyâ el-Kattân «size bir şey rivayet ederse karşılaştırın, hıfzı kötüdür» diye uyarır; İbn Hırâş ezberinden yanıldığını, kitabından rivayet ettiğinde sika olduğunu söyler."),
-  N("abdulalaabdulala", "عبد الأعلى بن عبد الأعلى", "Abdül'alâ b. Abdil'alâ", 5, 189, "Basra"),
+  N("abdulalaabdulala", "عبد الأعلى بن عبد الأعلى", "Abdül'alâ b. Abdil'alâ", 5, 189, "Basra",
+    "Tehzîbü't-Tehzîb. Basralı, Sâme b. Lüey oğullarından. Ebû Hemmâm diye anılmasına kızardı. İbn Maîn, Ebû Zür‘a ve İclî sika, Ebû Hâtim «sâlihu'l-hadîs», Nesâî «be's yok» der; İbn Sa‘d ise «kavî değildi» diye ayrılır. Ahmed b. Hanbel ile İbn Hibbân kaderî görüşünü kaydeder, İbn Hibbân «hadiste mütkın, kaderî ama ona davet etmiyor» diye ayırır. Saîd b. Ebî Arûbe'den semâı ihtilâttan öncedir — kendisi «Saîd'den işim tâundan önce bitti» der."),
   N("vuheybhalid", "وهيب بن خالد", "Vüheyb b. Hâlid", 5, 165, "Basra",
     "Tehzîbü't-Tehzîb. Basralı, kirbas tüccarı. İbn Maîn'e Basralı şeyhlerin en sağlamı sorulduğunda ilk onu sayar; İbn Mehdî onu İbn Uleyye ile ihtilâf ettiklerinde tercih eder, «arkadaşları içinde hadisi ve ricâli en iyi göreni» diye anar. Ebû Hâtim «hadisi ne kadar temiz, zayıflardan rivayet ettiğini neredeyse bulamazsın» der ve onu Basra'nın dördüncü hâfızı sayar; Şu‘be'den sonra ricâli ondan iyi bilen olmadığı söylenmiştir. Hapsedilmiş ve gözlerini kaybetmişti, ezberinden imlâ ederdi."),
   N("ebansattar", "أبان بن يزيد العطار", "Ebân b. Yezîd el-Attâr", 5, 160, "Basra",
@@ -813,7 +816,8 @@ export const NODES = [
   N("amryahyamazini", "عمرو بن يحيى المازني", "Amr b. Yahyâ el-Mâzinî", 5, null, "Medine"),
   N("ubeydullahomeri2", "عبد الرحمن بن القاسم", "Abdurrahman b. el-Kâsım", 5, 126, "Medine"),
   N("hebbanhilal", "هدبة بن خالد", "Hüdbe b. Hâlid", 5, 235, "Basra"),
-  N("musaismailtebuzeki", "موسى بن إسماعيل التبوذكي", "Mûsâ b. İsmâîl et-Tebûzekî", 5, 223, "Basra"),
+  N("musaismailtebuzeki", "موسى بن إسماعيل التبوذكي", "Mûsâ b. İsmâîl et-Tebûzekî", 5, 223, "Basra",
+    "Tehzîbü't-Tehzîb. Basralı. İbn Maîn'in ondan otuz beş bin hadis yazdığı kayıtlı ve İbn Maîn şu itirafı yapar. «Hiçbir şeyhin yanına oturmadım ki benden çekinmesin yahut kadrimi bilmesin — bu Tebûzekî hariç.» Ebû Hâtim «sika, Haccâc b. Minhâl'den daha uyanıktı; yetiştiklerim içinde hadisi ondan güzel kimse bilmiyorum» der. İbnü'l-Medînî'nin ölçüsü şudur. «Ebû Seleme'den yazmayan, ondan nakleden birinden yazmıştır.»"),
   N("hisamtayalisi", "أبو الوليد هشام الطيالسي", "Ebû'l-Velîd Hişâm et-Tayâlisî", 5, 227, "Basra"),
   N("muslimibrahim", "مسلم بن إبراهيم", "Müslim b. İbrâhim", 5, 222, "Basra",
     "Tehzîbü't-Tehzîb. Basralı hâfız. Ebû Dâvûd bin kadar şeyhten yazdığını, hiç kimseye rihle yapmadığını, Kurre, Hişâm ve Ebân el-Attâr'ın hadisini ezbere döktüğünü söyler ve onu İbn Kesîr'e tercih eder. İbn Maîn «sika me'mûn» der ve Muâz b. Hişâm'ın önüne koyar, gerekçesi şudur. «Yalnız babasından rivayet eden bir adamı, insanlardan rivayet eden bir adamla bir tutmam.» Ömrünün sonunda gözlerini kaybetti."),
@@ -828,7 +832,8 @@ export const NODES = [
   N("mugirmiksem", "مغيرة بن مقسم الضبي", "Mugīre b. Miksem ed-Dabbî", 5, 136, "Kûfe"),
   N("firasyahya", "فراس بن يحيى الهمداني", "Firâs b. Yahyâ el-Hemdânî", 5, 129, "Kûfe"),
   N("mansurzazan", "منصور بن زاذان", "Mansûr b. Zâzân", 5, 131, "Vâsıt"),
-  N("abdulmelikebisuleyman", "عبد الملك بن أبي سليمان", "Abdülmelik b. Ebî Süleymân", 5, 145, "Kûfe"),
+  N("abdulmelikebisuleyman", "عبد الملك بن أبي سليمان", "Abdülmelik b. Ebî Süleymân", 5, 145, "Kûfe",
+    "Tehzîbü't-Tehzîb. Kûfeli. Sevrî onu «Terazi» diye anar, İbnü'l-Mübârek de «Abdülmelik terazidir» der; Şu‘be hıfzına hayrandı, Ahmed b. Hanbel «Kûfe'nin en hâfızlarındandı» der. Tartışma tek hadiste düğümlenir — Atâ'dan Câbir yoluyla gelen şüf'a hadisi. Şu‘be «bir benzerini daha getirse hadisini atardım» demiş, İbn Maîn ise şöyle karşılık vermiştir. «Bunu ondan başkası rivayet etmedi ve insanlar onu inkâr etti, ama Abdülmelik sika ve sadûktur, onun gibisi reddedilmez.»"),
   N("abdulazizsuheyb", "عبد العزيز بن صهيب", "Abdülazîz b. Suheyb", 5, 130, "Basra"),
   N("saidmesrukhsevri", "سعيد بن مسروق الثوري", "Saîd b. Mesrûk es-Sevrî", 5, 126, "Kûfe", "Süfyân es-Sevrî'nin babası."),
   N("yalaata", "يعلى بن عطاء العامري", "Ya‘lâ b. Atâ el-Âmirî", 5, 120, "Vâsıt"),
@@ -857,7 +862,8 @@ export const NODES = [
   N("zuheyrharb", "زهير بن حرب أبو خيثمة", "Züheyr b. Harb Ebû Hayseme", 5, 234, "Bağdat"),
   N("alimedini", "علي بن المديني", "Ali b. el-Medînî", 5, 234, "Basra", "el-İlel sahibi. Bu ağın tabaka tasnifi ona aittir."),
   N("alihucr", "علي بن حجر المروزي", "Ali b. Hucr el-Mervezî", 5, 244, "Horasan"),
-  N("amrnakid", "عمرو بن محمد الناقد", "Amr b. Muhammed en-Nâkıd", 5, 232, "Bağdat"),
+  N("amrnakid", "عمرو بن محمد الناقد", "Amr b. Muhammed en-Nâkıd", 5, 232, "Bağdat",
+    "Tehzîbü't-Tehzîb. Bağdatlı hâfız, Rakka'ya yerleşti. Ahmed b. Hanbel «doğruyu araştırır» der, Ebû Hâtim «sika, emîn, sadûk», Ebû Dâvûd sika, İbn Kāni‘ sika der. Halef'in aleyhinde konuştuğu söylenince İbn Maîn «o yalan ehlinden değildir, sadûktur» diye karşılık vermiştir. Hüseyin b. Fehm onu «sika sebt, hadis sahibi, sayılı hâfızlardan ve fakih» diye tanıtır. İbnü'l-Medînî yalnızca bir rivayetini reddetmiştir."),
   N("osmanebiseybe", "عثمان بن أبي شيبة", "Osmân b. Ebî Şeybe", 5, 239, "Kûfe"),
   N("ahmeddevraki", "أحمد بن إبراهيم الدورقي", "Ahmed b. İbrâhim ed-Devrakī", 5, 246, "Bağdat"),
   N("muhammedisataba", "محمد بن عيسى ابن الطباع", "Muhammed b. Ísâ İbnü't-Tabbâ‘", 5, 224, "Şam", "Mizzî: Hüşeym'i en iyi bilen («ve hüve a‘lemühum bihî»)."),
@@ -881,7 +887,8 @@ export const NODES = [
     "Mekkeli râvi; Cumah kabilesinden, Ümeyye b. Halef'in soyundan gelir. İbn Hacer onu \"sika, hüccet\" diye niteler ve altıncı tabakadan sayar; Kütüb-i Sitte'nin altısı da ondan rivayet eder. Tâvûs, Sâlim b. Abdillâh ve Kāsım b. Muhammed'den aldığı rivayetlerle tanınır. 151 yılında vefat etti."),
   N("abdulazizomer", "عبد العزيز بن عمر بن عبد العزيز", "Abdülazîz b. Ömer b. Abdil‘azîz", 5, null, "Kûfe"),
   N("misned", "مسدد بن مسرهد", "Müsedded b. Müserhed", 5, 228, "Basra"),
-  N("hennadseri", "هناد بن السري", "Hennâd b. es-Serî", 5, 243, "Kûfe"),
+  N("hennadseri", "هناد بن السري", "Hennâd b. es-Serî", 5, 243, "Kûfe",
+    "Tehzîbü't-Tehzîb. Kûfeli, Temîm'in Dârim koluna mensup. Ahmed b. Hanbel «Hennâd'a sarılın» der; Kuteybe, Vekî‘'in kimseyi Hennâd'ı yücelttiği kadar yüceltmediğini söyler. Nesâî sika, Ebû Hâtim sadûk der. 152'de doğdu."),
   N("ibnmain", "يحيى بن معين", "Yahyâ b. Ma‘în", 5, 233, "Bağdat", "Cerh-ta‘dîl imâmı. Bu ağdaki semâ kayıtlarının çoğu ondan nakledilir."),
   N("yahyayahyanisaburi", "يحيى بن يحيى النيسابوري", "Yahyâ b. Yahyâ en-Nîsâbûrî", 5, 226, "Horasan",
     "Tehzîbü't-Tehzîb. Ahmed b. Hanbel «Horasan İbnü'l-Mübârek'ten sonra onun gibisini çıkarmadı» ve «Horasan'dan iki adam çıktı, İbnü'l-Mübârek ile Yahyâ b. Yahyâ» der. İshak b. Râhûye onu Abdurrahman b. Mehdî'den sağlam sayar ve «öldüğü gün dünya ehlinin imamıydı» der. Hasan b. Süfyân, onun Yezîd b. Zürey‘den rivayetini görünce «Horasan'ın reyhanı Irak'ın reyhanından» derlerdi diye anlatır. Aslen Mervli ve Temîmî'dir."),
@@ -940,7 +947,8 @@ export const NODES = [
   N("harbseddad", "حرب بن شداد", "Harb b. Şeddâd", 5, 161, "Basra",
     "Basralı râvi, künyesi Ebü'l-Hattâb. İbn Hacer onu \"sika\" sayar ve yedinci tabakadan gösterir; Buhârî, Müslim, Ebû Dâvûd, Tirmizî ve Nesâî ondan rivayet eder. Yahyâ b. Ebî Kesîr ve Katâde'den aldığı rivayetlerle tanınır. 161 yılında vefat etti."),
   N("abdulvahidziyad", "عبد الواحد بن زياد", "Abdülvâhid b. Ziyâd", 5, 176, "Basra"),
-  N("malikmigvel", "مالك بن مغول", "Mâlik b. Migvel", 5, 159, "Kûfe"),
+  N("malikmigvel", "مالك بن مغول", "Mâlik b. Migvel", 5, 159, "Kûfe",
+    "Tehzîbü't-Tehzîb. Kûfeli. Ahmed b. Hanbel «sika, hadiste sebt», İbn Maîn, Ebû Hâtim ve Nesâî sika der; İbn Sa‘d «sika, me'mûn, çok hadisli, fâzıl» diye anar, İbn Hibbân Kûfe'nin âbid ve mütkın isimlerinden sayar. İbn Mehdî onu bir ölçü hâline getirmiş. «Bir Kûfeliyi Mâlik b. Migvel'i hayırla anarken görürsen ona güven.» İbn Uyeyne, birinin «Allah'tan kork» demesi üzerine yanağını yere koyduğunu nakleder."),
   N("sallamebimuti", "سلام بن أبي مطيع", "Sellâm b. Ebî Mutī‘", 5, 164, "Basra"),
 
   // ---- Ibn Mehdi'nin talebeleri ve Yahya b. Adem cevresi ----
@@ -1217,7 +1225,8 @@ export const NODES = [
   N("kaysrebi", "قيس بن الربيع", "Kays b. er-Rabî‘", 5, 168, "Kûfe"),
   N("fitrhalife", "فطر بن خليفة", "Fıtr b. Halîfe", 5, 155, "Kûfe",
     "Tehzîbü't-Tehzîb. Kûfeli, Amr b. Hurays'ın mevlâsı. Ahmed b. Hanbel «sika, sâlihu'l-hadîs» der ve Yahyâ b. Saîd'in yanında da sika olduğunu ekler, İbn Maîn sika, Nesâî bir yerde «be's yok» bir yerde «sika, hâfız, zeki» der. Az bir teşeyyu‘ı vardı ve tenkidin çıkış noktası budur — Ahmed b. Hanbel'in «aşırı Haşebî» sözü ile Ahmed b. Yûnus'un «yanından geçer, ondan yazmazdık» sözü buna dayanır. Buhârî ondan ancak başka bir râviyle birlikte rivayet eder."),
-  N("abdusselamharb", "عبد السلام بن حرب", "Abdüsselâm b. Harb", 5, 187, "Kûfe"),
+  N("abdusselamharb", "عبد السلام بن حرب", "Abdüsselâm b. Harb", 5, 187, "Kûfe",
+    "Tehzîbü't-Tehzîb. Kûfeli hâfız, aslen Basralı. Tenkit ikiye bölünmüş. Tirmizî «sika hâfız», Dârekutnî «sika hüccet», Ebû Hâtim «sika sadûk», İbn Maîn sadûk der. Buna karşılık İbnü'l-Mübârek ondan rivayet etmeye yanaşmamış («ayaklarım beni ona taşımaz»), Ahmed b. Hanbel de bir hususu garipsemiş — bir iki hadis dışında hiç «haddesenâ» demezmiş. İclî bu ayrışmayı özetler. Kûfelilere göre sika ve sebt, Bağdatlılar bazı hadisini münker sayar. 91'de doğdu."),
 
   // ---- Ibn Ebi Zaide cevresinde aga giren raviler ----
   N("halidselememahzumi", "خالد بن سلمة المخزومي", "Hâlid b. Seleme el-Mahzûmî", 5, 132, "Kûfe", "Vefât yılı 2026-09-07'de girildi: Takrîb 1641, Vâsıt'ta, Emevî devleti yıkılırken 132 senesinde öldürüldüğü kaydıyla."),
@@ -1482,7 +1491,8 @@ export const NODES = [
      one aldigi icin o alindi. Yahya b. Musa'nin tercemesinin Samile
      fihristinde BASLIGI YOK -- sayfa, «من اسمه يحيى» agacindaki
      bosluktan (17120-17125) bulundu. */
-  N("ahmedsinan", "أحمد بن سنان بن أسد بن حبان القطان الواسطي", "Ahmed b. Sinân el-Kattân", 5, 256, "Vâsıt"),
+  N("ahmedsinan", "أحمد بن سنان بن أسد بن حبان القطان الواسطي", "Ahmed b. Sinân el-Kattân", 5, 256, "Vâsıt",
+    "Tehzîbü't-Tehzîb. Vâsıtlı hâfız. Dârekutnî «sika ve sebt olanlardan», Nesâî ve Ebû Hâtim sika der. Ebû Dâvûd onu Bündâr'ın önüne koyar. İbrâhim b. Evrame, zabtı ve hıfzı sebebiyle Bündâr ile Ebû Mûsâ'dan işittiklerini ona tekrar okuttuklarını anlatır. Buhârî ondan tek bir hadis rivayet eder."),
   N("ebukudame", "عبيد الله بن سعيد بن يحيى بن برد أبو قدامة السرخسي", "Ebû Kudâme es-Serahsî", 5, 241, "Horasan",
     "Tehzîbü't-Tehzîb. Serahslı hâfız, Nîsâbûr'a yerleşti. Nesâî «sika me'mûn, ondan yazdıklarımızın pek azı onun gibidir» der, İbrâhim b. Ebî Tâlib «bize ondan daha sağlam ve mütkın kimse gelmedi» der. İbn Hibbân, Serahs'ta sünneti ortaya çıkaran ve ona davet eden kişi olduğunu söyler. İshak b. Râhûye ona hadis sorup cevabını kendi eliyle yazarmış."),
   N("yahyamusa", "يحيى بن موسى بن عبد ربه بن سالم البلخي خت", "Yahyâ b. Mûsâ el-Belhî (Hat)", 5, 240, "Horasan"),
