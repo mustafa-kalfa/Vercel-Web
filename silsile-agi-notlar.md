@@ -10,7 +10,7 @@ Son güncelleme 2026-09-09. Önceki not dosyasının yerini alır.
 | `/ravi-iliski-aglari/harita` | `app/SilsileAgi.jsx` → `silsileVeri.js` | **Yayındaki sürüm**, canvas. Sayfa adı "Rivayet Haritası". Çalışma burada yürüyor |
 | `/ag-sinamasi` | `app/SilsileAgi.jsx` → `silsileVeri.js` | Deneme adresi, `noindex`. Şu an yayındakiyle birebir aynı |
 | — | `app/silsileAgiKur.jsx` | Çizim kodu. İki sayfa da bunu kullanıyor |
-| — | `app/silsileVeri.js` | 821 râvi, 8126 bağ, çeviriler, konum hesabı |
+| — | `app/silsileVeri.js` | 821 râvi, 8260 bağ, çeviriler, konum hesabı |
 
 ÇİZİM KODU TEK, VERİ İKİ. `silsileAgiKur.jsx` bir fabrika — `kur(V)` bir veri modülü alıp ondan beslenen bileşen döndürüyor. İki sayfa birer satırlık sarmalayıcı. Bileşeni kopyalamak da bir seçenekti ama 1400 satır iki yerde yaşardı ve her düzeltmeyi iki kez uygulamak gerekirdi — SVG sürümü son günlerin bütün iyileştirmelerini tam da bu yüzden kaçırmıştı.
 
@@ -20,7 +20,7 @@ Veri bir süre çatallanmıştı (kart doldurma yayındaki haritayı etkilemesin
 
 ## Veri durumu
 
-- **821 râvi, 8126 bağ.**
+- **821 râvi, 8260 bağ.**
 - **160 boşluk** — kendi tercemesi hiç açılmamış, yani talebe tarafı boş râviler.
 - **Bilgi kartları 208/661.** Kaynak İbn Hacer, *Takrîbü't-Tehzîb* (Şâmile 8609). Medâr, müksirûn, müellif ve "en önemli 60" listesi tamamlandı; kalanı düz taramayla sürüyor.
 
@@ -388,7 +388,25 @@ gecsin -- ve gevsek sart ata karismasi getirdigi icin IKI KAPI var:
    kaydettigimiz ad kunyeyse baslik verilen adla baslar
    («ابو سعيد الخدري» -> «سعد بن مالك بن سنان»).
 
-Kapilari gecemeyen 135 aday "gozle bak" listesinde bekliyor.
+Kapilari gecemeyenler `sozluk-oner.py`'nin ucuncu ciktisina dusuyor ve
+karar gozle veriliyor. O listenin tamami elden gecirildi: **49 kabul,
+25 red.** Reddedilenlerin tamami ayni kaliptan, yani kaydettigimiz adin
+bir BASKASININ nesebinde ata olarak gecmesi:
+
+| dugum | onerilen |
+|---|---|
+| Kureyb mevla Ibn Abbas | oglu Muhammed b. Kureyb |
+| Ya'la b. Umeyye | oglu Safvan b. Ya'la |
+| Bukeyr b. el-Esec | oglu Mahreme b. Bukeyr |
+| Mualla b. Mansur | oglu Yahya b. Mualla |
+| Ikrime b. Halid | torunu Hisam b. Suleyman |
+| Yezid mevla el-Munbais | oglu Abdullah b. Yezid |
+
+Sahabenin buyuklerinde (Ali, Omer, Aise disinda kalanlar, Talha,
+Kab el-Ahbar, Esma) aday listesinde dogru terceme HIC cikmadi --
+Samile disa aktarmasinin kaybettigi basliklardan olmali.
+
+Sozluk **125 kayda** ulasti, acilan terceme **617**, kenar **8260**.
 
 **TEKIL ESLESME DE YANLIS OLABILIR.** Yil olcutu yalnizca birden
 fazla aday varken calisiyor. Nasr b. Ali el-Cehdami'de dugumumuz torun

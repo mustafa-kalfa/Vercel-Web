@@ -127,3 +127,8 @@ io.open(sys.argv[2], "w", encoding="utf-8").write(
     json.dumps({k: v[0] for k, v in oneri.items()}, ensure_ascii=False, indent=1))
 for hid, (ad, nic) in list(oneri.items()):
     print("  [%s] %-22s %s" % (nic, hid, ad[:95]))
+# Kapilari gecemeyenler ayri dosyaya; karar gozle veriliyor.
+if len(sys.argv) > 3:
+    io.open(sys.argv[3], "w", encoding="utf-8").write(json.dumps(
+        [{"id": h, "tr": t, "olum": o, "adaylar": a} for h, t, o, a in gozle],
+        ensure_ascii=False, indent=1))
