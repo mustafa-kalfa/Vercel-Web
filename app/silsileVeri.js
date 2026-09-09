@@ -9040,6 +9040,1559 @@ const EDGES_HAM = [
   E("ibnebileyla", "hilalvezzan", "—", "Tehzîbü't-Tehzîb, Hilâl el-Vezzân tercemesi"),
   E("urve", "hilalvezzan", "—", "Tehzîbü't-Tehzîb, Hilâl el-Vezzân tercemesi"),
 
+
+  /* Ebû Hüreyre (o. 58) -- talebeleri, kisa ad taramasi.
+     Nâfi‘ mevlâ İbn Ömer. */
+  E("ebuhureyre", "nafiibnomer", "—", "Tehzîbü't-Tehzîb, Ebû Hüreyre tercemesi"),
+
+  /* Zeyd b. Erkam (o. 68) -- talebeleri, kisa ad taramasi.
+     Ebû İshak es-Sebîî, Abdurrahman b. Ebî Leylâ. */
+  E("zeydarkam", "ebuishaksebii", "—", "Tehzîbü't-Tehzîb, Zeyd b. Erkam tercemesi"),
+  E("zeydarkam", "ibnebileyla", "—", "Tehzîbü't-Tehzîb, Zeyd b. Erkam tercemesi"),
+
+  /* Saîd b. el-Müseyyeb (o. 94) -- talebeleri, kisa ad taramasi.
+     Sâlim b. Abdillâh b. Ömer, Sa‘d b. İbrâhim, Yahyâ b. Saîd el-Ensârî, Dâvûd b. Ebî Hind, Abdülhamîd b. Cübeyr b. Şeybe, Abdülmecîd b. Süheyl. */
+  E("saidmusayyeb", "salimibnomer", "—", "Tehzîbü't-Tehzîb, Saîd b. el-Müseyyeb tercemesi"),
+  E("saidmusayyeb", "sadibrahim", "—", "Tehzîbü't-Tehzîb, Saîd b. el-Müseyyeb tercemesi"),
+  E("saidmusayyeb", "yahyasaidensari", "—", "Tehzîbü't-Tehzîb, Saîd b. el-Müseyyeb tercemesi"),
+  E("saidmusayyeb", "davudebihind", "—", "Tehzîbü't-Tehzîb, Saîd b. el-Müseyyeb tercemesi"),
+  E("saidmusayyeb", "abdulhamidcubeyr", "—", "Tehzîbü't-Tehzîb, Saîd b. el-Müseyyeb tercemesi"),
+  E("saidmusayyeb", "abdulmecidsuheyl", "—", "Tehzîbü't-Tehzîb, Saîd b. el-Müseyyeb tercemesi"),
+
+  /* Sâlim b. Abdillâh b. Ömer (o. 106) -- talebeleri, kisa ad taramasi.
+     Hanzala b. Ebî Süfyân, Ebû Kılâbe el-Cermî, Humeyd et-Tavîl, Mûsâ b. Ukbe. */
+  E("salimibnomer", "hanzalasufyan", "—", "Tehzîbü't-Tehzîb, Sâlim b. Abdillâh b. Ömer tercemesi"),
+  E("salimibnomer", "ebukilabe", "—", "Tehzîbü't-Tehzîb, Sâlim b. Abdillâh b. Ömer tercemesi"),
+  E("salimibnomer", "humeydtavil", "—", "Tehzîbü't-Tehzîb, Sâlim b. Abdillâh b. Ömer tercemesi"),
+  E("salimibnomer", "musaukbe", "—", "Tehzîbü't-Tehzîb, Sâlim b. Abdillâh b. Ömer tercemesi"),
+
+  /* Hafs b. Âsım b. Ömer (o. ?) -- hocalari, kisa ad taramasi.
+     Ebû Saîd el-Hudrî. */
+  E("ebusaid", "hafsasim", "—", "Tehzîbü't-Tehzîb, Hafs b. Âsım b. Ömer tercemesi"),
+
+  /* Hafs b. Âsım b. Ömer (o. ?) -- talebeleri, kisa ad taramasi.
+     Sa‘d b. İbrâhim, Sâlim b. Abdillâh b. Ömer. */
+  E("hafsasim", "sadibrahim", "—", "Tehzîbü't-Tehzîb, Hafs b. Âsım b. Ömer tercemesi"),
+  E("hafsasim", "salimibnomer", "—", "Tehzîbü't-Tehzîb, Hafs b. Âsım b. Ömer tercemesi"),
+
+  /* Zürâre b. Evfâ (o. 93) -- hocalari, kisa ad taramasi.
+     Temîm ed-Dârî, Mugīre b. Şu‘be. */
+  E("temimdari", "zurareevfa", "—", "Tehzîbü't-Tehzîb, Zürâre b. Evfâ tercemesi"),
+  E("mugirasube", "zurareevfa", "—", "Tehzîbü't-Tehzîb, Zürâre b. Evfâ tercemesi"),
+
+  /* Zürâre b. Evfâ (o. 93) -- talebeleri, kisa ad taramasi.
+     Dâvûd b. Ebî Hind. */
+  E("zurareevfa", "davudebihind", "—", "Tehzîbü't-Tehzîb, Zürâre b. Evfâ tercemesi"),
+
+  /* Hılâs el-Hecerî (o. ?) -- talebeleri, kisa ad taramasi.
+     Avf el-A‘râbî, Dâvûd b. Ebî Hind. */
+  E("hilas", "avfarabi", "—", "Tehzîbü't-Tehzîb, Hılâs el-Hecerî tercemesi"),
+  E("hilas", "davudebihind", "—", "Tehzîbü't-Tehzîb, Hılâs el-Hecerî tercemesi"),
+
+  /* Ba‘ce b. Abdillâh el-Cühenî (o. 100) -- talebeleri, kisa ad taramasi.
+     Üsâme b. Zeyd el-Leysî, Yezîd b. Ebî Habîb. */
+  E("bece", "usamezeydleysi", "—", "Tehzîbü't-Tehzîb, Ba‘ce b. Abdillâh el-Cühenî tercemesi"),
+  E("bece", "yezidebihabib", "—", "Tehzîbü't-Tehzîb, Ba‘ce b. Abdillâh el-Cühenî tercemesi"),
+
+  /* Kays b. Ebû Hâzim (o. 97) -- hocalari, kisa ad taramasi.
+     Hâlid b. el-Velîd, Ebû Mûsâ el-Eş‘arî, Mugīre b. Şu‘be. */
+  E("halidvelid", "kayshazim", "—", "Tehzîbü't-Tehzîb, Kays b. Ebû Hâzim tercemesi"),
+  E("ebumusa", "kayshazim", "—", "Tehzîbü't-Tehzîb, Kays b. Ebû Hâzim tercemesi"),
+  E("mugirasube", "kayshazim", "—", "Tehzîbü't-Tehzîb, Kays b. Ebû Hâzim tercemesi"),
+
+  /* Kays b. Ebû Hâzim (o. 97) -- talebeleri, kisa ad taramasi.
+     İsmâîl b. Ebî Hâlid, Beyân b. Bişr el-Ahmesî, Mücâlid b. Saîd. */
+  E("kayshazim", "ismailebihalid", "—", "Tehzîbü't-Tehzîb, Kays b. Ebû Hâzim tercemesi"),
+  E("kayshazim", "beyanbisr", "—", "Tehzîbü't-Tehzîb, Kays b. Ebû Hâzim tercemesi"),
+  E("kayshazim", "mucalidsaid", "—", "Tehzîbü't-Tehzîb, Kays b. Ebû Hâzim tercemesi"),
+
+  /* Osman b. Affân (o. 35) -- talebeleri, kisa ad taramasi.
+     Ebû Ümâme b. Sehl b. Huneyf. */
+  E("osman", "ebuumamesehl", "—", "Tehzîbü't-Tehzîb, Osman b. Affân tercemesi"),
+
+  /* Mürre b. Şerâhîl (o. 76) -- hocalari, kisa ad taramasi.
+     Ebû Mûsâ el-Eş‘arî, Zeyd b. Erkam. */
+  E("ebumusa", "murreserahil", "—", "Tehzîbü't-Tehzîb, Mürre b. Şerâhîl tercemesi"),
+  E("zeydarkam", "murreserahil", "—", "Tehzîbü't-Tehzîb, Mürre b. Şerâhîl tercemesi"),
+
+  /* Mürre b. Şerâhîl (o. 76) -- talebeleri, kisa ad taramasi.
+     İsmâîl b. Ebî Hâlid, İsmâîl es-Süddî, Husayn b. Abdirrahman, Zübeyd el-Yâmî, Atâ b. es-Sâib. */
+  E("murreserahil", "ismailebihalid", "—", "Tehzîbü't-Tehzîb, Mürre b. Şerâhîl tercemesi"),
+  E("murreserahil", "suddi", "—", "Tehzîbü't-Tehzîb, Mürre b. Şerâhîl tercemesi"),
+  E("murreserahil", "husaynabdrahman", "—", "Tehzîbü't-Tehzîb, Mürre b. Şerâhîl tercemesi"),
+  E("murreserahil", "zubeydyami", "—", "Tehzîbü't-Tehzîb, Mürre b. Şerâhîl tercemesi"),
+  E("murreserahil", "ataisaib", "—", "Tehzîbü't-Tehzîb, Mürre b. Şerâhîl tercemesi"),
+
+  /* Âbis b. Rebîa en-Nehaî (o. ?) -- talebeleri, kisa ad taramasi.
+     Ebû İshak es-Sebîî. */
+  E("abisrebia", "ebuishaksebii", "—", "Tehzîbü't-Tehzîb, Âbis b. Rebîa en-Nehaî tercemesi"),
+
+  /* Mervân b. el-Hakem (o. 65) -- talebeleri, kisa ad taramasi.
+     Saîd b. el-Müseyyeb, Ali b. el-Hüseyin (Zeynelâbidîn), Urve b. ez-Zübeyr, Ubeydullah b. Abdillâh b. Utbe. */
+  E("mervan", "saidmusayyeb", "—", "Tehzîbü't-Tehzîb, Mervân b. el-Hakem tercemesi"),
+  E("mervan", "zeynelabidin", "—", "Tehzîbü't-Tehzîb, Mervân b. el-Hakem tercemesi"),
+  E("mervan", "urve", "—", "Tehzîbü't-Tehzîb, Mervân b. el-Hakem tercemesi"),
+  E("mervan", "ubeydullahutbe", "—", "Tehzîbü't-Tehzîb, Mervân b. el-Hakem tercemesi"),
+
+  /* Abdullah b. Amr b. el-Âs (o. 63) -- talebeleri, kisa ad taramasi.
+     Enes b. Mâlik, Ebû Ümâme b. Sehl b. Huneyf, Humeyd b. Abdirrahman b. Avf, Sâlim b. Ebü'l-Ca‘d, Urve b. ez-Zübeyr, İkrime mevlâ İbn Abbâs, Mücâhid b. Cebr, Ebû Seleme b. Abdirrahman, Amr b. Dînâr. */
+  E("abdullahamr", "enes", "—", "Tehzîbü't-Tehzîb, Abdullah b. Amr b. el-Âs tercemesi"),
+  E("abdullahamr", "ebuumamesehl", "—", "Tehzîbü't-Tehzîb, Abdullah b. Amr b. el-Âs tercemesi"),
+  E("abdullahamr", "humeydavf", "—", "Tehzîbü't-Tehzîb, Abdullah b. Amr b. el-Âs tercemesi"),
+  E("abdullahamr", "salimcad", "—", "Tehzîbü't-Tehzîb, Abdullah b. Amr b. el-Âs tercemesi"),
+  E("abdullahamr", "urve", "—", "Tehzîbü't-Tehzîb, Abdullah b. Amr b. el-Âs tercemesi"),
+  E("abdullahamr", "ikrime", "—", "Tehzîbü't-Tehzîb, Abdullah b. Amr b. el-Âs tercemesi"),
+  E("abdullahamr", "mucahid", "—", "Tehzîbü't-Tehzîb, Abdullah b. Amr b. el-Âs tercemesi"),
+  E("abdullahamr", "ebuselemeavf", "—", "Tehzîbü't-Tehzîb, Abdullah b. Amr b. el-Âs tercemesi"),
+  E("abdullahamr", "amrdinar", "—", "Tehzîbü't-Tehzîb, Abdullah b. Amr b. el-Âs tercemesi"),
+
+  /* Zeyd b. Hâlid el-Cühenî (o. 68) -- talebeleri, kisa ad taramasi.
+     Saîd b. Yesâr, Atâ b. Ebî Rebâh, Ebû Seleme b. Abdirrahman. */
+  E("zeydhalid", "saidyesar", "—", "Tehzîbü't-Tehzîb, Zeyd b. Hâlid el-Cühenî tercemesi"),
+  E("zeydhalid", "ataebirebah", "—", "Tehzîbü't-Tehzîb, Zeyd b. Hâlid el-Cühenî tercemesi"),
+  E("zeydhalid", "ebuselemeavf", "—", "Tehzîbü't-Tehzîb, Zeyd b. Hâlid el-Cühenî tercemesi"),
+
+  /* Muhammed b. İshak (o. 151) -- hocalari, kisa ad taramasi.
+     İbrâhim b. Ukbe, Humeyd et-Tavîl, Sâlim Ebû'n-Nadr, İkrime b. Hâlid el-Mahzûmî, Alâ b. Abdirrahman, Yezîd b. Rûmân. */
+  E("ibrahimukbe", "ibnishak", "—", "Tehzîbü't-Tehzîb, Muhammed b. İshak tercemesi"),
+  E("humeydtavil", "ibnishak", "—", "Tehzîbü't-Tehzîb, Muhammed b. İshak tercemesi"),
+  E("salimebinadr", "ibnishak", "—", "Tehzîbü't-Tehzîb, Muhammed b. İshak tercemesi"),
+  E("ikrimehalid", "ibnishak", "—", "Tehzîbü't-Tehzîb, Muhammed b. İshak tercemesi"),
+  E("alaabdrahman", "ibnishak", "—", "Tehzîbü't-Tehzîb, Muhammed b. İshak tercemesi"),
+  E("yezidrouman", "ibnishak", "—", "Tehzîbü't-Tehzîb, Muhammed b. İshak tercemesi"),
+
+  /* Muhammed b. İshak (o. 151) -- talebeleri, kisa ad taramasi.
+     Yahyâ b. Saîd el-Ensârî, Cerîr b. Hâzim, Züheyr b. Muâviye, Abde b. Süleymân. */
+  E("ibnishak", "yahyasaidensari", "—", "Tehzîbü't-Tehzîb, Muhammed b. İshak tercemesi"),
+  E("ibnishak", "cerirhazim", "—", "Tehzîbü't-Tehzîb, Muhammed b. İshak tercemesi"),
+  E("ibnishak", "zuhayrmuaviye", "—", "Tehzîbü't-Tehzîb, Muhammed b. İshak tercemesi"),
+  E("ibnishak", "abdesuleyman", "—", "Tehzîbü't-Tehzîb, Muhammed b. İshak tercemesi"),
+
+  /* Ebû Avâne el-Vâsıtî (o. 176) -- hocalari, kisa ad taramasi.
+     Beyân b. Bişr el-Ahmesî. */
+  E("beyanbisr", "ebuavane", "—", "Tehzîbü't-Tehzîb, Ebû Avâne el-Vâsıtî tercemesi"),
+
+  /* Ebû Avâne el-Vâsıtî (o. 176) -- talebeleri, kisa ad taramasi.
+     Kuteybe b. Saîd, Yahyâ b. Yahyâ en-Nîsâbûrî. */
+  E("ebuavane", "kuteybesaid", "—", "Tehzîbü't-Tehzîb, Ebû Avâne el-Vâsıtî tercemesi"),
+  E("ebuavane", "yahyayahyanisaburi", "—", "Tehzîbü't-Tehzîb, Ebû Avâne el-Vâsıtî tercemesi"),
+
+  /* Şu‘be b. el-Haccâc (o. 160) -- hocalari, kisa ad taramasi.
+     Câbir el-Cu‘fî, Harb b. Şeddâd, Saîd b. Mesrûk es-Sevrî, Süfyân b. Husayn, Seleme b. Küheyl, Süleymân et-Teymî, Simâk b. Harb, Süheyl b. Ebî Sâlih, Siyâr Ebû'l-Hakem, Sâlih b. Sâlih b. Hayy, Âsım b. Behdele, Âmir el-Ahvel, Abdullah b. Avn, Abdülmelik b. Umeyr, Abde b. Ebî Lübâbe, Ubeydullah b. Ebî Yezîd, Ebû Hasīn Osmân b. Âsım, Atâ b. es-Sâib, İkrime b. Ammâr, Ali b. Zeyd b. Cüd‘ân, Avvâm b. Havşeb, Avf el-A‘râbî, Kâsım b. Mihrân, Leys b. Ebî Süleym, Mücâlid b. Saîd, Muhammed b. el-Münkedir, Mis‘ar b. Kedâm, Mansûr b. Zâzân, Mansûr b. el-Mu‘temir, Hişâm b. Urve, Yahyâ b. Saîd el-Ensârî, Yahyâ b. Ebî Kesîr, Ebû Hâşim er-Rummânî. */
+  E("cabircufi", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("harbseddad", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("saidmesrukhsevri", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("sufyanhusayn", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("selemekuheyl", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("suleymanteymi", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("simakharb", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("suheylebisalih", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("siyarebilhakem", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("salihhayy", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("asimbehdele", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("amiralhavl", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("abdullahavn", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("abdulmelikumeyr", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("abdelubabe", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("ubeydullahebiyezid", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("ebuhasin", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("ataisaib", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("ikrimeammar", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("alizeydcudan", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("avvamhavseb", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("avfarabi", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("kasimmihran", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("leysebisuleym", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("mucalidsaid", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("ibnmunkedir", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("misersukdam", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("mansurzazan", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("mansurmutemir", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("hisamurve", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("yahyasaidensari", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("yahyaebikesir", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("ebuhasimrummani", "sube", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+
+  /* Şu‘be b. el-Haccâc (o. 160) -- talebeleri, kisa ad taramasi.
+     Cerîr b. Hâzim, İbrâhim b. Tahmân, Âdem b. Ebî İyâs el-Askalânî, Haccâc b. Minhâl, Amr b. Merzûk, Müslim b. İbrâhim. */
+  E("sube", "cerirhazim", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("sube", "ibrahimtahman", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("sube", "ademebiiyas", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("sube", "haccacminhal", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("sube", "amrmerzuk", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+  E("sube", "muslimibrahim", "—", "Tehzîbü't-Tehzîb, Şu‘be b. el-Haccâc tercemesi"),
+
+  /* Ma‘mer b. Râşid (o. 153) -- hocalari, kisa ad taramasi.
+     Sâbit el-Bünânî, Ca‘fer b. Burkān, İsmâîl b. Ümeyye, Sümâme b. Abdillâh b. Enes, Abdullah b. Osmân b. Husıym, Ubeydullah b. Ömer el-Ömerî, Atâ el-Horâsânî. */
+  E("sabitbunani", "mamer", "—", "Tehzîbü't-Tehzîb, Ma‘mer b. Râşid tercemesi"),
+  E("caferburkan", "mamer", "—", "Tehzîbü't-Tehzîb, Ma‘mer b. Râşid tercemesi"),
+  E("ismailumeyye", "mamer", "—", "Tehzîbü't-Tehzîb, Ma‘mer b. Râşid tercemesi"),
+  E("sumameenes", "mamer", "—", "Tehzîbü't-Tehzîb, Ma‘mer b. Râşid tercemesi"),
+  E("ibnhuseymkhaysem", "mamer", "—", "Tehzîbü't-Tehzîb, Ma‘mer b. Râşid tercemesi"),
+  E("ubeydullahomeri", "mamer", "—", "Tehzîbü't-Tehzîb, Ma‘mer b. Râşid tercemesi"),
+  E("ataihorasani", "mamer", "—", "Tehzîbü't-Tehzîb, Ma‘mer b. Râşid tercemesi"),
+
+  /* Hüşeym b. Beşîr (o. 183) -- hocalari, kisa ad taramasi.
+     İsmâîl b. Ebî Hâlid, Ebû İshak eş-Şeybânî. */
+  E("ismailebihalid", "huseym", "—", "Tehzîbü't-Tehzîb, Hüşeym b. Beşîr tercemesi"),
+  E("ismailebiislamsibani", "huseym", "—", "Tehzîbü't-Tehzîb, Hüşeym b. Beşîr tercemesi"),
+
+  /* Yahyâ b. Âdem (o. 203) -- hocalari, kisa ad taramasi.
+     Cerîr b. Hâzim, Züheyr b. Muâviye. */
+  E("cerirhazim", "yahyaadem", "—", "Tehzîbü't-Tehzîb, Yahyâ b. Âdem tercemesi"),
+  E("zuhayrmuaviye", "yahyaadem", "—", "Tehzîbü't-Tehzîb, Yahyâ b. Âdem tercemesi"),
+
+  /* Yahyâ b. Âdem (o. 203) -- talebeleri, kisa ad taramasi.
+     Hasan b. Ali el-Hallâl. */
+  E("yahyaadem", "hasanaliayyal", "—", "Tehzîbü't-Tehzîb, Yahyâ b. Âdem tercemesi"),
+
+  /* Abdullah b. el-Mübârek (o. 181) -- hocalari, kisa ad taramasi.
+     Yahyâ b. Saîd el-Ensârî, İkrime b. Ammâr, Muhammed b. Aclân, Mûsâ b. Ukbe, Hişâm b. Urve, İbn Cüreyc, Sâlih b. Sâlih b. Hayy, Abdülmelik b. Ebî Süleymân, Amr b. Meymûn b. Mihrân, Avf el-A‘râbî, Hişâm b. Hassân. */
+  E("yahyasaidensari", "ibnmubarek", "—", "Tehzîbü't-Tehzîb, Abdullah b. el-Mübârek tercemesi"),
+  E("ikrimeammar", "ibnmubarek", "—", "Tehzîbü't-Tehzîb, Abdullah b. el-Mübârek tercemesi"),
+  E("muhammedacilan", "ibnmubarek", "—", "Tehzîbü't-Tehzîb, Abdullah b. el-Mübârek tercemesi"),
+  E("musaukbe", "ibnmubarek", "—", "Tehzîbü't-Tehzîb, Abdullah b. el-Mübârek tercemesi"),
+  E("hisamurve", "ibnmubarek", "—", "Tehzîbü't-Tehzîb, Abdullah b. el-Mübârek tercemesi"),
+  E("ibncureyc", "ibnmubarek", "—", "Tehzîbü't-Tehzîb, Abdullah b. el-Mübârek tercemesi"),
+  E("salihhayy", "ibnmubarek", "—", "Tehzîbü't-Tehzîb, Abdullah b. el-Mübârek tercemesi"),
+  E("abdulmelikebisuleyman", "ibnmubarek", "—", "Tehzîbü't-Tehzîb, Abdullah b. el-Mübârek tercemesi"),
+  E("amrmeymunmihran", "ibnmubarek", "—", "Tehzîbü't-Tehzîb, Abdullah b. el-Mübârek tercemesi"),
+  E("avfarabi", "ibnmubarek", "—", "Tehzîbü't-Tehzîb, Abdullah b. el-Mübârek tercemesi"),
+  E("hisamhassan", "ibnmubarek", "—", "Tehzîbü't-Tehzîb, Abdullah b. el-Mübârek tercemesi"),
+
+  /* Abdullah b. el-Mübârek (o. 181) -- talebeleri, kisa ad taramasi.
+     Fudayl b. İyâz, Mu‘temir b. Süleymân, Velîd b. Müslim, Müslim b. İbrâhim, İshak b. Râhûye. */
+  E("ibnmubarek", "fudaylibnayaz", "—", "Tehzîbü't-Tehzîb, Abdullah b. el-Mübârek tercemesi"),
+  E("ibnmubarek", "mutemirsuleyman", "—", "Tehzîbü't-Tehzîb, Abdullah b. el-Mübârek tercemesi"),
+  E("ibnmubarek", "velidmuslim", "—", "Tehzîbü't-Tehzîb, Abdullah b. el-Mübârek tercemesi"),
+  E("ibnmubarek", "muslimibrahim", "—", "Tehzîbü't-Tehzîb, Abdullah b. el-Mübârek tercemesi"),
+  E("ibnmubarek", "ibnrahuye", "—", "Tehzîbü't-Tehzîb, Abdullah b. el-Mübârek tercemesi"),
+
+  /* Yahyâ b. Saîd el-Kattân (o. 198) -- hocalari, kisa ad taramasi.
+     Yahyâ b. Saîd el-Ensârî, Hişâm b. Urve, İkrime b. Ammâr, İbn Cüreyc, Abdülhamîd b. Ca‘fer, Abdülmelik b. Ebî Süleymân, Avf el-A‘râbî. */
+  E("yahyasaidensari", "kattan", "—", "Tehzîbü't-Tehzîb, Yahyâ b. Saîd el-Kattân tercemesi"),
+  E("hisamurve", "kattan", "—", "Tehzîbü't-Tehzîb, Yahyâ b. Saîd el-Kattân tercemesi"),
+  E("ikrimeammar", "kattan", "—", "Tehzîbü't-Tehzîb, Yahyâ b. Saîd el-Kattân tercemesi"),
+  E("ibncureyc", "kattan", "—", "Tehzîbü't-Tehzîb, Yahyâ b. Saîd el-Kattân tercemesi"),
+  E("abdulhamidcafer", "kattan", "—", "Tehzîbü't-Tehzîb, Yahyâ b. Saîd el-Kattân tercemesi"),
+  E("abdulmelikebisuleyman", "kattan", "—", "Tehzîbü't-Tehzîb, Yahyâ b. Saîd el-Kattân tercemesi"),
+  E("avfarabi", "kattan", "—", "Tehzîbü't-Tehzîb, Yahyâ b. Saîd el-Kattân tercemesi"),
+
+  /* Üsâme b. Zeyd el-Leysî (o. 153) -- hocalari, kisa ad taramasi.
+     Atâ b. Ebî Rebâh, Muhammed b. el-Münkedir. */
+  E("ataebirebah", "usamezeydleysi", "—", "Tehzîbü't-Tehzîb, Üsâme b. Zeyd el-Leysî tercemesi"),
+  E("ibnmunkedir", "usamezeydleysi", "—", "Tehzîbü't-Tehzîb, Üsâme b. Zeyd el-Leysî tercemesi"),
+
+  /* Üsâme b. Zeyd el-Leysî (o. 153) -- talebeleri, kisa ad taramasi.
+     Evzâî. */
+  E("usamezeydleysi", "evzai", "—", "Tehzîbü't-Tehzîb, Üsâme b. Zeyd el-Leysî tercemesi"),
+
+  /* Bekir b. Abdillâh el-Müzenî (o. 106) -- hocalari, kisa ad taramasi.
+     Mugīre b. Şu‘be. */
+  E("mugirasube", "bekirmuzeni", "—", "Tehzîbü't-Tehzîb, Bekir b. Abdillâh el-Müzenî tercemesi"),
+
+  /* Bekir b. Abdillâh el-Müzenî (o. 106) -- talebeleri, kisa ad taramasi.
+     Sâbit el-Bünânî, Süleymân et-Teymî, Matar el-Verrâk. */
+  E("bekirmuzeni", "sabitbunani", "—", "Tehzîbü't-Tehzîb, Bekir b. Abdillâh el-Müzenî tercemesi"),
+  E("bekirmuzeni", "suleymanteymi", "—", "Tehzîbü't-Tehzîb, Bekir b. Abdillâh el-Müzenî tercemesi"),
+  E("bekirmuzeni", "matarverrak", "—", "Tehzîbü't-Tehzîb, Bekir b. Abdillâh el-Müzenî tercemesi"),
+
+  /* Ma‘rûr b. Süveyd (o. ?) -- talebeleri, kisa ad taramasi.
+     Sâlim b. Ebü'l-Ca‘d. */
+  E("mearrursuveyd", "salimcad", "—", "Tehzîbü't-Tehzîb, Ma‘rûr b. Süveyd tercemesi"),
+
+  /* Cerîr b. Hâzim (o. 170) -- hocalari, kisa ad taramasi.
+     Sâbit el-Bünânî, Humeyd et-Tavîl. */
+  E("sabitbunani", "cerirhazim", "—", "Tehzîbü't-Tehzîb, Cerîr b. Hâzim tercemesi"),
+  E("humeydtavil", "cerirhazim", "—", "Tehzîbü't-Tehzîb, Cerîr b. Hâzim tercemesi"),
+
+  /* Cerîr b. Hâzim (o. 170) -- talebeleri, kisa ad taramasi.
+     Yezîd b. Ebî Habîb, Haccâc b. Minhâl, Müslim b. İbrâhim, Ebû Nasr et-Temmâr, Hüdbe b. Hâlid. */
+  E("cerirhazim", "yezidebihabib", "—", "Tehzîbü't-Tehzîb, Cerîr b. Hâzim tercemesi"),
+  E("cerirhazim", "haccacminhal", "—", "Tehzîbü't-Tehzîb, Cerîr b. Hâzim tercemesi"),
+  E("cerirhazim", "muslimibrahim", "—", "Tehzîbü't-Tehzîb, Cerîr b. Hâzim tercemesi"),
+  E("cerirhazim", "ebunasrtemmar", "—", "Tehzîbü't-Tehzîb, Cerîr b. Hâzim tercemesi"),
+  E("cerirhazim", "hebbanhilal", "—", "Tehzîbü't-Tehzîb, Cerîr b. Hâzim tercemesi"),
+
+  /* Hafs b. Giyâs (o. 194) -- hocalari, kisa ad taramasi.
+     İsmâîl b. Ebî Hâlid, Süleymân et-Teymî, Yahyâ b. Saîd el-Ensârî, Hişâm b. Urve, Leys b. Ebî Süleym. */
+  E("ismailebihalid", "hafsgiyas", "—", "Tehzîbü't-Tehzîb, Hafs b. Giyâs tercemesi"),
+  E("suleymanteymi", "hafsgiyas", "—", "Tehzîbü't-Tehzîb, Hafs b. Giyâs tercemesi"),
+  E("yahyasaidensari", "hafsgiyas", "—", "Tehzîbü't-Tehzîb, Hafs b. Giyâs tercemesi"),
+  E("hisamurve", "hafsgiyas", "—", "Tehzîbü't-Tehzîb, Hafs b. Giyâs tercemesi"),
+  E("leysebisuleym", "hafsgiyas", "—", "Tehzîbü't-Tehzîb, Hafs b. Giyâs tercemesi"),
+
+  /* Mis‘ar b. Kedâm (o. 155) -- hocalari, kisa ad taramasi.
+     Abdülmelik b. Umeyr, Ebû İshak es-Sebîî, Hilâl el-Vezzân. */
+  E("abdulmelikumeyr", "misersukdam", "—", "Tehzîbü't-Tehzîb, Mis‘ar b. Kedâm tercemesi"),
+  E("ebuishaksebii", "misersukdam", "—", "Tehzîbü't-Tehzîb, Mis‘ar b. Kedâm tercemesi"),
+  E("hilalvezzan", "misersukdam", "—", "Tehzîbü't-Tehzîb, Mis‘ar b. Kedâm tercemesi"),
+
+  /* Mis‘ar b. Kedâm (o. 155) -- talebeleri, kisa ad taramasi.
+     Süleymân et-Teymî, Muhammed b. Bişr el-Abdî. */
+  E("misersukdam", "suleymanteymi", "—", "Tehzîbü't-Tehzîb, Mis‘ar b. Kedâm tercemesi"),
+  E("misersukdam", "muhammedbisrabdi", "—", "Tehzîbü't-Tehzîb, Mis‘ar b. Kedâm tercemesi"),
+
+  /* Abdullah b. Nümeyr (o. 199) -- hocalari, kisa ad taramasi.
+     İsmâîl b. Ebî Hâlid, Hişâm b. Urve, Mûsâ el-Cühenî, Sa‘d b. Saîd el-Ensârî, Hanzala b. Ebî Süfyân, Mücâlid b. Saîd, Mâlik b. Migvel. */
+  E("ismailebihalid", "ibnnumeyr", "—", "Tehzîbü't-Tehzîb, Abdullah b. Nümeyr tercemesi"),
+  E("hisamurve", "ibnnumeyr", "—", "Tehzîbü't-Tehzîb, Abdullah b. Nümeyr tercemesi"),
+  E("musacuheni", "ibnnumeyr", "—", "Tehzîbü't-Tehzîb, Abdullah b. Nümeyr tercemesi"),
+  E("sadsaidensari", "ibnnumeyr", "—", "Tehzîbü't-Tehzîb, Abdullah b. Nümeyr tercemesi"),
+  E("hanzalasufyan", "ibnnumeyr", "—", "Tehzîbü't-Tehzîb, Abdullah b. Nümeyr tercemesi"),
+  E("mucalidsaid", "ibnnumeyr", "—", "Tehzîbü't-Tehzîb, Abdullah b. Nümeyr tercemesi"),
+  E("malikmigvel", "ibnnumeyr", "—", "Tehzîbü't-Tehzîb, Abdullah b. Nümeyr tercemesi"),
+
+  /* Mücâhid b. Cebr (o. 103) -- hocalari, kisa ad taramasi.
+     Râfi‘ b. Hadîc, Câbir b. Abdullah, Abdurrahman b. Ebî Leylâ. */
+  E("rafihadic", "mucahid", "—", "Tehzîbü't-Tehzîb, Mücâhid b. Cebr tercemesi"),
+  E("cabir", "mucahid", "—", "Tehzîbü't-Tehzîb, Mücâhid b. Cebr tercemesi"),
+  E("ibnebileyla", "mucahid", "—", "Tehzîbü't-Tehzîb, Mücâhid b. Cebr tercemesi"),
+
+  /* Mücâhid b. Cebr (o. 103) -- talebeleri, kisa ad taramasi.
+     Eyyûb es-Sahtiyânî, Ubeydullah b. Ebî Yezîd, Bekîr b. el-Ahnes, Habîb b. Ebî Sâbit, Hakem b. Uteybe, Zübeyd el-Yâmî, Seleme b. Küheyl, Abdülkerîm b. Mâlik el-Cezerî, Abde b. Ebî Lübâbe. */
+  E("mucahid", "eyyubsahtiyani", "—", "Tehzîbü't-Tehzîb, Mücâhid b. Cebr tercemesi"),
+  E("mucahid", "ubeydullahebiyezid", "—", "Tehzîbü't-Tehzîb, Mücâhid b. Cebr tercemesi"),
+  E("mucahid", "bekirahnes", "—", "Tehzîbü't-Tehzîb, Mücâhid b. Cebr tercemesi"),
+  E("mucahid", "habibebisabit", "—", "Tehzîbü't-Tehzîb, Mücâhid b. Cebr tercemesi"),
+  E("mucahid", "hakemuteybe", "—", "Tehzîbü't-Tehzîb, Mücâhid b. Cebr tercemesi"),
+  E("mucahid", "zubeydyami", "—", "Tehzîbü't-Tehzîb, Mücâhid b. Cebr tercemesi"),
+  E("mucahid", "selemekuheyl", "—", "Tehzîbü't-Tehzîb, Mücâhid b. Cebr tercemesi"),
+  E("mucahid", "abdulkerimcezeri", "—", "Tehzîbü't-Tehzîb, Mücâhid b. Cebr tercemesi"),
+  E("mucahid", "abdelubabe", "—", "Tehzîbü't-Tehzîb, Mücâhid b. Cebr tercemesi"),
+
+  /* Süleymân b. Yesâr (o. 107) -- hocalari, kisa ad taramasi.
+     Mikdâd b. el-Esved, Amre bint Abdirrahman. */
+  E("mikdad", "suleymanyesar", "—", "Tehzîbü't-Tehzîb, Süleymân b. Yesâr tercemesi"),
+  E("amrabdrahmanzurara", "suleymanyesar", "—", "Tehzîbü't-Tehzîb, Süleymân b. Yesâr tercemesi"),
+
+  /* Süleymân b. Yesâr (o. 107) -- talebeleri, kisa ad taramasi.
+     Sâlim Ebû'n-Nadr, Yahyâ b. Saîd el-Ensârî. */
+  E("suleymanyesar", "salimebinadr", "—", "Tehzîbü't-Tehzîb, Süleymân b. Yesâr tercemesi"),
+  E("suleymanyesar", "yahyasaidensari", "—", "Tehzîbü't-Tehzîb, Süleymân b. Yesâr tercemesi"),
+
+  /* Dâvûd b. Abdirrahman el-Attâr (o. ?) -- hocalari, kisa ad taramasi.
+     Hişâm b. Urve, Amr b. Yahyâ el-Mâzinî. */
+  E("hisamurve", "davudattar", "—", "Tehzîbü't-Tehzîb, Dâvûd b. Abdirrahman el-Attâr tercemesi"),
+  E("amryahyamazini", "davudattar", "—", "Tehzîbü't-Tehzîb, Dâvûd b. Abdirrahman el-Attâr tercemesi"),
+
+  /* Dâvûd b. Abdirrahman el-Attâr (o. ?) -- talebeleri, kisa ad taramasi.
+     Saîd b. Mansûr. */
+  E("davudattar", "said_mansur", "—", "Tehzîbü't-Tehzîb, Dâvûd b. Abdirrahman el-Attâr tercemesi"),
+
+  /* Zekeriyyâ b. İshak el-Mekkî (o. ?) -- talebeleri, kisa ad taramasi.
+     Ruh b. Ubâde. */
+  E("zekeriyyaishak", "ruhubade", "—", "Tehzîbü't-Tehzîb, Zekeriyyâ b. İshak el-Mekkî tercemesi"),
+
+  /* Amr b. Meymûn el-Evdî (o. 74) -- talebeleri, kisa ad taramasi.
+     Saîd b. Cübeyr, Atâ b. es-Sâib, Muhammed b. Sûka, Husayn b. Abdirrahman. */
+  E("amrmeymun", "saidcubeyr", "—", "Tehzîbü't-Tehzîb, Amr b. Meymûn el-Evdî tercemesi"),
+  E("amrmeymun", "ataisaib", "—", "Tehzîbü't-Tehzîb, Amr b. Meymûn el-Evdî tercemesi"),
+  E("amrmeymun", "muhammedsuka", "—", "Tehzîbü't-Tehzîb, Amr b. Meymûn el-Evdî tercemesi"),
+  E("amrmeymun", "husaynabdrahman", "—", "Tehzîbü't-Tehzîb, Amr b. Meymûn el-Evdî tercemesi"),
+
+  /* Nu‘mân b. Beşîr (o. 64) -- talebeleri, kisa ad taramasi.
+     Urve b. ez-Zübeyr, Ebû Kılâbe el-Cermî, Sâlim b. Ebü'l-Ca‘d, Humeyd b. Abdirrahman b. Avf, Hayseme b. Abdurrahman, Simâk b. Harb. */
+  E("numanbesir", "urve", "—", "Tehzîbü't-Tehzîb, Nu‘mân b. Beşîr tercemesi"),
+  E("numanbesir", "ebukilabe", "—", "Tehzîbü't-Tehzîb, Nu‘mân b. Beşîr tercemesi"),
+  E("numanbesir", "salimcad", "—", "Tehzîbü't-Tehzîb, Nu‘mân b. Beşîr tercemesi"),
+  E("numanbesir", "humeydavf", "—", "Tehzîbü't-Tehzîb, Nu‘mân b. Beşîr tercemesi"),
+  E("numanbesir", "hayseme", "—", "Tehzîbü't-Tehzîb, Nu‘mân b. Beşîr tercemesi"),
+  E("numanbesir", "simakharb", "—", "Tehzîbü't-Tehzîb, Nu‘mân b. Beşîr tercemesi"),
+
+  /* Şerîk b. Abdillâh en-Nehaî (o. 177) -- hocalari, kisa ad taramasi.
+     Abdülmelik b. Umeyr, İsmâîl b. Ebî Hâlid, Âsım b. Süleymân el-Ahvel, Simâk b. Harb, Zübeyd el-Yâmî, Âsım b. Behdele, Hişâm b. Urve, Atâ b. es-Sâib. */
+  E("abdulmelikumeyr", "serikkadi", "—", "Tehzîbü't-Tehzîb, Şerîk b. Abdillâh en-Nehaî tercemesi"),
+  E("ismailebihalid", "serikkadi", "—", "Tehzîbü't-Tehzîb, Şerîk b. Abdillâh en-Nehaî tercemesi"),
+  E("asimahvel", "serikkadi", "—", "Tehzîbü't-Tehzîb, Şerîk b. Abdillâh en-Nehaî tercemesi"),
+  E("simakharb", "serikkadi", "—", "Tehzîbü't-Tehzîb, Şerîk b. Abdillâh en-Nehaî tercemesi"),
+  E("zubeydyami", "serikkadi", "—", "Tehzîbü't-Tehzîb, Şerîk b. Abdillâh en-Nehaî tercemesi"),
+  E("asimbehdele", "serikkadi", "—", "Tehzîbü't-Tehzîb, Şerîk b. Abdillâh en-Nehaî tercemesi"),
+  E("hisamurve", "serikkadi", "—", "Tehzîbü't-Tehzîb, Şerîk b. Abdillâh en-Nehaî tercemesi"),
+  E("ataisaib", "serikkadi", "—", "Tehzîbü't-Tehzîb, Şerîk b. Abdillâh en-Nehaî tercemesi"),
+
+  /* Şerîk b. Abdillâh en-Nehaî (o. 177) -- talebeleri, kisa ad taramasi.
+     Abdüsselâm b. Harb, Yezîd b. Hârûn, Kuteybe b. Saîd. */
+  E("serikkadi", "abdusselamharb", "—", "Tehzîbü't-Tehzîb, Şerîk b. Abdillâh en-Nehaî tercemesi"),
+  E("serikkadi", "yezidharun", "—", "Tehzîbü't-Tehzîb, Şerîk b. Abdillâh en-Nehaî tercemesi"),
+  E("serikkadi", "kuteybesaid", "—", "Tehzîbü't-Tehzîb, Şerîk b. Abdillâh en-Nehaî tercemesi"),
+
+  /* Hamza b. Habîb ez-Zeyyât (o. 156) -- hocalari, kisa ad taramasi.
+     Ebû İshak eş-Şeybânî, Hakem b. Uteybe, Habîb b. Ebî Sâbit, Mansûr b. el-Mu‘temir. */
+  E("ismailebiislamsibani", "hamzazeyyat", "—", "Tehzîbü't-Tehzîb, Hamza b. Habîb ez-Zeyyât tercemesi"),
+  E("hakemuteybe", "hamzazeyyat", "—", "Tehzîbü't-Tehzîb, Hamza b. Habîb ez-Zeyyât tercemesi"),
+  E("habibebisabit", "hamzazeyyat", "—", "Tehzîbü't-Tehzîb, Hamza b. Habîb ez-Zeyyât tercemesi"),
+  E("mansurmutemir", "hamzazeyyat", "—", "Tehzîbü't-Tehzîb, Hamza b. Habîb ez-Zeyyât tercemesi"),
+
+  /* Âmir b. Rebîa (o. 35) -- talebeleri, kisa ad taramasi.
+     Ebû Ümâme b. Sehl b. Huneyf. */
+  E("amirrebia", "ebuumamesehl", "—", "Tehzîbü't-Tehzîb, Âmir b. Rebîa tercemesi"),
+
+  /* Cebele b. Süheym (o. 125) -- talebeleri, kisa ad taramasi.
+     Ebû İshak es-Sebîî, Ebû İshak eş-Şeybânî. */
+  E("cebeleshim", "ebuishaksebii", "—", "Tehzîbü't-Tehzîb, Cebele b. Süheym tercemesi"),
+  E("cebeleshim", "ismailebiislamsibani", "—", "Tehzîbü't-Tehzîb, Cebele b. Süheym tercemesi"),
+
+  /* Sa‘d b. Ubeyde (o. ?) -- hocalari, kisa ad taramasi.
+     Mugīre b. Şu‘be, Berâ b. Âzib, Ebû Abdirrahman es-Sülemî. */
+  E("mugirasube", "sadubeyde", "—", "Tehzîbü't-Tehzîb, Sa‘d b. Ubeyde tercemesi"),
+  E("bera", "sadubeyde", "—", "Tehzîbü't-Tehzîb, Sa‘d b. Ubeyde tercemesi"),
+  E("ebuabdrahmansulemi", "sadubeyde", "—", "Tehzîbü't-Tehzîb, Sa‘d b. Ubeyde tercemesi"),
+
+  /* Sa‘d b. Ubeyde (o. ?) -- talebeleri, kisa ad taramasi.
+     Hakem b. Uteybe, Zübeyd el-Yâmî. */
+  E("sadubeyde", "hakemuteybe", "—", "Tehzîbü't-Tehzîb, Sa‘d b. Ubeyde tercemesi"),
+  E("sadubeyde", "zubeydyami", "—", "Tehzîbü't-Tehzîb, Sa‘d b. Ubeyde tercemesi"),
+
+  /* Safvân b. Muhriz (o. 74) -- hocalari, kisa ad taramasi.
+     Ebû Mûsâ el-Eş‘arî. */
+  E("ebumusa", "safvanmuhriz", "—", "Tehzîbü't-Tehzîb, Safvân b. Muhriz tercemesi"),
+
+  /* Safvân b. Muhriz (o. 74) -- talebeleri, kisa ad taramasi.
+     Ali b. Zeyd b. Cüd‘ân. */
+  E("safvanmuhriz", "alizeydcudan", "—", "Tehzîbü't-Tehzîb, Safvân b. Muhriz tercemesi"),
+
+  /* Sâbit el-Bünânî (o. 127) -- hocalari, kisa ad taramasi.
+     Abdurrahman b. Ebî Leylâ. */
+  E("ibnebileyla", "sabitbunani", "—", "Tehzîbü't-Tehzîb, Sâbit el-Bünânî tercemesi"),
+
+  /* Sâbit el-Bünânî (o. 127) -- talebeleri, kisa ad taramasi.
+     Humeyd et-Tavîl, Dâvûd b. Ebî Hind, Süleymân et-Teymî. */
+  E("sabitbunani", "humeydtavil", "—", "Tehzîbü't-Tehzîb, Sâbit el-Bünânî tercemesi"),
+  E("sabitbunani", "davudebihind", "—", "Tehzîbü't-Tehzîb, Sâbit el-Bünânî tercemesi"),
+  E("sabitbunani", "suleymanteymi", "—", "Tehzîbü't-Tehzîb, Sâbit el-Bünânî tercemesi"),
+
+  /* Şehr b. Havşeb (o. 112) -- hocalari, kisa ad taramasi.
+     Temîm ed-Dârî, Ebû Saîd el-Hudrî. */
+  E("temimdari", "sehrhavseb", "—", "Tehzîbü't-Tehzîb, Şehr b. Havşeb tercemesi"),
+  E("ebusaid", "sehrhavseb", "—", "Tehzîbü't-Tehzîb, Şehr b. Havşeb tercemesi"),
+
+  /* Şehr b. Havşeb (o. 112) -- talebeleri, kisa ad taramasi.
+     Hakem b. Uteybe, Sâbit el-Bünânî, Dâvûd b. Ebî Hind, Abdullah b. Osmân b. Husıym, Matar el-Verrâk, Hâlid el-Hazzâ. */
+  E("sehrhavseb", "hakemuteybe", "—", "Tehzîbü't-Tehzîb, Şehr b. Havşeb tercemesi"),
+  E("sehrhavseb", "sabitbunani", "—", "Tehzîbü't-Tehzîb, Şehr b. Havşeb tercemesi"),
+  E("sehrhavseb", "davudebihind", "—", "Tehzîbü't-Tehzîb, Şehr b. Havşeb tercemesi"),
+  E("sehrhavseb", "ibnhuseymkhaysem", "—", "Tehzîbü't-Tehzîb, Şehr b. Havşeb tercemesi"),
+  E("sehrhavseb", "matarverrak", "—", "Tehzîbü't-Tehzîb, Şehr b. Havşeb tercemesi"),
+  E("sehrhavseb", "halidhazza", "—", "Tehzîbü't-Tehzîb, Şehr b. Havşeb tercemesi"),
+
+  /* Sümâme b. Abdillâh b. Enes (o. ?) -- hocalari, kisa ad taramasi.
+     Berâ b. Âzib. */
+  E("bera", "sumameenes", "—", "Tehzîbü't-Tehzîb, Sümâme b. Abdillâh b. Enes tercemesi"),
+
+  /* Sümâme b. Abdillâh b. Enes (o. ?) -- talebeleri, kisa ad taramasi.
+     Humeyd et-Tavîl, Abdullah b. Avn, Avf el-A‘râbî. */
+  E("sumameenes", "humeydtavil", "—", "Tehzîbü't-Tehzîb, Sümâme b. Abdillâh b. Enes tercemesi"),
+  E("sumameenes", "abdullahavn", "—", "Tehzîbü't-Tehzîb, Sümâme b. Abdillâh b. Enes tercemesi"),
+  E("sumameenes", "avfarabi", "—", "Tehzîbü't-Tehzîb, Sümâme b. Abdillâh b. Enes tercemesi"),
+
+  /* Humeyd et-Tavîl (o. 142) -- hocalari, kisa ad taramasi.
+     Bekir b. Abdillâh el-Müzenî. */
+  E("bekirmuzeni", "humeydtavil", "—", "Tehzîbü't-Tehzîb, Humeyd et-Tavîl tercemesi"),
+
+  /* Humeyd et-Tavîl (o. 142) -- talebeleri, kisa ad taramasi.
+     Yahyâ b. Saîd el-Ensârî, Hammâd b. Zeyd, Yezîd b. Hârûn. */
+  E("humeydtavil", "yahyasaidensari", "—", "Tehzîbü't-Tehzîb, Humeyd et-Tavîl tercemesi"),
+  E("humeydtavil", "hammadzeyd", "—", "Tehzîbü't-Tehzîb, Humeyd et-Tavîl tercemesi"),
+  E("humeydtavil", "yezidharun", "—", "Tehzîbü't-Tehzîb, Humeyd et-Tavîl tercemesi"),
+
+  /* Hafs b. Ubeydillâh b. Enes (o. ?) -- talebeleri, kisa ad taramasi.
+     Yahyâ b. Saîd el-Ensârî, Üsâme b. Zeyd el-Leysî. */
+  E("hafsubeydullahenes", "yahyasaidensari", "—", "Tehzîbü't-Tehzîb, Hafs b. Ubeydillâh b. Enes tercemesi"),
+  E("hafsubeydullahenes", "usamezeydleysi", "—", "Tehzîbü't-Tehzîb, Hafs b. Ubeydillâh b. Enes tercemesi"),
+
+  /* Beyân b. Bişr el-Ahmesî (o. ?) -- hocalari, kisa ad taramasi.
+     Humrân b. Ebân. */
+  E("hamranaban", "beyanbisr", "—", "Tehzîbü't-Tehzîb, Beyân b. Bişr el-Ahmesî tercemesi"),
+
+  /* Muhammed b. el-Münkedir (o. 130) -- hocalari, kisa ad taramasi.
+     Ebû Ümâme b. Sehl b. Huneyf, Ubeydullah b. Ebî Râfi‘, Urve b. ez-Zübeyr. */
+  E("ebuumamesehl", "ibnmunkedir", "—", "Tehzîbü't-Tehzîb, Muhammed b. el-Münkedir tercemesi"),
+  E("ubeydullaherafi", "ibnmunkedir", "—", "Tehzîbü't-Tehzîb, Muhammed b. el-Münkedir tercemesi"),
+  E("urve", "ibnmunkedir", "—", "Tehzîbü't-Tehzîb, Muhammed b. el-Münkedir tercemesi"),
+
+  /* Muhammed b. el-Münkedir (o. 130) -- talebeleri, kisa ad taramasi.
+     Amr b. Dînâr, Ca‘fer b. Muhammed es-Sâdık, Sa‘d b. İbrâhim, Süheyl b. Ebî Sâlih, Ali b. Zeyd b. Cüd‘ân, Mûsâ b. Ukbe, Hişâm b. Urve, Yahyâ b. Saîd el-Ensârî, Muhammed b. Sûka. */
+  E("ibnmunkedir", "amrdinar", "—", "Tehzîbü't-Tehzîb, Muhammed b. el-Münkedir tercemesi"),
+  E("ibnmunkedir", "caferisadik", "—", "Tehzîbü't-Tehzîb, Muhammed b. el-Münkedir tercemesi"),
+  E("ibnmunkedir", "sadibrahim", "—", "Tehzîbü't-Tehzîb, Muhammed b. el-Münkedir tercemesi"),
+  E("ibnmunkedir", "suheylebisalih", "—", "Tehzîbü't-Tehzîb, Muhammed b. el-Münkedir tercemesi"),
+  E("ibnmunkedir", "alizeydcudan", "—", "Tehzîbü't-Tehzîb, Muhammed b. el-Münkedir tercemesi"),
+  E("ibnmunkedir", "musaukbe", "—", "Tehzîbü't-Tehzîb, Muhammed b. el-Münkedir tercemesi"),
+  E("ibnmunkedir", "hisamurve", "—", "Tehzîbü't-Tehzîb, Muhammed b. el-Münkedir tercemesi"),
+  E("ibnmunkedir", "yahyasaidensari", "—", "Tehzîbü't-Tehzîb, Muhammed b. el-Münkedir tercemesi"),
+  E("ibnmunkedir", "muhammedsuka", "—", "Tehzîbü't-Tehzîb, Muhammed b. el-Münkedir tercemesi"),
+
+  /* Vehb b. Keysân (o. 127) -- hocalari, kisa ad taramasi.
+     Esmâ bint Ebî Bekir, Ebû Saîd el-Hudrî, Urve b. ez-Zübeyr. */
+  E("esmaebubekir", "vehbkeysan", "—", "Tehzîbü't-Tehzîb, Vehb b. Keysân tercemesi"),
+  E("ebusaid", "vehbkeysan", "—", "Tehzîbü't-Tehzîb, Vehb b. Keysân tercemesi"),
+  E("urve", "vehbkeysan", "—", "Tehzîbü't-Tehzîb, Vehb b. Keysân tercemesi"),
+
+  /* Mahmûd b. Lebîd (o. 96) -- hocalari, kisa ad taramasi.
+     Râfi‘ b. Hadîc. */
+  E("rafihadic", "mahmudlebid", "—", "Tehzîbü't-Tehzîb, Mahmûd b. Lebîd tercemesi"),
+
+  /* Mahmûd b. Lebîd (o. 96) -- talebeleri, kisa ad taramasi.
+     Muhammed b. İbrâhim et-Teymî. */
+  E("mahmudlebid", "muhammedibrahimteymi", "—", "Tehzîbü't-Tehzîb, Mahmûd b. Lebîd tercemesi"),
+
+  /* Sa‘d b. Hişâm b. Âmir (o. ?) -- talebeleri, kisa ad taramasi.
+     Zürâre b. Evfâ. */
+  E("sadhisam", "zurareevfa", "—", "Tehzîbü't-Tehzîb, Sa‘d b. Hişâm b. Âmir tercemesi"),
+
+  /* Kaz‘a b. Yahyâ (o. ?) -- talebeleri, kisa ad taramasi.
+     Rabîa b. Yezîd, Amr b. Dînâr. */
+  E("kazaayahya", "rebiayezid", "—", "Tehzîbü't-Tehzîb, Kaz‘a b. Yahyâ tercemesi"),
+  E("kazaayahya", "amrdinar", "—", "Tehzîbü't-Tehzîb, Kaz‘a b. Yahyâ tercemesi"),
+
+  /* Kâsım b. Muhaymire (o. 100) -- hocalari, kisa ad taramasi.
+     Abdullah b. Amr b. el-Âs. */
+  E("abdullahamr", "kasimmuhaymire", "—", "Tehzîbü't-Tehzîb, Kâsım b. Muhaymire tercemesi"),
+
+  /* Kâsım b. Muhaymire (o. 100) -- talebeleri, kisa ad taramasi.
+     Ebû İshak es-Sebîî, Simâk b. Harb, Hakem b. Uteybe, Seleme b. Küheyl, Hassân b. Atiyye, İsmâîl b. Ebî Hâlid. */
+  E("kasimmuhaymire", "ebuishaksebii", "—", "Tehzîbü't-Tehzîb, Kâsım b. Muhaymire tercemesi"),
+  E("kasimmuhaymire", "simakharb", "—", "Tehzîbü't-Tehzîb, Kâsım b. Muhaymire tercemesi"),
+  E("kasimmuhaymire", "hakemuteybe", "—", "Tehzîbü't-Tehzîb, Kâsım b. Muhaymire tercemesi"),
+  E("kasimmuhaymire", "selemekuheyl", "—", "Tehzîbü't-Tehzîb, Kâsım b. Muhaymire tercemesi"),
+  E("kasimmuhaymire", "hassanatiyye", "—", "Tehzîbü't-Tehzîb, Kâsım b. Muhaymire tercemesi"),
+  E("kasimmuhaymire", "ismailebihalid", "—", "Tehzîbü't-Tehzîb, Kâsım b. Muhaymire tercemesi"),
+
+  /* Yahyâ b. Umâre el-Mâzinî (o. ?) -- hocalari, kisa ad taramasi.
+     Enes b. Mâlik. */
+  E("enes", "yahyaumare", "—", "Tehzîbü't-Tehzîb, Yahyâ b. Umâre el-Mâzinî tercemesi"),
+
+  /* Hubîb b. Abdirrahman (o. 132) -- talebeleri, kisa ad taramasi.
+     Yahyâ b. Saîd el-Ensârî, Mansûr b. Zâzân. */
+  E("hubeybabdrahman", "yahyasaidensari", "—", "Tehzîbü't-Tehzîb, Hubîb b. Abdirrahman tercemesi"),
+  E("hubeybabdrahman", "mansurzazan", "—", "Tehzîbü't-Tehzîb, Hubîb b. Abdirrahman tercemesi"),
+
+  /* Yezîd b. Abdillâh b. el-Hâd (o. 139) -- hocalari, kisa ad taramasi.
+     Süheyl b. Ebî Sâlih, Yahyâ b. Saîd el-Ensârî, Sa‘d b. İbrâhim. */
+  E("suheylebisalih", "yezidhad", "—", "Tehzîbü't-Tehzîb, Yezîd b. Abdillâh b. el-Hâd tercemesi"),
+  E("yahyasaidensari", "yezidhad", "—", "Tehzîbü't-Tehzîb, Yezîd b. Abdillâh b. el-Hâd tercemesi"),
+  E("sadibrahim", "yezidhad", "—", "Tehzîbü't-Tehzîb, Yezîd b. Abdillâh b. el-Hâd tercemesi"),
+
+  /* Yezîd b. Abdillâh b. Kusıyt (o. 122) -- hocalari, kisa ad taramasi.
+     Ebû Seleme b. Abdirrahman. */
+  E("ebuselemeavf", "yezidkusayt", "—", "Tehzîbü't-Tehzîb, Yezîd b. Abdillâh b. Kusıyt tercemesi"),
+
+  /* Yezîd b. Abdillâh b. Kusıyt (o. 122) -- talebeleri, kisa ad taramasi.
+     Amr b. el-Hâris, Velîd b. Kesîr. */
+  E("yezidkusayt", "amrharis", "—", "Tehzîbü't-Tehzîb, Yezîd b. Abdillâh b. Kusıyt tercemesi"),
+  E("yezidkusayt", "velidkesir", "—", "Tehzîbü't-Tehzîb, Yezîd b. Abdillâh b. Kusıyt tercemesi"),
+
+  /* Atâ el-Horâsânî (o. 135) -- hocalari, kisa ad taramasi.
+     Mugīre b. Şu‘be, Atâ b. Ebî Rebâh. */
+  E("mugirasube", "ataihorasani", "—", "Tehzîbü't-Tehzîb, Atâ el-Horâsânî tercemesi"),
+  E("ataebirebah", "ataihorasani", "—", "Tehzîbü't-Tehzîb, Atâ el-Horâsânî tercemesi"),
+
+  /* Atâ el-Horâsânî (o. 135) -- talebeleri, kisa ad taramasi.
+     İbrâhim b. Tahmân, Dâvûd b. Ebî Hind. */
+  E("ataihorasani", "ibrahimtahman", "—", "Tehzîbü't-Tehzîb, Atâ el-Horâsânî tercemesi"),
+  E("ataihorasani", "davudebihind", "—", "Tehzîbü't-Tehzîb, Atâ el-Horâsânî tercemesi"),
+
+  /* Ka‘nevî, Abdullah b. Mesleme (o. 221) -- hocalari, kisa ad taramasi.
+     Fudayl b. İyâz. */
+  E("fudaylibnayaz", "kanebi", "—", "Tehzîbü't-Tehzîb, Ka‘nevî, Abdullah b. Mesleme tercemesi"),
+
+  /* Dâvûd b. Ebî Hind (o. 140) -- hocalari, kisa ad taramasi.
+     Simâk b. Harb. */
+  E("simakharb", "davudebihind", "—", "Tehzîbü't-Tehzîb, Dâvûd b. Ebî Hind tercemesi"),
+
+  /* Dâvûd b. Ebî Hind (o. 140) -- talebeleri, kisa ad taramasi.
+     İbn Cüreyc, Abdülvâris b. Saîd, Yezîd b. Zürey‘, Yezîd b. Hârûn. */
+  E("davudebihind", "ibncureyc", "—", "Tehzîbü't-Tehzîb, Dâvûd b. Ebî Hind tercemesi"),
+  E("davudebihind", "abdulvarissaid", "—", "Tehzîbü't-Tehzîb, Dâvûd b. Ebî Hind tercemesi"),
+  E("davudebihind", "yezidzurey", "—", "Tehzîbü't-Tehzîb, Dâvûd b. Ebî Hind tercemesi"),
+  E("davudebihind", "yezidharun", "—", "Tehzîbü't-Tehzîb, Dâvûd b. Ebî Hind tercemesi"),
+
+  /* Hammâd b. Ebî Süleymân (o. 120) -- hocalari, kisa ad taramasi.
+     Saîd b. el-Müseyyeb, Saîd b. Cübeyr. */
+  E("saidmusayyeb", "hammadebisuleyman", "—", "Tehzîbü't-Tehzîb, Hammâd b. Ebî Süleymân tercemesi"),
+  E("saidcubeyr", "hammadebisuleyman", "—", "Tehzîbü't-Tehzîb, Hammâd b. Ebî Süleymân tercemesi"),
+
+  /* Hammâd b. Ebî Süleymân (o. 120) -- talebeleri, kisa ad taramasi.
+     Mis‘ar b. Kedâm, Hakem b. Uteybe. */
+  E("hammadebisuleyman", "misersukdam", "—", "Tehzîbü't-Tehzîb, Hammâd b. Ebî Süleymân tercemesi"),
+  E("hammadebisuleyman", "hakemuteybe", "—", "Tehzîbü't-Tehzîb, Hammâd b. Ebî Süleymân tercemesi"),
+
+  /* Câmi‘ b. Şeddâd (o. 127) -- hocalari, kisa ad taramasi.
+     Safvân b. Muhriz, Abdurrahman b. Yezîd en-Nehaî. */
+  E("safvanmuhriz", "cameseddad", "—", "Tehzîbü't-Tehzîb, Câmi‘ b. Şeddâd tercemesi"),
+  E("abdrahmanyezidnehai", "cameseddad", "—", "Tehzîbü't-Tehzîb, Câmi‘ b. Şeddâd tercemesi"),
+
+  /* Yezîd b. Hârûn (o. 206) -- hocalari, kisa ad taramasi.
+     İsmâîl b. Ebî Hâlid, Yahyâ b. Saîd el-Ensârî, Hüseyin el-Muallim, Süfyân b. Husayn, Muhammed b. Amr b. Alkame, Hişâm b. Hassân, Abdülmelik b. Ebî Süleymân, Avvâm b. Havşeb. */
+  E("ismailebihalid", "yezidharun", "—", "Tehzîbü't-Tehzîb, Yezîd b. Hârûn tercemesi"),
+  E("yahyasaidensari", "yezidharun", "—", "Tehzîbü't-Tehzîb, Yezîd b. Hârûn tercemesi"),
+  E("huseynmuallim", "yezidharun", "—", "Tehzîbü't-Tehzîb, Yezîd b. Hârûn tercemesi"),
+  E("sufyanhusayn", "yezidharun", "—", "Tehzîbü't-Tehzîb, Yezîd b. Hârûn tercemesi"),
+  E("muhammedamralkame", "yezidharun", "—", "Tehzîbü't-Tehzîb, Yezîd b. Hârûn tercemesi"),
+  E("hisamhassan", "yezidharun", "—", "Tehzîbü't-Tehzîb, Yezîd b. Hârûn tercemesi"),
+  E("abdulmelikebisuleyman", "yezidharun", "—", "Tehzîbü't-Tehzîb, Yezîd b. Hârûn tercemesi"),
+  E("avvamhavseb", "yezidharun", "—", "Tehzîbü't-Tehzîb, Yezîd b. Hârûn tercemesi"),
+
+  /* Yezîd b. Hârûn (o. 206) -- talebeleri, kisa ad taramasi.
+     Âdem b. Ebî İyâs el-Askalânî, Ahmed b. Hanbel, İshak b. Râhûye, Yahyâ b. Ma‘în, Ali b. el-Medînî, Hasan b. Ali el-Hallâl, Hasan b. Arafe. */
+  E("yezidharun", "ademebiiyas", "—", "Tehzîbü't-Tehzîb, Yezîd b. Hârûn tercemesi"),
+  E("yezidharun", "ahmedhanbel", "—", "Tehzîbü't-Tehzîb, Yezîd b. Hârûn tercemesi"),
+  E("yezidharun", "ibnrahuye", "—", "Tehzîbü't-Tehzîb, Yezîd b. Hârûn tercemesi"),
+  E("yezidharun", "ibnmain", "—", "Tehzîbü't-Tehzîb, Yezîd b. Hârûn tercemesi"),
+  E("yezidharun", "alimedini", "—", "Tehzîbü't-Tehzîb, Yezîd b. Hârûn tercemesi"),
+  E("yezidharun", "hasanaliayyal", "—", "Tehzîbü't-Tehzîb, Yezîd b. Hârûn tercemesi"),
+  E("yezidharun", "hasanarafe", "—", "Tehzîbü't-Tehzîb, Yezîd b. Hârûn tercemesi"),
+
+  /* Yezîd b. Zürey‘ (o. 182) -- hocalari, kisa ad taramasi.
+     Süleymân et-Teymî, Humeyd et-Tavîl, Amr b. Meymûn b. Mihrân, Hâlid el-Hazzâ, Haccâc b. Ebî Osmân es-Savvâf, Saîd b. İyâs el-Cüreyrî, Hişâm b. Hassân, Avf el-A‘râbî, Hüseyin el-Muallim. */
+  E("suleymanteymi", "yezidzurey", "—", "Tehzîbü't-Tehzîb, Yezîd b. Zürey‘ tercemesi"),
+  E("humeydtavil", "yezidzurey", "—", "Tehzîbü't-Tehzîb, Yezîd b. Zürey‘ tercemesi"),
+  E("amrmeymunmihran", "yezidzurey", "—", "Tehzîbü't-Tehzîb, Yezîd b. Zürey‘ tercemesi"),
+  E("halidhazza", "yezidzurey", "—", "Tehzîbü't-Tehzîb, Yezîd b. Zürey‘ tercemesi"),
+  E("haccacsavvaf", "yezidzurey", "—", "Tehzîbü't-Tehzîb, Yezîd b. Zürey‘ tercemesi"),
+  E("cureyri", "yezidzurey", "—", "Tehzîbü't-Tehzîb, Yezîd b. Zürey‘ tercemesi"),
+  E("hisamhassan", "yezidzurey", "—", "Tehzîbü't-Tehzîb, Yezîd b. Zürey‘ tercemesi"),
+  E("avfarabi", "yezidzurey", "—", "Tehzîbü't-Tehzîb, Yezîd b. Zürey‘ tercemesi"),
+  E("huseynmuallim", "yezidzurey", "—", "Tehzîbü't-Tehzîb, Yezîd b. Zürey‘ tercemesi"),
+
+  /* Nadr b. Şümeyl (o. 204) -- hocalari, kisa ad taramasi.
+     Humeyd et-Tavîl, Hişâm b. Urve, Hişâm b. Hassân, İbn Cüreyc. */
+  E("humeydtavil", "nadrsumeyl", "—", "Tehzîbü't-Tehzîb, Nadr b. Şümeyl tercemesi"),
+  E("hisamurve", "nadrsumeyl", "—", "Tehzîbü't-Tehzîb, Nadr b. Şümeyl tercemesi"),
+  E("hisamhassan", "nadrsumeyl", "—", "Tehzîbü't-Tehzîb, Nadr b. Şümeyl tercemesi"),
+  E("ibncureyc", "nadrsumeyl", "—", "Tehzîbü't-Tehzîb, Nadr b. Şümeyl tercemesi"),
+
+  /* Affân b. Müslim (o. 220) -- hocalari, kisa ad taramasi.
+     Abdülvâhid b. Ziyâd. */
+  E("abdulvahidziyad", "affanmuslim", "—", "Tehzîbü't-Tehzîb, Affân b. Müslim tercemesi"),
+
+  /* Affân b. Müslim (o. 220) -- talebeleri, kisa ad taramasi.
+     Hasan b. Ali el-Hallâl, Ebû Bekir b. Ebî Şeybe, Ahmed b. Hanbel, Osmân b. Ebî Şeybe, İshak b. Râhûye, Ali b. el-Medînî, Kuteybe b. Saîd. */
+  E("affanmuslim", "hasanaliayyal", "—", "Tehzîbü't-Tehzîb, Affân b. Müslim tercemesi"),
+  E("affanmuslim", "ibnebiseybe", "—", "Tehzîbü't-Tehzîb, Affân b. Müslim tercemesi"),
+  E("affanmuslim", "ahmedhanbel", "—", "Tehzîbü't-Tehzîb, Affân b. Müslim tercemesi"),
+  E("affanmuslim", "osmanebiseybe", "—", "Tehzîbü't-Tehzîb, Affân b. Müslim tercemesi"),
+  E("affanmuslim", "ibnrahuye", "—", "Tehzîbü't-Tehzîb, Affân b. Müslim tercemesi"),
+  E("affanmuslim", "alimedini", "—", "Tehzîbü't-Tehzîb, Affân b. Müslim tercemesi"),
+  E("affanmuslim", "kuteybesaid", "—", "Tehzîbü't-Tehzîb, Affân b. Müslim tercemesi"),
+
+  /* Ali b. el-Ca‘d (o. 230) -- talebeleri, kisa ad taramasi.
+     Yahyâ b. Ma‘în. */
+  E("alicad", "ibnmain", "—", "Tehzîbü't-Tehzîb, Ali b. el-Ca‘d tercemesi"),
+
+  /* Ísâ b. Yûnus (o. 191) -- hocalari, kisa ad taramasi.
+     Süleymân et-Teymî, Hişâm b. Urve, Yahyâ b. Saîd el-Ensârî, Velîd b. Kesîr, İsmâîl b. Ebî Hâlid, Hüseyin el-Muallim, İbn Cüreyc, Abdülmelik b. Ebî Süleymân, Hişâm b. Hassân, Abdülhamîd b. Ca‘fer. */
+  E("suleymanteymi", "isabyunus", "—", "Tehzîbü't-Tehzîb, Ísâ b. Yûnus tercemesi"),
+  E("hisamurve", "isabyunus", "—", "Tehzîbü't-Tehzîb, Ísâ b. Yûnus tercemesi"),
+  E("yahyasaidensari", "isabyunus", "—", "Tehzîbü't-Tehzîb, Ísâ b. Yûnus tercemesi"),
+  E("velidkesir", "isabyunus", "—", "Tehzîbü't-Tehzîb, Ísâ b. Yûnus tercemesi"),
+  E("ismailebihalid", "isabyunus", "—", "Tehzîbü't-Tehzîb, Ísâ b. Yûnus tercemesi"),
+  E("huseynmuallim", "isabyunus", "—", "Tehzîbü't-Tehzîb, Ísâ b. Yûnus tercemesi"),
+  E("ibncureyc", "isabyunus", "—", "Tehzîbü't-Tehzîb, Ísâ b. Yûnus tercemesi"),
+  E("abdulmelikebisuleyman", "isabyunus", "—", "Tehzîbü't-Tehzîb, Ísâ b. Yûnus tercemesi"),
+  E("hisamhassan", "isabyunus", "—", "Tehzîbü't-Tehzîb, Ísâ b. Yûnus tercemesi"),
+  E("abdulhamidcafer", "isabyunus", "—", "Tehzîbü't-Tehzîb, Ísâ b. Yûnus tercemesi"),
+
+  /* Ísâ b. Yûnus (o. 191) -- talebeleri, kisa ad taramasi.
+     Bakiyye b. el-Velîd, Abdullah b. Vehb, İshak b. Râhûye, İbrâhim b. Mûsâ el-Ferrâ, Ebû Bekir b. Ebî Şeybe, Hasan b. Arafe. */
+  E("isabyunus", "bakiyyevelid", "—", "Tehzîbü't-Tehzîb, Ísâ b. Yûnus tercemesi"),
+  E("isabyunus", "ibnvehb", "—", "Tehzîbü't-Tehzîb, Ísâ b. Yûnus tercemesi"),
+  E("isabyunus", "ibnrahuye", "—", "Tehzîbü't-Tehzîb, Ísâ b. Yûnus tercemesi"),
+  E("isabyunus", "ibrahimmusaferra", "—", "Tehzîbü't-Tehzîb, Ísâ b. Yûnus tercemesi"),
+  E("isabyunus", "ibnebiseybe", "—", "Tehzîbü't-Tehzîb, Ísâ b. Yûnus tercemesi"),
+  E("isabyunus", "hasanarafe", "—", "Tehzîbü't-Tehzîb, Ísâ b. Yûnus tercemesi"),
+
+  /* İsmâîl es-Süddî (o. 127) -- hocalari, kisa ad taramasi.
+     Ebû Abdirrahman es-Sülemî. */
+  E("ebuabdrahmansulemi", "suddi", "—", "Tehzîbü't-Tehzîb, İsmâîl es-Süddî tercemesi"),
+
+  /* İsmâîl es-Süddî (o. 127) -- talebeleri, kisa ad taramasi.
+     Ebû Bekir b. Ayyâş. */
+  E("suddi", "ebubekirayyas", "—", "Tehzîbü't-Tehzîb, İsmâîl es-Süddî tercemesi"),
+
+  /* Ruh b. Ubâde (o. 205) -- hocalari, kisa ad taramasi.
+     Evzâî. */
+  E("evzai", "ruhubade", "—", "Tehzîbü't-Tehzîb, Ruh b. Ubâde tercemesi"),
+
+  /* Süleymân b. Bilâl (o. 172) -- hocalari, kisa ad taramasi.
+     Humeyd et-Tavîl, Mûsâ b. Ukbe, Hişâm b. Urve, Yezîd b. Husıyfe, Sa‘d b. Saîd el-Ensârî, Süheyl b. Ebî Sâlih. */
+  E("humeydtavil", "suleymanbilal", "—", "Tehzîbü't-Tehzîb, Süleymân b. Bilâl tercemesi"),
+  E("musaukbe", "suleymanbilal", "—", "Tehzîbü't-Tehzîb, Süleymân b. Bilâl tercemesi"),
+  E("hisamurve", "suleymanbilal", "—", "Tehzîbü't-Tehzîb, Süleymân b. Bilâl tercemesi"),
+  E("yezidhusayfe", "suleymanbilal", "—", "Tehzîbü't-Tehzîb, Süleymân b. Bilâl tercemesi"),
+  E("sadsaidensari", "suleymanbilal", "—", "Tehzîbü't-Tehzîb, Süleymân b. Bilâl tercemesi"),
+  E("suheylebisalih", "suleymanbilal", "—", "Tehzîbü't-Tehzîb, Süleymân b. Bilâl tercemesi"),
+
+  /* Mûsâ b. Ukbe (o. 141) -- hocalari, kisa ad taramasi.
+     Ebû Seleme b. Abdirrahman, Urve b. ez-Zübeyr. */
+  E("ebuselemeavf", "musaukbe", "—", "Tehzîbü't-Tehzîb, Mûsâ b. Ukbe tercemesi"),
+  E("urve", "musaukbe", "—", "Tehzîbü't-Tehzîb, Mûsâ b. Ukbe tercemesi"),
+
+  /* Mûsâ b. Ukbe (o. 141) -- talebeleri, kisa ad taramasi.
+     Yahyâ b. Saîd el-Ensârî, İbn Cüreyc, İbrâhim b. Tahmân. */
+  E("musaukbe", "yahyasaidensari", "—", "Tehzîbü't-Tehzîb, Mûsâ b. Ukbe tercemesi"),
+  E("musaukbe", "ibncureyc", "—", "Tehzîbü't-Tehzîb, Mûsâ b. Ukbe tercemesi"),
+  E("musaukbe", "ibrahimtahman", "—", "Tehzîbü't-Tehzîb, Mûsâ b. Ukbe tercemesi"),
+
+  /* Muhammed b. Sûka (o. ?) -- hocalari, kisa ad taramasi.
+     Saîd b. Cübeyr. */
+  E("saidcubeyr", "muhammedsuka", "—", "Tehzîbü't-Tehzîb, Muhammed b. Sûka tercemesi"),
+
+  /* Muhammed b. Sûka (o. ?) -- talebeleri, kisa ad taramasi.
+     Mâlik b. Migvel. */
+  E("muhammedsuka", "malikmigvel", "—", "Tehzîbü't-Tehzîb, Muhammed b. Sûka tercemesi"),
+
+  /* Mutarrif b. Tarîf (o. 141) -- hocalari, kisa ad taramasi.
+     Ebû İshak es-Sebîî, Abdurrahman b. Ebî Leylâ, Habîb b. Ebî Sâbit, Seleme b. Küheyl, Hakem b. Uteybe. */
+  E("ebuishaksebii", "mutarriftarif", "—", "Tehzîbü't-Tehzîb, Mutarrif b. Tarîf tercemesi"),
+  E("ibnebileyla", "mutarriftarif", "—", "Tehzîbü't-Tehzîb, Mutarrif b. Tarîf tercemesi"),
+  E("habibebisabit", "mutarriftarif", "—", "Tehzîbü't-Tehzîb, Mutarrif b. Tarîf tercemesi"),
+  E("selemekuheyl", "mutarriftarif", "—", "Tehzîbü't-Tehzîb, Mutarrif b. Tarîf tercemesi"),
+  E("hakemuteybe", "mutarriftarif", "—", "Tehzîbü't-Tehzîb, Mutarrif b. Tarîf tercemesi"),
+
+  /* Yezîd b. Husıyfe (o. ?) -- hocalari, kisa ad taramasi.
+     Sâib b. Yezîd, Yezîd b. Abdillâh b. Kusıyt, Muhammed b. Abdirrahman b. Sevbân. */
+  E("saibyezid", "yezidhusayfe", "—", "Tehzîbü't-Tehzîb, Yezîd b. Husıyfe tercemesi"),
+  E("yezidkusayt", "yezidhusayfe", "—", "Tehzîbü't-Tehzîb, Yezîd b. Husıyfe tercemesi"),
+  E("muhammedsevban", "yezidhusayfe", "—", "Tehzîbü't-Tehzîb, Yezîd b. Husıyfe tercemesi"),
+
+  /* Ahmed b. Hanbel (o. 241) -- talebeleri, kisa ad taramasi.
+     Yahyâ b. Ma‘în, Ali b. el-Medînî. */
+  E("ahmedhanbel", "ibnmain", "—", "Tehzîbü't-Tehzîb, Ahmed b. Hanbel tercemesi"),
+  E("ahmedhanbel", "alimedini", "—", "Tehzîbü't-Tehzîb, Ahmed b. Hanbel tercemesi"),
+
+  /* Ahmed b. Sâlih el-Mısrî (o. 248) -- talebeleri, kisa ad taramasi.
+     Amr b. Muhammed en-Nâkıd, Mahmûd b. Gaylân. */
+  E("ahmedsalihmisri", "amrnakid", "—", "Tehzîbü't-Tehzîb, Ahmed b. Sâlih el-Mısrî tercemesi"),
+  E("ahmedsalihmisri", "mahmudgaylan", "—", "Tehzîbü't-Tehzîb, Ahmed b. Sâlih el-Mısrî tercemesi"),
+
+  /* Kâsım b. Ebî Bezze (o. 124) -- talebeleri, kisa ad taramasi.
+     Amr b. Dînâr. */
+  E("kasimebibezze", "amrdinar", "—", "Tehzîbü't-Tehzîb, Kâsım b. Ebî Bezze tercemesi"),
+
+  /* Alâ b. Abdirrahman (o. 132) -- talebeleri, kisa ad taramasi.
+     Muhammed b. Aclân. */
+  E("alaabdrahman", "muhammedacilan", "—", "Tehzîbü't-Tehzîb, Alâ b. Abdirrahman tercemesi"),
+
+  /* Abdullah b. Osmân b. Husıym (o. 132) -- hocalari, kisa ad taramasi.
+     Saîd b. Cübeyr. */
+  E("saidcubeyr", "ibnhuseymkhaysem", "—", "Tehzîbü't-Tehzîb, Abdullah b. Osmân b. Husıym tercemesi"),
+
+  /* Abdullah b. Osmân b. Husıym (o. 132) -- talebeleri, kisa ad taramasi.
+     Hafs b. Giyâs. */
+  E("ibnhuseymkhaysem", "hafsgiyas", "—", "Tehzîbü't-Tehzîb, Abdullah b. Osmân b. Husıym tercemesi"),
+
+  /* İsmâîl b. Ayyâş (o. 181) -- hocalari, kisa ad taramasi.
+     Süheyl b. Ebî Sâlih, Muhammed b. Amr b. Alkame, Mûsâ b. Ukbe, Hişâm b. Urve. */
+  E("suheylebisalih", "ismailayyas", "—", "Tehzîbü't-Tehzîb, İsmâîl b. Ayyâş tercemesi"),
+  E("muhammedamralkame", "ismailayyas", "—", "Tehzîbü't-Tehzîb, İsmâîl b. Ayyâş tercemesi"),
+  E("musaukbe", "ismailayyas", "—", "Tehzîbü't-Tehzîb, İsmâîl b. Ayyâş tercemesi"),
+  E("hisamurve", "ismailayyas", "—", "Tehzîbü't-Tehzîb, İsmâîl b. Ayyâş tercemesi"),
+
+  /* İsmâîl b. Ayyâş (o. 181) -- talebeleri, kisa ad taramasi.
+     Leys b. Sa‘d, Velîd b. Müslim, Ebû Dâvûd et-Tayâlisî, Yahyâ b. Ma‘în, Osmân b. Ebî Şeybe, Yahyâ b. Yahyâ en-Nîsâbûrî. */
+  E("ismailayyas", "leysbsad", "—", "Tehzîbü't-Tehzîb, İsmâîl b. Ayyâş tercemesi"),
+  E("ismailayyas", "velidmuslim", "—", "Tehzîbü't-Tehzîb, İsmâîl b. Ayyâş tercemesi"),
+  E("ismailayyas", "ebudavudtayalisi", "—", "Tehzîbü't-Tehzîb, İsmâîl b. Ayyâş tercemesi"),
+  E("ismailayyas", "ibnmain", "—", "Tehzîbü't-Tehzîb, İsmâîl b. Ayyâş tercemesi"),
+  E("ismailayyas", "osmanebiseybe", "—", "Tehzîbü't-Tehzîb, İsmâîl b. Ayyâş tercemesi"),
+  E("ismailayyas", "yahyayahyanisaburi", "—", "Tehzîbü't-Tehzîb, İsmâîl b. Ayyâş tercemesi"),
+
+  /* Enes b. İyâz (o. 200) -- hocalari, kisa ad taramasi.
+     Hişâm b. Urve, Mûsâ b. Ukbe, Süheyl b. Ebî Sâlih. */
+  E("hisamurve", "enesiyaz", "—", "Tehzîbü't-Tehzîb, Enes b. İyâz tercemesi"),
+  E("musaukbe", "enesiyaz", "—", "Tehzîbü't-Tehzîb, Enes b. İyâz tercemesi"),
+  E("suheylebisalih", "enesiyaz", "—", "Tehzîbü't-Tehzîb, Enes b. İyâz tercemesi"),
+
+  /* Enes b. İyâz (o. 200) -- talebeleri, kisa ad taramasi.
+     Bakiyye b. el-Velîd, Ali b. el-Medînî, Yahyâ b. Yahyâ en-Nîsâbûrî, Ahmed b. Hanbel. */
+  E("enesiyaz", "bakiyyevelid", "—", "Tehzîbü't-Tehzîb, Enes b. İyâz tercemesi"),
+  E("enesiyaz", "alimedini", "—", "Tehzîbü't-Tehzîb, Enes b. İyâz tercemesi"),
+  E("enesiyaz", "yahyayahyanisaburi", "—", "Tehzîbü't-Tehzîb, Enes b. İyâz tercemesi"),
+  E("enesiyaz", "ahmedhanbel", "—", "Tehzîbü't-Tehzîb, Enes b. İyâz tercemesi"),
+
+  /* Matar el-Verrâk (o. 129) -- talebeleri, kisa ad taramasi.
+     İbrâhim b. Tahmân, İbn Ebî Arûbe, Hüseyin el-Muallim. */
+  E("matarverrak", "ibrahimtahman", "—", "Tehzîbü't-Tehzîb, Matar el-Verrâk tercemesi"),
+  E("matarverrak", "ibnebiaruba", "—", "Tehzîbü't-Tehzîb, Matar el-Verrâk tercemesi"),
+  E("matarverrak", "huseynmuallim", "—", "Tehzîbü't-Tehzîb, Matar el-Verrâk tercemesi"),
+
+  /* Hişâm b. Yûsuf es-San‘ânî (o. 197) -- talebeleri, kisa ad taramasi.
+     Ali b. el-Medînî, Yahyâ b. Ma‘în. */
+  E("hisamyusufsanani", "alimedini", "—", "Tehzîbü't-Tehzîb, Hişâm b. Yûsuf es-San‘ânî tercemesi"),
+  E("hisamyusufsanani", "ibnmain", "—", "Tehzîbü't-Tehzîb, Hişâm b. Yûsuf es-San‘ânî tercemesi"),
+
+  /* Mu‘temir b. Süleymân (o. 187) -- hocalari, kisa ad taramasi.
+     Humeyd et-Tavîl, İsmâîl b. Ebî Hâlid, Ubeydullah b. Ömer el-Ömerî, Dâvûd b. Ebî Hind, Hâlid el-Hazzâ, Muhammed b. Amr b. Alkame, Seyf b. Süleymân el-Mekkî, Mansûr b. el-Mu‘temir, Hişâm b. Hassân. */
+  E("humeydtavil", "mutemirsuleyman", "—", "Tehzîbü't-Tehzîb, Mu‘temir b. Süleymân tercemesi"),
+  E("ismailebihalid", "mutemirsuleyman", "—", "Tehzîbü't-Tehzîb, Mu‘temir b. Süleymân tercemesi"),
+  E("ubeydullahomeri", "mutemirsuleyman", "—", "Tehzîbü't-Tehzîb, Mu‘temir b. Süleymân tercemesi"),
+  E("davudebihind", "mutemirsuleyman", "—", "Tehzîbü't-Tehzîb, Mu‘temir b. Süleymân tercemesi"),
+  E("halidhazza", "mutemirsuleyman", "—", "Tehzîbü't-Tehzîb, Mu‘temir b. Süleymân tercemesi"),
+  E("muhammedamralkame", "mutemirsuleyman", "—", "Tehzîbü't-Tehzîb, Mu‘temir b. Süleymân tercemesi"),
+  E("seyfsuleymanmekki", "mutemirsuleyman", "—", "Tehzîbü't-Tehzîb, Mu‘temir b. Süleymân tercemesi"),
+  E("mansurmutemir", "mutemirsuleyman", "—", "Tehzîbü't-Tehzîb, Mu‘temir b. Süleymân tercemesi"),
+  E("hisamhassan", "mutemirsuleyman", "—", "Tehzîbü't-Tehzîb, Mu‘temir b. Süleymân tercemesi"),
+
+  /* Vüheyb b. Hâlid (o. 165) -- hocalari, kisa ad taramasi.
+     Humeyd et-Tavîl, Hâlid el-Hazzâ, Dâvûd b. Ebî Hind, Husıym b. İrâk b. Mâlik, Yahyâ b. Saîd el-Ensârî, Hişâm b. Urve, Mansûr b. Safiyye, Mûsâ b. Ukbe, İbn Cüreyc, Amr b. Yahyâ el-Mâzinî, Mansûr b. el-Mu‘temir, Süheyl b. Ebî Sâlih. */
+  E("humeydtavil", "vuheybhalid", "—", "Tehzîbü't-Tehzîb, Vüheyb b. Hâlid tercemesi"),
+  E("halidhazza", "vuheybhalid", "—", "Tehzîbü't-Tehzîb, Vüheyb b. Hâlid tercemesi"),
+  E("davudebihind", "vuheybhalid", "—", "Tehzîbü't-Tehzîb, Vüheyb b. Hâlid tercemesi"),
+  E("husaymirak", "vuheybhalid", "—", "Tehzîbü't-Tehzîb, Vüheyb b. Hâlid tercemesi"),
+  E("yahyasaidensari", "vuheybhalid", "—", "Tehzîbü't-Tehzîb, Vüheyb b. Hâlid tercemesi"),
+  E("hisamurve", "vuheybhalid", "—", "Tehzîbü't-Tehzîb, Vüheyb b. Hâlid tercemesi"),
+  E("mansursafiyye", "vuheybhalid", "—", "Tehzîbü't-Tehzîb, Vüheyb b. Hâlid tercemesi"),
+  E("musaukbe", "vuheybhalid", "—", "Tehzîbü't-Tehzîb, Vüheyb b. Hâlid tercemesi"),
+  E("ibncureyc", "vuheybhalid", "—", "Tehzîbü't-Tehzîb, Vüheyb b. Hâlid tercemesi"),
+  E("amryahyamazini", "vuheybhalid", "—", "Tehzîbü't-Tehzîb, Vüheyb b. Hâlid tercemesi"),
+  E("mansurmutemir", "vuheybhalid", "—", "Tehzîbü't-Tehzîb, Vüheyb b. Hâlid tercemesi"),
+  E("suheylebisalih", "vuheybhalid", "—", "Tehzîbü't-Tehzîb, Vüheyb b. Hâlid tercemesi"),
+
+  /* Vüheyb b. Hâlid (o. 165) -- talebeleri, kisa ad taramasi.
+     İsmâîl İbn Uleyye, Müslim b. İbrâhim, Hüdbe b. Hâlid. */
+  E("vuheybhalid", "ibnuleyye", "—", "Tehzîbü't-Tehzîb, Vüheyb b. Hâlid tercemesi"),
+  E("vuheybhalid", "muslimibrahim", "—", "Tehzîbü't-Tehzîb, Vüheyb b. Hâlid tercemesi"),
+  E("vuheybhalid", "hebbanhilal", "—", "Tehzîbü't-Tehzîb, Vüheyb b. Hâlid tercemesi"),
+
+  /* Ebân b. Yezîd el-Attâr (o. 160) -- hocalari, kisa ad taramasi.
+     Yahyâ b. Saîd el-Ensârî, Hişâm b. Urve, Amr b. Dînâr, Âsım b. Behdele. */
+  E("yahyasaidensari", "ebansattar", "—", "Tehzîbü't-Tehzîb, Ebân b. Yezîd el-Attâr tercemesi"),
+  E("hisamurve", "ebansattar", "—", "Tehzîbü't-Tehzîb, Ebân b. Yezîd el-Attâr tercemesi"),
+  E("amrdinar", "ebansattar", "—", "Tehzîbü't-Tehzîb, Ebân b. Yezîd el-Attâr tercemesi"),
+  E("asimbehdele", "ebansattar", "—", "Tehzîbü't-Tehzîb, Ebân b. Yezîd el-Attâr tercemesi"),
+
+  /* Ebân b. Yezîd el-Attâr (o. 160) -- talebeleri, kisa ad taramasi.
+     Müslim b. İbrâhim. */
+  E("ebansattar", "muslimibrahim", "—", "Tehzîbü't-Tehzîb, Ebân b. Yezîd el-Attâr tercemesi"),
+
+  /* Mekhûl eş-Şâmî (o. 112) -- hocalari, kisa ad taramasi.
+     Ubâde b. es-Sâmit, Süleymân b. Yesâr. */
+  E("ubadesamit", "mekhul", "—", "Tehzîbü't-Tehzîb, Mekhûl eş-Şâmî tercemesi"),
+  E("suleymanyesar", "mekhul", "—", "Tehzîbü't-Tehzîb, Mekhûl eş-Şâmî tercemesi"),
+
+  /* Mekhûl eş-Şâmî (o. 112) -- talebeleri, kisa ad taramasi.
+     Haccâc b. Ertât, İsmâîl b. Ümeyye, İkrime b. Ammâr, Muhammed b. el-Velîd ez-Zübeydî. */
+  E("mekhul", "haccacertat", "—", "Tehzîbü't-Tehzîb, Mekhûl eş-Şâmî tercemesi"),
+  E("mekhul", "ismailumeyye", "—", "Tehzîbü't-Tehzîb, Mekhûl eş-Şâmî tercemesi"),
+  E("mekhul", "ikrimeammar", "—", "Tehzîbü't-Tehzîb, Mekhûl eş-Şâmî tercemesi"),
+  E("mekhul", "muhammedvelidzubeydi", "—", "Tehzîbü't-Tehzîb, Mekhûl eş-Şâmî tercemesi"),
+
+  /* Hassân b. Atiyye (o. 130) -- hocalari, kisa ad taramasi.
+     Saîd b. el-Müseyyeb. */
+  E("saidmusayyeb", "hassanatiyye", "—", "Tehzîbü't-Tehzîb, Hassân b. Atiyye tercemesi"),
+
+  /* Rabîa b. Yezîd (o. 123) -- hocalari, kisa ad taramasi.
+     Abdullah b. Amr b. el-Âs, Nu‘mân b. Beşîr. */
+  E("abdullahamr", "rebiayezid", "—", "Tehzîbü't-Tehzîb, Rabîa b. Yezîd tercemesi"),
+  E("numanbesir", "rebiayezid", "—", "Tehzîbü't-Tehzîb, Rabîa b. Yezîd tercemesi"),
+
+  /* Rabîa b. Yezîd (o. 123) -- talebeleri, kisa ad taramasi.
+     Yezîd b. Ebî Habîb. */
+  E("rebiayezid", "yezidebihabib", "—", "Tehzîbü't-Tehzîb, Rabîa b. Yezîd tercemesi"),
+
+  /* Abde b. Ebî Lübâbe (o. ?) -- talebeleri, kisa ad taramasi.
+     İbn Cüreyc, Amr b. el-Hâris. */
+  E("abdelubabe", "ibncureyc", "—", "Tehzîbü't-Tehzîb, Abde b. Ebî Lübâbe tercemesi"),
+  E("abdelubabe", "amrharis", "—", "Tehzîbü't-Tehzîb, Abde b. Ebî Lübâbe tercemesi"),
+
+  /* Muhammed b. el-Velîd ez-Zübeydî (o. 149) -- hocalari, kisa ad taramasi.
+     Amr b. Şuayb. */
+  E("amrsuayb", "muhammedvelidzubeydi", "—", "Tehzîbü't-Tehzîb, Muhammed b. el-Velîd ez-Zübeydî tercemesi"),
+
+  /* Muhammed b. el-Velîd ez-Zübeydî (o. 149) -- talebeleri, kisa ad taramasi.
+     Muhammed b. Harb el-Havlânî. */
+  E("muhammedvelidzubeydi", "muhammedharbhavlani", "—", "Tehzîbü't-Tehzîb, Muhammed b. el-Velîd ez-Zübeydî tercemesi"),
+
+  /* Süleymân b. Habîb el-Muhâribî (o. 126) -- talebeleri, kisa ad taramasi.
+     Abdülazîz b. Ömer b. Abdil‘azîz. */
+  E("suleymanhabib", "abdulazizomer", "—", "Tehzîbü't-Tehzîb, Süleymân b. Habîb el-Muhâribî tercemesi"),
+
+  /* Şeddâd Ebû Ammâr (o. ?) -- talebeleri, kisa ad taramasi.
+     İkrime b. Ammâr, Avf el-A‘râbî. */
+  E("saddadebuammar", "ikrimeammar", "—", "Tehzîbü't-Tehzîb, Şeddâd Ebû Ammâr tercemesi"),
+  E("saddadebuammar", "avfarabi", "—", "Tehzîbü't-Tehzîb, Şeddâd Ebû Ammâr tercemesi"),
+
+  /* Muttalib b. Abdillâh b. Hantab (o. ?) -- hocalari, kisa ad taramasi.
+     Ebû Mûsâ el-Eş‘arî, Ümmü Seleme. */
+  E("ebumusa", "mutallibhantab", "—", "Tehzîbü't-Tehzîb, Muttalib b. Abdillâh b. Hantab tercemesi"),
+  E("ummuseleme", "mutallibhantab", "—", "Tehzîbü't-Tehzîb, Muttalib b. Abdillâh b. Hantab tercemesi"),
+
+  /* Muttalib b. Abdillâh b. Hantab (o. ?) -- talebeleri, kisa ad taramasi.
+     İbn Cüreyc. */
+  E("mutallibhantab", "ibncureyc", "—", "Tehzîbü't-Tehzîb, Muttalib b. Abdillâh b. Hantab tercemesi"),
+
+  /* Meymûn b. Mihrân (o. 117) -- hocalari, kisa ad taramasi.
+     Saîd b. Cübeyr. */
+  E("saidcubeyr", "meymunmihran", "—", "Tehzîbü't-Tehzîb, Meymûn b. Mihrân tercemesi"),
+
+  /* Meymûn b. Mihrân (o. 117) -- talebeleri, kisa ad taramasi.
+     Humeyd et-Tavîl, Ca‘fer b. Burkān, Hakem b. Uteybe. */
+  E("meymunmihran", "humeydtavil", "—", "Tehzîbü't-Tehzîb, Meymûn b. Mihrân tercemesi"),
+  E("meymunmihran", "caferburkan", "—", "Tehzîbü't-Tehzîb, Meymûn b. Mihrân tercemesi"),
+  E("meymunmihran", "hakemuteybe", "—", "Tehzîbü't-Tehzîb, Meymûn b. Mihrân tercemesi"),
+
+  /* Hıkal b. Ziyâd (o. 179) -- hocalari, kisa ad taramasi.
+     Hişâm b. Hassân. */
+  E("hisamhassan", "hikalziyad", "—", "Tehzîbü't-Tehzîb, Hıkal b. Ziyâd tercemesi"),
+
+  /* Ubeydullah b. Mûsâ el-Absî (o. 213) -- hocalari, kisa ad taramasi.
+     İsmâîl b. Ebî Hâlid, Hişâm b. Urve, İbn Cüreyc, Hanzala b. Ebî Süfyân. */
+  E("ismailebihalid", "ubeydullahmusa", "—", "Tehzîbü't-Tehzîb, Ubeydullah b. Mûsâ el-Absî tercemesi"),
+  E("hisamurve", "ubeydullahmusa", "—", "Tehzîbü't-Tehzîb, Ubeydullah b. Mûsâ el-Absî tercemesi"),
+  E("ibncureyc", "ubeydullahmusa", "—", "Tehzîbü't-Tehzîb, Ubeydullah b. Mûsâ el-Absî tercemesi"),
+  E("hanzalasufyan", "ubeydullahmusa", "—", "Tehzîbü't-Tehzîb, Ubeydullah b. Mûsâ el-Absî tercemesi"),
+
+  /* Ubeydullah b. Mûsâ el-Absî (o. 213) -- talebeleri, kisa ad taramasi.
+     Ebû Bekir b. Ebî Şeybe, Muhammed b. Yahyâ ez-Zühlî, Mahmûd b. Gaylân, Ahmed b. İbrâhim ed-Devrakī, Osmân b. Ebî Şeybe, Süfyân b. Uyeyne, Ahmed b. Hanbel, İshak b. Râhûye, Yahyâ b. Ma‘în. */
+  E("ubeydullahmusa", "ibnebiseybe", "—", "Tehzîbü't-Tehzîb, Ubeydullah b. Mûsâ el-Absî tercemesi"),
+  E("ubeydullahmusa", "zuhli", "—", "Tehzîbü't-Tehzîb, Ubeydullah b. Mûsâ el-Absî tercemesi"),
+  E("ubeydullahmusa", "mahmudgaylan", "—", "Tehzîbü't-Tehzîb, Ubeydullah b. Mûsâ el-Absî tercemesi"),
+  E("ubeydullahmusa", "ahmeddevraki", "—", "Tehzîbü't-Tehzîb, Ubeydullah b. Mûsâ el-Absî tercemesi"),
+  E("ubeydullahmusa", "osmanebiseybe", "—", "Tehzîbü't-Tehzîb, Ubeydullah b. Mûsâ el-Absî tercemesi"),
+  E("ubeydullahmusa", "ibnuyeyne", "—", "Tehzîbü't-Tehzîb, Ubeydullah b. Mûsâ el-Absî tercemesi"),
+  E("ubeydullahmusa", "ahmedhanbel", "—", "Tehzîbü't-Tehzîb, Ubeydullah b. Mûsâ el-Absî tercemesi"),
+  E("ubeydullahmusa", "ibnrahuye", "—", "Tehzîbü't-Tehzîb, Ubeydullah b. Mûsâ el-Absî tercemesi"),
+  E("ubeydullahmusa", "ibnmain", "—", "Tehzîbü't-Tehzîb, Ubeydullah b. Mûsâ el-Absî tercemesi"),
+
+  /* Amr b. Ebî Seleme et-Tinnîsî (o. 214) -- talebeleri, kisa ad taramasi.
+     Ahmed b. Sâlih el-Mısrî, Muhammed b. Yahyâ ez-Zühlî. */
+  E("amrebiselemetennisi", "ahmedsalihmisri", "—", "Tehzîbü't-Tehzîb, Amr b. Ebî Seleme et-Tinnîsî tercemesi"),
+  E("amrebiselemetennisi", "zuhli", "—", "Tehzîbü't-Tehzîb, Amr b. Ebî Seleme et-Tinnîsî tercemesi"),
+
+  /* Âmir el-Ahvel (o. ?) -- hocalari, kisa ad taramasi.
+     Şehr b. Havşeb, Bekir b. Abdillâh el-Müzenî. */
+  E("sehrhavseb", "amiralhavl", "—", "Tehzîbü't-Tehzîb, Âmir el-Ahvel tercemesi"),
+  E("bekirmuzeni", "amiralhavl", "—", "Tehzîbü't-Tehzîb, Âmir el-Ahvel tercemesi"),
+
+  /* Muhammed b. Bişr el-Abdî (o. 203) -- hocalari, kisa ad taramasi.
+     İsmâîl b. Ebî Hâlid, Hişâm b. Urve, Ubeydullah b. Ömer el-Ömerî, Abdülazîz b. Ömer b. Abdil‘azîz, Haccâc b. Ebî Osmân es-Savvâf, Muhammed b. Amr b. Alkame, Amr b. Meymûn b. Mihrân. */
+  E("ismailebihalid", "muhammedbisrabdi", "—", "Tehzîbü't-Tehzîb, Muhammed b. Bişr el-Abdî tercemesi"),
+  E("hisamurve", "muhammedbisrabdi", "—", "Tehzîbü't-Tehzîb, Muhammed b. Bişr el-Abdî tercemesi"),
+  E("ubeydullahomeri", "muhammedbisrabdi", "—", "Tehzîbü't-Tehzîb, Muhammed b. Bişr el-Abdî tercemesi"),
+  E("abdulazizomer", "muhammedbisrabdi", "—", "Tehzîbü't-Tehzîb, Muhammed b. Bişr el-Abdî tercemesi"),
+  E("haccacsavvaf", "muhammedbisrabdi", "—", "Tehzîbü't-Tehzîb, Muhammed b. Bişr el-Abdî tercemesi"),
+  E("muhammedamralkame", "muhammedbisrabdi", "—", "Tehzîbü't-Tehzîb, Muhammed b. Bişr el-Abdî tercemesi"),
+  E("amrmeymunmihran", "muhammedbisrabdi", "—", "Tehzîbü't-Tehzîb, Muhammed b. Bişr el-Abdî tercemesi"),
+
+  /* Muhammed b. Bişr el-Abdî (o. 203) -- talebeleri, kisa ad taramasi.
+     Ali b. el-Medînî, Ebû Bekir b. Ebî Şeybe, İshak b. Râhûye. */
+  E("muhammedbisrabdi", "alimedini", "—", "Tehzîbü't-Tehzîb, Muhammed b. Bişr el-Abdî tercemesi"),
+  E("muhammedbisrabdi", "ibnebiseybe", "—", "Tehzîbü't-Tehzîb, Muhammed b. Bişr el-Abdî tercemesi"),
+  E("muhammedbisrabdi", "ibnrahuye", "—", "Tehzîbü't-Tehzîb, Muhammed b. Bişr el-Abdî tercemesi"),
+
+  /* Süheyl b. Ebî Sâlih (o. 138) -- hocalari, kisa ad taramasi.
+     Saîd b. el-Müseyyeb, Saîd b. Yesâr, Ubeydullah b. Miksem. */
+  E("saidmusayyeb", "suheylebisalih", "—", "Tehzîbü't-Tehzîb, Süheyl b. Ebî Sâlih tercemesi"),
+  E("saidyesar", "suheylebisalih", "—", "Tehzîbü't-Tehzîb, Süheyl b. Ebî Sâlih tercemesi"),
+  E("ubeydullahmiksem", "suheylebisalih", "—", "Tehzîbü't-Tehzîb, Süheyl b. Ebî Sâlih tercemesi"),
+
+  /* Süheyl b. Ebî Sâlih (o. 138) -- talebeleri, kisa ad taramasi.
+     Yahyâ b. Saîd el-Ensârî, Mûsâ b. Ukbe, İbn Cüreyc, Züheyr b. Muâviye, Abdullah b. İdrîs. */
+  E("suheylebisalih", "yahyasaidensari", "—", "Tehzîbü't-Tehzîb, Süheyl b. Ebî Sâlih tercemesi"),
+  E("suheylebisalih", "musaukbe", "—", "Tehzîbü't-Tehzîb, Süheyl b. Ebî Sâlih tercemesi"),
+  E("suheylebisalih", "ibncureyc", "—", "Tehzîbü't-Tehzîb, Süheyl b. Ebî Sâlih tercemesi"),
+  E("suheylebisalih", "zuhayrmuaviye", "—", "Tehzîbü't-Tehzîb, Süheyl b. Ebî Sâlih tercemesi"),
+  E("suheylebisalih", "ibnidris", "—", "Tehzîbü't-Tehzîb, Süheyl b. Ebî Sâlih tercemesi"),
+
+  /* Seleme b. Küheyl (o. 121) -- hocalari, kisa ad taramasi.
+     Abdurrahman b. Yezîd en-Nehaî, Saîd b. Cübeyr, Küreyb mevlâ İbn Abbâs, Ebû Seleme b. Abdirrahman. */
+  E("abdrahmanyezidnehai", "selemekuheyl", "—", "Tehzîbü't-Tehzîb, Seleme b. Küheyl tercemesi"),
+  E("saidcubeyr", "selemekuheyl", "—", "Tehzîbü't-Tehzîb, Seleme b. Küheyl tercemesi"),
+  E("kureyb", "selemekuheyl", "—", "Tehzîbü't-Tehzîb, Seleme b. Küheyl tercemesi"),
+  E("ebuselemeavf", "selemekuheyl", "—", "Tehzîbü't-Tehzîb, Seleme b. Küheyl tercemesi"),
+
+  /* Seleme b. Küheyl (o. 121) -- talebeleri, kisa ad taramasi.
+     Saîd b. Mesrûk es-Sevrî, İsmâîl b. Ebî Hâlid. */
+  E("selemekuheyl", "saidmesrukhsevri", "—", "Tehzîbü't-Tehzîb, Seleme b. Küheyl tercemesi"),
+  E("selemekuheyl", "ismailebihalid", "—", "Tehzîbü't-Tehzîb, Seleme b. Küheyl tercemesi"),
+
+  /* Saîd b. İyâs el-Cüreyrî (o. 144) -- hocalari, kisa ad taramasi.
+     Ebû Nadra el-Abdî. */
+  E("ebunadra", "cureyri", "—", "Tehzîbü't-Tehzîb, Saîd b. İyâs el-Cüreyrî tercemesi"),
+
+  /* Atâ b. es-Sâib (o. 136) -- hocalari, kisa ad taramasi.
+     Amr b. Hurays, Saîd b. Cübeyr, Ebû Seleme b. Abdirrahman, Ebû Abdirrahman es-Sülemî. */
+  E("amrhurays", "ataisaib", "—", "Tehzîbü't-Tehzîb, Atâ b. es-Sâib tercemesi"),
+  E("saidcubeyr", "ataisaib", "—", "Tehzîbü't-Tehzîb, Atâ b. es-Sâib tercemesi"),
+  E("ebuselemeavf", "ataisaib", "—", "Tehzîbü't-Tehzîb, Atâ b. es-Sâib tercemesi"),
+  E("ebuabdrahmansulemi", "ataisaib", "—", "Tehzîbü't-Tehzîb, Atâ b. es-Sâib tercemesi"),
+
+  /* Atâ b. es-Sâib (o. 136) -- talebeleri, kisa ad taramasi.
+     İsmâîl b. Ebî Hâlid, Süleymân et-Teymî, İbn Cüreyc. */
+  E("ataisaib", "ismailebihalid", "—", "Tehzîbü't-Tehzîb, Atâ b. es-Sâib tercemesi"),
+  E("ataisaib", "suleymanteymi", "—", "Tehzîbü't-Tehzîb, Atâ b. es-Sâib tercemesi"),
+  E("ataisaib", "ibncureyc", "—", "Tehzîbü't-Tehzîb, Atâ b. es-Sâib tercemesi"),
+
+  /* Amr b. Yahyâ el-Mâzinî (o. ?) -- hocalari, kisa ad taramasi.
+     Saîd b. Yesâr. */
+  E("saidyesar", "amryahyamazini", "—", "Tehzîbü't-Tehzîb, Amr b. Yahyâ el-Mâzinî tercemesi"),
+
+  /* Amr b. Yahyâ el-Mâzinî (o. ?) -- talebeleri, kisa ad taramasi.
+     Yahyâ b. Ebî Kesîr, İbn Cüreyc, İbrâhim b. Tahmân, Abdülvâhid b. Ziyâd. */
+  E("amryahyamazini", "yahyaebikesir", "—", "Tehzîbü't-Tehzîb, Amr b. Yahyâ el-Mâzinî tercemesi"),
+  E("amryahyamazini", "ibncureyc", "—", "Tehzîbü't-Tehzîb, Amr b. Yahyâ el-Mâzinî tercemesi"),
+  E("amryahyamazini", "ibrahimtahman", "—", "Tehzîbü't-Tehzîb, Amr b. Yahyâ el-Mâzinî tercemesi"),
+  E("amryahyamazini", "abdulvahidziyad", "—", "Tehzîbü't-Tehzîb, Amr b. Yahyâ el-Mâzinî tercemesi"),
+
+  /* Hüdbe b. Hâlid (o. 235) -- hocalari, kisa ad taramasi.
+     Ebân b. Yezîd el-Attâr. */
+  E("ebansattar", "hebbanhilal", "—", "Tehzîbü't-Tehzîb, Hüdbe b. Hâlid tercemesi"),
+
+  /* Mûsâ b. İsmâîl et-Tebûzekî (o. 223) -- hocalari, kisa ad taramasi.
+     Cerîr b. Hâzim, Kays b. er-Rabî‘, Abdülvâhid b. Ziyâd. */
+  E("cerirhazim", "musaismailtebuzeki", "—", "Tehzîbü't-Tehzîb, Mûsâ b. İsmâîl et-Tebûzekî tercemesi"),
+  E("kaysrebi", "musaismailtebuzeki", "—", "Tehzîbü't-Tehzîb, Mûsâ b. İsmâîl et-Tebûzekî tercemesi"),
+  E("abdulvahidziyad", "musaismailtebuzeki", "—", "Tehzîbü't-Tehzîb, Mûsâ b. İsmâîl et-Tebûzekî tercemesi"),
+
+  /* Mûsâ b. İsmâîl et-Tebûzekî (o. 223) -- talebeleri, kisa ad taramasi.
+     Yahyâ b. Ma‘în. */
+  E("musaismailtebuzeki", "ibnmain", "—", "Tehzîbü't-Tehzîb, Mûsâ b. İsmâîl et-Tebûzekî tercemesi"),
+
+  /* Müslim b. İbrâhim (o. 222) -- talebeleri, kisa ad taramasi.
+     Muhammed b. Yahyâ ez-Zühlî. */
+  E("muslimibrahim", "zuhli", "—", "Tehzîbü't-Tehzîb, Müslim b. İbrâhim tercemesi"),
+
+  /* Amr b. Merzûk (o. 224) -- hocalari, kisa ad taramasi.
+     Züheyr b. Muâviye, İkrime b. Ammâr, Mâlik b. Migvel. */
+  E("zuhayrmuaviye", "amrmerzuk", "—", "Tehzîbü't-Tehzîb, Amr b. Merzûk tercemesi"),
+  E("ikrimeammar", "amrmerzuk", "—", "Tehzîbü't-Tehzîb, Amr b. Merzûk tercemesi"),
+  E("malikmigvel", "amrmerzuk", "—", "Tehzîbü't-Tehzîb, Amr b. Merzûk tercemesi"),
+
+  /* Âsım b. Süleymân el-Ahvel (o. 142) -- hocalari, kisa ad taramasi.
+     Ebû Nadra el-Abdî. */
+  E("ebunadra", "asimahvel", "—", "Tehzîbü't-Tehzîb, Âsım b. Süleymân el-Ahvel tercemesi"),
+
+  /* Âsım b. Süleymân el-Ahvel (o. 142) -- talebeleri, kisa ad taramasi.
+     Süleymân et-Teymî, Hammâd b. Zeyd, İsmâîl İbn Uleyye, Züheyr b. Muâviye, Abde b. Süleymân, Yezîd b. Hârûn. */
+  E("asimahvel", "suleymanteymi", "—", "Tehzîbü't-Tehzîb, Âsım b. Süleymân el-Ahvel tercemesi"),
+  E("asimahvel", "hammadzeyd", "—", "Tehzîbü't-Tehzîb, Âsım b. Süleymân el-Ahvel tercemesi"),
+  E("asimahvel", "ibnuleyye", "—", "Tehzîbü't-Tehzîb, Âsım b. Süleymân el-Ahvel tercemesi"),
+  E("asimahvel", "zuhayrmuaviye", "—", "Tehzîbü't-Tehzîb, Âsım b. Süleymân el-Ahvel tercemesi"),
+  E("asimahvel", "abdesuleyman", "—", "Tehzîbü't-Tehzîb, Âsım b. Süleymân el-Ahvel tercemesi"),
+  E("asimahvel", "yezidharun", "—", "Tehzîbü't-Tehzîb, Âsım b. Süleymân el-Ahvel tercemesi"),
+
+  /* Firâs b. Yahyâ el-Hemdânî (o. 129) -- talebeleri, kisa ad taramasi.
+     Süfyân es-Sevrî. */
+  E("firasyahya", "sevri", "—", "Tehzîbü't-Tehzîb, Firâs b. Yahyâ el-Hemdânî tercemesi"),
+
+  /* Mansûr b. Zâzân (o. 131) -- hocalari, kisa ad taramasi.
+     Atâ b. Ebî Rebâh, Amr b. Dînâr, Hakem b. Uteybe. */
+  E("ataebirebah", "mansurzazan", "—", "Tehzîbü't-Tehzîb, Mansûr b. Zâzân tercemesi"),
+  E("amrdinar", "mansurzazan", "—", "Tehzîbü't-Tehzîb, Mansûr b. Zâzân tercemesi"),
+  E("hakemuteybe", "mansurzazan", "—", "Tehzîbü't-Tehzîb, Mansûr b. Zâzân tercemesi"),
+
+  /* Mansûr b. Zâzân (o. 131) -- talebeleri, kisa ad taramasi.
+     Cerîr b. Hâzim. */
+  E("mansurzazan", "cerirhazim", "—", "Tehzîbü't-Tehzîb, Mansûr b. Zâzân tercemesi"),
+
+  /* Saîd b. Mesrûk es-Sevrî (o. 126) -- hocalari, kisa ad taramasi.
+     Hayseme b. Abdurrahman. */
+  E("hayseme", "saidmesrukhsevri", "—", "Tehzîbü't-Tehzîb, Saîd b. Mesrûk es-Sevrî tercemesi"),
+
+  /* Saîd b. Mansûr (o. 227) -- hocalari, kisa ad taramasi.
+     Hammâd b. Zeyd. */
+  E("hammadzeyd", "said_mansur", "—", "Tehzîbü't-Tehzîb, Saîd b. Mansûr tercemesi"),
+
+  /* Saîd b. Mansûr (o. 227) -- talebeleri, kisa ad taramasi.
+     Ebû Zür‘a er-Râzî. */
+  E("said_mansur", "ebuzuraraazi", "—", "Tehzîbü't-Tehzîb, Saîd b. Mansûr tercemesi"),
+
+  /* Kavârîrî, Ubeydullah b. Ömer (o. 235) -- hocalari, kisa ad taramasi.
+     Hammâd b. Zeyd. */
+  E("hammadzeyd", "kavariri", "—", "Tehzîbü't-Tehzîb, Kavârîrî, Ubeydullah b. Ömer tercemesi"),
+
+  /* Kavârîrî, Ubeydullah b. Ömer (o. 235) -- talebeleri, kisa ad taramasi.
+     Yahyâ b. Ma‘în. */
+  E("kavariri", "ibnmain", "—", "Tehzîbü't-Tehzîb, Kavârîrî, Ubeydullah b. Ömer tercemesi"),
+
+  /* Şeybân b. Ferrûh (o. 236) -- hocalari, kisa ad taramasi.
+     Cerîr b. Hâzim, Hammâd b. Seleme. */
+  E("cerirhazim", "seybanferruh", "—", "Tehzîbü't-Tehzîb, Şeybân b. Ferrûh tercemesi"),
+  E("hammadseleme", "seybanferruh", "—", "Tehzîbü't-Tehzîb, Şeybân b. Ferrûh tercemesi"),
+
+  /* Abdülhamîd b. Ca‘fer (o. 153) -- hocalari, kisa ad taramasi.
+     Yahyâ b. Saîd el-Ensârî, İbrâhim b. Abdillâh b. Huneyn. */
+  E("yahyasaidensari", "abdulhamidcafer", "—", "Tehzîbü't-Tehzîb, Abdülhamîd b. Ca‘fer tercemesi"),
+  E("ibrhunayn", "abdulhamidcafer", "—", "Tehzîbü't-Tehzîb, Abdülhamîd b. Ca‘fer tercemesi"),
+
+  /* Süfyân b. Husayn (o. ?) -- hocalari, kisa ad taramasi.
+     Hakem b. Uteybe, Muhammed b. Sîrîn, Humeyd et-Tavîl. */
+  E("hakemuteybe", "sufyanhusayn", "—", "Tehzîbü't-Tehzîb, Süfyân b. Husayn tercemesi"),
+  E("ibnsirin", "sufyanhusayn", "—", "Tehzîbü't-Tehzîb, Süfyân b. Husayn tercemesi"),
+  E("humeydtavil", "sufyanhusayn", "—", "Tehzîbü't-Tehzîb, Süfyân b. Husayn tercemesi"),
+
+  /* Mücâlid b. Saîd (o. 144) -- talebeleri, kisa ad taramasi.
+     İsmâîl b. Ebî Hâlid, Cerîr b. Hâzim, Hammâd b. Zeyd, Hafs b. Giyâs, Abde b. Süleymân. */
+  E("mucalidsaid", "ismailebihalid", "—", "Tehzîbü't-Tehzîb, Mücâlid b. Saîd tercemesi"),
+  E("mucalidsaid", "cerirhazim", "—", "Tehzîbü't-Tehzîb, Mücâlid b. Saîd tercemesi"),
+  E("mucalidsaid", "hammadzeyd", "—", "Tehzîbü't-Tehzîb, Mücâlid b. Saîd tercemesi"),
+  E("mucalidsaid", "hafsgiyas", "—", "Tehzîbü't-Tehzîb, Mücâlid b. Saîd tercemesi"),
+  E("mucalidsaid", "abdesuleyman", "—", "Tehzîbü't-Tehzîb, Mücâlid b. Saîd tercemesi"),
+
+  /* Sâlih b. Sâlih b. Hayy (o. 153) -- hocalari, kisa ad taramasi.
+     Seleme b. Küheyl, Simâk b. Harb. */
+  E("selemekuheyl", "salihhayy", "—", "Tehzîbü't-Tehzîb, Sâlih b. Sâlih b. Hayy tercemesi"),
+  E("simakharb", "salihhayy", "—", "Tehzîbü't-Tehzîb, Sâlih b. Sâlih b. Hayy tercemesi"),
+
+  /* Siyâr Ebû'l-Hakem (o. 129) -- hocalari, kisa ad taramasi.
+     Sâbit el-Bünânî, Bekir b. Abdillâh el-Müzenî. */
+  E("sabitbunani", "siyarebilhakem", "—", "Tehzîbü't-Tehzîb, Siyâr Ebû'l-Hakem tercemesi"),
+  E("bekirmuzeni", "siyarebilhakem", "—", "Tehzîbü't-Tehzîb, Siyâr Ebû'l-Hakem tercemesi"),
+
+  /* Siyâr Ebû'l-Hakem (o. 129) -- talebeleri, kisa ad taramasi.
+     İsmâîl b. Ebî Hâlid, Süleymân et-Teymî. */
+  E("siyarebilhakem", "ismailebihalid", "—", "Tehzîbü't-Tehzîb, Siyâr Ebû'l-Hakem tercemesi"),
+  E("siyarebilhakem", "suleymanteymi", "—", "Tehzîbü't-Tehzîb, Siyâr Ebû'l-Hakem tercemesi"),
+
+  /* Saîd b. Süleymân (Sa‘deveyh) (o. 225) -- hocalari, kisa ad taramasi.
+     Süleymân b. el-Mugīre, Hammâd b. Seleme, Züheyr b. Muâviye. */
+  E("suleymanmugire", "saidsuleymansadeviye", "—", "Tehzîbü't-Tehzîb, Saîd b. Süleymân (Sa‘deveyh) tercemesi"),
+  E("hammadseleme", "saidsuleymansadeviye", "—", "Tehzîbü't-Tehzîb, Saîd b. Süleymân (Sa‘deveyh) tercemesi"),
+  E("zuhayrmuaviye", "saidsuleymansadeviye", "—", "Tehzîbü't-Tehzîb, Saîd b. Süleymân (Sa‘deveyh) tercemesi"),
+
+  /* Saîd b. Süleymân (Sa‘deveyh) (o. 225) -- talebeleri, kisa ad taramasi.
+     Ebû Bekir b. Ebî Şeybe, Yahyâ b. Ma‘în, Kuteybe b. Saîd. */
+  E("saidsuleymansadeviye", "ibnebiseybe", "—", "Tehzîbü't-Tehzîb, Saîd b. Süleymân (Sa‘deveyh) tercemesi"),
+  E("saidsuleymansadeviye", "ibnmain", "—", "Tehzîbü't-Tehzîb, Saîd b. Süleymân (Sa‘deveyh) tercemesi"),
+  E("saidsuleymansadeviye", "kuteybesaid", "—", "Tehzîbü't-Tehzîb, Saîd b. Süleymân (Sa‘deveyh) tercemesi"),
+
+  /* Amr b. Muhammed en-Nâkıd (o. 232) -- hocalari, kisa ad taramasi.
+     Abde b. Süleymân. */
+  E("abdesuleyman", "amrnakid", "—", "Tehzîbü't-Tehzîb, Amr b. Muhammed en-Nâkıd tercemesi"),
+
+  /* Amr b. Muhammed en-Nâkıd (o. 232) -- talebeleri, kisa ad taramasi.
+     Ebû Bekir İbn Ebi'd-Dünyâ. */
+  E("amrnakid", "ed20", "—", "Tehzîbü't-Tehzîb, Amr b. Muhammed en-Nâkıd tercemesi"),
+
+  /* Ahmed b. İbrâhim ed-Devrakī (o. 246) -- hocalari, kisa ad taramasi.
+     Yezîd b. Hârûn. */
+  E("yezidharun", "ahmeddevraki", "—", "Tehzîbü't-Tehzîb, Ahmed b. İbrâhim ed-Devrakī tercemesi"),
+
+  /* Muhammed b. Ísâ İbnü't-Tabbâ‘ (o. 224) -- hocalari, kisa ad taramasi.
+     Hammâd b. Zeyd, İsmâîl b. Ayyâş. */
+  E("hammadzeyd", "muhammedisataba", "—", "Tehzîbü't-Tehzîb, Muhammed b. Ísâ İbnü't-Tabbâ‘ tercemesi"),
+  E("ismailayyas", "muhammedisataba", "—", "Tehzîbü't-Tehzîb, Muhammed b. Ísâ İbnü't-Tabbâ‘ tercemesi"),
+
+  /* Muhammed b. Ísâ İbnü't-Tabbâ‘ (o. 224) -- talebeleri, kisa ad taramasi.
+     Muhammed b. Yahyâ ez-Zühlî, Hasan b. Ali el-Hallâl. */
+  E("muhammedisataba", "zuhli", "—", "Tehzîbü't-Tehzîb, Muhammed b. Ísâ İbnü't-Tabbâ‘ tercemesi"),
+  E("muhammedisataba", "hasanaliayyal", "—", "Tehzîbü't-Tehzîb, Muhammed b. Ísâ İbnü't-Tabbâ‘ tercemesi"),
+
+  /* Yûnus b. Bükeyr eş-Şeybânî (o. 199) -- hocalari, kisa ad taramasi.
+     Hişâm b. Urve. */
+  E("hisamurve", "yunusbukeyr", "—", "Tehzîbü't-Tehzîb, Yûnus b. Bükeyr eş-Şeybânî tercemesi"),
+
+  /* Yûnus b. Bükeyr eş-Şeybânî (o. 199) -- talebeleri, kisa ad taramasi.
+     Yahyâ b. Ma‘în, Ebû Bekir b. Ebî Şeybe, Hennâd b. es-Serî. */
+  E("yunusbukeyr", "ibnmain", "—", "Tehzîbü't-Tehzîb, Yûnus b. Bükeyr eş-Şeybânî tercemesi"),
+  E("yunusbukeyr", "ibnebiseybe", "—", "Tehzîbü't-Tehzîb, Yûnus b. Bükeyr eş-Şeybânî tercemesi"),
+  E("yunusbukeyr", "hennadseri", "—", "Tehzîbü't-Tehzîb, Yûnus b. Bükeyr eş-Şeybânî tercemesi"),
+
+  /* Ali b. el-Mübârek el-Hinâî (o. ?) -- hocalari, kisa ad taramasi.
+     Hişâm b. Urve, Yahyâ b. Ebî Kesîr, Hüseyin el-Muallim. */
+  E("hisamurve", "alimubarekhinai", "—", "Tehzîbü't-Tehzîb, Ali b. el-Mübârek el-Hinâî tercemesi"),
+  E("yahyaebikesir", "alimubarekhinai", "—", "Tehzîbü't-Tehzîb, Ali b. el-Mübârek el-Hinâî tercemesi"),
+  E("huseynmuallim", "alimubarekhinai", "—", "Tehzîbü't-Tehzîb, Ali b. el-Mübârek el-Hinâî tercemesi"),
+
+  /* Ali b. el-Mübârek el-Hinâî (o. ?) -- talebeleri, kisa ad taramasi.
+     Müslim b. İbrâhim. */
+  E("alimubarekhinai", "muslimibrahim", "—", "Tehzîbü't-Tehzîb, Ali b. el-Mübârek el-Hinâî tercemesi"),
+
+  /* Saîd b. Ubeyd et-Tâî (o. ?) -- hocalari, kisa ad taramasi.
+     Saîd b. Cübeyr. */
+  E("saidcubeyr", "saidubeydtai", "—", "Tehzîbü't-Tehzîb, Saîd b. Ubeyd et-Tâî tercemesi"),
+
+  /* Saîd b. Ubeyd et-Tâî (o. ?) -- talebeleri, kisa ad taramasi.
+     Abdullah b. Nümeyr, Yezîd b. Hârûn. */
+  E("saidubeydtai", "ibnnumeyr", "—", "Tehzîbü't-Tehzîb, Saîd b. Ubeyd et-Tâî tercemesi"),
+  E("saidubeydtai", "yezidharun", "—", "Tehzîbü't-Tehzîb, Saîd b. Ubeyd et-Tâî tercemesi"),
+
+  /* Dâvûd b. Kays el-Ferrâ (o. ?) -- hocalari, kisa ad taramasi.
+     Ubeydullah b. Miksem. */
+  E("ubeydullahmiksem", "davudkaysferra", "—", "Tehzîbü't-Tehzîb, Dâvûd b. Kays el-Ferrâ tercemesi"),
+
+  /* Dâvûd b. Kays el-Ferrâ (o. ?) -- talebeleri, kisa ad taramasi.
+     Ebû Dâvûd et-Tayâlisî, Velîd b. Müslim. */
+  E("davudkaysferra", "ebudavudtayalisi", "—", "Tehzîbü't-Tehzîb, Dâvûd b. Kays el-Ferrâ tercemesi"),
+  E("davudkaysferra", "velidmuslim", "—", "Tehzîbü't-Tehzîb, Dâvûd b. Kays el-Ferrâ tercemesi"),
+
+  /* Abdülazîz b. Ömer b. Abdil‘azîz (o. ?) -- hocalari, kisa ad taramasi.
+     Hakem b. Uteybe. */
+  E("hakemuteybe", "abdulazizomer", "—", "Tehzîbü't-Tehzîb, Abdülazîz b. Ömer b. Abdil‘azîz tercemesi"),
+
+  /* Abdülazîz b. Ömer b. Abdil‘azîz (o. ?) -- talebeleri, kisa ad taramasi.
+     İbn Cüreyc, Abde b. Süleymân. */
+  E("abdulazizomer", "ibncureyc", "—", "Tehzîbü't-Tehzîb, Abdülazîz b. Ömer b. Abdil‘azîz tercemesi"),
+  E("abdulazizomer", "abdesuleyman", "—", "Tehzîbü't-Tehzîb, Abdülazîz b. Ömer b. Abdil‘azîz tercemesi"),
+
+  /* Hennâd b. es-Serî (o. 243) -- hocalari, kisa ad taramasi.
+     Ebû Bekir b. Ayyâş, Abdullah b. İdrîs, Ebû Muâviye ed-Darîr, İsmâîl b. Ayyâş, Abdüsselâm b. Harb, Abde b. Süleymân, Fudayl b. İyâz. */
+  E("ebubekirayyas", "hennadseri", "—", "Tehzîbü't-Tehzîb, Hennâd b. es-Serî tercemesi"),
+  E("ibnidris", "hennadseri", "—", "Tehzîbü't-Tehzîb, Hennâd b. es-Serî tercemesi"),
+  E("ebumuaviyedarir", "hennadseri", "—", "Tehzîbü't-Tehzîb, Hennâd b. es-Serî tercemesi"),
+  E("ismailayyas", "hennadseri", "—", "Tehzîbü't-Tehzîb, Hennâd b. es-Serî tercemesi"),
+  E("abdusselamharb", "hennadseri", "—", "Tehzîbü't-Tehzîb, Hennâd b. es-Serî tercemesi"),
+  E("abdesuleyman", "hennadseri", "—", "Tehzîbü't-Tehzîb, Hennâd b. es-Serî tercemesi"),
+  E("fudaylibnayaz", "hennadseri", "—", "Tehzîbü't-Tehzîb, Hennâd b. es-Serî tercemesi"),
+
+  /* Yahyâ b. Ma‘în (o. 233) -- hocalari, kisa ad taramasi.
+     Abdüsselâm b. Harb, Abdüssamed b. Abdilvâris. */
+  E("abdusselamharb", "ibnmain", "—", "Tehzîbü't-Tehzîb, Yahyâ b. Ma‘în tercemesi"),
+  E("abdussamed", "ibnmain", "—", "Tehzîbü't-Tehzîb, Yahyâ b. Ma‘în tercemesi"),
+
+  /* Yahyâ b. Ma‘în (o. 233) -- talebeleri, kisa ad taramasi.
+     Hennâd b. es-Serî, Sâlih b. Muhammed (Cezere), Muhammed b. Yahyâ ez-Zühlî. */
+  E("ibnmain", "hennadseri", "—", "Tehzîbü't-Tehzîb, Yahyâ b. Ma‘în tercemesi"),
+  E("ibnmain", "bh06", "—", "Tehzîbü't-Tehzîb, Yahyâ b. Ma‘în tercemesi"),
+  E("ibnmain", "zuhli", "—", "Tehzîbü't-Tehzîb, Yahyâ b. Ma‘în tercemesi"),
+
+  /* Mahmûd b. Gaylân (o. 239) -- talebeleri, kisa ad taramasi.
+     İbrâhim b. Ebî Tâlib. */
+  E("mahmudgaylan", "ms02", "—", "Tehzîbü't-Tehzîb, Mahmûd b. Gaylân tercemesi"),
+
+  /* İbn Ebî Ömer el-Adenî (o. 243) -- hocalari, kisa ad taramasi.
+     Fudayl b. İyâz, Velîd b. Müslim, Yezîd b. Hârûn. */
+  E("fudaylibnayaz", "ibnebiomeradeni", "—", "Tehzîbü't-Tehzîb, İbn Ebî Ömer el-Adenî tercemesi"),
+  E("velidmuslim", "ibnebiomeradeni", "—", "Tehzîbü't-Tehzîb, İbn Ebî Ömer el-Adenî tercemesi"),
+  E("yezidharun", "ibnebiomeradeni", "—", "Tehzîbü't-Tehzîb, İbn Ebî Ömer el-Adenî tercemesi"),
+
+  /* İbn Ebî Ömer el-Adenî (o. 243) -- talebeleri, kisa ad taramasi.
+     Ebû Zür‘a er-Râzî. */
+  E("ibnebiomeradeni", "ebuzuraraazi", "—", "Tehzîbü't-Tehzîb, İbn Ebî Ömer el-Adenî tercemesi"),
+
+  /* Nasr b. Ali el-Cehdamî (o. 250) -- talebeleri, kisa ad taramasi.
+     Müslim b. İbrâhim. */
+  E("nasralicehdami", "muslimibrahim", "—", "Tehzîbü't-Tehzîb, Nasr b. Ali el-Cehdamî tercemesi"),
+
+  /* İbrâhim b. Tahmân (o. 168) -- hocalari, kisa ad taramasi.
+     Ebû İshak es-Sebîî, Ebû İshak eş-Şeybânî. */
+  E("ebuishaksebii", "ibrahimtahman", "—", "Tehzîbü't-Tehzîb, İbrâhim b. Tahmân tercemesi"),
+  E("ismailebiislamsibani", "ibrahimtahman", "—", "Tehzîbü't-Tehzîb, İbrâhim b. Tahmân tercemesi"),
+
+  /* Harmala b. İmrân et-Tüceybî (o. 160) -- talebeleri, kisa ad taramasi.
+     Cerîr b. Hâzim. */
+  E("harmalaimran", "cerirhazim", "—", "Tehzîbü't-Tehzîb, Harmala b. İmrân et-Tüceybî tercemesi"),
+
+  /* Serî b. Yahyâ (o. 167) -- hocalari, kisa ad taramasi.
+     Sâbit el-Bünânî. */
+  E("sabitbunani", "serieyyahya", "—", "Tehzîbü't-Tehzîb, Serî b. Yahyâ tercemesi"),
+
+  /* Serî b. Yahyâ (o. 167) -- talebeleri, kisa ad taramasi.
+     Hammâd b. Zeyd, Müslim b. İbrâhim. */
+  E("serieyyahya", "hammadzeyd", "—", "Tehzîbü't-Tehzîb, Serî b. Yahyâ tercemesi"),
+  E("serieyyahya", "muslimibrahim", "—", "Tehzîbü't-Tehzîb, Serî b. Yahyâ tercemesi"),
+
+  /* Sa‘d b. Saîd el-Ensârî (o. 141) -- hocalari, kisa ad taramasi.
+     Sâib b. Yezîd, Amre bint Abdirrahman, Muhammed b. İbrâhim et-Teymî. */
+  E("saibyezid", "sadsaidensari", "—", "Tehzîbü't-Tehzîb, Sa‘d b. Saîd el-Ensârî tercemesi"),
+  E("amrabdrahmanzurara", "sadsaidensari", "—", "Tehzîbü't-Tehzîb, Sa‘d b. Saîd el-Ensârî tercemesi"),
+  E("muhammedibrahimteymi", "sadsaidensari", "—", "Tehzîbü't-Tehzîb, Sa‘d b. Saîd el-Ensârî tercemesi"),
+
+  /* Sa‘d b. Saîd el-Ensârî (o. 141) -- talebeleri, kisa ad taramasi.
+     İbn Cüreyc, Amr b. el-Hâris, Muhammed b. Amr b. Alkame. */
+  E("sadsaidensari", "ibncureyc", "—", "Tehzîbü't-Tehzîb, Sa‘d b. Saîd el-Ensârî tercemesi"),
+  E("sadsaidensari", "amrharis", "—", "Tehzîbü't-Tehzîb, Sa‘d b. Saîd el-Ensârî tercemesi"),
+  E("sadsaidensari", "muhammedamralkame", "—", "Tehzîbü't-Tehzîb, Sa‘d b. Saîd el-Ensârî tercemesi"),
+
+  /* Hasan b. Zekvân (o. ?) -- hocalari, kisa ad taramasi.
+     Atâ b. Ebî Rebâh, Ebû İshak es-Sebîî. */
+  E("ataebirebah", "hasanzekvan", "—", "Tehzîbü't-Tehzîb, Hasan b. Zekvân tercemesi"),
+  E("ebuishaksebii", "hasanzekvan", "—", "Tehzîbü't-Tehzîb, Hasan b. Zekvân tercemesi"),
+
+  /* Husıym b. İrâk b. Mâlik (o. ?) -- talebeleri, kisa ad taramasi.
+     Yahyâ b. Saîd el-Ensârî, Hammâd b. Zeyd. */
+  E("husaymirak", "yahyasaidensari", "—", "Tehzîbü't-Tehzîb, Husıym b. İrâk b. Mâlik tercemesi"),
+  E("husaymirak", "hammadzeyd", "—", "Tehzîbü't-Tehzîb, Husıym b. İrâk b. Mâlik tercemesi"),
+
+  /* Eş‘as b. Abdilmelik el-Humrânî (o. 142) -- hocalari, kisa ad taramasi.
+     Hâlid el-Hazzâ, Dâvûd b. Ebî Hind. */
+  E("halidhazza", "esaseabdulmelik", "—", "Tehzîbü't-Tehzîb, Eş‘as b. Abdilmelik el-Humrânî tercemesi"),
+  E("davudebihind", "esaseabdulmelik", "—", "Tehzîbü't-Tehzîb, Eş‘as b. Abdilmelik el-Humrânî tercemesi"),
+
+  /* Eş‘as b. Abdilmelik el-Humrânî (o. 142) -- talebeleri, kisa ad taramasi.
+     Ruh b. Ubâde, Hammâd b. Zeyd, Mu‘temir b. Süleymân. */
+  E("esaseabdulmelik", "ruhubade", "—", "Tehzîbü't-Tehzîb, Eş‘as b. Abdilmelik el-Humrânî tercemesi"),
+  E("esaseabdulmelik", "hammadzeyd", "—", "Tehzîbü't-Tehzîb, Eş‘as b. Abdilmelik el-Humrânî tercemesi"),
+  E("esaseabdulmelik", "mutemirsuleyman", "—", "Tehzîbü't-Tehzîb, Eş‘as b. Abdilmelik el-Humrânî tercemesi"),
+
+  /* Abdülazîz b. Muhammed ed-Derâverdî (o. 187) -- hocalari, kisa ad taramasi.
+     Yahyâ b. Saîd el-Ensârî, Hişâm b. Urve, Humeyd et-Tavîl, Muhammed b. Amr b. Alkame. */
+  E("yahyasaidensari", "darevardi", "—", "Tehzîbü't-Tehzîb, Abdülazîz b. Muhammed ed-Derâverdî tercemesi"),
+  E("hisamurve", "darevardi", "—", "Tehzîbü't-Tehzîb, Abdülazîz b. Muhammed ed-Derâverdî tercemesi"),
+  E("humeydtavil", "darevardi", "—", "Tehzîbü't-Tehzîb, Abdülazîz b. Muhammed ed-Derâverdî tercemesi"),
+  E("muhammedamralkame", "darevardi", "—", "Tehzîbü't-Tehzîb, Abdülazîz b. Muhammed ed-Derâverdî tercemesi"),
+
+  /* Abdülazîz b. Muhammed ed-Derâverdî (o. 187) -- talebeleri, kisa ad taramasi.
+     Hârûn b. Ma‘rûf. */
+  E("darevardi", "harunmaruf", "—", "Tehzîbü't-Tehzîb, Abdülazîz b. Muhammed ed-Derâverdî tercemesi"),
+
+  /* Abdülazîz b. Ebî Seleme el-Mâcişûn (o. 164) -- hocalari, kisa ad taramasi.
+     Humeyd et-Tavîl, Yahyâ b. Saîd el-Ensârî, Hişâm b. Urve, Hilâl b. Ebî Meymûne, Süheyl b. Ebî Sâlih, Eyyûb es-Sahtiyânî. */
+  E("humeydtavil", "macisun", "—", "Tehzîbü't-Tehzîb, Abdülazîz b. Ebî Seleme el-Mâcişûn tercemesi"),
+  E("yahyasaidensari", "macisun", "—", "Tehzîbü't-Tehzîb, Abdülazîz b. Ebî Seleme el-Mâcişûn tercemesi"),
+  E("hisamurve", "macisun", "—", "Tehzîbü't-Tehzîb, Abdülazîz b. Ebî Seleme el-Mâcişûn tercemesi"),
+  E("hilalebimeymune", "macisun", "—", "Tehzîbü't-Tehzîb, Abdülazîz b. Ebî Seleme el-Mâcişûn tercemesi"),
+  E("suheylebisalih", "macisun", "—", "Tehzîbü't-Tehzîb, Abdülazîz b. Ebî Seleme el-Mâcişûn tercemesi"),
+  E("eyyubsahtiyani", "macisun", "—", "Tehzîbü't-Tehzîb, Abdülazîz b. Ebî Seleme el-Mâcişûn tercemesi"),
+
+  /* Harb b. Şeddâd (o. 161) -- hocalari, kisa ad taramasi.
+     Husayn b. Abdirrahman. */
+  E("husaynabdrahman", "harbseddad", "—", "Tehzîbü't-Tehzîb, Harb b. Şeddâd tercemesi"),
+
+  /* Harb b. Şeddâd (o. 161) -- talebeleri, kisa ad taramasi.
+     Abdüssamed b. Abdilvâris, Amr b. Merzûk. */
+  E("harbseddad", "abdussamed", "—", "Tehzîbü't-Tehzîb, Harb b. Şeddâd tercemesi"),
+  E("harbseddad", "amrmerzuk", "—", "Tehzîbü't-Tehzîb, Harb b. Şeddâd tercemesi"),
+
+  /* Mâlik b. Migvel (o. 159) -- hocalari, kisa ad taramasi.
+     Ebû İshak es-Sebîî, Simâk b. Harb, Hakem b. Uteybe. */
+  E("ebuishaksebii", "malikmigvel", "—", "Tehzîbü't-Tehzîb, Mâlik b. Migvel tercemesi"),
+  E("simakharb", "malikmigvel", "—", "Tehzîbü't-Tehzîb, Mâlik b. Migvel tercemesi"),
+  E("hakemuteybe", "malikmigvel", "—", "Tehzîbü't-Tehzîb, Mâlik b. Migvel tercemesi"),
+
+  /* Mâlik b. Migvel (o. 159) -- talebeleri, kisa ad taramasi.
+     Müslim b. İbrâhim. */
+  E("malikmigvel", "muslimibrahim", "—", "Tehzîbü't-Tehzîb, Mâlik b. Migvel tercemesi"),
+
+  /* Bişr b. el-Mufaddal er-Rakāşî (o. 186) -- hocalari, kisa ad taramasi.
+     Dâvûd b. Ebî Hind, Süheyl b. Ebî Sâlih, Ubeydullah b. Ömer el-Ömerî. */
+  E("davudebihind", "bisrmufaddal", "—", "Tehzîbü't-Tehzîb, Bişr b. el-Mufaddal er-Rakāşî tercemesi"),
+  E("suheylebisalih", "bisrmufaddal", "—", "Tehzîbü't-Tehzîb, Bişr b. el-Mufaddal er-Rakāşî tercemesi"),
+  E("ubeydullahomeri", "bisrmufaddal", "—", "Tehzîbü't-Tehzîb, Bişr b. el-Mufaddal er-Rakāşî tercemesi"),
+
+  /* Bişr b. el-Mufaddal er-Rakāşî (o. 186) -- talebeleri, kisa ad taramasi.
+     Yahyâ b. Yahyâ en-Nîsâbûrî. */
+  E("bisrmufaddal", "yahyayahyanisaburi", "—", "Tehzîbü't-Tehzîb, Bişr b. el-Mufaddal er-Rakāşî tercemesi"),
+
+  /* Ma‘n b. Îsâ el-Eşce‘î (o. 198) -- hocalari, kisa ad taramasi.
+     İbrâhim b. Tahmân. */
+  E("ibrahimtahman", "manisa", "—", "Tehzîbü't-Tehzîb, Ma‘n b. Îsâ el-Eşce‘î tercemesi"),
+
+  /* Ebû Hâzim Seleme b. Dînâr (o. ?) -- hocalari, kisa ad taramasi.
+     Yezîd b. Rûmân, Ubeydullah b. Miksem. */
+  E("yezidrouman", "ebuhazimseleme", "—", "Tehzîbü't-Tehzîb, Ebû Hâzim Seleme b. Dînâr tercemesi"),
+  E("ubeydullahmiksem", "ebuhazimseleme", "—", "Tehzîbü't-Tehzîb, Ebû Hâzim Seleme b. Dînâr tercemesi"),
+
+  /* Ebû Hâzim Seleme b. Dînâr (o. ?) -- talebeleri, kisa ad taramasi.
+     Fudayl b. Süleymân en-Nümeyrî. */
+  E("ebuhazimseleme", "fudaylsuleyman", "—", "Tehzîbü't-Tehzîb, Ebû Hâzim Seleme b. Dînâr tercemesi"),
+
+  /* Ebû Hâşim er-Rummânî (o. 122) -- talebeleri, kisa ad taramasi.
+     Kays b. er-Rabî‘. */
+  E("ebuhasimrummani", "kaysrebi", "—", "Tehzîbü't-Tehzîb, Ebû Hâşim er-Rummânî tercemesi"),
+
+  /* Mehdî b. Meymûn el-Ezdî (o. 172) -- talebeleri, kisa ad taramasi.
+     Hişâm b. Hassân. */
+  E("mehdimeymun", "hisamhassan", "—", "Tehzîbü't-Tehzîb, Mehdî b. Meymûn el-Ezdî tercemesi"),
+
+  /* Ali b. Rebîa el-Vâlibî (o. ?) -- talebeleri, kisa ad taramasi.
+     Seleme b. Küheyl. */
+  E("alirebianadle", "selemekuheyl", "—", "Tehzîbü't-Tehzîb, Ali b. Rebîa el-Vâlibî tercemesi"),
+
+  /* Mahreme b. Süleymân el-Vâlibî (o. 130) -- hocalari, kisa ad taramasi.
+     Sâib b. Yezîd. */
+  E("saibyezid", "mahremesuleyman", "—", "Tehzîbü't-Tehzîb, Mahreme b. Süleymân el-Vâlibî tercemesi"),
+
+  /* Yahyâ b. Atîk et-Tufâvî (o. ?) -- talebeleri, kisa ad taramasi.
+     Hemmâm b. Yahyâ. */
+  E("yahyaatik", "hemmamyahya", "—", "Tehzîbü't-Tehzîb, Yahyâ b. Atîk et-Tufâvî tercemesi"),
+
+  /* Münzir b. Ya‘lâ es-Sevrî (o. ?) -- talebeleri, kisa ad taramasi.
+     Hasan b. Amr el-Fukaymî, Muhammed b. Sûka. */
+  E("munziryala", "hasanamrfukaymi", "—", "Tehzîbü't-Tehzîb, Münzir b. Ya‘lâ es-Sevrî tercemesi"),
+  E("munziryala", "muhammedsuka", "—", "Tehzîbü't-Tehzîb, Münzir b. Ya‘lâ es-Sevrî tercemesi"),
+
+  /* Yûnus b. Ubeyd el-Abdî (o. 139) -- talebeleri, kisa ad taramasi.
+     Abdülvâris b. Saîd, Muhammed b. Ebî Adî, Abdül'alâ b. Abdil'alâ. */
+  E("yunusubeyd", "abdulvarissaid", "—", "Tehzîbü't-Tehzîb, Yûnus b. Ubeyd el-Abdî tercemesi"),
+  E("yunusubeyd", "muhammedebiadi", "—", "Tehzîbü't-Tehzîb, Yûnus b. Ubeyd el-Abdî tercemesi"),
+  E("yunusubeyd", "abdulalaabdulala", "—", "Tehzîbü't-Tehzîb, Yûnus b. Ubeyd el-Abdî tercemesi"),
+
+  /* Adî b. Sâbit el-Ensârî (o. 116) -- talebeleri, kisa ad taramasi.
+     Ebû İshak eş-Şeybânî. */
+  E("adisabit", "ismailebiislamsibani", "—", "Tehzîbü't-Tehzîb, Adî b. Sâbit el-Ensârî tercemesi"),
+
+  /* Ziyâd b. Yahyâ el-Hassânî (o. 254) -- hocalari, kisa ad taramasi.
+     Mu‘temir b. Süleymân. */
+  E("mutemirsuleyman", "ziyadyahyahassani", "—", "Tehzîbü't-Tehzîb, Ziyâd b. Yahyâ el-Hassânî tercemesi"),
+
+  /* Muhammed b. Abdil'alâ es-San‘ânî (o. 245) -- hocalari, kisa ad taramasi.
+     Ebû Bekir b. Ayyâş, Süfyân b. Uyeyne, İsmâîl İbn Uleyye. */
+  E("ebubekirayyas", "muhammedabdulalasanani", "—", "Tehzîbü't-Tehzîb, Muhammed b. Abdil'alâ es-San‘ânî tercemesi"),
+  E("ibnuyeyne", "muhammedabdulalasanani", "—", "Tehzîbü't-Tehzîb, Muhammed b. Abdil'alâ es-San‘ânî tercemesi"),
+  E("ibnuleyye", "muhammedabdulalasanani", "—", "Tehzîbü't-Tehzîb, Muhammed b. Abdil'alâ es-San‘ânî tercemesi"),
+
+  /* Mücâhid b. Mûsâ (o. 244) -- hocalari, kisa ad taramasi.
+     Abdullah b. İdrîs. */
+  E("ibnidris", "mucahidmusa", "—", "Tehzîbü't-Tehzîb, Mücâhid b. Mûsâ tercemesi"),
+
+  /* Ebû Bekir b. Ayyâş (o. 193) -- hocalari, kisa ad taramasi.
+     Ebû İshak es-Sebîî, Ebû Hasīn Osmân b. Âsım, Abdülmelik b. Umeyr, Humeyd et-Tavîl, Ebû İshak eş-Şeybânî, Âsım b. Behdele, Mutarrif b. Tarîf, Muhammed b. Amr b. Alkame. */
+  E("ebuishaksebii", "ebubekirayyas", "—", "Tehzîbü't-Tehzîb, Ebû Bekir b. Ayyâş tercemesi"),
+  E("ebuhasin", "ebubekirayyas", "—", "Tehzîbü't-Tehzîb, Ebû Bekir b. Ayyâş tercemesi"),
+  E("abdulmelikumeyr", "ebubekirayyas", "—", "Tehzîbü't-Tehzîb, Ebû Bekir b. Ayyâş tercemesi"),
+  E("humeydtavil", "ebubekirayyas", "—", "Tehzîbü't-Tehzîb, Ebû Bekir b. Ayyâş tercemesi"),
+  E("ismailebiislamsibani", "ebubekirayyas", "—", "Tehzîbü't-Tehzîb, Ebû Bekir b. Ayyâş tercemesi"),
+  E("asimbehdele", "ebubekirayyas", "—", "Tehzîbü't-Tehzîb, Ebû Bekir b. Ayyâş tercemesi"),
+  E("mutarriftarif", "ebubekirayyas", "—", "Tehzîbü't-Tehzîb, Ebû Bekir b. Ayyâş tercemesi"),
+  E("muhammedamralkame", "ebubekirayyas", "—", "Tehzîbü't-Tehzîb, Ebû Bekir b. Ayyâş tercemesi"),
+
+  /* Ebû Bekir b. Ayyâş (o. 193) -- talebeleri, kisa ad taramasi.
+     Ebû Dâvûd et-Tayâlisî, Ahmed b. Hanbel, Yahyâ b. Yahyâ en-Nîsâbûrî, Ahmed b. Manî‘ el-Bağavî, Hasan b. Arafe. */
+  E("ebubekirayyas", "ebudavudtayalisi", "—", "Tehzîbü't-Tehzîb, Ebû Bekir b. Ayyâş tercemesi"),
+  E("ebubekirayyas", "ahmedhanbel", "—", "Tehzîbü't-Tehzîb, Ebû Bekir b. Ayyâş tercemesi"),
+  E("ebubekirayyas", "yahyayahyanisaburi", "—", "Tehzîbü't-Tehzîb, Ebû Bekir b. Ayyâş tercemesi"),
+  E("ebubekirayyas", "ahmedmeni", "—", "Tehzîbü't-Tehzîb, Ebû Bekir b. Ayyâş tercemesi"),
+  E("ebubekirayyas", "hasanarafe", "—", "Tehzîbü't-Tehzîb, Ebû Bekir b. Ayyâş tercemesi"),
+
+  /* Muhammed b. Fudayl b. Gazvân (o. 195) -- hocalari, kisa ad taramasi.
+     Ebû İshak eş-Şeybânî, Hişâm b. Urve, Yahyâ b. Saîd el-Ensârî. */
+  E("ismailebiislamsibani", "muhammedfudayl", "—", "Tehzîbü't-Tehzîb, Muhammed b. Fudayl b. Gazvân tercemesi"),
+  E("hisamurve", "muhammedfudayl", "—", "Tehzîbü't-Tehzîb, Muhammed b. Fudayl b. Gazvân tercemesi"),
+  E("yahyasaidensari", "muhammedfudayl", "—", "Tehzîbü't-Tehzîb, Muhammed b. Fudayl b. Gazvân tercemesi"),
+
+  /* Muhammed b. Fudayl b. Gazvân (o. 195) -- talebeleri, kisa ad taramasi.
+     Ahmed b. Hanbel, İshak b. Râhûye. */
+  E("muhammedfudayl", "ahmedhanbel", "—", "Tehzîbü't-Tehzîb, Muhammed b. Fudayl b. Gazvân tercemesi"),
+  E("muhammedfudayl", "ibnrahuye", "—", "Tehzîbü't-Tehzîb, Muhammed b. Fudayl b. Gazvân tercemesi"),
+
+  /* Fudayl b. İyâz (o. 187) -- talebeleri, kisa ad taramasi.
+     Kuteybe b. Saîd, Kavârîrî, Ubeydullah b. Ömer. */
+  E("fudaylibnayaz", "kuteybesaid", "—", "Tehzîbü't-Tehzîb, Fudayl b. İyâz tercemesi"),
+  E("fudaylibnayaz", "kavariri", "—", "Tehzîbü't-Tehzîb, Fudayl b. İyâz tercemesi"),
+
+  /* Hâlid b. Seleme el-Mahzûmî (o. 132) -- hocalari, kisa ad taramasi.
+     Saîd b. el-Müseyyeb. */
+  E("saidmusayyeb", "halidselememahzumi", "—", "Tehzîbü't-Tehzîb, Hâlid b. Seleme el-Mahzûmî tercemesi"),
+
+  /* Hâlid b. Seleme el-Mahzûmî (o. 132) -- talebeleri, kisa ad taramasi.
+     Hammâd b. Zeyd, Yahyâ b. Saîd el-Ensârî. */
+  E("halidselememahzumi", "hammadzeyd", "—", "Tehzîbü't-Tehzîb, Hâlid b. Seleme el-Mahzûmî tercemesi"),
+  E("halidselememahzumi", "yahyasaidensari", "—", "Tehzîbü't-Tehzîb, Hâlid b. Seleme el-Mahzûmî tercemesi"),
+
+  /* Amr b. Meymûn b. Mihrân (o. 147) -- talebeleri, kisa ad taramasi.
+     Züheyr b. Muâviye, Yezîd b. Hârûn. */
+  E("amrmeymunmihran", "zuhayrmuaviye", "—", "Tehzîbü't-Tehzîb, Amr b. Meymûn b. Mihrân tercemesi"),
+  E("amrmeymunmihran", "yezidharun", "—", "Tehzîbü't-Tehzîb, Amr b. Meymûn b. Mihrân tercemesi"),
+
+  /* Hâşim b. Hâşim b. Utbe (o. 144) -- talebeleri, kisa ad taramasi.
+     Abdullah b. Nümeyr. */
+  E("hasimhasim", "ibnnumeyr", "—", "Tehzîbü't-Tehzîb, Hâşim b. Hâşim b. Utbe tercemesi"),
+
+  /* Leys b. Ebî Süleym (o. 143) -- talebeleri, kisa ad taramasi.
+     Zâide b. Kedâme, Mu‘temir b. Süleymân, Abdullah b. İdrîs. */
+  E("leysebisuleym", "zaidekudame", "—", "Tehzîbü't-Tehzîb, Leys b. Ebî Süleym tercemesi"),
+  E("leysebisuleym", "mutemirsuleyman", "—", "Tehzîbü't-Tehzîb, Leys b. Ebî Süleym tercemesi"),
+  E("leysebisuleym", "ibnidris", "—", "Tehzîbü't-Tehzîb, Leys b. Ebî Süleym tercemesi"),
+
+  /* Hasan b. Arafe (o. 257) -- hocalari, kisa ad taramasi.
+     İsmâîl b. Ayyâş. */
+  E("ismailayyas", "hasanarafe", "—", "Tehzîbü't-Tehzîb, Hasan b. Arafe tercemesi"),
+
+  /* Hasan b. Arafe (o. 257) -- talebeleri, kisa ad taramasi.
+     Ebû Bekir İbn Ebi'd-Dünyâ. */
+  E("hasanarafe", "ed20", "—", "Tehzîbü't-Tehzîb, Hasan b. Arafe tercemesi"),
+
+  /* Muhammed b. Ubeyd el-Muhâribî (o. 245) -- hocalari, kisa ad taramasi.
+     Ebû Muâviye ed-Darîr, Ebû Bekir b. Ayyâş, İsmâîl b. Ayyâş, Muhammed b. Fudayl b. Gazvân. */
+  E("ebumuaviyedarir", "muhammedubeydmuharibi", "—", "Tehzîbü't-Tehzîb, Muhammed b. Ubeyd el-Muhâribî tercemesi"),
+  E("ebubekirayyas", "muhammedubeydmuharibi", "—", "Tehzîbü't-Tehzîb, Muhammed b. Ubeyd el-Muhâribî tercemesi"),
+  E("ismailayyas", "muhammedubeydmuharibi", "—", "Tehzîbü't-Tehzîb, Muhammed b. Ubeyd el-Muhâribî tercemesi"),
+  E("muhammedfudayl", "muhammedubeydmuharibi", "—", "Tehzîbü't-Tehzîb, Muhammed b. Ubeyd el-Muhâribî tercemesi"),
+
+  /* İshak b. Mansûr el-Kevsec (o. 251) -- hocalari, kisa ad taramasi.
+     İshak b. Râhûye, Yahyâ b. Ma‘în. */
+  E("ibnrahuye", "ishakkevsec", "—", "Tehzîbü't-Tehzîb, İshak b. Mansûr el-Kevsec tercemesi"),
+  E("ibnmain", "ishakkevsec", "—", "Tehzîbü't-Tehzîb, İshak b. Mansûr el-Kevsec tercemesi"),
+
+  /* Âdem b. Ebî İyâs el-Askalânî (o. 220) -- hocalari, kisa ad taramasi.
+     Hammâd b. Seleme. */
+  E("hammadseleme", "ademebiiyas", "—", "Tehzîbü't-Tehzîb, Âdem b. Ebî İyâs el-Askalânî tercemesi"),
+
+  /* Hasan b. Ali el-Hallâl (o. 242) -- hocalari, kisa ad taramasi.
+     Abdüssamed b. Abdilvâris. */
+  E("abdussamed", "hasanaliayyal", "—", "Tehzîbü't-Tehzîb, Hasan b. Ali el-Hallâl tercemesi"),
+
+  /* İbrâhim b. Abdillâh b. Kâriz (o. ?) -- hocalari, kisa ad taramasi.
+     Câbir b. Abdullah, Sâib b. Yezîd. */
+  E("cabir", "ibrahimkariz", "—", "Tehzîbü't-Tehzîb, İbrâhim b. Abdillâh b. Kâriz tercemesi"),
+  E("saibyezid", "ibrahimkariz", "—", "Tehzîbü't-Tehzîb, İbrâhim b. Abdillâh b. Kâriz tercemesi"),
+
+  /* İbrâhim b. Abdillâh b. Kâriz (o. ?) -- talebeleri, kisa ad taramasi.
+     Ebû Seleme b. Abdirrahman. */
+  E("ibrahimkariz", "ebuselemeavf", "—", "Tehzîbü't-Tehzîb, İbrâhim b. Abdillâh b. Kâriz tercemesi"),
+
+  /* Hakem b. Mînâ (o. ?) -- talebeleri, kisa ad taramasi.
+     Sa‘d b. İbrâhim. */
+  E("hakemmina", "sadibrahim", "—", "Tehzîbü't-Tehzîb, Hakem b. Mînâ tercemesi"),
+
+  /* İshak b. Abdillâh b. Ebî Talha (o. 132) -- talebeleri, kisa ad taramasi.
+     Yahyâ b. Saîd el-Ensârî, İbn Cüreyc. */
+  E("ishaktalha", "yahyasaidensari", "—", "Tehzîbü't-Tehzîb, İshak b. Abdillâh b. Ebî Talha tercemesi"),
+  E("ishaktalha", "ibncureyc", "—", "Tehzîbü't-Tehzîb, İshak b. Abdillâh b. Ebî Talha tercemesi"),
+
+  /* Ubeydullah b. Miksem (o. ?) -- talebeleri, kisa ad taramasi.
+     Muhammed b. Aclân. */
+  E("ubeydullahmiksem", "muhammedacilan", "—", "Tehzîbü't-Tehzîb, Ubeydullah b. Miksem tercemesi"),
+
+  /* Ali b. el-Mübârek (o. ?) -- hocalari, kisa ad taramasi.
+     Abdülazîz b. Suheyb, Hişâm b. Urve, Hüseyin el-Muallim. */
+  E("abdulazizsuheyb", "alimubarek", "—", "Tehzîbü't-Tehzîb, Ali b. el-Mübârek tercemesi"),
+  E("hisamurve", "alimubarek", "—", "Tehzîbü't-Tehzîb, Ali b. el-Mübârek tercemesi"),
+  E("huseynmuallim", "alimubarek", "—", "Tehzîbü't-Tehzîb, Ali b. el-Mübârek tercemesi"),
+
+  /* Hişâm b. Hassân (o. 148) -- hocalari, kisa ad taramasi.
+     Hişâm b. Urve, Süheyl b. Ebî Sâlih. */
+  E("hisamurve", "hisamhassan", "—", "Tehzîbü't-Tehzîb, Hişâm b. Hassân tercemesi"),
+  E("suheylebisalih", "hisamhassan", "—", "Tehzîbü't-Tehzîb, Hişâm b. Hassân tercemesi"),
+
+  /* Hişâm b. Hassân (o. 148) -- talebeleri, kisa ad taramasi.
+     Hafs b. Giyâs, Abdullah b. İdrîs, İbrâhim b. Tahmân, İbn Cüreyc, Abdullah b. Nümeyr, Ruh b. Ubâde. */
+  E("hisamhassan", "hafsgiyas", "—", "Tehzîbü't-Tehzîb, Hişâm b. Hassân tercemesi"),
+  E("hisamhassan", "ibnidris", "—", "Tehzîbü't-Tehzîb, Hişâm b. Hassân tercemesi"),
+  E("hisamhassan", "ibrahimtahman", "—", "Tehzîbü't-Tehzîb, Hişâm b. Hassân tercemesi"),
+  E("hisamhassan", "ibncureyc", "—", "Tehzîbü't-Tehzîb, Hişâm b. Hassân tercemesi"),
+  E("hisamhassan", "ibnnumeyr", "—", "Tehzîbü't-Tehzîb, Hişâm b. Hassân tercemesi"),
+  E("hisamhassan", "ruhubade", "—", "Tehzîbü't-Tehzîb, Hişâm b. Hassân tercemesi"),
+
+  /* Haccâc b. Ebî Osmân es-Savvâf (o. 143) -- hocalari, kisa ad taramasi.
+     Hasan-ı Basrî. */
+  E("hasanbasri", "haccacsavvaf", "—", "Tehzîbü't-Tehzîb, Haccâc b. Ebî Osmân es-Savvâf tercemesi"),
+
+  /* Şeybân b. Abdirrahman en-Nahvî (o. 164) -- hocalari, kisa ad taramasi.
+     Ziyâd b. İlâka. */
+  E("ziyadilaka", "seybannahvi", "—", "Tehzîbü't-Tehzîb, Şeybân b. Abdirrahman en-Nahvî tercemesi"),
+
+  /* İkrime b. Ammâr (o. 159) -- hocalari, kisa ad taramasi.
+     Sâlim b. Abdillâh b. Ömer, İshak b. Abdillâh b. Ebî Talha, Atâ b. Ebî Rebâh, Hişâm b. Hassân. */
+  E("salimibnomer", "ikrimeammar", "—", "Tehzîbü't-Tehzîb, İkrime b. Ammâr tercemesi"),
+  E("ishaktalha", "ikrimeammar", "—", "Tehzîbü't-Tehzîb, İkrime b. Ammâr tercemesi"),
+  E("ataebirebah", "ikrimeammar", "—", "Tehzîbü't-Tehzîb, İkrime b. Ammâr tercemesi"),
+  E("hisamhassan", "ikrimeammar", "—", "Tehzîbü't-Tehzîb, İkrime b. Ammâr tercemesi"),
+
+  /* İkrime b. Ammâr (o. 159) -- talebeleri, kisa ad taramasi.
+     Abdüssamed b. Abdilvâris. */
+  E("ikrimeammar", "abdussamed", "—", "Tehzîbü't-Tehzîb, İkrime b. Ammâr tercemesi"),
+
+  /* Abbâs b. Muhammed ed-Dûrî (o. 271) -- hocalari, kisa ad taramasi.
+     Ebû Dâvûd et-Tayâlisî, Yahyâ b. Ebî Bükeyr el-Kirmânî. */
+  E("ebudavudtayalisi", "abbasduri", "—", "Tehzîbü't-Tehzîb, Abbâs b. Muhammed ed-Dûrî tercemesi"),
+  E("yahyaebibukeyr", "abbasduri", "—", "Tehzîbü't-Tehzîb, Abbâs b. Muhammed ed-Dûrî tercemesi"),
+
+  /* Ebü'l-Yemân el-Hakem b. Nâfi‘ (o. 222) -- talebeleri, kisa ad taramasi.
+     Yahyâ b. Ma‘în. */
+  E("ebulyemanhakem", "ibnmain", "—", "Tehzîbü't-Tehzîb, Ebü'l-Yemân el-Hakem b. Nâfi‘ tercemesi"),
+
+  /* Süreyc b. en-Nu‘mân el-Cevherî (o. 217) -- hocalari, kisa ad taramasi.
+     Nâfi‘ b. Ömer el-Cümahî. */
+  E("nafiomercumahi", "surayjnuman", "—", "Tehzîbü't-Tehzîb, Süreyc b. en-Nu‘mân el-Cevherî tercemesi"),
+
+  /* Ali b. Ayyâş el-Elhânî (o. 219) -- talebeleri, kisa ad taramasi.
+     Ebû Zür‘a er-Râzî. */
+  E("aliayyas", "ebuzuraraazi", "—", "Tehzîbü't-Tehzîb, Ali b. Ayyâş el-Elhânî tercemesi"),
+
 ];
 
 /* YINELENEN KENARLAR BURADA TEKILLESTIRILIYOR.

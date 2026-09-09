@@ -10,7 +10,7 @@ Son güncelleme 2026-09-09. Önceki not dosyasının yerini alır.
 | `/ravi-iliski-aglari/harita` | `app/SilsileAgi.jsx` → `silsileVeri.js` | **Yayındaki sürüm**, canvas. Sayfa adı "Rivayet Haritası". Çalışma burada yürüyor |
 | `/ag-sinamasi` | `app/SilsileAgi.jsx` → `silsileVeri.js` | Deneme adresi, `noindex`. Şu an yayındakiyle birebir aynı |
 | — | `app/silsileAgiKur.jsx` | Çizim kodu. İki sayfa da bunu kullanıyor |
-| — | `app/silsileVeri.js` | 821 râvi, 5904 bağ, çeviriler, konum hesabı |
+| — | `app/silsileVeri.js` | 821 râvi, 6701 bağ, çeviriler, konum hesabı |
 
 ÇİZİM KODU TEK, VERİ İKİ. `silsileAgiKur.jsx` bir fabrika — `kur(V)` bir veri modülü alıp ondan beslenen bileşen döndürüyor. İki sayfa birer satırlık sarmalayıcı. Bileşeni kopyalamak da bir seçenekti ama 1400 satır iki yerde yaşardı ve her düzeltmeyi iki kez uygulamak gerekirdi — SVG sürümü son günlerin bütün iyileştirmelerini tam da bu yüzden kaçırmıştı.
 
@@ -20,7 +20,7 @@ Veri bir süre çatallanmıştı (kart doldurma yayındaki haritayı etkilemesin
 
 ## Veri durumu
 
-- **821 râvi, 5904 bağ.**
+- **821 râvi, 6701 bağ.**
 - **160 boşluk** — kendi tercemesi hiç açılmamış, yani talebe tarafı boş râviler.
 - **Bilgi kartları 208/661.** Kaynak İbn Hacer, *Takrîbü't-Tehzîb* (Şâmile 8609). Medâr, müksirûn, müellif ve "en önemli 60" listesi tamamlandı; kalanı düz taramayla sürüyor.
 
@@ -236,6 +236,42 @@ listesini BOS gosteriyordu.
 "Hilal b. Ebi Humeyd ... el-Kufi es-Sayrafi el-Cehbez el-Vezzan". Bu
 dugumlerde mekanik eslesme ya sifir ya cok aday veriyor; dogru baslik
 gozle secilip betige yazildi.
+
+### Ayni bosluk butun haritada vardi: +742 kenar
+
+Yarim dugumlerde cikan ders butun tercemelere uygulandi. Tehzibu't-
+Tehzib'de 359 dugumun listesi acilabildi ve kisa bicimlerden **742
+kenar** cikti -- kenar sayisi 5959'dan 6701'e. En yuksek dereceler
+tarihen dogru isimlere oturuyor: Su'be 140, Zuhri 104, Ibnu'l-Mubarek
+99, Ebu Hureyre 96.
+
+Kabul olcutu uc kath:
+
+1. **Kayit, dugum adinin KISALTILMISI olmali -- tersi degil.** Kaydin
+   butun belirtecleri dugumun adinda, AYNI SIRADA gecmeli ve kayit
+   dugumden uzun olmamali. Ilk gevsek surum "dugumun belirtecleri
+   kayitta gecsin" diyordu ve yari yariya yanlis uretti: kayit
+   uzadikca ismimiz onun NESEP ZINCIRINE dusuyor
+   ("معبد بن كعب بن مالك" Ubey b. Ka'b'a, "عامر بن سعد بن ابي وقاص"
+   babasi Sa'd'a). Sira sarti da sart: "علي بن نصر الجهضمي" ile
+   "نصر بن علي الجهضمي" ayni belirtecleri tasiyor ama biri otekinin
+   OGLU. Uzun kayitlar zaten esle.cjs'in isi.
+2. **Kronolojiden sonra TEK aday kalmali.** "شعبة" hem Su'be b.
+   el-Haccac'a hem Mugire b. Su'be'ye uyuyor; ikisini ayiran sey isim
+   degil yil.
+3. **Terceme teyidi.** Baslik eslesmesi tek aday verse bile yanlis kisi
+   olabilir. Dogru tercemenin listesinde o dugumun ZATEN cizili
+   kenarlarindan bir kismi gorunmeli. 786 tam ad eslesmesinden 742'si
+   boyle teyitlendi, teyitsiz 44'u ayrildi.
+
+Toplu yazim `node araclar/kenar-toplu.cjs <json> "<kaynak>"` ile;
+kenarlar oznesine gore bloklara ayriliyor.
+
+**Bu kovada is bitmedi.** Kisaltilmis (tam olmayan) ad eslesmelerinden
+595 aday ile teyitsiz 44 aday daha var; ikisi de gozle okunmayi
+bekliyor. Ayrica "ابيه" (babasi), "عمه" (amcasi) gibi AKRABALIK
+ZAMIRLERI hic cozulmedi -- bunlar dugumun kendi nesebinden
+cikarilabilir.
 
 ### esle.cjs'in kacirdiklari ve kenar-ekle.cjs
 
