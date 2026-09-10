@@ -215,11 +215,27 @@ export function kur(V) {
      dusur"). */
   const AKIS_HIZ = 12.5;
 
+  /* DENEME: AKAN NOKTALAR (yalnizca /ag-sinamasi, `denemeNokta`).
+     Secili ravinin kenarlarinda hocadan talebeye dogru kayan kucuk
+     daireler -- rivayetin YONUNU kesik cizginin yapabildiginden daha
+     acik gosteriyor.
+
+     Faz kesik cizgiyle ORTAK (`akisFazRef`), yani ikisi ayni hizda
+     akiyor. NOKTA_DONGU, bir noktanin kenari bastan sona katetmesi
+     icin gereken faz miktari: 50 piksel / 12,5 px-sn = 4 saniye.
+     Kenarin gercek uzunlugundan bagimsiz -- kisa kenarda nokta yavas,
+     uzunda hizli gorunur, ama hepsi ayni ritimde vardigi icin goz bunu
+     duzensizlik olarak okumuyor. Uzunluga baglamak denenebilirdi,
+     o zaman da altmis kenarli bir dugumde noktalar dagilir. */
+  const NOKTA_DONGU = 50;
+  const NOKTA_SAYI = 2;      // kenar basina, esit araliklarla
+  const NOKTA_R = 1.9;       // EKRAN yaricapi, olcekle buyumuyor
+
   /* 2026-09-04'ten 2026-09-07'ye kadar burada uc deneme prop'u yasadi
      (`denemeZemin`, `denemeKenarKirp`, `denemeSuzgec`); ucu de yayina
      alinip kaldirildi. `denemeIpucu` dorduncusu, yalnizca
      /ag-sinamasi geciyor. */
-  return function SilsileAgi({ denemeIpucu = false } = {}) {
+  return function SilsileAgi({ denemeIpucu = false, denemeNokta = false } = {}) {
     const [secim, setSecim] = useState(null);   // {tur:"ravi",id} | {tur:"kenar",e}
     const [arama, setArama] = useState("");
     /* SUZGEC (DENEME, yalnizca /ag-sinamasi). Sehir bandindaki isimlere
@@ -1453,6 +1469,16 @@ export function kur(V) {
                x1: pb.x - (vx / vu) * bosluk, y1: pb.y - (vy / vu) * bosluk };
     }, []);
   
+    /* Kubik egri uzerinde `u` oranina (0..1) karsilik gelen GRAFIK
+       noktasi. Iki yerden cagriliyor: kenar isabet denetimi (fareyle
+       kenara yaklasma) ve akan noktalar. Bir sure iki ayri kopya
+       vardi, 2026-09-11'de birlestirildi. */
+    const kubikNokta = useCallback((c, u) => {
+      const m = 1 - u;
+      return [m*m*m*c.x0 + 3*m*m*u*c.k1x + 3*m*u*u*c.k2x + u*u*u*c.x1,
+              m*m*m*c.y0 + 3*m*m*u*c.k1y + 3*m*u*u*c.k2y + u*u*u*c.y1];
+    }, []);
+
     const ciz = useCallback(() => {
       const cv = tuvalRef.current;
       if (!cv || !box.w || !box.h) return;
@@ -1644,6 +1670,36 @@ export function kur(V) {
            dogrudan goruluyor: eskisi ekrani kapliyordu. */
         topluCiz(canliKenarlar, canliRenk, 1.4 * Math.max(0.7, cizgiCarpani), 0.72);
         ctx.restore();
+
+        /* DENEME: AKAN NOKTALAR. Kenar YONLU cizilmis -- egri `e.a`dan
+           (hoca) baslayip `e.b`de (talebe) bitiyor, ok ucu da orada.
+           Nokta ayni yonde kayiyor.
+
+           Opaklik `sin(pi*u)`: nokta hocanin yaninda beliriyor, ortada
+           en parlak, talebede sonuyor. Duz opaklikta dongunun bittigi
+           yerde nokta ZIPLIYOR -- sondaki nokta kaybolurken bastaki
+           birden beliriyordu.
+
+           Ayri bir katman degil, kenarlarla AYNI cizim gecisinde;
+           dolayisiyla ek maliyeti yalnizca daire sayisi kadar. Secili
+           ravi yokken `canliKenarlar` bos oldugu icin dongu de zaten
+           calismiyor. */
+        if (denemeNokta) {
+          const faz = ((-akisFazRef.current) / NOKTA_DONGU) % 1;
+          ctx.save();
+          ctx.fillStyle = canliRenk;
+          for (const c of canliKenarlar) {
+            for (let j = 0; j < NOKTA_SAYI; j++) {
+              const u = (faz + j / NOKTA_SAYI) % 1;
+              const [gx, gy] = kubikNokta(c, u);
+              ctx.globalAlpha = Math.sin(Math.PI * u);
+              ctx.beginPath();
+              ctx.arc(eX(gx), eY(gy), NOKTA_R, 0, Math.PI * 2);
+              ctx.fill();
+            }
+          }
+          ctx.restore();
+        }
       }
       if (seciliKenar) topluCiz([seciliKenar], C.kenarSecili, 2.6, 1);
       ctx.globalAlpha = 1;
@@ -1858,7 +1914,8 @@ export function kur(V) {
       }
     }, [box, olculdu, view, pencere, secim, secRavi, secKenar, vurgu,
         cizgiCarpani, cizgiSaydam, MEDINE_I, adi, koyu, akisAnim, t,
-        etiketliler, kenarKubik, tamBoy, suzgecVar, beldeSuz, yilSuz]);
+        etiketliler, kenarKubik, kubikNokta, tamBoy, suzgecVar, beldeSuz,
+        yilSuz, denemeNokta]);
   
     /* TUVALDA NE TIKLANDI.
   
@@ -1900,11 +1957,6 @@ export function kur(V) {
          egri-nokta uzakligi cozumu gereksiz, dokuz piksellik esikte on
          ornek fazlasiyla yetiyor. */
       if (!yakin) return null;
-      const kubikNokta = (c, u) => {
-        const m = 1 - u;
-        return [m*m*m*c.x0 + 3*m*m*u*c.k1x + 3*m*u*u*c.k2x + u*u*u*c.x1,
-                m*m*m*c.y0 + 3*m*m*u*c.k1y + 3*m*u*u*c.k2y + u*u*u*c.y1];
-      };
       const k = view.k;
       const eX = (gx) => view.x + gx * k, eY = (gy) => view.y + gy * k;
       let enKenar = null, enKenarAz = 9;
@@ -1917,7 +1969,7 @@ export function kur(V) {
       }
       if (enKenar) return { tur: "kenar", e: enKenar };
       return null;
-    }, [view, yakin]);
+    }, [view, yakin, kubikNokta]);
   
     /* Cizim rAF ile kisitli: bir karede birden cok durum degisirse
        (kaydirma + secim gibi) tuval bir kez boyansin. */
@@ -2286,8 +2338,20 @@ export function kur(V) {
                 {SAMILE[secRavi.id] && (
                   <a href={`https://shamela.ws/book/${SAMILE_KITAP}/${SAMILE[secRavi.id]}`}
                     target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 px-1.5 py-0.5 border rounded-sm text-[11px] whitespace-nowrap"
+                    className="relative inline-flex items-center gap-1 px-1.5 py-0.5 border rounded-sm text-[11px] whitespace-nowrap"
                     style={{ borderColor: C.cizgi, color: C.vurguInk }}>
+                    {/* «Yeni» rozeti. Anasayfa kartlari ve harita
+                        dugmesiyle AYNI gorunum. Renk burada Tailwind
+                        degiskeniyle degil `C` paletinden geliyor --
+                        harita kendi temasini `C` uzerinden kuruyor ve
+                        tuvalle ayni renkleri kullanmasi gerek.
+
+                        Bagin kendisine `relative` eklendi, rozet ona
+                        gore yerlessin diye. */}
+                    <span className="absolute -top-1.5 -end-1.5 whitespace-nowrap rounded-full px-1 py-[0.5px] text-[8px] font-medium leading-3"
+                      style={{ background: C.kenarSecili, color: C.kart }}>
+                      {t.rozetYeni}
+                    </span>
                     {t.agSamile}
                     {/* Disari acilan bag ikonu. Metnin yonu dile gore
                         degistigi icin ikon `gap` ile akista, sabit
