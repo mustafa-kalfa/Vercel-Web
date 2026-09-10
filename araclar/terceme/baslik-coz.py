@@ -48,6 +48,26 @@ for i, satir in enumerate(ham):
     basliklar.append({"satir": i, "ad": ad,
                       "tok": [w for w in an.split() if w not in DUR and len(w) > 1]})
 satirlar = [b["satir"] for b in basliklar]
+
+# ELLE SABITLEMENIN ARADIGI LISTE AYRI VE DAHA GENIS.
+#
+# `basliklar` iki suzgecten geciyor: «تمييز» kayitlari ve «تقدم/يأتي»
+# ile biten capraz yonlendirmeler atiliyor. Otomatik eslesme icin
+# dogru -- biri ayirt etmek icin konmus bir kayit, oteki govdesiz bir
+# isaret. Ama ELLE sabitlerken bu suzgec engel oluyor: Tirmizi'nin
+# KENDI tercemesi «تمييز» damgali bir kayit ve `basliklar`da hic yok,
+# dolayisiyla elle bile baglanamiyordu (2026-09-11).
+#
+# `tum_basliklar` suzgecsiz. Yalnizca ELLE yolu buna bakiyor, otomatik
+# eslesme eskisi gibi `basliklar` uzerinde calisiyor.
+tum_basliklar = []
+for i, satir in enumerate(ham):
+    s = satir_sadelestir(satir)
+    if not s.startswith("•"):
+        continue
+    m = BASLIK.match(s)
+    if m:
+        tum_basliklar.append({"satir": i, "ad": m.group(2).strip()})
 def govde_yillari(g):
     """Tercemenin soyledigi vefat yillari -- RAKAM VE YAZI ile.
 
@@ -123,10 +143,14 @@ sayac = collections.Counter()
 cozum, kalan = [], []
 for d in dug:
     tok = parcala(d["ar"])
-    if len(tok) < 2:
-        sayac["ad cok kisa"] += 1
-        kalan.append(dict(d, durum="ad-kisa"))
-        continue
+    # ELLE SABITLEME EN ONDE. Bir sure "ad cok kisa" denetimi bunun
+    # ustundeydi ve iki belirtecten kisa adlari elle bile
+    # baglayamiyorduk: «ابن جريج» ile «الأوزاعي» ELLE'de yazili
+    # olmalarina ragmen cozulmeden kaliyordu, cunku `parcala` durak
+    # kelimelerini atinca geriye tek belirtec kaliyor (2026-09-11).
+    # Elle sabitlemenin varlik sebebi zaten otomatigin tutmadigi
+    # yerler, dolayisiyla hicbir otomatik denetimin gerisinde
+    # kalmamali.
     if d["id"] in ELLE:
         if ELLE[d["id"]] is None:
             # null = "bu dugumun Tehzib'de tercemesi YOK". Cozucu
@@ -135,15 +159,19 @@ for d in dug:
             sayac["elle: tercemesi yok"] += 1
             kalan.append(dict(d, durum="elle-terceme-yok"))
             continue
-        k = next((k for k, b in enumerate(basliklar)
+        k = next((k for k, b in enumerate(tum_basliklar)
                   if ELLE[d["id"]] in b["ad"]), None)
         if k is None:
             sayac["elle baslik tutmadi"] += 1
             kalan.append(dict(d, durum="elle-tutmadi"))
         else:
             sayac["elle sabit"] += 1
-            cozum.append(dict(d, satir=basliklar[k]["satir"],
-                              baslik=basliklar[k]["ad"][:150], olcut="elle"))
+            cozum.append(dict(d, satir=tum_basliklar[k]["satir"],
+                              baslik=tum_basliklar[k]["ad"][:150], olcut="elle"))
+        continue
+    if len(tok) < 2:
+        sayac["ad cok kisa"] += 1
+        kalan.append(dict(d, durum="ad-kisa"))
         continue
     idx = [k for k, b in enumerate(basliklar)
            if altdizi_esle(tok, b["tok"]) or kuyruk_lakap(tok, b["tok"])]

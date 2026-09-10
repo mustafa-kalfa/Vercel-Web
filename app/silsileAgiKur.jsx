@@ -2341,15 +2341,21 @@ export function kur(V) {
                     className="relative inline-flex items-center gap-1 px-1.5 py-0.5 border rounded-sm text-[11px] whitespace-nowrap"
                     style={{ borderColor: C.cizgi, color: C.vurguInk }}>
                     {/* «Yeni» rozeti. Anasayfa kartlari ve harita
-                        dugmesiyle AYNI gorunum. Renk burada Tailwind
-                        degiskeniyle degil `C` paletinden geliyor --
-                        harita kendi temasini `C` uzerinden kuruyor ve
-                        tuvalle ayni renkleri kullanmasi gerek.
+                        dugmesiyle AYNI gorunum, AYNI renk kaynagi:
+                        `bg-secim` / `text-secim-metin`, yani
+                        globals.css'teki `--color-secim` (#6FE7A0).
+
+                        Bir sure rengi `C` paletinden aliyordu
+                        (`C.kenarSecili`) -- harita temasini C uzerinden
+                        kurdugu icin dogru gorunmustu, ama o deger
+                        turuncu-kirmizi ve sitenin rozetleriyle hic
+                        ilgisi yok (Mustafa, 2026-09-11: "neden
+                        kirmizi"). Kart TUVAL DEGIL, siradan DOM --
+                        Tailwind siniflari burada calisiyor.
 
                         Bagin kendisine `relative` eklendi, rozet ona
                         gore yerlessin diye. */}
-                    <span className="absolute -top-1.5 -end-1.5 whitespace-nowrap rounded-full px-1 py-[0.5px] text-[8px] font-medium leading-3"
-                      style={{ background: C.kenarSecili, color: C.kart }}>
+                    <span className="absolute -top-1.5 -end-1.5 whitespace-nowrap rounded-full bg-secim px-1 py-[0.5px] text-[8px] font-medium leading-3 text-secim-metin">
                       {t.rozetYeni}
                     </span>
                     {t.agSamile}
