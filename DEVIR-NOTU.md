@@ -9,19 +9,33 @@ okumak**, sonra "Havuzu tazele" bölümündeki iki komutu çalıştırmak.
 |---|---|
 | düğüm | 821 |
 | kenar | 8220 |
-| bilgi kartı | **675** |
-| tercemesi çözülmüş düğüm | 620 / 821 |
-| kart yazılabilir havuz | **11** |
+| bilgi kartı | **685** |
+| tercemesi çözülmüş düğüm | 619 / 821 |
+| kart yazılabilir havuz | **0 — bitti** |
 
-Son commit `7365b8d` (Bilgi kartlari otuz dokuzuncu parti). Çalışma ağacı
+Son commit `93d06e3` (Bilgi kartlari kirk birinci parti). Çalışma ağacı
 temiz. **Push edilmedi** — `main`'e push canlıya deploy demek, o yüzden
 Mustafâ söyleyince atılıyor. Son doğrulanan build `✓ Compiled
 successfully`.
 
-**Açık iş tek** — kart yazmaya devam. Kullanıcının son talimatı
-"kartlara devam et". Başka bekleyen istek yok.
+**KART HAVUZU BİTTİ.** Tercemesi çözülmüş her düğümün kartı yazıldı.
+Kırk bir parti sürdü, 524'ten 685'e çıktı. Kart yazmaya devam etmek
+için önce **terceme çözmek** lâzım.
 
-**Havuz bitmek üzere.** 11 düğüm kaldı, yani iki parti. Havuz bitince
+Kartsız 136 düğüm var, hepsinin tercemesi çözülemedi. `kalan.json`'daki
+dağılım şöyle (202 kayıt, bir kısmı zaten kartlı düğümlere ait).
+
+| durum | adet | ne demek |
+|---|---|---|
+| `aday-yok` | 169 | ad hiçbir başlıkla eşleşmedi |
+| `isaret-kaydi` | 17 | yalnız yönlendirme kaydı bulundu, gövde yok |
+| `cok-aday` | 10 | birden çok aday, vefat yılı ayıramadı |
+| `ad-kisa` | 3 | ad iki belirteçten kısa |
+| `elle-terceme-yok` | 3 | Tehzîb'de tercemesi yok, elle kapatıldı |
+
+**Gece görevi (`gece-bilgi-kartlari`) DURAKLATILDI.** Havuz boşken
+kart yazamaz. Yeni terceme çözülüp havuz dolarsa Scheduled bölümünden
+tekrar açılır. Havuz bitince
 kartsız 158 düğüm kalacak ve hepsinin tercemesi çözülmemiş olacak —
 sıradaki iş kart yazmak değil, `kalan.json`'daki çözülemeyenlere
 bakmak olur (17'si işaret kaydı, 10'u yıl ayırmadı, 5'i en kısa
@@ -37,8 +51,8 @@ PYTHONIOENCODING=utf-8 python araclar/terceme/baslik-coz.py "$S/cozum.json" "$S/
 node araclar/terceme/kart-havuzu.cjs "$S/cozum.json" "$S/havuz.json"
 ```
 
-Birincisi `COZULEN: 620 / 821` yazmalı, ikincisi
-`yazilabilir havuz: 11`. Sayılar tutmuyorsa bir şey bozulmuş demektir,
+Birincisi `COZULEN: 619 / 821` yazmalı, ikincisi
+`yazilabilir havuz: 0`. Sayılar tutmuyorsa bir şey bozulmuş demektir,
 kart yazmadan önce ona bak.
 
 Havuz **dereceye göre sıralı** — en çok kenarı olan düğüm başta, çünkü
