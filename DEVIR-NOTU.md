@@ -9,11 +9,11 @@ okumak**, sonra "Havuzu tazele" bölümündeki iki komutu çalıştırmak.
 |---|---|
 | düğüm | 821 |
 | kenar | 8220 |
-| bilgi kartı | **579** |
+| bilgi kartı | **591** |
 | tercemesi çözülmüş düğüm | 621 / 821 |
-| kart yazılabilir havuz | **107** |
+| kart yazılabilir havuz | **95** |
 
-Son commit `4de2f2e` (Bilgi kartlari yirmi ucuncu parti). Çalışma ağacı
+Son commit `e932b4e` (Bilgi kartlari yirmi besinci parti). Çalışma ağacı
 temiz. **Push edilmedi** — `main`'e push canlıya deploy demek, o yüzden
 Mustafâ söyleyince atılıyor. Son doğrulanan build `✓ Compiled
 successfully`.
@@ -32,7 +32,7 @@ node araclar/terceme/kart-havuzu.cjs "$S/cozum.json" "$S/havuz.json"
 ```
 
 Birincisi `COZULEN: 621 / 821` yazmalı, ikincisi
-`yazilabilir havuz: 107`. Sayılar tutmuyorsa bir şey bozulmuş demektir,
+`yazilabilir havuz: 95`. Sayılar tutmuyorsa bir şey bozulmuş demektir,
 kart yazmadan önce ona bak.
 
 Havuz **dereceye göre sıralı** — en çok kenarı olan düğüm başta, çünkü
@@ -72,7 +72,7 @@ kazara silmemek için.
 npm run build
 ```
 
-Commit mesajı biçimi `Bilgi kartlari yirmi dorduncu parti: alti kart`.
+Commit mesajı biçimi `Bilgi kartlari yirmi altinci parti: alti kart`.
 
 ## Kural olmuş şeyler
 
@@ -155,6 +155,28 @@ kesiyor ama cerh-ta'dîl bölümü o listenin hemen ardından geliyor ve
 2600 karakterlik pencerenin içinde kalıyor. On beşinci partide yazıldı,
 okuyucuda düzeltme gerekmedi. **Uzun talebe listesi olan tercemelerde
 çıktının sonuna kadar bak, ilk ekrana bakıp vazgeçme.**
+
+## Gece zamanlı görev
+
+`gece-bilgi-kartlari` adında bir zamanlı görev var, her gece 00.00,
+01.00, 02.00, 03.00, 04.00 ve 05.00'te bir parti yazıyor. Görev dosyası
+`~/.claude/scheduled-tasks/gece-bilgi-kartlari/SKILL.md`. **Yalnızca
+Claude uygulaması açıkken çalışır**, kapalıysa açılışta birikmişi
+çalıştırır. Push etmiyor.
+
+Sabah çalışma ağacında beklenmedik commit görürsen paniğe kapılma,
+gece partileridir. `git log --oneline` ile bak.
+
+## Gözden geçirilecek iki kayıt
+
+- `selimhayyan` sitede **Süleym b. Hayyân** yazıyor, Tehzîb adı
+  `بالفتح` diye zaptediyor, yani **Selîm**.
+- `muhammedabdulalasanani` haritada **Yemen** sütununda, ama Tehzîb
+  onu `الصنعاني القيسي **البصري**` diye veriyor ve Basra'da öldüğünü
+  söylüyor. Nesâî ile Ebû Hâtim de Basralı muamelesi yapıyor. Yemen'de
+  altı düğüm var, biri gitse sütun ayakta kalır.
+
+Mustafâ'ya sorulmadan ikisine de dokunulmadı.
 
 ## İstenmedi, not düşüldü
 
