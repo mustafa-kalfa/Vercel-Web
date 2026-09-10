@@ -114,6 +114,7 @@ export default function Home() {
       adAnahtar: "cardNetworks",
       altAnahtar: "cardNetworksDesc",
       ikon: <AgIcon />,
+      rozetAnahtar: "rozetYeni",
     },
     {
       href: "/podcastler",

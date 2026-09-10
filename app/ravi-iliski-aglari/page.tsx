@@ -56,8 +56,19 @@ export default function RaviIliskiAglari() {
             da fiziksel olarak sagda kaliyor.) */}
         <Link
           href="/ravi-iliski-aglari/harita"
-          className="me-auto mt-2 flex w-fit items-center gap-2 rounded-full border border-solid border-black/20 px-5 py-3 text-base font-medium transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
+          className="relative me-auto mt-2 flex w-fit items-center gap-2 rounded-full border border-solid border-black/20 px-5 py-3 text-base font-medium transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/70 dark:hover:bg-[#1a1a1a]"
         >
+          {/* «Yeni» rozeti. Anasayfa kartlarindaki ve
+              HazirlaniyorRozeti'ndeki ile AYNI gorunum -- ayni renk
+              kaynagi (`--color-secim`), ayni hap bicimi, ayni
+              `-top-1.5 -end-1.5` kose konumu.
+
+              Dugmeye `relative` EKLENDI: rozet akistan ciktigi icin en
+              yakin konumlandirilmis ataya gore yerlesir, o da olmasa
+              sayfanin tamami olurdu. */}
+          <span className="absolute -top-1.5 -end-1.5 whitespace-nowrap rounded-full bg-secim px-1.5 py-[1.5px] text-[9px] font-medium leading-3 text-secim-metin">
+            {t.rozetYeni}
+          </span>
           {t.agHaritayaGit}
           {/* Ileri oku. `rtl:-scale-x-100` ile Arapca'da ok da ters
               cevriliyor, yoksa metnin akisina karsi bakiyor. */}

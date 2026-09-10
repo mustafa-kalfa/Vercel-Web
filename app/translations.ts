@@ -114,6 +114,7 @@ type Translation = {
   agMuksirun: string;
   agMuellif: string;
   agSamile: string;
+  rozetYeni: string;
   agTabaka0: string;
   agTabaka1: string;
   agTabaka2: string;
@@ -235,6 +236,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     agMuksirun: "müksirûndan",
     agMuellif: "Kütüb-i Sitte müellifi",
     agSamile: "Şâmile'de tercemesi",
+    rozetYeni: "Yeni",
     agTabaka0: "Kaynak",
     agTabaka1: "Sahâbe",
     agTabaka2: "Kibâr-ı tâbiîn",
@@ -352,6 +354,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     agMuksirun: "من المكثرين",
     agMuellif: "من مؤلفي الكتب الستة",
     agSamile: "الترجمة في الشاملة",
+    rozetYeni: "جديد",
     agTabaka0: "الأصل",
     agTabaka1: "الصحابة",
     agTabaka2: "كبار التابعين",
@@ -471,6 +474,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     agMuksirun: "among the muksirūn",
     agMuellif: "author of the Six Books",
     agSamile: "Entry in Shamela",
+    rozetYeni: "New",
     agTabaka0: "Source",
     agTabaka1: "Companions",
     agTabaka2: "Senior successors",
