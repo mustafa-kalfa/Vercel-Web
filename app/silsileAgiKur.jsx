@@ -75,7 +75,7 @@ export function kur(V) {
     ING_HARF, ING_SOZLUK, KADEME, KART_TAVAN, KAVIS,
     KAVIS_OLCEK: HAM_KAVIS_OLCEK, KUME_EN_AZ, MEDAR, MEDINE, MUELLIF,
     MUKSIRUN, N, NEBI_RENK, NODES, NOT_DIL, PALET, POS: HAM_POS, R_TAVAN,
-    SATIRLAR, SATIR_YIL, SERIT_W, SOL_BANT, SOL_PAY,
+    SAMILE, SAMILE_KITAP, SATIRLAR, SATIR_YIL, SERIT_W, SOL_BANT, SOL_PAY,
     SUTUNLAR: HAM_SUTUNLAR, TAB, TAHMIN, UST, UST_BANT, W: HAM_W, YILLAR,
     YIL_EKI, YIL_MAX, YIL_MIN, buyuk, dagit, ek, ingAd, miladiKestirim,
     rEkranOf, rOf, renkOf, salSayi, tahminiYil, tarihYaz, veriyiDenetle,
@@ -2267,6 +2267,37 @@ export function kur(V) {
                 <span className="text-xs" style={{ color: C.vurguInk }}>
                   {tarihYaz(secRavi, t.agOlum)} · {beldeAdi(secRavi.belde)} · {TAB_AD[secRavi.tab]}{MUKSIRUN.has(secRavi.id) ? " · " + t.agMuksirun : ""}{MEDAR[secRavi.id] ? " · " + MEDAR_AD[MEDAR[secRavi.id]] : ""}{MUELLIF.has(secRavi.id) ? " · " + t.agMuellif : ""}
                 </span>
+                {/* ŞÂMİLE BAĞLANTISI. Yalnizca tercemesi cozulmus
+                    dugumde cikar; `SAMILE[id]` yoksa buton hic
+                    basilmiyor, cunku calismayan bir bag olmamasindan
+                    iyidir. Sayinin nereden geldigi `silsileVeri.js`teki
+                    SAMILE yorumunda.
+
+                    NEDEN BASLIK SATIRINDA: kart 130 px yuksekliginde ve
+                    icinde kayiyor. Not uzun oldugunda (bircogu uc dort
+                    cumle) notun ALTINA konan buton katlanmanin altinda
+                    kaliyor ve ziyaretci varligini hic gormuyor --
+                    denendi, 2026-09-11. Meta seridinin ucunda hep
+                    gorunur.
+
+                    `_blank` + `noopener noreferrer`: harita agir bir
+                    canvas sahnesi, ziyaretci geri geldiginde kamera ve
+                    secim yerinde kalsin. */}
+                {SAMILE[secRavi.id] && (
+                  <a href={`https://shamela.ws/book/${SAMILE_KITAP}/${SAMILE[secRavi.id]}`}
+                    target="_blank" rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 px-1.5 py-0.5 border rounded-sm text-[11px] whitespace-nowrap"
+                    style={{ borderColor: C.cizgi, color: C.vurguInk }}>
+                    {t.agSamile}
+                    {/* Disari acilan bag ikonu. Metnin yonu dile gore
+                        degistigi icin ikon `gap` ile akista, sabit
+                        konumda degil. */}
+                    <svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"
+                      fill="none" stroke="currentColor" strokeWidth="1.2">
+                      <path d="M3.5 1H1v8h8V6.5" /><path d="M6 1h3v3" /><path d="M9 1L4.5 5.5" />
+                    </svg>
+                  </a>
+                )}
               </div>
               {/* Not once ceviri tablosunda aranir (bkz. NOT_DIL), yoksa
                   Turkce aslina duser. */}
