@@ -59,7 +59,7 @@ export default function AgSinamasi() {
           Ust bant 2026-08-29'da %33 kuculdu: logo 72 -> 48 px, bant
           80 -> 54 px. Sayfanin ust seridi ag'dan cok yer aliyordu. */}
       <div className="mt-[54px] h-[calc(100dvh-54px)]">
-        <SilsileAgi denemeIpucu denemeNokta />
+        <SilsileAgi denemeIpucu denemeSalinim />
       </div>
     </main>
   );

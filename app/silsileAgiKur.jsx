@@ -215,27 +215,33 @@ export function kur(V) {
      dusur"). */
   const AKIS_HIZ = 12.5;
 
-  /* DENEME: AKAN NOKTALAR (yalnizca /ag-sinamasi, `denemeNokta`).
-     Secili ravinin kenarlarinda hocadan talebeye dogru kayan kucuk
-     daireler -- rivayetin YONUNU kesik cizginin yapabildiginden daha
-     acik gosteriyor.
+  /* DENEME: DUGUM SALINIMI (yalnizca /ag-sinamasi, `denemeSalinim`).
+     Isim noktalari yerlerinde durmuyor, dar bir cerceve icinde saga
+     sola ve yukari asagi gidip geliyor.
 
-     Faz kesik cizgiyle ORTAK (`akisFazRef`), yani ikisi ayni hizda
-     akiyor. NOKTA_DONGU, bir noktanin kenari bastan sona katetmesi
-     icin gereken faz miktari: 50 piksel / 12,5 px-sn = 4 saniye.
-     Kenarin gercek uzunlugundan bagimsiz -- kisa kenarda nokta yavas,
-     uzunda hizli gorunur, ama hepsi ayni ritimde vardigi icin goz bunu
-     duzensizlik olarak okumuyor. Uzunluga baglamak denenebilirdi,
-     o zaman da altmis kenarli bir dugumde noktalar dagilir. */
-  const NOKTA_DONGU = 50;
-  const NOKTA_SAYI = 2;      // kenar basina, esit araliklarla
-  const NOKTA_R = 1.9;       // EKRAN yaricapi, olcekle buyumuyor
+     Her dugumun KENDI yonu ve hizi var: faz ile aci `salSayi(id)`
+     karmasindan tureniyor, yani ayni dugum her acilista ayni sekilde
+     salaniyor ve komsu noktalar birbiriyle ayni anda ayni yone
+     gitmiyor. Ortak fazda hepsi birlikte kayardi ve harita
+     titriyormus gibi gorunurdu.
+
+     GENLIK EKRAN PIKSELI, grafik birimi degil: olcekle buyusaydi
+     yakinlasinca noktalar yerinden firlardi, uzaklasinca hareket
+     tumden kaybolurdu. 2,2 piksel -- en kucuk tam boy nokta ~4 px,
+     yani salinim noktanin yaricapi kadar.
+
+     Kenarlar ve etiketler YERINDE kaliyor, yalnizca nokta oynuyor.
+     Kenarin ucunu da oynatmak butun egriyi her karede yeniden
+     hesaplamak demekti; bu genlikte nokta zaten kendi cizgisinin
+     ucunda "nefes aliyor" gibi duruyor. */
+  const SALINIM_GENLIK = 2.2;   // EKRAN pikseli
+  const SALINIM_HIZ = 0.0009;   // radyan / milisaniye (~7 sn'de bir tur)
 
   /* 2026-09-04'ten 2026-09-07'ye kadar burada uc deneme prop'u yasadi
      (`denemeZemin`, `denemeKenarKirp`, `denemeSuzgec`); ucu de yayina
      alinip kaldirildi. `denemeIpucu` dorduncusu, yalnizca
      /ag-sinamasi geciyor. */
-  return function SilsileAgi({ denemeIpucu = false, denemeNokta = false } = {}) {
+  return function SilsileAgi({ denemeIpucu = false, denemeSalinim = false } = {}) {
     const [secim, setSecim] = useState(null);   // {tur:"ravi",id} | {tur:"kenar",e}
     const [arama, setArama] = useState("");
     /* SUZGEC (DENEME, yalnizca /ag-sinamasi). Sehir bandindaki isimlere
@@ -1671,35 +1677,6 @@ export function kur(V) {
         topluCiz(canliKenarlar, canliRenk, 1.4 * Math.max(0.7, cizgiCarpani), 0.72);
         ctx.restore();
 
-        /* DENEME: AKAN NOKTALAR. Kenar YONLU cizilmis -- egri `e.a`dan
-           (hoca) baslayip `e.b`de (talebe) bitiyor, ok ucu da orada.
-           Nokta ayni yonde kayiyor.
-
-           Opaklik `sin(pi*u)`: nokta hocanin yaninda beliriyor, ortada
-           en parlak, talebede sonuyor. Duz opaklikta dongunun bittigi
-           yerde nokta ZIPLIYOR -- sondaki nokta kaybolurken bastaki
-           birden beliriyordu.
-
-           Ayri bir katman degil, kenarlarla AYNI cizim gecisinde;
-           dolayisiyla ek maliyeti yalnizca daire sayisi kadar. Secili
-           ravi yokken `canliKenarlar` bos oldugu icin dongu de zaten
-           calismiyor. */
-        if (denemeNokta) {
-          const faz = ((-akisFazRef.current) / NOKTA_DONGU) % 1;
-          ctx.save();
-          ctx.fillStyle = canliRenk;
-          for (const c of canliKenarlar) {
-            for (let j = 0; j < NOKTA_SAYI; j++) {
-              const u = (faz + j / NOKTA_SAYI) % 1;
-              const [gx, gy] = kubikNokta(c, u);
-              ctx.globalAlpha = Math.sin(Math.PI * u);
-              ctx.beginPath();
-              ctx.arc(eX(gx), eY(gy), NOKTA_R, 0, Math.PI * 2);
-              ctx.fill();
-            }
-          }
-          ctx.restore();
-        }
       }
       if (seciliKenar) topluCiz([seciliKenar], C.kenarSecili, 2.6, 1);
       ctx.globalAlpha = 1;
@@ -1724,10 +1701,25 @@ export function kur(V) {
       if (seciliKenar) okCiz(seciliKenar, C.okVurgu, 9);
   
       // ---- dugumler ----
+      /* Salinim zamani BIR KEZ okunuyor: dongu icinde her dugum icin
+         `performance.now()` cagirmak hem pahali hem yanlis olurdu --
+         ayni karede cizilen noktalar farkli anlara denk gelirdi. */
+      const salT = denemeSalinim ? performance.now() : 0;
       for (const n of NODES) {
         const p = POS[n.id];
         if (!p || !icerde(p)) continue;
-        const px = eX(p.x), py = eY(p.y);
+        let px = eX(p.x), py = eY(p.y);
+        if (denemeSalinim) {
+          /* Iki serbestlik derecesi, ikisi de ayni genlikte ama farkli
+             hizda: oran 1'e yakin olmadigi icin nokta duz bir cizgide
+             degil kapali olmayan bir egride dolasiyor (Lissajous).
+             Ayni hiz verilseydi hepsi capraz gidip gelirdi. */
+          const h = salSayi(n.id);
+          const fx = (h % 1000) / 1000 * Math.PI * 2;
+          const fy = ((h >> 7) % 1000) / 1000 * Math.PI * 2;
+          px += Math.sin(salT * SALINIM_HIZ + fx) * SALINIM_GENLIK;
+          py += Math.cos(salT * SALINIM_HIZ * 0.73 + fy) * SALINIM_GENLIK;
+        }
         /* Bkz. UZAKTAN SEYREK, YAKINDAN TAM. Esigin altinda kalan ravi
            KAYBOLMUYOR, KUCULUYOR (Mustafa, 2026-09-04: "yaklasana kadar
            hic gorunmemesi kotu oluyor, bunun yerine kucuk bir nokta
@@ -1915,7 +1907,7 @@ export function kur(V) {
     }, [box, olculdu, view, pencere, secim, secRavi, secKenar, vurgu,
         cizgiCarpani, cizgiSaydam, MEDINE_I, adi, koyu, akisAnim, t,
         etiketliler, kenarKubik, kubikNokta, tamBoy, suzgecVar, beldeSuz,
-        yilSuz, denemeNokta]);
+        yilSuz, denemeSalinim]);
   
     /* TUVALDA NE TIKLANDI.
   
@@ -1993,7 +1985,10 @@ export function kur(V) {
        yeniden kurulsa bile (ciz kimligi degisince oluyor) hareket
        ziplamiyor. */
     useEffect(() => {
-      if (!akisAnim || !(secim && secim.tur === "ravi")) return;
+      /* Kenar akisi yalnizca bir ravi seciliyken donuyordu, cunku
+         canlanan kenar ancak o zaman var. DUGUM SALINIMI ise her
+         zaman doner -- secim olmasa da butun noktalar oynuyor. */
+      if (!akisAnim || !(denemeSalinim || (secim && secim.tur === "ravi"))) return;
       let calisiyor = true, sonT = performance.now();
       const dongu = (t) => {
         if (!calisiyor) return;
@@ -2004,7 +1999,7 @@ export function kur(V) {
       };
       const id = requestAnimationFrame(dongu);
       return () => { calisiyor = false; cancelAnimationFrame(id); };
-    }, [akisAnim, secim, ciz]);
+    }, [akisAnim, secim, ciz, denemeSalinim]);
   
   
     return (
@@ -2338,7 +2333,7 @@ export function kur(V) {
                 {SAMILE[secRavi.id] && (
                   <a href={`https://shamela.ws/book/${SAMILE_KITAP}/${SAMILE[secRavi.id]}`}
                     target="_blank" rel="noopener noreferrer"
-                    className="relative inline-flex items-center gap-1 px-1.5 py-0.5 border rounded-sm text-[11px] whitespace-nowrap"
+                    className="samile-yanip-son relative inline-flex items-center gap-1 px-1.5 py-0.5 border rounded-sm text-[11px] whitespace-nowrap"
                     style={{ borderColor: C.cizgi, color: C.vurguInk }}>
                     {/* «Yeni» rozeti. Anasayfa kartlari ve harita
                         dugmesiyle AYNI gorunum, AYNI renk kaynagi:

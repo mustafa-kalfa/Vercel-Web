@@ -411,3 +411,22 @@ html.tema-gecisi *::after {
   transition-duration: 450ms !important;
   transition-timing-function: ease !important;
 }
+/* «Şâmile'de tercemesi» bağlantısı ve üzerindeki «Yeni» rozeti
+   birlikte yanıp söner (Mustafâ, 2026-09-11). Animasyon bağın
+   KENDİSİNDE, iki ayrı kural değil: rozet bağın çocuğu olduğu için
+   opaklığı ondan miras alıyor ve ikisi hep aynı fazda kalıyor.
+
+   `prefers-reduced-motion` İSTİSNASI YOK. Sitede bu karar daha önce
+   üç kez verildi (swap-in/swap-out, .glow-active, tema geçişi):
+   Mustafâ'nın makinesinde o tercih açık ve sorgunun içine konan
+   animasyonlar orada hiç görünmüyor.
+
+   Bittiğinde kaldırılacak — «Yeni» damgası kalıcı değil. */
+@keyframes samile-yanip-son {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.35; }
+}
+
+.samile-yanip-son {
+  animation: samile-yanip-son 1.6s ease-in-out infinite;
+}
