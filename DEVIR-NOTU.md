@@ -9,11 +9,11 @@ okumak**, sonra "Havuzu tazele" bölümündeki iki komutu çalıştırmak.
 |---|---|
 | düğüm | 821 |
 | kenar | 8220 |
-| bilgi kartı | **663** |
-| tercemesi çözülmüş düğüm | 621 / 821 |
-| kart yazılabilir havuz | **23** |
+| bilgi kartı | **675** |
+| tercemesi çözülmüş düğüm | 620 / 821 |
+| kart yazılabilir havuz | **11** |
 
-Son commit `201d0a8` (Bilgi kartlari otuz yedinci parti). Çalışma ağacı
+Son commit `7365b8d` (Bilgi kartlari otuz dokuzuncu parti). Çalışma ağacı
 temiz. **Push edilmedi** — `main`'e push canlıya deploy demek, o yüzden
 Mustafâ söyleyince atılıyor. Son doğrulanan build `✓ Compiled
 successfully`.
@@ -21,7 +21,7 @@ successfully`.
 **Açık iş tek** — kart yazmaya devam. Kullanıcının son talimatı
 "kartlara devam et". Başka bekleyen istek yok.
 
-**Havuz bitmek üzere.** 23 düğüm kaldı, yani dört parti. Havuz bitince
+**Havuz bitmek üzere.** 11 düğüm kaldı, yani iki parti. Havuz bitince
 kartsız 158 düğüm kalacak ve hepsinin tercemesi çözülmemiş olacak —
 sıradaki iş kart yazmak değil, `kalan.json`'daki çözülemeyenlere
 bakmak olur (17'si işaret kaydı, 10'u yıl ayırmadı, 5'i en kısa
@@ -37,8 +37,8 @@ PYTHONIOENCODING=utf-8 python araclar/terceme/baslik-coz.py "$S/cozum.json" "$S/
 node araclar/terceme/kart-havuzu.cjs "$S/cozum.json" "$S/havuz.json"
 ```
 
-Birincisi `COZULEN: 621 / 821` yazmalı, ikincisi
-`yazilabilir havuz: 23`. Sayılar tutmuyorsa bir şey bozulmuş demektir,
+Birincisi `COZULEN: 620 / 821` yazmalı, ikincisi
+`yazilabilir havuz: 11`. Sayılar tutmuyorsa bir şey bozulmuş demektir,
 kart yazmadan önce ona bak.
 
 Havuz **dereceye göre sıralı** — en çok kenarı olan düğüm başta, çünkü
@@ -78,7 +78,7 @@ kazara silmemek için.
 npm run build
 ```
 
-Commit mesajı biçimi `Bilgi kartlari otuz sekizinci parti: alti kart`.
+Commit mesajı biçimi `Bilgi kartlari kirkinci parti: alti kart`.
 
 ## Kural olmuş şeyler
 
@@ -148,6 +148,25 @@ el-Esved, İbn Husayfe, el-Hakem el-A‘rec, Selîm b. Hayyân).
   `baslik-elle.json`'a yazıldı.
 - `ms03` (İbrâhim b. Muhammed b. Hamza) — bu adın Tehzîb'de tercemesi
   **yok**, çözücü Medineli başka birine çarpıyordu.
+
+**Kalıp otuz dokuzuncu partide düzeltildi.** Alt dizi testi
+`abd/ebu/um` ile başlayan bileşik adlarda boşta kalıyordu — düğüm
+`عبد الله بن كعب` için ilk üç belirteç `عبد الله بن` oluyor ve bu
+**oğlunun** başlığında da geçiyor. Doğru test **önek**, yani başlık
+düğüm adıyla BAŞLAMALI, ve ilk belirteç `abd/ebu/um/ubeyd/ibn` ise
+üç değil **dört** belirteç bakılmalı. 620 çözümün tamamı bu testten
+geçirildi, 39 bayraktan üçü gerçek hataydı — `abdullahkab` (oğluna),
+`ibnvehb` (dede adı üzerinden İbn Muhayrîz'e), `ed19` (tercemesi
+yok). Üçünün de notu eski kısa kayıttı, yani yanlış kart yazılmamıştı.
+
+**Çözücünün göremediği bir başlık var.** `ebusalih` (Ebû Sâlih Zekvân
+es-Semmân) **oğlu** Sâlih b. Ebî Sâlih'e bağlanıyor. Doğru terceme
+21732. satırda, ama o satır «•» taşımıyor — bir üstündeki `من اسمه
+ذكوان` bölüm başlığı işareti almış. `baslik-elle.json` yalnız
+**tanınan** başlıklara vurabildiği için oradan düzeltilemiyor,
+`tt_lib.basliksa` düzeltilmeli. Düğümün şu anki notu Mizzî'den kısa
+bir kayıt, yani yanlış kart yazılmamış durumda. Kart yazmadan önce
+buna bak.
 
 İkincisi için `baslik-elle.json` artık **`null`** değeri kabul ediyor,
 anlamı "bu düğümün tercemesi yok, çözme". Aynı durum yine çıkarsa
