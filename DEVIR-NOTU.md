@@ -9,26 +9,25 @@ okumak**, sonra "Havuzu tazele" bölümündeki iki komutu çalıştırmak.
 |---|---|
 | düğüm | 821 |
 | kenar | 8220 |
-| bilgi kartı | **685** |
-| tercemesi çözülmüş düğüm | **708 / 821** |
-| Şâmile bağlantısı | **707** |
-| kart yazılabilir havuz | **35** |
+| bilgi kartı | **720** |
+| tercemesi çözülmüş düğüm | 708 / 821 |
+| Şâmile bağlantısı | 707 |
+| kart yazılabilir havuz | **0 — bitti** |
 
-Son commit `36a721c` (Samile dugmesi kartin en tepesine). Çalışma
-ağacında terceme çözümü işi duruyor. **Push edilmedi** — `main`'e push
-canlıya deploy demek, o yüzden Mustafâ söyleyince atılıyor. Son
-doğrulanan build `✓ Compiled successfully`.
+Çalışma ağacı temiz, son doğrulanan build `✓ Compiled successfully`.
+**Push `main`'e canlıya deploy demek**, Mustafâ söyleyince atılıyor.
 
-**Havuz yeniden doldu.** Kırk bir parti sonunda bitmişti; kırk
-ikinci oturumda elle 52 terceme daha bağlandı (619 → 708) ve havuzda
-35 yazılabilir düğüm oluştu. Gece görevi tekrar açılabilir.
+Kırk ikinci parti 35 kartın tamamını birden yazdı. Kalan 113
+çözülemeyen kaydın 108'i `aday-yok` ve hemen hepsi **Kütüb-i
+Sitte'nin kitap râvileri** — Firebrî, Nesefî, İbn Dâse, Taberânî
+gibi, yani müelliflerden kitabı nakleden nesil. Tehzîb'in kapsamı
+müelliflerin hocalarında bittiği için bu isimlerin tercemesi **yok**,
+çözülememeleri hata değil. Gerçek râvilerden elde kalan tek isim
+`abdulmelikhumeyd` (aşağıda).
 
-Kalan 113 çözülemeyen kaydın 108'i `aday-yok`. Bunların hemen hepsi
-**Kütüb-i Sitte'nin kitap râvileri** — Firebrî, Nesefî, İbn Dâse,
-Taberânî gibi, yani müelliflerden kitabı nakleden nesil. Tehzîb'in
-kapsamı müelliflerin hocalarında bitiyor, bu isimlerin tercemesi
-**yok**; çözülemiyor olmaları hata değil. Gerçek râvilerden elde
-kalan tek isim `abdulmelikhumeyd` (aşağıda).
+Yani havuzu tekrar doldurmanın yolu Tehzîb'de terceme aramak değil,
+**başka bir kaynağa geçmek** — bu isimlerin çoğu Târîhu Bağdâd,
+Siyeru a'lâmi'n-nübelâ ve Tezkiretü'l-huffâz'da var.
 
 ## Havuzu tazele
 
@@ -41,7 +40,7 @@ node araclar/terceme/kart-havuzu.cjs "$S/cozum.json" "$S/havuz.json"
 ```
 
 Birincisi `COZULEN: 708 / 821` yazmalı, ikincisi
-`yazilabilir havuz: 35`. Sayılar tutmuyorsa bir şey bozulmuş demektir,
+`yazilabilir havuz: 0`. Sayılar tutmuyorsa bir şey bozulmuş demektir,
 kart yazmadan önce ona bak.
 
 Havuz **dereceye göre sıralı** — en çok kenarı olan düğüm başta, çünkü
@@ -251,6 +250,54 @@ for i, l in enumerate(ham):
 Bağlantı `https://shamela.ws/book/1293/<page_id>`. Terceme çözümü
 değiştiğinde tablo **bütünüyle** yeniden yazılıyor, tek tek
 düzeltilmiyor. Düğüm sırası `NODES` sırasıdır.
+
+## Kırk ikinci parti — 35 kart birden
+
+Kartlar o güne kadar altışar yazılıyordu. Kırk ikinci partide havuzun
+tamamı **iki iş akışıyla** (Workflow) yazıldı, 70 + 70 ajan.
+
+**Birinci akış — yaz, sonra çürüt.** Her râvi için bir ajan tercemeyi
+`terceme-oku.py` ile okuyup kartı yazdı, ardından **ikinci bir ajan
+aynı tercemeyi kendi okuyup** karttaki her tekil iddiayı metinde tek
+tek aradı. Denetim ajanı 35 kartın 21'inde düzeltme yaptı ve
+yakaladıkları rastgele değil, **tekrar eden kalıplar**.
+
+- «قيل» ile gelen bilginin kesin gibi yazılması.
+- "tek çekince", "tevsîkte ittifak var" gibi tercemede karşılığı
+  olmayan editoryal genellemeler.
+- Bir sözün yanlış kişiye atfı. Varkā'da «لا يساوي شيئا» Yahyâ
+  el-Kattân'a yazılmıştı, diyalogda sözü söyleyen Muâz b. Muâz.
+- Sahnenin tersine dönmesi. Duhaym Bağdat'a geldiğinde Ahmed b.
+  Hanbel, İbn Maîn ve Halef **onun önünde** oturuyor, kart tersini
+  yazmıştı.
+- Nesebin bir kuşak kayması. Cu‘ayd'da Evs/Uveys ihtilâfı babanın
+  değil **dedenin** adı üzerinde.
+- Dayanak uydurma. «روى عنه: الجماعة» diye bir satır gösterilmişti,
+  tercemede öyle bir satır yok, iddia yalnız başlıktaki rumuza
+  dayanıyor.
+
+**İkinci akış — kısalt.** İlk turun kartları ortalama 865 karakterdi,
+sitenin ortancası ise 324. Kart 130 piksellik kutuda görünüyor, o
+boyda okunmuyor. Kısaltma **yalnızca silerek** yapıldı, yeni tek bir
+olgu eklenmedi. Ardından iki denetim.
+
+- Ajan denetimi (13 kartta düzeltme). Buradaki risk uydurma değil,
+  **silmenin yarattığı çarpıtma**. Haccâc'ta Ebû Hâtim'in «صدوق»u
+  düşüp yalnız «ثقة» kalınca ta'dîl derecesi yükselmişti. Duhaym'da
+  İbn Hibbân'ın tevsîki silinip geriye kalan cümle "ise" ile
+  bağlanınca İbn Hibbân itiraz eden imam gibi okunuyordu. Ebû
+  Zabyân'da ihtilâfın yalnız olumsuz tarafı kalmıştı.
+- Makine denetimi (0 hata). Kısa karttaki **her Arapça alıntı, her
+  rakam ve her Arapça kelime** uzun kartta aynen bulunmalı. Betik
+  `scratchpad/kisa-denetle.mjs`.
+
+Sonuç 445 karakter ortalama, en uzun 557 — sitenin %75'lik dilimi
+540, yani kadro içinde. Uzun hâller `scratchpad/uzun/` altında
+duruyordu, oturum bitince gider.
+
+**Kalıp işe yarıyor, tekrarı düşünülebilir.** Kritik olan iki şey —
+denetleyen ajanın tercemeyi **kendi okuması** (yazanın dayanak
+listesine güvenmemesi) ve kısaltmanın **makineyle** de denetlenmesi.
 
 ## Düğüm salınımı
 
