@@ -421,12 +421,15 @@ html.tema-gecisi *::after {
    Mustafâ'nın makinesinde o tercih açık ve sorgunun içine konan
    animasyonlar orada hiç görünmüyor.
 
+   Salınım 1 -> 0,12 ve süre 1,05 sn: ilk sürüm 1 -> 0,35 / 1,6 sn idi
+   ve Mustafâ "daha belirgin" istedi (2026-09-11).
+
    Bittiğinde kaldırılacak — «Yeni» damgası kalıcı değil. */
 @keyframes samile-yanip-son {
   0%, 100% { opacity: 1; }
-  50%      { opacity: 0.35; }
+  50%      { opacity: 0.12; }
 }
 
 .samile-yanip-son {
-  animation: samile-yanip-son 1.6s ease-in-out infinite;
+  animation: samile-yanip-son 1.05s ease-in-out infinite;
 }

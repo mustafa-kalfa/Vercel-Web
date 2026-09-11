@@ -66,9 +66,10 @@ export default function RaviIliskiAglari() {
               Dugmeye `relative` EKLENDI: rozet akistan ciktigi icin en
               yakin konumlandirilmis ataya gore yerlesir, o da olmasa
               sayfanin tamami olurdu. */}
-          <span className="absolute -top-1.5 -end-1.5 whitespace-nowrap rounded-full bg-secim px-1.5 py-[1.5px] text-[9px] font-medium leading-3 text-secim-metin">
-            {t.rozetYeni}
-          </span>
+          <span
+            aria-hidden="true"
+            className="absolute -top-1.5 -end-1.5 h-2.5 w-2.5 rounded-full bg-secim"
+          />
           {t.agHaritayaGit}
           {/* Ileri oku. `rtl:-scale-x-100` ile Arapca'da ok da ters
               cevriliyor, yoksa metnin akisina karsi bakiyor. */}

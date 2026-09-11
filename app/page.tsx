@@ -108,13 +108,18 @@ export default function Home() {
     /* Istege bagli durum rozeti. Verilmezse kart rozetsiz cizilir --
        yani rozet eklemek/kaldirmak tek satirlik bir is. */
     rozetAnahtar?: CeviriAnahtari;
+    /* Yazisiz «yeni» rozeti: kartin kosesinde kucuk bir nokta.
+       Metinli rozetten AYRI bir alan, cunku ikisi ayni anda
+       istenmiyor ve metinlisi ceviri anahtari bekliyor (Mustafa,
+       2026-09-11: "«Yeni» yazisini kaldir, sadece bir rozet olsun"). */
+    yeniNokta?: boolean;
   }[] = [
     {
       href: "/ravi-iliski-aglari",
       adAnahtar: "cardNetworks",
       altAnahtar: "cardNetworksDesc",
       ikon: <AgIcon />,
-      rozetAnahtar: "rozetYeni",
+      yeniNokta: true,
     },
     {
       href: "/podcastler",
@@ -265,6 +270,12 @@ export default function Home() {
                       icinde: SwapContent kok ogesine `relative` veriyor,
                       className'e `absolute` yazmak ikisini ayni ozellik
                       uzerinde yaristirirdi. */}
+                  {kart.yeniNokta && (
+                    <span
+                      aria-hidden="true"
+                      className="absolute -top-1.5 -end-1.5 h-2.5 w-2.5 rounded-full bg-secim"
+                    />
+                  )}
                   {kart.rozetAnahtar && (
                     <span className="absolute -top-1.5 -end-1.5 rounded-full bg-secim px-1.5 py-[1.5px] text-[9px] font-medium leading-3 text-secim-metin">
                       <SwapContent
