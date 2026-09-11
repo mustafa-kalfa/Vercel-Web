@@ -14231,10 +14231,20 @@ export const MUKSIRUN = new Set(["ebuhureyre", "ibnomer", "enes", "aise", "ibnab
    «revâ anı'n-nebî ﷺ» kaydıyla başlar. Okuduğum tercemelerden gelen
    bağlar zaten yukarıda, kalanları burada tamamlanıyor — kaynak alanında
    ayrıca işaretlidir. */
-NODES.filter((n) => n.tab === 1 && n.id !== "nebi").forEach((n) => {
-  const zaten = EDGES.some((e) => e.a === "nebi" && e.b === n.id);
-  if (!zaten) EDGES.push(E("nebi", n.id, "—", "sahâbî olduğuna dayanır, terceme teyidi yapılmadı"));
-});
+/* FABRIKA. Turetilen her sey NODES/EDGES'ten geciyor ve bu modul
+   kendi listesiyle cagiriyor. Ayri bir dugum kumesi denenmek
+   istendiginde (bkz. silsileVeriKufe.js) o modul ayni fabrikalari
+   KENDI listesiyle cagiriyor -- yoksa yeni dugumlerin yerlesimi hic
+   hesaplanmaz ve sessizce cizilmezler. Ayni tuzaga Yemen sutunu
+   eklenirken bir kez dusuldu. */
+export const nebiKenarlariEkle = (NODES, EDGES) => {
+  NODES.filter((n) => n.tab === 1 && n.id !== "nebi").forEach((n) => {
+    const zaten = EDGES.some((e) => e.a === "nebi" && e.b === n.id);
+    if (!zaten) EDGES.push(E("nebi", n.id, "—", "sahâbî olduğuna dayanır, terceme teyidi yapılmadı"));
+  });
+  return EDGES;
+};
+nebiKenarlariEkle(NODES, EDGES);
 
 /* Belde ataması ölçütü: râvi, en çok talebe yetiştirdiği ve rivayet
    geçmişinde en çok anıldığı beldeye konur. Sonradan yerleştiği yerler
@@ -14316,11 +14326,12 @@ export const SERIT_W = 2480;
 export const ASGARI_DY = 6264;
 export const yOf = (yil) => UST + ((yil - YIL_MIN) / (YIL_MAX - YIL_MIN)) * (H - UST - ALT);
 
-export const DERECE = (() => {
+export const dereceKur = (EDGES) => {
   const d = {};
   EDGES.forEach((e) => { d[e.a] = (d[e.a] || 0) + 1; d[e.b] = (d[e.b] || 0) + 1; });
   return d;
-})();
+};
+export const DERECE = dereceKur(EDGES);
 /* Nokta yaricapi. 2026-08-29'da IKI KEZ buyutuldu, toplam DORT kat:
    96 -> 384, taban 13 -> 52, katsayi 11.5 -> 46, tavan 86 -> 344.
 
@@ -14330,12 +14341,13 @@ export const DERECE = (() => {
    kuculdu. Ekranda gorulen boy r/H oranina bagli; o oran ancak
    yaricap H'den hizli buyurse artiyor. Ikinci kattan sonra oran
    4/2.7, yani ilk haline gore ekranda ~1.5 kat. */
-export const rOf = (id) => {
+export const rOfKur = (DERECE) => (id) => {
   if (id === "nebi") return 384;
   const d = DERECE[id] || 0;
   // taban 52 birim, bağ sayısıyla belirgin şekilde büyür
   return Math.min(52 + Math.sqrt(d) * 46, 344);
 };
+export const rOf = rOfKur(DERECE);
 
 /* Noktanin EKRANDAKI yaricapi (piksel). Grafik birimindeki yaricap
    olcekle carpiliyor, ama bir TABANIN altina inmiyor.
@@ -14352,11 +14364,12 @@ export const rOf = (id) => {
    ~8.1 px; aradaki fark yaricapin tavana oranindan geliyor. */
 export const R_TAVAN = 384;
 export const EN_AZ_EKRAN_R = 2.6, EKRAN_R_ARTIS = 5.5;
-export const rEkranOf = (id, k) =>
+export const rEkranOfKur = (rOf) => (id, k) =>
   Math.max(rOf(id) * k, EN_AZ_EKRAN_R + (rOf(id) / R_TAVAN) * EKRAN_R_ARTIS);
+export const rEkranOf = rEkranOfKur(rOf);
 
 
-export const { POS, SUTUNLAR, W, MEDINE } = (() => {
+export const yerlesimKur = (NODES) => {
   // 1) her belde için şerit ataması
   const plan = {};
   BELDELER.forEach((belde) => {
@@ -14473,7 +14486,8 @@ export const { POS, SUTUNLAR, W, MEDINE } = (() => {
   medine = sutunlar.find((c) => c.belde === "Medine");
   pos["nebi"] = { x: medine.x + medine.genislik / 2, y: UST - 240 };
   return { POS: pos, SUTUNLAR: sutunlar, W: W0, MEDINE: medine };
-})();
+};
+export const { POS, SUTUNLAR, W, MEDINE } = yerlesimKur(NODES);
 
 /* ---------- kenar kavisleri ----------
    Her kenar için, yolu başka bir râvi noktasının üzerinden geçmeyen
