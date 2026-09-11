@@ -299,6 +299,34 @@ duruyordu, oturum bitince gider.
 denetleyen ajanın tercemeyi **kendi okuması** (yazanın dayanak
 listesine güvenmemesi) ve kısaltmanın **makineyle** de denetlenmesi.
 
+## Eski sürümde takılan ziyaretçi
+
+Mustafâ 11 Eylül'de "siteye daha önce girenler aynı tarayıcıdan bu
+değişiklikleri neden göremiyorlar" diye sordu. **Sunucu tarafı temiz**,
+ölçüldü.
+
+| | |
+|---|---|
+| HTML | `Cache-Control: public, max-age=0, must-revalidate` |
+| ETag | 304 doğru dönüyor |
+| `_next/static` | `max-age=31536000, immutable` — ama dosya adları **içerikten** türüyor (A/B denendi, içerik değişince ad değişti) |
+| hizmet çalışanı | depoda hiç olmadı (`git log --diff-filter=A`) |
+| Vercel Skew Protection | kapalı, `Set-Cookie` yok |
+
+Yani sorun başlıklarda değil. Tarayıcı sayfayı **ağa hiç sormadan**
+geri getiriyor — arka planda duran sekme, geri düğmesi, telefonda
+uygulamanın yeniden açılması. O anda istek çıkmıyor, dolayısıyla
+hiçbir önbellek ayarı devreye giremiyor. `no-store` bile çözmez.
+
+Çözüm `app/SurumBekcisi.tsx`. Sayfa açılırken `/surum.txt`i okuyup
+kendi sürümünü öğreniyor, geri dönüldüğünde (`pageshow` + görünürlük)
+bir daha bakıyor ve damga değişmişse kendini yeniliyor. Damgayı
+`araclar/surum-yaz.cjs` her yapımda üretiyor (`prebuild`), dosya
+gitignore'da.
+
+Sınandı — damga değişince `navigation.type` **reload** oluyor,
+değişmeyince iki `pageshow` üst üste gelse bile sayfa ayakta kalıyor.
+
 ## Düğüm salınımı
 
 İsim noktaları dar bir çerçevede oynuyor. Üç kez ayar istendi, üçünün
@@ -315,6 +343,41 @@ de gerekçesi kodda yazılı ama özeti şu.
 Salınım ile kenar akışı birbirinin tersi. Salınım seçim YOKKEN, akış
 ancak bir râvi SEÇİLİYKEN döner. Kenar seçilince ikisi de yok, döngü
 tamamen duruyor.
+
+### Kasmanın sebebi ve sabit katman
+
+Salınım açılınca site kasmaya başladı. Ölçüm (masaüstü, 1766×930
+tuval) sebebi tek satırda gösterdi.
+
+| iş | süre |
+|---|---|
+| 8220 kenarı bézier olarak çizmek | **13,5 ms** |
+| 820 noktayı daire olarak çizmek | 0,2 ms |
+| 110 etiket (kontur + iki yazı) | 0,7 ms |
+| hazır tuvali yapıştırmak | ~0 ms |
+
+Karenin bütün maliyeti kenarlarda ve **kenarlar oynamıyor**. 13,5 ms
+masaüstünde 60 Hz bütçesinin tamamı, telefonda birkaç katı.
+
+`katmanRef` sahnenin kımıldamayan yarısını — zemin, sütunlar, yıl
+çizgileri, kenarların tamamı — ayrı bir tuvalde tutuyor. Hareketli
+karede o tuval yapıştırılıyor, üstüne yalnız noktalar ve etiketler
+çiziliyor. Kare 15 ms'ten 1 ms'in altına iniyor.
+
+**Geçerlilik `ciz`in kimliğine bağlı**, elle bağımlılık listesi yok —
+katmanı etkileyen ne varsa zaten `ciz`in bağımlılık dizisinde ve
+`useEffect(() => { katmanRef.current = null }, [ciz])` onu atıyor.
+Elle liste tutmak, listeye bir şey eklemeyi unuttuğunda ekranda
+**donmuş bir kare** olarak geri döner.
+
+`vurus.kenar`, `canliKenarlar` ve `seciliKenar` da katmanla birlikte
+saklanıyor. Üçü de aynı döngüde üretiliyor ve üçü de kenarlara ait,
+yani nokta salınırken değişmiyorlar — saklanmasaydı önbellekli
+karelerde kenara tıklanamazdı.
+
+Katman seçiliyken de çalışıyor. Canlı kenarlar (akan kesik çizgi)
+zaten katmanın dışında, her karede ayrı çiziliyor; yani bir râvi
+seçiliyken de yığın kenarlar önbellekten geliyor.
 
 ## Latin yazı tipi
 

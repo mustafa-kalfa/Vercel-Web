@@ -43,3 +43,6 @@ araclar/dugumler.json
 araclar/is-listesi.json
 araclar/terceme/metin/
 __pycache__/
+
+# her yapimda uretiliyor (araclar/surum-yaz.cjs)
+/public/surum.txt

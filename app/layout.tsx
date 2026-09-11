@@ -6,6 +6,7 @@ import LanguageSwitcher from "./LanguageSwitcher";
 import { ThemeProvider } from "./ThemeContext";
 import ThemeToggle from "./ThemeToggle";
 import Footer from "./Footer";
+import SurumBekcisi from "./SurumBekcisi";
 
 /* Geist Sans 2026-09-11'de kaldirildi. Govde yazisi Georgia'ya gecince
    (bkz. globals.css, `--yazi-latin`) hicbir kural onu istemez oldu, ama
@@ -106,6 +107,10 @@ export default function RootLayout({
                 LanguageProvider'in ICINDE olmali -- metinlerini
                 oradan aliyor. */}
             <Footer />
+            {/* Hicbir sey cizmiyor. Sayfa arka plandan geri dondugunde
+                yayinda yeni bir surum var mi diye bakiyor ve varsa
+                yeniliyor -- bkz. SurumBekcisi.tsx, gerekcesi orada. */}
+            <SurumBekcisi />
           </ThemeProvider>
         </LanguageProvider>
       </body>

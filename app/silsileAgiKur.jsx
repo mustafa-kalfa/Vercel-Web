@@ -1487,7 +1487,35 @@ export function kur(V) {
        okuyor. Ayri bir hesap degil -- zaten cizerken bilinen ekran
        konumlari saklaniyor, maliyeti bir dizi doldurmak. */
     const vurusRef = useRef({ dugum: [], etiket: [], kenar: [] });
-  
+
+    /* SABIT KATMAN ONBELLEGI. Sahnenin KIMILDAMAYAN yarisi -- zemin,
+       sutunlar, yil cizgileri ve 8220 kenarin tamami -- ayri bir
+       tuvalde saklaniyor; hareketli karelerde yeniden cizilmiyor,
+       oldugu gibi yapistiriliyor.
+
+       OLCUM (masaustu, 1766x930):
+         8220 kenari bezier olarak cizmek   13,5 ms
+         820 noktayi daire olarak cizmek     0,2 ms
+         110 etiket (kontur + iki yazi)      0,7 ms
+         hazir tuvali yapistirmak          ~0    ms
+       Yani karenin butun maliyeti kenarlarda ve kenarlar oynamiyor.
+       Onbelleksiz kare masaustunde ~15 ms suruyordu, yani 60 Hz'in
+       butcesinin tamami; telefonda birkac katiydi ve Mustafa
+       "animasyon sitede kasmalara sebep oldu" dedi (2026-09-11).
+       Onbellekle kare 1 ms'in altina iniyor.
+
+       GECERLILIK `ciz`in KIMLIGINE bagli. Katmani etkileyen ne varsa
+       (view, box, tema, suzgec, secim, vurgu, cizgi ayarlari) zaten
+       `ciz`in bagimlilik dizisinde; kimlik degisince asagidaki efekt
+       onbellegi atiyor. Elle bagimlilik listesi tutmaktan cok daha
+       guvenli -- listeye bir sey eklemeyi unutmak, ekranda donmus bir
+       kare olarak geri doner.
+
+       Kare icinde degisen tek sey `akisFazRef` (kesik cizginin kaymasi)
+       ve o yalnizca CANLI kenarlara uygulaniyor; canli kenarlar zaten
+       katmanin disinda, her karede ayri ciziliyor. */
+    const katmanRef = useRef(null);
+
     /* Kenarin kubik egrisi SAYI olarak. SVG surumunde bu bir yol
        dizgisiydi (`kenarYolu`); tuvalde dizgi uretip ayristirmak bosa is,
        dogrudan denetim noktalari gerekiyor. Geometri birebir ayni. */
@@ -1582,102 +1610,13 @@ export function kur(V) {
         return "#" + iki(r) + iki(g) + iki(b);
       })();
   
-      // ---- zemin ----
-      ctx.fillStyle = C.tuval;
-      ctx.fillRect(0, 0, cw, ch);
-  
-      // ---- sutun seritleri ----
-      /* Serit rengi Medine'den baslayip BIRER ATLAYARAK tekrar ediyor.
-         Parite indise degil MEDINE'ye gore: araya yeni bir belde girse
-         (Yemen girdi) Medine tonunu kaybetmesin. */
-      SUTUNLAR.forEach((c, i) => {
-        const ilk = i === 0, son = i === SUTUNLAR.length - 1;
-        const zx = ilk ? -W : c.x;
-        const zw = (son ? W * 2 : c.x + c.genislik) - zx;
-        const cift = (i - MEDINE_I) % 2 === 0;
-        ctx.globalAlpha = cift ? C.damaAOp : C.damaBOp;
-        ctx.fillStyle = cift ? C.damaA : C.damaB;
-        ctx.fillRect(eX(zx), 0, zw * k, box.h);
-      });
-      ctx.globalAlpha = 1;
-  
-      // ---- 25'er yillik satirlar ----
-      SATIRLAR.forEach((y, i) => {
-        const ilk = i === 0, son = i === SATIRLAR.length - 1;
-        const ust = ilk ? -H : yOf(y);
-        const alt = son ? H * 2 : yOf(Math.min(y + SATIR_YIL, YIL_MAX));
-        if (alt <= ust) return;
-        const y1 = eY(ust), y2 = eY(alt);
-        if (y2 < 0 || y1 > box.h) return;
-        ctx.globalAlpha = i % 2 === 0 ? C.satirAOp : C.satirBOp;
-        ctx.fillStyle = i % 2 === 0 ? C.satirA : C.satirB;
-        ctx.fillRect(0, y1, box.w, y2 - y1);
-      });
-      ctx.globalAlpha = 1;
-  
-      // ---- sutun ayraclari ----
-      ctx.strokeStyle = C.cizgi;
-      ctx.lineWidth = 1.2;
-      ctx.globalAlpha = 0.7;
-      ctx.beginPath();
-      SUTUNLAR.forEach((c, i) => {
-        if (!i) return;
-        const x = Math.round(eX(c.x)) + 0.5;   // yarim piksel: cizgi keskin cikar
-        if (x < -2 || x > box.w + 2) return;
-        ctx.moveTo(x, 0); ctx.lineTo(x, box.h);
-      });
-      ctx.stroke();
-  
-      // ---- yil cizgileri ----
-      ctx.lineWidth = 1;
-      for (const y of YILLAR) {
-        const ey = Math.round(eY(yOf(y))) + 0.5;
-        if (ey < -2 || ey > box.h + 2) continue;
-        ctx.globalAlpha = y % 50 === 0 ? 0.85 : 0.28;
-        ctx.beginPath();
-        ctx.moveTo(eX(0), ey); ctx.lineTo(eX(W), ey);
-        ctx.stroke();
-      }
-      ctx.globalAlpha = 1;
-  
-      // ---- kenarlar ----
-      /* Vurgusuzler TEK YOLDA toplaniyor: tuvalde de her cizgiyi ayri
-         beginPath/stroke ile vermek her seferinde kalem kurdurur.
-         Sonuk ve normal ayri iki gecis, cunku renkleri farkli. */
+      /* Kenarin kubik egrisini tuvale yazar. `ctx` disaridan geliyor:
+         ayni yardimci hem ana tuvale hem onbellek tuvaline ciziyor. */
       const kubik = (ctx, c) => {
         ctx.moveTo(eX(c.x0), eY(c.y0));
         ctx.bezierCurveTo(eX(c.k1x), eY(c.k1y), eX(c.k2x), eY(c.k2y),
                           eX(c.x1), eY(c.y1));
       };
-      const canliKenarlar = [];
-      let seciliKenar = null;
-      const sonukYol = [], normalYol = [];
-      for (const e of EDGES) {
-        const pa = POS[e.a], pb = POS[e.b];
-        if (!pa || !pb || !kenarIcerde(pa, pb)) continue;
-        /* Ucu minige inmis kenar SILINMIYOR, sonuk yola giriyor: nokta
-           ekranda durdugu icin kenarinin da durmasi gerekiyor, yoksa
-           bagi olmayan noktalar gibi gorunurlerdi. Ilk surumde bunlar
-           tumden atlaniyordu -- o zaman nokta da cizilmiyordu, tutarli
-           ama fazla bosaltiyordu. */
-        const uzakUc = !tamBoy(e.a) || !tamBoy(e.b);
-        const secili = secKenar && secKenar.a === e.a && secKenar.b === e.b;
-        const canli = !secili && !!(secim && secim.tur === "ravi" &&
-          (e.a === secim.id || e.b === secim.id));
-        const c = kenarKubik(e);
-        if (!c) continue;
-        vurus.kenar.push({ e, c });
-        if (secili) { seciliKenar = c; continue; }
-        if (canli) { canliKenarlar.push(c); continue; }
-        // ekranda uc pikselden kisa kalan kenar gorunmuyor
-        if (Math.hypot(pb.x - pa.x, pb.y - pa.y) * k < 3) continue;
-        /* Kadrajla ilgili HICBIR ayrim yok: kenar ya normal ya sonuk
-           yola giriyor, tipki yayindaki haritada oldugu gibi. Bir ara
-           burada "kacak / uzak / gecen" diye kumeler vardi ve opaklik
-           onlarin sayisindan tureniyordu; kaldirildi (bkz. cizgiSaydam
-           ustundeki not). */
-        (kenarSonuk(e) || uzakUc ? sonukYol : normalYol).push(c);
-      }
       const topluCiz = (liste, renk, kalinlik, saydam) => {
         if (!liste.length) return;
         ctx.strokeStyle = renk;
@@ -1687,9 +1626,141 @@ export function kur(V) {
         for (const c of liste) kubik(ctx, c);
         ctx.stroke();
       };
-      topluCiz(sonukYol, C.kenarSonuk, 0.7 * cizgiCarpani,
-               (vurgu ? 0.22 : 0.5) * cizgiSaydam);
-      topluCiz(normalYol, C.kenar, 1.2 * cizgiCarpani, 0.85 * cizgiSaydam);
+
+      /* SABIT KATMAN. Bkz. `katmanRef` ustundeki olcum. Onbellekte
+         uygun boyda bir tuval varsa sahnenin kimildamayan yarisi
+         yeniden CIZILMIYOR, yapistiriliyor.
+
+         `vurus.kenar`, `canliKenarlar` ve `seciliKenar` da katmanla
+         birlikte saklaniyor: ucu de ayni dongude uretiliyor ve ucu de
+         kenarlara ait, yani nokta salinirken degismiyorlar. Saklanmasa
+         onbellekli karelerde kenara tiklanamazdi. */
+      let canliKenarlar = [];
+      let seciliKenar = null;
+      const kat = katmanRef.current;
+      const katVar = !!(kat && kat.gw === gw && kat.gh === gh);
+      if (katVar) {
+        /* Katman CIHAZ pikselinde saklaniyor, ana tuvalde ise olcek
+           donusumu acik. Yapistirirken birim donusumune iniliyor. */
+        ctx.save();
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.drawImage(kat.cv, 0, 0);
+        ctx.restore();
+        vurus.kenar = kat.kenar;
+        canliKenarlar = kat.canli;
+        seciliKenar = kat.secili;
+      } else {
+        // ---- zemin ----
+        ctx.fillStyle = C.tuval;
+        ctx.fillRect(0, 0, cw, ch);
+  
+        // ---- sutun seritleri ----
+        /* Serit rengi Medine'den baslayip BIRER ATLAYARAK tekrar ediyor.
+           Parite indise degil MEDINE'ye gore: araya yeni bir belde girse
+           (Yemen girdi) Medine tonunu kaybetmesin. */
+        SUTUNLAR.forEach((c, i) => {
+          const ilk = i === 0, son = i === SUTUNLAR.length - 1;
+          const zx = ilk ? -W : c.x;
+          const zw = (son ? W * 2 : c.x + c.genislik) - zx;
+          const cift = (i - MEDINE_I) % 2 === 0;
+          ctx.globalAlpha = cift ? C.damaAOp : C.damaBOp;
+          ctx.fillStyle = cift ? C.damaA : C.damaB;
+          ctx.fillRect(eX(zx), 0, zw * k, box.h);
+        });
+        ctx.globalAlpha = 1;
+  
+        // ---- 25'er yillik satirlar ----
+        SATIRLAR.forEach((y, i) => {
+          const ilk = i === 0, son = i === SATIRLAR.length - 1;
+          const ust = ilk ? -H : yOf(y);
+          const alt = son ? H * 2 : yOf(Math.min(y + SATIR_YIL, YIL_MAX));
+          if (alt <= ust) return;
+          const y1 = eY(ust), y2 = eY(alt);
+          if (y2 < 0 || y1 > box.h) return;
+          ctx.globalAlpha = i % 2 === 0 ? C.satirAOp : C.satirBOp;
+          ctx.fillStyle = i % 2 === 0 ? C.satirA : C.satirB;
+          ctx.fillRect(0, y1, box.w, y2 - y1);
+        });
+        ctx.globalAlpha = 1;
+  
+        // ---- sutun ayraclari ----
+        ctx.strokeStyle = C.cizgi;
+        ctx.lineWidth = 1.2;
+        ctx.globalAlpha = 0.7;
+        ctx.beginPath();
+        SUTUNLAR.forEach((c, i) => {
+          if (!i) return;
+          const x = Math.round(eX(c.x)) + 0.5;   // yarim piksel: cizgi keskin cikar
+          if (x < -2 || x > box.w + 2) return;
+          ctx.moveTo(x, 0); ctx.lineTo(x, box.h);
+        });
+        ctx.stroke();
+  
+        // ---- yil cizgileri ----
+        ctx.lineWidth = 1;
+        for (const y of YILLAR) {
+          const ey = Math.round(eY(yOf(y))) + 0.5;
+          if (ey < -2 || ey > box.h + 2) continue;
+          ctx.globalAlpha = y % 50 === 0 ? 0.85 : 0.28;
+          ctx.beginPath();
+          ctx.moveTo(eX(0), ey); ctx.lineTo(eX(W), ey);
+          ctx.stroke();
+        }
+        ctx.globalAlpha = 1;
+  
+        // ---- kenarlar ----
+        /* Vurgusuzler TEK YOLDA toplaniyor: tuvalde de her cizgiyi ayri
+           beginPath/stroke ile vermek her seferinde kalem kurdurur.
+           Sonuk ve normal ayri iki gecis, cunku renkleri farkli. */
+        const sonukYol = [], normalYol = [];
+        for (const e of EDGES) {
+          const pa = POS[e.a], pb = POS[e.b];
+          if (!pa || !pb || !kenarIcerde(pa, pb)) continue;
+          /* Ucu minige inmis kenar SILINMIYOR, sonuk yola giriyor: nokta
+             ekranda durdugu icin kenarinin da durmasi gerekiyor, yoksa
+             bagi olmayan noktalar gibi gorunurlerdi. Ilk surumde bunlar
+             tumden atlaniyordu -- o zaman nokta da cizilmiyordu, tutarli
+             ama fazla bosaltiyordu. */
+          const uzakUc = !tamBoy(e.a) || !tamBoy(e.b);
+          const secili = secKenar && secKenar.a === e.a && secKenar.b === e.b;
+          const canli = !secili && !!(secim && secim.tur === "ravi" &&
+            (e.a === secim.id || e.b === secim.id));
+          const c = kenarKubik(e);
+          if (!c) continue;
+          vurus.kenar.push({ e, c });
+          if (secili) { seciliKenar = c; continue; }
+          if (canli) { canliKenarlar.push(c); continue; }
+          // ekranda uc pikselden kisa kalan kenar gorunmuyor
+          if (Math.hypot(pb.x - pa.x, pb.y - pa.y) * k < 3) continue;
+          /* Kadrajla ilgili HICBIR ayrim yok: kenar ya normal ya sonuk
+             yola giriyor, tipki yayindaki haritada oldugu gibi. Bir ara
+             burada "kacak / uzak / gecen" diye kumeler vardi ve opaklik
+             onlarin sayisindan tureniyordu; kaldirildi (bkz. cizgiSaydam
+             ustundeki not). */
+          (kenarSonuk(e) || uzakUc ? sonukYol : normalYol).push(c);
+        }
+        topluCiz(sonukYol, C.kenarSonuk, 0.7 * cizgiCarpani,
+                 (vurgu ? 0.22 : 0.5) * cizgiSaydam);
+        topluCiz(normalYol, C.kenar, 1.2 * cizgiCarpani, 0.85 * cizgiSaydam);
+
+        /* Katman ana tuvalden KOPYALANIYOR, ayri bir baglama yeniden
+           cizilmiyor: bu noktada ana tuvalde tam olarak sabit katman
+           duruyor, ustune henuz hicbir sey konmadi. Tuvalden tuvale
+           kopya GPU icinde kaliyor ve olculemeyecek kadar kisa suruyor. */
+        let hedef = kat && kat.cv;
+        if (!hedef) hedef = document.createElement("canvas");
+        if (hedef.width !== gw || hedef.height !== gh) {
+          hedef.width = gw; hedef.height = gh;
+        }
+        const hctx = hedef.getContext("2d");
+        hctx.setTransform(1, 0, 0, 1, 0, 0);
+        hctx.clearRect(0, 0, gw, gh);
+        hctx.drawImage(cv, 0, 0);
+        katmanRef.current = {
+          cv: hedef, gw, gh,
+          kenar: vurus.kenar, canli: canliKenarlar, secili: seciliKenar,
+        };
+      }
   
       // vurgulular: akan kesik cizgi
       if (canliKenarlar.length) {
@@ -1939,7 +2010,18 @@ export function kur(V) {
         cizgiCarpani, cizgiSaydam, MEDINE_I, adi, koyu, akisAnim, t,
         etiketliler, kenarKubik, kubikNokta, tamBoy, suzgecVar, beldeSuz,
         yilSuz, salinimAnim]);
-  
+
+    /* SABIT KATMANI `ciz` DEGISINCE AT. Katmani etkileyen ne varsa
+       yukaridaki bagimlilik dizisinde duruyor, dolayisiyla `ciz`in
+       kimligi katmanin gecerliligiyle birebir ortusuyor -- ayrica elle
+       bagimlilik listesi tutmaya gerek yok. O listeye bir sey eklemeyi
+       unutmak ekranda DONMUS bir kare olarak geri donerdi.
+
+       Efekt ciziminden once kosuyor: rAF geri cagrisi butun efektlerden
+       sonra isliyor, yani dongu ilk kareyi cizdiginde onbellek zaten
+       temizlenmis oluyor. */
+    useEffect(() => { katmanRef.current = null; }, [ciz]);
+
     /* TUVALDA NE TIKLANDI.
   
        Sira onemli: once etiketler, sonra dugumler, en son kenarlar.
