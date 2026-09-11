@@ -1176,11 +1176,19 @@ export function kur(V) {
        yayina alindi (Mustafa: "ana haritaya da tasi"), `denemeSalinim`
        prop'u kaldirildi ve iki adres de ayni davranisa dondu.
 
-       TELEFONDA KAPALI (`!dar`), kenar akisinin aksine. Ikisinin
-       maliyeti ayni sinifta degil: akis yalnizca bir ravi seciliyken
-       doner, salinim ise SUREKLI doner ve her karede tam sahne cizimi
-       ister. Sureklilik telefonda pil ve isi demek. Salinim/hale zaten
-       ayni gerekceyle `dar`da kapali (bkz. susAnimasyon).
+       TELEFONDA DA ACIK. Bir sure `!dar` ile kapaliydi, gerekce
+       sureklilikti -- salinim her karede tam sahne cizimi ister ve bu
+       telefonda pil demek. Mustafa iki kez sordu, ikincisinde acikca
+       "telefonda da ag sinamasinda gorunuyordu, su an ikisinde de yok"
+       dedi (2026-09-11). Kapi kalkti. Maliyeti asagidaki SECIM KAPISI
+       karsiliyor: parmak bir noktaya dokunur dokunmaz salinim duruyor,
+       yani telefonda okuma aninda dongu zaten donmuyor.
+
+       SECILIYKEN DURUYOR (`!secim`). Mustafa istedi, ayrica dogrusu da
+       bu -- secili raviyi okurken butun sahnenin oynamasi dikkat
+       dagitiyordu. Secim kalkinca salinim kaldigi fazdan degil, gecen
+       gercek sureden devam ediyor (`performance.now()`), yani geri
+       donuste sicrama olmuyor.
 
        `azHareket` KASITLI OLARAK BAKILMIYOR. Ilk surumde bakiliyordu
        ve salinim Mustafa'nin makinesinde HIC calismadi -- Windows'ta
@@ -1190,7 +1198,7 @@ export function kur(V) {
        .swap-in/.swap-out ve Samile dugmesinin yanip sonmesi de bu ayari
        dinlemiyor. Hareket 5 piksellik, ~4 saniyede bir tur atan bir
        salinim; vestibuler risk tasiyan turden degil. */
-    const salinimAnim = !dar;
+    const salinimAnim = !secim;
   
   
     /* Kenar kalinligi carpani. Kalinlik artik ekran pikseli olarak sabit
@@ -2008,15 +2016,16 @@ export function kur(V) {
        yeniden kurulsa bile (ciz kimligi degisince oluyor) hareket
        ziplamiyor. */
     useEffect(() => {
-      /* Kenar akisi yalnizca bir ravi seciliyken donuyordu, cunku
-         canlanan kenar ancak o zaman var. DUGUM SALINIMI ise her
-         zaman doner -- secim olmasa da butun noktalar oynuyor.
+      /* IKISI BIRBIRININ TERSI. Salinim SECIM YOKKEN doner, kenar akisi
+         ise ancak bir RAVI SECILIYKEN -- canlanan kenar ancak o zaman
+         var. Yani dongu ya birinin ya otekinin isi icin donuyor, ikisi
+         ayni anda hic donmuyor. Kenar secildiginde ise ikisi de yok,
+         dongu tamamen duruyor.
 
-         IKI KOSUL BIRBIRINDEN AYRI. Bir sure `!akisAnim` tek basina
-         dongunun tamamini kesiyordu; `akisAnim` ise
+         IKI KOSUL AYRI SORULUYOR. Bir sure `!akisAnim` tek basina
+         dongunun tamamini kesiyordu; `akisAnim`
          `prefers-reduced-motion`a bagli oldugu icin salinim o ayar
-         acikken hic baslamiyordu. Salinim artik o ayari dinlemedigine
-         gore (bkz. `salinimAnim`), kapinin da ayri sorulmasi gerekti. */
+         acikken hic baslamiyordu (bkz. `salinimAnim`). */
       const akisDonecek = akisAnim && secim && secim.tur === "ravi";
       if (!salinimAnim && !akisDonecek) return;
       let calisiyor = true, sonT = performance.now();

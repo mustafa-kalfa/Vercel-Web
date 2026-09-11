@@ -252,6 +252,23 @@ Bağlantı `https://shamela.ws/book/1293/<page_id>`. Terceme çözümü
 değiştiğinde tablo **bütünüyle** yeniden yazılıyor, tek tek
 düzeltilmiyor. Düğüm sırası `NODES` sırasıdır.
 
+## Düğüm salınımı
+
+İsim noktaları dar bir çerçevede oynuyor. Üç kez ayar istendi, üçünün
+de gerekçesi kodda yazılı ama özeti şu.
+
+- **`prefers-reduced-motion`e bağlanmayacak.** Mustafâ'nın Windows'unda
+  "animasyon efektleri" kapalı, yani o sorgu sürekli açık. Bağlarsan
+  bende döner, onda hiç dönmez.
+- **Telefonda da açık.** Bir süre `!dar` ile kapalıydı, kaldırıldı.
+- **Seçim varken duruyor** (`salinimAnim = !secim`). Hem Mustafâ istedi
+  hem de sürekliliğin telefondaki pil maliyetini bu karşılıyor — parmak
+  bir noktaya değdiği anda döngü duruyor.
+
+Salınım ile kenar akışı birbirinin tersi. Salınım seçim YOKKEN, akış
+ancak bir râvi SEÇİLİYKEN döner. Kenar seçilince ikisi de yok, döngü
+tamamen duruyor.
+
 ## Latin yazı tipi
 
 Sitenin Latin gövde yazısı **Georgia**. Önce Arial'dı, sonra Geist
