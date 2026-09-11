@@ -34,21 +34,11 @@ export default function RaviIliskiAglari() {
       <div className="flex w-full max-w-2xl flex-1 flex-col justify-center gap-6 px-6 pb-16 pt-28 sm:px-10 sm:pt-32">
         <h1 className="text-xl font-semibold sm:text-2xl">{t.cardNetworks}</h1>
 
-        {/* TEK paragraf: kaynak, kapsam, sinir. Bilerek kisa --
-            ziyaretci buraya haritayi gormeye geldi, okumaya degil.
+        {/* DUGME PARAGRAFIN USTUNDE (Mustafa, 2026-09-11). Once
+            altindaydi; sayfaya gelen ziyaretcinin tek isi haritayi
+            acmak, metin ise onun ardindan okunabilecek bir aciklama.
 
-            Once uc paragrafti (`agGirisNe` 2026-08-30'da kaldirildi),
-            sonra iki (`agGirisKaynak` + `agGirisSinir`). 2026-09-03'te
-            Mustafa tek paragrafa indirtti ve ikisi `agGiris`te
-            birlestirildi; ayni anda sayilar (676 ravi, 3.673 bag)
-            guncellendi ve iki gercek sinir metne girdi: muelliflerin
-            kendi hocalari olan son tabaka hala ince, bir kisim ravinin
-            de tek yonu islenmis durumda. */}
-        <div className="flex flex-col gap-4 text-base leading-7 text-zinc-700 sm:text-lg sm:leading-8 dark:text-cream-dim">
-          <p>{t.agGiris}</p>
-        </div>
-
-        {/* `w-fit` + `mr-auto`: dugme metnin sol kenariyla hizali,
+            `w-fit` + `mr-auto`: dugme metnin sol kenariyla hizali,
             metnin genisligine yayilmiyor. Hizalama fiziksel degil
             mantiksal DEGIL -- burada metin de dugme de dilin akisiyla
             birlikte donuyor, o yuzden `me-auto` dogru olan.
@@ -87,6 +77,26 @@ export default function RaviIliskiAglari() {
             <path d="m12 5 7 7-7 7" />
           </svg>
         </Link>
+
+        {/* TEK paragraf: kaynak, kapsam, sinir. Bilerek kisa --
+            ziyaretci buraya haritayi gormeye geldi, okumaya degil.
+
+            Once uc paragrafti (`agGirisNe` 2026-08-30'da kaldirildi),
+            sonra iki (`agGirisKaynak` + `agGirisSinir`). 2026-09-03'te
+            Mustafa tek paragrafa indirtti ve ikisi `agGiris`te
+            birlestirildi.
+
+            2026-09-11'de YARIYA INDIRILDI (Mustafa: "paragrafi yari
+            yariya kisalt") ve sayilar guncellendi: bag sayisi 5.904
+            yaziyordu, 8.220 olmustu. Kisaltmada kaynak zincirinin
+            ayrintisi (Siyer, DIA) ve "otuz biri cekirdekten" kaydi
+            dusuruldu -- ziyaretci buraya haritayi gormeye geliyor,
+            o derinlik tiklamadan once gerekmiyor. Yerine kartin
+            uzerinde ne buldugu girdi (685 bilgi karti, 657 Samile
+            baglantisi). */}
+        <div className="flex flex-col gap-4 text-base leading-7 text-zinc-700 sm:text-lg sm:leading-8 dark:text-cream-dim">
+          <p>{t.agGiris}</p>
+        </div>
       </div>
     </main>
   );
