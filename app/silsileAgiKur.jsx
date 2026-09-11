@@ -215,8 +215,7 @@ export function kur(V) {
      dusur"). */
   const AKIS_HIZ = 12.5;
 
-  /* DENEME: DUGUM SALINIMI (yalnizca /ag-sinamasi, `denemeSalinim`).
-     Isim noktalari yerlerinde durmuyor, dar bir cerceve icinde saga
+  /* DUGUM SALINIMI. Isim noktalari yerlerinde durmuyor, dar bir cerceve icinde saga
      sola ve yukari asagi gidip geliyor.
 
      Her dugumun KENDI yonu ve hizi var: faz ile aci `salSayi(id)`
@@ -235,13 +234,13 @@ export function kur(V) {
      hesaplamak demekti; bu genlikte nokta zaten kendi cizgisinin
      ucunda "nefes aliyor" gibi duruyor. */
   const SALINIM_GENLIK = 2.2;   // EKRAN pikseli
-  const SALINIM_HIZ = 0.0009;   // radyan / milisaniye (~7 sn'de bir tur)
+  const SALINIM_HIZ = 0.0016;   // radyan / milisaniye (~4 sn'de bir tur)
 
   /* 2026-09-04'ten 2026-09-07'ye kadar burada uc deneme prop'u yasadi
      (`denemeZemin`, `denemeKenarKirp`, `denemeSuzgec`); ucu de yayina
      alinip kaldirildi. `denemeIpucu` dorduncusu, yalnizca
      /ag-sinamasi geciyor. */
-  return function SilsileAgi({ denemeIpucu = false, denemeSalinim = false } = {}) {
+  return function SilsileAgi({ denemeIpucu = false } = {}) {
     const [secim, setSecim] = useState(null);   // {tur:"ravi",id} | {tur:"kenar",e}
     const [arama, setArama] = useState("");
     /* SUZGEC (DENEME, yalnizca /ag-sinamasi). Sehir bandindaki isimlere
@@ -1168,6 +1167,16 @@ export function kur(V) {
        Ikisi ayri: salinim 38 dugume 38 birlestirme katmani aciyordu
        (pahali olan buydu), akis ise tek katmani adimli boyuyor. */
     const akisAnim = !azHareket;
+    /* DUGUM SALINIMI. 2026-09-11'de /ag-sinamasi'nda denendi, ayni gun
+       yayina alindi (Mustafa: "ana haritaya da tasi"), `denemeSalinim`
+       prop'u kaldirildi ve iki adres de ayni davranisa dondu.
+
+       TELEFONDA KAPALI (`!dar`), kenar akisinin aksine. Ikisinin
+       maliyeti ayni sinifta degil: akis yalnizca bir ravi seciliyken
+       doner, salinim ise SUREKLI doner ve her karede tam sahne cizimi
+       ister. Sureklilik telefonda pil ve isi demek. Salinim/hale zaten
+       ayni gerekceyle `dar`da kapali (bkz. susAnimasyon). */
+    const salinimAnim = !dar && !azHareket;
   
   
     /* Kenar kalinligi carpani. Kalinlik artik ekran pikseli olarak sabit
@@ -1704,12 +1713,12 @@ export function kur(V) {
       /* Salinim zamani BIR KEZ okunuyor: dongu icinde her dugum icin
          `performance.now()` cagirmak hem pahali hem yanlis olurdu --
          ayni karede cizilen noktalar farkli anlara denk gelirdi. */
-      const salT = denemeSalinim ? performance.now() : 0;
+      const salT = salinimAnim ? performance.now() : 0;
       for (const n of NODES) {
         const p = POS[n.id];
         if (!p || !icerde(p)) continue;
         let px = eX(p.x), py = eY(p.y);
-        if (denemeSalinim) {
+        if (salinimAnim) {
           /* Iki serbestlik derecesi, ikisi de ayni genlikte ama farkli
              hizda: oran 1'e yakin olmadigi icin nokta duz bir cizgide
              degil kapali olmayan bir egride dolasiyor (Lissajous).
@@ -1907,7 +1916,7 @@ export function kur(V) {
     }, [box, olculdu, view, pencere, secim, secRavi, secKenar, vurgu,
         cizgiCarpani, cizgiSaydam, MEDINE_I, adi, koyu, akisAnim, t,
         etiketliler, kenarKubik, kubikNokta, tamBoy, suzgecVar, beldeSuz,
-        yilSuz, denemeSalinim]);
+        yilSuz, salinimAnim]);
   
     /* TUVALDA NE TIKLANDI.
   
@@ -1988,7 +1997,7 @@ export function kur(V) {
       /* Kenar akisi yalnizca bir ravi seciliyken donuyordu, cunku
          canlanan kenar ancak o zaman var. DUGUM SALINIMI ise her
          zaman doner -- secim olmasa da butun noktalar oynuyor. */
-      if (!akisAnim || !(denemeSalinim || (secim && secim.tur === "ravi"))) return;
+      if (!akisAnim || !(salinimAnim || (secim && secim.tur === "ravi"))) return;
       let calisiyor = true, sonT = performance.now();
       const dongu = (t) => {
         if (!calisiyor) return;
@@ -1999,7 +2008,7 @@ export function kur(V) {
       };
       const id = requestAnimationFrame(dongu);
       return () => { calisiyor = false; cancelAnimationFrame(id); };
-    }, [akisAnim, secim, ciz, denemeSalinim]);
+    }, [akisAnim, secim, ciz, salinimAnim]);
   
   
     return (
