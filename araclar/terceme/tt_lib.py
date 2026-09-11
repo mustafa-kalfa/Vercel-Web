@@ -16,7 +16,7 @@ import re
 
 HAREKE = re.compile("[ً-ْٰـ‌‍]")
 SAYFA = re.compile(r"^تهذيب التهذيب[^•\n]{0,60}?\(ص:\s*\d+\)\s*")
-BASLIK = re.compile(r"^•\s*(?:([^-]{0,40})-)?\s*(.+?)$")
+BASLIK = re.compile(r"^•?\s*(?:([^-]{0,40})-)?\s*(.+?)$")
 
 
 def satir_sadelestir(l):
@@ -24,13 +24,45 @@ def satir_sadelestir(l):
     return SAYFA.sub("", HAREKE.sub("", l).strip()).strip()
 
 
-def basliksa(l):
-    return satir_sadelestir(l).startswith("•")
+"""Bolum basligi: «• من اسمه سماك» gibi, "adi su olanlar" demek.
+   Madde isaretini O aliyor ve hemen ardindaki GERCEK terceme basligi
+   isaretsiz kaliyor -- Samile'nin disa aktarmasinda 62 terceme boyle.
+   Simak b. Harb ile Ebu Salih Zekvan es-Semman bunlardan ikisi, ve
+   ikisi de bu yuzden hic cozulemiyordu (2026-09-11).
+
+   Bu, devir notundaki «gizli basliklar» tuzagindan FARKLI bir durum:
+   orada sayfa basligi bir sonraki satirin onune yapisiyordu ve cozum
+   `SAYFA` regexiyle onu kirpmakti. Burada satirin onunde hicbir sey
+   yok, madde isareti bir ust satira gitmis.
+"""
+BOLUM_BAS = re.compile(r"^•\s*من اسم")
+# «خت م 4 - » gibi bir rumuz onekiyle baslayan satir. Rumuzlar kisa,
+# 22 karakter tavani gerceklerin hepsini aliyor ve govde cumlelerinin
+# icindeki tireleri disarida birakiyor.
+RUMUZ_BAS = re.compile(r"^[^-\n]{0,22}-\s*\S")
+
+
+def basliksa(l, onceki=None):
+    """Satir bir terceme basligi mi.
+
+    `onceki` verilirse GIZLI basliklar da taniniyor: bir ust satir
+    «من اسمه ...» bolum basligiysa ve bu satir rumuzla basliyorsa,
+    madde isareti tasimasa bile basliktir. Cagiranlarin cogu tek
+    satira bakiyor ve `onceki` gecmiyor -- onlarin davranisi aynen
+    korunuyor, cunku ikinci arguman olmadan eski yol calisiyor.
+    """
+    s = satir_sadelestir(l)
+    if s.startswith("•"):
+        return True
+    if onceki is not None and BOLUM_BAS.match(satir_sadelestir(onceki)):
+        return bool(RUMUZ_BAS.match(s))
+    return False
 
 
 def baslik_satirlari(ham):
-    """Baslik satirlarinin indisleri."""
-    return [i for i, l in enumerate(ham) if basliksa(l)]
+    """Baslik satirlarinin indisleri. Gizli basliklar dahil."""
+    return [i for i, l in enumerate(ham)
+            if basliksa(l, ham[i - 1] if i else None)]
 
 
 def baslik_coz(l):

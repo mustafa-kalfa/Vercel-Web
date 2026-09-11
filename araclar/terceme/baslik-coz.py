@@ -28,16 +28,19 @@ from takrib_lib import (nrm, serhi_at, parcala, altdizi_esle, DUR,
                         vefat_ifadeleri, yil_coz)
 
 HAREKE = re.compile("[ً-ْٰـ‌‍]")
-BASLIK = re.compile(r"^•\s*(?:([^-]{0,40})-)?\s*(.+?)$")
+BASLIK = re.compile(r"^•?\s*(?:([^-]{0,40})-)?\s*(.+?)$")
 CAPRAZ = re.compile(r"(تقدم|يأتي|ياتي)\s*\.?\s*$")
 
 ham = io.open(os.path.join(B, "metin", "tehzibut.txt"),
               encoding="utf-8").read().split("\n")
 basliklar = []
 for i, satir in enumerate(ham):
-    s = satir_sadelestir(satir)
-    if not s.startswith("•"):
+    # `basliksa` ikinci argumanla GIZLI basliklari da taniyor: «من اسمه
+    # ...» bolum basligi madde isaretini aldiginda ardindaki gercek
+    # terceme basligi isaretsiz kaliyor (bkz. tt_lib).
+    if not basliksa(satir, ham[i - 1] if i else None):
         continue
+    s = satir_sadelestir(satir)
     m = BASLIK.match(s)
     if not m or "تمييز" in s[:60]:
         continue
@@ -62,9 +65,12 @@ satirlar = [b["satir"] for b in basliklar]
 # eslesme eskisi gibi `basliklar` uzerinde calisiyor.
 tum_basliklar = []
 for i, satir in enumerate(ham):
-    s = satir_sadelestir(satir)
-    if not s.startswith("•"):
+    # `basliksa` ikinci argumanla GIZLI basliklari da taniyor: «من اسمه
+    # ...» bolum basligi madde isaretini aldiginda ardindaki gercek
+    # terceme basligi isaretsiz kaliyor (bkz. tt_lib).
+    if not basliksa(satir, ham[i - 1] if i else None):
         continue
+    s = satir_sadelestir(satir)
     m = BASLIK.match(s)
     if m:
         tum_basliklar.append({"satir": i, "ad": m.group(2).strip()})
