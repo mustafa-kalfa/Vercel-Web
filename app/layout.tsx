@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Noto_Naskh_Arabic } from "next/font/google";
+import { Geist_Mono, Noto_Naskh_Arabic } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "./LanguageContext";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -7,11 +7,11 @@ import { ThemeProvider } from "./ThemeContext";
 import ThemeToggle from "./ThemeToggle";
 import Footer from "./Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
+/* Geist Sans 2026-09-11'de kaldirildi. Govde yazisi Georgia'ya gecince
+   (bkz. globals.css, `--yazi-latin`) hicbir kural onu istemez oldu, ama
+   next/font yukleyicisi burada durdugu surece dosyayi her sayfaya
+   on-yukletmeye devam ediyordu. Geist MONO duruyor, ses oynaticinin
+   sure sayaci onu kullaniyor. */
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
@@ -56,7 +56,7 @@ export default function RootLayout({
   return (
     <html
       lang="tr"
-      className={`${geistSans.variable} ${geistMono.variable} ${notoNaskhArabic.variable} h-full antialiased`}
+      className={`${geistMono.variable} ${notoNaskhArabic.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>

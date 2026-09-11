@@ -416,12 +416,17 @@
 /* Kendi koyu zeminini taşıyor, yani sitenin teması ne olursa olsun aynı
    görünüyor -- oyunun kapanış perdesi.
 
-   YAZI TİPİ SİTENİN KENDİSİ (Geist), Garamond DEĞİL. Kartların üzerinde
+   YAZI TİPİ SİTENİN KENDİSİ, Garamond DEĞİL. Kartların üzerinde
    Garamond var çünkü kart bir oyun kâğıdı; bu ekran ise sitenin
-   arayüzünün parçası ve serif yazı yamalı duruyordu (Mustafâ'nın
+   arayüzünün parçası ve Garamond orada yamalı duruyordu (Mustafâ'nın
    uyarısı, 2026-09-01). `font-family` hiç verilmiyor, gövdeden miras
    kalıyor; düğmeler de `font-family: inherit` taşıdığı için onlar da
-   düzeliyor. */
+   düzeliyor.
+
+   O uyarı verildiğinde gövde yazısı Geist'ti, yani bu ekran sans
+   oluyordu. 2026-09-11'den beri gövde Georgia, yani buradaki yazı da
+   serif. Kural değişmedi — "sitenin gövdesi ne ise o" — ama sonucu
+   değişti. Mustafâ'nın itirazı Garamond'a idi, serif'e değil. */
 .bitis {
   position: fixed;
   inset: 0;

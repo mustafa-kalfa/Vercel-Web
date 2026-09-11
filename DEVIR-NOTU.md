@@ -252,6 +252,34 @@ Bağlantı `https://shamela.ws/book/1293/<page_id>`. Terceme çözümü
 değiştiğinde tablo **bütünüyle** yeniden yazılıyor, tek tek
 düzeltilmiyor. Düğüm sırası `NODES` sırasıdır.
 
+## Latin yazı tipi
+
+Sitenin Latin gövde yazısı **Georgia**. Önce Arial'dı, sonra Geist
+oldu, 2026-09-11'de Mustafâ "haritadaki latin yazı tipini tüm siteye
+uygula" dedi ve haritanın yığınına geçti.
+
+Tek kaynak `globals.css`'te `--yazi-latin`. Üç yerde okunuyor — gövde,
+Tailwind'in `--font-sans` jetonu (yani `font-sans` sınıfı) ve
+Arapça'da dil düğmesini Naskh'tan geri alan kural.
+
+**İki kopyası var, ikisi de zorunlu.**
+
+- `silsileAgiKur.jsx` içindeki `ctx.font`. Tuval bir CSS değişkeni
+  okuyamıyor, yığın düz metin olarak duruyor.
+- `public/resule-kavusmak-game*.html`. Oyun `/resule-kavusmak`'a
+  `<iframe>` ile gömülü, ayrı bir document, CSS değişkenleri o sınırı
+  geçmiyor. Aynı dosyadaki `::selection` rengi de aynı sebeple elle
+  duruyor.
+
+Geist **Sans** kaldırıldı, artık indirilmiyor. Geist **Mono** duruyor
+(ses oynatıcının süre sayacı), Naskh duruyor (Arapça), Garamond ile
+Amiri duruyor (dil antrenmanı kartları).
+
+`/dil-antrenmani`'nin "bitiş" perdesinde eski bir karar var — "yazı
+tipi sitenin kendisi, Garamond değil" (2026-09-01). Kural değişmedi
+ama sonucu değişti, o ekran artık serif. Mustafâ'nın o günkü itirazı
+Garamond'aydı, serif'e değil.
+
 ## Daha derin arka plan
 
 `silsile-agi-notlar.md` — belde denetimi, Bağdat sütunu kararı, başlık

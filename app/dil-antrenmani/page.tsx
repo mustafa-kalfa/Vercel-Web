@@ -8,9 +8,11 @@ export const metadata: Metadata = {
     "Aynı kelimenin Türkçe, İngilizce ve Arapça karşılığını eşleştirme oyunu.",
 };
 
-/* Kartların yazı aileleri. Sitenin gövde yazısı Geist, ama kart yüzü
+/* Kartların yazı aileleri. Sitenin gövde yazısı Georgia, ama kart yüzü
    bir oyun kâğıdı gibi görünsün diye Garamond'a, Arapça kartlar da
-   Amiri'ye çekiliyor.
+   Amiri'ye çekiliyor. Gövde de artık serif olduğuna göre fark
+   inceldi, ama kalktı sayılmaz — Garamond Georgia'dan belirgin
+   biçimde daha ince ve daha dar.
 
    `next/font` ile alınıyorlar, `<link>` ile DEĞİL: dosyalar build
    sırasında kendi alanımıza kopyalanıyor, çalışma anında Google'a hiç

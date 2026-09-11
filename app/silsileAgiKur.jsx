@@ -1180,8 +1180,17 @@ export function kur(V) {
        maliyeti ayni sinifta degil: akis yalnizca bir ravi seciliyken
        doner, salinim ise SUREKLI doner ve her karede tam sahne cizimi
        ister. Sureklilik telefonda pil ve isi demek. Salinim/hale zaten
-       ayni gerekceyle `dar`da kapali (bkz. susAnimasyon). */
-    const salinimAnim = !dar && !azHareket;
+       ayni gerekceyle `dar`da kapali (bkz. susAnimasyon).
+
+       `azHareket` KASITLI OLARAK BAKILMIYOR. Ilk surumde bakiliyordu
+       ve salinim Mustafa'nin makinesinde HIC calismadi -- Windows'ta
+       "animasyon efektleri" kapali oldugundan `prefers-reduced-motion`
+       surekli aciktir. Benim tarayicimda donuyordu, onunkinde donmuyordu
+       ve "neden calismiyor" diye sordu (2026-09-11). Ayni gerekceyle
+       .swap-in/.swap-out ve Samile dugmesinin yanip sonmesi de bu ayari
+       dinlemiyor. Hareket 5 piksellik, ~4 saniyede bir tur atan bir
+       salinim; vestibuler risk tasiyan turden degil. */
+    const salinimAnim = !dar;
   
   
     /* Kenar kalinligi carpani. Kalinlik artik ekran pikseli olarak sabit
@@ -2001,8 +2010,15 @@ export function kur(V) {
     useEffect(() => {
       /* Kenar akisi yalnizca bir ravi seciliyken donuyordu, cunku
          canlanan kenar ancak o zaman var. DUGUM SALINIMI ise her
-         zaman doner -- secim olmasa da butun noktalar oynuyor. */
-      if (!akisAnim || !(salinimAnim || (secim && secim.tur === "ravi"))) return;
+         zaman doner -- secim olmasa da butun noktalar oynuyor.
+
+         IKI KOSUL BIRBIRINDEN AYRI. Bir sure `!akisAnim` tek basina
+         dongunun tamamini kesiyordu; `akisAnim` ise
+         `prefers-reduced-motion`a bagli oldugu icin salinim o ayar
+         acikken hic baslamiyordu. Salinim artik o ayari dinlemedigine
+         gore (bkz. `salinimAnim`), kapinin da ayri sorulmasi gerekti. */
+      const akisDonecek = akisAnim && secim && secim.tur === "ravi";
+      if (!salinimAnim && !akisDonecek) return;
       let calisiyor = true, sonT = performance.now();
       const dongu = (t) => {
         if (!calisiyor) return;

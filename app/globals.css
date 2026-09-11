@@ -8,6 +8,19 @@
 :root {
   --background: #d2ccbe;
   --foreground: #171717;
+  /* SITENIN LATIN YAZI TIPI. Rivayet haritasindaki ravi adlari
+     bastan beri bu yigini kullaniyordu; Mustafa 2026-09-11'de
+     "haritadaki latin yazi tipini tum siteye uygula" dedi ve govde
+     yazisi Geist'ten buna gecti.
+
+     Sistem yazi tipi, yani indirilecek dosya yok. Georgia Windows ve
+     macOS'ta kurulu gelir; bulunmadigi yerde Times New Roman, o da
+     yoksa tarayicinin serif'i devreye giriyor.
+
+     TUVALDE BIR KOPYASI VAR. `silsileAgiKur.jsx` icindeki `ctx.font`
+     bir CSS degiskeni okuyamadigi icin ayni yigini duz metin olarak
+     tasiyor. Burayi degistiren orayi da degistirecek. */
+  --yazi-latin: Georgia, "Times New Roman", serif;
 }
 
 /* Koyu modda metin beyaz degil krem: sitenin acik mod zemini (#d2ccbe)
@@ -34,22 +47,22 @@
      yardimci siniflarini uretiyor. */
   --color-secim: #6FE7A0;
   --color-secim-metin: #171717;
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--yazi-latin);
   --font-mono: var(--font-geist-mono);
 }
 
-/* Govde yazi tipi Geist. ONCEDEN Arial idi ve Geist yalnizca anasayfa
-   ile /sinama'da (kok div'deki `font-sans` sinifiyla) devreye giriyordu;
-   yani site uc font dosyasini (144 KB) her sayfada on-yukluyor ama
-   sayfalarin cogunda hicbirini kullanmiyordu. Artik ayni yazi tipi her
-   yerde.
+/* Govde yazi tipi. Once Arial'di, sonra Geist oldu, 2026-09-11'de
+   haritanin yazi tipine -- Georgia'ya -- gecti. Yigin `--yazi-latin`de,
+   gerekcesi de orada.
 
-   Arial/Helvetica arkada YEDEK olarak duruyor: Geist yuklenemezse
-   (aginda engelliyse, dosya 404 verirse) tarayici bunlara duser. */
+   Geist Sans artik hicbir yerde kullanilmiyor ve `layout.tsx`'ten
+   kaldirildi; indirilen tek Latin yazi tipi Geist Mono (ses oynaticinin
+   sure sayaci). Arapca hala Naskh, asagidaki `html[lang="ar"]` kurali
+   onu veriyor. */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--yazi-latin);
 }
 
 /* Tailwind v4 preflight'i <button>'a `cursor: default` veriyor (tarayici
@@ -121,7 +134,7 @@ html[lang="ar"] * {
    kapsamak sart: `html[lang="ar"] *` onlara ayrica vuruyor. */
 html[lang="ar"] .lang-switcher,
 html[lang="ar"] .lang-switcher * {
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--yazi-latin);
 }
 
 /* Naskh ayni punto degerinde Latin fontlardan kucuk gorundugu icin

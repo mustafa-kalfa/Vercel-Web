@@ -62,7 +62,15 @@
     min-height:100%;
     background:var(--background);
     color:var(--foreground);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    /* Latin yazi tipi sitenin govdesiyle ayni (globals.css,
+       `--yazi-latin`). Once sistem sans yigini idi; Mustafa
+       2026-09-11'de haritanin yazi tipini butun siteye uygulattirdi
+       ve oyun da sitenin bir sayfasi. Degeri elle kopyalamak sart,
+       cunku bu dosya bir <iframe> icinde ayri bir document ve CSS
+       degiskenleri o siniri gecmiyor -- `::selection` rengi de ayni
+       sebeple burada elle duruyor. Georgia SISTEM fontu, yani
+       Naskh gibi ayrica indirilmesi gerekmiyor. */
+    font-family:Georgia,"Times New Roman",serif;
     position:relative;
     padding-bottom:40px;
     /* Butonlar tam genislikte kalsin diye board'da sag tarafa yer
