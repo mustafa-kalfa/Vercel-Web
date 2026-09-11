@@ -19,6 +19,17 @@ gözle okuyup karar vermek — geriye kalıyor.
 | Takrîbü't-Tehzîb | 8609 | `C:\Users\Mustafa Kalfa\Desktop\تصدير من الشاملة\تقريب التهذيب.htm` |
 | Tehzîbü'l-Kemâl | 3722 | `C:\Users\Mustafa Kalfa\Desktop\تصدير من الشاملة\تهذيب الكمال في أسماء الرجال\` (35 cilt, `001.htm` … `035.htm`) |
 
+**Dışa aktarılmış başka kitaplar da var** — aynı klasörde Târîhu'l-kebîr,
+el-Cerh ve't-ta'dîl, ed-Duafâü'l-kebîr (Ukaylî), el-Kâmil, Mîzânü'l-i'tidâl,
+İbn Maîn (İbn Muhriz rivayeti), Süâlâtü'l-Berzaî, Şerhu ileli't-Tirmizî ve
+Hedyü's-sârî duruyor. `metne-cevir.py` kitap adını bilmiyor, birinci
+argüman yalnızca çıktı dosyasının adı — yani hepsi aynı komutla çevrilir.
+
+**Siyeru a'lâmi'n-nübelâ ile Târîhu Bağdâd YOK** (2026-09-11'de bakıldı).
+Havuzda kalan 108 çözülemeyen isim — Kütüb-i Sitte'nin kitap râvileri —
+Tehzîb'de değil bu ikisinde. Gerekirse Mustafâ'dan aynı yolla `.htm`
+dışa aktarması istenecek.
+
 Şâmile kurulumu `C:\shamela4`. Kitapların metni orada **Lucene
 dizininde** duruyor (`database\store\page`, 14 GB), kitap `.db`
 dosyaları yalnızca sayfa numarası tutuyor — yani SQLite'tan okunamıyor,
