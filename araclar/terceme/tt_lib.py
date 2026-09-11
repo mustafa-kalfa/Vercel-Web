@@ -55,7 +55,11 @@ def basliksa(l, onceki=None):
     if s.startswith("•"):
         return True
     if onceki is not None and BOLUM_BAS.match(satir_sadelestir(onceki)):
-        return bool(RUMUZ_BAS.match(s))
+        # Bolum basliginin HEMEN ARDI her zaman o bolumun ilk tercemesi.
+        # Bir sure burada rumuz onekini de sart kosuyorduk; 67 bolum
+        # ardindan 6'si rumuzsuz cikti ve besi gercek baslikti --
+        # aralarinda Suhayb b. Sinan er-Rumi de vardi (2026-09-11).
+        return bool(s)
     return False
 
 

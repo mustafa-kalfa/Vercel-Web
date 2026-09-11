@@ -10,36 +10,25 @@ okumak**, sonra "Havuzu tazele" bölümündeki iki komutu çalıştırmak.
 | düğüm | 821 |
 | kenar | 8220 |
 | bilgi kartı | **685** |
-| tercemesi çözülmüş düğüm | 619 / 821 |
-| kart yazılabilir havuz | **0 — bitti** |
+| tercemesi çözülmüş düğüm | **708 / 821** |
+| Şâmile bağlantısı | **707** |
+| kart yazılabilir havuz | **35** |
 
-Son commit `93d06e3` (Bilgi kartlari kirk birinci parti). Çalışma ağacı
-temiz. **Push edilmedi** — `main`'e push canlıya deploy demek, o yüzden
-Mustafâ söyleyince atılıyor. Son doğrulanan build `✓ Compiled
-successfully`.
+Son commit `36a721c` (Samile dugmesi kartin en tepesine). Çalışma
+ağacında terceme çözümü işi duruyor. **Push edilmedi** — `main`'e push
+canlıya deploy demek, o yüzden Mustafâ söyleyince atılıyor. Son
+doğrulanan build `✓ Compiled successfully`.
 
-**KART HAVUZU BİTTİ.** Tercemesi çözülmüş her düğümün kartı yazıldı.
-Kırk bir parti sürdü, 524'ten 685'e çıktı. Kart yazmaya devam etmek
-için önce **terceme çözmek** lâzım.
+**Havuz yeniden doldu.** Kırk bir parti sonunda bitmişti; kırk
+ikinci oturumda elle 52 terceme daha bağlandı (619 → 708) ve havuzda
+35 yazılabilir düğüm oluştu. Gece görevi tekrar açılabilir.
 
-Kartsız 136 düğüm var, hepsinin tercemesi çözülemedi. `kalan.json`'daki
-dağılım şöyle (202 kayıt, bir kısmı zaten kartlı düğümlere ait).
-
-| durum | adet | ne demek |
-|---|---|---|
-| `aday-yok` | 169 | ad hiçbir başlıkla eşleşmedi |
-| `isaret-kaydi` | 17 | yalnız yönlendirme kaydı bulundu, gövde yok |
-| `cok-aday` | 10 | birden çok aday, vefat yılı ayıramadı |
-| `ad-kisa` | 3 | ad iki belirteçten kısa |
-| `elle-terceme-yok` | 3 | Tehzîb'de tercemesi yok, elle kapatıldı |
-
-**Gece görevi (`gece-bilgi-kartlari`) DURAKLATILDI.** Havuz boşken
-kart yazamaz. Yeni terceme çözülüp havuz dolarsa Scheduled bölümünden
-tekrar açılır. Havuz bitince
-kartsız 158 düğüm kalacak ve hepsinin tercemesi çözülmemiş olacak —
-sıradaki iş kart yazmak değil, `kalan.json`'daki çözülemeyenlere
-bakmak olur (17'si işaret kaydı, 10'u yıl ayırmadı, 5'i en kısa
-başlık, 3'ü ad çok kısa, kalanı aday yok).
+Kalan 113 çözülemeyen kaydın 108'i `aday-yok`. Bunların hemen hepsi
+**Kütüb-i Sitte'nin kitap râvileri** — Firebrî, Nesefî, İbn Dâse,
+Taberânî gibi, yani müelliflerden kitabı nakleden nesil. Tehzîb'in
+kapsamı müelliflerin hocalarında bitiyor, bu isimlerin tercemesi
+**yok**; çözülemiyor olmaları hata değil. Gerçek râvilerden elde
+kalan tek isim `abdulmelikhumeyd` (aşağıda).
 
 ## Havuzu tazele
 
@@ -51,8 +40,8 @@ PYTHONIOENCODING=utf-8 python araclar/terceme/baslik-coz.py "$S/cozum.json" "$S/
 node araclar/terceme/kart-havuzu.cjs "$S/cozum.json" "$S/havuz.json"
 ```
 
-Birincisi `COZULEN: 619 / 821` yazmalı, ikincisi
-`yazilabilir havuz: 0`. Sayılar tutmuyorsa bir şey bozulmuş demektir,
+Birincisi `COZULEN: 708 / 821` yazmalı, ikincisi
+`yazilabilir havuz: 35`. Sayılar tutmuyorsa bir şey bozulmuş demektir,
 kart yazmadan önce ona bak.
 
 Havuz **dereceye göre sıralı** — en çok kenarı olan düğüm başta, çünkü
@@ -173,18 +162,30 @@ geçirildi, 39 bayraktan üçü gerçek hataydı — `abdullahkab` (oğluna),
 `ibnvehb` (dede adı üzerinden İbn Muhayrîz'e), `ed19` (tercemesi
 yok). Üçünün de notu eski kısa kayıttı, yani yanlış kart yazılmamıştı.
 
-**Çözücünün göremediği bir başlık var.** `ebusalih` (Ebû Sâlih Zekvân
-es-Semmân) **oğlu** Sâlih b. Ebî Sâlih'e bağlanıyor. Doğru terceme
-21732. satırda, ama o satır «•» taşımıyor — bir üstündeki `من اسمه
-ذكوان` bölüm başlığı işareti almış. `baslik-elle.json` yalnız
-**tanınan** başlıklara vurabildiği için oradan düzeltilemiyor,
-`tt_lib.basliksa` düzeltilmeli. Düğümün şu anki notu Mizzî'den kısa
-bir kayıt, yani yanlış kart yazılmamış durumda. Kart yazmadan önce
-buna bak.
+**Bölüm başlığı gizli başlık üretiyor — kapandı.** «من اسمه ذكوان»
+gibi bölüm başlıkları madde işaretini alıyor, hemen ardındaki gerçek
+terceme başlığı işaretsiz kalıyor. `tt_lib.basliksa` artık ikinci
+argümanla bir üst satıra bakıyor: bölüm başlığının **hemen ardı** her
+zaman o bölümün ilk tercemesidir. Bu 62 tercemeyi açtı, `ebusalih`
+(Ebû Sâlih es-Semmân) ve Simâk b. Harb bunlardan ikisi.
 
-İkincisi için `baslik-elle.json` artık **`null`** değeri kabul ediyor,
-anlamı "bu düğümün tercemesi yok, çözme". Aynı durum yine çıkarsa
-oraya `null` yaz, betiği değiştirme.
+İlk sürümde ardıl satırın rumuzla başlaması da şart koşulmuştu; 67
+bölüm ardından 6'sı rumuzsuz çıktı ve beşi gerçek başlıktı — Suheyb
+b. Sinân er-Rûmî bunlardan biri. Şart kaldırıldı, ardıl satır boş
+değilse başlık sayılıyor. Kaldırmadan önce iki koşum diffleşti:
+**tek kazanç, sıfır kayıp, sıfır kayma.**
+
+`baslik-elle.json` **`null`** değeri kabul ediyor, anlamı "bu düğümün
+tercemesi yok, çözme". Bir düğüm çözülemiyorsa ve Tehzîb'de gerçekten
+yoksa oraya `null` yaz, betiği değiştirme.
+
+**ELLE alt dizi arıyor, önek değil.** `baslik-elle.json`'daki değer
+başlığın **içinde** geçiyorsa tutuyor ve **indis sırasında ilk**
+tutan başlık seçiliyor. Ad uzun bir nesebin içinde ata olarak geçen
+biriyse erken bir başlığa çakılır — Hüseyin b. Ali yazınca Ca'fer
+es-Sâdık'ın başlığı geliyordu. Çare, adı ayırt eden kuyruğu da
+yazmak («... الهاشمي، أبو عبد الله المدني، سبط»). Yazdıktan sonra her
+ELLE kaydının **beklenen satıra** düştüğü programla denetlendi.
 
 ## Kapanan iş
 
@@ -215,13 +216,41 @@ gece partileridir. `git log --oneline` ile bak.
   söylüyor. Nesâî ile Ebû Hâtim de Basralı muamelesi yapıyor. Yemen'de
   altı düğüm var, biri gitse sütun ayakta kalır.
 
-Mustafâ'ya sorulmadan ikisine de dokunulmadı.
+- `abdulmelikhumeyd` sitede **عبد الملك بن حميد بن أبي عيينة**,
+  Basra, rumuz «م ت», hocası Abdürrezzâk. Tehzîb'de bu adda kimse
+  yok. En yakın isim **İbn Ebî Ğaniyye** (`عبد الملك بن حميد بن أبي
+  غنية`) ama o Kûfeli, tercemesi **rumuzsuz** ve talebeleri arasında
+  Abdürrezzâk geçmiyor — aynı kişi değil. Şâmile bağlantısı bu yüzden
+  verilmedi, düğümün Arapça adı gözden geçirilmeli.
+
+Mustafâ'ya sorulmadan üçüne de dokunulmadı.
 
 ## İstenmedi, not düşüldü
 
 - `/podcastler` mobilde yağmur klibi taşıyor — klip 211px, `pb-16`
   ise 64px.
 - `araclar/dugumler.json` ara dosyaları duruyor.
+
+## Şâmile bağlantısı nasıl üretiliyor
+
+`silsileVeri.js`'in sonundaki `SAMILE` tablosu **elle yazılmıyor**,
+çözümden üretiliyor. Eşleme şu: `tehzibut.txt` içindeki sayfa
+işaretleri («تهذيب التهذيب ... (ص: N)», `tt_lib.SAYFA`) sırayla
+sayıldığında **sayaç doğrudan Şâmile'nin `page_id`'si oluyor**, kayma
+yok. Var olan 657 kaydın 656'sı bu formülle bire bir tuttu, kalan bir
+kayıt çözümden düşmüştü.
+
+```python
+say = 0
+for i, l in enumerate(ham):
+    if SAYFA.match(HAREKE.sub("", l).strip()):
+        say += 1
+    sayfa[i] = say          # dugumun satiri -> page_id
+```
+
+Bağlantı `https://shamela.ws/book/1293/<page_id>`. Terceme çözümü
+değiştiğinde tablo **bütünüyle** yeniden yazılıyor, tek tek
+düzeltilmiyor. Düğüm sırası `NODES` sırasıdır.
 
 ## Daha derin arka plan
 
