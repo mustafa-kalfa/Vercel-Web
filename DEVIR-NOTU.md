@@ -29,6 +29,87 @@ Yani havuzu tekrar doldurmanın yolu Tehzîb'de terceme aramak değil,
 **başka bir kaynağa geçmek** — bu isimlerin çoğu Târîhu Bağdâd,
 Siyeru a'lâmi'n-nübelâ ve Tezkiretü'l-huffâz'da var.
 
+## Asıl iş — Takrîb'i haritaya almak
+
+Mustafâ 11 Eylül'de yönü netleştirdi: **asıl iş Takrîb ve Tehzîb'i
+tamamlamak**, kalan kitap râvilerini Siyer'den kovalamak değil.
+
+**İş bölümü.** İskelet Takrîb'den, bağlar ve kart Tehzîb'den. Sebebi
+şu — bir düğümün ihtiyacı olan dört alan Takrîb'de **tek satırda** ve
+düzenli bir kalıpla duruyor.
+
+```
+331- <ad ve nisbeler> <cerh-ta'dîl> من <tabaka> مات سنة <yıl> <rumûz>
+```
+
+Tehzîb bunların hiçbirini bu düzenlilikte vermiyor. Buna karşılık
+hoca-talebe listeleri ve cerh-ta'dîl malzemesi yalnızca onda var.
+
+**Araç** `araclar/terceme/takrib-iskelet.py`. Yazmıyor, çıkarıyor ve
+sayıyor. `--dogrula` kipi haritadaki düğümleri ölçüt alıp aynı
+çıkarımı onların üzerinde yapıyor.
+
+| | |
+|---|---|
+| Takrîb kaydı | 8.261 |
+| tam iskelet veren | **1.144** |
+| vefat ifadesi yok | 2.591 |
+| belde yok | 2.488 |
+| tabaka yok | 1.084 |
+| ihtilâflı yıl | 367 |
+| yaklaşık ifade («بعد», «قبل») | 248 |
+| birden çok nisbe | 136 |
+
+**Doğrulama** (119 düğüm eşleşti, ölçüt haritanın kendisi).
+
+| alan | isabet |
+|---|---|
+| vefat yılı | **%95,8** |
+| belde | **%95,8** |
+| tabaka | %77,3 |
+
+Yıldaki beş sapmanın bir kısmı hata değil **kaynak ihtilâfı** — Nu'mân
+b. Beşîr'de Takrîb 65 diyor, düğümde 64 yazıyor.
+
+**Tabaka ayrı bir mesele ve yerleşimi etkilemiyor.** Nokta belde
+(sütun) ve vefat yılı (satır) ile konuluyor; `tab` yalnızca kartta
+görünen kademe adını besliyor. Takrîb'in on iki tabakasıyla bizim yedi
+kademenin eşlemesi tahmin edilmedi, veriden öğrenildi — ilk tahminim
+%50'de kalmıştı. Öğrenilmiş eşlemenin tavanı %77,7, yıldan kestirmek
+%81,9. Bandlar gerçekten örtüşüyor (bizim tab 3'ün vefat yılı 43-123,
+tab 4'ün 92-165), yani `tab` elle verilmiş bir hüküm.
+
+**Sütunlara dağılım** (harita → +yeni → toplam).
+
+| belde | harita | yeni | toplam |
+|---|---|---|---|
+| Basra | 187 | 211 | 398 |
+| Kûfe | 175 | 208 | 383 |
+| Medine | 164 | 117 | 281 |
+| Bağdat | 30 | 143 | 173 |
+| Mısır | 41 | 121 | 162 |
+| Horasan | 50 | 91 | 141 |
+| Şam | 47 | 72 | 119 |
+| Humus | 16 | 82 | 98 |
+| Mekke | 47 | 36 | 83 |
+| Mâverâünnehir | 32 | 15 | 47 |
+| Vâsıt | 13 | 18 | 31 |
+| Cibâl | 12 | 18 | 30 |
+| Yemen | 6 | 12 | 18 |
+| **toplam** | **820** | **1.144** | **1.964** |
+
+**Karar bekleyen iki şey.**
+
+1. **Görselleştirme.** 1.964 nokta bugünkü haritanın iki buçuk katı.
+   Mustafâ'nın kendi önerisi duruyor (2026-09-11): "üçün altında hoca
+   ve talebesi olanlar haritada hiç görünmesin, sadece Râvi Ara ile
+   arandığında görünsün." Bu yapılmadan düğüm eklemek haritayı
+   okunmaz kılar.
+2. **Eleme eşiğini gevşetmek.** Reddedilen 7.100 kaydın bir kısmı
+   kurtarılabilir — nisbe listesi kısa, ihtilâflı yıl zaten haritada
+   tilde ile gösterilebiliyor. Ama gevşetmenin bedeli isabet, ve
+   ilke belli: "bir doğru kenarı kaçırmak, yanlışını çizmekten iyi."
+
 ## Havuzu tazele
 
 Kart havuzu ve terceme çözümü **scratchpad'de değil**, komutla
