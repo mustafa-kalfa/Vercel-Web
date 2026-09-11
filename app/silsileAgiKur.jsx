@@ -226,14 +226,19 @@ export function kur(V) {
 
      GENLIK EKRAN PIKSELI, grafik birimi degil: olcekle buyusaydi
      yakinlasinca noktalar yerinden firlardi, uzaklasinca hareket
-     tumden kaybolurdu. 2,2 piksel -- en kucuk tam boy nokta ~4 px,
-     yani salinim noktanin yaricapi kadar.
+     tumden kaybolurdu.
+
+     2,2 PIKSEL FARK EDILMIYORDU. Ilk deger oydu ve hareket teknik
+     olarak calistigi halde Mustafa "tasimamissin" dedi (2026-09-11) --
+     iki ekran goruntusunu yan yana koyup bakmadan secilmiyordu. 5
+     piksel hala dar bir cerceve (en kucuk tam boy nokta ~4 px) ama
+     bakan goz hareketi dogrudan goruyor.
 
      Kenarlar ve etiketler YERINDE kaliyor, yalnizca nokta oynuyor.
      Kenarin ucunu da oynatmak butun egriyi her karede yeniden
      hesaplamak demekti; bu genlikte nokta zaten kendi cizgisinin
      ucunda "nefes aliyor" gibi duruyor. */
-  const SALINIM_GENLIK = 2.2;   // EKRAN pikseli
+  const SALINIM_GENLIK = 5;     // EKRAN pikseli
   const SALINIM_HIZ = 0.0016;   // radyan / milisaniye (~4 sn'de bir tur)
 
   /* 2026-09-04'ten 2026-09-07'ye kadar burada uc deneme prop'u yasadi
@@ -2313,52 +2318,29 @@ export function kur(V) {
                   vurgulanan baglantilari yerinde kalir. */}
               <button onClick={() => setKartAcik(false)}
                 className="absolute top-2 right-3" style={{ color: C.solukInk }}>×</button>
-              <div className="flex items-baseline gap-3 flex-wrap pr-6">
-                <h2 className="text-xl">{adi(secRavi)}</h2>
-                {/* Arapca modda BASLIK ZATEN Arapca (adi() n.ar donuyor);
-                    bu satir da eklenince isim iki kez yaziliyordu. */}
-                {language !== "ar" && (
-                  <span className="text-lg" style={{ color: C.ink }} dir="rtl">{secRavi.ar}</span>
-                )}
-                <span className="text-xs" style={{ color: C.vurguInk }}>
-                  {tarihYaz(secRavi, t.agOlum)} · {beldeAdi(secRavi.belde)} · {TAB_AD[secRavi.tab]}{MUKSIRUN.has(secRavi.id) ? " · " + t.agMuksirun : ""}{MEDAR[secRavi.id] ? " · " + MEDAR_AD[MEDAR[secRavi.id]] : ""}{MUELLIF.has(secRavi.id) ? " · " + t.agMuellif : ""}
-                </span>
-                {/* ŞÂMİLE BAĞLANTISI. Yalnizca tercemesi cozulmus
-                    dugumde cikar; `SAMILE[id]` yoksa buton hic
-                    basilmiyor, cunku calismayan bir bag olmamasindan
-                    iyidir. Sayinin nereden geldigi `silsileVeri.js`teki
-                    SAMILE yorumunda.
+              {/* ŞÂMİLE BAĞLANTISI. Yalnizca tercemesi cozulmus
+                  dugumde cikar; `SAMILE[id]` yoksa buton hic basilmiyor,
+                  cunku calismayan bir bag olmamasindan iyidir. Sayinin
+                  nereden geldigi `silsileVeri.js`teki SAMILE yorumunda.
 
-                    NEDEN BASLIK SATIRINDA: kart 130 px yuksekliginde ve
-                    icinde kayiyor. Not uzun oldugunda (bircogu uc dort
-                    cumle) notun ALTINA konan buton katlanmanin altinda
-                    kaliyor ve ziyaretci varligini hic gormuyor --
-                    denendi, 2026-09-11. Meta seridinin ucunda hep
-                    gorunur.
+                  KARTIN EN TEPESINDE (Mustafa, 2026-09-11). Once notun
+                  ALTINDAYDI ve hic gorunmuyordu: kart 130 px ve icinde
+                  kayiyor, notlarin cogu uc dort cumle. Sonra basligin
+                  yanina alindi, orada da adin ve meta seridinin ardindan
+                  ikinci satira sarkiyordu. Simdi her seyin ustunde,
+                  sabit bir yerde.
 
-                    `_blank` + `noopener noreferrer`: harita agir bir
-                    canvas sahnesi, ziyaretci geri geldiginde kamera ve
-                    secim yerinde kalsin. */}
-                {SAMILE[secRavi.id] && (
+                  `pr-6`: sag ust kosedeki kapatma carpisiyla cakismasin.
+
+                  `_blank` + `noopener noreferrer`: harita agir bir canvas
+                  sahnesi, ziyaretci geri geldiginde kamera ve secim
+                  yerinde kalsin. */}
+              {SAMILE[secRavi.id] && (
+                <div className="pr-6 mb-1.5">
                   <a href={`https://shamela.ws/book/${SAMILE_KITAP}/${SAMILE[secRavi.id]}`}
                     target="_blank" rel="noopener noreferrer"
                     className="samile-yanip-son relative inline-flex items-center gap-1 px-1.5 py-0.5 border rounded-sm text-[11px] whitespace-nowrap"
                     style={{ borderColor: C.cizgi, color: C.vurguInk }}>
-                    {/* «Yeni» rozeti. Anasayfa kartlari ve harita
-                        dugmesiyle AYNI gorunum, AYNI renk kaynagi:
-                        `bg-secim` / `text-secim-metin`, yani
-                        globals.css'teki `--color-secim` (#6FE7A0).
-
-                        Bir sure rengi `C` paletinden aliyordu
-                        (`C.kenarSecili`) -- harita temasini C uzerinden
-                        kurdugu icin dogru gorunmustu, ama o deger
-                        turuncu-kirmizi ve sitenin rozetleriyle hic
-                        ilgisi yok (Mustafa, 2026-09-11: "neden
-                        kirmizi"). Kart TUVAL DEGIL, siradan DOM --
-                        Tailwind siniflari burada calisiyor.
-
-                        Bagin kendisine `relative` eklendi, rozet ona
-                        gore yerlessin diye. */}
                     <span className="absolute -top-1.5 -end-1.5 whitespace-nowrap rounded-full bg-secim px-1 py-[0.5px] text-[8px] font-medium leading-3 text-secim-metin">
                       {t.rozetYeni}
                     </span>
@@ -2371,7 +2353,18 @@ export function kur(V) {
                       <path d="M3.5 1H1v8h8V6.5" /><path d="M6 1h3v3" /><path d="M9 1L4.5 5.5" />
                     </svg>
                   </a>
+                </div>
+              )}
+              <div className="flex items-baseline gap-3 flex-wrap pr-6">
+                <h2 className="text-xl">{adi(secRavi)}</h2>
+                {/* Arapca modda BASLIK ZATEN Arapca (adi() n.ar donuyor);
+                    bu satir da eklenince isim iki kez yaziliyordu. */}
+                {language !== "ar" && (
+                  <span className="text-lg" style={{ color: C.ink }} dir="rtl">{secRavi.ar}</span>
                 )}
+                <span className="text-xs" style={{ color: C.vurguInk }}>
+                  {tarihYaz(secRavi, t.agOlum)} · {beldeAdi(secRavi.belde)} · {TAB_AD[secRavi.tab]}{MUKSIRUN.has(secRavi.id) ? " · " + t.agMuksirun : ""}{MEDAR[secRavi.id] ? " · " + MEDAR_AD[MEDAR[secRavi.id]] : ""}{MUELLIF.has(secRavi.id) ? " · " + t.agMuellif : ""}
+                </span>
               </div>
               {/* Not once ceviri tablosunda aranir (bkz. NOT_DIL), yoksa
                   Turkce aslina duser. */}
