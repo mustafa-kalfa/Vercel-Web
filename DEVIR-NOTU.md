@@ -529,6 +529,69 @@ gitignore'da.
 Sınandı — damga değişince `navigation.type` **reload** oluyor,
 değişmeyince iki `pageshow` üst üste gelse bile sayfa ayakta kalıyor.
 
+## Derece süzgeci ve nokta büyüklüğü (2026-09-13)
+
+### Süzgeç — az bağlantılı râvi haritada çizilmiyor
+
+Mustafâ 11 Eylül'de istemişti, 13 Eylül'de kuruldu: **derecesi üçün
+altında olan râvi haritada hiç görünmüyor, yalnızca Râvi Ara ile
+bulunuyor.** Sabit `silsileAgiKur.jsx`'te `GIZLI_ESIK`, sıfıra çekmek
+süzgeci tümden kapatır.
+
+**`tamBoy`dan farklı, ikisini karıştırma.** O UZAKLIĞA bağlı bir
+kademelendirme — eşiğin altında kalan nokta kaybolmuyor, 2 piksellik
+minik bir noktaya iniyor ve yaklaşınca geri büyüyor. Bu ise MUTLAK:
+hangi ölçekte olursa olsun çizilmiyor, kenarları da çizilmiyor (yoksa
+boşlukta biten çizgiler kalırdı).
+
+Dört istisna `tamBoy`dakiyle aynı ve aynı gerekçeyle — seçili râvi,
+vurgulu (seçiliye bağlı) düğümler, arama eşleşmeleri, ve sahâbe
+(`KADEME <= 1`). İlk üçü olmasa arama kutusu kendi sonucunu
+gösteremezdi.
+
+**Ne kadarını gizliyor.**
+
+| | gizlenen | toplam |
+|---|---|---|
+| ana harita | 99 | 821 (%12) |
+| Takrîb çatalı | 371 | 1.614 (%23) |
+
+Ana haritada gizlenen 99 düğümün **91'i tabaka 6**, yani Kütüb-i
+Sitte'nin kitap râvileri — ağın zaten dış halkası. Geriye kalan 8'i
+2-5. tabakadan. Gizlenenlerin 15'inin yazılmış bilgi kartı var, onlar
+aramadan erişilebiliyor.
+
+### Nokta büyüklüğü — tavan kaldırıldı
+
+Eski biçim `min(52 + sqrt(d) * 46, 344)` idi ve **41 bağlantıdan
+sonra sonuç hep 344 çıkıyordu**. Ölçüldü: ana haritada 821 düğümün
+**99'u (%12)**, çatalda 1.614'ün **148'i (%9)** tam tavanda — derecesi
+41 olan râvi ile 226 olan aynı büyüklükte çiziliyordu. Mustafâ'nın
+"daha dakik" dediği kayıp tam olarak buydu.
+
+Yeni biçim katsayıyı sabit vermek yerine **en büyük dereceye göre
+normalize ediyor**, yani en çok bağı olan tavana oturuyor ve hiçbiri
+doymuyor. Ağ büyüdükçe ölçek kendiliğinden ayarlanıyor. Karekök
+korundu — gözün okuduğu şey yarıçap değil ALAN, `r ~ sqrt(d)` demek
+`alan ~ d` demek.
+
+`EKRAN_R_ARTIS` 5,5'ten 10'a çıkarıldı. Sebep: normalizasyon doymayı
+kaldırırken ORTA değerleri de aşağı çekiyordu (medyan yarıçap 230 →
+127) ve artış eski değerinde kalsaydı noktaların çoğu **ekranda
+küçülürdü** — yıllardır tekrarlanan "noktalar hâlâ küçük" şikâyeti
+geri gelirdi. Artış büyütülünce medyan nokta eskisiyle aynı kalıyor,
+kazanılan ayrım tavana ekleniyor.
+
+| derece | eski ekran px | yeni ekran px |
+|---|---|---|
+| 0 | 3,4 | 3,95 |
+| 15 (medyan) | ~5,9 | 6,14 |
+| 47 (%90) | 7,5 (tavan) | 7,82 |
+| 182 (en yüksek) | 7,5 (tavan) | **11,56** |
+| Hz. Peygamber | 8,1 | **12,60** |
+
+Tavandaki düğüm 99'dan **2'ye** indi. Hiçbir nokta küçülmedi.
+
 ## Düğüm salınımı
 
 İsim noktaları dar bir çerçevede oynuyor. Üç kez ayar istendi, üçünün

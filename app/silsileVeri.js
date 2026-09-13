@@ -14928,11 +14928,35 @@ export const DERECE = dereceKur(EDGES);
    kuculdu. Ekranda gorulen boy r/H oranina bagli; o oran ancak
    yaricap H'den hizli buyurse artiyor. Ikinci kattan sonra oran
    4/2.7, yani ilk haline gore ekranda ~1.5 kat. */
-export const rOfKur = (DERECE) => (id) => {
-  if (id === "nebi") return 384;
-  const d = DERECE[id] || 0;
-  // taban 52 birim, bağ sayısıyla belirgin şekilde büyür
-  return Math.min(52 + Math.sqrt(d) * 46, 344);
+/* SABIT KATSAYI TAVANA DAYANIYORDU, OLCULDU (2026-09-13). Onceki
+   bicim `min(52 + sqrt(d) * 46, 344)` idi: 41 baglantidan sonra sonuc
+   hep 344 cikiyor, yani ORADAN YUKARISI TEK BOY. Ana haritada 821
+   dugumun 99'u (%12), Takrib catalinda 1614'un 148'i (%9) tam tavanda
+   duruyordu -- derecesi 41 olanla 226 olan ayni buyuklukte. Mustafa
+   "noktalarin buyuklugunun baglanti sayisina gore duzenlenisini daha
+   dakik hale getir" dedi, kaybedilen ayrim tam olarak buydu.
+
+   Yeni bicim katsayiyi sabit vermek yerine EN BUYUK DERECEYE gore
+   normalize ediyor: en cok bagi olan ravi tavana oturuyor, gerisi
+   arasina yayiliyor ve HICBIRI doymuyor. Ag buyudukce olcek
+   kendiliginden yeniden ayarlaniyor.
+
+   KAREKOK KORUNDU, cunku gozun okudugu sey yaricap degil ALAN.
+   `r ~ sqrt(d)` demek `alan ~ d` demek, yani iki kat bagi olan noktanin
+   alani iki kati -- nicelik gostermenin dogru kodlamasi bu.
+
+   `nebi` yine ayri: derecesi otekilerden kat kat buyuk oldugu icin
+   normalizasyonu tek basina belirler ve butun agi kucultturdu. */
+const R_TABAN = 52, R_UST = 344;
+export const rOfKur = (DERECE) => {
+  let enBuyuk = 0;
+  for (const id in DERECE) if (id !== "nebi" && DERECE[id] > enBuyuk) enBuyuk = DERECE[id];
+  const bolen = Math.sqrt(enBuyuk) || 1;
+  return (id) => {
+    if (id === "nebi") return 384;
+    const d = DERECE[id] || 0;
+    return R_TABAN + (R_UST - R_TABAN) * (Math.sqrt(d) / bolen);
+  };
 };
 export const rOf = rOfKur(DERECE);
 
@@ -14947,10 +14971,18 @@ export const rOf = rOfKur(DERECE);
    TABAN SABIT DEGIL, bag sayisiyla birlikte artiyor. Duz bir taban
    (once 3.4 px) en genis gorunumde HER noktayi ayni boya getiriyordu
    ve "cok bag = buyuk nokta" okumasi tam da en cok ise yarayacagi
-   yerde kayboluyordu. Simdi en kucuk nokta ~3.4 px, Hz. Peygamber
-   ~8.1 px; aradaki fark yaricapin tavana oranindan geliyor. */
+   yerde kayboluyordu. Aradaki fark yaricapin tavana oranindan geliyor.
+
+   ARTIS 5.5'TEN 10'A CIKTI (2026-09-13). Yukaridaki normalizasyon
+   doymayi kaldirdi ama ORTA degerleri de asagi cekti (medyan yaricap
+   230'dan 127'ye indi); artis eski degerinde kalsaydi noktalarin cogu
+   EKRANDA kuculurdu ve bu, yillardir tekrarlanan "noktalar hala
+   kucuk" sikayetini geri getirirdi. Artis buyutulunce medyan nokta
+   eskisiyle ayni kaliyor, kazanilan ayrim TAVANA ekleniyor: ekrandaki
+   aralik ~3,4-8,1 px iken ~4,0-11,5 px oldu. Yani hicbir nokta
+   kucuImedi, en cok bagi olanlar buyudu. */
 export const R_TAVAN = 384;
-export const EN_AZ_EKRAN_R = 2.6, EKRAN_R_ARTIS = 5.5;
+export const EN_AZ_EKRAN_R = 2.6, EKRAN_R_ARTIS = 10;
 export const rEkranOfKur = (rOf) => (id, k) =>
   Math.max(rOf(id) * k, EN_AZ_EKRAN_R + (rOf(id) / R_TAVAN) * EKRAN_R_ARTIS);
 export const rEkranOf = rEkranOfKur(rOf);

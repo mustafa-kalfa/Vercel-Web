@@ -1063,9 +1063,41 @@ export function kur(V) {
       return false;
     }, [enAzDerece, secim, vurgu, eslesen]);
 
+    /* AZ BAGLANTILI RAVI HARITADA HIC CIZILMIYOR, YALNIZCA ARAMADAN
+       CIKIYOR (Mustafa, 2026-09-11: "ucun altinda hoca ve talebesi
+       olanlar haritada hic gorunmesin, sadece Ravi Ara ile arandigi
+       zaman gorunsun"; 2026-09-13: "suzgeci kur").
+
+       `tamBoy`DAN FARKLI. O, UZAKLIGA bagli bir kademelendirme: esigin
+       altinda kalan nokta kaybolmuyor, minik bir noktaya iniyor ve
+       yaklasinca geri buyuyor. Bu ise MUTLAK: derecesi ucun altinda
+       olan ravi hangi olcekte olursa olsun cizilmiyor, kenarlari da
+       cizilmiyor.
+
+       Sebep kalabalik. Takrib transi eklendiginde harita 1614 dugume
+       cikti ve bunun 373'u (%23) iki ya da daha az baglantili --
+       okunmayan ama dokuyu doldururlar. Ana haritada da 101 dugum
+       (%12) bu durumda.
+
+       AYNI DORT ISTISNA `tamBoy`daki gibi, ayni gerekceyle: aranip
+       bulunan ya da secilen ravi GORUNMEK ZORUNDA, yoksa arama kutusu
+       kendi sonucunu gosteremezdi. Sahabe (`KADEME <= 1`) tek bagli
+       bile olsa duruyor -- onlar agin cercevesi.
+
+       Esigi sifira cekmek suzgeci tumden kapatir. */
+    const GIZLI_ESIK = 3;
+    const gorunur = useCallback((id) => {
+      if ((DERECE[id] || 0) >= GIZLI_ESIK) return true;
+      if (KADEME(id) <= 1) return true;
+      if (secim && secim.tur === "ravi" && secim.id === id) return true;
+      if (vurgu && vurgu.has(id)) return true;
+      if (eslesen && eslesen.has(id)) return true;
+      return false;
+    }, [secim, vurgu, eslesen]);
+
     const etiketliler = useMemo(() => {
       const sirali = NODES
-        .filter((n) => POS[n.id] && tamBoy(n.id))
+        .filter((n) => POS[n.id] && gorunur(n.id) && tamBoy(n.id))
         .map((n) => ({ n, kad: KADEME(n.id), dg: DERECE[n.id] || 0 }))
         .sort((a, b) => a.kad - b.kad || b.dg - a.dg);
   
@@ -1144,7 +1176,7 @@ export function kur(V) {
         if (!secilenler.has(x.n.id)) dene(x, false);
       });
       return secilenler;
-    }, [durgun, box, secim, vurgu, adi, dar, tamBoy]);
+    }, [durgun, box, secim, vurgu, adi, dar, tamBoy, gorunur]);
   
     /* Kenarlarin tiklama seritleri bu esigin ustunde uretiliyor (bkz.
        kenar cizimi). 0.05, agin tamami ekrana sigmis haldeki olcegin
@@ -1716,6 +1748,10 @@ export function kur(V) {
         for (const e of EDGES) {
           const pa = POS[e.a], pb = POS[e.b];
           if (!pa || !pb || !kenarIcerde(pa, pb)) continue;
+          /* Ucu cizilmeyen kenar da cizilmiyor -- yoksa boslukta biten
+             cizgiler kalirdi. Secili raviye bagli olanlar `gorunur`un
+             istisnalarindan gectigi icin secim aninda geri geliyorlar. */
+          if (!gorunur(e.a) || !gorunur(e.b)) continue;
           /* Ucu minige inmis kenar SILINMIYOR, sonuk yola giriyor: nokta
              ekranda durdugu icin kenarinin da durmasi gerekiyor, yoksa
              bagi olmayan noktalar gibi gorunurlerdi. Ilk surumde bunlar
@@ -1810,6 +1846,7 @@ export function kur(V) {
       for (const n of NODES) {
         const p = POS[n.id];
         if (!p || !icerde(p)) continue;
+        if (!gorunur(n.id)) continue;        // bkz. GIZLI_ESIK
         let px = eX(p.x), py = eY(p.y);
         if (salinimAnim) {
           /* Iki serbestlik derecesi, ikisi de ayni genlikte ama farkli
@@ -2008,7 +2045,7 @@ export function kur(V) {
       }
     }, [box, olculdu, view, pencere, secim, secRavi, secKenar, vurgu,
         cizgiCarpani, cizgiSaydam, MEDINE_I, adi, koyu, akisAnim, t,
-        etiketliler, kenarKubik, kubikNokta, tamBoy, suzgecVar, beldeSuz,
+        etiketliler, kenarKubik, kubikNokta, tamBoy, gorunur, suzgecVar, beldeSuz,
         yilSuz, salinimAnim]);
 
     /* SABIT KATMANI `ciz` DEGISINCE AT. Katmani etkileyen ne varsa
