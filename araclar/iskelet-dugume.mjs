@@ -21,7 +21,11 @@ if (!iskeletYol || !sozlukYol || !onek) {
   console.error("kullanim: iskelet-dugume.mjs <iskelet.json> <sozluk.json> <cikti-onek> [belde]");
   process.exit(1);
 }
-const V = await import(pathToFileURL("app/silsileVeri.js").href);
+/* Dugum tablosu DUGUM_TABLO ile degistirilebiliyor -- catali (genisletilmis
+   liste) olcerken araclarin ana haritaya degil ONA bakmasi gerekiyor;
+   yoksa transa zaten girmis bir kisi ikinci kez "yeni" sayilir.
+   Python tarafindaki kenar-tara/baslik-coz ayni degiskeni okuyor. */
+const V = await import(pathToFileURL(process.env.DUGUM_TABLO || "app/silsileVeri.js").href);
 const isk = JSON.parse(readFileSync(iskeletYol, "utf8"));
 const SOZ = JSON.parse(readFileSync(sozlukYol, "utf8"));
 /* ELLE YAZILMIS EK. Sozluk haritadan ogreniyor ama yalnizca Turkcesi
@@ -63,7 +67,7 @@ const PARANTEZ = /\[[^\]]*\]/g;
 /* TEOFOR ADIN ILK YARISI. «عبد الرحيم»، «عبيد الله» tek bir addir. Ikinci
    oge haritanin sozvarliginda yoksa beyaz liste tam orada kesiyordu ve ad
    «محمد بن عبد» diye yarim kaliyordu -- yani adin ORTASINDAN. */
-const TEOFOR = new Set(["عبد", "عبيد"]);
+const TEOFOR = new Set(["عبد", "عبيد", "وهب"]);
 /* ...AMA IKINCI OGE HER SEY OLAMAZ. «عبيد» cogu yerde BASLI BASINA bir ad
    (Ubeyd b. Huneyn, Yûnus b. Ubeyd); yalnizca «عبيد الله» bilesiktir.
    Kosulsuz gecirmek denendi ve «عبيد الخزاعي»، «عبيد بن»، hatta Takrib'in
@@ -84,7 +88,7 @@ const ESMA = new Set(["الله", "الرحمن", "الرحيم", "الملك", 
   "الباطن", "الوالي", "المتعالي", "البر", "التواب", "المنتقم", "العفو",
   "الرؤوف", "المقسط", "الجامع", "الغني", "المغني", "المانع", "الضار",
   "النافع", "النور", "الهادي", "البديع", "الباقي", "الوارث", "الرشيد",
-  "الصبور", "الأعلى", "الحكيم", "ربه", "رب", "خير"]);
+  "الصبور", "الأعلى", "المتعال", "ربه", "رب", "خير"]);
 const teoforCift = (a, b) => TEOFOR.has(a) && b !== undefined && ESMA.has(b);
 /* ADI BITIREN ISARETLER. Hepsi Takrib'in ILISKI kaydi, ad degil --
    «المعروف بـ» (diye bilinen), «مولى» (azatlisi), «صاحب» (yakini),
@@ -93,7 +97,7 @@ const teoforCift = (a, b) => TEOFOR.has(a) && b !== undefined && ESMA.has(b);
    etiketin kuyruguna «mevlâ Rebîa b. el-Hâris» gibi ikinci bir ad
    takiliyor ve harita etiketi iki katina cikiyor. */
 const DURAK = new Set(["المعروف", "المعروف،", "مولى", "مولاهم", "مولاه",
-                       "صاحب", "أخو", "أخي", "نزيل", "والد", "ابن أخي"]);
+                       "صاحب", "أخو", "أخي", "أخت", "عم", "نزيل", "والد"]);
 
 /* `(\s|$)` sondaki boslugu YUTUYOR ve ardisik «ابن X ابن Y» dizisinde
    ikinci, dorduncu... gecisler eslesmiyordu. Nesep kirpmasi bu yuzden
@@ -105,13 +109,46 @@ function adBolgesi(ham) {
   const tok = ham.replace(PARANTEZ, " ").replace(IBN, "$1بن")
     .replace(/\s+/g, " ").trim().split(" ");
   const out = [];
-  for (const w0 of tok) {
-    const w = w0.replace(/[ً-ْٰـ]/g, "");
+  /* ZAPT KUMESI ATLAMA. Takrib harekeyi ISMIN HEMEN ARDINDAN tarif ediyor
+     ve nesep ondan SONRA geliyor: «أصبغ آخره معجمة ابن زيد»،
+     «بحر بفتح أوله وسكون المهملة ابن كنيز». Beyaz liste serhin ilk
+     kelimesinde kesince geriye tek oge kaliyor ve kayit "cok kisa" diye
+     eleniyordu -- 57 kayit.
+     Serhin sozvarligi acik uclu, o yuzden serhi TANIMAYA calismiyoruz;
+     yalnizca ad tek ogeliyken ve on belirteclik bir pencerede bir «بن»
+     ya da kunye («أبو») varsa oraya ATLIYORUZ. Yapisal gerekce: onlarin
+     ardindaki baba adi ya da kunye, elimizdeki isimle birlikte gecerli
+     bir iki ogeli ad veriyor.
+     Atlanan parcada gercek ad malzemesi olsaydi ad KISALIRDI, yanlis
+     olmazdi -- kisa kesmek bu araçta zaten guvenli yon. */
+  let atlaDek = -1;
+  for (let i = 0; i < tok.length; i++) {
+    const w = tok[i].replace(/[ً-ْٰـ]/g, "");
     if (!w) continue;
+    if (i <= atlaDek) continue;
     if (DURAK.has(w)) break;
     if (teoforCift(out[out.length - 1], w)) { out.push(w); continue; }
-    if (BAGLAC.has(w) || NISBE_KALIBI.test(w) || BILINEN.has(w)) out.push(w);
-    else break;
+    /* YAPISAL OLARAK AD OLAN IKI YER, sozvarligina bakilmadan gecer:
+         1. KAYDIN ILK belirteci -- Takrib her kaydi kisinin adiyla acar.
+         2. HERHANGI BIR BAGLACIN ardi -- «بن»، «أبو»، «بنت» hepsi tamlayan
+            ister, ardinda yapisi geregi bir ad vardir. Once yalniz «بن»
+            icin acilmisti, künyeden sonrasi disarida kaliyordu:
+            «أحمد ابن أبي طيبة عيسى» kaydi «أحمد»ye duşuyordu.
+       Beyaz liste bunlari da suzuyordu ve babanin adi haritada gecmiyorsa
+       «أحمد ابن بكار ابن أبي ميمونة» kaydindan yalnizca «أحمد» kaliyordu;
+       tek ogeli ad da "cok kisa" diye eleniyordu. 183 kayit, yani
+       kutugun %16'si bu yuzden disarida kalmisti.
+       Zapt serhi bu iki yeri isgal etmiyor -- «أحمد ابن جواس بفتح الجيم»
+       ornegindeki gibi serh ADDAN SONRA geliyor, o da bir sonraki turda
+       beyaz listeye takiliyor. */
+    if (out.length === 0 || BAGLAC.has(out[out.length - 1])) { out.push(w); continue; }
+    if (BAGLAC.has(w) || NISBE_KALIBI.test(w) || BILINEN.has(w)) { out.push(w); continue; }
+    if (out.length === 1) {
+      const bul = tok.findIndex((t, j) =>
+        j > i && j <= i + 10 && /^(بن|أبو|أبي)$/.test(t.replace(/[ً-ْٰـ]/g, "")));
+      if (bul > 0) { atlaDek = bul - 1; continue; }
+    }
+    break;
   }
   /* Baglacla -- ya da teofor adin yarisiyla -- bitmis ad yarim kalmis
      demektir, kuyrugu atiyoruz. */

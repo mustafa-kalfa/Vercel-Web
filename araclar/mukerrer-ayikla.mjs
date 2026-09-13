@@ -39,7 +39,11 @@ if (!temizYol || !kirliYol || !ciktiYol) {
   console.error("kullanim: mukerrer-ayikla.mjs <temiz.json> <kirli.json> <cikti.json>");
   process.exit(1);
 }
-const V = await import(pathToFileURL("app/silsileVeri.js").href);
+/* Dugum tablosu DUGUM_TABLO ile degistirilebiliyor -- catali (genisletilmis
+   liste) olcerken araclarin ana haritaya degil ONA bakmasi gerekiyor;
+   yoksa transa zaten girmis bir kisi ikinci kez "yeni" sayilir.
+   Python tarafindaki kenar-tara/baslik-coz ayni degiskeni okuyor. */
+const V = await import(pathToFileURL(process.env.DUGUM_TABLO || "app/silsileVeri.js").href);
 const temiz = JSON.parse(readFileSync(temizYol, "utf8"));
 const kirli = JSON.parse(readFileSync(kirliYol, "utf8"));
 const aday = [...temiz, ...kirli].filter((k) => k.id && k.ar);
@@ -85,7 +89,11 @@ function altdizi(a, b) {
   return true;
 }
 
-const mevcut = V.NODES.map((n) => ({ n, dd: okunuslar(n.ar) }));
+/* Ad KUNYE ILE BASLIYOR MU. Asagidaki isim capasi icin gerekiyor. */
+const kunyaBasli = (s) =>
+  KUNYA.has(s.replace(/[ً-ْٰـ]/g, "").split(/\s+/)[0]);
+
+const mevcut = V.NODES.map((n) => ({ n, dd: okunuslar(n.ar), kb: kunyaBasli(n.ar) }));
 /* Ortak belirteclerden en az biri NADIR olmali: iki yaygin ad
    («جعفر محمد») tek basina kimlik degil. */
 const sik = new Map();
@@ -96,13 +104,27 @@ const ayni = [], yeni = [];
 for (const k of aday) {
   const kdd = okunuslar(k.ar);
   if (kdd[0].length < 2) { ayni.push({ k, esles: [], sebep: "ad tek belirtec" }); continue; }
-  const esles = mevcut.filter(({ n, dd }) => {
+  const esles = mevcut.filter(({ n, dd, kb }) => {
     if (typeof n.olum === "number" && typeof k.olum === "number"
         && Math.abs(n.olum - k.olum) > 15) return false;
     for (const kd of kdd) for (const d of dd) {
       const [kucuk, buyuk] = kd.length <= d.length ? [kd, d] : [d, kd];
       if (kucuk.length < 2 || !altdizi(kucuk, buyuk)) continue;
       if (!kucuk.some((w) => (sik.get(w) || 0) <= YAYGIN)) continue;
+      /* ISIM CAPASI -- ATA TUZAGI. Sirali altdizi tek basina kisinin
+         NESEBINDEKI atayi kisinin kendisi saniyordu: «داود بن رشيد»
+         (gercek ve ayri bir ravi) «سليمان بن داود بن رشيد»in altdizisi
+         cikiyor, «فليح بن سليمان بن أبي المغيرة» ise «سليمان بن المغيرة»yi
+         yutuyordu. Olum yili kapisi bunlari GECIRIYOR, cunku baba ile ogul
+         cogu zaman on bes yil icinde.
+         Olcut: kisa adin ismi, uzun adin da ISMI olmali -- yani eslesme
+         sifirinci ogeden baslamali. Ata, tanimi geregi sifirinci ogede
+         DEGILDIR.
+         ISTISNA, kunye ile baslayan ad. «أبو داود الطيالسي» ve «أبو سعيد
+         المقبري»de capalanacak isim zaten yok; orada capa aransa kendi
+         tam adlariyla («سليمان بن داود», «كيسان») ayri dusuyorlardi --
+         yani YANLIS AYIRMA, ki bu arac icin pahali hata. */
+      if (!kb && !kunyaBasli(k.ar) && buyuk[0] !== kucuk[0]) continue;
       return true;
     }
     return false;

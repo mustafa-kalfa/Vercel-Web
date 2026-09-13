@@ -743,6 +743,73 @@ karşı 22, 45 harfi aşan 163/953'e karşı 1/821. Kalanı meşru ad
 malzemesi (nesep + künye + iki nisbe); haritanın elle yazılmış kısa
 biçimleri (`İbn Ebî Zi'b`) editöryal karar, üretilemez.
 
+## Takrîb kütüğünün tamamı çözüldü (2026-09-13)
+
+Adlar onarılınca kalan 191 kayda bakıldı ve tek bir sebep çıktı — **beyaz
+liste `بن`in ardını da süzüyordu.** Babanın adı haritada geçmiyorsa
+`أحمد ابن بكار ابن أبي ميمونة` kaydından yalnızca `أحمد` kalıyor, tek ögeli
+ad da "çok kısa" diye eleniyordu. 183 kayıt, kütüğün %16'sı.
+
+Kırpılmış adlar üstelik **çakışıyordu**: 10 küme, 23 kayıt, biri beş
+kişilik (`Muhammed b. Abdullah` x5). Yani o kayıtlar eksik değil,
+ayırt edilemez hâldeydi.
+
+Üç yapısal kural kondu, hepsi Takrîb'in kendi yapısından çıkıyor.
+
+1. **Kaydın ilk belirteci ad**, Takrîb her kaydı kişinin adıyla açar.
+2. **Her bağlacın ardı ad** — `بن`, `أبو`, `بنت` hepsi tamlayan ister.
+   Önce yalnız `بن` için açılmıştı, künyeden sonrası dışarıda kalıyordu
+   (`أحمد ابن أبي طيبة عيسى` → `أحمد`).
+3. **Zapt kümesi atlanabilir.** Takrîb hareke tarifini ismin hemen
+   ardına sokuyor (`أصبغ آخره معجمة ابن زيد`) ve nesep ondan sonra
+   geliyor. Şerhin sözvarlığı açık uçlu olduğu için şerh **tanınmıyor**;
+   yalnızca ad tek ögeliyken ve on belirteçlik pencerede bir `بن` ya da
+   künye varsa oraya atlanıyor.
+
+### Takrîb'in zapt şerhi bir hareke otoritesi
+
+Ortaya çıkan 260 baba adının çoğu haritada hiç geçmiyor ve okunuşları
+tahmine kalıyordu. Ama Takrîb harekeyi **kendisi tarif ediyor** —
+`جواس بفتح الجيم وتشديد الواو` doğrudan Cevvâs okutuyor. Şüphelenilen her
+ad oradan soruldu ve **üç okuyuş düzeldi**: `بري` Berrî (Berî değil),
+`ندبة` Nedebe (Nedbe değil), `تدرس` Tedrüs. Bundan sonra da şüpheli bir
+adı önce oraya sormak gerekir.
+
+`عم` ("amcası") ve `أخت` ("kız kardeşinin oğlu") de durak listesine
+girdi — `مولى` ve `صاحب` gibi, ad değil akrabalık işareti.
+
+Sonuç: çevrilen **841 → 1144**, yani kütüğün tamamı. Elde kalan 0,
+çakışan etiket 0. Çataldaki 793 düğümün adı yerinde onarıldı (284 satır,
+339 yorum, 1017 kenar kaynağı), boşa düşen kenar 0.
+
+### Mükerrer süzgecinde ata tuzağı
+
+Yeni çözülen 190 kayıt süzgeçten geçirilince iki **gerçek râvî** yanlışlıkla
+mükerrer sayıldı — `Dâvûd b. Reşîd` ve `Füleyh b. Süleymân`. Sıralı altdizi,
+kişinin **nesebindeki atayı** kişinin kendisi sanıyor: `داود رشيد`,
+`سليمان بن داود بن رشيد`in altdizisi çıkıyor. Ölüm yılı kapısı bunu
+geçiriyor, çünkü baba ile oğul çoğu zaman on beş yıl içinde.
+
+Ölçüt **isim çapası** oldu — kısa adın ismi, uzun adın da ismi olmalı,
+yani eşleşme sıfırıncı ögeden başlamalı. Ata tanımı gereği orada değildir.
+
+**İstisna künye ile başlayan ad.** `أبو داود الطيالسي` ve `أبو سعيد المقبري`de
+çapalanacak isim yok; çapa aransa kendi tam adlarıyla (`سليمان بن داود`,
+`كيسان`) ayrı düşerlerdi. Bu arada aracın maliyet dengesi yön veriyor —
+yanlış birleştirme ucuz (o kaydı eklemeyiz), yanlış **ayırma** pahalı
+(haritada iki nokta, bölünmüş kenarlar). O yüzden künye tarafında
+birleştirmeye meylediliyor.
+
+Ana haritaya karşı mükerrer 152'den 149'a indi; serbest kalan üçü
+Hasan-ı Basrî'nin **kardeşi**, Zühlî'nin **oğlu** ve Füleyh. Çatala karşı
+190 adayın 6'sı mükerrer, **184'ü gerçekten yeni** — henüz eklenmediler,
+kenar taraması yapılmadı.
+
+`mukerrer-ayikla.mjs`, `iskelet-dugume.mjs` ve `ceviri-sozluk.mjs` artık
+`DUGUM_TABLO` değişkenini okuyor; çatalı ölçerken ana haritaya değil ona
+bakmaları gerekiyor, yoksa transa girmiş biri ikinci kez "yeni" sayılır.
+Python tarafındaki `kenar-tara`/`baslik-coz` aynı değişkeni zaten okuyordu.
+
 ## Daha derin arka plan
 
 `silsile-agi-notlar.md` — belde denetimi, Bağdat sütunu kararı, başlık

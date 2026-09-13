@@ -9,7 +9,11 @@ import { writeFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
 
 const S = "C:/Users/MUSTAF~1/AppData/Local/Temp/claude/C--Users-Mustafa-Kalfa-Desktop-Vercel-Web/8eb4f327-3b9a-40af-b36e-888c4f9ac8e5/scratchpad";
-const V = await import(pathToFileURL("app/silsileVeri.js").href);
+/* Dugum tablosu DUGUM_TABLO ile degistirilebiliyor -- catali (genisletilmis
+   liste) olcerken araclarin ana haritaya degil ONA bakmasi gerekiyor;
+   yoksa transa zaten girmis bir kisi ikinci kez "yeni" sayilir.
+   Python tarafindaki kenar-tara/baslik-coz ayni degiskeni okuyor. */
+const V = await import(pathToFileURL(process.env.DUGUM_TABLO || "app/silsileVeri.js").href);
 
 /* «بن» ile «b.» ve «أبو» ile «Ebû» birebir karsilik; hizalamadan once
    ikisini de ayni birim sayiyoruz. */
