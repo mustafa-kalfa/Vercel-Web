@@ -150,6 +150,32 @@ nokta eklemeden, bugünkü haritaya doğrudan yazılabilir.
   olması ve iki belirteçlik çekirdeğin ancak **birebir eşitse** delil
   sayılması şart koşuldu. `araclar/mukerrer-ayikla.mjs`.
 
+### Yapılanlar (2026-09-13)
+
+**277 → 289 kenar ana haritaya yazıldı.** Yayına yazılacak şey yayındaki
+düğüm kümesiyle bulunmuş olmalı, o yüzden tarama genişletilmiş tabloyla
+değil **ana tabloyla** yeniden koşturuldu; sayı 289 çıktı. Kenar
+**8220 → 8509**. Eşleşme sebepleri — 174 `tam`, 69 `bas`, 23 `kunye`,
+19 `lakap`, 4 `ibn`. En riskli grup olan `lakap` ve `ibn` (23 kayıt)
+tek tek gözden geçirildi; hepsi tanınmış lakap (A‘meş, Gunder, Zühlî,
+Bündâr, Fellâs, Duhaym, Şa‘bî) ve kronoloji kapısı yerinde.
+
+**Kûfe çatalı kuruldu.** `app/silsileVeriKufe.js` ana veriye hiç
+dokunmadan 134 düğüm ve 720 kenar ekliyor, `/ag-sinamasi` ona bağlı.
+Kûfe sütunu **176 → 310**. Bütün yeni düğümlerin yerleşimi hesaplandı
+(eksik 0), sütun sayısı ve genişliği değişmedi.
+
+Tarayıcıda doğrulandı — `Ahmed b. Abdullah b. Yûnus` (ö. 227, Kûfe,
+Etbâu't-tâbiîn) doğru sütunda, 12 hoca 6 talebeyle çizili; hocaları
+arasında Süfyân es-Sevrî ve Mâlik, talebeleri arasında Müslim.
+
+Çatal modülünde import **uzantılı** yazılıyor (`./silsileVeri.js`).
+Turbopack uzantısızı da çözüyor ama düz Node çözmüyor ve bu bir **veri**
+modülü — araçlar onu doğrudan yüklüyor.
+
+**Bunlar iskelet düğüm**: bilgi kartı ve Şâmile bağlantısı yok. Kart
+yazmak yine terceme okumak demek.
+
 **Karar bekleyen iki şey.**
 
 1. **Görselleştirme.** 1.964 nokta bugünkü haritanın iki buçuk katı.

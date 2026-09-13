@@ -2,14 +2,21 @@
 
 import Link from "next/link";
 import ChromaKeyVideo from "../ChromaKeyVideo";
-import SilsileAgi from "../SilsileAgi";
+import SilsileAgi from "../SilsileAgiKufe";
 import { useLanguage } from "../LanguageContext";
 
 /* DENEME ADRESI.
 
-   SU AN TEK FARK `denemeIpucu` prop'u: acilista sehir bandi ile yil
-   ekseninin tiklanabilir oldugunu soyleyen bir balon cikiyor. Begenilirse
-   prop kaldirilip yayina alinir, begenilmezse bu satir silinir.
+   SU ANKI DENEME: KUFE TRANSI (2026-09-13). Veri catallandi --
+   `silsileVeriKufe.js` mevcut 821 dugumun ustune Takrib'den cikarilmis
+   134 Kufeliyi ve 720 kenari ekliyor. Ana harita etkilenmiyor.
+
+   Mustafa "once yalniz Kufe'yi gorelim, ag sinamasi sayfasinda" dedi;
+   amac butun Takrib'i almadan once bir sutunun kalabaliklasmis halini
+   gormek. Begenilirse dugumler ana veriye tasinir ve catal silinir.
+
+   `denemeIpucu` prop'u da duruyor: acilista sehir bandi ile yil
+   ekseninin tiklanabilir oldugunu soyleyen bir balon cikiyor.
 
    2026-09-04 ile 2026-09-07 arasinda burada dort deneme yasadi ve
    dordu de yayina alindi: ayri bir veri kopyasi (Zehebi'nin
