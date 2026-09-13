@@ -46,7 +46,7 @@ const kenarBlok = [...grup.entries()].map(([k, list]) => {
     list.map((e) => `  E(${q(e.a)}, ${q(e.b)}, "—", ${q("Takrîb iskeleti + Tehzîbü't-Tehzîb taraması, " + ad.get(ozne) + " tercemesi")}),`).join("\n");
 }).join("\n");
 
-const govde = `/* KUFE TRANSI -- DENEME VERISI, yalnizca /ag-sinamasi kullaniyor.
+const govde = `/* TAKRIB TRANSI -- DENEME VERISI, yalnizca /ag-sinamasi kullaniyor.
 
    Ana harita \`silsileVeri.js\`ten besleniyor ve bu dosya ona HIC
    dokunmuyor: mevcut dugum ve kenarlari ice aktarip ustune ekliyor.

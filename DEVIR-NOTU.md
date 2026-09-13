@@ -176,6 +176,49 @@ modülü — araçlar onu doğrudan yüklüyor.
 **Bunlar iskelet düğüm**: bilgi kartı ve Şâmile bağlantısı yok. Kart
 yazmak yine terceme okumak demek.
 
+### Bütün sütunlar transa alındı (2026-09-13)
+
+Mustafâ Kûfe'ye bakıp "sorun yok, sayfa hızını etkilemeyecekse devam
+et" dedi. **Hız ölçüldü, etkilemiyor** (aşağıda), aynı boru hattı on üç
+sütuna birden koşturuldu.
+
+| | ana harita | çatal |
+|---|---|---|
+| düğüm | 821 | **1.614** |
+| kenar | 8.509 | **11.874** |
+| sütun | 13 | 13 |
+
+**793 yeni düğüm**, 656'sı bağlı (%83), **512'si derece 3+** (%64).
+Yerleşimi hesaplanmayan düğüm yok. Sütun genişliği 520.920 → 706.920
+(%36), Basra daha çok şerit istediği için.
+
+| sütun | ana → çatal | | sütun | ana → çatal |
+|---|---|---|---|---|
+| Basra | 187 → 327 | | Şam | 47 → 98 |
+| Kûfe | 176 → 299 | | Humus | 16 → 79 |
+| Medine | 164 → 250 | | Mekke | 47 → 69 |
+| Bağdat | 30 → 137 | | Mâverâünnehir | 32 → 46 |
+| Mısır | 41 → 130 | | Vâsıt | 13 → 25 |
+| Horasan | 50 → 118 | | Cibâl | 12 → 23 |
+| | | | Yemen | 6 → 13 |
+
+**Hız ölçümü.** Yükleme farkı gürültü içinde (JS +4 KB, canlıda ölçüldü).
+Çizim tarafında kenar sayısı yalnızca **görünüm değişince** ödeniyor,
+her karede değil — sabit katman önbelleği o işi atlıyor. Toplu yolla
+8.509 kenar 1,1 ms, 15.000 kenar 2,1 ms, 25.000 kenar 3,3 ms.
+
+**Mükerrer denetimi bu turda İKİ KEZ daha sızdırdı.** Sebepleri ayrı ve
+ikisi de kodda yazılı — ters sıralı adlar («جعفر بن محمد» dedesi Ca‘fer
+olan birine yapışıyordu) ve künyesi atılınca tek belirteç kalan düğümler
+(«أبو داود الطيالسي» → «الطيالسي»). Ölçüt artık **sıralı altdizi** ve
+bir adın **iki okunuşu** (künyeli/künyesiz) birden deneniyor. 160
+mükerrer yakalandı.
+
+**Elde kalanlar.** 1.144 iskeletin 190'ının ad bölgesi çıkarılamadı,
+303'ünde çeviri-yazı eksik («...» içinde işaretli, uydurulmadı). Kalan
+birkaç mükerrer olabilir — her tur öncekinden az yakalıyor ama sıfıra
+inmedi.
+
 **Karar bekleyen iki şey.**
 
 1. **Görselleştirme.** 1.964 nokta bugünkü haritanın iki buçuk katı.
@@ -510,13 +553,19 @@ tuval) sebebi tek satırda gösterdi.
 
 | iş | süre |
 |---|---|
-| 8220 kenarı bézier olarak çizmek | **13,5 ms** |
+| 8220 kenarı **ayrı ayrı** `stroke` ile çizmek | 13,5 ms |
+| 8509 kenarı **toplu yolla** çizmek (uygulamanın yaptığı) | **1,1 ms** |
 | 820 noktayı daire olarak çizmek | 0,2 ms |
 | 110 etiket (kontur + iki yazı) | 0,7 ms |
 | hazır tuvali yapıştırmak | ~0 ms |
 
-Karenin bütün maliyeti kenarlarda ve **kenarlar oynamıyor**. 13,5 ms
-masaüstünde 60 Hz bütçesinin tamamı, telefonda birkaç katı.
+**İLK ÖLÇÜM YANLIŞ ŞEYİ ÖLÇTÜ** (13 Eylül'de düzeltildi). Kenar başına
+`beginPath`/`stroke` çağırıp 13,5 ms buldum, oysa `topluCiz` bütün
+kenarları **iki** yola topluyor ve gerçek maliyet 1,1 ms. Yani karenin
+ağırlığı tuvalin boyamasında değil, çizimden önceki **JS döngüsünde** —
+8509 kenarın her biri için `kenarKubik`, kırpma, `tamBoy` ve
+`vurus.kenar` doldurma. Katman önbelleği o döngüyü de atladığı için
+çözüm yine doğru, ama sebep başkaymış.
 
 `katmanRef` sahnenin kımıldamayan yarısını — zemin, sütunlar, yıl
 çizgileri, kenarların tamamı — ayrı bir tuvalde tutuyor. Hareketli

@@ -125,7 +125,13 @@ const secilen = beldeSuz ? isk.filter((x) => x.belde === beldeSuz) : isk;
 const temiz = [], kirli = [];
 for (const x of secilen) {
   const ar = adBolgesi(x.ham);
-  if (!ar || ar.split(" ").length < 2) { kirli.push({ no: x.no, ar, sebep: "ad cok kisa" }); continue; }
+  /* EN AZ IKI AD OGESI. «عبد الرحمن» iki KELIME ama tek AD -- kelime
+     sayarak elemek onu geciriyordu ve kirpma artigi olan ciplak
+     «Abdurrahman» dugumleri haritaya sizip yirmi kenarlik bir miknatis
+     oluyordu. Bilesik ad tek oge sayiliyor. */
+  const oge = ar ? ar.split(" ").filter((w, i, a2) => w !== "عبد" && !(i > 0 && a2[i - 1] === "عبد")).length
+                   + (ar.split(" ").filter((w) => w === "عبد").length) : 0;
+  if (!ar || oge < 2) { kirli.push({ no: x.no, ar, sebep: "ad cok kisa" }); continue; }
   const { tr, eksik } = cevir(ar);
   let id = slug(tr), i = 2;
   while (kullanilan.has(id)) id = slug(tr) + i++;

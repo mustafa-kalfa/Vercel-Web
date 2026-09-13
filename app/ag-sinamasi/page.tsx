@@ -2,18 +2,20 @@
 
 import Link from "next/link";
 import ChromaKeyVideo from "../ChromaKeyVideo";
-import SilsileAgi from "../SilsileAgiKufe";
+import SilsileAgi from "../SilsileAgiTakrib";
 import { useLanguage } from "../LanguageContext";
 
 /* DENEME ADRESI.
 
-   SU ANKI DENEME: KUFE TRANSI (2026-09-13). Veri catallandi --
-   `silsileVeriKufe.js` mevcut 821 dugumun ustune Takrib'den cikarilmis
-   134 Kufeliyi ve 720 kenari ekliyor. Ana harita etkilenmiyor.
+   SU ANKI DENEME: TAKRIB TRANSI (2026-09-13). Veri catallandi --
+   `silsileVeriTakrib.js` mevcut 821 dugumun ustune Takrib'den
+   cikarilmis 793 raviyi ve 3365 kenari ekliyor. Ana harita
+   etkilenmiyor.
 
-   Mustafa "once yalniz Kufe'yi gorelim, ag sinamasi sayfasinda" dedi;
-   amac butun Takrib'i almadan once bir sutunun kalabaliklasmis halini
-   gormek. Begenilirse dugumler ana veriye tasinir ve catal silinir.
+   Once yalniz Kufe konuldu (134 dugum), Mustafa bakip "sorun yok,
+   sayfa hizini etkilemeyecekse devam et" dedi; hiz olculdu ve butun
+   sutunlar eklendi. Begenilirse dugumler ana veriye tasinir ve catal
+   silinir.
 
    `denemeIpucu` prop'u da duruyor: acilista sehir bandi ile yil
    ekseninin tiklanabilir oldugunu soyleyen bir balon cikiyor.
