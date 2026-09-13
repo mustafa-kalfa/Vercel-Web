@@ -678,6 +678,71 @@ tipi sitenin kendisi, Garamond değil" (2026-09-01). Kural değişmedi
 ama sonucu değişti, o ekran artık serif. Mustafâ'nın o günkü itirazı
 Garamond'aydı, serif'e değil.
 
+## Transın adları onarıldı (2026-09-13)
+
+Çataldaki 793 düğümün **97'sinin etiketi bozuktu** ve bunun 3'ü hiçbir
+işaret taşımıyordu — sözlük kayması ürettiği ad yanlış ama temiz
+görünüyor (`İsmâîl b. b.`). Yani "«...» sayısı" tek başına kalite ölçüsü
+değil; tarama `b. b.`, `b.` ile bitme, `b.` ile başlama ve tek ögeli ad
+kalıplarını da aramalı.
+
+Sekiz ayrı kusur çıktı, hepsi `araclar/iskelet-dugume.mjs` içinde
+yorumlu. Sırayla en çok kayıp verenler:
+
+- **`عبيد الله` çiftlenmiyordu** (20 düğüm). Bileşik ad çiftlemesi
+  yalnızca `عبد` biliyordu, `عبيد` ikiye bölünüp `الله` çevrilemiyordu.
+- **Ad, `عبد`in tam ortasından kesiliyordu** (5 düğüm). İkinci öge
+  (`الرحيم` gibi) haritanın sözvarlığında yoksa beyaz liste orada
+  kesiyor ve geriye `محمد بن عبد` kalıyordu.
+- **`المعروف بـ` ada yapışıyordu** (9 düğüm). "Filanca diye bilinen"
+  Takrîb'in açıklaması; haritanın sözvarlığında da geçtiği için beyaz
+  listeden geçiyordu. Aynı kümeye `مولى` (âzatlısı), `صاحب`, `أخو`,
+  `نزيل` de kondu — kesilmezse etiketin kuyruğuna `mevlâ Rebîa b.
+  el-Hâris` gibi **ikinci bir ad** takılıyor.
+- **Künye tanıma yanlıştı.** `أحمد بن أبي بكر بن الحارث...` adında
+  nesebin içindeki `أبي` künye sanılıyor, gövde `أحمد بن`de bitiyor ve
+  nesep kırpması hiç çalışmıyordu. Künye, önünde `بن` OLMAYAN olandır.
+  En uzun etiket **111 harf**ti.
+- **Bilinmeyen nisbe atılınca önündeki bağlaç boşta kalıyordu** —
+  `Muhammed b. İsmâîl b.`.
+- **Baştaki nisbe kalıbı nisbe değil, isimdir.** `الماضي بن محمد` adında
+  el-Mâdî kişinin kendi adı; kalıba (ال...ي) uyduğu için atılıyor ve
+  etiket **babasının adıyla** başlıyordu.
+
+**Sözlükte üç gerçek kayma vardı.** `ceviri-sozluk.mjs` haritanın kendi
+düğümlerinden hizalayarak öğreniyor, ama yalnızca Türkçesi
+KISALTILMAMIŞ kayıtlardan. `محمد بن الصباح الدولابي البزاز` →
+`Muhammed b. es-Sabbâh ed-Dûlâbî` kaydında البزاز düştüğü için o
+belirteç hiç öğrenilemedi. Kaymalar — `عبد القدوس` bir nisbeyle,
+`مسلمة` doğrudan «b.» ile, `أخو` parantezli bir künyeyle hizalanmıştı.
+Çözüm elle yazılmış bir ek: `araclar/ceviri-elle.json`, 57 kayıt,
+öğrenilenin üzerine yazılıyor. Her biri haritanın KENDİ yazımından
+okundu, haritada hiç geçmeyen birkaçı İSAM çevriyazısıyla.
+
+**Bir düzeltme geri teptiği için ölçüldü.** `عبيد`i koşulsuz çiftlemek
+`عبيد الخزاعي`، `عبيد بن`، hattâ Takrîb'in zapt şerhi `عبيد بالتصغير`
+gibi şeyleri ada yapıştırdı — **Ubeyd çoğu yerde başlı başına bir ad**
+(Ubeyd b. Huneyn, Yûnus b. Ubeyd). Nisbe kalıbını elemek de yetmiyor,
+`عبد الغني`، `عبد الباقي`، `عبد الهادي` o kalıba uyuyor. Ölçüt ikinci
+ögenin **esmâ-i hüsnâ**dan olması oldu.
+
+Sonuç: çeviri kapsamı 841 → 953, bozuk etiket **97 → 0**, gerileme
+**0** (eski/yeni çıktı kayıt numarasıyla birebir karşılaştırıldı),
+en uzun etiket 111 → 70 harf.
+
+**Kimlikler değiştirilmedi.** 3.365 kenar onlara bağlı; kimlik ad
+sülüğünden türediği için yeniden üretim onları kaydırırdı. Onarım
+yerinde yapıldı, köprü kayıt numarası (`no`) — eski çıktı dosyaları onu
+taşıyor, çatal taşımıyor. Kenar açıklamaları ve `E()` kaynak dizgeleri
+de eski adı taşıdığı için birlikte güncellendi (172 yorum, 473 kaynak);
+bunlar kendi sınırlayıcılarıyla aranıyor, çıplak arama kısa bir adı
+(`Ahmed b. Hasan`) başka bir adın içinde bulup bozardı.
+
+**Etiket uzunluğu hâlâ haritanın kendi yazımından uzun** — ortanca 31'e
+karşı 22, 45 harfi aşan 163/953'e karşı 1/821. Kalanı meşru ad
+malzemesi (nesep + künye + iki nisbe); haritanın elle yazılmış kısa
+biçimleri (`İbn Ebî Zi'b`) editöryal karar, üretilemez.
+
 ## Daha derin arka plan
 
 `silsile-agi-notlar.md` — belde denetimi, Bağdat sütunu kararı, başlık
