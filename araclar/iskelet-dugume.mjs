@@ -6,125 +6,143 @@
    yazilmadan haritaya girmiyor. Yanlis bir Turkce ad ekranda oyle
    durur ve kimse fark etmez -- eksik ad ise gorunur.
 
-   Ceviri-yazi sozlugu `ceviri-sozluk.mjs` ile haritanin KENDI 821
-   dugumunden cikariliyor; sitenin yazim gelenegi zaten orada.
+   Ceviri-yazi sozlugu `ceviri-sozluk.mjs` ile haritanin KENDI
+   dugumlerinden cikariliyor; sitenin yazim gelenegi zaten orada.
 
    Kullanim (my-app icinden):
-     node araclar/ceviri-sozluk.mjs          # sozlugu tazele
-     node araclar/iskelet-dugume.mjs         # iskeletten dugum uret */
+     node araclar/ceviri-sozluk.mjs <sozluk.json>
+     node araclar/iskelet-dugume.mjs <iskelet.json> <sozluk.json> <cikti-onek> [belde]
+*/
 import { readFileSync, writeFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
 
-const S = "C:/Users/MUSTAF~1/AppData/Local/Temp/claude/C--Users-Mustafa-Kalfa-Desktop-Vercel-Web/8eb4f327-3b9a-40af-b36e-888c4f9ac8e5/scratchpad";
+const [, , iskeletYol, sozlukYol, onek, beldeSuz] = process.argv;
+if (!iskeletYol || !sozlukYol || !onek) {
+  console.error("kullanim: iskelet-dugume.mjs <iskelet.json> <sozluk.json> <cikti-onek> [belde]");
+  process.exit(1);
+}
 const V = await import(pathToFileURL("app/silsileVeri.js").href);
-const isk = JSON.parse(readFileSync(S + "/iskelet.json", "utf8"));
-const SOZ = JSON.parse(readFileSync(S + "/ceviri-sozluk.json", "utf8"));
+const isk = JSON.parse(readFileSync(iskeletYol, "utf8"));
+const SOZ = JSON.parse(readFileSync(sozlukYol, "utf8"));
 
-/* --- 1. AD BOLGESI --------------------------------------------------
-   Takrib satirinin adi; hukum, tabaka, rumuz ve muhakkik ekleri disari.
-   Zapt aciklamasi («بفتح المهملة...») da adin parcasi degil. */
+/* --- 0. SOZVARLIGI ---------------------------------------------------
+   Haritadaki adlarda gecen her belirtec. Ad bolgesini KARA LISTEYLE
+   degil BUNUNLA kesiyoruz -- bkz. asagisi. */
+const BILINEN = new Set();
+for (const n of V.NODES) {
+  for (const w of n.ar.replace(/[ً-ْٰـ]/g, "").split(/\s+/)) BILINEN.add(w);
+}
+for (const w of Object.keys(SOZ)) for (const p of w.split(/\s+/)) BILINEN.add(p);
+
+/* --- 1. AD BOLGESI ---------------------------------------------------
+   ONCE KARA LISTEYLE KESILIYORDU VE TUTMADI. Takrib adin ortasina
+   zapt aciklamasi sokuyor («رقبة بقاف وموحدة مفتوحتين ابن مصقلة») ve
+   bu aciklamalarin sozvarligi acik uclu: بقاف، بموحدة، بمثناة، بنون،
+   بغير إضافة، باسم الطائر، اسم أبيه، قيل اسمه... Hepsini saymak
+   mumkun degil, birini kacirmak ise adin icine cop sokuyor.
+
+   YENI OLCUT BEYAZ LISTE: bir belirtec ancak su uc seyden biriyse
+   adin parcasi sayiliyor --
+     1. nesep/kunye baglaci (بن، ابن، أبو، أبي، أم، بنت),
+     2. nisbe kalibi (ال...ي),
+     3. haritanin sozvarliginda gecen bir ad.
+   Ilk uymayan belirtecte ad bitiyor. Kisa kesmek guvenli yon: kenar
+   tarayicisi kaydi dugum adinin KISALTILMISI sayiyor, yani kisa ad
+   daha AZ eslesir. Uzun ve copluk bir ad ise MIKNATIS oluyor. */
+const BAGLAC = new Set(["بن", "ابن", "أبو", "أبي", "أبا", "أم", "بنت"]);
+const NISBE_KALIBI = /^ال.+ي$/;
 const PARANTEZ = /\[[^\]]*\]/g;
-const KES = new RegExp(
-  "\\s(?:" + [
-    "ثقة", "صدوق", "ضعيف", "مقبول", "لين", "متروك", "مجهول", "صحابي",
-    "وثقه", "مخضرم", "لا بأس", "له صحبة", "مستور", "متهم", "كذاب", "واه",
-    "منكر", "فيه ضعف", "فيه لين", "اختلف", "روى له", "من كبار", "من صغار",
-    "من أوساط", "من الأولى", "من الثانية", "من الثالثة", "من الرابعة",
-    "من الخامسة", "من السادسة", "من السابعة", "من الثامنة", "من التاسعة",
-    "من العاشرة", "من الحادية", "نزيل", "مولاهم", "ويقال", "يقال", "وهو",
-    "سبط", "يعرف", "لقبه", "بكنيته", "مشهور", "نزل", "وقيل", "أو ",
-    "بفتح", "بضم", "بكسر", "بسكون", "مصغر", "مكبر", "بالتحتانية",
-    "بالمهملة", "بالمعجمة", "بالموحدة", "بالنون", "بالجيم", "بالمثلثة",
-    "بمعجمة", "بمهملة", "بمعجمتين", "بمهملتين", "بالضم", "بالفتح",
-    "بالكسر", "بتشديد", "مفتوحة", "معجمة", "ومهملة", "بنون", "ثم",
-  ].join("|") + ")"
-);
+
+/* `(\s|$)` sondaki boslugu YUTUYOR ve ardisik «ابن X ابن Y» dizisinde
+   ikinci, dorduncu... gecisler eslesmiyordu. Nesep kirpmasi bu yuzden
+   hic devreye girmedi ve 39 dereceli bir miknatis dugum uretti.
+   Ileriye bakis (`(?=...)`) boslugu tuketmiyor. */
+const IBN = /(^|\s)ابن(?=\s|$)/g;
 
 function adBolgesi(ham) {
-  let t = ham.replace(PARANTEZ, " ").replace(/\s+/g, " ");
-  const m = t.match(KES);
-  if (m) t = t.slice(0, m.index);
-  t = t.replace(/(^|\s)ابن(\s|$)/g, "$1بن$2");
-  let tok = t.trim().split(/\s+/).filter(Boolean);
-  /* Cok uzun nesep zinciri kirpiliyor: harita etiketi kisa olmali,
-     ayirt etmeye ilk uc ad ogesi yetiyor. Kunya ve nisbe korunuyor. */
-  const kunyaDan = tok.findIndex((w) => w === "أبو" || w === "أبي");
-  const gövde = kunyaDan > 0 ? tok.slice(0, kunyaDan) : tok;
-  const kuyruk = kunyaDan > 0 ? tok.slice(kunyaDan) : [];
-  let kirp = gövde;
-  const binSayi = gövde.filter((w) => w === "بن").length;
-  if (binSayi > 2) {
-    let n = 0, i = 0;
-    for (; i < gövde.length; i++) { if (gövde[i] === "بن" && ++n > 2) break; }
-    kirp = gövde.slice(0, i);
+  const tok = ham.replace(PARANTEZ, " ").replace(IBN, "$1بن")
+    .replace(/\s+/g, " ").trim().split(" ");
+  const out = [];
+  for (const w0 of tok) {
+    const w = w0.replace(/[ً-ْٰـ]/g, "");
+    if (!w) continue;
+    if (BAGLAC.has(w) || NISBE_KALIBI.test(w) || BILINEN.has(w)) out.push(w);
+    else break;
   }
-  return [...kirp, ...kuyruk].join(" ");
+  /* Baglacla bitmis ad yarim kalmis demektir, kuyrugu atiyoruz. */
+  while (out.length && BAGLAC.has(out[out.length - 1])) out.pop();
+
+  /* NESEP ZINCIRI IKI «بن» ILE SINIRLI. Harita etiketi kisa olmali ve
+     uzun zincir kenar tarayicisinda miknatis yapiyor. Kunya ve nisbe
+     kirpmanin disinda, onlar ayirt ediciligi tasiyan parca. */
+  const kunyaDan = out.findIndex((w) => w === "أبو" || w === "أبي" || w === "أبا");
+  const govde = kunyaDan > 0 ? out.slice(0, kunyaDan) : out;
+  const kuyruk = kunyaDan > 0 ? out.slice(kunyaDan) : [];
+  let kirp = govde, n = 0;
+  for (let i = 0; i < govde.length; i++) {
+    if (govde[i] === "بن" && ++n > 2) { kirp = govde.slice(0, i); break; }
+  }
+  return [...kirp, ...kuyruk].join(" ").trim();
 }
 
-/* --- 2. CEVIRI-YAZI ------------------------------------------------ */
-const OZEL = { "بن": "b.", "أبو": "Ebû", "أبي": "Ebî", "بنت": "bint", "أم": "Ümmü" };
-/* NISBE, sozlukte yoksa UYDURULMUYOR, ATILIYOR. Bilinmeyen bir
-   nisbe icin "el-" + kaba harf cevrimi uretmek yanlis Turkce yazar
-   ve ekranda oyle durur; adin kisa kalmasi yeglenir. Kufe nisbesi
-   zaten sutunun kendisi -- 208 kaydin 95'inde geciyor ve hicbirine
-   bilgi katmiyor. */
-const NISBE_KALIBI = /^ال.+ي$/;
+/* --- 2. CEVIRI-YAZI -------------------------------------------------- */
+const OZEL = { "بن": "b.", "أبو": "Ebû", "أبي": "Ebî", "أبا": "Ebâ",
+               "بنت": "bint", "أم": "Ümmü" };
 function cevir(ar) {
-  /* Sozluk bilesik adi tek birim ogrendi, cevirici de oyle okumali
-     -- yoksa Abdurrahman "Abd (Rabiatu'r-re'y)" cikiyor. */
+  /* Sozluk bilesik adi («عبد X») tek birim ogrendi, cevirici de oyle
+     okumali -- yoksa Abdurrahman "Abd (Rabîatü'r-re'y)" cikiyor. */
   const ham = ar.split(/\s+/);
   const tok = [];
   for (let i = 0; i < ham.length; i++) {
     if (ham[i] === "عبد" && i + 1 < ham.length) tok.push(ham[i] + " " + ham[++i]);
     else tok.push(ham[i]);
   }
-  const out = [], eksik = [], atilan = [];
+  const out = [], eksik = [];
   for (const t of tok) {
-    const d = t.replace(/[\u064B-\u0652\u0670\u0640]/g, "");
-    if (OZEL[d]) { out.push(OZEL[d]); continue; }
-    if (SOZ[d]) { out.push(SOZ[d]); continue; }
-    if (NISBE_KALIBI.test(d)) { atilan.push(d); continue; }
-    out.push("«" + d + "»");
-    eksik.push(d);
+    if (OZEL[t]) { out.push(OZEL[t]); continue; }
+    if (SOZ[t]) { out.push(SOZ[t]); continue; }
+    /* Bilinmeyen NISBE uydurulmuyor, ATILIYOR: "el-" + kaba harf
+       cevrimi yanlis Turkce yazar ve ekranda oyle durur. Ad kisa
+       kalsin, yanlis olmasin. */
+    if (NISBE_KALIBI.test(t)) continue;
+    out.push("«" + t + "»");
+    eksik.push(t);
   }
-  return { tr: out.join(" ").replace(/\s+/g, " ").trim(), eksik, atilan };
+  return { tr: out.join(" ").replace(/\s+/g, " ").trim(), eksik };
 }
 
-/* --- 3. KIMLIK ------------------------------------------------------ */
-const mevcut = new Set(V.NODES.map((n) => n.id));
+/* --- 3. KIMLIK ------------------------------------------------------- */
+const kullanilan = new Set(V.NODES.map((n) => n.id));
 function slug(tr) {
-  const s = tr.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+  const s = tr.normalize("NFD").replace(/[̀-ͯ]/g, "")
     .replace(/ı/g, "i").replace(/İ/g, "i").replace(/ş/gi, "s")
     .replace(/ğ/gi, "g").replace(/ç/gi, "c").replace(/ö/gi, "o")
     .replace(/ü/gi, "u").toLowerCase().replace(/[^a-z0-9]/g, "");
-  return s.slice(0, 24) || "ravi";
+  return s.slice(0, 22) || "ravi";
 }
 
-const kufe = isk.filter((x) => x.belde === "Kûfe");
-const kullanilan = new Set(mevcut);
-let eksikToplam = 0;
+const secilen = beldeSuz ? isk.filter((x) => x.belde === beldeSuz) : isk;
 const temiz = [], kirli = [];
-for (const x of kufe) {
+for (const x of secilen) {
   const ar = adBolgesi(x.ham);
+  if (!ar || ar.split(" ").length < 2) { kirli.push({ no: x.no, ar, sebep: "ad cok kisa" }); continue; }
   const { tr, eksik } = cevir(ar);
   let id = slug(tr), i = 2;
   while (kullanilan.has(id)) id = slug(tr) + i++;
   kullanilan.add(id);
-  const kayit = { id, ar, tr, tab: x.tab, olum: x.olum, belde: x.belde,
-                  no: x.no, eksik };
-  if (eksik.length) { kirli.push(kayit); eksikToplam += eksik.length; }
-  else temiz.push(kayit);
+  const kayit = { id, ar, tr, tab: x.tab, olum: x.olum, belde: x.belde, no: x.no, eksik };
+  (eksik.length ? kirli : temiz).push(kayit);
 }
-writeFileSync(S + "/kufe-temiz.json", JSON.stringify(temiz, null, 1), "utf8");
-writeFileSync(S + "/kufe-kirli.json", JSON.stringify(kirli, null, 1), "utf8");
-console.log("Kufe kaydi :", kufe.length);
-console.log("tam cevrilen:", temiz.length);
-console.log("eksik kalan :", kirli.length, "(" + eksikToplam + " belirtec)");
-const sik = new Map();
-for (const k of kirli) for (const e of k.eksik) sik.set(e, (sik.get(e) || 0) + 1);
-console.log("benzersiz bilinmeyen:", sik.size);
-console.log("\n-- en sik bilinmeyen --");
-console.log([...sik.entries()].sort((a, b) => b[1] - a[1]).slice(0, 30)
-  .map(([t, n]) => n + "x " + t).join("   "));
+writeFileSync(onek + "-temiz.json", JSON.stringify(temiz, null, 1), "utf8");
+writeFileSync(onek + "-kirli.json", JSON.stringify(kirli, null, 1), "utf8");
+console.log("kayit        :", secilen.length);
+console.log("tam cevrilen :", temiz.length);
+console.log("elde kalan   :", kirli.length);
+const uz = [...temiz, ...kirli].filter((k) => k.ar).map((k) => k.ar.split(" ").length);
+uz.sort((a, b) => b - a);
+console.log("ad belirteci : en uzun", uz.slice(0, 5).join(","), "| ortalama",
+            (uz.reduce((a, b) => a + b, 0) / uz.length).toFixed(1));
 console.log("\n-- tam cevrilenlerden ornek --");
-for (const k of temiz.slice(0, 12)) console.log("  " + String(k.olum).padStart(3), k.id.padEnd(24), k.tr, " | ", k.ar);
+for (const k of temiz.slice(0, 10)) {
+  console.log("  " + String(k.olum).padStart(3), k.tr, " | ", k.ar);
+}

@@ -144,7 +144,11 @@ def kuyruk_lakap(ad_tok, bol_tok):
 ELLE = json.load(io.open(os.path.join(B, "baslik-elle.json"),
                          encoding="utf-8"))
 
-dug = json.load(io.open("araclar/dugumler.json", encoding="utf-8"))
+# Dugum tablosu ortam degiskeniyle degistirilebiliyor -- kenar-tara.py
+# ve silsileVeri ile ayni gerekce: yeni bir dugum kumesinin tercemeleri
+# yayindaki tabloyu bozmadan cozulebilsin.
+dug = json.load(io.open(os.environ.get("DUGUM_TABLO", "araclar/dugumler.json"),
+                        encoding="utf-8"))
 sayac = collections.Counter()
 cozum, kalan = [], []
 for d in dug:

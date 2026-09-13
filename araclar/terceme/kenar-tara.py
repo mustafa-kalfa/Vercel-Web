@@ -28,8 +28,12 @@ KES = re.compile("قال |وقال |ذكره |قلت ")
 AYRAC = re.compile(r"،\s*(?=و?[؀-ۿ])")
 KUN = {"ابو", "ابي", "ابا", "ام"}
 
+# Dugum tablosu ortam degiskeniyle degistirilebiliyor -- silsileVeri'nin
+# `SILSILE_VERI`siyle ayni gerekce: yeni bir dugum kumesi denenirken
+# tarama o kume uzerinde kosturulabilsin, yayindaki tablo bozulmasin.
 dug = {d["id"]: d for d in json.load(
-    io.open("araclar/dugumler.json", encoding="utf-8"))}
+    io.open(os.environ.get("DUGUM_TABLO", "araclar/dugumler.json"),
+            encoding="utf-8"))}
 DN = {i: (d, parcala(d["ar"])) for i, d in dug.items()}
 kenar = set()
 for e in json.load(io.open(sys.argv[1], encoding="utf-8")):

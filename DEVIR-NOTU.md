@@ -98,6 +98,58 @@ tab 4'ün 92-165), yani `tab` elle verilmiş bir hüküm.
 | Yemen | 6 | 12 | 18 |
 | **toplam** | **820** | **1.144** | **1.964** |
 
+### Kûfe transı ölçüldü (2026-09-13)
+
+Mustafâ "önce yalnız Kûfe'yi görelim, ağ sınaması sayfasında" dedi.
+Boru hattı uçtan uca koşturuldu, sonuç şu.
+
+| adım | sayı |
+|---|---|
+| Takrîb'in Kûfe iskeleti | 208 |
+| ad bölgesi çıkarılamadı | −45 |
+| haritada **zaten var** | −29 |
+| **gerçekten yeni düğüm** | **134** |
+| tercemesi çözülen (kendi Tehzîb tercemesi) | 98 / 134 |
+| aday kenar | **997** |
+| — bir ya da iki ucu yeni | 720 |
+| — ikisi de mevcut düğüm | **277** |
+| bağı olan yeni düğüm | **114 / 134** |
+| derecesi 3+ (süzgeçten geçecek) | **93** |
+
+**ASIL BULGU: yeni kişinin KENDİ tercemesini çözmek şart.** Yalnızca
+var olan 708 tercemenin hoca-talebe listelerini taramak 130 düğümün
+**47'sini** bağlıyor ve **19'u** süzgeçten geçiyordu. Yeni gelenlerin
+kendi tercemeleri de çözülünce aynı sayı **114** ve **93** oldu, kenar
+423'ten 997'ye çıktı. Yani Takrîb iskeleti ucuz veriyor ama ağı ören
+şey Tehzîb tercemesi; iş birimi hâlâ "kişi başına bir terceme".
+
+**277 kenar mevcut düğümler arasında** ve transtan bağımsız — hiç yeni
+nokta eklemeden, bugünkü haritaya doğrudan yazılabilir.
+
+### Bu turda kapanan üç tuzak
+
+- **`ابن` → `بن` çevrimi atlamalı çalışıyordu.** `(\s|$)` sondaki
+  boşluğu yutuyor, ardışık «ابن X ابن Y» dizisinde ikinci ve dördüncü
+  geçişler eşleşmiyordu. Nesep kırpması bu yüzden hiç devreye girmedi
+  ve **39 dereceli bir mıknatıs düğüm** üretti — uzun ve çöplük bir ad,
+  kenar tarayıcısında her kaydı kendine çekiyor. İleriye bakış
+  (`(?=...)`) boşluğu tüketmiyor.
+- **Ad bölgesi kara listeyle kesilemiyor.** Takrîb adın ortasına zapt
+  açıklaması sokuyor («رقبة بقاف وموحدة مفتوحتين ابن مصقلة») ve bu
+  sözvarlığı açık uçlu. Ölçüt **beyaz liste** oldu: bir belirteç ancak
+  neseb bağlacı, nisbe kalıbı ya da haritanın sözvarlığında geçen bir
+  adsa adın parçası. Kısa kesmek güvenli yön — kenar tarayıcısı kaydı
+  düğüm adının kısaltılmışı sayıyor, yani kısa ad daha AZ eşleşir.
+- **Mükerrer denetimi iki kez sızdırdı.** Haritadaki adların bir kısmı
+  künye-önce yazılı («أبو كريب محمد بن العلاء»), Takrîb ad-önce
+  veriyor; bir de harf-i tarif farkı var. Altdizi testi bu yüzden Ebû
+  Küreyb'i, Ebû Üsâme'yi ve Haccâc b. Ertât'ı "yeni" saydı. Ölçüt
+  **çekirdek kümesi** oldu — bağlaç ve künye işareti atılmış, harf-i
+  tarif soyulmuş. Küme testi tek başına da fazla birleştirdi («جعفر
+  محمد» üç ayrı kişiye), o yüzden ortak belirteçlerden birinin **nadir**
+  olması ve iki belirteçlik çekirdeğin ancak **birebir eşitse** delil
+  sayılması şart koşuldu. `araclar/mukerrer-ayikla.mjs`.
+
 **Karar bekleyen iki şey.**
 
 1. **Görselleştirme.** 1.964 nokta bugünkü haritanın iki buçuk katı.
