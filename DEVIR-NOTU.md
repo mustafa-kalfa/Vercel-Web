@@ -1101,6 +1101,53 @@ bu kayma yalnızca Takrîb metninde.
 
 Çatal 945 düğüm, 13.359 kenar.
 
+## İlk iki bilgi kartı, ve babanın kenarları (2026-09-14)
+
+Trans düğümlerinin **hiçbirinde** not yoktu. En çok bağlantılı ikisine
+kart yazıldı — her biri kişinin **kendi Tehzîb tercemesi okunarak**,
+ezberden tek cümle yok.
+
+- **Abdirrahman b. Ebî'z-Zinâd** (ö. 174). Tercemenin kendi gerilimi
+  şurada: hakkındaki ihtilaf sıkalık-zayıflık değil, **nerede** rivayet
+  ettiği. İbnü'l-Medînî «Medine'de rivayet ettiği sahih, Bağdat'ta
+  rivayet ettiğini Bağdatlılar bozdu» der; Amr b. Ali ve Sâcî aynı
+  ayrımı tekrarlar.
+- **Fazl b. Mûsâ es-Sînânî** (ö. 192). Tercemesi baştan sona
+  İbnü'l-Mübârek'le ölçülerek yürüyor — Ebû Nuaym «ondan daha sebt»,
+  Vekî‘ «hangisinden işitmişim aldırmayız», İbn Şâhîn «İbnü'l-Mübârek'in
+  ad vermeden 'bana sika haber verdi' dediği odur» der.
+
+`catal-yaz.mjs` artık yedinci alanı (not) yazıyor.
+
+### Kart yazmak bir veri hatasını açığa çıkardı
+
+Kartı tarayıcıda okurken hoca listesi gözüme takıldı — Saîd b. el-Müseyyeb
+(ö. 94), Urve (ö. 94), eş-Şa‘bî (ö. 104), Zeynelâbidîn (ö. 94). Oysa bu
+râvî **100'de doğmuş**. Bunlar babası **Ebû'z-Zinâd**'ın hocaları.
+
+Sebep düğümün kendi adında. Takrîb babanın asıl adını açıklama olarak
+ekliyor — `عبد الرحمن بن أبي الزناد **عبد الله بن ذكوان** المدني` — ve ad
+mıknatısa dönüyor. Tarayıcının `kunye` kuralı `أبو الزناد` metnini de
+bu düğüme bağlıyordu. Sayıldı: 61 kenarın **25'i babanınmış** (hocaları
+Saîd b. el-Müseyyeb, Urve, el-A‘rec, Zeynelâbidîn; talebeleri Mâlik,
+Sevrî, Leys, Süfyân b. Uyeyne).
+
+Kapı eklendi — **künye `بن`den sonra geliyorsa babanındır, kişinin
+değil.** Aynı ölçüt `iskelet-dugume.mjs`te ad çıkarırken zaten
+kullanılıyordu, tarayıcıda yoktu.
+
+Aynı kalıp tarandığında üç kayıt daha çıktı. İkisi kronolojik olarak
+imkânsızdı ve çıkarıldı (`أبي طلحة الأنصاري` sahâbî Ebû Talha yerine
+torununa, `أبي رجاء الهروي` dedesi yerine toruna). Üçüncüsü
+(`أبي جحيفة` → Avn b. Ebî Cuhayfe) kronolojik olarak sağlam, duruyor.
+
+İbn Ebî'z-Zinâd 61 → **36 kenar**, kronolojik olarak imkânsız komşu **0**,
+komşu vefat yılları 122-245. Çatal 13.332 kenar.
+
+**Ders:** kart yazmak veriyi denetlemenin en iyi yolu. Hiçbir otomatik
+ölçüt bu 25 kenarı bulmamıştı; terceme okunup kartla karşılaştırılınca
+ilk bakışta görüldü.
+
 ## Daha derin arka plan
 
 `silsile-agi-notlar.md` — belde denetimi, Bağdat sütunu kararı, başlık

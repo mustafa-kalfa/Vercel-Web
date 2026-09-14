@@ -33,8 +33,11 @@ const kufeKenar = kenar.filter((e) =>
 const samile = samileYol ? JSON.parse(readFileSync(samileYol, "utf8")) : null;
 
 const q = (s) => JSON.stringify(s);
+/* Yedinci alan bilgi kartinin metni. Trans dugumlerinin cogunda YOK --
+   kart yazmak tercemeyi okumayi istiyor, uretilemez. Olani yaziliyor. */
 const dugumSatir = yeni.map((k) =>
-  `  N(${q(k.id)}, ${q(k.ar)}, ${q(k.tr)}, ${k.tab}, ${k.olum}, ${q(k.belde)}),`
+  `  N(${q(k.id)}, ${q(k.ar)}, ${q(k.tr)}, ${k.tab}, ${k.olum}, ${q(k.belde)}` +
+  (k.not ? `,\n    ${q(k.not)}` : "") + `),`
 ).join("\n");
 
 /* Kenarlar oznesine gore gruplaniyor -- dosyada her blok "su

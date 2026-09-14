@@ -80,8 +80,16 @@ def kapi(kayit, hedef):
     if kh and kh[0] in KUN:
         hh = hamtok(hedef["ar"])
         for i in range(len(hh) - 1):
-            if hh[i] in KUN and hh[i + 1] == kt[0]:
-                return "kunye"
+            if hh[i] not in KUN or hh[i + 1] != kt[0]:
+                continue
+            # KUNYE «بن»DEN SONRA GELIYORSA BABANINDIR, KISININ DEGIL.
+            # «عبد الرحمن بن أبي الزناد عبد الله بن ذكوان» dugumu Takrib'in
+            # babayi ACIKLAYAN eki yuzunden «أبو الزناد» metnini de
+            # cekiyordu; babanin 25 kenari ogula yaziliyor ve 100'de dogan
+            # adam 94'te olen Said b. el-Museyyeb'in talebesi gorunuyordu.
+            if i > 0 and hh[i - 1] == "بن":
+                continue
+            return "kunye"
         return None
     # KAYIT DUGUMUN ADININ BASINDAN BASLAMALI. Once 0 ya da 1'inci
     # belirtece izin veriliyordu ve 1 tam da OGUL kalibi: dugum
