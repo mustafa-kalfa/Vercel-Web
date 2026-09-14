@@ -810,6 +810,54 @@ kenar taraması yapılmadı.
 bakmaları gerekiyor, yoksa transa girmiş biri ikinci kez "yeni" sayılır.
 Python tarafındaki `kenar-tara`/`baslik-coz` aynı değişkeni zaten okuyordu.
 
+## 182 düğüm daha çatala (2026-09-14)
+
+Çözülen 184 yeni kayıt için Tehzîb taraması koşturuldu. Terceme çözümü
+1798 düğümün 1434'ünü açtı, tarama **1371 aday kenar** verdi; 1098'i yeni
+düğümlere dokunuyor, 273'ü eskiler arasında. **184'ün 160'ı bağlandı
+(%87)** — Kûfe transının ilk turundaki 47/130 ile karşılaştır, fark
+yeni gelenlerin KENDİ tercemelerinin çözülmüş olması.
+
+Çatal artık **975 trans düğümü ve 13.187 kenar**. Süzgeci geçen trans
+düğümü 512'den 682'ye çıktı, yerleşimi eksik düğüm 0, sütun sayısı
+değişmedi, boşa düşen kenar 0.
+
+### Mükerrer denetiminin kör noktası ve çözümü
+
+İki aday gerçekte mevcut düğümdü — `محمد بن خازم` = **Ebû Muâviye
+ed-Darîr**, `عبد الله بن طاوس` = **Abdullah b. Tâvûs**. Birincisini ad
+karşılaştırması **ilkesel olarak** yakalayamaz: harita onu künye+lakapla
+(`أبو معاوية الضرير`), Takrîb isim+nesepte anıyor ve **ortak tek belirteç
+yok**. Altdizi de, isim çapası da, nadirlik şartı da bu boşluğu görmez.
+
+Yıl+belde denendi, işe yaramadı — 441 çift veriyor, Şâfiî ile Eşheb'i
+bile eşliyor.
+
+Çözen ölçüt: **iki düğüm aynı Tehzîb tercemesine çözülüyorsa aynı
+kişidir.** `baslik-coz.py` zaten her düğüm için bir terceme satırı
+veriyor; aynı satıra düşenleri saymak yetiyor. Kesin ölçüt değil, çünkü
+çözücünün kendi hatası da aynı satıra düşürebiliyor — **vefat yılı da
+tutmalı**. Yıl tutmayan çiftler (Buhârî ö.256 ?= ö.264 gibi) çözücü
+hatası, mükerrer değil.
+
+Düşen iki adayın kenarları atılmadı, mevcut kimliğe **taşındı**.
+
+### Bu denetimin ortaya çıkardığı eski mükerrerler
+
+Aynı test çatalda **zaten duran** 24 mükerrer çift gösterdi, hepsi aynı
+kalıptan — harita künye/lakapla, trans isim+nesepte:
+
+`İsmâîl İbn Uleyye` = `İsmâîl b. İbrâhim b. Miksem`, `İbn Kâsım el-Mısrî`
+= `Abdirrahman b. Kâsım b. Hâlid`, `Abdân` = `Abdullah b. Osmân b.
+Cebele`, `el-Fellâs` = `Amr b. Ali b. Bahr`, `İbn Ebi'd-Dünyâ` =
+`Abdullah b. Muhammed b. Ubeyd`, `Ebû Kudâme es-Serahsî` = `Ubeydullah b.
+Saîd b. Yahyâ`, `Ebû'n-Nadr Hâşim` = `Hâşim b. Kâsım b. Müslim`, `ez-Zühlî`
+= `Muhammed b. Yahyâ b. Abdullah` ve benzeri.
+
+**İkisi ANA HARİTADA** ve transtan önce de oradaydı — `Ali b. el-Mübârek
+el-Hinâî` = `Ali b. el-Mübârek`, `Hüseyin b. Zekvân el-Muallim` =
+`Hüseyin el-Muallim`. Bunlar henüz birleştirilmedi.
+
 ## Daha derin arka plan
 
 `silsile-agi-notlar.md` — belde denetimi, Bağdat sütunu kararı, başlık
