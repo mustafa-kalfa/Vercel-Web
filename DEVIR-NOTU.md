@@ -926,7 +926,8 @@ düğme yine çıkar ve yanlış tercemeye götürür.
 
 - **Satır ayrımı Python gibi olmalı.** `satir` alanları `baslik-coz.py`den
   geliyor ve Python metin kipinde **evrensel satır sonu** kullanıyor —
-  tek başına `` de satır sonu sayılıyor. Node'un `split("
+  tek başına `
+` de satır sonu sayılıyor. Node'un `split("
 ")`i onları
   saymadığı için dosya 104.417 yerine 101.630 satır görünüyordu ve bütün
   indeksler kayıyordu (Ali için 1499 yerine 1548). Sapma **sabit değildi**,
@@ -943,6 +944,48 @@ tercemesi bulunup bağlantı yanlış sanılmıştı.
 çatalda `SAMILE`yi ana modülün üzerine yazıyor — `export *` ile gelen
 tablo yalnız ana haritayı kapsıyor, override edilmezse yeni noktalarda
 düğme hiç çıkmıyor.
+
+## Üç mükerrer daha, bir ad düzeltmesi (2026-09-14)
+
+Aynı-terceme ölçütü yalnızca **tercemesi çözülmüş** düğümleri kapsıyor;
+çözülemeyen 251 trans düğümü o denetimden hiç geçmemişti. Onlara ayrı bir
+ölçütle bakıldı — aynı vefat yılı + **kısa adın bütün belirteçlerinin**
+uzun adda geçmesi + en az birinin nadir olması.
+
+Gevşek sürümü (iki ortak belirteç) 76 çift verdi ve çoğu ayrı kişiydi;
+"kısa adın tamamı" şartı dörde indirdi. Üçü gerçek çıktı:
+
+| trans | ana harita |
+|---|---|
+| Ahmed b. Mansûr b. Seyyâr Ebû Bekir | Ahmed b. Mansûr er-Ramâdî |
+| Abdullah b. Abdirrahman b. Fazl Ebû Muhammed | Dârimî |
+| Muhammed b. es-Sabbâh el-Bezzâz ed-Dûlâbî | Muhammed b. es-Sabbâh ed-Dûlâbî |
+
+Dördüncüsü elle elendi ve **yeni bir kusur açığa çıkardı**: `عبيد الله بن
+عبد الله بن عمر أبو بكر شقيق سالم` kaydında Sâlim ile aralarındaki bağ
+Takrîb'in «شقيق» (öz kardeşi) sözüydü, ad değil — ikisi kardeş, ayrı kişi.
+
+**`شقيق` koşulsuz durak olamaz**, çünkü aynı zamanda bir addır:
+`الحسن بن عمر بن شقيق الجرمي` kaydında babanın adı. Ayrım yerinde —
+bağlaçtan sonra geliyorsa ad, gelmiyorsa ilişki. `SARTLI_DURAK` bunu
+yapıyor. İlk sürümü kaydın **ilk** belirtecinde de çalışıyordu ve
+`شقيق بن ثور بن عفير` kaydını boşalttı; orası da yapısal olarak ad.
+
+### Kaybolan bir kenar ölçüldü ve YANLIŞ çıktı
+
+Birleşme `Dârimî — Ziyâd b. Sa‘d` kenarını iki ucuyla ana haritaya taşıdı,
+`catal-yaz.mjs` de attı. Eklenmedi, çünkü **kronolojisi imkânsız** —
+Dârimî ö. 255, Ziyâd b. Sa‘d'ın komşuları 124-187 arası.
+
+Sebebi şu: `kenar-tara.py`nin kronoloji kapısı yıla bakıyor ve
+`Ziyâd b. Sa‘d`ın **vefat yılı kayıtlı değil**, o yüzden kapı hiç
+ateşlenmiyor. Haritada yılsız 216 düğüm var; bu kapı onların hepsinde
+sessizce devre dışı. Komşu yılının ortancasıyla bir tahmin denendi ama
+güvenilir değil — hocanın komşuları çoğunlukla talebeleri olduğu için
+tahmin geç tarafa kayıyor. Gerçek çözüm yılsız düğümlere yıl yazmak.
+
+Çatal 954 → 951 düğüm, 12.961 → 12.949 kenar. Takrîb kütüğü 1144/1144
+temiz kaldı.
 
 ## Daha derin arka plan
 
