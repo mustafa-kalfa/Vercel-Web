@@ -97,7 +97,14 @@ const teoforCift = (a, b) => TEOFOR.has(a) && b !== undefined && ESMA.has(b);
    etiketin kuyruguna «mevlâ Rebîa b. el-Hâris» gibi ikinci bir ad
    takiliyor ve harita etiketi iki katina cikiyor. */
 const DURAK = new Set(["المعروف", "المعروف،", "مولى", "مولاهم", "مولاه",
-                       "صاحب", "أخو", "أخي", "أخت", "عم", "نزيل"]);
+                       "صاحب", "أخو", "أخي", "أخت", "عم", "نزيل",
+  /* Takrib'in SAYIM sozleri. «تمييز» kayitlarinda ayni adi tasiyan
+     kisiler siralanirken geciyor -- «والثاني مرادي»، «الثالث مصري».
+     Ad degiller; ada yapisirlarsa etiket «... ve ikincisi» diye okunur.
+     Yanlarinda birkac genel soz de var. */
+  "أحدهما", "والثاني", "الثاني", "الثالث", "والثالث", "الرابع",
+  "والرابع", "الخامس", "والخامس", "والآخر", "الآخر",
+  "امرأة", "فلان", "شيخ", "إنسان", "ولد", "ابنة", "أبيها", "نفسه"]);
 /* KOSULLU DURAK: hem ilişki sozu hem AD olabilenler. «شقيق» tek basina
    "oz kardesi" demek ve «عبيد الله بن عبد الله بن عمر أبو بكر شقيق سالم»
    kaydinda Salim'i ada yapistirmisti; ama «الحسن بن عمر بن شقيق الجرمي»

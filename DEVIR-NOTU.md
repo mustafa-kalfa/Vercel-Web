@@ -1324,6 +1324,45 @@ iki katı yükseklikte, sütun başlıkları okunuyor.
 Noktalar kaybolmuyor: `rEkranOf` ekran yarıçapına taban koyuyor
 (`EN_AZ_EKRAN_R`), ölçekten bağımsız.
 
+## 871 ad çevrildi, 1.529 düğüm daha (2026-09-14)
+
+Adında çevrilemeyen belirteç taşıyan 1.473 kaydın arkasındaki **871 ayrı
+ad** elle yazıldı. Şüpheli okuyuşlar Takrîb'in kendi zapt şerhinden
+doğrulandı — 871'in **606'sında** şerh var.
+
+871'in hepsi ad değildi. Takrîb'in **sayım sözleri** listeye karışmıştı —
+`أحدهما` (ikisinden biri), `والثاني`, `الثالث`, `الرابع`, `والآخر`.
+Bunlar «تمييز» kayıtlarında aynı adı taşıyan kişileri sıralarken geçiyor.
+Sözlüğe değil `DURAK` listesine gittiler; yoksa etiket "... ve ikincisi"
+diye okunacaktı. Yanlarında `امرأة` (kadın), `فلان` (filanca), `شيخ`,
+`ولد`, `ابنة` de var.
+
+| | önce | sonra |
+|---|---|---|
+| tam çevrilen kayıt | 5.622 | **6.918** |
+| kirli kalan | 1.473 | **177** |
+| beldesi olan | 3.760 | 4.432 |
+| sözlük kaydı | 315 | **1.171** |
+
+Mükerrer elenince **1.529 yeni düğüm**, 4.099 kenar, 1.007 Şâmile bağı.
+950'si bağlandı.
+
+| | önce | sonra |
+|---|---|---|
+| ana harita düğüm | 4.826 | **6.355** |
+| ana harita kenar | 20.511 | **24.610** |
+| Şâmile bağı | 3.579 | **4.586** |
+| çizilen düğüm | 2.686 | 3.406 |
+
+### H yeniden ayarlandı
+
+Düğüm 6.355'e çıkınca oran 0,45'ten 0,57'ye kaydı (azamî şerit 29 → 37),
+yani tuval yeniden yayvanlaşmaya başladı. `H` 2.400.000'den 3.200.000'e
+çıkarıldı, oran 0,37, azamî şerit 32.
+
+**Kural:** düğüm sayısı arttıkça `H` da artmalı. Yoksa `ASGARI_DY`
+düğümleri yana itiyor ve tuval yayvanlaşıyor.
+
 ## Daha derin arka plan
 
 `silsile-agi-notlar.md` — belde denetimi, Bağdat sütunu kararı, başlık

@@ -5888,6 +5888,1540 @@ export const NODES = [
   N("aisebinttalhabubeydull", "عائشة بنت طلحة بن عبيد الله", "Âişe bint Talha b. Ubeydullah", 3, null, "Kûfe"),
   N("kerimebinthemmam", "كريمة بنت همام", "Kerîme bint Hemmâm", 3, null, "Basra"),
   N("ummusalihbintsalih", "أم صالح بنت صالح", "Ümmü Sâlih bint Sâlih", 5, null, "Mekke"),
+
+/* TAKRIB TRANSI (2026-09-14). Takrib'in TAMAMINDAN cikarilan 1529 dugum.
+   Yontem ve sayilar DEVIR-NOTU.md'de. Iskelet Takrib'den, kenarlar
+   Tehzibu't-Tehzib taramasindan. Yil ve belde artik zorunlu degil --
+   yilsiz olanda kart «ö. ?/?» yazar ve nokta tabakanin bandina oturur. */
+  N("ahmedbibrahimbkesir2", "أحمد بن إبراهيم بن كثير", "Ahmed b. İbrâhim b. Kesîr", 5, 246, "Bağdat"),
+  N("ahmedbishakbzeydebu2", "أحمد بن إسحاق بن زيد أبو إسحاق البصري", "Ahmed b. İshak b. Zeyd Ebû İshak el-Basrî", 5, 211, "Basra"),
+  N("ahmedbbesir2", "أحمد بن بشير البغدادي", "Ahmed b. Beşîr", 5, null, "Bağdat"),
+  N("ahmedbhafsbabdullah2", "أحمد بن حفص بن عبد الله أبو علي بن أبي عمرو", "Ahmed b. Hafs b. Abdullah Ebû Ali b. Ebî Amr", 5, 258, "Horasan"),
+  N("ahmedbhammadbmuslim2", "أحمد بن حماد بن مسلم أبو جعفر المصري", "Ahmed b. Hammâd b. Müslim Ebû Ca‘fer el-Mısrî", 5, null, "Mısır"),
+  N("ahmedbsaidbbisrelhe2", "أحمد بن سعيد بن بشر الهمداني أبو جعفر المصري", "Ahmed b. Saîd b. Bişr el-Hemdânî Ebû Ca‘fer el-Mısrî", 5, 253, "Mısır"),
+  N("ahmedbsalihelmisriebuc", "أحمد بن صالح المصري أبو جعفر بن الطبري", "Ahmed b. Sâlih el-Mısrî Ebû Ca‘fer", 5, 248, "Mısır"),
+  N("ahmedbsalih2", "أحمد بن صالح البغدادي", "Ahmed b. Sâlih", 5, 245, "Bağdat"),
+  N("ahmedbasimbanbeseebusa", "أحمد بن عاصم بن عنبسة العباداني أبو صالح", "Ahmed b. Âsım b. Anbese Ebû Sâlih", 5, null, "Bağdat"),
+  N("ahmedbabdullahbhake2", "أحمد بن عبد الله بن الحكم", "Ahmed b. Abdullah b. Hakem", 5, 247, "Basra"),
+  N("ahmedbabdullahbmuha2", "أحمد بن عبد الله بن محمد", "Ahmed b. Abdullah b. Muhammed", 5, 258, "Kûfe"),
+  N("ahmedbabdullahbyunu2", "أحمد بن عبد الله بن يونس", "Ahmed b. Abdullah b. Yûnus", 5, 227, "Kûfe"),
+  N("ahmedbamrbabdullah2", "أحمد بن عمرو بن عبد الله", "Ahmed b. Amr b. Abdullah", 5, 250, "Mısır"),
+  N("ahmedbisabhassanelm2", "أحمد بن عيسى بن حسان المصري", "Ahmed b. Îsâ b. Hassân el-Mısrî", 5, 243, "Mısır"),
+  N("ahmedbmuhammedbahme2", "أحمد بن محمد بن أحمد", "Ahmed b. Muhammed b. Ahmed", 5, 233, "Bağdat"),
+  N("ahmedbmuhammedbmugi2", "أحمد بن محمد بن المغيرة", "Ahmed b. Muhammed b. Mugīre", 5, 264, "Humus"),
+  N("ahmedbmuhammedbnizek", "أحمد بن محمد بن نيزك", "Ahmed b. Muhammed b. Nîzek", 5, null, "Cibâl"),
+  N("ahmedbmuhammedbyahy2", "أحمد بن محمد بن يحيى أبو سعيد البصري", "Ahmed b. Muhammed b. Yahyâ Ebû Saîd el-Basrî", 5, 258, "Basra"),
+  N("ahmedbnasrbziyadenn2", "أحمد بن نصر بن زياد النيسابوري", "Ahmed b. Nasr b. Ziyâd en-Nîsâbûrî", 5, 245, "Horasan"),
+  N("ahmedbyahyabmuhamme2", "أحمد بن يحيى بن محمد", "Ahmed b. Yahyâ b. Muhammed", 6, null, "Humus"),
+  N("ahmedbyusufbhalidel2", "أحمد بن يوسف بن خالد الأزدي أبو الحسن النيسابوري", "Ahmed b. Yûsuf b. Hâlid el-Ezdî Ebû Hasan en-Nîsâbûrî", 5, 264, "Horasan"),
+  N("ibrahimbismailbyahy2", "إبراهيم بن إسماعيل بن يحيى أبو إسحاق الكوفي", "İbrâhim b. İsmâîl b. Yahyâ Ebû İshak", 5, 258, "Kûfe"),
+  N("ibrahimbelharisbism2", "إبراهيم بن الحارث بن إسماعيل البغدادي أبو إسحاق", "İbrâhim b. el-Hâris b. İsmâîl Ebû İshak", 5, 265, "Horasan"),
+  N("ibrahimbhamzabsuley2", "إبراهيم بن حمزة بن سليمان أبو إسحاق", "İbrâhim b. Hamza b. Süleymân Ebû İshak", 5, null, "Şam"),
+  N("ibrahimbhamzabmuham2", "إبراهيم بن حمزة بن محمد أبو إسحاق", "İbrâhim b. Hamza b. Muhammed Ebû İshak", 5, 230, "Medine"),
+  N("ibrahimbziyad2", "إبراهيم بن زياد البغدادي", "İbrâhim b. Ziyâd", 5, 228, "Bağdat"),
+  N("ibrahimbsadbibrahim2", "إبراهيم بن سعد بن إبراهيم أبو إسحاق المدني", "İbrâhim b. Sa‘d b. İbrâhim Ebû İshak el-Medenî", 5, 185, "Bağdat"),
+  N("ibrahimbsaidelmeden2", "إبراهيم بن سعيد المدني أبو إسحاق", "İbrâhim b. Saîd el-Medenî Ebû İshak", 5, null, "Medine"),
+  N("ibrahimbsuleyman2", "إبراهيم بن سليمان", "İbrâhim b. Süleymân", 5, null, "Şam"),
+  N("ibrahimbabdirrahman2", "إبراهيم بن عبد الرحمن بن يزيد", "İbrâhim b. Abdirrahman b. Yezîd", 5, null, "Medine"),
+  N("ibrahimbabdusselamb2", "إبراهيم بن عبد السلام بن عبد الله", "İbrâhim b. Abdüsselâm b. Abdullah", 5, null, "Mekke"),
+  N("ibrahimbabdulazizba2", "إبراهيم بن عبد العزيز بن عبد الملك", "İbrâhim b. Abdülazîz b. Abdülmelik", 5, null, "Mekke"),
+  N("ibrahimbabdulazizbm2", "إبراهيم بن عبد العزيز بن مروان", "İbrâhim b. Abdülazîz b. Mervân", 5, null, "Humus"),
+  N("ibrahimbabdulmelike2", "إبراهيم بن عبد الملك البصري أبو إسماعيل", "İbrâhim b. Abdülmelik el-Basrî Ebû İsmâîl", 5, null, "Basra"),
+  N("ibrahimbukbebebiayyase", "إبراهيم بن عقبة بن أبي عياش الأسدي", "İbrâhim b. Ukbe b. Ebî Ayyâş el-Esedî", 5, null, "Medine"),
+  N("ibrahimbalibhasan2", "إبراهيم بن علي بن حسن", "İbrâhim b. Ali b. Hasan", 5, null, "Bağdat"),
+  N("ibrahimbomeressanan2", "إبراهيم بن عمر الصنعاني", "İbrâhim b. Ömer es-San‘ânî", 5, null, "Yemen"),
+  N("ibrahimbamr2", "إبراهيم بن عمرو", "İbrâhim b. Amr", 5, null, "Yemen"),
+  N("ibrahimbmuhammedbab2", "إبراهيم بن محمد بن عبد الله أبو إسحاق البصري", "İbrâhim b. Muhammed b. Abdullah Ebû İshak el-Basrî", 5, 250, "Basra"),
+  N("ibrahimbelmustemir", "إبراهيم بن المستمر العروقي", "İbrâhim b. el-Müstemir", 5, null, "Basra"),
+  N("ibrahimbmeymunessan2", "إبراهيم بن ميمون الصنعاني", "İbrâhim b. Meymûn es-San‘ânî", 5, null, "Yemen"),
+  N("ibrahimbyezidbserikett", "إبراهيم بن يزيد بن شريك التيمي", "İbrâhim b. Yezîd b. Şerîk et-Teymî", 5, null, "Kûfe"),
+  N("ibrahimbyusufelhadr2", "إبراهيم بن يوسف الحضرمي الكوفي", "İbrâhim b. Yûsuf el-Hadramî", 5, null, "Kûfe"),
+  N("ibrahimbyunusbmuham2", "إبراهيم بن يونس بن محمد البغدادي", "İbrâhim b. Yûnus b. Muhammed", 5, null, "Bağdat"),
+  N("ebibabbasbsehl2", "أبي بن العباس بن سهل", "Ebî b. Abbâs b. Sehl", 5, null, "Mâverâünnehir"),
+  N("elahvesbhakimbumeyr", "الأحوص بن حكيم بن عمير العنسي", "el-Ahves b. Hakîm b. Umeyr", 5, null, "Humus"),
+  N("idrisbsinanebuilyasess", "إدريس بن سنان أبو إلياس الصنعاني بن بنت وهب بن منبه", "İdrîs b. Sinân Ebû İlyâs es-San‘ânî b. bint Vehb b. Münebbih", 5, null, "Yemen"),
+  N("ezherbcemilbcenah", "أزهر بن جميل بن جناح الهاشمي", "Ezher b. Cemîl b. Cenâh", 5, null, "Basra"),
+  N("esbatbelyesabenesebuta", "أسباط بن اليسع بن أنس أبو طاهر البصري", "Esbât b. el-Yesa‘ b. Enes Ebû Tâhir el-Basrî", 6, null, "Mâverâünnehir"),
+  N("ishakbibrahimbdavud2", "إسحاق بن إبراهيم بن داود", "İshak b. İbrâhim b. Dâvûd", 5, null, "Basra"),
+  N("ishakbibrahimesseka2", "إسحاق بن إبراهيم الثقفي أبو يعقوب الكوفي", "İshak b. İbrâhim es-Sekafî Ebû Ya‘kûb", 5, null, "Kûfe"),
+  N("ishakbismailbabdull2", "إسحاق بن إسماعيل بن عبد الله", "İshak b. İsmâîl b. Abdullah", 6, null, "Şam"),
+  N("ishakbcibril", "إسحاق بن جبريل البغدادي", "İshak b. Cibrîl", 5, null, "Bağdat"),
+  N("ishakbsaidbamr2", "إسحاق بن سعيد بن عمرو", "İshak b. Saîd b. Amr", 5, null, "Kûfe"),
+  N("ishakbsuleymanerraz2", "إسحاق بن سليمان الرازي أبو يحيى", "İshak b. Süleymân er-Râzî Ebû Yahyâ", 5, null, "Cibâl"),
+  N("ishakbabdullahbebitalh", "إسحاق بن عبد الله بن أبي طلحة الأنصاري المدني أبو يحيى", "İshak b. Abdullah b. Ebî Talha el-Ensârî el-Medenî Ebû Yahyâ", 4, null, "Medine"),
+  N("ishakbomerbselitebuyak", "إسحاق بن عمر بن سليط الهذلي أبو يعقوب البصري", "İshak b. Ömer b. Selît Ebû Ya‘kûb el-Basrî", 5, null, "Basra"),
+  N("ishakbkabisabzuveybelh", "إسحاق بن قبيصة بن ذؤيب الخزاعي الشامي", "İshak b. Kabîsa b. Züveyb el-Huzâî eş-Şâmî", 5, null, "Şam"),
+  N("ishakbmuhammedbisma2", "إسحاق بن محمد بن إسماعيل", "İshak b. Muhammed b. İsmâîl", 5, 226, "Medine"),
+  N("ishakbmusababdullah2", "إسحاق بن موسى بن عبد الله أبو موسى المدني", "İshak b. Mûsâ b. Abdullah Ebû Mûsâ el-Medenî", 5, 244, "Medine"),
+  N("ishakbvehbbziyad2", "إسحاق بن وهب بن زياد", "İshak b. Vehb b. Ziyâd", 5, null, "Vâsıt"),
+  N("ishakbyesarelmedeni2", "إسحاق بن يسار المدني", "İshak b. Yesâr el-Medenî", 3, null, "Medine"),
+  N("ishakbyakubbmuhamme2", "إسحاق بن يعقوب بن محمد البغدادي", "İshak b. Ya‘kûb b. Muhammed", 5, null, "Bağdat"),
+  N("ismailbibrahimbabdi2", "إسماعيل بن إبراهيم بن عبد الرحمن", "İsmâîl b. İbrâhim b. Abdirrahman", 5, null, "Medine"),
+  N("ismailbibrahimbukbe2", "إسماعيل بن إبراهيم بن عقبة الأسدي", "İsmâîl b. İbrâhim b. Ukbe el-Esedî", 5, null, "Medine"),
+  N("ismailbrafibuveymirele", "إسماعيل بن رافع بن عويمر الأنصاري المدني", "İsmâîl b. Râfi‘ b. Uveymir el-Ensârî el-Medenî", 5, null, "Basra"),
+  N("ismailbsalimelesedi2", "إسماعيل بن سالم الأسدي أبو يحيى الكوفي", "İsmâîl b. Sâlim el-Esedî Ebû Yahyâ", 5, null, "Bağdat"),
+  N("ismailbsaidbubeydul2", "إسماعيل بن سعيد بن عبيد الله", "İsmâîl b. Saîd b. Ubeydullah", 5, null, "Basra"),
+  N("ismailbsuleyman2", "إسماعيل بن سليمان", "İsmâîl b. Süleymân", 5, null, "Basra"),
+  N("ismailbabdullahbelh2", "إسماعيل بن عبد الله بن الحارث البصري", "İsmâîl b. Abdullah b. el-Hâris el-Basrî", 5, null, "Basra"),
+  N("ismailbabdullahbhalide", "إسماعيل بن عبد الله بن خالد أبو عبد الله", "İsmâîl b. Abdullah b. Hâlid Ebû Abdullah", 5, null, "Humus"),
+  N("ismailbmuhammedbism2", "إسماعيل بن محمد بن إسماعيل", "İsmâîl b. Muhammed b. İsmâîl", 5, null, "Kûfe"),
+  N("ismailbmuhammedbcuhade", "إسماعيل بن محمد بن جحادة العطار الكوفي", "İsmâîl b. Muhammed b. Cuhâde el-Attâr", 5, null, "Kûfe"),
+  N("ismailbmuhammedbsad2", "إسماعيل بن محمد بن سعد أبو محمد", "İsmâîl b. Muhammed b. Sa‘d Ebû Muhammed", 4, 134, "Medine"),
+  N("ismailbmuslimelabdi2", "إسماعيل بن مسلم العبدي أبو محمد البصري", "İsmâîl b. Müslim el-Abdî Ebû Muhammed el-Basrî", 5, null, "Basra"),
+  N("ismailbmuslim2", "إسماعيل بن مسلم الكوفي", "İsmâîl b. Müslim", 5, null, "Kûfe"),
+  N("ismailbyahyabseleme2", "إسماعيل بن يحيى بن سلمة", "İsmâîl b. Yahyâ b. Seleme", 5, null, "Kûfe"),
+  N("elesvedbsalebeelkindie", "الأسود بن ثعلبة الكندي الشامي", "el-Esved b. Sa‘lebe el-Kindî eş-Şâmî", 3, null, "Şam"),
+  N("efletbhalifeelamiri", "أفلت بن خليفة العامري", "Eflet b. Halîfe el-Âmirî", 5, null, "Kûfe"),
+  N("iyasbebitemimeebumahle", "إياس بن أبي تميمة أبو مخلد البصري", "İyâs b. Ebî Temîme Ebû Mahled el-Basrî", 5, null, "Basra"),
+  N("iyasbdagfel", "إياس بن دغفل", "İyâs b. Dagfel", 5, null, "Basra"),
+  N("iyasbebiremleessami", "إياس بن أبي رملة الشامي", "İyâs b. Ebî Remle eş-Şâmî", 3, null, "Şam"),
+  N("iyasbnezir", "إياس بن نذير", "İyâs b. Nezîr", 5, null, "Kûfe"),
+  N("eymenbsabitebusabit", "أيمن بن ثابت أبو ثابت الكوفي", "Eymen b. Sâbit Ebû Sâbit", 4, null, "Kûfe"),
+  N("eymenbnabil", "أيمن بن نابل", "Eymen b. Nâbil", 5, null, "Mekke"),
+  N("eymenelmekki", "أيمن الحبشي المكي", "Eymen el-Mekkî", 4, null, "Mekke"),
+  N("eyyubbibrahimesseka2", "أيوب بن إبراهيم الثقفي أبو يحيى المروزي", "Eyyûb b. İbrâhim es-Sekafî Ebû Yahyâ el-Mervezî", 5, null, "Horasan"),
+  N("eyyubbsabitelmekki2", "أيوب بن ثابت المكي", "Eyyûb b. Sâbit el-Mekkî", 5, null, "Mekke"),
+  N("eyyubbhassanelvasit2", "أيوب بن حسان الواسطي أبو سليمان", "Eyyûb b. Hassân el-Vâsıtî Ebû Süleymân", 5, null, "Vâsıt"),
+  N("eyyubbhalidbsafvan2", "أيوب بن خالد بن صفوان", "Eyyûb b. Hâlid b. Safvân", 4, null, "Medine"),
+  N("eyyubbhavt", "أيوب بن خوط", "Eyyûb b. Havt", 5, null, "Basra"),
+  N("eyyubbsuleymanessam2", "أيوب بن سليمان الشامي", "Eyyûb b. Süleymân eş-Şâmî", 4, null, "Şam"),
+  N("eyyubbmansur2", "أيوب بن منصور الكوفي", "Eyyûb b. Mansûr", 5, null, "Kûfe"),
+  N("babbumeyressami", "باب بن عمير الشامي", "Bâb b. Umeyr eş-Şâmî", 5, null, "Şam"),
+  N("becalebabde", "بجالة بن عبدة", "Becâle b. Abde", 2, null, "Basra"),
+  N("bahirbsad", "بحير بن سعد السحولي", "Bahîr b. Sa‘d", 5, null, "Humus"),
+  N("budeylbmeysereelbasri", "بديل بن ميسرة البصري", "Büdeyl b. Meysere el-Basrî", 5, null, "Basra"),
+  N("burdbsinanebualaeddima", "برد بن سنان أبو العلاء الدمشقي", "Bürd b. Sinân Ebû Alâ ed-Dımaşkī", 5, null, "Basra"),
+  N("burdbsinanessemerkandi", "برد بن سنان السمرقندي", "Bürd b. Sinân es-Semerkandî", 5, null, "Mâverâünnehir"),
+  N("berekeebuelvelidelbasr", "بركة المجاشعي أبو الوليد البصري", "Bereke Ebû el-Velîd el-Basrî", 4, null, "Basra"),
+  N("bisrbelharisbabdirr2", "بشر بن الحارث بن عبد الرحمن", "Bişr b. el-Hâris b. Abdirrahman", 5, 227, "Bağdat"),
+  N("bisrbabdullahbyesar2", "بشر بن عبد الله بن يسار السلمي الحمصي", "Bişr b. Abdullah b. Yesâr es-Sülemî", 5, null, "Humus"),
+  N("bisrbubeys", "بشر بن عبيس", "Bişr b. Ubeys", 5, null, "Basra"),
+  N("besirbsellam2", "بشير بن سلام", "Beşîr b. Sellâm", 3, null, "Medine"),
+  N("besirbmuslimelkindi2", "بشير بن مسلم الكندي أبو عبد الله الكوفي", "Beşîr b. Müslim el-Kindî Ebû Abdullah", 3, null, "Kûfe"),
+  N("besirbmeymunelvasit2", "بشير بن ميمون الواسطي", "Beşîr b. Meymûn el-Vâsıtî", 5, null, "Vâsıt"),
+  N("bekirbhakemettemimi2", "بكر بن الحكم التميمي أبو بشر", "Bekir b. Hakem et-Temîmî Ebû Bişr", 5, null, "Basra"),
+  N("bekirbsevadebsumame", "بكر بن سوادة بن ثمامة الجذامي", "Bekir b. Sevâde b. Sümâme", 3, null, "Mısır"),
+  N("bekirbmaizbmalikebuham", "بكر بن ماعز بن مالك أبو حمزة الكوفي", "Bekir b. Mâiz b. Mâlik Ebû Hamza", 4, null, "Kûfe"),
+  N("bekirbvailbdavudetteym", "بكر بن وائل بن داود التيمي الكوفي", "Bekir b. Vâil b. Dâvûd et-Teymî", 5, null, "Kûfe"),
+  N("bukeyrbmismarezzuhriel", "بكير بن مسمار الزهري المدني أبو محمد", "Bükeyr b. Mismâr ez-Zührî el-Medenî Ebû Muhammed", 4, null, "Medine"),
+  N("bevrbasramebubekirelme", "بور بن أصرم أبو بكر المروزي", "Bevr b. Asram Ebû Bekir el-Mervezî", 5, null, "Horasan"),
+  N("telidbsuleymanelmuhari", "تليد بن سليمان المحاربي أبو سليمان", "Telîd b. Süleymân el-Muhâribî Ebû Süleymân", 5, null, "Kûfe"),
+  N("temimbhazlem", "تميم بن حذلم", "Temîm b. Hazlem", 2, null, "Kûfe"),
+  N("temimbelmuntasirbtemim", "تميم بن المنتصر بن تميم", "Temîm b. el-Müntasır b. Temîm", 5, null, "Vâsıt"),
+  N("sabitbhurmuzebuelmikda", "ثابت بن هرمز الكوفي أبو المقدام الحداد", "Sâbit b. Hürmüz Ebû el-Mikdâm el-Haddâd", 5, null, "Kûfe"),
+  N("salebebsuheyl", "ثعلبة بن سهيل الطهوي", "Sa‘lebe b. Süheyl", 5, null, "Kûfe"),
+  N("salebebabbad", "ثعلبة بن عباد", "Sa‘lebe b. Abbâd", 4, null, "Basra"),
+  N("salebebmuslimessamimes", "ثعلبة بن مسلم الخثعمي الشامي مستور", "Sa‘lebe b. Müslim eş-Şâmî Mestûr", 5, null, "Şam"),
+  N("sumamebhazn", "ثمامة بن حزن", "Sümâme b. Hazn", 2, null, "Basra"),
+  N("sumamebsufey", "ثمامة بن شفي", "Sümâme b. Şüfey", 3, null, "Mısır"),
+  N("suveyrbebifahite", "ثوير بن أبي فاختة", "Süveyr b. Ebî Fâhite", 4, null, "Kûfe"),
+  N("elcerrahbmelih", "الجراح بن مليح البهراني", "el-Cerrâh b. Melîh", 5, null, "Humus"),
+  N("cureybkuleybessedusiel", "جري بن كليب السدوسي البصري", "Cürey b. Küleyb es-Sedûsî el-Basrî", 3, null, "Basra"),
+  N("cureybkuleyb", "جري بن كليب النهدي الكوفي", "Cürey b. Küleyb", 3, null, "Kûfe"),
+  N("cumeybumeyr", "جميع بن عمير", "Cümey‘ b. Umeyr", 5, null, "Kûfe"),
+  N("cumeybumeyretteymiebue", "جميع بن عمير التيمي أبو الأسود الكوفي", "Cümey‘ b. Umeyr et-Teymî Ebû el-Esved", 3, null, "Kûfe"),
+  N("cevvabbubeydullahettey", "جواب بن عبيد الله التيمي الكوفي", "Cevvâb b. Ubeydullah et-Teymî", 5, null, "Kûfe"),
+  N("cevnbkatadebelaver", "جون بن قتادة بن الأعور", "Cevn b. Katâde b. el-A‘ver", 2, null, "Basra"),
+  N("cuveybirbsaidelezdiebu", "جويبر بن سعيد الأزدي أبو القاسم البلخي", "Cüveybir b. Saîd el-Ezdî Ebû Kâsım", 5, null, "Kûfe"),
+  N("hatimbyusufbhalid2", "حاتم بن يوسف بن خالد", "Hâtim b. Yûsuf b. Hâlid", 5, 213, "Horasan"),
+  N("elharisbhasira", "الحارث بن حصيرة", "el-Hâris b. Hasîra", 5, null, "Kûfe"),
+  N("elharisbziyadessami2", "الحارث بن زياد الشامي", "el-Hâris b. Ziyâd eş-Şâmî", 4, null, "Şam"),
+  N("elharisbsuleymanelk2", "الحارث بن سليمان الكندي الكوفي", "el-Hâris b. Süleymân el-Kindî", 5, null, "Kûfe"),
+  N("elharisbsibl", "الحارث بن شبل", "el-Hâris b. Şibl", 5, null, "Mâverâünnehir"),
+  N("elharisbabdullahbeb2", "الحارث بن عبد الله بن أبي ربيعة", "el-Hâris b. Abdullah b. Ebî Rebîa", 2, null, "Mekke"),
+  N("elharisbabdirrahman2", "الحارث بن عبد الرحمن بن عبد الله", "el-Hâris b. Abdirrahman b. Abdullah", 5, 146, "Medine"),
+  N("elharisbubeydullahe2", "الحارث بن عبيد الله الأنصاري الشامي", "el-Hâris b. Ubeydullah el-Ensârî eş-Şâmî", 5, null, "Şam"),
+  N("elharisbmansurelvas2", "الحارث بن منصور الواسطي", "el-Hâris b. Mansûr el-Vâsıtî", 5, null, "Vâsıt"),
+  N("elharisbnebhanelcermi", "الحارث بن نبهان الجرمي", "el-Hâris b. Nebhân el-Cermî", 5, null, "Basra"),
+  N("elharisbnumanbsalim2", "الحارث بن النعمان بن سالم الليثي الكوفي", "el-Hâris b. Nu‘mân b. Sâlim el-Leysî", 5, null, "Kûfe"),
+  N("elharisbvecih", "الحارث بن وجيه", "el-Hâris b. Vecîh", 5, null, "Basra"),
+  N("elharisbyakubelensa2", "الحارث بن يعقوب الأنصاري", "el-Hâris b. Ya‘kûb el-Ensârî", 5, 130, "Mısır"),
+  N("habbebcuveyn", "حبة بن جوين", "Habbe b. Cüveyn", 2, null, "Kûfe"),
+  N("habibbebisabitkays", "حبيب بن أبي ثابت قيس", "Habîb b. Ebî Sâbit Kays", 3, 119, "Kûfe"),
+  N("habibbebihabibelbec2", "حبيب بن أبي حبيب البجلي", "Habîb b. Ebî Habîb el-Becelî", 4, null, "Kûfe"),
+  N("habibebihabibelmisr2", "حبيب أبي حبيب المصري", "Habîb Ebî Habîb el-Mısrî", 5, 218, "Mısır"),
+  N("habibbebihabibelbas2", "حبيب بن أبي حبيب البصري", "Habîb b. Ebî Habîb el-Basrî", 5, null, "Basra"),
+  N("habibbsalih2", "حبيب بن صالح", "Habîb b. Sâlih", 5, 147, "Humus"),
+  N("habibbebifadlan", "حبيب بن أبي فضلان", "Habîb b. Ebî Fadlân", 3, null, "Basra"),
+  N("habibbyesarelkindi2", "حبيب بن يسار الكندي الكوفي", "Habîb b. Yesâr el-Kindî", 3, null, "Kûfe"),
+  N("habibbyesar2", "حبيب بن يسار", "Habîb b. Yesâr", 5, null, "Kûfe"),
+  N("haccacbdinarelvasit2", "حجاج بن دينار الواسطي", "Haccâc b. Dînâr el-Vâsıtî", 5, null, "Vâsıt"),
+  N("haccacbsafvanbebiye2", "حجاج بن صفوان بن أبي يزيد المدني", "Haccâc b. Safvân b. Ebî Yezîd el-Medenî", 5, null, "Medine"),
+  N("haccacbferafisa", "حجاج بن فرافصة", "Haccâc b. Ferâfisa", 5, null, "Basra"),
+  N("haccacbebiyakubyusu2", "حجاج بن أبي يعقوب يوسف بن حجاج الثقفي البغدادي", "Haccâc b. Ebî Ya‘kûb Yûsuf b. Haccâc es-Sekafî", 5, 259, "Bağdat"),
+  N("hucrbelanbes", "حجر بن العنبس", "Hucr b. el-Anbes", 2, null, "Kûfe"),
+  N("hucayrbrabielbasrielad", "حجير بن الربيع البصري العدوي", "Hucayr b. Rabî‘ el-Basrî el-Adevî", 3, null, "Basra"),
+  N("hudeyrebuezzahiriyye", "حدير أبو الزاهرية الحمصي", "Hudeyr Ebû ez-Zâhiriyye", 3, null, "Humus"),
+  N("harbbebielaliyeebumuaz", "حرب بن أبي العالية أبو معاذ البصري", "Harb b. Ebî el-Âliye Ebû Muâz el-Basrî", 5, null, "Basra"),
+  N("harbbvahsibharb", "حرب بن وحشي بن حرب الحبشي الحمصي", "Harb b. Vahşî b. Harb", 3, null, "Humus"),
+  N("huraysbzuhayr", "حريث بن ظهير", "Hurays b. Zuhayr", 2, null, "Kûfe"),
+  N("hureysbsuleym", "حريش بن سليم", "Hureyş b. Süleym", 5, null, "Kûfe"),
+  N("husambmisakk", "حسام بن مصك", "Hüsâm b. Misakk", 5, null, "Basra"),
+  N("hassanbhassanelvasi2", "حسان بن حسان الواسطي", "Hassân b. Hassân el-Vâsıtî", 5, null, "Vâsıt"),
+  N("hassan", "حسان بن الضمري", "Hassân", 2, null, "Şam"),
+  N("hassanbabdullahbseh2", "حسان بن عبد الله بن سهل الكندي أبو علي الواسطي", "Hassân b. Abdullah b. Sehl el-Kindî Ebû Ali el-Vâsıtî", 5, 222, "Mısır"),
+  N("hasanbishakbziyadel2", "الحسن بن إسحاق بن زياد الليثي", "Hasan b. İshak b. Ziyâd el-Leysî", 5, 241, "Horasan"),
+  N("hasanbbekirbabdirrahma", "الحسن بن بكر بن عبد الرحمن المروزي أبو علي", "Hasan b. Bekir b. Abdirrahman el-Mervezî Ebû Ali", 5, null, "Mekke"),
+  N("hasanbebielhasnaebuseh", "الحسن بن أبي الحسناء أبو سهل البصري القواس", "Hasan b. Ebî el-Hasnâ Ebû Sehl el-Basrî el-Kavvâs", 5, null, "Basra"),
+  N("hasanbhakemennehaie2", "الحسن بن الحكم النخعي أبو الحكم الكوفي", "Hasan b. Hakem en-Nehaî Ebû Hakem", 5, null, "Kûfe"),
+  N("hasanbhumeyr", "الحسن بن خمير", "Hasan b. Humeyr", 5, null, "Humus"),
+  N("hasanbrabielbeceliebua", "الحسن بن الربيع البجلي أبو علي الكوفي", "Hasan b. Rabî‘ el-Becelî Ebû Ali", 5, null, "Kûfe"),
+  N("hasanbzeydbhasanebu2", "الحسن بن زيد بن الحسن أبو محمد المدني", "Hasan b. Zeyd b. Hasan Ebû Muhammed el-Medenî", 5, 168, "Medine"),
+  N("hasanbatiyyebnecihebua", "الحسن بن عطية بن نجيح القرشي أبو علي البزاز الكوفي", "Hasan b. Atiyye b. Necîh Ebû Ali el-Bezzâz", 5, null, "Kûfe"),
+  N("hasanbalibrasidelva2", "الحسن بن علي بن راشد الواسطي", "Hasan b. Ali b. Râşid el-Vâsıtî", 5, 237, "Basra"),
+  N("hasanbalibebirafielmed", "الحسن بن علي بن أبي رافع المدني", "Hasan b. Ali b. Ebî Râfi‘ el-Medenî", 5, null, "Medine"),
+  N("hasanbalibaffanelamiri", "الحسن بن علي بن عفان العامري أبو محمد الكوفي", "Hasan b. Ali b. Affân el-Âmirî Ebû Muhammed", 5, null, "Kûfe"),
+  N("hasanbomer2", "الحسن بن عمر", "Hasan b. Ömer", 5, 181, "Humus"),
+  N("hasanbamrbseyfebualiel", "الحسن بن عمرو بن سيف أبو علي البصري", "Hasan b. Amr b. Seyf Ebû Ali el-Basrî", 5, null, "Basra"),
+  N("hasanbguleyb", "الحسن بن غليب", "Hasan b. Guleyb", 5, null, "Mısır"),
+  N("hasanbmuhammedbubey2", "الحسن بن محمد بن عبيد الله", "Hasan b. Muhammed b. Ubeydullah", 5, null, "Mekke"),
+  N("hasanbmuhammedbosma2", "الحسن بن محمد بن عثمان", "Hasan b. Muhammed b. Osmân", 5, null, "Kûfe"),
+  N("hasanbmudrikbbesiresse", "الحسن بن مدرك بن بشير السدوسي أبو علي البصري", "Hasan b. Müdrik b. Beşîr es-Sedûsî Ebû Ali el-Basrî", 5, null, "Basra"),
+  N("hasanbmuslimbyenak", "الحسن بن مسلم بن يناق", "Hasan b. Müslim b. Yenâk", 5, null, "Mekke"),
+  N("hasanbmusa2", "الحسن بن موسى", "Hasan b. Mûsâ", 5, null, "Bağdat"),
+  N("hasanbyahyabelcadelabd", "الحسن بن يحيى بن الجعد العبدي أبو علي بن أبي الربيع الجرجاني", "Hasan b. Yahyâ b. el-Ca‘d el-Abdî Ebû Ali b. Ebî Rabî‘", 5, null, "Bağdat"),
+  N("hasanbyahyaelbasri", "الحسن بن يحيى البصري", "Hasan b. Yahyâ el-Basrî", 5, null, "Basra"),
+  N("huseyinbhafsbfazl2", "الحسين بن حفص بن الفضل", "Hüseyin b. Hafs b. Fazl", 5, null, "Cibâl"),
+  N("huseyinbselemebisma2", "الحسين بن سلمة بن إسماعيل", "Hüseyin b. Seleme b. İsmâîl", 5, null, "Basra"),
+  N("huseyinbsufey", "الحسين بن شفي", "Hüseyin b. Şüfey", 3, null, "Mısır"),
+  N("huseyinbalibelesvedebu", "الحسين بن علي بن الأسود العجلي أبو عبد الله الكوفي", "Hüseyin b. Ali b. el-Esved Ebû Abdullah", 5, null, "Bağdat"),
+  N("huseyinbalibcaferelahm", "الحسين بن علي بن جعفر الأحمر الكوفي", "Hüseyin b. Ali b. Ca‘fer el-Ahmer", 5, null, "Kûfe"),
+  N("huseyinbalibhuseyin2", "الحسين بن علي بن الحسين", "Hüseyin b. Ali b. Hüseyin", 5, 160, "Medine"),
+  N("huseyinbalibelvelidelc", "الحسين بن علي بن الوليد الجعفي الكوفي", "Hüseyin b. Ali b. el-Velîd el-Cu‘fî", 5, null, "Kûfe"),
+  N("huseyinbalibyezidelfak", "الحسين بن علي بن يزيد الكرابيسي البغدادي الفقيه", "Hüseyin b. Ali b. Yezîd el-Fakīh", 5, null, "Bağdat"),
+  N("huseyinbkayserrahbiebu", "الحسين بن قيس الرحبي أبو علي الواسطي", "Hüseyin b. Kays er-Rahbî Ebû Ali el-Vâsıtî", 5, null, "Vâsıt"),
+  N("huseyinbmuhammedelm2", "الحسين بن محمد المروزي", "Hüseyin b. Muhammed el-Mervezî", 5, null, "Horasan"),
+  N("huseyinbmuazbhaleyf", "الحسين بن معاذ بن خليف", "Hüseyin b. Muâz b. Haleyf", 5, null, "Basra"),
+  N("huseyinbmansurbcafereb", "الحسين بن منصور بن جعفر أبو علي النيسابوري", "Hüseyin b. Mansûr b. Ca‘fer Ebû Ali en-Nîsâbûrî", 5, null, "Horasan"),
+  N("elevvelhuseyinbmansure", "الأول الحسين بن منصور الطويل أبو عبد الرحمن التمار الواسطي", "el-Evvel Hüseyin b. Mansûr et-Tavîl Ebû Abdirrahman et-Temmâr el-Vâsıtî", 5, null, "Vâsıt"),
+  N("huseyinbelvelidennisab", "الحسين بن الوليد القرشي النيسابوري أبو علي", "Hüseyin b. el-Velîd en-Nîsâbûrî Ebû Ali", 5, null, "Horasan"),
+  N("huseyinbyezidbyahya2", "الحسين بن يزيد بن يحيى", "Hüseyin b. Yezîd b. Yahyâ", 5, 244, "Kûfe"),
+  N("hisnbabdirrahman", "حصن بن عبد الرحمن", "Hısn b. Abdirrahman", 5, null, "Şam"),
+  N("husaynbabdirrahmanessu", "حصين بن عبد الرحمن السلمي أبو الهذيل الكوفي", "Husayn b. Abdirrahman es-Sülemî Ebû el-Hüzeyl", 5, 136, "Kûfe"),
+  N("husaynbomer2", "حصين بن عمر", "Husayn b. Ömer", 5, null, "Kûfe"),
+  N("husaynbmalikelbecel2", "حصين بن مالك البجلي الكوفي", "Husayn b. Mâlik el-Becelî", 3, null, "Kûfe"),
+  N("husaynbmansurbhayya2", "حصين بن منصور بن حيان", "Husayn b. Mansûr b. Hayyân", 5, null, "Kûfe"),
+  N("husaynbnafiettemimi2", "حصين بن نافع التميمي", "Husayn b. Nâfi‘ et-Temîmî", 5, null, "Basra"),
+  N("hadramibebuettemimiely", "حضرمي بن لاحق التميمي اليمامي", "Hadramî b. Ebû et-Temîmî el-Yemâmî", 5, null, "Medine"),
+  N("hittanbabdullaherrakas", "حطان بن عبد الله الرقاشي البصري", "Hıttân b. Abdullah er-Rakāşî el-Basrî", 2, null, "Basra"),
+  N("hafsbcumey", "حفص بن جميع", "Hafs b. Cümey‘", 5, null, "Kûfe"),
+  N("hafsbhumeydelmervez2", "حفص بن حميد المروزي", "Hafs b. Humeyd el-Mervezî", 5, null, "Horasan"),
+  N("hafsbabdullahbrasid2", "حفص بن عبد الله بن راشد السلمي أبو عمرو النيسابوري", "Hafs b. Abdullah b. Râşid es-Sülemî Ebû Amr en-Nîsâbûrî", 5, 209, "Horasan"),
+  N("hafsbabdullahelleys2", "حفص بن عبد الله الليثي البصري", "Hafs b. Abdullah el-Leysî el-Basrî", 3, null, "Basra"),
+  N("hafsbomerbsad2", "حفص بن عمر بن سعد", "Hafs b. Ömer b. Sa‘d", 3, null, "Medine"),
+  N("hafsbomerbabdirrahm2", "حفص بن عمر بن عبد الرحمن", "Hafs b. Ömer b. Abdirrahman", 5, null, "Medine"),
+  N("hafsbomerbebielattaf", "حفص بن عمر بن أبي العطاف السهمي", "Hafs b. Ömer b. Ebî el-Attâf", 5, null, "Medine"),
+  N("hafsbomer", "حفص بن عمر", "Hafs b. Ömer", 5, null, "Kûfe"),
+  N("hafsbamrbribal", "حفص بن عمرو بن ربال", "Hafs b. Amr b. Ribâl", 5, null, "Basra"),
+  N("hakembcahl", "الحكم بن جحل", "Hakem b. Cahl", 5, null, "Basra"),
+  N("hakembabdullahbisha2", "الحكم بن عبد الله بن إسحاق", "Hakem b. Abdullah b. İshak", 3, null, "Basra"),
+  N("hakembabdullahebunu2", "الحكم بن عبد الله أبو النعمان البصري", "Hakem b. Abdullah Ebû Nu‘mân el-Basrî", 5, null, "Basra"),
+  N("hakembabdirrahmanbebin", "الحكم بن عبد الرحمن بن أبي نعم", "Hakem b. Abdirrahman b. Ebî Nu‘m", 5, null, "Kûfe"),
+  N("hakembabdulmelikelb2", "الحكم بن عبد الملك القرشي البصري", "Hakem b. Abdülmelik el-Basrî", 5, null, "Basra"),
+  N("hakembhisambabdirra2", "الحكم بن هشام بن عبد الرحمن الثقفي", "Hakem b. Hişâm b. Abdirrahman es-Sekafî", 5, null, "Şam"),
+  N("hakimbserikbnemlemestu", "حكيم بن شريك بن نملة الكوفي مستور", "Hakîm b. Şerîk b. Nemle Mestûr", 5, null, "Kûfe"),
+  N("hakimessanani2", "حكيم الصنعاني", "Hakîm es-San‘ânî", 2, null, "Yemen"),
+  N("hakimbabdullahbkays2", "حكيم بن عبد الله بن قيس", "Hakîm b. Abdullah b. Kays", 4, 118, "Mısır"),
+  N("hammadbcaferbzeydelabd", "حماد بن جعفر بن زيد العبدي البصري", "Hammâd b. Ca‘fer b. Zeyd el-Abdî el-Basrî", 5, null, "Basra"),
+  N("hammadbhalid2", "حماد بن خالد", "Hammâd b. Hâlid", 5, null, "Bağdat"),
+  N("hammadbzeydbdirhemelez", "حماد بن زيد بن درهم الأزدي الجهضمي أبو إسماعيل", "Hammâd b. Zeyd b. Dirhem el-Ezdî el-Cehdamî Ebû İsmâîl", 5, 179, "Basra"),
+  N("hammadbselemebdinarelb", "حماد بن سلمة بن دينار البصري أبو سلمة", "Hammâd b. Seleme b. Dînâr el-Basrî Ebû Seleme", 5, 167, "Basra"),
+  N("hammadbebisuleymanmusl", "حماد بن أبي سليمان مسلم الأشعري", "Hammâd b. Ebî Süleymân Müslim el-Eş‘arî", 5, null, "Kûfe"),
+  N("hammadbyahyaelebahh", "حماد بن يحيى الأبح", "Hammâd b. Yahyâ el-Ebahh", 5, null, "Basra"),
+  N("hamzabsadelmervezie2", "حمزة بن سعد المروزي أبو سعيد", "Hamza b. Sa‘d el-Mervezî Ebû Saîd", 5, null, "Horasan"),
+  N("hamzabsefineelbasri", "حمزة بن سفينة البصري", "Hamza b. Sefîne el-Basrî", 5, null, "Basra"),
+  N("hamzabebimuhammedel2", "حمزة بن أبي محمد المدني", "Hamza b. Ebî Muhammed el-Medenî", 5, null, "Medine"),
+  N("hamzabmugire2", "حمزة بن المغيرة", "Hamza b. Mugīre", 5, null, "Horasan"),
+  N("hamelbbesirbebihadrede", "حمل بن بشير بن أبي حدرد الأسلمي المدني", "Hamel b. Beşîr b. Ebî Hadred el-Medenî", 5, null, "Medine"),
+  N("humeydbzaduyeh", "حميد بن زادويه", "Humeyd b. Zâdûyeh", 5, null, "Mâverâünnehir"),
+  N("humeydbebiguneyye", "حميد بن أبي غنية", "Humeyd b. Ebî Guneyye", 5, null, "Cibâl"),
+  N("humeydelmekki", "حميد المكي", "Humeyd el-Mekkî", 5, null, "Mekke"),
+  N("humaydabessemerdel", "حميضة بن الشمردل", "Humayda b. eş-Şemerdel", 3, null, "Kûfe"),
+  N("havserabmuhammedebuele", "حوثرة بن محمد أبو الأزهر البصري الوراق", "Havsera b. Muhammed Ebû el-Ezher el-Basrî el-Verrâk", 5, null, "Basra"),
+  N("havsebbukaylebudihyeel", "حوشب بن عقيل أبو دحية البصري", "Havşeb b. Ukayl Ebû Dihye el-Basrî", 5, null, "Basra"),
+  N("hayyanbhusaynebuelheyy", "حيان بن حصين أبو الهياج الأسدي الكوفي", "Hayyân b. Husayn Ebû el-Heyyâc el-Esedî", 3, null, "Kûfe"),
+  N("halidbebibekirbubey2", "خالد بن أبي بكر بن عبيد الله", "Hâlid b. Ebî Bekir b. Ubeydullah", 5, 162, "Medine"),
+  N("halidbelharisbubeyd2", "خالد بن الحارث بن عبيد أبو عثمان البصري", "Hâlid b. el-Hâris b. Ubeyd Ebû Osmân el-Basrî", 5, 186, "Basra"),
+  N("halidbelhuveyriselmahz", "خالد بن الحويرث المخزومي المكي", "Hâlid b. el-Huveyris el-Mahzûmî el-Mekkî", 3, null, "Mekke"),
+  N("halidbhaley", "خالد بن خلي", "Hâlid b. Haley", 5, null, "Humus"),
+  N("halidbdihkan", "خالد بن دهقان القرشي", "Hâlid b. Dihkān", 5, null, "Şam"),
+  N("halidbdinarettemimiebu", "خالد بن دينار التميمي السعدي أبو خلدة", "Hâlid b. Dînâr et-Temîmî Ebû Halde", 5, null, "Basra"),
+  N("halidbsare", "خالد بن سارة", "Hâlid b. Sâre", 3, null, "Mekke"),
+  N("halidbsad2", "خالد بن سعد الكوفي", "Hâlid b. Sa‘d", 2, null, "Kûfe"),
+  N("halidbsumeyr", "خالد بن سمير", "Hâlid b. Sümeyr", 3, null, "Basra"),
+  N("halidbabdirrahmanbbuke", "خالد بن عبد الرحمن بن بكير السلمي أبو أمية البصري", "Hâlid b. Abdirrahman b. Bükeyr es-Sülemî Ebû Ümeyye el-Basrî", 5, null, "Basra"),
+  N("halidbamrbmuhammede2", "خالد بن عمرو بن محمد أبو سعيد الكوفي", "Hâlid b. Amr b. Muhammed Ebû Saîd", 5, null, "Kûfe"),
+  N("halidbellecelacelamiri", "خالد بن اللجلاج العامري أبو إبراهيم", "Hâlid b. el-Lecelâc el-Âmirî Ebû İbrâhim", 2, null, "Mâverâünnehir"),
+  N("halidbmuhammedessek2", "خالد بن محمد الثقفي الدمشقي", "Hâlid b. Muhammed es-Sekafî ed-Dımaşkī", 5, null, "Humus"),
+  N("halidbyezidbsalih2", "خالد بن يزيد بن صالح", "Hâlid b. Yezîd b. Sâlih", 5, null, "Şam"),
+  N("halidbyezidbabdirra2", "خالد بن يزيد بن عبد الرحمن", "Hâlid b. Yezîd b. Abdirrahman", 5, 185, "Şam"),
+  N("halidbyezidbomer2", "خالد بن يزيد بن عمر", "Hâlid b. Yezîd b. Ömer", 5, null, "Kûfe"),
+  N("elhasibbnasihelharisie", "الخصيب بن ناصح الحارثي البصري", "el-Hasîb b. Nâsih el-Hârisî el-Basrî", 5, null, "Mısır"),
+  N("husayfbabdirrahmanelce", "خصيف بن عبد الرحمن الجزري أبو عون", "Husayf b. Abdirrahman el-Cezerî Ebû Avn", 5, null, "Humus"),
+  N("hattabbsalihbdinarelen", "خطاب بن صالح بن دينار الأنصاري الظفري", "Hattâb b. Sâlih b. Dînâr el-Ensârî", 5, null, "Medine"),
+  N("hattabbosmanettai", "خطاب بن عثمان الطائي الفوزي", "Hattâb b. Osmân et-Tâî", 5, null, "Humus"),
+  N("hattabbkasim", "خطاب بن القاسم الحراني", "Hattâb b. Kâsım", 5, null, "Humus"),
+  N("hiyarbselemeebuziyad", "خيار بن سلمة أبو زياد", "Hıyâr b. Seleme Ebû Ziyâd", 3, null, "Şam"),
+  N("darim", "دارم الكوفي", "Dârim", 5, null, "Kûfe"),
+  N("davudbelhusayn", "داود بن الحصين الأموي", "Dâvûd b. el-Husayn", 5, 135, "Medine"),
+  N("davudbhalidbdinarel2", "داود بن خالد بن دينار المدني", "Dâvûd b. Hâlid b. Dînâr el-Medenî", 5, null, "Medine"),
+  N("davudbebidavudelens2", "داود بن أبي داود الأنصاري المدني", "Dâvûd b. Ebî Dâvûd el-Ensârî el-Medenî", 3, null, "Medine"),
+  N("davudbebisalihelley2", "داود بن أبي صالح الليثي المدني", "Dâvûd b. Ebî Sâlih el-Leysî el-Medenî", 5, null, "Medine"),
+  N("davudbamirbsad2", "داود بن عامر بن سعد", "Dâvûd b. Âmir b. Sa‘d", 5, null, "Medine"),
+  N("davudbabdullahbebielki", "داود بن عبد الله بن أبي الكرام محمد أبو سليمان المدني", "Dâvûd b. Abdullah b. Ebî el-Kirâm Muhammed Ebû Süleymân el-Medenî", 5, null, "Medine"),
+  N("davudbamrelezdieddi2", "داود بن عمرو الأزدي الدمشقي", "Dâvûd b. Amr el-Ezdî ed-Dımaşkī", 5, null, "Şam"),
+  N("davudbkaysessanani2", "داود بن قيس الصنعاني", "Dâvûd b. Kays es-San‘ânî", 5, null, "Yemen"),
+  N("davudbkesir2", "داود بن كثير", "Dâvûd b. Kesîr", 5, null, "Humus"),
+  N("durustbziyadelanberi", "درست بن زياد العنبري", "Dürüst b. Ziyâd el-Anberî", 5, null, "Basra"),
+  N("difabdagfel", "دفاع بن دغفل القيسي", "Difâ‘ b. Dagfel", 5, null, "Basra"),
+  N("delhembsalihelkindi", "دلهم بن صالح الكندي الكوفي", "Delhem b. Sâlih el-Kindî", 5, null, "Kûfe"),
+  N("duveydbnafi", "دويد بن نافع الأموي", "Düveyd b. Nâfi‘", 5, null, "Şam"),
+  N("deylembgazvanelabdiebu", "ديلم بن غزوان العبدي أبو غالب البراء", "Deylem b. Gazvân el-Abdî Ebû Gālib Berâ", 5, null, "Basra"),
+  N("dinarebuabdullah2", "دينار أبو عبد الله", "Dînâr Ebû Abdullah", 3, null, "Medine"),
+  N("dinar", "دينار الكوفي", "Dînâr", 3, null, "Kûfe"),
+  N("zuadebumunzir", "ذؤاد أبو المنذر الكوفي", "Züâd Ebû Münzir", 5, null, "Kûfe"),
+  N("rasidbdavudessanani2", "راشد بن داود الصنعاني", "Râşid b. Dâvûd es-San‘ânî", 5, null, "Yemen"),
+  N("rafibishakelmedeni2", "رافع بن إسحاق المدني", "Râfi‘ b. İshak el-Medenî", 3, null, "Medine"),
+  N("rafibselemebziyad2", "رافع بن سلمة بن زياد", "Râfi‘ b. Seleme b. Ziyâd", 5, null, "Basra"),
+  N("rafibselemeelbeceli2", "رافع بن سلمة البجلي الكوفي", "Râfi‘ b. Seleme el-Becelî", 3, null, "Kûfe"),
+  N("rebahbebimarufbebisare", "رباح بن أبي معروف بن أبي سارة المكي", "Rebâh b. Ebî Ma‘rûf b. Ebî Sâre el-Mekkî", 5, null, "Mekke"),
+  N("rebah", "رباح الكوفي", "Rebâh", 3, null, "Kûfe"),
+  N("rabibhabibbelmellah", "الربيع بن حبيب بن الملاح الكوفي العبسي", "Rabî‘ b. Habîb b. el-Mellâh", 5, null, "Kûfe"),
+  N("rebiabseybanebuelhavra", "ربيعة بن شيبان السعدي أبو الحوراء", "Rebîa b. Şeybân Ebû el-Havrâ", 3, null, "Basra"),
+  N("rebiabebiabdirrahmanet", "ربيعة بن أبي عبد الرحمن التيمي", "Rebîa b. Ebî Abdirrahman et-Teymî", 5, null, "Medine"),
+  N("rebiabnacidelezdi", "ربيعة بن ناجد الأزدي الكوفي", "Rebîa b. Nâcid el-Ezdî", 2, null, "Kûfe"),
+  N("rizambsaideddabbi", "رزام بن سعيد الضبي الكوفي", "Rizâm b. Saîd ed-Dabbî", 5, null, "Kûfe"),
+  N("risdinbsadbmuflih", "رشدين بن سعد بن مفلح المهري", "Rişdîn b. Sa‘d b. Müflih", 5, null, "Mısır"),
+  N("risdinbkureybbebimusli", "رشدين بن كريب بن أبي مسلم الهاشمي", "Rişdîn b. Küreyb b. Ebî Müslim", 5, null, "Medine"),
+  N("rifdebkudaa", "رفدة بن قضاعة الغساني", "Rifde b. Kudâa", 5, null, "Şam"),
+  N("ruhbcenac", "روح بن جناج الأموي", "Ruh b. Cenâc", 5, null, "Şam"),
+  N("ruhbanbesebsaid", "روح بن عنبسة بن سعيد الأموي", "Ruh b. Anbese b. Saîd", 5, null, "Basra"),
+  N("zaidebebierrakkad", "زائدة بن أبي الرقاد", "Zâide b. Ebî er-Rakkād", 5, null, "Basra"),
+  N("ezzubeyrbelhirrit", "الزبير بن الخريت", "ez-Zübeyr b. el-Hırrît", 5, null, "Basra"),
+  N("ezzubeyrbhurayk", "الزبير بن خريق", "ez-Zübeyr b. Hurayk", 5, null, "Humus"),
+  N("ezzubeyrbsaidbsuley2", "الزبير بن سعيد بن سليمان", "ez-Zübeyr b. Saîd b. Süleymân", 5, null, "Medine"),
+  N("ezzubeyrbosmanbabdu2", "الزبير بن عثمان بن عبد الله", "ez-Zübeyr b. Osmân b. Abdullah", 5, null, "Medine"),
+  N("ezzubeyrbmusabminaelme", "الزبير بن موسى بن مينا المكي", "ez-Zübeyr b. Mûsâ b. Mînâ el-Mekkî", 4, null, "Mekke"),
+  N("ezzubeyrbelvelidess2", "الزبير بن الوليد الشامي", "ez-Zübeyr b. el-Velîd eş-Şâmî", 4, null, "Şam"),
+  N("zirbibabdullahelezdi", "زربي بن عبد الله الأزدي", "Zirbî b. Abdullah el-Ezdî", 5, null, "Basra"),
+  N("zurababdirrahmanbcurhu", "زرعة بن عبد الرحمن بن جرهد الأسلمي المدني", "Zür‘a b. Abdirrahman b. Cürhüd el-Medenî", 3, null, "Medine"),
+  N("zuferbvesime", "زفر بن وثيمة", "Züfer b. Vesîme", 3, null, "Şam"),
+  N("zekeriyyabishakelmekki", "زكريا بن إسحاق المكي", "Zekeriyyâ b. İshak el-Mekkî", 5, null, "Mekke"),
+  N("zekeriyyabsuleymebu2", "زكريا بن سليم أبو عمران البصري", "Zekeriyyâ b. Süleym Ebû İmrân el-Basrî", 5, null, "Basra"),
+  N("zekeriyyabmanzurbsaleb", "زكريا بن منظور بن ثعلبة", "Zekeriyyâ b. Manzûr b. Sa‘lebe", 5, null, "Medine"),
+  N("zekeriyyabebizekeri2", "زكريا بن أبي زكريا يحيى بن صالح", "Zekeriyyâ b. Ebî Zekeriyyâ Yahyâ b. Sâlih", 5, null, "Horasan"),
+  N("zumeylbabbaselesedi", "زميل بن عباس الأسدي", "Zümeyl b. Abbâs el-Esedî", 5, null, "Medine"),
+  N("zehdembmudarribelcermi", "زهدم بن مضرب الجرمي", "Zehdem b. Mudarrib el-Cermî", 3, null, "Basra"),
+  N("zuhrebmabedbabdullaheb", "زهرة بن معبد بن عبد الله أبو عقيل المدني", "Zühre b. Ma‘bed b. Abdullah Ebû Ukayl el-Medenî", 4, null, "Mısır"),
+  N("ziyadbebiziyad2", "زياد بن أبي زياد", "Ziyâd b. Ebî Ziyâd", 5, null, "Vâsıt"),
+  N("ziyadbabdirrahmanebuel", "زياد بن عبد الرحمن القيسي أبو الخصيب البصري", "Ziyâd b. Abdirrahman Ebû el-Hasîb el-Basrî", 4, null, "Basra"),
+  N("ziyadbubeydbnimran", "زياد بن عبيد بن نمران", "Ziyâd b. Ubeyd b. Nimrân", 3, null, "Mısır"),
+  N("ziyadbkayselmedeni2", "زياد بن قيس المدني", "Ziyâd b. Kays el-Medenî", 3, null, "Medine"),
+  N("ziyadbkuleybebumaser", "زياد بن كليب الحنظلي أبو معشر الكوفي", "Ziyâd b. Küleyb Ebû Ma‘şer", 5, null, "Kûfe"),
+  N("ziyadbmihrak", "زياد بن مخراق", "Ziyâd b. Mihrâk", 5, null, "Basra"),
+  N("ziyadbmuslim2", "زياد بن مسلم", "Ziyâd b. Müslim", 5, null, "Basra"),
+  N("ziyadebuelebredelmeden", "زياد أبو الأبرد المدني", "Ziyâd Ebû el-Ebred el-Medenî", 3, null, "Medine"),
+  N("zeydbahzem", "زيد بن أخزم", "Zeyd b. Ahzem", 5, null, "Basra"),
+  N("zeydbcubeyra", "زيد بن جبيرة", "Zeyd b. Cübeyra", 5, null, "Medine"),
+  N("zeydbhasanbali2", "زيد بن الحسن بن علي", "Zeyd b. Hasan b. Ali", 4, 120, "Medine"),
+  N("zeyd", "زيد بن الحواري أبو الحواري", "Zeyd", 5, null, "Basra"),
+  N("zeydbalibhuseyinebu2", "زيد بن علي بن الحسين أبو الحسين المدني", "Zeyd b. Ali b. Hüseyin Ebû Hüseyin el-Medenî", 4, 122, "Medine"),
+  N("zeydbyesi", "زيد بن يثيع", "Zeyd b. Yesî‘", 2, null, "Kûfe"),
+  N("salimbebiumeyyeebunadr", "سالم بن أبي أمية أبو النضر", "Sâlim b. Ebî Ümeyye Ebû Nadr", 5, 129, "Medine"),
+  N("salimbdinar2", "سالم بن دينار", "Sâlim b. Dînâr", 5, null, "Basra"),
+  N("salimbserc", "سالم بن سرج", "Sâlim b. Serc", 3, null, "Medine"),
+  N("salimbsevval", "سالم بن شوال", "Sâlim b. Şevvâl", 3, null, "Mekke"),
+  N("salimbabdullahbomerebu", "سالم بن عبد الله بن عمر أبو عمر", "Sâlim b. Abdullah b. Ömer Ebû Ömer", 3, null, "Medine"),
+  N("salimbabdullah2", "سالم بن عبد الله", "Sâlim b. Abdullah", 5, null, "Basra"),
+  N("salimbutbebuveym", "سالم بن عتبة بن عويم", "Sâlim b. Utbe b. Uveym", 5, null, "Medine"),
+  N("salimebuabdullah2", "سالم أبو عبد الله الكوفي", "Sâlim Ebû Abdullah", 2, null, "Kûfe"),
+  N("salimelmekki2", "سالم المكي", "Sâlim el-Mekkî", 4, null, "Mekke"),
+  N("sibabnadrebumuzahimess", "سباع بن النضر أبو مزاحم السمرقندي", "Sibâ‘ b. Nadr Ebû Müzâhim es-Semerkandî", 6, null, "Mâverâünnehir"),
+  N("subeybhalid", "سبيع بن خالد", "Sübey‘ b. Hâlid", 2, null, "Basra"),
+  N("sadbibrahimbsadebui2", "سعد بن إبراهيم بن سعد أبو إسحاق البغدادي", "Sa‘d b. İbrâhim b. Sa‘d Ebû İshak", 5, 201, "Bağdat"),
+  N("sadbishakbkab2", "سعد بن إسحاق بن كعب", "Sa‘d b. İshak b. Kâ‘b", 5, null, "Medine"),
+  N("sadbabdullah2", "سعد بن عبد الله", "Sa‘d b. Abdullah", 4, null, "Şam"),
+  N("sadbabdulhamidbcafe2", "سعد بن عبد الحميد بن جعفر أبو معاذ المدني", "Sa‘d b. Abdülhamîd b. Ca‘fer Ebû Muâz el-Medenî", 5, 219, "Bağdat"),
+  N("sadbosmanerrazi2", "سعد بن عثمان الرازي", "Sa‘d b. Osmân er-Râzî", 5, null, "Cibâl"),
+  N("sadbhisambamirelensari", "سعد بن هشام بن عامر الأنصاري المدني", "Sa‘d b. Hişâm b. Âmir el-Ensârî el-Medenî", 3, null, "Medine"),
+  N("saidbelharisbebisai2", "سعيد بن الحارث بن أبي سعيد", "Saîd b. el-Hâris b. Ebî Saîd", 3, null, "Medine"),
+  N("saidbebihasanelbasr2", "سعيد بن أبي الحسن البصري", "Saîd b. Ebî Hasan el-Basrî", 3, 100, "Basra"),
+  N("saidbhafsbamr2", "سعيد بن حفص بن عمرو", "Saîd b. Hafs b. Amr", 5, 237, "Humus"),
+  N("saidbhakembmuhammed2", "سعيد بن الحكم بن محمد", "Saîd b. Hakem b. Muhammed", 5, 224, "Mısır"),
+  N("saidbhakimbmuaviye2", "سعيد بن حكيم بن معاوية", "Saîd b. Hakîm b. Muâviye", 5, null, "Basra"),
+  N("saidbelhuveyris", "سعيد بن الحويرث", "Saîd b. el-Huveyris", 4, null, "Mekke"),
+  N("saidbhayyanetteymi2", "سعيد بن حيان التيمي الكوفي", "Saîd b. Hayyân et-Teymî", 3, null, "Kûfe"),
+  N("saidbhalidbabdullah2", "سعيد بن خالد بن عبد الله", "Saîd b. Hâlid b. Abdullah", 3, null, "Medine"),
+  N("saidbhalidbamr2", "سعيد بن خالد بن عمرو", "Saîd b. Hâlid b. Amr", 5, null, "Şam"),
+  N("saidbdavudbebizenber", "سعيد بن داود بن أبي زنبر", "Saîd b. Dâvûd b. Ebî Zenber", 5, null, "Medine"),
+  N("saidbzuveybelmervezi", "سعيد بن ذؤيب المروزي", "Saîd b. Züveyb el-Mervezî", 5, null, "Horasan"),
+  N("saidbzirbi", "سعيد بن زربي", "Saîd b. Zirbî", 5, null, "Basra"),
+  N("saidbzekeriyya2", "سعيد بن زكريا", "Saîd b. Zekeriyyâ", 5, 207, "Mısır"),
+  N("saidbziyadelensarie2", "سعيد بن زياد الأنصاري المدني", "Saîd b. Ziyâd el-Ensârî el-Medenî", 5, null, "Medine"),
+  N("saidbebisaidelensar2", "سعيد بن أبي سعيد الأنصاري المدني", "Saîd b. Ebî Saîd el-Ensârî el-Medenî", 3, null, "Medine"),
+  N("saidbsuleymaneddabbieb", "سعيد بن سليمان الضبي أبو عثمان الواسطي", "Saîd b. Süleymân ed-Dabbî Ebû Osmân el-Vâsıtî", 5, 225, "Bağdat"),
+  N("saidbabdirrahmanbab2", "سعيد بن عبد الرحمن بن عبد الملك البغدادي أبو عثمان", "Saîd b. Abdirrahman b. Abdülmelik Ebû Osmân", 6, null, "Bağdat"),
+  N("saidbabdirrahmanbebiel", "سعيد بن عبد الرحمن بن أبي العمياء الكناني المصري", "Saîd b. Abdirrahman b. Ebî el-Amyâ el-Kinânî el-Mısrî", 5, null, "Mısır"),
+  N("saidbabdirrahmanbmukem", "سعيد بن عبد الرحمن بن مكمل", "Saîd b. Abdirrahman b. Mükemmil", 5, null, "Medine"),
+  N("saidbabdirrahmanbye2", "سعيد بن عبد الرحمن بن يزيد", "Saîd b. Abdirrahman b. Yezîd", 4, null, "Medine"),
+  N("saidbubeydbessebbakess", "سعيد بن عبيد بن السباق الثقفي أبو السباق المدني", "Saîd b. Ubeyd b. es-Sebbâk es-Sekafî Ebû es-Sebbâk el-Medenî", 4, null, "Medine"),
+  N("saidbamrbesvaelhemdani", "سعيد بن عمرو بن أشوع الهمداني الكوفي", "Saîd b. Amr b. Eşva‘ el-Hemdânî", 5, null, "Kûfe"),
+  N("saidbamrbsaidebuosm2", "سعيد بن عمرو بن سعيد أبو عثمان الحمصي", "Saîd b. Amr b. Saîd Ebû Osmân", 5, null, "Humus"),
+  N("saidbamrelhadramieb2", "سعيد بن عمرو الحضرمي أبو عثمان الحمصي", "Saîd b. Amr el-Hadramî Ebû Osmân", 5, null, "Humus"),
+  N("saidbkesirbubeydetteym", "سعيد بن كثير بن عبيد التيمي أبو العنبس", "Saîd b. Kesîr b. Ubeyd et-Teymî Ebû el-Anbes", 5, null, "Kûfe"),
+  N("saidbmervanbaliebuo2", "سعيد بن مروان بن علي أبو عثمان البغدادي", "Saîd b. Mervân b. Ali Ebû Osmân", 5, 252, "Horasan"),
+  N("saidbmuslimbbanik", "سعيد بن مسلم بن بانك", "Saîd b. Müslim b. Bânik", 5, null, "Medine"),
+  N("saidbnadrebuosman2", "سعيد بن النضر البغدادي أبو عثمان", "Saîd b. Nadr Ebû Osmân", 5, 234, "Bağdat"),
+  N("saidbebihilalelleysi", "سعيد بن أبي هلال الليثي", "Saîd b. Ebî Hilâl el-Leysî", 5, null, "Mısır"),
+  N("saidbyahyabelezherebuo", "سعيد بن يحيى بن الأزهر أبو عثمان", "Saîd b. Yahyâ b. el-Ezher Ebû Osmân", 5, null, "Vâsıt"),
+  N("saidbyahyabsaidebuo2", "سعيد بن يحيى بن سعيد أبو عثمان البغدادي", "Saîd b. Yahyâ b. Saîd Ebû Osmân", 5, 249, "Bağdat"),
+  N("saidbyezidelbeceli2", "سعيد بن يزيد البجلي", "Saîd b. Yezîd el-Becelî", 5, null, "Kûfe"),
+  N("saidbyezidelbasri2", "سعيد بن يزيد البصري", "Saîd b. Yezîd el-Basrî", 5, null, "Basra"),
+  N("saidbyesarebuelhubab", "سعيد بن يسار أبو الحباب", "Saîd b. Yesâr Ebû el-Hubâb", 3, null, "Medine"),
+  N("esseferbnuseyr", "السفر بن نسير", "es-Sefer b. Nüseyr", 5, null, "Humus"),
+  N("sufyanbhusaynbhasanebu", "سفيان بن حسين بن حسن أبو محمد", "Süfyân b. Husayn b. Hasan Ebû Muhammed", 5, null, "Vâsıt"),
+  N("sufyanbhamzabsufyan2", "سفيان بن حمزة بن سفيان أبو طلحة المدني", "Süfyân b. Hamza b. Süfyân Ebû Talha el-Medenî", 5, null, "Medine"),
+  N("sufyanbdinarelmekki2", "سفيان بن دينار المكي", "Süfyân b. Dînâr el-Mekkî", 3, null, "Mekke"),
+  N("sufyanbabdirrahman2", "سفيان بن عبد الرحمن", "Süfyân b. Abdirrahman", 5, null, "Mekke"),
+  N("sufyanbmunkizbkayselmi", "سفيان بن منقذ بن قيس المصري", "Süfyân b. Münkız b. Kays el-Mısrî", 4, null, "Mısır"),
+  N("sufyanbmusaelbasri2", "سفيان بن موسى البصري", "Süfyân b. Mûsâ el-Basrî", 5, null, "Basra"),
+  N("sukeynbabdulazizbkayse", "سكين بن عبد العزيز بن قيس العبدي العطار البصري", "Sükeyn b. Abdülazîz b. Kays el-Abdî el-Attâr el-Basrî", 5, null, "Basra"),
+  N("selmbebiezzeyyalaclane", "سلم بن أبي الذيال عجلان البصري", "Selm b. Ebî ez-Zeyyâl Aclân el-Basrî", 5, null, "Basra"),
+  N("selmbzirrir", "سلم بن زرير", "Selm b. Zirrîr", 5, null, "Basra"),
+  N("selmanibsumeyr", "سلمان بن سمير", "Selmân-ı b. Sümeyr", 3, null, "Şam"),
+  N("selemebrecaettemimiebu", "سلمة بن رجاء التميمي أبو عبد الرحمن الكوفي", "Seleme b. Recâ et-Temîmî Ebû Abdirrahman", 5, null, "Kûfe"),
+  N("selemebsuleymanelme2", "سلمة بن سليمان المروزي أبو سليمان", "Seleme b. Süleymân el-Mervezî Ebû Süleymân", 5, 203, "Horasan"),
+  N("selemebabdullah2", "سلمة بن عبد الله", "Seleme b. Abdullah", 4, null, "Medine"),
+  N("selemebelayyar", "سلمة بن العيار", "Seleme b. el-Ayyâr", 5, null, "Şam"),
+  N("selemebmuhammedbamm2", "سلمة بن محمد بن عمار", "Seleme b. Muhammed b. Ammâr", 5, null, "Medine"),
+  N("selemebnubeyt", "سلمة بن نبيط", "Seleme b. Nübeyt", 5, null, "Kûfe"),
+  N("selemebvehram", "سلمة بن وهرام", "Seleme b. Vehrâm", 5, null, "Yemen"),
+  N("selemeelleysi2", "سلمة الليثي", "Seleme el-Leysî", 3, null, "Medine"),
+  N("selemeelmekki2", "سلمة المكي", "Seleme el-Mekkî", 4, null, "Mekke"),
+  N("selitbeyyubbhakemelens", "سليط بن أيوب بن الحكم الأنصاري المدني", "Selît b. Eyyûb b. Hakem el-Ensârî el-Medenî", 5, null, "Medine"),
+  N("suleymelmekkiebuube2", "سليم المكي أبو عبيد الله", "Süleym el-Mekkî Ebû Ubeydullah", 5, null, "Mekke"),
+  N("suleymbhayyan", "سليم بن حيان", "Süleym b. Hayyân", 5, null, "Basra"),
+  N("suleymanbeyyubbsule2", "سليمان بن أيوب بن سليمان أبو أيوب الدمشقي", "Süleymân b. Eyyûb b. Süleymân Ebû Eyyûb ed-Dımaşkī", 6, 289, "Şam"),
+  N("suleymanbeyyubbsule3", "سليمان بن أيوب بن سليمان أبو أيوب", "Süleymân b. Eyyûb b. Süleymân Ebû Eyyûb", 5, 235, "Basra"),
+  N("suleymanbbabeyhelmekki", "سليمان بن بابيه المكي", "Süleymân b. Bâbeyh el-Mekkî", 4, null, "Mekke"),
+  N("suleymanbrasidelmis2", "سليمان بن راشد المصري", "Süleymân b. Râşid el-Mısrî", 5, null, "Mısır"),
+  N("suleymanbziyadelhad2", "سليمان بن زياد الحضرمي المصري", "Süleymân b. Ziyâd el-Hadramî el-Mısrî", 5, null, "Mısır"),
+  N("suleymanbsufyanetteymi", "سليمان بن سفيان التيمي", "Süleymân b. Süfyân et-Teymî", 5, null, "Medine"),
+  N("suleymanbsalihelley2", "سليمان بن صالح الليثي", "Süleymân b. Sâlih el-Leysî", 5, null, "Horasan"),
+  N("suleymanbtarhanetteymi", "سليمان بن طرخان التيمي أبو المعتمر البصري", "Süleymân b. Tarhân et-Teymî Ebû el-Mu‘temir el-Basrî", 4, 143, "Basra"),
+  N("suleymanbabdullahbm2", "سليمان بن عبد الله بن محمد أبو أيوب", "Süleymân b. Abdullah b. Muhammed Ebû Eyyûb", 5, 263, "Humus"),
+  N("suleymanbabdulcebbarbz", "سليمان بن عبد الجبار بن زريق", "Süleymân b. Abdülcebbâr b. Züreyk", 5, null, "Bağdat"),
+  N("suleymanbabdulhamid2", "سليمان بن عبد الحميد بن عبد العزيز الحمصي", "Süleymân b. Abdülhamîd b. Abdülazîz", 5, null, "Humus"),
+  N("suleymanbabdirrahma2", "سليمان بن عبد الرحمن بن عيسى التميمي الدمشقي أبو أيوب", "Süleymân b. Abdirrahman b. Îsâ et-Temîmî ed-Dımaşkī Ebû Eyyûb", 5, 233, "Şam"),
+  N("suleymanbabdirrahma3", "سليمان بن عبد الرحمن بن عيسى البصري", "Süleymân b. Abdirrahman b. Îsâ el-Basrî", 5, null, "Basra"),
+  N("suleymanbubeydullah2", "سليمان بن عبيد الله بن عمرو أبو أيوب البصري", "Süleymân b. Ubeydullah b. Amr Ebû Eyyûb el-Basrî", 5, null, "Basra"),
+  N("suleymanbataelmekki2", "سليمان بن عطاء المكي", "Süleymân b. Atâ el-Mekkî", 4, null, "Mekke"),
+  N("suleymanbalielezdiebuu", "سليمان بن علي الربعي الأزدي أبو عكاشة", "Süleymân b. Ali el-Ezdî Ebû Ukkâşe", 5, null, "Basra"),
+  N("suleymanbamr2", "سليمان بن عمرو", "Süleymân b. Amr", 4, null, "Mısır"),
+  N("suleymanbebimugire", "سليمان بن أبي المغيرة العبسي", "Süleymân b. Ebî Mugīre", 5, null, "Kûfe"),
+  N("suleymanbyesarelmedeni", "سليمان بن يسار الهلالي المدني", "Süleymân b. Yesâr el-Medenî", 3, null, "Medine"),
+  N("suleymanbyuseyr", "سليمان بن يسير", "Süleymân b. Yüseyr", 5, null, "Kûfe"),
+  N("sumeybkays", "سمي بن قيس اليماني", "Sümey b. Kays", 5, null, "Yemen"),
+  N("essumeydabvahibbsevvar", "السميدع بن واهب بن سوار", "es-Sümeyda‘ b. Vâhib b. Sevvâr", 5, null, "Basra"),
+  N("sumeyrbneharelabdielba", "سمير بن نهار العبدي البصري", "Sümeyr b. Nehâr el-Abdî el-Basrî", 3, null, "Basra"),
+  N("sumeytbumeyr", "سميط بن عمير", "Sümeyt b. Umeyr", 3, null, "Basra"),
+  N("sehlbzencelebebierrazi", "سهل بن زنجلة بن أبي الصغدي الرازي أبو عمرو", "Sehl b. Zencele b. Ebî er-Râzî Ebû Amr", 5, null, "Cibâl"),
+  N("sehlbsalih2", "سهل بن صالح البغدادي", "Sehl b. Sâlih", 5, null, "Bağdat"),
+  N("sehmbelmutemirelbasri", "سهم بن المعتمر البصري", "Sehm b. el-Mu‘temir el-Basrî", 3, null, "Basra"),
+  N("sehmbmincabbrasideddab", "سهم بن منجاب بن راشد الضبي الكوفي", "Sehm b. Mincâb b. Râşid ed-Dabbî", 5, null, "Kûfe"),
+  N("suheylbziraebuzira", "سهيل بن ذراع أبو ذراع الكوفي", "Süheyl b. Zirâ‘ Ebû Zirâ‘", 3, null, "Kûfe"),
+  N("sevadebebielesvedabdul", "سوادة بن أبي الأسود عبد الله", "Sevâde b. Ebî el-Esved Abdullah", 5, null, "Basra"),
+  N("sevadebhanzalaelbasri", "سوادة بن حنظلة القشيري البصري", "Sevâde b. Hanzala el-Basrî", 3, null, "Basra"),
+  N("sevadebasim", "سوادة بن عاصم العنزي", "Sevâde b. Âsım", 3, null, "Basra"),
+  N("suveydbhucayr", "سويد بن حجير", "Süveyd b. Hucayr", 4, null, "Basra"),
+  N("sellambsuleym", "سلام بن سليم الحنفي", "Sellâm b. Süleym", 5, 179, "Kûfe"),
+  N("selamebbisrbbudeyl", "سلامة بن بشر بن بديل العذري", "Selâme b. Bişr b. Büdeyl", 5, null, "Şam"),
+  N("seyyarbmanzurbseyyarel", "سيار بن منظور بن سيار الفزاري البصري", "Seyyâr b. Manzûr b. Seyyâr el-Fezârî el-Basrî", 5, null, "Basra"),
+  N("seyyar", "سيار الأموي", "Seyyâr", 3, null, "Şam"),
+  N("seydanbmudaribelbahili", "سيدان بن مضارب الباهلي البصري أبو محمد", "Seydân b. Mudârib el-Bâhilî el-Basrî Ebû Muhammed", 5, null, "Basra"),
+  N("sazbfeyyad", "شاذ بن فياض", "Şâz b. Feyyâd", 5, null, "Basra"),
+  N("sazbyahyaelvasiti", "شاذ بن يحيى الواسطي", "Şâz b. Yahyâ el-Vâsıtî", 5, null, "Vâsıt"),
+  N("sazbyahyaelhorasani", "شاذ بن يحيى الخراساني", "Şâz b. Yahyâ el-Horâsânî", 5, null, "Horasan"),
+  N("siblbabbadelmekki", "شبل بن عباد المكي", "Şibl b. Abbâd el-Mekkî", 5, null, "Mekke"),
+  N("subeylbavfelahmesiebue", "شبيل بن عوف الأحمسي أبو الطفيل الكوفي", "Şübeyl b. Avf el-Ahmesî Ebû et-Tufeyl", 2, null, "Kûfe"),
+  N("suteyrbsekl", "شتير بن شكل", "Şüteyr b. Şekl", 2, null, "Kûfe"),
+  N("seddadbebiamrbhimas", "شداد بن أبي عمرو بن حماس", "Şeddâd b. Ebî Amr b. Himâs", 5, null, "Medine"),
+  N("serahilbade", "شراحيل بن آدة", "Şerâhîl b. Âde", 2, null, "Yemen"),
+  N("surahbilbsifa", "شرحبيل بن شفعة", "Şurahbîl b. Şif‘a", 3, null, "Şam"),
+  N("surayk", "شريق الهوزني", "Şürayk", 3, null, "Humus"),
+  N("serikbabdullahbebinemi", "شريك بن عبد الله بن أبي نمر أبو عبد الله المدني", "Şerîk b. Abdullah b. Ebî Nemir Ebû Abdullah el-Medenî", 5, null, "Medine"),
+  N("serikbnemle", "شريك بن نملة الكوفي", "Şerîk b. Nemle", 3, null, "Kûfe"),
+  N("suaybbebihamza", "شعيب بن أبي حمزة الأموي", "Şuayb b. Ebî Hamza", 5, null, "Humus"),
+  N("suaybbhalidelbeceli2", "شعيب بن خالد البجلي الرازي", "Şuayb b. Hâlid el-Becelî er-Râzî", 5, null, "Cibâl"),
+  N("suaybbsuaybbishakeddim", "شعيب بن شعيب بن إسحاق الدمشقي", "Şuayb b. Şuayb b. İshak ed-Dımaşkī", 5, null, "Şam"),
+  N("suaybbsafvanbrabies2", "شعيب بن صفوان بن الربيع الثقفي أبو يحيى الكوفي", "Şuayb b. Safvân b. Rabî‘ es-Sekafî Ebû Yahyâ", 5, null, "Kûfe"),
+  N("suaybbmeymunelvasit2", "شعيب بن ميمون الواسطي", "Şuayb b. Meymûn el-Vâsıtî", 3, null, "Vâsıt"),
+  N("sifa", "شفعة المسمعي الحمصي", "Şif‘a", 4, null, "Humus"),
+  N("simrbatiyyeelesedi", "شمر بن عطية الأسدي الكاهلي", "Şimr b. Atiyye el-Esedî", 5, null, "Kûfe"),
+  N("suveysbcuyas", "شويس بن جياش", "Şüveys b. Cüyâş", 3, null, "Basra"),
+  N("suyeymbbeytan", "شييم بن بيتان", "Şüyeym b. Beytân", 3, null, "Mısır"),
+  N("salihbibrahimbabdir2", "صالح بن إبراهيم بن عبد الرحمن أبو عبد الرحمن المدني", "Sâlih b. İbrâhim b. Abdirrahman Ebû Abdirrahman el-Medenî", 5, null, "Medine"),
+  N("salihbbesirbvadi", "صالح بن بشير بن وادع المري", "Sâlih b. Beşîr b. Vâdi‘", 5, null, "Basra"),
+  N("salihbebihassanelme2", "صالح بن أبي حسان المدني", "Sâlih b. Ebî Hassân el-Medenî", 5, null, "Medine"),
+  N("salihbhayyan2", "صالح بن حيان القرشي الكوفي", "Sâlih b. Hayyân", 5, null, "Kûfe"),
+  N("salihbhavvatbcubeyr", "صالح بن خوات بن جبير", "Sâlih b. Havvât b. Cübeyr", 4, null, "Medine"),
+  N("salihbdirhemelbahilieb", "صالح بن درهم الباهلي أبو الأزهر البصري", "Sâlih b. Dirhem el-Bâhilî Ebû el-Ezher el-Basrî", 4, null, "Basra"),
+  N("salihbrebiabelhudeyret", "صالح بن ربيعة بن الهدير التيمي المدني", "Sâlih b. Rebîa b. el-Hüdeyr et-Teymî el-Medenî", 4, null, "Medine"),
+  N("salihbebisalih2", "صالح بن أبي صالح الكوفي", "Sâlih b. Ebî Sâlih", 4, null, "Kûfe"),
+  N("salihbubeyd2", "صالح بن عبيد", "Sâlih b. Ubeyd", 5, null, "Mısır"),
+  N("salihbomerelvasiti2", "صالح بن عمر الواسطي", "Sâlih b. Ömer el-Vâsıtî", 5, null, "Vâsıt"),
+  N("salihbkesirelmedeni2", "صالح بن كثير المدني", "Sâlih b. Kesîr el-Medenî", 5, null, "Medine"),
+  N("salihbmusabishak2", "صالح بن موسى بن إسحاق", "Sâlih b. Mûsâ b. İshak", 5, null, "Kûfe"),
+  N("essabbhakimbserik", "الصعب بن حكيم بن شريك الكوفي", "es-Sa‘b b. Hakîm b. Şerîk", 5, null, "Kûfe"),
+  N("sasaabsuhan", "صعصعة بن صوحان", "Sa‘sa‘a b. Sûhân", 2, null, "Kûfe"),
+  N("essakbhazn", "الصعق بن حزن", "es-Sa‘k b. Hazn", 5, null, "Basra"),
+  N("safvanbsuleymelmede2", "صفوان بن سليم المدني أبو عبد الله", "Safvân b. Süleym el-Medenî Ebû Abdullah", 4, 132, "Medine"),
+  N("safvanbsalihbsafvan2", "صفوان بن صالح بن صفوان الثقفي", "Safvân b. Sâlih b. Safvân es-Sekafî", 5, null, "Şam"),
+  N("safvanbamrbherimebuamr", "صفوان بن عمرو بن هرم السكسكي أبو عمرو الحمصي", "Safvân b. Amr b. Herim Ebû Amr", 5, null, "Humus"),
+  N("safvanbamr2", "صفوان بن عمرو الحمصي", "Safvân b. Amr", 5, null, "Humus"),
+  N("safvanbebiyezid2", "صفوان بن أبي يزيد", "Safvân b. Ebî Yezîd", 4, null, "Medine"),
+  N("essakabbzuheyrbabdulla", "الصقعب بن زهير بن عبد الله", "es-Sak‘ab b. Züheyr b. Abdullah", 5, null, "Kûfe"),
+  N("sayfibribi", "صيفي بن ربعي", "Sayfî b. Rib‘î", 5, null, "Kûfe"),
+  N("sayfibziyadelensari", "صيفي بن زياد الأنصاري", "Sayfî b. Ziyâd el-Ensârî", 4, null, "Medine"),
+  N("dubarababdullahbmalik", "ضبارة بن عبد الله بن مالك", "Dubâra b. Abdullah b. Mâlik", 5, null, "Humus"),
+  N("eddahhakbhamra", "الضحاك بن حمرة", "ed-Dahhâk b. Hamra", 5, null, "Vâsıt"),
+  N("eddahhakbnibras", "الضحاك بن نبراس", "ed-Dahhâk b. Nibrâs", 5, null, "Basra"),
+  N("eddahhak", "الضحاك المعافري", "ed-Dahhâk", 5, null, "Şam"),
+  N("damrabsaidbebihanne", "ضمرة بن سعيد بن أبي حنة", "Damra b. Saîd b. Ebî Hanne", 4, null, "Medine"),
+  N("damdambzurabsevb", "ضمضم بن زرعة بن ثوب", "Damdam b. Zür‘a b. Sevb", 5, null, "Humus"),
+  N("damdambamrebuelesvedel", "ضمضم بن عمرو الحنفي أبو الأسود البصري", "Damdam b. Amr Ebû el-Esved el-Basrî", 5, null, "Basra"),
+  N("damdamebuelmusenna", "ضمضم أبو المثنى الأملوكي الحمصي", "Damdam Ebû el-Müsennâ", 4, null, "Humus"),
+  N("talibbhucayr", "طالب بن حجير", "Tâlib b. Hucayr", 5, null, "Basra"),
+  N("tarifbmucalidelhuceyie", "طريف بن مجالد الهجيمي أبو تميمة", "Tarîf b. Mücâlid el-Hüceyî Ebû Temîme", 3, null, "Basra"),
+  N("tumebamr", "طعمة بن عمرو الجعفري الكوفي", "Tu‘me b. Amr", 5, null, "Kûfe"),
+  N("tumebgaylanelcufi", "طعمة بن غيلان الجعفي الكوفي", "Tu‘me b. Gaylân el-Cu‘fî", 5, null, "Kûfe"),
+  N("talhababdullahbabdi2", "طلحة بن عبد الله بن عبد الرحمن", "Talha b. Abdullah b. Abdirrahman", 3, null, "Medine"),
+  N("talhababdullahbosma2", "طلحة بن عبد الله بن عثمان", "Talha b. Abdullah b. Osmân", 3, null, "Medine"),
+  N("talhabamrbosmanelha2", "طلحة بن عمرو بن عثمان الحضرمي المكي", "Talha b. Amr b. Osmân el-Hadramî el-Mekkî", 5, 152, "Mekke"),
+  N("talhabebikinan", "طلحة بن أبي قنان", "Talha b. Ebî Kınân", 3, null, "Şam"),
+  N("talhabnafielvasitie2", "طلحة بن نافع الواسطي أبو سفيان", "Talha b. Nâfi‘ el-Vâsıtî Ebû Süfyân", 4, null, "Vâsıt"),
+  N("talhabyahyabtalha2", "طلحة بن يحيى بن طلحة", "Talha b. Yahyâ b. Talha", 5, 148, "Kûfe"),
+  N("talhabyahyabnuman2", "طلحة بن يحيى بن النعمان", "Talha b. Yahyâ b. Nu‘mân", 5, null, "Bağdat"),
+  N("tuleykbkays", "طليق بن قيس الحنفي الكوفي", "Tuleyk b. Kays", 3, null, "Kûfe"),
+  N("tuleykbmuhammedbesseke", "طليق بن محمد بن السكن أبو سهل البزاز", "Tuleyk b. Muhammed b. es-Seken Ebû Sehl el-Bezzâz", 5, null, "Vâsıt"),
+  N("tavdbabdulmelikelbasri", "طود بن عبد الملك القيسي البصري", "Tavd b. Abdülmelik el-Basrî", 5, null, "Basra"),
+  N("asimbhumeyd2", "عاصم بن حميد الكوفي", "Âsım b. Humeyd", 5, null, "Kûfe"),
+  N("asimbubeydullahbasi2", "عاصم بن عبيد الله بن عاصم", "Âsım b. Ubeydullah b. Âsım", 4, null, "Medine"),
+  N("asimbomerbhafsebuom2", "عاصم بن عمر بن حفص أبو عمر المدني", "Âsım b. Ömer b. Hafs Ebû Ömer el-Medenî", 5, null, "Medine"),
+  N("asimbamr2", "عاصم بن عمرو", "Âsım b. Amr", 3, null, "Kûfe"),
+  N("asimbmuhammedbzeyd2", "عاصم بن محمد بن زيد", "Âsım b. Muhammed b. Zeyd", 5, null, "Medine"),
+  N("amirbcuseyb", "عامر بن جشيب", "Âmir b. Cüşeyb", 5, null, "Humus"),
+  N("amirbessimt", "عامر بن السمط", "Âmir b. es-Simt", 5, null, "Kûfe"),
+  N("amirbsalihbabdullah2", "عامر بن صالح بن عبد الله أبو الحارث المدني", "Âmir b. Sâlih b. Abdullah Ebû el-Hâris el-Medenî", 5, null, "Medine"),
+  N("amirbabdullahbezzub2", "عامر بن عبد الله بن الزبير أبو الحارث المدني", "Âmir b. Abdullah b. ez-Zübeyr Ebû el-Hâris el-Medenî", 4, 121, "Medine"),
+  N("amirbabdullahbluhay", "عامر بن عبد الله بن لحي", "Âmir b. Abdullah b. Lühay", 5, null, "Humus"),
+  N("aisbenes", "عائش بن أنس البكري الكوفي", "Âiş b. Enes", 3, null, "Kûfe"),
+  N("abaebkuleybelleysiebug", "عباءة بن كليب الليثي أبو غسان الكوفي", "Abâe b. Küleyb el-Leysî Ebû Gassân", 5, null, "Kûfe"),
+  N("abbadbabbadbhabibeb2", "عباد بن عباد بن حبيب أبو معاوية البصري", "Abbâd b. Abbâd b. Habîb Ebû Muâviye el-Basrî", 5, null, "Basra"),
+  N("abbadbabdullahelese2", "عباد بن عبد الله الأسدي الكوفي", "Abbâd b. Abdullah el-Esedî", 3, null, "Kûfe"),
+  N("abbadbebialielbasri2", "عباد بن أبي علي البصري", "Abbâd b. Ebî Ali el-Basrî", 4, null, "Basra"),
+  N("abbadbkesiressekafi2", "عباد بن كثير الثقفي البصري", "Abbâd b. Kesîr es-Sekafî el-Basrî", 5, null, "Basra"),
+  N("abbadbmusaebuukbeel2", "عباد بن موسى القرشي أبو عقبة البصري", "Abbâd b. Mûsâ Ebû Ukbe el-Basrî", 5, null, "Bağdat"),
+  N("abbadbebiyezid2", "عباد بن أبي يزيد", "Abbâd b. Ebî Yezîd", 3, null, "Kûfe"),
+  N("abbadbyusufelkindie2", "عباد بن يوسف الكندي أبو عثمان الحمصي", "Abbâd b. Yûsuf el-Kindî Ebû Osmân", 5, 206, "Humus"),
+  N("abbasbhasan2", "عباس بن الحسن", "Abbâs b. Hasan", 5, 258, "Bağdat"),
+  N("abbasbzurayh", "عباس بن ذريح", "Abbâs b. Zürayh", 5, null, "Kûfe"),
+  N("abbasbabdullahbebii2", "عباس بن عبد الله بن أبي عيسى الواسطي", "Abbâs b. Abdullah b. Ebî Îsâ el-Vâsıtî", 5, null, "Bağdat"),
+  N("abbasbfazlelbasri2", "عباس بن الفضل البصري", "Abbâs b. Fazl el-Basrî", 5, null, "Şam"),
+  N("abayebrifaabrafieburif", "عباية بن رفاعة بن رافع أبو رفاعة المدني", "Abâye b. Rifâa b. Râfi‘ Ebû Rifâa el-Medenî", 3, null, "Medine"),
+  N("abdullahbibrahimbomere", "عبد الله بن إبراهيم بن عمر أبو يزيد", "Abdullah b. İbrâhim b. Ömer Ebû Yezîd", 5, null, "Yemen"),
+  N("abdullahbeleclahelkind", "عبد الله بن الأجلح الكندي أبو محمد الكوفي", "Abdullah b. el-Eclah el-Kindî Ebû Muhammed", 5, null, "Kûfe"),
+  N("abdullahbahmedbabdu2", "عبد الله بن أحمد بن عبد الله أبو حصين", "Abdullah b. Ahmed b. Abdullah Ebû Husayn", 5, 248, "Kûfe"),
+  N("abdullahbishakbmuhamme", "عبد الله بن إسحاق بن محمد الناقد أبو جعفر الواسطي", "Abdullah b. İshak b. Muhammed en-Nâkıd Ebû Ca‘fer el-Vâsıtî", 5, null, "Bağdat"),
+  N("abdullahbebiumamebsale", "عبد الله بن أبي أمامة بن ثعلبة الأنصاري الحارثي", "Abdullah b. Ebî Ümâme b. Sa‘lebe el-Ensârî el-Hârisî", 4, null, "Medine"),
+  N("abdullahbbabah", "عبد الله بن باباه", "Abdullah b. Bâbâh", 3, null, "Mekke"),
+  N("abdullahbbahir", "عبد الله بن بحير", "Abdullah b. Bahîr", 5, null, "Yemen"),
+  N("abdullahbbudeylbvarka", "عبد الله بن بديل بن ورقاء", "Abdullah b. Büdeyl b. Varkā", 5, null, "Mekke"),
+  N("abdullahbebibasirelabd", "عبد الله بن أبي بصير العبدي الكوفي", "Abdullah b. Ebî Basîr el-Abdî", 3, null, "Kûfe"),
+  N("abdullahbbekirbhabibel", "عبد الله بن بكر بن حبيب السهمي الباهلي أبو وهب", "Abdullah b. Bekir b. Habîb el-Bâhilî Ebû Vehb", 5, null, "Bağdat"),
+  N("abdullahbebibekirba2", "عبد الله بن أبي بكر بن عبد الرحمن", "Abdullah b. Ebî Bekir b. Abdirrahman", 5, null, "Medine"),
+  N("abdullahbebibekirbm2", "عبد الله بن أبي بكر بن محمد", "Abdullah b. Ebî Bekir b. Muhammed", 5, 135, "Medine"),
+  N("abdullahbsabitelmer2", "عبد الله بن ثابت المروزي", "Abdullah b. Sâbit el-Mervezî", 5, null, "Horasan"),
+  N("abdullahbsalebeelhadra", "عبد الله بن ثعلبة الحضرمي المصري", "Abdullah b. Sa‘lebe el-Hadramî el-Mısrî", 5, null, "Mısır"),
+  N("abdullahbcebrbatikelen", "عبد الله بن جبر بن عتيك الأنصاري المدني", "Abdullah b. Cebr b. Atîk el-Ensârî el-Medenî", 4, null, "Medine"),
+  N("abdullahbcurhud", "عبد الله بن جرهد الأسلمي", "Abdullah b. Cürhüd", 4, null, "Mâverâünnehir"),
+  N("abdullahbcafer", "عبد الله بن جعفر الرقي المعيطي", "Abdullah b. Ca‘fer", 5, null, "Humus"),
+  N("abdullahbebicafererraz", "عبد الله بن أبي جعفر الرازي", "Abdullah b. Ebî Ca‘fer er-Râzî", 5, null, "Cibâl"),
+  N("abdullahbelcehmerrazie", "عبد الله بن الجهم الرازي أبو عبد الرحمن", "Abdullah b. el-Cehm er-Râzî Ebû Abdirrahman", 5, null, "Cibâl"),
+  N("abdullahbelharisbmu2", "عبد الله بن الحارث بن محمد أبو الحارث المدني", "Abdullah b. el-Hâris b. Muhammed Ebû el-Hâris el-Medenî", 5, null, "Medine"),
+  N("abdullahbelharisele2", "عبد الله بن الحارث الأنصاري البصري أبو الوليد نسيب بن سيرين", "Abdullah b. el-Hâris el-Ensârî el-Basrî Ebû el-Velîd Nesîb b. Sîrîn", 3, null, "Basra"),
+  N("abdullahbhabibbebis2", "عبد الله بن حبيب بن أبي ثابت الأسدي الكوفي", "Abdullah b. Habîb b. Ebî Sâbit el-Esedî", 5, null, "Kûfe"),
+  N("abdullahbhabibbrebi2", "عبد الله بن حبيب بن ربيعة", "Abdullah b. Habîb b. Rebîa", 2, null, "Kûfe"),
+  N("abdullahbhasanbhasa2", "عبد الله بن الحسن بن الحسن أبو محمد", "Abdullah b. Hasan b. Hasan Ebû Muhammed", 5, null, "Medine"),
+  N("abdullahbhuseyinbat2", "عبد الله بن الحسين بن عطاء", "Abdullah b. Hüseyin b. Atâ", 5, null, "Medine"),
+  N("abdullahbhafsbomerebub", "عبد الله بن حفص بن عمر أبو بكر المدني", "Abdullah b. Hafs b. Ömer Ebû Bekir el-Medenî", 5, null, "Medine"),
+  N("abdullahbdinareladevi", "عبد الله بن دينار العدوي", "Abdullah b. Dînâr el-Adevî", 4, 127, "Medine"),
+  N("abdullahbdinarelesedie", "عبد الله بن دينار البهراني الأسدي أبو محمد", "Abdullah b. Dînâr el-Esedî Ebû Muhammed", 5, null, "Humus"),
+  N("abdullahbrafielhadr2", "عبد الله بن رافع الحضرمي أبو سلمة المصري", "Abdullah b. Râfi‘ el-Hadramî Ebû Seleme el-Mısrî", 4, null, "Mısır"),
+  N("abdullahbrebiabyezi2", "عبد الله بن ربيعة بن يزيد الدمشقي", "Abdullah b. Rebîa b. Yezîd ed-Dımaşkī", 5, null, "Şam"),
+  N("abdullahbzirrir", "عبد الله بن زرير", "Abdullah b. Zirrîr", 2, null, "Mısır"),
+  N("abdullahbziyadbsule2", "عبد الله بن زياد بن سليمان أبو عبد الرحمن المدني", "Abdullah b. Ziyâd b. Süleymân Ebû Abdirrahman el-Medenî", 5, null, "Medine"),
+  N("abdullahbzeydbamr2", "عبد الله بن زيد بن عمرو", "Abdullah b. Zeyd b. Amr", 3, null, "Basra"),
+  N("abdullahbsalim2", "عبد الله بن سالم", "Abdullah b. Sâlim", 5, 235, "Kûfe"),
+  N("abdullahbsadbibrahi2", "عبد الله بن سعد بن إبراهيم", "Abdullah b. Sa‘d b. İbrâhim", 5, 238, "Mâverâünnehir"),
+  N("abdullahbsadetteymi2", "عبد الله بن سعد التيمي", "Abdullah b. Sa‘d et-Teymî", 3, null, "Şam"),
+  N("abdullahbebiessefer", "عبد الله بن أبي السفر", "Abdullah b. Ebî es-Sefer", 5, null, "Kûfe"),
+  N("abdullahbseleme2", "عبد الله بن سلمة", "Abdullah b. Seleme", 2, null, "Kûfe"),
+  N("abdullahbsevzebelhoras", "عبد الله بن شوذب الخراساني أبو عبد الرحمن", "Abdullah b. Şevzeb el-Horâsânî Ebû Abdirrahman", 5, null, "Horasan"),
+  N("abdullahbsalihbmuha2", "عبد الله بن صالح بن محمد أبو صالح المصري", "Abdullah b. Sâlih b. Muhammed Ebû Sâlih el-Mısrî", 5, 222, "Mısır"),
+  N("abdullahbzalimettemimi", "عبد الله بن ظالم التميمي المازني", "Abdullah b. Zâlim et-Temîmî el-Mâzinî", 3, null, "Mâverâünnehir"),
+  N("abdullahbamirbberradeb", "عبد الله بن عامر بن براد أبو عامر الكوفي", "Abdullah b. Âmir b. Berrâd Ebû Âmir", 5, null, "Kûfe"),
+  N("abdullahbamirbyezid2", "عبد الله بن عامر بن يزيد", "Abdullah b. Âmir b. Yezîd", 3, 118, "Şam"),
+  N("abdullahbabdullahbe2", "عبد الله بن عبد الله بن الحارث أبو يحيى المدني", "Abdullah b. Abdullah b. el-Hâris Ebû Yahyâ el-Medenî", 3, 99, "Medine"),
+  N("abdullahbabdullahbe3", "عبد الله بن عبد الله بن أبي طلحة الأنصاري أبو يحيى المدني", "Abdullah b. Abdullah b. Ebî Talha el-Ensârî Ebû Yahyâ el-Medenî", 4, 134, "Medine"),
+  N("abdullahbabdullaher2", "عبد الله بن عبد الله الرازي", "Abdullah b. Abdullah er-Râzî", 4, null, "Cibâl"),
+  N("abdullahbabdirrahma2", "عبد الله بن عبد الرحمن بن ثابت", "Abdullah b. Abdirrahman b. Sâbit", 3, null, "Medine"),
+  N("abdullahbabdirrahmanbh", "عبد الله بن عبد الرحمن بن حجيرة", "Abdullah b. Abdirrahman b. Hüceyre", 5, null, "Mısır"),
+  N("abdullahbabdirrahma3", "عبد الله بن عبد الرحمن بن أبي صعصعة الأنصاري المدني", "Abdullah b. Abdirrahman b. Ebî Sa‘sa‘a el-Ensârî el-Medenî", 3, null, "Medine"),
+  N("abdullahbabdirrahmanbm", "عبد الله بن عبد الرحمن بن معمر أبو طوالة", "Abdullah b. Abdirrahman b. Ma‘mer Ebû Tuvâle", 5, null, "Medine"),
+  N("abdullahbabdirrahma4", "عبد الله بن عبد الرحمن بن يزيد أبو إسماعيل الدمشقي", "Abdullah b. Abdirrahman b. Yezîd Ebû İsmâîl ed-Dımaşkī", 5, null, "Şam"),
+  N("abdullahbabdulmuminbos", "عبد الله بن عبد المؤمن بن عثمان الأرحبي", "Abdullah b. Abdülmü’min b. Osmân", 5, null, "Vâsıt"),
+  N("abdullahbubeydullah2", "عبد الله بن عبيد الله", "Abdullah b. Ubeydullah", 5, null, "Medine"),
+  N("abdullahbubeyd2", "عبد الله بن عبيد", "Abdullah b. Ubeyd", 3, 113, "Mekke"),
+  N("abdullahbosmanbisha2", "عبد الله بن عثمان بن إسحاق", "Abdullah b. Osmân b. İshak", 5, null, "Medine"),
+  N("abdullahbosmanbatae2", "عبد الله بن عثمان بن عطاء أبو محمد", "Abdullah b. Osmân b. Atâ Ebû Muhammed", 5, null, "Horasan"),
+  N("abdullahbarade", "عبد الله بن عرادة", "Abdullah b. Arâde", 5, null, "Basra"),
+  N("abdullahbukeym", "عبد الله بن عكيم", "Abdullah b. Ukeym", 2, null, "Kûfe"),
+  N("abdullahbomerbhafsebua", "عبد الله بن عمر بن حفص أبو عبد الرحمن العمري المدني", "Abdullah b. Ömer b. Hafs Ebû Abdirrahman el-Medenî", 5, null, "Medine"),
+  N("abdullahbomerbabdir2", "عبد الله بن عمر بن عبد الرحمن", "Abdullah b. Ömer b. Abdirrahman", 5, 236, "Basra"),
+  N("abdullahbomerbmuham2", "عبد الله بن عمر بن محمد", "Abdullah b. Ömer b. Muhammed", 5, 239, "Kûfe"),
+  N("abdullahbisababdirr2", "عبد الله بن عيسى بن عبد الرحمن أبو محمد الكوفي", "Abdullah b. Îsâ b. Abdirrahman Ebû Muhammed", 5, 130, "Kûfe"),
+  N("abdullahbgabir", "عبد الله بن غابر", "Abdullah b. Gābir", 3, null, "Humus"),
+  N("abdullahbfazlbabbas", "عبد الله بن الفضل بن العباس", "Abdullah b. Fazl b. Abbâs", 4, null, "Medine"),
+  N("abdullahbkedamebaneze", "عبد الله بن قدامة بن عنزة", "Abdullah b. Kedâme b. Aneze", 4, null, "Basra"),
+  N("abdullahbebikays2", "عبد الله بن أبي قيس", "Abdullah b. Ebî Kays", 2, null, "Humus"),
+  N("abdullahbkeysanetteymi", "عبد الله بن كيسان التيمي أبو عمر المدني", "Abdullah b. Keysân et-Teymî Ebû Ömer el-Medenî", 3, null, "Medine"),
+  N("abdullahbluhay", "عبد الله بن لحي", "Abdullah b. Lühay", 2, null, "Humus"),
+  N("abdullahbmalikbelha2", "عبد الله بن مالك بن الحارث الهمداني", "Abdullah b. Mâlik b. el-Hâris el-Hemdânî", 3, null, "Kûfe"),
+  N("abdullahbmuharrer", "عبد الله بن محرر", "Abdullah b. Muharrer", 5, null, "Humus"),
+  N("abdullahbmuhammedba2", "عبد الله بن محمد بن عبد الله", "Abdullah b. Muhammed b. Abdullah", 5, 190, "Medine"),
+  N("abdullahbmuhammedba3", "عبد الله بن محمد بن عبد الرحمن", "Abdullah b. Muhammed b. Abdirrahman", 5, null, "Basra"),
+  N("abdullahbmuhammedba4", "عبد الله بن محمد بن عبد الملك", "Abdullah b. Muhammed b. Abdülmelik", 5, null, "Basra"),
+  N("abdullahbmuhammedbu2", "عبد الله بن محمد بن عبيد", "Abdullah b. Muhammed b. Ubeyd", 6, 281, "Bağdat"),
+  N("abdullahbmuhammedba5", "عبد الله بن محمد بن علي", "Abdullah b. Muhammed b. Ali", 5, 234, "Humus"),
+  N("abdullahbmuhammedbomer", "عبد الله بن محمد بن عمر أبو محمد العلوي المدني", "Abdullah b. Muhammed b. Ömer Ebû Muhammed el-Medenî", 5, null, "Medine"),
+  N("abdullahbmuhammedby2", "عبد الله بن محمد بن يحيى", "Abdullah b. Muhammed b. Yahyâ", 5, null, "Şam"),
+  N("abdullahbmuhayriz", "عبد الله بن محيريز", "Abdullah b. Muhayrîz", 3, null, "Mekke"),
+  N("abdullahbmuslimbube2", "عبد الله بن مسلم بن عبيد الله أبو محمد", "Abdullah b. Müslim b. Ubeydullah Ebû Muhammed", 3, null, "Medine"),
+  N("abdullahbmuslim2", "عبد الله بن مسلم", "Abdullah b. Müslim", 5, null, "Medine"),
+  N("abdullahbmuslimelba2", "عبد الله بن مسلم البصري", "Abdullah b. Müslim el-Basrî", 5, null, "Basra"),
+  N("abdullahbmatarebureyha", "عبد الله بن مطر أبو ريحانة البصري", "Abdullah b. Matar Ebû Reyhâne el-Basrî", 3, null, "Basra"),
+  N("abdullahbmuanikebumuan", "عبد الله بن معانق أبو معانق", "Abdullah b. Muânık Ebû Muânık", 3, null, "Şam"),
+  N("abdullahbmiknef", "عبد الله بن مكنف", "Abdullah b. Miknef", 5, null, "Medine"),
+  N("abdullahbelmunib", "عبد الله بن المنيب", "Abdullah b. el-Munîb", 5, null, "Medine"),
+  N("abdullahbmunir", "عبد الله بن منير", "Abdullah b. Münîr", 5, null, "Horasan"),
+  N("abdullahbmunirebumuham", "عبد الله بن منير السرخسي أبو محمد", "Abdullah b. Münîr Ebû Muhammed", 5, null, "Horasan"),
+  N("abdullahbmuneyn", "عبد الله بن منين", "Abdullah b. Müneyn", 3, null, "Mısır"),
+  N("abdullahbmusabibrah2", "عبد الله بن موسى بن إبراهيم أبو محمد المدني", "Abdullah b. Mûsâ b. İbrâhim Ebû Muhammed el-Medenî", 5, null, "Medine"),
+  N("abdullahbmeymunbdav2", "عبد الله بن ميمون بن داود", "Abdullah b. Meymûn b. Dâvûd", 5, null, "Mekke"),
+  N("abdullahbnafibsabit2", "عبد الله بن نافع بن ثابت أبو بكر المدني", "Abdullah b. Nâfi‘ b. Sâbit Ebû Bekir el-Medenî", 5, null, "Medine"),
+  N("abdullahbnafiebucafer", "عبد الله بن نافع الكوفي أبو جعفر الهاشمي", "Abdullah b. Nâfi‘ Ebû Ca‘fer", 3, null, "Kûfe"),
+  N("abdullahbnafi2", "عبد الله بن نافع", "Abdullah b. Nâfi‘", 5, 154, "Medine"),
+  N("abdullahbnuceyd", "عبد الله بن نجيد", "Abdullah b. Nüceyd", 5, null, "Basra"),
+  N("abdullahbnucey", "عبد الله بن نجي", "Abdullah b. Nücey", 3, null, "Kûfe"),
+  N("abdullahbharunbebii2", "عبد الله بن هارون بن أبي عيسى الشامي", "Abdullah b. Hârûn b. Ebî Îsâ eş-Şâmî", 5, null, "Basra"),
+  N("abdullahbhaniebuezzara", "عبد الله بن هانئ أبو الزعراء", "Abdullah b. Hâni’ Ebû ez-Za‘râ", 2, null, "Kûfe"),
+  N("abdullahbheysembosm2", "عبد الله بن الهيثم بن عثمان", "Abdullah b. Heysem b. Osmân", 5, 261, "Basra"),
+  N("abdullahbelvelidbab2", "عبد الله بن الوليد بن عبد الله", "Abdullah b. el-Velîd b. Abdullah", 5, null, "Kûfe"),
+  N("abdullahbvehbbmuslim", "عبد الله بن وهب بن مسلم القرشي", "Abdullah b. Vehb b. Müslim", 5, 197, "Mısır"),
+  N("abdullahbvehbbmunebbih", "عبد الله بن وهب بن منبه اليماني", "Abdullah b. Vehb b. Münebbih", 5, null, "Yemen"),
+  N("abdullahbyahyaessek2", "عبد الله بن يحيى الثقفي أبو محمد البصري", "Abdullah b. Yahyâ es-Sekafî Ebû Muhammed el-Basrî", 5, null, "Basra"),
+  N("abdullahbyezidenneh2", "عبد الله بن يزيد النخعي الكوفي", "Abdullah b. Yezîd en-Nehaî", 5, null, "Kûfe"),
+  N("abdullahbyezidenneh3", "عبد الله بن يزيد النخعي الكوفي", "Abdullah b. Yezîd en-Nehaî", 5, null, "Kûfe"),
+  N("abdullahbyezidelmed2", "عبد الله بن يزيد المدني", "Abdullah b. Yezîd el-Medenî", 3, null, "Medine"),
+  N("abdullahbyezideddim2", "عبد الله بن يزيد الدمشقي", "Abdullah b. Yezîd ed-Dımaşkī", 5, null, "Şam"),
+  N("abdullahbyezid2", "عبد الله بن يزيد", "Abdullah b. Yezîd", 5, null, "Basra"),
+  N("abdullahbyakubbisha2", "عبد الله بن يعقوب بن إسحاق المدني", "Abdullah b. Ya‘kûb b. İshak el-Medenî", 5, null, "Medine"),
+  N("abdulcebbarbelverdelma", "عبد الجبار بن الورد المخزومي", "Abdülcebbâr b. el-Verd el-Mahzûmî", 5, null, "Mekke"),
+  N("abdulhakimbmansurelhuz", "عبد الحكيم بن منصور الخزاعي أبو سهل", "Abdülhakîm b. Mansûr el-Huzâî Ebû Sehl", 5, null, "Vâsıt"),
+  N("abdulhamidbibrahimelha", "عبد الحميد بن إبراهيم الحضرمي أبو تقي", "Abdülhamîd b. İbrâhim el-Hadramî Ebû Takıy", 5, null, "Humus"),
+  N("abdulhamidbbekkaressul", "عبد الحميد بن بكار السلمي أبو عبد الله الدمشقي", "Abdülhamîd b. Bekkâr es-Sülemî Ebû Abdullah ed-Dımaşkī", 5, null, "Şam"),
+  N("abdulhamidbbeyanbzeker", "عبد الحميد بن بيان بن زكريا الواسطي أبو الحسن السكري", "Abdülhamîd b. Beyân b. Zekeriyyâ el-Vâsıtî Ebû Hasan", 5, 244, "Vâsıt"),
+  N("abdulhamidbsuleymanelh", "عبد الحميد بن سليمان الخزاعي الضرير أبو عمر المدني", "Abdülhamîd b. Süleymân el-Huzâî ed-Darîr Ebû Ömer el-Medenî", 5, null, "Bağdat"),
+  N("abdulhamidbabdullahbeb", "عبد الحميد بن عبد الله بن أبي عمرو", "Abdülhamîd b. Abdullah b. Ebî Amr", 5, null, "Medine"),
+  N("abdulhamidbabdirrah2", "عبد الحميد بن عبد الرحمن بن زيد أبو عمر المدني", "Abdülhamîd b. Abdirrahman b. Zeyd Ebû Ömer el-Medenî", 4, null, "Medine"),
+  N("abdirrahmanbuzeyne", "عبد الرحمن بن أذينة", "Abdirrahman b. Üzeyne", 3, null, "Kûfe"),
+  N("abdirrahmanbishakbelha", "عبد الرحمن بن إسحاق بن الحارث الواسطي أبو شيبة", "Abdirrahman b. İshak b. el-Hâris el-Vâsıtî Ebû Şeybe", 5, null, "Vâsıt"),
+  N("abdirrahmanbishakba2", "عبد الرحمن بن إسحاق بن عبد الله", "Abdirrahman b. İshak b. Abdullah", 5, null, "Basra"),
+  N("abdirrahmanbeymen", "عبد الرحمن بن أيمن", "Abdirrahman b. Eymen", 3, null, "Mekke"),
+  N("abdirrahmanbbisrbha2", "عبد الرحمن بن بشر بن الحكم العبدي أبو محمد النيسابوري", "Abdirrahman b. Bişr b. Hakem el-Abdî Ebû Muhammed en-Nîsâbûrî", 5, null, "Horasan"),
+  N("abdirrahmanbbekirbr2", "عبد الرحمن بن بكر بن الربيع", "Abdirrahman b. Bekir b. Rabî‘", 5, 230, "Basra"),
+  N("abdirrahmanbebibekirbu", "عبد الرحمن بن أبي بكر بن عبيد الله", "Abdirrahman b. Ebî Bekir b. Ubeydullah", 5, null, "Medine"),
+  N("abdirrahmanbebibekreeb", "عبد الرحمن بن أبي بكرة نفيع بن الحارث الثقفي البصري", "Abdirrahman b. Ebî Bekre Ebû b. el-Hâris es-Sekafî el-Basrî", 2, 96, "Basra"),
+  N("abdirrahmanbbuzuyeh", "عبد الرحمن بن بوذويه", "Abdirrahman b. Bûzûyeh", 5, null, "Yemen"),
+  N("abdirrahmanbsalebebamr", "عبد الرحمن بن ثعلبة بن عمرو", "Abdirrahman b. Sa‘lebe b. Amr", 3, null, "Medine"),
+  N("abdirrahmanbelharis2", "عبد الرحمن بن الحارث بن عبد الله", "Abdirrahman b. el-Hâris b. Abdullah", 5, 143, "Medine"),
+  N("abdirrahmanbelhubab", "عبد الرحمن بن الحباب", "Abdirrahman b. el-Hubâb", 3, null, "Medine"),
+  N("abdirrahmanbhabibberde", "عبد الرحمن بن حبيب بن أردك المدني المخزومي", "Abdirrahman b. Habîb b. Erdek el-Medenî el-Mahzûmî", 5, null, "Medine"),
+  N("abdirrahmanbhuceyre", "عبد الرحمن بن حجيرة", "Abdirrahman b. Hüceyre", 3, null, "Mısır"),
+  N("abdirrahmanbebihadrede", "عبد الرحمن بن أبي حدرد الأسلمي المدني", "Abdirrahman b. Ebî Hadred el-Medenî", 3, null, "Medine"),
+  N("abdirrahmanbhumeydb2", "عبد الرحمن بن حميد بن عبد الرحمن", "Abdirrahman b. Humeyd b. Abdirrahman", 5, 137, "Medine"),
+  N("abdirrahmanbhumeydb3", "عبد الرحمن بن حميد بن عبد الرحمن الرؤاسي الكوفي", "Abdirrahman b. Humeyd b. Abdirrahman", 5, null, "Kûfe"),
+  N("abdirrahmanbhalefbelhu", "عبد الرحمن بن خلف بن الحصين الضبي أبو رويق", "Abdirrahman b. Halef b. el-Husayn ed-Dabbî Ebû Rüveyk", 5, null, "Basra"),
+  N("abdirrahmanbebierrical", "عبد الرحمن بن أبي الرجال", "Abdirrahman b. Ebî er-Ricâl", 5, null, "Medine"),
+  N("abdirrahmanbsadbamm2", "عبد الرحمن بن سعد بن عمار", "Abdirrahman b. Sa‘d b. Ammâr", 5, null, "Medine"),
+  N("abdirrahmanbsadelme2", "عبد الرحمن بن سعد المدني", "Abdirrahman b. Sa‘d el-Medenî", 3, null, "Medine"),
+  N("abdirrahmanbsadelarece", "عبد الرحمن بن سعد الأعرج أبو حميد المدني", "Abdirrahman b. Sa‘d el-A‘rec Ebû Humeyd el-Medenî", 3, null, "Medine"),
+  N("abdirrahmanbselmaniebu", "عبد الرحمن بن سلمان أبو الأعيس", "Abdirrahman b. Selmân-ı Ebû el-A‘yes", 5, null, "Şam"),
+  N("abdirrahmanbsuleyma2", "عبد الرحمن بن سليمان بن عبد الله أبو سليمان المدني", "Abdirrahman b. Süleymân b. Abdullah Ebû Süleymân el-Medenî", 5, 172, "Medine"),
+  N("abdirrahmanbsellam2", "عبد الرحمن بن سلام", "Abdirrahman b. Sellâm", 5, null, "Basra"),
+  N("abdirrahmanbsimase", "عبد الرحمن بن شماسة", "Abdirrahman b. Şimâse", 3, null, "Mısır"),
+  N("abdirrahmanbebisumeyle", "عبد الرحمن بن أبي شميلة", "Abdirrahman b. Ebî Şümeyle", 5, null, "Medine"),
+  N("abdirrahmanbamirelm2", "عبد الرحمن بن عامر المكي", "Abdirrahman b. Âmir el-Mekkî", 4, null, "Mekke"),
+  N("abdirrahmanbabdulla2", "عبد الرحمن بن عبد الله بن سعد", "Abdirrahman b. Abdullah b. Sa‘d", 5, null, "Cibâl"),
+  N("abdirrahmanbabdulla3", "عبد الرحمن بن عبد الله بن عبد الحكم أبو القاسم", "Abdirrahman b. Abdullah b. Abdülhakem Ebû Kâsım", 5, 257, "Mısır"),
+  N("abdirrahmanbabdulla4", "عبد الرحمن بن عبد الله بن عبيد البصري أبو سعيد", "Abdirrahman b. Abdullah b. Ubeyd el-Basrî Ebû Saîd", 5, 197, "Mekke"),
+  N("abdirrahmanbabdulla5", "عبد الرحمن بن عبد الله بن أبي عمار المكي", "Abdirrahman b. Abdullah b. Ebî Ammâr el-Mekkî", 3, null, "Mekke"),
+  N("abdirrahmanbabdulla6", "عبد الرحمن بن عبد الله", "Abdirrahman b. Abdullah", 5, null, "Basra"),
+  N("abdirrahmanbabdulla7", "عبد الرحمن بن عبد الله", "Abdirrahman b. Abdullah", 4, null, "Basra"),
+  N("abdirrahmanbabdulme2", "عبد الرحمن بن عبد الملك بن سعيد", "Abdirrahman b. Abdülmelik b. Saîd", 5, 181, "Kûfe"),
+  N("abdirrahmanbubeydul2", "عبد الرحمن بن عبيد الله بن عبد العزيز أبو محمد", "Abdirrahman b. Ubeydullah b. Abdülazîz Ebû Muhammed", 6, null, "Humus"),
+  N("abdirrahmanbirk", "عبد الرحمن بن عرق", "Abdirrahman b. Irk", 4, null, "Humus"),
+  N("abdirrahmanbata2", "عبد الرحمن بن عطاء القرشي", "Abdirrahman b. Atâ", 5, 143, "Medine"),
+  N("abdirrahmanbukbebelfak", "عبد الرحمن بن عقبة بن الفاكه", "Abdirrahman b. Ukbe b. el-Fâkih", 3, null, "Medine"),
+  N("abdirrahmanbammarbebiz", "عبد الرحمن بن عمار بن أبي زينب التيمي المدني", "Abdirrahman b. Ammâr b. Ebî Zeyneb et-Teymî el-Medenî", 5, null, "Medine"),
+  N("abdirrahmanbamrbabd2", "عبد الرحمن بن عمرو بن عبد الله", "Abdirrahman b. Amr b. Abdullah", 5, null, "Şam"),
+  N("abdirrahmanbebiamre2", "عبد الرحمن بن أبي عمرو المدني", "Abdirrahman b. Ebî Amr el-Medenî", 5, null, "Medine"),
+  N("abdirrahmanbavseceelhe", "عبد الرحمن بن عوسجة الهمداني الكوفي", "Abdirrahman b. Avsece el-Hemdânî", 3, null, "Kûfe"),
+  N("abdirrahmanbkasimbh2", "عبد الرحمن بن القاسم بن خالد", "Abdirrahman b. Kâsım b. Hâlid", 5, 191, "Mısır"),
+  N("abdirrahmanbkasimbmuha", "عبد الرحمن بن القاسم بن محمد أبو محمد المدني", "Abdirrahman b. Kâsım b. Muhammed Ebû Muhammed el-Medenî", 5, null, "Medine"),
+  N("abdirrahmanbkaysbmu2", "عبد الرحمن بن قيس بن محمد", "Abdirrahman b. Kays b. Muhammed", 5, null, "Kûfe"),
+  N("abdirrahmanbmuhammedbe", "عبد الرحمن بن محمد بن أبي بكر", "Abdirrahman b. Muhammed b. Ebî Bekir", 5, null, "Medine"),
+  N("abdirrahmanbmuhamme2", "عبد الرحمن بن محمد بن سلام", "Abdirrahman b. Muhammed b. Sellâm", 5, null, "Bağdat"),
+  N("abdirrahmanbmesudbneyy", "عبد الرحمن بن مسعود بن نيار", "Abdirrahman b. Mes‘ûd b. Neyyâr", 4, null, "Medine"),
+  N("abdirrahmanbmuaviyebel", "عبد الرحمن بن معاوية بن الحويرث", "Abdirrahman b. Muâviye b. el-Huveyris", 5, null, "Medine"),
+  N("abdirrahmanbmagra", "عبد الرحمن بن مغراء", "Abdirrahman b. Magrâ", 5, null, "Cibâl"),
+  N("abdirrahmanbmeymune2", "عبد الرحمن بن ميمون البصري", "Abdirrahman b. Meymûn el-Basrî", 5, null, "Basra"),
+  N("abdirrahmanbnemir", "عبد الرحمن بن نمر", "Abdirrahman b. Nemir", 5, null, "Şam"),
+  N("abdirrahmanbhuneyde", "عبد الرحمن بن هنيدة", "Abdirrahman b. Hüneyde", 4, null, "Medine"),
+  N("abdirrahmanbverdanelgi", "عبد الرحمن بن وردان الغفاري أبو بكر المكي المؤذن", "Abdirrahman b. Verdân el-Gıfârî Ebû Bekir el-Mekkî el-Müezzin", 5, null, "Mekke"),
+  N("abdirrahmanbvale", "عبد الرحمن بن وعلة", "Abdirrahman b. Va‘le", 4, null, "Mısır"),
+  N("abdirrahmanbyezidbkays", "عبد الرحمن بن يزيد بن قيس النخعي أبو بكر الكوفي", "Abdirrahman b. Yezîd b. Kays en-Nehaî Ebû Bekir", 3, 83, "Kûfe"),
+  N("abdirrahman", "عبد الرحمن المسلي", "Abdirrahman", 3, null, "Kûfe"),
+  N("abdurrahimbmeymunelmed", "عبد الرحيم بن ميمون المدني أبو مرحوم", "Abdürrahîm b. Meymûn el-Medenî Ebû Merhûm", 5, null, "Mısır"),
+  N("abdusselambebihazimsed", "عبد السلام بن أبي حازم شداد العبدي أبو طالوت البصري", "Abdüsselâm b. Ebî Hâzim Şeddâd el-Abdî Ebû Tâlût el-Basrî", 4, null, "Basra"),
+  N("abdusselambmutahhirbhu", "عبد السلام بن مطهر بن حسام الأزدي أبو ظفر", "Abdüsselâm b. Mutahhir b. Hüsâm el-Ezdî Ebû Zafer", 5, null, "Basra"),
+  N("abdusselam", "عبد السلام الكوفي", "Abdüsselâm", 5, null, "Kûfe"),
+  N("abdulazizbbesir2", "عبد العزيز بن بشير", "Abdülazîz b. Beşîr", 3, null, "Basra"),
+  N("abdulazizbrufey", "عبد العزيز بن رفيع", "Abdülazîz b. Rufey‘", 4, null, "Kûfe"),
+  N("abdulazizbebiselemebub", "عبد العزيز بن أبي سلمة بن عبيد الله أبو عبد الرحمن المدني", "Abdülazîz b. Ebî Seleme b. Ubeydullah Ebû Abdirrahman el-Medenî", 5, null, "Bağdat"),
+  N("abdulazizbsiyah", "عبد العزيز بن سياه", "Abdülazîz b. Siyâh", 5, null, "Kûfe"),
+  N("abdulazizbebiessabeett", "عبد العزيز بن أبي الصعبة التيمي", "Abdülazîz b. Ebî es-Sa‘be et-Teymî", 3, null, "Mısır"),
+  N("abdulazizbabdullahb2", "عبد العزيز بن عبد الله بن عبد الله", "Abdülazîz b. Abdullah b. Abdullah", 5, null, "Medine"),
+  N("abdulazizbabdullahb3", "عبد العزيز بن عبد الله بن يحيى أبو القاسم المدني", "Abdülazîz b. Abdullah b. Yahyâ Ebû Kâsım el-Medenî", 5, null, "Medine"),
+  N("abdulazizbabdulmelikbe", "عبد العزيز بن عبد الملك بن أبي محذورة الجمحي المكي المؤذن", "Abdülazîz b. Abdülmelik b. Ebî Mahzûre el-Cümahî el-Mekkî el-Müezzin", 5, null, "Mekke"),
+  N("abdulazizbubeydulla2", "عبد العزيز بن عبيد الله بن حمزة", "Abdülazîz b. Ubeydullah b. Hamza", 5, null, "Humus"),
+  N("abdulazizbomerbabdulaz", "عبد العزيز بن عمر بن عبد العزيز أبو محمد المدني", "Abdülazîz b. Ömer b. Abdülazîz Ebû Muhammed el-Medenî", 5, null, "Kûfe"),
+  N("abdulazizbkurayr", "عبد العزيز بن قرير", "Abdülazîz b. Kurayr", 5, null, "Basra"),
+  N("abdulazizbkayselabd2", "عبد العزيز بن قيس العبدي البصري", "Abdülazîz b. Kays el-Abdî el-Basrî", 4, null, "Basra"),
+  N("abdulazizbkaysbabdi2", "عبد العزيز بن قيس بن عبد الرحمن القرشي البصري", "Abdülazîz b. Kays b. Abdirrahman el-Basrî", 5, null, "Basra"),
+  N("abdulazizbmuslimelm2", "عبد العزيز بن مسلم المدني", "Abdülazîz b. Müslim el-Medenî", 5, null, "Medine"),
+  N("abdulazizbmuaviyeba2", "عبد العزيز بن معاوية بن عبد الله", "Abdülazîz b. Muâviye b. Abdullah", 5, null, "Basra"),
+  N("abdulazizbmugirebumeye", "عبد العزيز بن المغيرة بن أمي المنقري أبو عبد الرحمن الصفار البصري", "Abdülazîz b. Mugīre b. Ümey Ebû Abdirrahman es-Saffâr el-Basrî", 5, null, "Cibâl"),
+  N("abdulazizbyahyaelme2", "عبد العزيز بن يحيى المدني", "Abdülazîz b. Yahyâ el-Medenî", 5, null, "Horasan"),
+  N("abdulazizbyahyababd2", "عبد العزيز بن يحيى بن عبد العزيز", "Abdülazîz b. Yahyâ b. Abdülazîz", 5, null, "Mekke"),
+  N("abdulkerimbselitelmerv", "عبد الكريم بن سليط المروزي", "Abdülkerîm b. Selît el-Mervezî", 5, null, "Basra"),
+  N("abdulmelikbebibesir2", "عبد الملك بن أبي بشير البصري", "Abdülmelik b. Ebî Beşîr el-Basrî", 5, null, "Basra"),
+  N("abdulmelikbebibekir2", "عبد الملك بن أبي بكر بن عبد الرحمن", "Abdülmelik b. Ebî Bekir b. Abdirrahman", 5, null, "Medine"),
+  N("abdulmelikbcabirbatike", "عبد الملك بن جابر بن عتيك الأنصاري المدني", "Abdülmelik b. Câbir b. Atîk el-Ensârî el-Medenî", 4, null, "Medine"),
+  N("abdulmelikbelharisb2", "عبد الملك بن الحارث بن هشام", "Abdülmelik b. el-Hâris b. Hişâm", 3, null, "Mekke"),
+  N("abdulmelikbhabibele2", "عبد الملك بن حبيب الأزدي", "Abdülmelik b. Habîb el-Ezdî", 4, null, "Basra"),
+  N("abdulmelikbzeydbsai2", "عبد الملك بن زيد بن سعيد", "Abdülmelik b. Zeyd b. Saîd", 5, null, "Medine"),
+  N("abdulmelikbsaidbhay2", "عبد الملك بن سعيد بن حيان", "Abdülmelik b. Saîd b. Hayyân", 5, null, "Kûfe"),
+  N("abdulmelikbabdullah2", "عبد الملك بن عبد الله بن محمد", "Abdülmelik b. Abdullah b. Muhammed", 5, null, "Basra"),
+  N("abdulmelikbabdulham2", "عبد الملك بن عبد الحميد بن عبد الحميد", "Abdülmelik b. Abdülhamîd b. Abdülhamîd", 5, 274, "Humus"),
+  N("abdulmelikbabdirrah2", "عبد الملك بن عبد الرحمن الشامي", "Abdülmelik b. Abdirrahman eş-Şâmî", 5, null, "Basra"),
+  N("abdulmelikbamrbkays2", "عبد الملك بن عمرو بن قيس الأنصاري المدني", "Abdülmelik b. Amr b. Kays el-Ensârî el-Medenî", 5, null, "Medine"),
+  N("abdulmelikbmuhammedbnu", "عبد الملك بن محمد بن نسير", "Abdülmelik b. Muhammed b. Nüseyr", 5, null, "Kûfe"),
+  N("abdulmelikbmervanbe2", "عبد الملك بن مروان بن الحارث", "Abdülmelik b. Mervân b. el-Hâris", 5, null, "Medine"),
+  N("abdulmuheyminbabbasbse", "عبد المهيمن بن عباس بن سهل", "Abdülmüheymin b. Abbâs b. Sehl", 5, null, "Medine"),
+  N("abdulmuminbhalidebuhal", "عبد المؤمن بن خالد الحنفي أبو خالد المروزي", "Abdülmü’min b. Hâlid Ebû Hâlid el-Mervezî", 5, null, "Horasan"),
+  N("abdulmuminbubeydullahe", "عبد المؤمن بن عبيد الله السدوسي أبو عبيدة البصري", "Abdülmü’min b. Ubeydullah es-Sedûsî Ebû Ubeyde el-Basrî", 5, null, "Basra"),
+  N("abdulvahidbeymenelmahz", "عبد الواحد بن أيمن المخزومي", "Abdülvâhid b. Eymen el-Mahzûmî", 5, null, "Mekke"),
+  N("ubeydullahbelcehmelbas", "عبيد الله بن الجهم الأنماطي البصري", "Ubeydullah b. el-Cehm el-Basrî", 5, null, "Basra"),
+  N("ubeydullahbhasanbel2", "عبيد الله بن الحسن بن الحصين", "Ubeydullah b. Hasan b. el-Husayn", 5, 168, "Basra"),
+  N("ubeydullahbhalifeebuel", "عبيد الله بن خليفة أبو الغريف", "Ubeydullah b. Halîfe Ebû el-Gurayf", 3, null, "Kûfe"),
+  N("ubeydullahbebirafielme", "عبيد الله بن أبي رافع المدني", "Ubeydullah b. Ebî Râfi‘ el-Medenî", 3, null, "Medine"),
+  N("ubeydullahbebiziyad2", "عبيد الله بن أبي زياد", "Ubeydullah b. Ebî Ziyâd", 5, 150, "Mekke"),
+  N("ubeydullahbziyade", "عبيد الله بن زيادة", "Ubeydullah b. Ziyâde", 3, null, "Şam"),
+  N("ubeydullahbsadbibra2", "عبيد الله بن سعد بن إبراهيم أبو الفضل البغدادي", "Ubeydullah b. Sa‘d b. İbrâhim Ebû Fazl", 5, 260, "Bağdat"),
+  N("ubeydullahbsaidesse2", "عبيد الله بن سعيد الثقفي الكوفي", "Ubeydullah b. Saîd es-Sekafî", 5, null, "Kûfe"),
+  N("ubeydullahbabdullahbsa", "عبيد الله بن عبد الله بن ثعلبة الأنصاري المدني", "Ubeydullah b. Abdullah b. Sa‘lebe el-Ensârî el-Medenî", 3, null, "Medine"),
+  N("ubeydullahbabdullah2", "عبيد الله بن عبد الله بن الحصين", "Ubeydullah b. Abdullah b. el-Husayn", 4, null, "Medine"),
+  N("ubeydullahbabdullah3", "عبيد الله بن عبد الله بن عمر أبو بكر", "Ubeydullah b. Abdullah b. Ömer Ebû Bekir", 3, 106, "Medine"),
+  N("ubeydullahbabdullahbme", "عبيد الله بن عبد الله بن موهب أبو يحيى التيمي المدني", "Ubeydullah b. Abdullah b. Mevheb Ebû Yahyâ et-Teymî el-Medenî", 3, null, "Medine"),
+  N("ubeydullahbabdullahebu", "عبيد الله بن عبد الله أبو المنيب", "Ubeydullah b. Abdullah Ebû el-Munîb", 5, null, "Horasan"),
+  N("ubeydullahbikras", "عبيد الله بن عكراش", "Ubeydullah b. İkrâş", 3, null, "Mâverâünnehir"),
+  N("ubeydullahbalibebirafi", "عبيد الله بن علي بن أبي رافع المدني", "Ubeydullah b. Ali b. Ebî Râfi‘ el-Medenî", 5, null, "Medine"),
+  N("ubeydullahbomerbhaf2", "عبيد الله بن عمر بن حفص أبو عثمان", "Ubeydullah b. Ömer b. Hafs Ebû Osmân", 5, null, "Medine"),
+  N("ubeydullahbomerelba2", "عبيد الله بن عمر القرشي البصري", "Ubeydullah b. Ömer el-Basrî", 5, null, "Basra"),
+  N("ubeydullahbelkibtiyye", "عبيد الله بن القبطية الكوفي", "Ubeydullah b. el-Kıbtiyye", 4, null, "Kûfe"),
+  N("ubeydullahbmuhammed2", "عبيد الله بن محمد بن حفص البصري", "Ubeydullah b. Muhammed b. Hafs el-Basrî", 5, null, "Basra"),
+  N("ubeydullahbmuhammed3", "عبيد الله بن محمد بن يزيد", "Ubeydullah b. Muhammed b. Yezîd", 5, 252, "Mekke"),
+  N("ubeydullahbmuazbmua2", "عبيد الله بن معاذ بن معاذ أبو عمرو البصري", "Ubeydullah b. Muâz b. Muâz Ebû Amr el-Basrî", 5, 237, "Basra"),
+  N("ubeydullahbnadrbabd2", "عبيد الله بن النضر بن عبد الله أبو النضر البصري", "Ubeydullah b. Nadr b. Abdullah Ebû Nadr el-Basrî", 5, null, "Basra"),
+  N("ubeydullahbhurayr", "عبيد الله بن هرير", "Ubeydullah b. Hurayr", 5, null, "Medine"),
+  N("ubeydullahbelvazielkil", "عبيد الله بن الوازع الكلابي البصري", "Ubeydullah b. el-Vâzi‘ el-Kilâbî el-Basrî", 5, null, "Basra"),
+  N("ubeydullahbyezidbibrah", "عبيد الله بن يزيد بن إبراهيم الحراني القردواني", "Ubeydullah b. Yezîd b. İbrâhim", 5, null, "Humus"),
+  N("ubeydullahbebiyezidelm", "عبيد الله بن أبي يزيد المكي", "Ubeydullah b. Ebî Yezîd el-Mekkî", 4, 126, "Mekke"),
+  N("ubeydbtualla", "عبيد بن تعلى", "Ubeyd b. Tuallâ", 3, null, "Şam"),
+  N("ubeydbessebbak", "عبيد بن السباق", "Ubeyd b. es-Sebbâk", 3, null, "Medine"),
+  N("ubeydbebitalhaelmek2", "عبيد بن أبي طلحة المكي", "Ubeyd b. Ebî Talha el-Mekkî", 5, null, "Mekke"),
+  N("ubeydbkasimelesedi2", "عبيد بن القاسم الأسدي الكوفي", "Ubeyd b. Kâsım el-Esedî", 5, null, "Kûfe"),
+  N("ubeydbmeymunetteymi2", "عبيد بن ميمون التيمي", "Ubeyd b. Meymûn et-Teymî", 5, null, "Medine"),
+  N("ubeydbnistas", "عبيد بن نسطاس", "Ubeyd b. Nistâs", 3, null, "Kûfe"),
+  N("ubeydbnistaselmedeni", "عبيد بن نسطاس المدني", "Ubeyd b. Nistâs el-Medenî", 5, null, "Medine"),
+  N("ubeydbnadle", "عبيد بن نضلة", "Ubeyd b. Nadle", 2, null, "Kûfe"),
+  N("ubeydbyahyaelesedie2", "عبيد بن يحيى الأسدي أبو سليم الكوفي", "Ubeyd b. Yahyâ el-Esedî Ebû Süleym", 5, null, "Kûfe"),
+  N("ubeydbyaiselmehamilieb", "عبيد بن يعيش المحاملي أبو محمد الكوفي العطار", "Ubeyd b. Yaîş el-Mehâmilî Ebû Muhammed el-Attâr", 5, null, "Kûfe"),
+  N("ubeydelkindi2", "عبيد الكندي الكوفي", "Ubeyd el-Kindî", 3, null, "Kûfe"),
+  N("ubeydebebiraita", "عبيدة بن أبي رائطة", "Ubeyde b. Ebî Râita", 5, null, "Kûfe"),
+  N("attabbelmusennabhavlan", "عتاب بن المثنى بن خولان القشيري أبو المثنى البصري", "Attâb b. el-Müsennâ b. Havlân Ebû el-Müsennâ el-Basrî", 5, null, "Basra"),
+  N("utbebtemimettenuhiebus", "عتبة بن تميم التنوخي أبو سبأ", "Utbe b. Temîm et-Tenûhî Ebû Sebe’", 5, null, "Şam"),
+  N("utbebabdullahbutbeebue", "عتبة بن عبد الله بن عتبة أبو العميس", "Utbe b. Abdullah b. Utbe Ebû el-Umeys", 5, null, "Kûfe"),
+  N("utbebyakzanebuamr", "عتبة بن يقظان الراسبي أبو عمرو", "Utbe b. Yakzân Ebû Amr", 5, null, "Basra"),
+  N("uteybdamraettemimi", "عتي بن ضمرة التميمي السعدي", "Utey b. Damra et-Temîmî", 3, null, "Basra"),
+  N("assambalibhucayr", "عثام بن علي بن هجير", "Assâm b. Ali b. Hücayr", 5, null, "Kûfe"),
+  N("osmanbishakbharse", "عثمان بن إسحاق بن خرشة", "Osmân b. İshak b. Harşe", 5, null, "Medine"),
+  N("osmanbhayyan2", "عثمان بن حيان", "Osmân b. Hayyân", 3, null, "Şam"),
+  N("osmanbrebiababdulla2", "عثمان بن ربيعة بن عبد الله", "Osmân b. Rebîa b. Abdullah", 4, null, "Medine"),
+  N("osmanbebirevvad", "عثمان بن أبي رواد العتكي", "Osmân b. Ebî Revvâd", 5, null, "Basra"),
+  N("osmanbsad2", "عثمان بن سعد", "Osmân b. Sa‘d", 5, null, "Basra"),
+  N("osmanbsaidbkesir2", "عثمان بن سعيد بن كثير", "Osmân b. Saîd b. Kesîr", 5, 209, "Humus"),
+  N("osmanbsaid2", "عثمان بن سعيد", "Osmân b. Saîd", 5, null, "Kûfe"),
+  N("osmanbsalihbsaid2", "عثمان بن صالح بن سعيد", "Osmân b. Sâlih b. Saîd", 5, 256, "Bağdat"),
+  N("osmanbebielatikesuleym", "عثمان بن أبي العاتكة سليمان الأزدي أبو حفص الدمشقي", "Osmân b. Ebî el-Âtike Süleymân el-Ezdî Ebû Hafs ed-Dımaşkī", 5, null, "Şam"),
+  N("osmanbasimbhusaynelese", "عثمان بن عاصم بن حصين الأسدي الكوفي أبو حصين", "Osmân b. Âsım b. Husayn el-Esedî Ebû Husayn", 4, null, "Kûfe"),
+  N("osmanbabdullahbabdu2", "عثمان بن عبد الله بن عبد الله أبو عبد الله المدني", "Osmân b. Abdullah b. Abdullah Ebû Abdullah el-Medenî", 3, 118, "Medine"),
+  N("osmanbabdullahbmevhebe", "عثمان بن عبد الله بن موهب التيمي", "Osmân b. Abdullah b. Mevheb et-Teymî", 4, null, "Medine"),
+  N("osmanbabdirrahmanbo2", "عثمان بن عبد الرحمن بن عثمان", "Osmân b. Abdirrahman b. Osmân", 5, null, "Medine"),
+  N("osmanbabdirrahmanbo3", "عثمان بن عبد الرحمن بن عمر أبو عمرو المدني", "Osmân b. Abdirrahman b. Ömer Ebû Amr el-Medenî", 5, null, "Medine"),
+  N("osmanbabdirrahmanba2", "عثمان بن عبد الرحمن بن عبد الله", "Osmân b. Abdirrahman b. Abdullah", 5, null, "Basra"),
+  N("osmanbamrbsac", "عثمان بن عمرو بن ساج", "Osmân b. Amr b. Sâc", 5, null, "Humus"),
+  N("osmanbheysembcehmebuam", "عثمان بن الهيثم بن جهم أبو عمرو البصري المؤذن", "Osmân b. Heysem b. Cehm Ebû Amr el-Basrî el-Müezzin", 5, null, "Basra"),
+  N("osmanebuselemeelbas2", "عثمان أبو سلمة البصري", "Osmân Ebû Seleme el-Basrî", 5, null, "Basra"),
+  N("useymbnistas", "عثيم بن نسطاس", "Useym b. Nistâs", 5, null, "Medine"),
+  N("irakbhalidbyezid", "عراك بن خالد بن يزيد", "Irâk b. Hâlid b. Yezîd", 5, null, "Şam"),
+  N("eluryanbheysembelesved", "العريان بن الهيثم بن الأسود النخعي الكوفي الأعور", "el-Uryân b. Heysem b. el-Esved en-Nehaî el-A‘ver", 3, null, "Kûfe"),
+  N("azrababdirrahmanbzurar", "عزرة بن عبد الرحمن بن زرارة الخزاعي الكوفي الأعور", "Azra b. Abdirrahman b. Zürâre el-Huzâî el-A‘ver", 5, null, "Kûfe"),
+  N("azrabyahya", "عزرة بن يحيى", "Azra b. Yahyâ", 5, null, "Horasan"),
+  N("aselebukurreelbasri", "عسل أبو قرة البصري", "Asel Ebû Kurre el-Basrî", 5, null, "Basra"),
+  N("atabyezidelleysielm2", "عطاء بن يزيد الليثي المدني", "Atâ b. Yezîd el-Leysî el-Medenî", 3, null, "Şam"),
+  N("atabyakubelmedeni2", "عطاء بن يعقوب المدني", "Atâ b. Ya‘kûb el-Medenî", 3, null, "Medine"),
+  N("ataessami2", "عطاء الشامي", "Atâ eş-Şâmî", 4, null, "Şam"),
+  N("ataelmedeni", "عطاء المدني", "Atâ el-Medenî", 3, null, "Medine"),
+  N("atiyyebelhariseburevk", "عطية بن الحارث أبو روق", "Atiyye b. el-Hâris Ebû Revk", 5, null, "Kûfe"),
+  N("akkarbmugirebsubeessek", "عقار بن المغيرة بن شعبة الثقفي", "Akkār b. Mugīre b. Şu‘be es-Sekafî", 3, null, "Kûfe"),
+  N("ukbebebisubeyt", "عقبة بن أبي ثبيت", "Ukbe b. Ebî Sübeyt", 5, null, "Basra"),
+  N("ukbebabdullahelesammel", "عقبة بن عبد الله الأصم الرفاعي البصري", "Ukbe b. Abdullah el-Esamm el-Basrî", 5, null, "Basra"),
+  N("ukbeessami2", "عقبة الشامي", "Ukbe eş-Şâmî", 5, null, "Şam"),
+  N("ikrimebabdirrahmanbelh", "عكرمة بن عبد الرحمن بن الحارث أبو عبد الله المدني", "İkrime b. Abdirrahman b. el-Hâris Ebû Abdullah el-Medenî", 3, 103, "Medine"),
+  N("ilbabebiilba", "علباء بن أبي علباء الكوفي", "Ilbâ b. Ebî Ilbâ", 3, null, "Kûfe"),
+  N("alibibrahimelvasiti2", "علي بن إبراهيم الواسطي", "Ali b. İbrâhim el-Vâsıtî", 5, null, "Bağdat"),
+  N("alibishakessulemi2", "علي بن إسحاق السلمي", "Ali b. İshak es-Sülemî", 5, 213, "Horasan"),
+  N("alibbezime", "علي بن بذيمة", "Ali b. Bezîme", 5, null, "Humus"),
+  N("alibsabit2", "علي بن ثابت", "Ali b. Sâbit", 5, 219, "Kûfe"),
+  N("alibelhazver", "علي بن الحزور", "Ali b. el-Hazver", 5, null, "Kûfe"),
+  N("alibhasanbebihasan2", "علي بن الحسن بن أبي الحسن", "Ali b. Hasan b. Ebî Hasan", 5, null, "Medine"),
+  N("alibhasan5", "علي بن الحسن الكوفي", "Ali b. Hasan", 5, null, "Kûfe"),
+  N("alibhalidelmedeni2", "علي بن خالد المدني", "Ali b. Hâlid el-Medenî", 3, null, "Medine"),
+  N("alibdavud2", "علي بن داود", "Ali b. Dâvûd", 3, null, "Basra"),
+  N("alibrebahbkasir", "علي بن رباح بن قصير", "Ali b. Rebâh b. Kasîr", 3, null, "Mısır"),
+  N("alibzeydbabdullah2", "علي بن زيد بن عبد الله", "Ali b. Zeyd b. Abdullah", 4, null, "Basra"),
+  N("alibebisareesseybani", "علي بن أبي سارة الشيباني", "Ali b. Ebî Sâre eş-Şeybânî", 5, null, "Basra"),
+  N("alibsuveydbmencuf", "علي بن سويد بن منجوف", "Ali b. Süveyd b. Mencûf", 5, null, "Basra"),
+  N("alibsalihbsalihebum2", "علي بن صالح بن صالح أبو محمد الكوفي", "Ali b. Sâlih b. Sâlih Ebû Muhammed", 5, null, "Kûfe"),
+  N("alibsalihelmekki2", "علي بن صالح المكي", "Ali b. Sâlih el-Mekkî", 5, null, "Mekke"),
+  N("alibsalih3", "علي بن صالح البغدادي", "Ali b. Sâlih", 5, null, "Bağdat"),
+  N("alibsalihelmedenimestu", "علي بن صالح المدني مستور", "Ali b. Sâlih el-Medenî Mestûr", 5, null, "Medine"),
+  N("alibabdullahbibrahi2", "علي بن عبد الله بن إبراهيم البغدادي", "Ali b. Abdullah b. İbrâhim", 5, null, "Bağdat"),
+  N("alibubeydelensariel2", "علي بن عبيد الأنصاري المدني", "Ali b. Ubeyd el-Ensârî el-Medenî", 5, null, "Medine"),
+  N("alibosmanbmuhammed3", "علي بن عثمان بن محمد", "Ali b. Osmân b. Muhammed", 5, 272, "Humus"),
+  N("alibosmanbmuhammed4", "علي بن عثمان بن محمد", "Ali b. Osmân b. Muhammed", 5, null, "Basra"),
+  N("alibalibneccad", "علي بن علي بن نجاد", "Ali b. Ali b. Neccâd", 5, null, "Basra"),
+  N("alibisa3", "علي بن عيسى الكوفي", "Ali b. Îsâ", 6, null, "Bağdat"),
+  N("alibmuhammedbebielhasi", "علي بن محمد بن أبي الخصيب", "Ali b. Muhammed b. Ebî el-Hasîb", 5, null, "Kûfe"),
+  N("alibmuhammedbzekeri2", "علي بن محمد بن زكريا البغدادي", "Ali b. Muhammed b. Zekeriyyâ", 6, null, "Bağdat"),
+  N("alibnizarbhayyanelesed", "علي بن نزار بن حيان الأسدي الكوفي", "Ali b. Nizâr b. Hayyân el-Esedî", 5, null, "Kûfe"),
+  N("alibhasimbelberid", "علي بن هاشم بن البريد", "Ali b. Hâşim b. el-Berîd", 5, null, "Kûfe"),
+  N("ammarbhalidbyezideb2", "عمار بن خالد بن يزيد أبو الفضل", "Ammâr b. Hâlid b. Yezîd Ebû Fazl", 5, 260, "Vâsıt"),
+  N("umarebabdullahbsayyade", "عمارة بن عبد الله بن صياد أبو أيوب المدني", "Umâre b. Abdullah b. Sayyâd Ebû Eyyûb el-Medenî", 4, null, "Medine"),
+  N("umarebabdullahbtume", "عمارة بن عبد الله بن طعمة", "Umâre b. Abdullah b. Tu‘me", 5, null, "Medine"),
+  N("omerbibrahimbsuleymane", "عمر بن إبراهيم بن سليمان البغدادي أبو الآذان", "Ömer b. İbrâhim b. Süleymân Ebû el-Âzân", 6, null, "Bağdat"),
+  N("omerbishakbabdullah2", "عمر بن إسحاق بن عبد الله", "Ömer b. İshak b. Abdullah", 5, null, "Medine"),
+  N("omerbishakelmedeni2", "عمر بن إسحاق المدني", "Ömer b. İshak el-Medenî", 5, null, "Medine"),
+  N("omerbebibekirbabdir2", "عمر بن أبي بكر بن عبد الرحمن", "Ömer b. Ebî Bekir b. Abdirrahman", 5, null, "Medine"),
+  N("omerbcasem", "عمر بن جعثم", "Ömer b. Ca‘sem", 5, null, "Humus"),
+  N("omerbhabibelmekki2", "عمر بن حبيب المكي", "Ömer b. Habîb el-Mekkî", 5, null, "Yemen"),
+  N("omerbhafsbomer3", "عمر بن حفص بن عمر", "Ömer b. Hafs b. Ömer", 5, null, "Medine"),
+  N("omerbhafselmedeni2", "عمر بن حفص المدني", "Ömer b. Hafs el-Medenî", 5, null, "Medine"),
+  N("omerbhakembrafi2", "عمر بن الحكم بن رافع", "Ömer b. Hakem b. Râfi‘", 3, null, "Medine"),
+  N("omerbhamzababdullah2", "عمر بن حمزة بن عبد الله", "Ömer b. Hamza b. Abdullah", 5, null, "Medine"),
+  N("omerbhayyan2", "عمر بن حيان", "Ömer b. Hayyân", 5, null, "Şam"),
+  N("omerbhalde", "عمر بن خلدة", "Ömer b. Halde", 3, null, "Medine"),
+  N("omerbeddirfis", "عمر بن الدرفس", "Ömer b. ed-Dirfis", 5, null, "Şam"),
+  N("omerbzeydessanani2", "عمر بن زيد الصنعاني", "Ömer b. Zeyd es-San‘ânî", 5, null, "Yemen"),
+  N("omerbsuleymelbahili2", "عمر بن سليم الباهلي", "Ömer b. Süleym el-Bâhilî", 5, null, "Basra"),
+  N("omerbamiressulemiel2", "عمر بن عامر السلمي البصري", "Ömer b. Âmir es-Sülemî el-Basrî", 5, null, "Basra"),
+  N("omerbamirelbeceli2", "عمر بن عامر البجلي الكوفي", "Ömer b. Âmir el-Becelî", 5, null, "Kûfe"),
+  N("omerbabdullahbelerkame", "عمر بن عبد الله بن الأرقم الزهري المدني", "Ömer b. Abdullah b. el-Erkam ez-Zührî el-Medenî", 3, null, "Medine"),
+  N("omerbabdullahelmede2", "عمر بن عبد الله المدني", "Ömer b. Abdullah el-Medenî", 5, null, "Medine"),
+  N("omerbabdirrahmanbka2", "عمر بن عبد الرحمن بن قيس", "Ömer b. Abdirrahman b. Kays", 5, null, "Bağdat"),
+  N("omerbabdulazizbimra2", "عمر بن عبد العزيز بن عمران", "Ömer b. Abdülazîz b. İmrân", 6, 285, "Mısır"),
+  N("omerbosmanbasim", "عمر بن عثمان بن عاصم", "Ömer b. Osmân b. Âsım", 5, null, "Vâsıt"),
+  N("omerbosmanbomer2", "عمر بن عثمان بن عمر", "Ömer b. Osmân b. Ömer", 5, 166, "Medine"),
+  N("omerbalibhuseyin2", "عمر بن علي بن الحسين", "Ömer b. Ali b. Hüseyin", 5, null, "Medine"),
+  N("omerbkays2", "عمر بن قيس", "Ömer b. Kays", 5, null, "Kûfe"),
+  N("omerbkayselmekki2", "عمر بن قيس المكي", "Ömer b. Kays el-Mekkî", 5, null, "Mekke"),
+  N("omerbmuhammedbzeyd2", "عمر بن محمد بن زيد", "Ömer b. Muhammed b. Zeyd", 5, null, "Medine"),
+  N("omerbelmurakka", "عمر بن المرقع", "Ömer b. el-Mürakka‘", 5, null, "Kûfe"),
+  N("omerbmuattib", "عمر بن معتب", "Ömer b. Mu‘attib", 5, null, "Medine"),
+  N("omerbharunbyezidess2", "عمر بن هارون بن يزيد الثقفي", "Ömer b. Hârûn b. Yezîd es-Sekafî", 5, 194, "Horasan"),
+  N("amrbuhayha", "عمرو بن أحيحة", "Amr b. Ühayha", 3, null, "Medine"),
+  N("amrbsabit2", "عمرو بن ثابت", "Amr b. Sâbit", 5, 172, "Kûfe"),
+  N("amrbcavan", "عمرو بن جاوان", "Amr b. Câvân", 5, null, "Basra"),
+  N("amrbelharisbeddahhakez", "عمرو بن الحارث بن الضحاك الزبيدي", "Amr b. el-Hâris b. ed-Dahhâk ez-Zübeydî", 5, null, "Humus"),
+  N("amrbelharisbyakubelens", "عمرو بن الحارث بن يعقوب الأنصاري", "Amr b. el-Hâris b. Ya‘kûb el-Ensârî", 5, null, "Mısır"),
+  N("amrbelhubab", "عمرو بن الحباب", "Amr b. el-Hubâb", 5, null, "Basra"),
+  N("amrbhammadbtalha2", "عمرو بن حماد بن طلحة", "Amr b. Hammâd b. Talha", 5, 222, "Kûfe"),
+  N("amrbhammadelezdielb2", "عمرو بن حماد الأزدي البصري", "Amr b. Hammâd el-Ezdî el-Basrî", 5, null, "Basra"),
+  N("amrbdinarelmekkiebumuh", "عمرو بن دينار المكي أبو محمد", "Amr b. Dînâr el-Mekkî Ebû Muhammed", 4, 126, "Mekke"),
+  N("amrbdinarelbasrielaver", "عمرو بن دينار البصري الأعور", "Amr b. Dînâr el-Basrî el-A‘ver", 5, null, "Basra"),
+  N("amrbdinarebuhalde", "عمرو بن دينار أبو خلدة الكوفي", "Amr b. Dînâr Ebû Halde", 5, null, "Kûfe"),
+  N("amrbsaid2", "عمرو بن سعيد القرشي", "Amr b. Saîd", 5, null, "Basra"),
+  N("amrbselemebelharibelhe", "عمرو بن سلمة بن الخرب الهمداني", "Amr b. Seleme b. el-Harib el-Hemdânî", 3, null, "Kûfe"),
+  N("amrbasim", "عمرو بن عاصم", "Amr b. Âsım", 3, null, "Medine"),
+  N("amrbamirelensari2", "عمرو بن عامر الأنصاري الكوفي", "Amr b. Âmir el-Ensârî", 5, null, "Kûfe"),
+  N("amrbamirelbeceli2", "عمرو بن عامر البجلي الكوفي", "Amr b. Âmir el-Becelî", 5, null, "Kûfe"),
+  N("amrbabbaselbahilieb2", "عمرو بن العباس الباهلي أبو عثمان البصري", "Amr b. Abbâs el-Bâhilî Ebû Osmân el-Basrî", 5, 235, "Basra"),
+  N("amrbabdullahbelesvar", "عمرو بن عبد الله بن الأسوار اليماني", "Amr b. Abdullah b. el-Esvâr", 5, null, "Yemen"),
+  N("amrbabdullahbsafvan2", "عمرو بن عبد الله بن صفوان", "Amr b. Abdullah b. Safvân", 4, null, "Mekke"),
+  N("amrbabdullahbkab2", "عمرو بن عبد الله بن كعب", "Amr b. Abdullah b. Kâ‘b", 5, null, "Medine"),
+  N("amrbabdullahbvehben2", "عمرو بن عبد الله بن وهب النخعي الكوفي", "Amr b. Abdullah b. Vehb en-Nehaî", 5, null, "Kûfe"),
+  N("amrbubeydbbab", "عمرو بن عبيد بن باب", "Amr b. Ubeyd b. Bâb", 5, null, "Basra"),
+  N("amrbosmanbsaid2", "عمرو بن عثمان بن سعيد", "Amr b. Osmân b. Saîd", 5, 250, "Humus"),
+  N("amrbosmanbabdullah2", "عمرو بن عثمان بن عبد الله", "Amr b. Osmân b. Abdullah", 5, null, "Kûfe"),
+  N("amrbimranebuessevda", "عمرو بن عمران النهدي أبو السوداء الكوفي", "Amr b. İmrân Ebû es-Sevdâ", 5, null, "Kûfe"),
+  N("amrbisabsuveydebunaame", "عمرو بن عيسى بن سويد أبو نعامة البصري", "Amr b. Îsâ b. Süveyd Ebû Naâme el-Basrî", 5, null, "Basra"),
+  N("amrbmuazbsadebumuha2", "عمرو بن معاذ بن سعد أبو محمد", "Amr b. Muâz b. Sa‘d Ebû Muhammed", 3, null, "Medine"),
+  N("amrbnumanelbahiliel2", "عمرو بن النعمان الباهلي البصري", "Amr b. Nu‘mân el-Bâhilî el-Basrî", 5, null, "Basra"),
+  N("amrbharun2", "عمرو بن هارون", "Amr b. Hârûn", 5, null, "Basra"),
+  N("amrbherimelezdielbasri", "عمرو بن هرم الأزدي البصري", "Amr b. Herim el-Ezdî el-Basrî", 5, null, "Basra"),
+  N("amrbyahyabelharis", "عمرو بن يحيى بن الحارث الحمصي", "Amr b. Yahyâ b. el-Hâris", 6, null, "Humus"),
+  N("imranbelharisessule2", "عمران بن الحارث السلمي أبو الحكم الكوفي", "İmrân b. el-Hâris es-Sülemî Ebû Hakem", 4, null, "Kûfe"),
+  N("imranbdaver", "عمران بن داور", "İmrân b. Dâver", 5, null, "Basra"),
+  N("imranbebiataelesedi2", "عمران بن أبي عطاء الأسدي", "İmrân b. Ebî Atâ el-Esedî", 4, null, "Vâsıt"),
+  N("imranbmuslim3", "عمران بن مسلم", "İmrân b. Müslim", 5, null, "Kûfe"),
+  N("imranbmusa2", "عمران بن موسى", "İmrân b. Mûsâ", 5, null, "Basra"),
+  N("imranbnafielmedeni2", "عمران بن نافع المدني", "İmrân b. Nâfi‘ el-Medenî", 5, null, "Medine"),
+  N("umeyrbmemum", "عمير بن مأموم", "Umeyr b. Me’mûm", 4, null, "Kûfe"),
+  N("anbesebelezheresseyban", "عنبسة بن الأزهر الشيباني أبو يحيى الكوفي", "Anbese b. el-Ezher eş-Şeybânî Ebû Yahyâ", 5, null, "Kûfe"),
+  N("anbesebsaidbeddurays", "عنبسة بن سعيد بن الضريس", "Anbese b. Saîd b. ed-Durays", 5, null, "Kûfe"),
+  N("anbesebabdulvahidbumey", "عنبسة بن عبد الواحد بن أمية أبو خالد الكوفي الأعور", "Anbese b. Abdülvâhid b. Ümeyye Ebû Hâlid el-A‘ver", 5, null, "Kûfe"),
+  N("avseceelmekki", "عوسجة المكي", "Avsece el-Mekkî", 4, null, "Mekke"),
+  N("avfbebicemile", "عوف بن أبي جميلة", "Avf b. Ebî Cemîle", 5, null, "Basra"),
+  N("avfbmalikbnadle", "عوف بن مالك بن نضلة", "Avf b. Mâlik b. Nadle", 3, null, "Kûfe"),
+  N("alabebihakimyahyaes2", "العلاء بن أبي حكيم يحيى الشامي", "Alâ b. Ebî Hakîm Yahyâ eş-Şâmî", 4, null, "Şam"),
+  N("alabzeyd2", "العلاء بن زيد", "Alâ b. Zeyd", 5, null, "Basra"),
+  N("alabsalihetteymi2", "العلاء بن صالح التيمي", "Alâ b. Sâlih et-Teymî", 5, null, "Kûfe"),
+  N("alabsalihennisaburi2", "العلاء بن صالح النيسابوري أبو الحسين", "Alâ b. Sâlih en-Nîsâbûrî Ebû Hüseyin", 5, null, "Horasan"),
+  N("alababdirrahmanbyakub", "العلاء بن عبد الرحمن بن يعقوب الحرقي", "Alâ b. Abdirrahman b. Ya‘kûb", 5, null, "Medine"),
+  N("alabarar", "العلاء بن عرار", "Alâ b. Arâr", 4, null, "Kûfe"),
+  N("alabusaym", "العلاء بن عصيم", "Alâ b. Usaym", 5, null, "Kûfe"),
+  N("alabellecelac", "العلاء بن اللجلاج", "Alâ b. el-Lecelâc", 4, null, "Şam"),
+  N("isabibrahimbisa2", "عيسى بن إبراهيم بن عيسى", "Îsâ b. İbrâhim b. Îsâ", 5, null, "Mısır"),
+  N("isabcariye", "عيسى بن جارية", "Îsâ b. Câriye", 4, null, "Medine"),
+  N("isabhafsbasimebuziy2", "عيسى بن حفص بن عاصم أبو زياد المدني", "Îsâ b. Hafs b. Âsım Ebû Ziyâd el-Medenî", 5, 157, "Medine"),
+  N("isabsehlbrafi2", "عيسى بن سهل بن رافع", "Îsâ b. Sehl b. Râfi‘", 4, null, "Medine"),
+  N("isabtalhabubeydulla2", "عيسى بن طلحة بن عبيد الله التيمي أبو محمد المدني", "Îsâ b. Talha b. Ubeydullah et-Teymî Ebû Muhammed el-Medenî", 3, 100, "Medine"),
+  N("isabasimelesedi2", "عيسى بن عاصم الأسدي الكوفي", "Îsâ b. Âsım el-Esedî", 5, null, "Kûfe"),
+  N("isabebiazze", "عيسى بن أبي عزة الكوفي", "Îsâ b. Ebî Azze", 5, null, "Kûfe"),
+  N("isabomerelesedielhe2", "عيسى بن عمر الأسدي الهمداني", "Îsâ b. Ömer el-Esedî el-Hemdânî", 5, 156, "Kûfe"),
+  N("isabkirtas", "عيسى بن قرطاس الكوفي", "Îsâ b. Kırtâs", 5, null, "Kûfe"),
+  N("isabmusaebumuhammed2", "عيسى بن موسى القرشي أبو محمد", "Îsâ b. Mûsâ Ebû Muhammed", 5, null, "Şam"),
+  N("isabmusaelmedeni2", "عيسى بن موسى المدني", "Îsâ b. Mûsâ el-Medenî", 4, null, "Medine"),
+  N("isabyezdad", "عيسى بن يزداد", "Îsâ b. Yezdâd", 5, null, "Yemen"),
+  N("gassanbberzin", "غسان بن برزين", "Gassân b. Berzîn", 5, null, "Basra"),
+  N("gutayfbayenesseybaniel", "غطيف بن أعين الشيباني الجزري", "Gutayf b. A‘yen eş-Şeybânî el-Cezerî", 5, null, "Humus"),
+  N("fatikbfadalebserikeles", "فاتك بن فضالة بن شريك الأسدي الكوفي", "Fâtik b. Fadâle b. Şerîk el-Esedî", 5, null, "Kûfe"),
+  N("faidbabdirrahmanebuelv", "فائد بن عبد الرحمن الكوفي أبو الورقاء العطار", "Fâid b. Abdirrahman Ebû el-Varkā el-Attâr", 5, null, "Kûfe"),
+  N("furatbhalideddabbiebui", "فرات بن خالد الضبي أبو إسحاق الرازي", "Furât b. Hâlid ed-Dabbî Ebû İshak er-Râzî", 5, null, "Cibâl"),
+  N("furatbebiabdirrahman", "فرات بن أبي عبد الرحمن", "Furât b. Ebî Abdirrahman", 5, null, "Kûfe"),
+  N("fadabhalidelcehdamielb", "فضاء بن خالد الجهضمي البصري", "Fadâ b. Hâlid el-Cehdamî el-Basrî", 5, null, "Basra"),
+  N("fazlbhasanbamr2", "الفضل بن الحسن بن عمرو", "Fazl b. Hasan b. Amr", 3, null, "Mısır"),
+  N("fazlbabbas", "الفضل بن العباس البغدادي", "Fazl b. Abbâs", 5, null, "Bağdat"),
+  N("fazlbubeydullahbebi2", "الفضل بن عبيد الله بن أبي رافع المدني", "Fazl b. Ubeydullah b. Ebî Râfi‘ el-Medenî", 5, null, "Medine"),
+  N("fazlbanbese", "الفضل بن عنبسة", "Fazl b. Anbese", 5, null, "Vâsıt"),
+  N("fazlbalaebuabbas", "الفضل بن العلاء أبو العباس", "Fazl b. Alâ Ebû Abbâs", 5, null, "Basra"),
+  N("fazlbfazlelmedeni2", "الفضل بن الفضل المدني", "Fazl b. Fazl el-Medenî", 5, null, "Medine"),
+  N("fazlbelmuveffakbebielm", "الفضل بن الموفق بن أبي المتئد", "Fazl b. el-Müveffak b. Ebî el-Müte’id", 5, null, "Kûfe"),
+  N("fazlbyakubbibrahim2", "الفضل بن يعقوب بن إبراهيم", "Fazl b. Ya‘kûb b. İbrâhim", 5, 258, "Bağdat"),
+  N("fazlbyakubelcufiebuabb", "الفضل بن يعقوب الجعفي الكوفي أبو العباس", "Fazl b. Ya‘kûb el-Cu‘fî Ebû Abbâs", 6, null, "Kûfe"),
+  N("fiddaebumevdudelbasri", "فضة أبو مودود البصري", "Fıdda Ebû Mevdûd el-Basrî", 5, null, "Basra"),
+  N("fulfulebabdullahelcufi", "فلفلة بن عبد الله الجعفي الكوفي", "Fülfüle b. Abdullah el-Cu‘fî", 2, null, "Kûfe"),
+  N("kabusbebizabyan", "قابوس بن أبي ظبيان", "Kābûs b. Ebî Zabyân", 5, null, "Kûfe"),
+  N("kabusbmuharik", "قابوس بن مخارق", "Kābûs b. Muhârik", 3, null, "Kûfe"),
+  N("karitbseybebkarizelley", "قارط بن شيبة بن قارظ الليثي المدني", "Kārıt b. Şeybe b. Kâriz el-Leysî el-Medenî", 3, null, "Medine"),
+  N("kasimbahmed2", "القاسم بن أحمد البغدادي", "Kâsım b. Ahmed", 5, null, "Bağdat"),
+  N("kasimbzekeriyyabdin2", "القاسم بن زكريا بن دينار القرشي أبو محمد الكوفي", "Kâsım b. Zekeriyyâ b. Dînâr Ebû Muhammed", 5, null, "Kûfe"),
+  N("kasimbzekeriyyabyah2", "القاسم بن زكريا بن يحيى البغدادي أبو بكر", "Kâsım b. Zekeriyyâ b. Yahyâ Ebû Bekir", 6, 305, "Bağdat"),
+  N("kasimbsellam2", "القاسم بن سلام", "Kâsım b. Sellâm", 5, 224, "Bağdat"),
+  N("kasimbsellamelmerve2", "القاسم بن سلام المروزي", "Kâsım b. Sellâm el-Mervezî", 5, null, "Horasan"),
+  N("kasimbabbasbmuhamme2", "القاسم بن العباس بن محمد أبو العباس المدني", "Kâsım b. Abbâs b. Muhammed Ebû Abbâs el-Medenî", 5, null, "Medine"),
+  N("kasimbabdullahbomer2", "القاسم بن عبد الله بن عمر", "Kâsım b. Abdullah b. Ömer", 5, null, "Medine"),
+  N("kasimbabdirrahmanba2", "القاسم بن عبد الرحمن بن عبد الله أبو عبد الرحمن الكوفي", "Kâsım b. Abdirrahman b. Abdullah Ebû Abdirrahman", 4, null, "Kûfe"),
+  N("kasimbabdirrahmaned2", "القاسم بن عبد الرحمن الدمشقي أبو عبد الرحمن", "Kâsım b. Abdirrahman ed-Dımaşkī Ebû Abdirrahman", 3, 112, "Şam"),
+  N("kasimbabdulvahidbeymen", "القاسم بن عبد الواحد بن أيمن المكي", "Kâsım b. Abdülvâhid b. Eymen el-Mekkî", 5, null, "Mekke"),
+  N("kasimbisabziyadelba2", "القاسم بن عيسى بن زياد البصري", "Kâsım b. Îsâ b. Ziyâd el-Basrî", 5, null, "Basra"),
+  N("kasimbisabibrahim2", "القاسم بن عيسى بن إبراهيم", "Kâsım b. Îsâ b. İbrâhim", 6, null, "Şam"),
+  N("kasimbgannamelensari", "القاسم بن غنام الأنصاري البياضي", "Kâsım b. Gannâm el-Ensârî", 4, null, "Medine"),
+  N("kasimbmuhammedbhafs2", "القاسم بن محمد بن حفص المدني", "Kâsım b. Muhammed b. Hafs el-Medenî", 5, null, "Medine"),
+  N("kasimbmuhammedbabba2", "القاسم بن محمد بن عباد أبو محمد البصري", "Kâsım b. Muhammed b. Abbâd Ebû Muhammed el-Basrî", 5, null, "Bağdat"),
+  N("kasimbmutayyeb", "القاسم بن مطيب", "Kâsım b. Mutayyeb", 5, null, "Basra"),
+  N("kasimbelvelidelhemd2", "القاسم بن الوليد الهمداني أبو عبد الرحمن الكوفي", "Kâsım b. el-Velîd el-Hemdânî Ebû Abdirrahman", 5, 141, "Kûfe"),
+  N("kasimbyahyabataebum2", "القاسم بن يحيى بن عطاء أبو محمد الواسطي", "Kâsım b. Yahyâ b. Atâ Ebû Muhammed el-Vâsıtî", 5, 197, "Vâsıt"),
+  N("kabisabelhelb", "قبيصة بن الهلب", "Kabîsa b. el-Helb", 3, null, "Kûfe"),
+  N("kazabsuveydbhucayr", "قزعة بن سويد بن حجير", "Kaz‘a b. Süveyd b. Hucayr", 5, null, "Basra"),
+  N("kusamebzuheyrelmazinie", "قسامة بن زهير المازني البصري", "Kusâme b. Züheyr el-Mâzinî el-Basrî", 3, null, "Basra"),
+  N("katabebabdulazizbsiyah", "قطبة بن عبد العزيز بن سياه", "Katabe b. Abdülazîz b. Siyâh", 5, null, "Kûfe"),
+  N("katanbnuseyr", "قطن بن نسير", "Katan b. Nüseyr", 5, null, "Basra"),
+  N("katanbvehbbuveymirelle", "قطن بن وهب بن عويمر الليثي", "Katan b. Vehb b. Uveymir el-Leysî", 5, null, "Medine"),
+  N("kaysbelharis2", "قيس بن الحارث", "Kays b. el-Hâris", 3, null, "Humus"),
+  N("kaysbhabter", "قيس بن حبتر", "Kays b. Habter", 4, null, "Kûfe"),
+  N("kaysbrafi2", "قيس بن رافع الكوفي", "Kays b. Râfi‘", 3, null, "Kûfe"),
+  N("kaysbsadelmekki2", "قيس بن سعد المكي", "Kays b. Sa‘d el-Mekkî", 5, null, "Mekke"),
+  N("kaysbabbad2", "قيس بن عباد", "Kays b. Abbâd", 2, null, "Basra"),
+  N("kaysbhebbarelbasri", "قيس بن هبار البصري", "Kays b. Hebbâr el-Basrî", 4, null, "Basra"),
+  N("kaysbvehbelhemdani2", "قيس بن وهب الهمداني الكوفي", "Kays b. Vehb el-Hemdânî", 5, null, "Kûfe"),
+  N("kayselmedeni2", "قيس المدني", "Kays el-Medenî", 3, null, "Medine"),
+  N("kesirbismail2", "كثير بن إسماعيل", "Kesîr b. İsmâîl", 5, null, "Kûfe"),
+  N("kesirbelhariseddimaski", "كثير بن الحارث الدمشقي أبو أمين", "Kesîr b. el-Hâris ed-Dımaşkī Ebû Emîn", 5, null, "Şam"),
+  N("kesirbzeydebumuhammede", "كثير بن زيد الأسلمي أبو محمد المدني بن مافنه", "Kesîr b. Zeyd Ebû Muhammed el-Medenî b. Mâfenneh", 5, null, "Medine"),
+  N("kesirbsinzir", "كثير بن شنظير", "Kesîr b. Şinzîr", 5, null, "Basra"),
+  N("kesirbkulayb", "كثير بن قليب", "Kesîr b. Kulayb", 2, null, "Mısır"),
+  N("kesirbkaysessami2", "كثير بن قيس الشامي", "Kesîr b. Kays eş-Şâmî", 3, null, "Şam"),
+  N("kesirbebikesirelbas2", "كثير بن أبي كثير البصري", "Kesîr b. Ebî Kesîr el-Basrî", 3, null, "Basra"),
+  N("kesirbebikesirelbas3", "كثير بن أبي كثير البصري الليثي", "Kesîr b. Ebî Kesîr el-Basrî el-Leysî", 5, null, "Basra"),
+  N("kesirbebikesirettey2", "كثير بن أبي كثير التيمي الكوفي", "Kesîr b. Ebî Kesîr et-Teymî", 3, null, "Kûfe"),
+  N("kesirbmuttalibbebiveda", "كثير بن المطلب بن أبي وداعة أبو سعيد المكي", "Kesîr b. Muttalib b. Ebî Vedâa Ebû Saîd el-Mekkî", 3, null, "Mekke"),
+  N("kabbabdullah2", "كعب بن عبد الله", "Kâ‘b b. Abdullah", 5, null, "Basra"),
+  N("kabelmedeniebuamir2", "كعب المدني أبو عامر", "Kâ‘b el-Medenî Ebû Âmir", 4, null, "Medine"),
+  N("kulsumbcevsen", "كلثوم بن جوشن الرقي", "Külsûm b. Cevşen", 5, null, "Humus"),
+  N("kuleybbzuhlelhadramiel", "كليب بن ذهل الحضرمي المصري", "Küleyb b. Zühl el-Hadramî el-Mısrî", 5, null, "Mısır"),
+  N("kuleybbmenfaaelbasri", "كليب بن منفعة الحنفي البصري", "Küleyb b. Menfaa el-Basrî", 5, null, "Basra"),
+  N("lokmanbamir", "لقمان بن عامر الوصابي", "Lokmân b. Âmir", 3, null, "Humus"),
+  N("lemmazebzebbad", "لمازة بن زباد", "Lemmâze b. Zebbâd", 3, null, "Basra"),
+  N("leysbebirukayye", "ليث بن أبي رقية", "Leys b. Ebî Rukayye", 5, null, "Şam"),
+  N("muhammedbebanbvezirebu", "محمد بن أبان بن وزير البلخي أبو بكر بن أبي إبراهيم المستملي", "Muhammed b. Ebân b. Vezîr Ebû Bekir b. Ebî İbrâhim el-Müstemlî", 5, null, "Horasan"),
+  N("muhammedbibrahimbel2", "محمد بن إبراهيم بن الحارث أبو عبد الله المدني", "Muhammed b. İbrâhim b. el-Hâris Ebû Abdullah el-Medenî", 4, 120, "Medine"),
+  N("muhammedbibrahimbdi2", "محمد بن إبراهيم بن دينار المدني", "Muhammed b. İbrâhim b. Dînâr el-Medenî", 5, 182, "Medine"),
+  N("muhammedbibrahimelb2", "محمد بن إبراهيم الباهلي البصري", "Muhammed b. İbrâhim el-Bâhilî el-Basrî", 5, null, "Basra"),
+  N("muhammedbahmedbhuse2", "محمد بن أحمد بن الحسين", "Muhammed b. Ahmed b. Hüseyin", 5, null, "Horasan"),
+  N("muhammedbahmed2", "محمد بن أحمد القرشي", "Muhammed b. Ahmed", 5, 255, "Medine"),
+  N("muhammedbahmedbnafi2", "محمد بن أحمد بن نافع العبدي أبو بكر البصري", "Muhammed b. Ahmed b. Nâfi‘ el-Abdî Ebû Bekir el-Basrî", 5, null, "Basra"),
+  N("muhammedbidrisbmunzire", "محمد بن إدريس بن المنذر الحنظلي أبو حاتم الرازي", "Muhammed b. İdrîs b. Münzir Ebû Hâtim er-Râzî", 5, null, "Cibâl"),
+  N("muhammedbishakbmuha2", "محمد بن إسحاق بن محمد", "Muhammed b. İshak b. Muhammed", 5, 236, "Medine"),
+  N("muhammedbismailbibr2", "محمد بن إسماعيل بن إبراهيم", "Muhammed b. İsmâîl b. İbrâhim", 5, 264, "Şam"),
+  N("muhammedbismailbsalime", "محمد بن إسماعيل بن سالم الصائغ الكبير أبو جعفر البغدادي", "Muhammed b. İsmâîl b. Sâlim es-Sâiğ el-Kebîr Ebû Ca‘fer", 5, null, "Mekke"),
+  N("muhammedbismailbmus2", "محمد بن إسماعيل بن مسلم", "Muhammed b. İsmâîl b. Müslim", 5, 200, "Medine"),
+  N("muhammedbismailelba2", "محمد بن إسماعيل البصري", "Muhammed b. İsmâîl el-Basrî", 5, null, "Basra"),
+  N("muhammedbeflahbmugiree", "محمد بن أفلح بن المغيرة الأنصاري الموصلي الشاعر مستور", "Muhammed b. Eflah b. Mugīre el-Ensârî eş-Şâir Mestûr", 6, null, "Humus"),
+  N("muhammedbeyyubelkilabi", "محمد بن أيوب الكلابي أبو هريرة الواسطي", "Muhammed b. Eyyûb el-Kilâbî Ebû Hüreyre el-Vâsıtî", 5, null, "Vâsıt"),
+  N("muhammedbebieyyubeb2", "محمد بن أبي أيوب أبو عاصم الثقفي الكوفي", "Muhammed b. Ebî Eyyûb Ebû Âsım es-Sekafî", 5, null, "Kûfe"),
+  N("muhammedbbisrbbesir2", "محمد بن بشر بن بشير", "Muhammed b. Bişr b. Beşîr", 5, null, "Kûfe"),
+  N("muhammedbbisrelabdiebu", "محمد بن بشر العبدي أبو عبد الله الكوفي", "Muhammed b. Bişr el-Abdî Ebû Abdullah", 5, 203, "Kûfe"),
+  N("muhammedbebibekirba2", "محمد بن أبي بكر بن علي", "Muhammed b. Ebî Bekir b. Ali", 5, 234, "Basra"),
+  N("muhammedbsalebebseva", "محمد بن ثعلبة بن سواء", "Muhammed b. Sa‘lebe b. Sevâ", 5, null, "Basra"),
+  N("muhammedbcaferbezzu2", "محمد بن جعفر بن الزبير", "Muhammed b. Ca‘fer b. ez-Zübeyr", 5, null, "Medine"),
+  N("muhammedbcaferbebik2", "محمد بن جعفر بن أبي كثير الأنصاري", "Muhammed b. Ca‘fer b. Ebî Kesîr el-Ensârî", 5, null, "Medine"),
+  N("muhammedbcahdambabdull", "محمد بن جهضم بن عبد الله الثقفي أبو جعفر البصري", "Muhammed b. Cahdam b. Abdullah es-Sekafî Ebû Ca‘fer el-Basrî", 5, null, "Basra"),
+  N("muhammedbhatimbmeym2", "محمد بن حاتم بن ميمون البغدادي", "Muhammed b. Hâtim b. Meymûn", 5, null, "Bağdat"),
+  N("muhammedbelharisbra2", "محمد بن الحارث بن راشد", "Muhammed b. el-Hâris b. Râşid", 5, 241, "Mısır"),
+  N("muhammedbelharisbzi2", "محمد بن الحارث بن زياد", "Muhammed b. el-Hâris b. Ziyâd", 5, null, "Basra"),
+  N("muhammedbelharis2", "محمد بن الحارث", "Muhammed b. el-Hâris", 5, null, "Humus"),
+  N("muhammedbhuseyinbeb2", "محمد بن الحسين بن أبي الحسن", "Muhammed b. Hüseyin b. Ebî Hasan", 5, null, "Medine"),
+  N("muhammedbhasanbzubale", "محمد بن الحسن بن زبالة", "Muhammed b. Hasan b. Zübâle", 5, null, "Medine"),
+  N("muhammedbhasanbezzu2", "محمد بن الحسن بن الزبير الأسدي الكوفي", "Muhammed b. Hasan b. ez-Zübeyr el-Esedî", 5, 200, "Kûfe"),
+  N("muhammedbhakemelese2", "محمد بن الحكم الأسدي الكوفي", "Muhammed b. Hakem el-Esedî", 5, null, "Kûfe"),
+  N("muhammedbhumeydbhay2", "محمد بن حميد بن حيان الرازي", "Muhammed b. Humeyd b. Hayyân er-Râzî", 5, 248, "Cibâl"),
+  N("muhammedbhayyan2", "محمد بن حيان", "Muhammed b. Hayyân", 5, 227, "Bağdat"),
+  N("muhammedbhalidbelhuvey", "محمد بن خالد بن الحويرث المكي مستور", "Muhammed b. Hâlid b. el-Huveyris el-Mekkî Mestûr", 5, null, "Mekke"),
+  N("muhammedbhalidbabdu2", "محمد بن خالد بن عبد الله", "Muhammed b. Hâlid b. Abdullah", 5, 240, "Vâsıt"),
+  N("muhammedbhalidbasme", "محمد بن خالد بن عثمة", "Muhammed b. Hâlid b. Asme", 5, null, "Basra"),
+  N("muhammedbdab", "محمد بن داب", "Muhammed b. Dâb", 5, null, "Medine"),
+  N("muhammedbdinarelezd2", "محمد بن دينار الأزدي", "Muhammed b. Dînâr el-Ezdî", 5, null, "Basra"),
+  N("muhammedbrafiennisabur", "محمد بن رافع القشيري النيسابوري", "Muhammed b. Râfi‘ en-Nîsâbûrî", 5, 245, "Horasan"),
+  N("muhammedbzunburbebiele", "محمد بن زنبور بن أبي الأزهر أبو صالح المكي", "Muhammed b. Zünbûr b. Ebî el-Ezher Ebû Sâlih el-Mekkî", 5, null, "Mekke"),
+  N("muhammedbzeydbabdul2", "محمد بن زيد بن عبد الله", "Muhammed b. Zeyd b. Abdullah", 3, null, "Medine"),
+  N("muhammedbzeydbaliel2", "محمد بن زيد بن علي العبدي", "Muhammed b. Zeyd b. Ali el-Abdî", 5, null, "Basra"),
+  N("muhammedbsalimelhem2", "محمد بن سالم الهمداني", "Muhammed b. Sâlim el-Hemdânî", 5, null, "Kûfe"),
+  N("muhammedbsaibbberekeel", "محمد بن السائب بن بركة المكي", "Muhammed b. Sâib b. Bereke el-Mekkî", 5, null, "Mekke"),
+  N("muhammedbsadelensar2", "محمد بن سعد الأنصاري الشامي", "Muhammed b. Sa‘d el-Ensârî eş-Şâmî", 5, null, "Şam"),
+  N("muhammedbsaidbhassa2", "محمد بن سعيد بن حسان الحمصي", "Muhammed b. Saîd b. Hassân", 5, null, "Humus"),
+  N("muhammedbsaidbyezid2", "محمد بن سعيد بن يزيد أبو بكر", "Muhammed b. Saîd b. Yezîd Ebû Bekir", 5, null, "Basra"),
+  N("muhammedbebisufyanbala", "محمد بن أبي سفيان بن العلاء", "Muhammed b. Ebî Süfyân b. Alâ", 5, null, "Şam"),
+  N("muhammedbselemebabd2", "محمد بن سلمة بن عبد الله الباهلي", "Muhammed b. Seleme b. Abdullah el-Bâhilî", 5, 91, "Humus"),
+  N("muhammedbsuleymanbh2", "محمد بن سليمان بن حبيب الأسدي أبو جعفر", "Muhammed b. Süleymân b. Habîb el-Esedî Ebû Ca‘fer", 5, null, "Kûfe"),
+  N("muhammedbseva", "محمد بن سواء", "Muhammed b. Sevâ", 5, null, "Basra"),
+  N("muhammedbsazanelvasiti", "محمد بن شاذان الواسطي", "Muhammed b. Şâzân el-Vâsıtî", 5, null, "Vâsıt"),
+  N("muhammedbsucabnebhan", "محمد بن شجاع بن نبهان", "Muhammed b. Şücâ‘ b. Nebhân", 5, null, "Horasan"),
+  N("muhammedbsumeyr", "محمد بن شمير", "Muhammed b. Şümeyr", 5, null, "Mısır"),
+  N("muhammedbseybebnaameed", "محمد بن شيبة بن نعامة الضبي الكوفي", "Muhammed b. Şeybe b. Naâme ed-Dabbî", 5, null, "Kûfe"),
+  N("muhammedbtalhabyezi2", "محمد بن طلحة بن يزيد", "Muhammed b. Talha b. Yezîd", 5, null, "Mekke"),
+  N("muhammedbasimerrazi2", "محمد بن عاصم الرازي", "Muhammed b. Âsım er-Râzî", 5, null, "Cibâl"),
+  N("muhammedbabbadbcafer", "محمد بن عباد بن جعفر", "Muhammed b. Abbâd b. Ca‘fer", 3, null, "Mekke"),
+  N("muhammedbabbasbosma2", "محمد بن العباس بن عثمان", "Muhammed b. Abbâs b. Osmân", 5, null, "Mekke"),
+  N("muhammedbabdullahbi2", "محمد بن عبد الله بن إسماعيل", "Muhammed b. Abdullah b. İsmâîl", 5, 257, "Bağdat"),
+  N("muhammedbabdullahbmuhl", "محمد بن عبد الله بن مهل الصنعاني", "Muhammed b. Abdullah b. Mühl es-San‘ânî", 5, null, "Yemen"),
+  N("muhammedbabdullahbe2", "محمد بن عبد الله بن أبي جعفر الرازي", "Muhammed b. Abdullah b. Ebî Ca‘fer er-Râzî", 5, null, "Cibâl"),
+  N("muhammedbabdullahbe3", "محمد بن عبد الله بن الحارث", "Muhammed b. Abdullah b. el-Hâris", 3, null, "Medine"),
+  N("muhammedbabdullahbebih", "محمد بن عبد الله بن أبي حرة", "Muhammed b. Abdullah b. Ebî Hurre", 5, null, "Medine"),
+  N("muhammedbabdullahbhasa", "محمد بن عبد الله بن حسن", "Muhammed b. Abdullah b. Hasan", 5, 145, "Medine"),
+  N("muhammedbabdullahbh2", "محمد بن عبد الله بن حفص", "Muhammed b. Abdullah b. Hafs", 5, null, "Basra"),
+  N("muhammedbabdullahbhali", "محمد بن عبد الله بن خالد الخراساني أبو لقمان", "Muhammed b. Abdullah b. Hâlid el-Horâsânî Ebû Lokmân", 6, null, "Horasan"),
+  N("muhammedbabdullahbz2", "محمد بن عبد الله بن زيد", "Muhammed b. Abdullah b. Zeyd", 3, null, "Medine"),
+  N("muhammedbabdullahbe4", "محمد بن عبد الله بن أبي سليم المدني", "Muhammed b. Abdullah b. Ebî Süleym el-Medenî", 5, null, "Medine"),
+  N("muhammedbabdullahba2", "محمد بن عبد الله بن عبد الحكم", "Muhammed b. Abdullah b. Abdülhakem", 5, 268, "Mısır"),
+  N("muhammedbabdullahba3", "محمد بن عبد الله بن عبد الرحمن أبو عبد الرحمن المدني", "Muhammed b. Abdullah b. Abdirrahman Ebû Abdirrahman el-Medenî", 5, 139, "Medine"),
+  N("muhammedbabdullahba4", "محمد بن عبد الله بن عبد الرحمن", "Muhammed b. Abdullah b. Abdirrahman", 5, null, "Medine"),
+  N("muhammedbabdullahbu2", "محمد بن عبد الله بن عبيد", "Muhammed b. Abdullah b. Ubeyd", 5, null, "Basra"),
+  N("muhammedbabdullahba5", "محمد بن عبد الله بن عمرو", "Muhammed b. Abdullah b. Amr", 5, 145, "Medine"),
+  N("muhammedbabdullahbm2", "محمد بن عبد الله بن محمد", "Muhammed b. Abdullah b. Muhammed", 5, 219, "Basra"),
+  N("muhammedbabdullahbm3", "محمد بن عبد الله بن مسلم", "Muhammed b. Abdullah b. Müslim", 5, null, "Medine"),
+  N("muhammedbabdullahby2", "محمد بن عبد الله بن يزيد", "Muhammed b. Abdullah b. Yezîd", 5, null, "Mekke"),
+  N("muhammedbabdullahbe5", "محمد بن عبد الله بن أبي يعقوب التميمي البصري", "Muhammed b. Abdullah b. Ebî Ya‘kûb et-Temîmî el-Basrî", 5, null, "Basra"),
+  N("muhammedbabdirrahma2", "محمد بن عبد الرحمن بن أبي بكر أبو غرارة", "Muhammed b. Abdirrahman b. Ebî Bekir Ebû Gırâra", 5, null, "Mekke"),
+  N("muhammedbabdirrahma3", "محمد بن عبد الرحمن بن الحسن", "Muhammed b. Abdirrahman b. Hasan", 5, 260, "Şam"),
+  N("muhammedbabdirrahmanbi", "محمد بن عبد الرحمن بن عرق", "Muhammed b. Abdirrahman b. Irk", 5, null, "Humus"),
+  N("muhammedbabdirrahmanbg", "محمد بن عبد الرحمن بن غنج", "Muhammed b. Abdirrahman b. Gunc", 5, null, "Mısır"),
+  N("muhammedbabdirrahma4", "محمد بن عبد الرحمن بن المغيرة أبو الحارث المدني", "Muhammed b. Abdirrahman b. Mugīre Ebû el-Hâris el-Medenî", 5, null, "Medine"),
+  N("muhammedbabdirrahmanbn", "محمد بن عبد الرحمن بن نوفل", "Muhammed b. Abdirrahman b. Nevfel", 5, null, "Medine"),
+  N("muhammedbabdirrahma5", "محمد بن عبد الرحمن بن يزيد أبو جعفر الكوفي", "Muhammed b. Abdirrahman b. Yezîd Ebû Ca‘fer", 5, null, "Kûfe"),
+  N("muhammedbabdirrahma6", "محمد بن عبد الرحمن", "Muhammed b. Abdirrahman", 5, null, "Kûfe"),
+  N("muhammedbabdulmelik2", "محمد بن عبد الملك بن أبي محذورة الجمحي المكي المؤذن", "Muhammed b. Abdülmelik b. Ebî Mahzûre el-Cümahî el-Mekkî el-Müezzin", 5, null, "Mekke"),
+  N("muhammedbabdulmelik3", "محمد بن عبد الملك الواسطي", "Muhammed b. Abdülmelik el-Vâsıtî", 5, null, "Vâsıt"),
+  N("muhammedbubeydullah2", "محمد بن عبيد الله", "Muhammed b. Ubeydullah", 5, null, "Kûfe"),
+  N("muhammedbubeydullah3", "محمد بن عبيد الله بن محمد أبو ثابت", "Muhammed b. Ubeydullah b. Muhammed Ebû Sâbit", 5, null, "Medine"),
+  N("muhammedbubeyd2", "محمد بن عبيد", "Muhammed b. Ubeyd", 5, 204, "Kûfe"),
+  N("muhammedbubeydbebis2", "محمد بن عبيد بن أبي صالح المكي", "Muhammed b. Ubeyd b. Ebî Sâlih el-Mekkî", 5, null, "Mekke"),
+  N("muhammedbubeydbmuha2", "محمد بن عبيد بن محمد", "Muhammed b. Ubeyd b. Muhammed", 5, null, "Kûfe"),
+  N("muhammedbubeydbmuha3", "محمد بن عبيد بن محمد أبو جعفر", "Muhammed b. Ubeyd b. Muhammed Ebû Ca‘fer", 5, null, "Kûfe"),
+  N("muhammedbubeydbmeym2", "محمد بن عبيد بن ميمون المدني", "Muhammed b. Ubeyd b. Meymûn el-Medenî", 5, null, "Medine"),
+  N("muhammedbosmanbsafv2", "محمد بن عثمان بن صفوان", "Muhammed b. Osmân b. Safvân", 5, null, "Mekke"),
+  N("muhammedbosmanbabdi2", "محمد بن عثمان بن عبد الرحمن", "Muhammed b. Osmân b. Abdirrahman", 5, null, "Medine"),
+  N("muhammedbukbebkesir2", "محمد بن عقبة بن كثير", "Muhammed b. Ukbe b. Kesîr", 5, 220, "Kûfe"),
+  N("muhammedbukbebherimess", "محمد بن عقبة بن هرم السدوسي البصري", "Muhammed b. Ukbe b. Herim es-Sedûsî el-Basrî", 5, null, "Basra"),
+  N("muhammedbalibhasan2", "محمد بن علي بن الحسن", "Muhammed b. Ali b. Hasan", 5, 250, "Horasan"),
+  N("muhammedbalibhamzae2", "محمد بن علي بن حمزة المروزي", "Muhammed b. Ali b. Hamza el-Mervezî", 5, 261, "Horasan"),
+  N("muhammedbalibhamza2", "محمد بن علي بن حمزة", "Muhammed b. Ali b. Hamza", 6, 286, "Bağdat"),
+  N("muhammedbalibsafielmek", "محمد بن علي بن شافع المطلبي المكي", "Muhammed b. Ali b. Şâfi‘ el-Mekkî", 5, null, "Mekke"),
+  N("muhammedbammarbhafs2", "محمد بن عمار بن حفص", "Muhammed b. Ammâr b. Hafs", 5, null, "Medine"),
+  N("muhammedbomerbabdul2", "محمد بن عمر بن عبد الله", "Muhammed b. Ömer b. Abdullah", 5, null, "Basra"),
+  N("muhammedbomerbali3", "محمد بن عمر بن علي", "Muhammed b. Ömer b. Ali", 5, null, "Basra"),
+  N("muhammedbomerbmutarrif", "محمد بن عمر بن مطرف أبو المطرف بن أبي الوزير البصري", "Muhammed b. Ömer b. Mutarrif Ebû el-Mutarrif b. Ebî el-Vezîr el-Basrî", 5, null, "Basra"),
+  N("muhammedbomerbelvel2", "محمد بن عمر بن الوليد الكندي أبو جعفر الكوفي", "Muhammed b. Ömer b. el-Velîd el-Kindî Ebû Ca‘fer", 5, 256, "Kûfe"),
+  N("muhammedbamrbhalhale", "محمد بن عمرو بن حلحلة", "Muhammed b. Amr b. Halhale", 5, null, "Medine"),
+  N("muhammedbamrbabbad2", "محمد بن عمرو بن عباد", "Muhammed b. Amr b. Abbâd", 5, 234, "Basra"),
+  N("muhammedbamrbnebhan", "محمد بن عمرو بن نبهان", "Muhammed b. Amr b. Nebhân", 5, null, "Basra"),
+  N("muhammedbamrelensar2", "محمد بن عمرو الأنصاري المدني", "Muhammed b. Amr el-Ensârî el-Medenî", 5, null, "Medine"),
+  N("muhammedbamr3", "محمد بن عمرو", "Muhammed b. Amr", 5, 236, "Horasan"),
+  N("muhammedbimranbmuha2", "محمد بن عمران بن محمد أبو عبد الرحمن الكوفي", "Muhammed b. İmrân b. Muhammed Ebû Abdirrahman", 5, null, "Kûfe"),
+  N("muhammedbisa", "محمد بن عيسى", "Muhammed b. Îsâ", 5, null, "Şam"),
+  N("muhammedbgurayr", "محمد بن غرير", "Muhammed b. Gurayr", 5, null, "Medine"),
+  N("muhammedbfada", "محمد بن فضاء", "Muhammed b. Fadâ", 5, null, "Basra"),
+  N("muhammedbkasimelese2", "محمد بن القاسم الأسدي أبو القاسم الكوفي", "Muhammed b. Kâsım el-Esedî Ebû Kâsım", 5, 207, "Kûfe"),
+  N("muhammedbkayselmede2", "محمد بن قيس المدني", "Muhammed b. Kays el-Medenî", 5, null, "Medine"),
+  N("muhammedbkesirbebia2", "محمد بن كثير بن أبي عطاء الثقفي الصنعاني أبو يوسف", "Muhammed b. Kesîr b. Ebî Atâ es-Sekafî es-San‘ânî Ebû Yûsuf", 5, null, "Yemen"),
+  N("muhammedbkesirebuis2", "محمد بن كثير القرشي الكوفي أبو إسحاق", "Muhammed b. Kesîr Ebû İshak", 5, null, "Kûfe"),
+  N("muhammedbkesirelbas2", "محمد بن كثير البصري السلمي", "Muhammed b. Kesîr el-Basrî es-Sülemî", 5, null, "Basra"),
+  N("muhammedbkabbmalike2", "محمد بن كعب بن مالك الأنصاري السلمي", "Muhammed b. Kâ‘b b. Mâlik el-Ensârî es-Sülemî", 3, null, "Medine"),
+  N("muhammedbmucib", "محمد بن مجيب", "Muhammed b. Mücîb", 5, null, "Bağdat"),
+  N("muhammedbmuhammedbn2", "محمد بن محمد بن النعمان البصري", "Muhammed b. Muhammed b. Nu‘mân el-Basrî", 5, null, "Basra"),
+  N("muhammedbmuhammedbn3", "محمد بن محمد بن النعمان", "Muhammed b. Muhammed b. Nu‘mân", 5, null, "Basra"),
+  N("muhammedbebimuhamme2", "محمد بن أبي محمد المدني", "Muhammed b. Ebî Muhammed el-Medenî", 5, null, "Medine"),
+  N("muhammedbmiskinbnumeyl", "محمد بن مسكين بن نميلة", "Muhammed b. Miskîn b. Nümeyle", 5, null, "Bağdat"),
+  N("muhammedbmuslimelme2", "محمد بن مسلم المدني", "Muhammed b. Müslim el-Medenî", 5, null, "Medine"),
+  N("muhammedbmismarelbasri", "محمد بن مسمار البصري", "Muhammed b. Mismâr el-Basrî", 5, null, "Basra"),
+  N("muhammedbmuaviyebmalic", "محمد بن معاوية بن مالج", "Muhammed b. Muâviye b. Mâlic", 5, null, "Bağdat"),
+  N("muhammedbmugireebua2", "محمد بن المغيرة القرشي أبو علي البصري", "Muhammed b. Mugīre Ebû Ali el-Basrî", 5, null, "Basra"),
+  N("muhammedbmekkibisae2", "محمد بن مكي بن عيسى المروزي", "Muhammed b. Mekkî b. Îsâ el-Mervezî", 5, null, "Horasan"),
+  N("muhammedbmuyesser", "محمد بن ميسر", "Muhammed b. Müyesser", 5, null, "Bağdat"),
+  N("muhammedbnesr", "محمد بن نشر", "Muhammed b. Neşr", 5, null, "Kûfe"),
+  N("muhammedbhisambisa2", "محمد بن هشام بن عيسى", "Muhammed b. Hişâm b. Îsâ", 5, 252, "Bağdat"),
+  N("muhammedbhilalbebih2", "محمد بن هلال بن أبي هلال المدني", "Muhammed b. Hilâl b. Ebî Hilâl el-Medenî", 5, 162, "Medine"),
+  N("muhammedbheysembham2", "محمد بن الهيثم بن حماد", "Muhammed b. Heysem b. Hammâd", 5, null, "Bağdat"),
+  N("muhammedbvehbbsaid2", "محمد بن وهب بن سعيد", "Muhammed b. Vehb b. Saîd", 5, null, "Şam"),
+  N("muhammedbvehbbmusli2", "محمد بن وهب بن مسلم القرشي الدمشقي", "Muhammed b. Vehb b. Müslim ed-Dımaşkī", 5, null, "Şam"),
+  N("muhammedbyahyababdu2", "محمد بن يحيى بن عبد الله", "Muhammed b. Yahyâ b. Abdullah", 5, 258, "Horasan"),
+  N("muhammedbyahyabmuha2", "محمد بن يحيى بن محمد", "Muhammed b. Yahyâ b. Muhammed", 5, 267, "Humus"),
+  N("muhammedbyezidbhuneyse", "محمد بن يزيد بن خنيس المخزومي", "Muhammed b. Yezîd b. Huneys el-Mahzûmî", 5, null, "Mekke"),
+  N("muhammedbyezidbrukane", "محمد بن يزيد بن ركانة", "Muhammed b. Yezîd b. Rükâne", 5, null, "Mâverâünnehir"),
+  N("muhammedbyezidbebiz2", "محمد بن يزيد بن أبي زياد الثقفي", "Muhammed b. Yezîd b. Ebî Ziyâd es-Sekafî", 5, null, "Mısır"),
+  N("muhammedbyezidbmali2", "محمد بن يزيد بن مالك", "Muhammed b. Yezîd b. Mâlik", 5, null, "Basra"),
+  N("muhammedbyezidenneh2", "محمد بن يزيد النخعي الكوفي", "Muhammed b. Yezîd en-Nehaî", 5, null, "Kûfe"),
+  N("muhammedbyesar", "محمد بن يسار", "Muhammed b. Yesâr", 5, null, "Horasan"),
+  N("muhammedbyunusbmusa2", "محمد بن يونس بن موسى", "Muhammed b. Yûnus b. Mûsâ", 5, null, "Basra"),
+  N("muhammedbyunus2", "محمد بن يونس", "Muhammed b. Yûnus", 5, null, "Bağdat"),
+  N("malikbelhariselhemd2", "مالك بن الحارث الهمداني أبو موسى الكوفي", "Mâlik b. el-Hâris el-Hemdânî Ebû Mûsâ", 3, null, "Kûfe"),
+  N("malikbdinarelbasri2", "مالك بن دينار البصري", "Mâlik b. Dînâr el-Basrî", 5, null, "Basra"),
+  N("malikbmesruh", "مالك بن مسروح", "Mâlik b. Mesrûh", 5, null, "Şam"),
+  N("malikbyuhamir", "مالك بن يخامر", "Mâlik b. Yuhâmir", 2, null, "Humus"),
+  N("meczeebzahirbelesved", "مجزأة بن زاهر بن الأسود الأسلمي الكوفي", "Mecze’e b. Zâhir b. el-Esved", 4, null, "Kûfe"),
+  N("meczeebsufyanessekafie", "مجزأة بن سفيان الثقفي البصري", "Mecze’e b. Süfyân es-Sekafî el-Basrî", 5, null, "Basra"),
+  N("mihsanbalielmedenimest", "محصن بن علي الفهري المدني مستور", "Mihsan b. Ali el-Medenî Mestûr", 5, null, "Medine"),
+  N("mahfuzbalkameelhadrami", "محفوظ بن علقمة الحضرمي أبو جنادة الحمصي", "Mahfûz b. Alkame el-Hadramî Ebû Cünâde", 5, null, "Humus"),
+  N("muhtarbsayfi", "مختار بن صيفي", "Muhtâr b. Sayfî", 5, null, "Kûfe"),
+  N("muhtarbgassanettemmare", "مختار بن غسان التمار الكوفي العبدي", "Muhtâr b. Gassân et-Temmâr el-Abdî", 5, null, "Kûfe"),
+  N("muhtarbnafietteymi", "مختار بن نافع التيمي", "Muhtâr b. Nâfi‘ et-Teymî", 5, null, "Kûfe"),
+  N("muhavvelbrasideburasid", "مخول بن راشد أبو راشد بن أبي مجالد النهدي", "Muhavvel b. Râşid Ebû Râşid b. Ebî Mücâlid", 5, null, "Kûfe"),
+  N("mervanbcenah", "مروان بن جناح الأموي", "Mervân b. Cenâh", 5, null, "Şam"),
+  N("mervanbmuhammedbhas2", "مروان بن محمد بن حسان الأسدي الدمشقي", "Mervân b. Muhammed b. Hassân el-Esedî ed-Dımaşkī", 5, 210, "Şam"),
+  N("mervanbmuaviyebelha2", "مروان بن معاوية بن الحارث أبو عبد الله الكوفي", "Mervân b. Muâviye b. el-Hâris Ebû Abdullah", 5, 193, "Mekke"),
+  N("murribkatari", "مري بن قطري", "Mürrî b. Katarî", 3, null, "Kûfe"),
+  N("muzahimbzevvad", "مزاحم بن ذواد", "Müzâhim b. Zevvâd", 5, null, "Kûfe"),
+  N("mustelimbsaidessekafie", "مستلم بن سعيد الثقفي الواسطي", "Müstelim b. Saîd es-Sekafî el-Vâsıtî", 5, null, "Vâsıt"),
+  N("elmustemirberreyyan", "المستمر بن الريان", "el-Müstemir b. er-Reyyân", 5, null, "Basra"),
+  N("mesturbabbadelhinai", "مستور بن عباد الهنائي", "Mestûr b. Abbâd el-Hinâî", 5, null, "Basra"),
+  N("elmustevridbahnef", "المستورد بن الأحنف الكوفي", "el-Müstevrid b. Ahnef", 2, null, "Kûfe"),
+  N("mishacbmusaeddabbiebum", "مسحاج بن موسى الضبي أبو موسى الكوفي", "Mishâc b. Mûsâ ed-Dabbî Ebû Mûsâ", 5, null, "Kûfe"),
+  N("meserrebmabed", "مسرة بن معبد اللخمي الفلسطيني", "Meserre b. Ma‘bed", 5, null, "Şam"),
+  N("muslimbibrahimelezdi", "مسلم بن إبراهيم الأزدي الفراهيدي", "Müslim b. İbrâhim el-Ezdî", 5, 222, "Basra"),
+  N("muslimbhatimelensar2", "مسلم بن حاتم الأنصاري أبو حاتم البصري", "Müslim b. Hâtim el-Ensârî Ebû Hâtim el-Basrî", 5, null, "Basra"),
+  N("muslimbebihurre", "مسلم بن أبي حرة", "Müslim b. Ebî Hurre", 4, null, "Medine"),
+  N("muslimbziyad2", "مسلم بن زياد الحمصي", "Müslim b. Ziyâd", 4, null, "Humus"),
+  N("muslimbimran2", "مسلم بن عمران", "Müslim b. İmrân", 5, null, "Kûfe"),
+  N("muslimbkurt", "مسلم بن قرط", "Müslim b. Kurt", 5, null, "Medine"),
+  N("muslimbmihrakelabdi", "مسلم بن مخراق العبدي القري", "Müslim b. Mihrâk el-Abdî", 4, null, "Basra"),
+  N("muslimbmihrak", "مسلم بن مخراق", "Müslim b. Mihrâk", 3, null, "Mısır"),
+  N("muslimbmahsi", "مسلم بن مخشي", "Müslim b. Mahşî", 3, null, "Mısır"),
+  N("muslimbmiskem", "مسلم بن مشكم", "Müslim b. Mişkem", 3, null, "Şam"),
+  N("muslimbyesarelbasri2", "مسلم بن يسار البصري", "Müslim b. Yesâr el-Basrî", 4, null, "Mekke"),
+  N("muslimbyenak", "مسلم بن يناق", "Müslim b. Yenâk", 4, null, "Mekke"),
+  N("mushirbabdulmelikbsele", "مسهر بن عبد الملك بن سلع الهمداني", "Müshir b. Abdülmelik b. Sel‘ el-Hemdânî", 5, null, "Kûfe"),
+  N("musemialbiyas", "مشمعل بن إياس", "Müşemial b. İyâs", 4, null, "Basra"),
+  N("mutarrihbyezidebuelmuh", "مطرح بن يزيد أبو المهلب الكوفي", "Mutarrih b. Yezîd Ebû el-Mühelleb", 5, null, "Kûfe"),
+  N("muzahirbeslemelmahzumi", "مظاهر بن أسلم المخزومي المدني", "Muzâhir b. Eslem el-Mahzûmî el-Medenî", 5, null, "Medine"),
+  N("maanbrifaa", "معان بن رفاعة السلامي", "Maân b. Rifâa", 5, null, "Şam"),
+  N("muaviyebsuveydbmukarri", "معاوية بن سويد بن مقرن المزني أبو سويد الكوفي", "Muâviye b. Süveyd b. Mukarrin el-Müzenî Ebû Süveyd", 3, null, "Kûfe"),
+  N("muaviyebsellam", "معاوية بن سلام", "Muâviye b. Sellâm", 5, null, "Şam"),
+  N("muaviyebamrbhalid2", "معاوية بن عمرو بن خالد", "Muâviye b. Amr b. Hâlid", 5, null, "Basra"),
+  N("muaviyebebimuzerrid", "معاوية بن أبي مزرد", "Muâviye b. Ebî Muzerrid", 5, null, "Medine"),
+  N("muaviyebhisam2", "معاوية بن هشام", "Muâviye b. Hişâm", 5, 204, "Kûfe"),
+  N("muarrifbvasil", "معرف بن واصل السعدي الكوفي", "Muarrif b. Vâsıl", 5, null, "Kûfe"),
+  N("marufbharbuz", "معروف بن خربوذ", "Ma‘rûf b. Harbûz", 5, null, "Mekke"),
+  N("magraebuelmuharik", "مغراء أبو المخارق الكوفي", "Magrâ Ebû el-Muhârik", 4, null, "Kûfe"),
+  N("mugisbsumey", "مغيث بن سمي", "Mugīs b. Sümey", 3, null, "Şam"),
+  N("mugirebhakimessanan2", "المغيرة بن حكيم الصنعاني", "Mugīre b. Hakîm es-San‘ânî", 4, null, "Yemen"),
+  N("mugirebsibl", "المغيرة بن شبل", "Mugīre b. Şibl", 4, null, "Kûfe"),
+  N("mugirebabdirrahmanbelh", "المغيرة بن عبد الرحمن بن الحارث", "Mugīre b. Abdirrahman b. el-Hâris", 5, null, "Medine"),
+  N("mugirebabdirrahmanb2", "المغيرة بن عبد الرحمن بن الحارث أبو هاشم", "Mugīre b. Abdirrahman b. el-Hâris Ebû Hâşim", 5, null, "Medine"),
+  N("mugirebabdirrahmanb3", "المغيرة بن عبد الرحمن بن عبد الله", "Mugīre b. Abdirrahman b. Abdullah", 5, null, "Medine"),
+  N("mugirebnumanennehai2", "المغيرة بن النعمان النخعي الكوفي", "Mugīre b. Nu‘mân en-Nehaî", 5, null, "Kûfe"),
+  N("mukaddembmuhammedbyahy", "مقدم بن محمد بن يحيى", "Mukaddem b. Muhammed b. Yahyâ", 5, null, "Vâsıt"),
+  N("mektumbabbasebufazlelm", "مكتوم بن العباس أبو الفضل المروزي", "Mektûm b. Abbâs Ebû Fazl el-Mervezî", 6, null, "Horasan"),
+  N("menbuzbebisuleymanelme", "منبوذ بن أبي سليمان المكي", "Menbûz b. Ebî Süleymân el-Mekkî", 5, null, "Mekke"),
+  N("menbuzelmedeni", "منبوذ المدني", "Menbûz el-Medenî", 5, null, "Medine"),
+  N("mendelbali", "مندل بن علي العنزي", "Mendel b. Ali", 5, null, "Kûfe"),
+  N("munzirbsalebeettai", "المنذر بن ثعلبة الطائي", "Münzir b. Sa‘lebe et-Tâî", 5, null, "Basra"),
+  N("munzirbmalikbkita", "المنذر بن مالك بن قطعة", "Münzir b. Mâlik b. Kıt‘a", 3, null, "Basra"),
+  N("mansurbsadelbasri2", "منصور بن سعد البصري", "Mansûr b. Sa‘d el-Basrî", 5, null, "Basra"),
+  N("mansurbsaid2", "منصور بن سعيد", "Mansûr b. Saîd", 3, null, "Mısır"),
+  N("mansurbsukayr", "منصور بن صقير", "Mansûr b. Sukayr", 5, null, "Bağdat"),
+  N("mansurbabdirrahmanb2", "منصور بن عبد الرحمن بن طلحة", "Mansûr b. Abdirrahman b. Talha", 5, null, "Mekke"),
+  N("manzurbseyyarelfezarie", "منظور بن سيار الفزاري البصري", "Manzûr b. Seyyâr el-Fezârî el-Basrî", 5, null, "Basra"),
+  N("munkizbkayselmisri", "منقذ بن قيس المصري", "Münkız b. Kays el-Mısrî", 3, null, "Mısır"),
+  N("munkizbkayselmedeni", "منقذ بن قيس المدني", "Münkız b. Kays el-Medenî", 4, null, "Medine"),
+  N("munirebuzer", "منير أبو ذر الأردني", "Münîr Ebû Zer", 5, null, "Şam"),
+  N("muhacirbmismarezzuhri", "مهاجر بن مسمار الزهري", "Mühâcir b. Mismâr ez-Zührî", 5, null, "Medine"),
+  N("muhennababdulhamidebus", "مهنأ بن عبد الحميد أبو شبل", "Mühennâ b. Abdülhamîd Ebû Şibl", 5, null, "Basra"),
+  N("muesserbafaze", "مؤثر بن عفازة", "Mü’esser b. Afâze", 3, null, "Kûfe"),
+  N("muverrikbmusemric", "مورق بن مشمرج", "Müverrik b. Müşemric", 3, null, "Basra"),
+  N("musabeyyub2", "موسى بن أيوب", "Mûsâ b. Eyyûb", 4, null, "Humus"),
+  N("musabdihkan", "موسى بن دهقان", "Mûsâ b. Dihkān", 4, null, "Basra"),
+  N("musabsad3", "موسى بن سعد", "Mûsâ b. Sa‘d", 4, null, "Medine"),
+  N("musabsadelmedeni2", "موسى بن سعد المدني", "Mûsâ b. Sa‘d el-Medenî", 5, null, "Medine"),
+  N("musabselemebelmuhabbik", "موسى بن سلمة بن المحبق", "Mûsâ b. Seleme b. el-Muhabbık", 4, null, "Basra"),
+  N("musabsehlbkesir2", "موسى بن سهل بن كثير البغدادي", "Mûsâ b. Sehl b. Kesîr", 5, null, "Bağdat"),
+  N("musabtalhabubeydullahe", "موسى بن طلحة بن عبيد الله التيمي أبو عيسى", "Mûsâ b. Talha b. Ubeydullah et-Teymî Ebû Îsâ", 2, 103, "Kûfe"),
+  N("musababdullahbishak2", "موسى بن عبد الله بن إسحاق", "Mûsâ b. Abdullah b. İshak", 5, null, "Medine"),
+  N("musababdullahbmusaelhu", "موسى بن عبد الله بن موسى الخزاعي أبو طلحة البصري", "Mûsâ b. Abdullah b. Mûsâ el-Huzâî Ebû Talha el-Basrî", 5, null, "Basra"),
+  N("musababdirrahmanbsa2", "موسى بن عبد الرحمن بن سعيد أبو عيسى الكوفي", "Mûsâ b. Abdirrahman b. Saîd Ebû Îsâ", 5, 258, "Kûfe"),
+  N("musabebiosman3", "موسى بن أبي عثمان", "Mûsâ b. Ebî Osmân", 5, null, "Medine"),
+  N("musabebiosman4", "موسى بن أبي عثمان الكوفي", "Mûsâ b. Ebî Osmân", 5, null, "Kûfe"),
+  N("musabali2", "موسى بن علي", "Mûsâ b. Ali", 5, 163, "Mısır"),
+  N("musabamrbsaid2", "موسى بن عمرو بن سعيد", "Mûsâ b. Amr b. Saîd", 5, null, "Mekke"),
+  N("musabisaelleysi2", "موسى بن عيسى الليثي", "Mûsâ b. Îsâ el-Leysî", 5, 183, "Kûfe"),
+  N("musabebiisa2", "موسى بن أبي عيسى", "Mûsâ b. Ebî Îsâ", 5, null, "Medine"),
+  N("musabmuhammedbibrah2", "موسى بن محمد بن إبراهيم أبو محمد المدني", "Mûsâ b. Muhammed b. İbrâhim Ebû Muhammed el-Medenî", 5, 151, "Medine"),
+  N("musabmuhammedessami2", "موسى بن محمد الشامي", "Mûsâ b. Muhammed eş-Şâmî", 5, null, "Şam"),
+  N("musabmuslimebuisa2", "موسى بن مسلم الكوفي أبو عيسى", "Mûsâ b. Müslim Ebû Îsâ", 5, null, "Kûfe"),
+  N("musabnafielesedi2", "موسى بن نافع الأسدي", "Mûsâ b. Nâfi‘ el-Esedî", 5, null, "Basra"),
+  N("musabyakubbabdullah2", "موسى بن يعقوب بن عبد الله أبو محمد المدني", "Mûsâ b. Ya‘kûb b. Abdullah Ebû Muhammed el-Medenî", 5, null, "Medine"),
+  N("mizanelbasriebusalih", "ميزان البصري أبو صالح", "Mîzân el-Basrî Ebû Sâlih", 3, null, "Basra"),
+  N("meyserebyakubebucemile", "ميسرة بن يعقوب أبو جميلة", "Meysere b. Ya‘kûb Ebû Cemîle", 3, null, "Kûfe"),
+  N("meymunbcaban", "ميمون بن جابان", "Meymûn b. Câbân", 5, null, "Basra"),
+  N("meymunbsiyah", "ميمون بن سياه", "Meymûn b. Siyâh", 4, null, "Basra"),
+  N("meymunbmusa2", "ميمون بن موسى", "Meymûn b. Mûsâ", 5, null, "Basra"),
+  N("meymunebuabdullahel2", "ميمون أبو عبد الله البصري", "Meymûn Ebû Abdullah el-Basrî", 4, null, "Basra"),
+  N("meymunelmekki2", "ميمون المكي", "Meymûn el-Mekkî", 4, null, "Mekke"),
+  N("natilbkaysbzeydessami", "ناتل بن قيس بن زيد الشامي الفلسطيني", "Nâtil b. Kays b. Zeyd eş-Şâmî", 3, null, "Şam"),
+  N("nasirabsumey", "ناشرة بن سمي", "Nâşira b. Sümey", 2, null, "Mısır"),
+  N("nasihebuabdullahessami", "ناصح أبو عبد الله الشامي", "Nâsih Ebû Abdullah eş-Şâmî", 5, null, "Şam"),
+  N("naimbuceyl", "ناعم بن أجيل", "Nâim b. Üceyl", 3, null, "Mısır"),
+  N("nafibabbas2", "نافع بن عباس", "Nâfi‘ b. Abbâs", 3, null, "Medine"),
+  N("nafibomerbabdullah2", "نافع بن عمر بن عبد الله", "Nâfi‘ b. Ömer b. Abdullah", 5, 169, "Mekke"),
+  N("nafiebuabdullahelme2", "نافع أبو عبد الله المدني", "Nâfi‘ Ebû Abdullah el-Medenî", 3, null, "Medine"),
+  N("nebhanelmahzumi", "نبهان المخزومي", "Nebhân el-Mahzûmî", 3, null, "Medine"),
+  N("nubeyhbabdullah", "نبيح بن عبد الله العنزي", "Nübeyh b. Abdullah", 3, null, "Kûfe"),
+  N("nubeyhbvehbbosmanelmed", "نبيه بن وهب بن عثمان العبدري المدني", "Nübeyh b. Vehb b. Osmân el-Medenî", 3, null, "Medine"),
+  N("necdebelmubarekessulem", "نجدة بن المبارك السلمي الكوفي", "Necde b. el-Mübârek es-Sülemî", 5, null, "Kûfe"),
+  N("nasrbzeyd2", "نصر بن زيد", "Nasr b. Zeyd", 5, null, "Bağdat"),
+  N("nasrbasimelleysielb2", "نصر بن عاصم الليثي البصري", "Nasr b. Âsım el-Leysî el-Basrî", 3, null, "Basra"),
+  N("nasrbamr2", "نصر بن عمرو الحمصي", "Nasr b. Amr", 5, null, "Humus"),
+  N("nasrbmuhammedbsuley2", "نصر بن محمد بن سليمان أبو القاسم الحمصي", "Nasr b. Muhammed b. Süleymân Ebû Kâsım", 5, null, "Humus"),
+  N("nadrbabdullahessule2", "النضر بن عبد الله السلمي المدني", "Nadr b. Abdullah es-Sülemî el-Medenî", 4, null, "Medine"),
+  N("nadrbmuhammedelmerv2", "النضر بن محمد المروزي", "Nadr b. Muhammed el-Mervezî", 5, 183, "Horasan"),
+  N("nuaymbducaceelesedi", "نعيم بن دجاجة الأسدي الكوفي", "Nuaym b. Dücâce el-Esedî", 2, null, "Kûfe"),
+  N("nemlebebinemleelensari", "نملة بن أبي نملة الأنصاري المدني", "Nemle b. Ebî Nemle el-Ensârî el-Medenî", 2, null, "Medine"),
+  N("numeyrbaribelhemdani", "نمير بن عريب الهمداني", "Nümeyr b. Arîb el-Hemdânî", 3, null, "Kûfe"),
+  N("neharbabdullahelabdiel", "نهار بن عبد الله العبدي المدني", "Nehâr b. Abdullah el-Abdî el-Medenî", 4, null, "Medine"),
+  N("ennehhasbkehm", "النهاس بن قهم", "en-Nehhâs b. Kehm", 5, null, "Basra"),
+  N("nehselbmucemmieddabbi", "نهشل بن مجمع الضبي الكوفي", "Nehşel b. Mücemmi‘ ed-Dabbî", 5, null, "Kûfe"),
+  N("nuhbsasaaelmekkimestur", "نوح بن صعصعة المكي مستور", "Nûh b. Sa‘sa‘a el-Mekkî Mestûr", 4, null, "Mekke"),
+  N("nevfelbiyaselmedeni", "نوفل بن إياس الهذلي المدني", "Nevfel b. İyâs el-Medenî", 2, null, "Medine"),
+  N("nevfelbmusahikbabdulla", "نوفل بن مساحق بن عبد الله", "Nevfel b. Müsâhık b. Abdullah", 3, null, "Medine"),
+  N("harunbishakbmuhamme2", "هارون بن إسحاق بن محمد", "Hârûn b. İshak b. Muhammed", 5, null, "Kûfe"),
+  N("harunbismail2", "هارون بن إسماعيل", "Hârûn b. İsmâîl", 5, 206, "Basra"),
+  N("harunbsadelmedeni2", "هارون بن سعد المدني", "Hârûn b. Sa‘d el-Medenî", 5, null, "Medine"),
+  N("harunbmuslimelbasrimes", "هارون بن مسلم البصري مستور", "Hârûn b. Müslim el-Basrî Mestûr", 5, null, "Basra"),
+  N("harunbmugirebhakime2", "هارون بن المغيرة بن حكيم البجلي", "Hârûn b. Mugīre b. Hakîm el-Becelî", 5, null, "Horasan"),
+  N("harunbharunbabdulla2", "هارون بن هارون بن عبد الله التيمي المدني", "Hârûn b. Hârûn b. Abdullah et-Teymî el-Medenî", 5, null, "Medine"),
+  N("hubeyrebyerim", "هبيرة بن يريم", "Hübeyre b. Yerîm", 2, null, "Kûfe"),
+  N("huzeylbhakemelezdiabdi", "هذيل بن الحكم الأزدي المسعودي أبو المنذر", "Hüzeyl b. Hakem el-Ezdî Abdillâh Ebû Münzir", 5, null, "Basra"),
+  N("hurayrbabdirrahmanbraf", "هرير بن عبد الرحمن بن رافع", "Hurayr b. Abdirrahman b. Râfi‘", 5, null, "Medine"),
+  N("hureymbsufyanelbecelie", "هريم بن سفيان البجلي أبو محمد الكوفي", "Hüreym b. Süfyân el-Becelî Ebû Muhammed", 5, null, "Kûfe"),
+  N("hureymbmisarelezdiebua", "هريم بن مسعر الأزدي أبو عبد الله الترمذي", "Hüreym b. Mis‘ar el-Ezdî Ebû Abdullah", 5, null, "Horasan"),
+  N("huzeylbsurahbilelevdi", "هزيل بن شرحبيل الأودي الكوفي", "Hüzeyl b. Şurahbîl el-Evdî", 2, null, "Kûfe"),
+  N("hisambishakbabdulla2", "هشام بن إسحاق بن عبد الله أبو عبد الرحمن المدني القرشي", "Hişâm b. İshak b. Abdullah Ebû Abdirrahman el-Medenî", 5, null, "Medine"),
+  N("hisambismailbyahyae2", "هشام بن إسماعيل بن يحيى أبو عبد الملك الدمشقي", "Hişâm b. İsmâîl b. Yahyâ Ebû Abdülmelik ed-Dımaşkī", 5, 216, "Şam"),
+  N("hisambismailelmekki2", "هشام بن إسماعيل المكي", "Hişâm b. İsmâîl el-Mekkî", 5, null, "Mekke"),
+  N("hisambhucayr", "هشام بن حجير", "Hişâm b. Hucayr", 5, null, "Mekke"),
+  N("hisambhassanelezdi", "هشام بن حسان الأزدي القردوسي", "Hişâm b. Hassân el-Ezdî", 5, null, "Basra"),
+  N("hisambhalidbzeydebu2", "هشام بن خالد بن زيد أبو مروان الدمشقي", "Hişâm b. Hâlid b. Zeyd Ebû Mervân ed-Dımaşkī", 5, 249, "Şam"),
+  N("hisambziyadbebiyezi2", "هشام بن زياد بن أبي يزيد", "Hişâm b. Ziyâd b. Ebî Yezîd", 5, null, "Medine"),
+  N("hisambsadelmedenieb2", "هشام بن سعد المدني أبو عباد", "Hişâm b. Sa‘d el-Medenî Ebû Abbâd", 5, null, "Medine"),
+  N("hisambebiabdullah2", "هشام بن أبي عبد الله", "Hişâm b. Ebî Abdullah", 5, 154, "Basra"),
+  N("hisambabdulmelikelb2", "هشام بن عبد الملك الباهلي", "Hişâm b. Abdülmelik el-Bâhilî", 5, null, "Basra"),
+  N("hisambelgazbrebia", "هشام بن الغاز بن ربيعة الجرشي", "Hişâm b. el-Gāz b. Rebîa", 5, null, "Bağdat"),
+  N("hisambharunelensari2", "هشام بن هارون الأنصاري المدني", "Hişâm b. Hârûn el-Ensârî el-Medenî", 5, null, "Medine"),
+  N("hisambyusufessananiebu", "هشام بن يوسف الصنعاني أبو عبد الرحمن القاضي", "Hişâm b. Yûsuf es-San‘ânî Ebû Abdirrahman el-Kādî", 5, 197, "Yemen"),
+  N("hisambyusufessulemi2", "هشام بن يوسف السلمي الحمصي", "Hişâm b. Yûsuf es-Sülemî", 5, null, "Vâsıt"),
+  N("hilalbebihumeyd2", "هلال بن أبي حميد", "Hilâl b. Ebî Humeyd", 5, null, "Kûfe"),
+  N("hilalbreddad", "هلال بن رداد", "Hilâl b. Reddâd", 5, null, "Şam"),
+  N("hilalbzeydbyesar2", "هلال بن زيد بن يسار", "Hilâl b. Zeyd b. Yesâr", 5, null, "Basra"),
+  N("hilalbzeydbhasanebuika", "هلال بن زيد بن حسن أبو عقال الدمشقي", "Hilâl b. Zeyd b. Hasan Ebû Ikāl ed-Dımaşkī", 5, null, "Şam"),
+  N("hilalbebizeynebfiruz", "هلال بن أبي زينب فيروز القرشي", "Hilâl b. Ebî Zeyneb Fîrûz", 5, null, "Basra"),
+  N("hilalbabdullahelbah2", "هلال بن عبد الله الباهلي", "Hilâl b. Abdullah el-Bâhilî", 5, null, "Basra"),
+  N("hilalbamr2", "هلال بن عمرو الكوفي", "Hilâl b. Amr", 3, null, "Kûfe"),
+  N("hilalbalabhilal2", "هلال بن العلاء بن هلال", "Hilâl b. Alâ b. Hilâl", 5, null, "Humus"),
+  N("hilalbebihilal2", "هلال بن أبي هلال", "Hilâl b. Ebî Hilâl", 5, null, "Basra"),
+  N("hilalbebihilalelmed2", "هلال بن أبي هلال المدني", "Hilâl b. Ebî Hilâl el-Medenî", 4, null, "Medine"),
+  N("hilalbyesaf", "هلال بن يساف", "Hilâl b. Yesâf", 3, null, "Kûfe"),
+  N("heysembhalid2", "الهيثم بن خالد", "Heysem b. Hâlid", 5, 239, "Kûfe"),
+  N("heysembhalidelbecel2", "الهيثم بن خالد البجلي الكوفي", "Heysem b. Hâlid el-Becelî", 5, null, "Kûfe"),
+  N("heysembhalidbyezide2", "الهيثم بن خالد بن يزيد أبو صالح الكوفي", "Heysem b. Hâlid b. Yezîd Ebû Sâlih", 5, null, "Kûfe"),
+  N("heysembhalidebuhasa2", "الهيثم بن خالد القرشي أبو الحسن البغدادي", "Heysem b. Hâlid Ebû Hasan", 5, null, "Bağdat"),
+  N("vasilbabdirrahmanebuhu", "واصل بن عبد الرحمن أبو حرة", "Vâsıl b. Abdirrahman Ebû Hurre", 5, null, "Basra"),
+  N("vailbmuhaneetteymi", "وائل بن مهانة التيمي الكوفي", "Vâil b. Mühâne et-Teymî", 2, null, "Kûfe"),
+  N("vahsibharbbvahsi", "وحشي بن حرب بن وحشي", "Vahşî b. Harb b. Vahşî", 5, null, "Humus"),
+  N("verradebusaid", "وراد أبو سعيد", "Verrâd Ebû Saîd", 3, null, "Kûfe"),
+  N("verdbabdullahettemimie", "ورد بن عبد الله التميمي أبو محمد الطبري", "Verd b. Abdullah et-Temîmî Ebû Muhammed", 5, null, "Bağdat"),
+  N("vezirbsubih", "وزير بن صبيح", "Vezîr b. Subıh", 5, null, "Şam"),
+  N("vaddahebuavane", "وضاح أبو عوانة", "Vaddâh Ebû Avâne", 5, null, "Vâsıt"),
+  N("vefabsureyhelhadramiel", "وفاء بن شريح الحضرمي المصري", "Vefâ b. Şüreyh el-Hadramî el-Mısrî", 4, null, "Mısır"),
+  N("vikabiyaselesediebuyez", "وقاء بن إياس الأسدي أبو يزيد الكوفي", "Vikā b. İyâs el-Esedî Ebû Yezîd", 5, null, "Kûfe"),
+  N("elvelidbseri", "الوليد بن سريع", "el-Velîd b. Serî‘", 4, null, "Kûfe"),
+  N("elvelidbsalih2", "الوليد بن صالح", "el-Velîd b. Sâlih", 5, null, "Bağdat"),
+  N("elvelidbabdullahbcumey", "الوليد بن عبد الله بن جميع الزهري المكي", "el-Velîd b. Abdullah b. Cümey‘ ez-Zührî el-Mekkî", 5, null, "Kûfe"),
+  N("elvelidbabdullahbebimu", "الوليد بن عبد الله بن أبي مغيث العبدري", "el-Velîd b. Abdullah b. Ebî Mugīs", 5, null, "Mekke"),
+  N("elvelidbukbebmugire2", "الوليد بن عقبة بن المغيرة", "el-Velîd b. Ukbe b. Mugīre", 5, null, "Kûfe"),
+  N("elvelidbelayzarbhurays", "الوليد بن العيزار بن حريث العبدي الكوفي", "el-Velîd b. el-Ayzâr b. Hurays el-Abdî", 5, null, "Kûfe"),
+  N("elvelidbkasimbelvel2", "الوليد بن القاسم بن الوليد الهمداني الكوفي", "el-Velîd b. Kâsım b. el-Velîd el-Hemdânî", 5, 183, "Kûfe"),
+  N("elvelidbkaysbelahremet", "الوليد بن قيس بن الأخرم التجيبي", "el-Velîd b. Kays b. el-Ahrem et-Tüceybî", 5, null, "Mısır"),
+  N("elvelidbkesirbsinanelm", "الوليد بن كثير بن سنان المزني أبو سعيد المدني", "el-Velîd b. Kesîr b. Sinân el-Müzenî Ebû Saîd el-Medenî", 5, null, "Medine"),
+  N("elvelidbmuslim", "الوليد بن مسلم القرشي", "el-Velîd b. Müslim", 5, null, "Şam"),
+  N("elvelidbmugirebsule2", "الوليد بن المغيرة بن سليمان المصري أبو العباس", "el-Velîd b. Mugīre b. Süleymân el-Mısrî Ebû Abbâs", 5, 172, "Mısır"),
+  N("elvelidbhisam", "الوليد بن هشام", "el-Velîd b. Hişâm", 5, null, "Kûfe"),
+  N("elvelidbebihisamziy2", "الوليد بن أبي هشام زياد", "el-Velîd b. Ebî Hişâm Ziyâd", 5, null, "Medine"),
+  N("elvelidbebielvelido2", "الوليد بن أبي الوليد عثمان", "el-Velîd b. Ebî el-Velîd Osmân", 4, null, "Medine"),
+  N("vehbbismailbmuhamme2", "وهب بن إسماعيل بن محمد أبو محمد الكوفي", "Vehb b. İsmâîl b. Muhammed Ebû Muhammed", 5, null, "Kûfe"),
+  N("vehbbrebia2", "وهب بن ربيعة الكوفي", "Vehb b. Rebîa", 3, null, "Kûfe"),
+  N("vehbbmenus", "وهب بن مأنوس", "Vehb b. Me’nûs", 5, null, "Yemen"),
+  N("vuheybbelverd", "وهيب بن الورد", "Vüheyb b. el-Verd", 5, null, "Mekke"),
+  N("yahyabibrahimbosman2", "يحيى بن إبراهيم بن عثمان", "Yahyâ b. İbrâhim b. Osmân", 5, null, "Medine"),
+  N("yahyabishakbabdulla2", "يحيى بن إسحاق بن عبد الله", "Yahyâ b. İshak b. Abdullah", 5, null, "Medine"),
+  N("yahyabebiishakelhadram", "يحيى بن أبي إسحاق الحضرمي", "Yahyâ b. Ebî İshak el-Hadramî", 5, 136, "Basra"),
+  N("yahyabismailelvasit2", "يحيى بن إسماعيل الواسطي أبو زكريا", "Yahyâ b. İsmâîl el-Vâsıtî Ebû Zekeriyyâ", 5, null, "Vâsıt"),
+  N("yahyabismailbzekeri2", "يحيى بن إسماعيل بن زكريا", "Yahyâ b. İsmâîl b. Zekeriyyâ", 5, null, "Kûfe"),
+  N("yahyabelcezzar", "يحيى بن الجزار العرني", "Yahyâ b. el-Cezzâr", 3, null, "Kûfe"),
+  N("yahyabhakimbsafvan2", "يحيى بن حكيم بن صفوان", "Yahyâ b. Hakîm b. Safvân", 3, null, "Mekke"),
+  N("yahyabhakim2", "يحيى بن حكيم", "Yahyâ b. Hakîm", 5, null, "Basra"),
+  N("yahyabhizam", "يحيى بن خذام", "Yahyâ b. Hızâm", 5, null, "Basra"),
+  N("yahyabdavudbmeymune2", "يحيى بن داود بن ميمون الواسطي", "Yahyâ b. Dâvûd b. Meymûn el-Vâsıtî", 5, 244, "Vâsıt"),
+  N("yahyabdurust", "يحيى بن درست", "Yahyâ b. Dürüst", 5, null, "Basra"),
+  N("yahyabrasid2", "يحيى بن راشد", "Yahyâ b. Râşid", 5, null, "Mâverâünnehir"),
+  N("yahyabrasidelbasrie2", "يحيى بن راشد البصري أبو بكر", "Yahyâ b. Râşid el-Basrî Ebû Bekir", 5, 211, "Basra"),
+  N("yahyabziyadbebidavu2", "يحيى بن زياد بن أبي داود الأسدي", "Yahyâ b. Ziyâd b. Ebî Dâvûd el-Esedî", 5, null, "Humus"),
+  N("yahyabziyadbabdulla2", "يحيى بن زياد بن عبد الله الأسدي", "Yahyâ b. Ziyâd b. Abdullah el-Esedî", 5, 207, "Bağdat"),
+  N("yahyabsaidbhayyan2", "يحيى بن سعيد بن حيان", "Yahyâ b. Saîd b. Hayyân", 5, 145, "Kûfe"),
+  N("yahyabsaidbkayselensar", "يحيى بن سعيد بن قيس الأنصاري المدني أبو سعيد", "Yahyâ b. Saîd b. Kays el-Ensârî el-Medenî Ebû Saîd", 5, null, "Medine"),
+  N("yahyabsuleymanbyahy2", "يحيى بن سليمان بن يحيى أبو سعيد الكوفي", "Yahyâ b. Süleymân b. Yahyâ Ebû Saîd", 5, null, "Mısır"),
+  N("yahyabebisuleymanel2", "يحيى بن أبي سليمان المدني أبو صالح", "Yahyâ b. Ebî Süleymân el-Medenî Ebû Sâlih", 5, null, "Medine"),
+  N("yahyabsibl", "يحيى بن شبل البلخي", "Yahyâ b. Şibl", 5, null, "Horasan"),
+  N("yahyabtalhabubeydul2", "يحيى بن طلحة بن عبيد الله التيمي المدني", "Yahyâ b. Talha b. Ubeydullah et-Teymî el-Medenî", 3, null, "Medine"),
+  N("yahyabtalhabebikesir", "يحيى بن طلحة بن أبي كثير اليربوعي الكوفي", "Yahyâ b. Talha b. Ebî Kesîr", 5, null, "Kûfe"),
+  N("yahyababbadbabdulla2", "يحيى بن عباد بن عبد الله", "Yahyâ b. Abbâd b. Abdullah", 5, null, "Medine"),
+  N("yahyababdullahbbahir", "يحيى بن عبد الله بن بحير", "Yahyâ b. Abdullah b. Bahîr", 5, null, "Yemen"),
+  N("yahyababdullahbelha2", "يحيى بن عبد الله بن الحارث", "Yahyâ b. Abdullah b. el-Hâris", 5, null, "Kûfe"),
+  N("yahyababdullahbsali2", "يحيى بن عبد الله بن سالم", "Yahyâ b. Abdullah b. Sâlim", 5, 153, "Medine"),
+  N("yahyababdullahbabdi2", "يحيى بن عبد الله بن عبد الرحمن", "Yahyâ b. Abdullah b. Abdirrahman", 4, null, "Medine"),
+  N("yahyababdullahbubey2", "يحيى بن عبد الله بن عبيد الله", "Yahyâ b. Abdullah b. Ubeydullah", 5, 173, "Mekke"),
+  N("yahyababdullahbmuha2", "يحيى بن عبد الله بن محمد", "Yahyâ b. Abdullah b. Muhammed", 5, null, "Mekke"),
+  N("yahyababdullahbyezi2", "يحيى بن عبد الله بن يزيد", "Yahyâ b. Abdullah b. Yezîd", 5, null, "Medine"),
+  N("yahyababdulhamidbab2", "يحيى بن عبد الحميد بن عبد الرحمن", "Yahyâ b. Abdülhamîd b. Abdirrahman", 5, null, "Kûfe"),
+  N("yahyababdirrahmanbm2", "يحيى بن عبد الرحمن بن مالك", "Yahyâ b. Abdirrahman b. Mâlik", 5, null, "Kûfe"),
+  N("yahyabubeyd3", "يحيى بن عبيد", "Yahyâ b. Ubeyd", 4, null, "Kûfe"),
+  N("yahyabubeydelmekki2", "يحيى بن عبيد المكي", "Yahyâ b. Ubeyd el-Mekkî", 5, null, "Mekke"),
+  N("yahyabosmanbsaid2", "يحيى بن عثمان بن سعيد", "Yahyâ b. Osmân b. Saîd", 5, null, "Humus"),
+  N("yahyabosmanetteymi2", "يحيى بن عثمان التيمي", "Yahyâ b. Osmân et-Teymî", 5, null, "Basra"),
+  N("yahyabalibyahya2", "يحيى بن علي بن يحيى", "Yahyâ b. Ali b. Yahyâ", 5, 129, "Medine"),
+  N("yahyabalaelbecelieb2", "يحيى بن العلاء البجلي أبو عمرو", "Yahyâ b. Alâ el-Becelî Ebû Amr", 5, null, "Cibâl"),
+  N("yahyabfazlbyahya2", "يحيى بن الفضل بن يحيى", "Yahyâ b. Fazl b. Yahyâ", 5, 256, "Basra"),
+  N("yahyabkesir", "يحيى بن كثير الكاهلي الكوفي", "Yahyâ b. Kesîr", 5, null, "Kûfe"),
+  N("yahyabkesirebunadr", "يحيى بن كثير أبو النضر", "Yahyâ b. Kesîr Ebû Nadr", 5, null, "Basra"),
+  N("yahyabmuhammedbabba2", "يحيى بن محمد بن عباد", "Yahyâ b. Muhammed b. Abbâd", 5, null, "Medine"),
+  N("yahyabmuhammedbabdu2", "يحيى بن محمد بن عبد الله", "Yahyâ b. Muhammed b. Abdullah", 5, null, "Medine"),
+  N("yahyabmuslimelbasri2", "يحيى بن مسلم البصري", "Yahyâ b. Müslim el-Basrî", 5, null, "Basra"),
+  N("yahyabebielmuta", "يحيى بن أبي المطاع القرشي الأردني", "Yahyâ b. Ebî el-Mutâ‘", 4, null, "Şam"),
+  N("yahyabmugirebismail2", "يحيى بن المغيرة بن إسماعيل أبو سلمة المدني", "Yahyâ b. Mugīre b. İsmâîl Ebû Seleme el-Medenî", 5, 253, "Medine"),
+  N("yahyabelmuhellebelbece", "يحيى بن المهلب البجلي أبو كدينة", "Yahyâ b. el-Mühelleb el-Becelî Ebû Küdeyne", 5, null, "Kûfe"),
+  N("yahyabnadrelensarie2", "يحيى بن النضر الأنصاري المدني", "Yahyâ b. Nadr el-Ensârî el-Medenî", 4, null, "Medine"),
+  N("yahyabyahyabbekirebuze", "يحيى بن يحيى بن بكر أبو زكريا النيسابوري", "Yahyâ b. Yahyâ b. Bekir Ebû Zekeriyyâ en-Nîsâbûrî", 5, 226, "Horasan"),
+  N("yahyabyahyabkaysebu2", "يحيى بن يحيى بن قيس أبو عثمان الشامي", "Yahyâ b. Yahyâ b. Kays Ebû Osmân eş-Şâmî", 5, 133, "Şam"),
+  N("yahyabyalaetteymiebuel", "يحيى بن يعلى التيمي أبو المحياة", "Yahyâ b. Ya‘lâ et-Teymî Ebû el-Mahyât", 5, null, "Kûfe"),
+  N("yezidbeyhem", "يزيد بن أيهم", "Yezîd b. Eyhem", 5, null, "Şam"),
+  N("yezidbebihabibelmisrie", "يزيد بن أبي حبيب المصري أبو رجاء", "Yezîd b. Ebî Habîb el-Mısrî Ebû Recâ", 5, 128, "Mısır"),
+  N("yezidbelhavtekiyyeette", "يزيد بن الحوتكية التميمي الكوفي", "Yezîd b. el-Havtekiyye et-Temîmî", 2, null, "Kûfe"),
+  N("yezidbhayyanetteymi2", "يزيد بن حيان التيمي الكوفي", "Yezîd b. Hayyân et-Teymî", 4, null, "Kûfe"),
+  N("yezidbhalidbyezid2", "يزيد بن خالد بن يزيد", "Yezîd b. Hâlid b. Yezîd", 5, null, "Şam"),
+  N("yezidbhumeyr", "يزيد بن خمير", "Yezîd b. Humeyr", 5, null, "Humus"),
+  N("yezidbhumeyr2", "يزيد بن خمير اليزني", "Yezîd b. Humeyr", 3, null, "Humus"),
+  N("yezidbziyad2", "يزيد بن زياد", "Yezîd b. Ziyâd", 5, null, "Şam"),
+  N("yezidbebisaidelmede2", "يزيد بن أبي سعيد المدني", "Yezîd b. Ebî Saîd el-Medenî", 5, null, "Medine"),
+  N("yezidbebisuleyman2", "يزيد بن أبي سليمان الكوفي", "Yezîd b. Ebî Süleymân", 5, null, "Kûfe"),
+  N("yezidbsalih2", "يزيد بن صالح", "Yezîd b. Sâlih", 3, null, "Humus"),
+  N("yezidbabdullahelmek2", "يزيد بن عبد الله المكي", "Yezîd b. Abdullah el-Mekkî", 3, null, "Mekke"),
+  N("yezidbabdirrahmanbe2", "يزيد بن عبد الرحمن بن أبي مالك الهمداني", "Yezîd b. Abdirrahman b. Ebî Mâlik el-Hemdânî", 4, null, "Şam"),
+  N("yezidbabdulazizbsiyah", "يزيد بن عبد العزيز بن سياه", "Yezîd b. Abdülazîz b. Siyâh", 5, null, "Kûfe"),
+  N("yezidbkubeys", "يزيد بن قبيس", "Yezîd b. Kubeys", 5, null, "Şam"),
+  N("yezidbebikebseeddimask", "يزيد بن أبي كبشة السكسكي الدمشقي", "Yezîd b. Ebî Kebşe ed-Dımaşkī", 3, null, "Şam"),
+  N("yezidbmuhammedbkays2", "يزيد بن محمد بن قيس", "Yezîd b. Muhammed b. Kays", 5, null, "Mısır"),
+  N("yezidbmuaviyeenneha2", "يزيد بن معاوية النخعي الكوفي", "Yezîd b. Muâviye en-Nehaî", 2, null, "Kûfe"),
+  N("yezidbnaameeddabbiebum", "يزيد بن نعامة الضبي أبو مودود البصري", "Yezîd b. Naâme ed-Dabbî Ebû Mevdûd el-Basrî", 3, null, "Basra"),
+  N("yesarelmedeni2", "يسار المدني", "Yesâr el-Medenî", 4, null, "Medine"),
+  N("elyesabmugireelmahzumi", "اليسع بن المغيرة المخزومي المكي", "el-Yesa‘ b. Mugīre el-Mahzûmî el-Mekkî", 4, null, "Mekke"),
+  N("yuseyyibmadanelhadrami", "يسيع بن معدان الحضرمي الكوفي", "Yüseyyi‘ b. Ma‘dân el-Hadramî", 3, null, "Kûfe"),
+  N("yakubbibrahimbsadeb2", "يعقوب بن إبراهيم بن سعد أبو يوسف المدني", "Ya‘kûb b. İbrâhim b. Sa‘d Ebû Yûsuf el-Medenî", 5, 208, "Bağdat"),
+  N("yakubbcaferbebikesi2", "يعقوب بن جعفر بن أبي كثير الأنصاري المدني", "Ya‘kûb b. Ca‘fer b. Ebî Kesîr el-Ensârî el-Medenî", 5, null, "Medine"),
+  N("yakubbselemeelleysi2", "يعقوب بن سلمة الليثي المدني", "Ya‘kûb b. Seleme el-Leysî el-Medenî", 5, null, "Medine"),
+  N("yakubbabdirrahmanbm2", "يعقوب بن عبد الرحمن بن محمد", "Ya‘kûb b. Abdirrahman b. Muhammed", 5, 181, "Medine"),
+  N("yakubbelkakabelalemele", "يعقوب بن القعقاع بن الأعلم الأزدي أبو الحسن الخراساني", "Ya‘kûb b. el-Ka‘kā‘ b. el-A‘lem el-Ezdî Ebû Hasan el-Horâsânî", 5, null, "Horasan"),
+  N("yakubbmucemmibyezid", "يعقوب بن مجمع بن يزيد", "Ya‘kûb b. Mücemmi‘ b. Yezîd", 4, null, "Medine"),
+  N("yakubbmuhammedbisa2", "يعقوب بن محمد بن عيسى", "Ya‘kûb b. Muhammed b. Îsâ", 5, 213, "Bağdat"),
+  N("yakubbyahyababbad2", "يعقوب بن يحيى بن عباد", "Ya‘kûb b. Yahyâ b. Abbâd", 5, null, "Medine"),
+  N("yakubbebiyakubelmed2", "يعقوب بن أبي يعقوب المدني", "Ya‘kûb b. Ebî Ya‘kûb el-Medenî", 3, null, "Medine"),
+  N("yakubelmedeni2", "يعقوب المدني", "Ya‘kûb el-Medenî", 2, null, "Medine"),
+  N("yaisbelvelidbhisam", "يعيش بن الوليد بن هشام", "Yaîş b. el-Velîd b. Hişâm", 3, null, "Şam"),
+  N("yusufbezzubeyrelmek2", "يوسف بن الزبير المكي", "Yûsuf b. ez-Zübeyr el-Mekkî", 3, null, "Mekke"),
+  N("yusufbezzubeyr2", "يوسف بن الزبير الكوفي", "Yûsuf b. ez-Zübeyr", 5, null, "Kûfe"),
+  N("yusufbabdullahbelha2", "يوسف بن عبد الله بن الحارث الأنصاري", "Yûsuf b. Abdullah b. el-Hâris el-Ensârî", 5, null, "Basra"),
+  N("yusufbvadihebuyakubelb", "يوسف بن واضح الهاشمي أبو يعقوب البصري", "Yûsuf b. Vâdıh Ebû Ya‘kûb el-Basrî", 5, null, "Basra"),
+  N("yusufbyezidelbasriebum", "يوسف بن يزيد البصري أبو معشر البراء", "Yûsuf b. Yezîd el-Basrî Ebû Ma‘şer Berâ", 5, null, "Basra"),
+  N("yusuf", "يوسف القرشي الأموي", "Yûsuf", 3, null, "Medine"),
+  N("yunusbsuleymessanan2", "يونس بن سليم الصنعاني", "Yûnus b. Süleym es-San‘ânî", 5, null, "Yemen"),
+  N("yunusbubeydbdinarelabd", "يونس بن عبيد بن دينار العبدي أبو عبيد البصري", "Yûnus b. Ubeyd b. Dînâr el-Abdî Ebû Ubeyd el-Basrî", 5, 139, "Basra"),
+  N("yunusbmuhammedbmusl2", "يونس بن محمد بن مسلم البغدادي أبو محمد", "Yûnus b. Muhammed b. Müslim Ebû Muhammed", 5, 207, "Bağdat"),
+  N("ebuishak2", "أبو إسحاق الكوفي", "Ebû İshak", 5, null, "Kûfe"),
+  N("ebueyyubessami2", "أبو أيوب الشامي", "Ebû Eyyûb eş-Şâmî", 5, null, "Şam"),
+  N("ebubasirelabdi", "أبو بصير العبدي الكوفي", "Ebû Basîr el-Abdî", 3, null, "Kûfe"),
+  N("ebubekirbabdullahbm2", "أبو بكر بن عبد الله بن محمد", "Ebû Bekir b. Abdullah b. Muhammed", 5, 162, "Medine"),
+  N("ebubekirbabdirrahmanbe", "أبو بكر بن عبد الرحمن بن الحارث", "Ebû Bekir b. Abdirrahman b. el-Hâris", 3, null, "Medine"),
+  N("ebubekirbosmanbsehl2", "أبو بكر بن عثمان بن سهل", "Ebû Bekir b. Osmân b. Sehl", 5, null, "Medine"),
+  N("ebubekirbumarebruveybe", "أبو بكر بن عمارة بن رويبة", "Ebû Bekir b. Umâre b. Rüveybe", 3, null, "Kûfe"),
+  N("ebubekirbomerbabdir2", "أبو بكر بن عمر بن عبد الرحمن", "Ebû Bekir b. Ömer b. Abdirrahman", 5, null, "Medine"),
+  N("ebubekirbmuhammedbz2", "أبو بكر بن محمد بن زيد", "Ebû Bekir b. Muhammed b. Zeyd", 5, 150, "Medine"),
+  N("ebubekirbmuhammedba2", "أبو بكر بن محمد بن عمرو", "Ebû Bekir b. Muhammed b. Amr", 5, null, "Medine"),
+  N("ebubekirbyahyabnadr2", "أبو بكر بن يحيى بن النضر الأنصاري المدني مستور", "Ebû Bekir b. Yahyâ b. Nadr el-Ensârî el-Medenî Mestûr", 5, null, "Medine"),
+  N("ebuelcariyeelabdielbas", "أبو الجارية العبدي البصري", "Ebû el-Câriye el-Abdî el-Basrî", 5, null, "Basra"),
+  N("ebuelcellas", "أبو الجلاس الكوفي", "Ebû el-Cellâs", 3, null, "Kûfe"),
+  N("ebuhasan2", "أبو الحسن الكوفي", "Ebû Hasan", 5, null, "Kûfe"),
+  N("ebuhusaynbyahyabsul2", "أبو حصين بن يحيى بن سليمان الرازي", "Ebû Husayn b. Yahyâ b. Süleymân er-Râzî", 5, null, "Cibâl"),
+  N("ebuhafselbasri2", "أبو حفص البصري", "Ebû Hafs el-Basrî", 5, null, "Basra"),
+  N("ebuhafseddimaski2", "أبو حفص الدمشقي", "Ebû Hafs ed-Dımaşkī", 5, null, "Şam"),
+  N("ebueddehmaelbasri", "أبو الدهماء البصري", "Ebû ed-Dehmâ el-Basrî", 5, null, "Basra"),
+  N("eburabielmedeni2", "أبو الربيع المدني", "Ebû Rabî‘ el-Medenî", 3, null, "Medine"),
+  N("ebusadelezdi2", "أبو سعد الأزدي الكوفي", "Ebû Sa‘d el-Ezdî", 3, null, "Kûfe"),
+  N("ebusadelmekki2", "أبو سعد المكي", "Ebû Sa‘d el-Mekkî", 3, null, "Mekke"),
+  N("ebusaidbrafielmeden2", "أبو سعيد بن رافع المدني", "Ebû Saîd b. Râfi‘ el-Medenî", 4, null, "Medine"),
+  N("ebusaidelensari", "أبو سعيد الأنصاري", "Ebû Saîd el-Ensârî", 5, null, "Humus"),
+  N("ebusaidessami3", "أبو سعيد الشامي", "Ebû Saîd eş-Şâmî", 5, null, "Şam"),
+  N("ebuselemebnubeyh", "أبو سلمة بن نبيه", "Ebû Seleme b. Nübeyh", 5, null, "Medine"),
+  N("ebuseleme2", "أبو سلمة الحمصي", "Ebû Seleme", 3, null, "Humus"),
+  N("ebusadikelezdi", "أبو صادق الأزدي الكوفي", "Ebû Sâdık el-Ezdî", 4, null, "Kûfe"),
+  N("ebuessahba", "أبو الصهباء الكوفي", "Ebû es-Sahbâ", 5, null, "Kûfe"),
+  N("ebutalutessami", "أبو طالوت الشامي", "Ebû Tâlût eş-Şâmî", 5, null, "Şam"),
+  N("ebuelaliyebera", "أبو العالية البراء", "Ebû el-Âliye Berâ", 4, null, "Basra"),
+  N("ebuabdullahelmedeni", "أبو عبد الله المدني", "Ebû Abdullah el-Medenî", 3, null, "Medine"),
+  N("ebuabdullahelmedeni2", "أبو عبد الله المدني", "Ebû Abdullah el-Medenî", 3, null, "Medine"),
+  N("ebuosmanelensarielm2", "أبو عثمان الأنصاري المدني", "Ebû Osmân el-Ensârî el-Medenî", 4, null, "Medine"),
+  N("ebueladbeselesari", "أبو العدبس الأشعري", "Ebû el-Adbes el-Eş‘arî", 4, null, "Kûfe"),
+  N("ebuukkaseelhemdani", "أبو عكاشة الهمداني الكوفي", "Ebû Ukkâşe el-Hemdânî", 5, null, "Kûfe"),
+  N("ebuimranelensariess2", "أبو عمران الأنصاري الشامي", "Ebû İmrân el-Ensârî eş-Şâmî", 4, null, "Şam"),
+  N("ebuelanbeseladevi", "أبو العنبس الكوفي العدوي", "Ebû el-Anbes el-Adevî", 5, null, "Kûfe"),
+  N("ebuelanbes", "أبو العنبس الكوفي", "Ebû el-Anbes", 5, null, "Kûfe"),
+  N("ebuelanbesennehai", "أبو العنبس الكوفي النخعي", "Ebû el-Anbes en-Nehaî", 5, null, "Kûfe"),
+  N("ebualaessami2", "أبو العلاء الشامي", "Ebû Alâ eş-Şâmî", 5, null, "Şam"),
+  N("ebuelalaniye", "أبو العلانية المرئي", "Ebû el-Alâniye", 4, null, "Basra"),
+  N("ebuelalaniye2", "أبو العلانية المرئي الكوفي", "Ebû el-Alâniye", 5, null, "Kûfe"),
+  N("ebukebseesseluli", "أبو كبشة السلولي", "Ebû Kebşe es-Selûlî", 2, null, "Şam"),
+  N("ebuelkenudelezdi", "أبو الكنود الأزدي الكوفي", "Ebû el-Kenûd el-Ezdî", 2, null, "Kûfe"),
+  N("ebumalikennehaielva2", "أبو مالك النخعي الواسطي", "Ebû Mâlik en-Nehaî el-Vâsıtî", 5, null, "Vâsıt"),
+  N("ebumeravihelgifari", "أبو مراوح الغفاري", "Ebû Merâvih el-Gıfârî", 3, null, "Medine"),
+  N("ebuelmusaffaelmedeni", "أبو المصفى المدني", "Ebû el-Musaffâ el-Medenî", 5, null, "Medine"),
+  N("ebumugireelbeceli2", "أبو المغيرة البجلي", "Ebû Mugīre el-Becelî", 3, null, "Kûfe"),
+  N("ebumanzuressami", "أبو منظور الشامي", "Ebû Manzûr eş-Şâmî", 5, null, "Şam"),
+  N("ebuelmunib", "أبو المنيب الجرشي", "Ebû el-Munîb", 4, null, "Şam"),
+  N("ebuelmunibelbasrielahd", "أبو المنيب البصري الأحدب", "Ebû el-Munîb el-Basrî el-Ahdeb", 2, null, "Basra"),
+  N("ebunuaymennehaielkebir", "أبو نعيم النخعي الكبير الكوفي", "Ebû Nuaym en-Nehaî el-Kebîr", 5, null, "Kûfe"),
+  N("ebuheysemelmisri2", "أبو الهيثم المصري", "Ebû Heysem el-Mısrî", 5, null, "Mısır"),
+  N("ebuelverdbsumamebhazne", "أبو الورد بن ثمامة بن حزن القشيري البصري", "Ebû el-Verd b. Sümâme b. Hazn el-Basrî", 5, null, "Basra"),
+  N("ebuelvelidelmekki2", "أبو الوليد المكي", "Ebû el-Velîd el-Mekkî", 4, null, "Mekke"),
+  N("ebuyahyaetteymielme2", "أبو يحيى التيمي المدني", "Ebû Yahyâ et-Teymî el-Medenî", 5, null, "Medine"),
+  N("ebuyahyaelmekki3", "أبو يحيى المكي", "Ebû Yahyâ el-Mekkî", 5, null, "Mekke"),
+  N("ebuyahyaelmekki4", "أبو يحيى المكي", "Ebû Yahyâ el-Mekkî", 4, null, "Mekke"),
+  N("ebuyezidelmedeni2", "أبو يزيد المدني", "Ebû Yezîd el-Medenî", 4, null, "Basra"),
+  N("ebuelyemanerrahhalelme", "أبو اليمان الرحال المدني", "Ebû el-Yemân er-Rahhâl el-Medenî", 5, null, "Medine"),
+  N("ebisafiyyemestur", "بن أبي صفية مستور", "Ebî Safiyye Mestûr", 5, null, "Kûfe"),
+  N("cesrabintducace", "جسرة بنت دجاجة", "Cesra bint Dücâce", 3, null, "Kûfe"),
+  N("sasabintabdullah", "شعثاء بنت عبد الله", "Şa‘sâ bint Abdullah", 5, null, "Kûfe"),
+  N("gibtabintamr", "غبطة بنت عمرو", "Gıbta bint Amr", 5, null, "Basra"),
+  N("keyseebibekre", "كيسة أبي بكرة", "Keyse Ebî Bekre", 3, null, "Basra"),
+  N("muazebintabdullah", "معاذة بنت عبد الله", "Muâze bint Abdullah", 3, null, "Basra"),
 ];
 
 
@@ -34412,6 +35946,5751 @@ const EDGES_HAM = [
   E("alabelhadrami", "caferburkan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
   /* Kays b. Vehb -- hocalari */
   E("kaysbvehb", "gaylanbcamibesaselmuha", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+
+  /* --- TAKRIB TRANSI (2026-09-14) --- */
+  /* Câbir b. Abdullah -- hocalari */
+  E("cabir", "eymenelmekki", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Zer el-Gıfârî -- hocalari */
+  E("ebuzer", "ebumeravihelgifari", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuzer", "abdirrahmanbsimase", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuzer", "munzirbmalikbkita", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubâde b. es-Sâmit -- hocalari */
+  E("ubadesamit", "elesvedbsalebeelkindie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubadesamit", "hittanbabdullaherrakas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubadesamit", "abdullahbmuhayriz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubadesamit", "rebiabnacidelezdi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Bekre es-Sekafî -- hocalari */
+  E("ebubekre", "keyseebibekre", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mühâcir b. Mismâr ez-Zührî -- hocalari */
+  E("muhacirbmismarezzuhri", "ibnebizib", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhacirbmismarezzuhri", "muhammedbabdirrahma4", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhacirbmismarezzuhri", "hatimismail", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Havşeb b. Ukayl Ebû Dihye el-Basrî -- hocalari */
+  E("havsebbukaylebudihyeel", "suleymanharb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("havsebbukaylebudihyeel", "ebudavudtayalisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("havsebbukaylebudihyeel", "sukeynbabdulazizbkayse", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Abbâs -- hocalari */
+  E("ibnabbas", "saidbelhuveyris", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnabbas", "abdirrahmanbvale", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnabbas", "abdulazizbrufey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnabbas", "ubeydullahbebiyezidelm", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnabbas", "muslimbmihrakelabdi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnabbas", "musabselemebelmuhabbik", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Mes‘ûd -- hocalari */
+  E("ibnmesud", "abdullahbukeym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnmesud", "elmustevridbahnef", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. ez-Zübeyr -- hocalari */
+  E("ibnzubeyr", "abdulazizbrufey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Berâ b. Âzib -- hocalari */
+  E("bera", "muaviyebsuveydbmukarri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hasan b. Ali -- hocalari */
+  E("hasanbali", "hubeyrebyerim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Süveyd b. Gafele -- hocalari */
+  E("suveydgafle", "abdulazizbrufey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suveydgafle", "habibbyesarelkindi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suveydgafle", "habibbyesar2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Şüreyh b. el-Hâris el-Kādî -- hocalari */
+  E("sureyh", "abdulazizbrufey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sureyh", "saidbhayyanetteymi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sureyh", "abbasbzurayh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sureyh", "isabasimelesedi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. el-Müseyyeb -- hocalari */
+  E("saidmusayyeb", "serikbabdullahbebinemi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Zeyd b. Vehb el-Cühenî -- hocalari */
+  E("zeydvehb", "abdulazizbrufey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zeydvehb", "elharisbhasira", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zeydvehb", "habibbebisabitkays", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zeydvehb", "hammadbebisuleymanmusl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebü't-Tufeyl Âmir b. Vâsile -- hocalari */
+  E("ebutufeyl", "abdulazizbrufey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebutufeyl", "marufbharbuz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebutufeyl", "elvelidbabdullahbcumey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sâlim b. Abdillâh b. Ömer -- hocalari */
+  E("salimibnomer", "amrbdinarelmekkiebumuh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salimibnomer", "amrbdinarelbasrielaver", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Beşîr b. Nehîk -- hocalari */
+  E("besirnehik", "halidbsumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("besirnehik", "berekeebuelvelidelbasr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Avf b. Mâlik b. Nadle -- hocalari */
+  E("avfbmalikbnadle", "sabi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("avfbmalikbnadle", "ebuidrishavlani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("avfbmalikbnadle", "salimebinadr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("avfbmalikbnadle", "saddadebuammar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("avfbmalikbnadle", "suleymbamir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("avfbmalikbnadle", "damrabhabibbsuheybezzu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("avfbmalikbnadle", "abdirrahmanbaiz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("avfbmalikbnadle", "salimbebiumeyyeebunadr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("avfbmalikbnadle", "abdirrahmanbsimase", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("avfbmalikbnadle", "ebuishaksebii", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("avfbmalikbnadle", "malikbelharisessulemi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("avfbmalikbnadle", "abdullahbebielhuzeyleb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("avfbmalikbnadle", "abdulmelikumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("avfbmalikbnadle", "humeydhilal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("avfbmalikbnadle", "ibrahimbmuslimelabdieb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("avfbmalikbnadle", "yezidbhumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("avfbmalikbnadle", "yezidbhumeyr2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Âmir b. Şerâhîl eş-Şa‘bî -- hocalari */
+  E("sabi", "saidbamrbesvaelhemdani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sabi", "abdullahbebiessefer", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sabi", "amrbabdullahbvehben2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sabi", "muhammedbebieyyubeb2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Ukeym -- hocalari */
+  E("abdullahbukeym", "ibnebileyla", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbukeym", "kasimmuhaymire", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbukeym", "hilalvezzan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbukeym", "hilalbebihumeyd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbukeym", "zeydvehb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbukeym", "hilalbebihumeyd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdurrahman b. Ebî Leylâ -- hocalari */
+  E("ibnebileyla", "yahyabelcezzar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Merâvih el-Gıfârî -- hocalari */
+  E("ebumeravihelgifari", "urve", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebumeravihelgifari", "imranbenesebueneselmek", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İkrime mevlâ İbn Abbâs -- hocalari */
+  E("ikrime", "husayfbabdirrahmanelce", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ikrime", "ezzubeyrbelhirrit", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ikrime", "selemebvehram", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ikrime", "huseyinbkayserrahbiebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ikrime", "abdullahbisababdirr2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ikrime", "osmanebuselemeelbas2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ikrime", "alibnizarbhayyanelesed", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ikrime", "muhammedbabdirrahma4", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubeyd b. Umeyr el-Leysî -- hocalari */
+  E("ubeydumeyr", "abdulazizbrufey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydumeyr", "hasanbmuslimbyenak", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydumeyr", "abdulvahidbeymenelmahz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydumeyr", "katanbvehbbuveymirelle", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdurrahman b. Avf -- hocalari */
+  E("abdrahmanavf", "becalebabde", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdrahmanavf", "nevfelbiyaselmedeni", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ukbe b. Âmir el-Cühenî -- hocalari */
+  E("ukbeamir", "abdirrahmanbsimase", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ukbeamir", "alibrebahbkasir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ukbeamir", "sumamebsufey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ukbeamir", "abdirrahmanbhuceyre", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ukbeamir", "kasimbabdirrahmaned2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Saîd el-Hudrî -- hocalari */
+  E("ebusaid", "abdullahbmuhayriz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebusaid", "abdullahbabdirrahma3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebusaid", "hafsbomer", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebusaid", "sayfibziyadelensari", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebusaid", "damrabsaidbebihanne", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebusaid", "ataessami2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebusaid", "kaysbelharis2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebusaid", "musabdihkan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebusaid", "nafiebuabdullahelme2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sâib b. Yezîd -- hocalari */
+  E("saibyezid", "hamzabsefineelbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebân b. Osman b. Affân -- hocalari */
+  E("ebanosman", "nubeyhbvehbbosmanelmed", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebanosman", "musabdihkan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebanosman", "yakubelmedeni2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sâlim b. Şevvâl -- hocalari */
+  E("salimbsevval", "ataebirebah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salimbsevval", "amrdinar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salimbsevval", "amrbdinarelmekkiebumuh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Atâ b. Ebî Rebâh -- hocalari */
+  E("ataebirebah", "budeylbmeysereelbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ataebirebah", "rebahbebimarufbebisare", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ataebirebah", "abdulazizbrufey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ataebirebah", "kesirbsinzir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mugīre b. Şu‘be -- hocalari */
+  E("mugirasube", "ubeydbnadle", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mugirasube", "temimbhazlem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İmrân b. Husayn -- hocalari */
+  E("imranhusayn", "zehdembmudarribelcermi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("imranhusayn", "becalebabde", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("imranhusayn", "habibbebifadlan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("imranhusayn", "hakembabdullahbisha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("imranhusayn", "sumeytbumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("imranhusayn", "munzirbmalikbkita", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Amr b. el-Âs -- hocalari */
+  E("abdullahamr", "ebukebseesseluli", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahamr", "serahilbade", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahamr", "abdirrahmanbhuceyre", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahamr", "ubeydullahbabdullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahamr", "ikrimebabdirrahmanbelh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahamr", "omerbhakembrafi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahamr", "amrbdinarelmekkiebumuh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahamr", "isabtalhabubeydulla2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahamr", "malikbyuhamir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebü'd-Derdâ -- hocalari */
+  E("ebudderda", "hilalbyesaf", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Muhayrîz -- hocalari */
+  E("abdullahbmuhayriz", "ibnsihab", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbmuhayriz", "rebiababdirrahmanerrem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbmuhayriz", "busrbubeydullahelhadra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbmuhayriz", "cebelebatiyye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbmuhayriz", "muhammedbyahyabhabban", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbmuhayriz", "elvelidbhisambmuaviye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbmuhayriz", "abdullahbhafsbomerebub", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbmuhayriz", "abdulazizbabdulmelikbe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbmuhayriz", "mekhul", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İbn Şihâb ez-Zührî -- hocalari */
+  E("ibnsihab", "bekirbvailbdavudetteym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnsihab", "osmanbebirevvad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Becâle b. Abde -- hocalari */
+  E("becalebabde", "amrdinar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("becalebabde", "amrbdinarelmekkiebumuh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. el-Huveyris -- hocalari */
+  E("saidbelhuveyris", "amrdinar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbelhuveyris", "ibncureyc", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbelhuveyris", "abdulmelikbabdulazizbc", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbelhuveyris", "amrbdinarelmekkiebumuh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Azra b. Abdirrahman b. Zürâre el-Huzâî el-A‘ver -- hocalari */
+  E("azrababdirrahmanbzurar", "katade", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("azrababdirrahmanbzurar", "davudebihind", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("azrababdirrahmanbzurar", "halidhazza", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("azrababdirrahmanbzurar", "abdulkerimcezeri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("azrababdirrahmanbzurar", "vikabiyaselesediebuyez", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mûsâ b. Talha b. Ubeydullah et-Teymî Ebû Îsâ -- hocalari */
+  E("musabtalhabubeydullahe", "ebuishaksebii", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("musabtalhabubeydullahe", "simakharb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("musabtalhabubeydullahe", "abdulmelikumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("musabtalhabubeydullahe", "ebumalikesceyi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("musabtalhabubeydullahe", "amrbabdullahbubeyd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("musabtalhabubeydullahe", "osmanbabdullahbmevhebe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("musabtalhabubeydullahe", "hakimbcubeyrelesedi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("musabtalhabubeydullahe", "hakemuteybe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hübeyre b. Yerîm -- hocalari */
+  E("hubeyrebyerim", "ebuishaksebii", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hubeyrebyerim", "saidbilaka", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hubeyrebyerim", "amrbabdullahbubeyd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülazîz b. Rufey‘ -- hocalari */
+  E("abdulazizbrufey", "amess", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizbrufey", "ibnuyeyne", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizbrufey", "sube", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizbrufey", "sevri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizbrufey", "cerirabdulhamid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizbrufey", "zuhayrmuaviye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizbrufey", "ebulahvess", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizbrufey", "serikkadi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizbrufey", "ismailebiislamsibani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizbrufey", "ebubekirayyas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizbrufey", "ubeydebhumeydebuabdirr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizbrufey", "muhammedbmeymunelmerve", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizbrufey", "cerireddabbi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizbrufey", "sellambsuleym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizbrufey", "mugirmiksem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizbrufey", "ibrahimtahman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizbrufey", "hasanbselmbsalih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hilâl b. Yesâf -- hocalari */
+  E("hilalbyesaf", "amess", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hilalbyesaf", "mansurmutemir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hilalbyesaf", "abdelubabe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hilalbyesaf", "alimudrik", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hilalbyesaf", "abdulmelikbmeysereebuz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hilalbyesaf", "alibmudrik", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Şerîk b. Abdullah b. Ebî Nemir Ebû Abdullah el-Medenî -- hocalari */
+  E("serikbabdullahbebinemi", "malik", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("serikbabdullahbebinemi", "ebusaidmakburi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("serikbabdullahbebinemi", "suleymanbilal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("serikbabdullahbebinemi", "enesiyaz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("serikbabdullahbebinemi", "darevardi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("serikbabdullahbebinemi", "makburi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("serikbabdullahbebinemi", "haricebmusabbhariceebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("serikbabdullahbebinemi", "salihbmusabishak", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("serikbabdullahbebinemi", "abdullahbhuseyinbata", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("serikbabdullahbebinemi", "muhammedbammarbhafs", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("serikbabdullahbebinemi", "ebubekirbabdullahbmuha", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("serikbabdullahbebinemi", "humeydbziyad2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("serikbabdullahbebinemi", "haricebmusabbharice", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("serikbabdullahbebinemi", "ubeydullahbabdirrahm2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("serikbabdullahbebinemi", "salihbmusabishak2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("serikbabdullahbebinemi", "abdullahbhuseyinbat2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("serikbabdullahbebinemi", "muhammedbammarbhafs2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("serikbabdullahbebinemi", "ebubekirbabdullahbm2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Damra b. Saîd b. Ebî Hanne -- hocalari */
+  E("damrabsaidbebihanne", "malik", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("damrabsaidbebihanne", "ibnuyeyne", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("damrabsaidbebihanne", "fuleyhbsuleymanbebimug", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Katan b. Vehb b. Uveymir el-Leysî -- hocalari */
+  E("katanbvehbbuveymirelle", "malik", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("katanbvehbbuveymirelle", "ubeydullahomeri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("katanbvehbbuveymirelle", "abdulalababdullahbebif", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("katanbvehbbuveymirelle", "omerbsahban", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Amr b. Halhale -- hocalari */
+  E("muhammedbamrbhalhale", "malik", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbamrbhalhale", "velidkesir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbamrbhalhale", "yezidebihabib", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbamrbhalhale", "ismailcafer", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbamrbhalhale", "abdullahbsaidbebihinde", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbamrbhalhale", "yezidbmuhammedbkays", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbamrbhalhale", "elvelidbkesirelmahzumi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbamrbhalhale", "yezidbmuhammedbabdussa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbamrbhalhale", "zuheyrbmuhammedbkumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbamrbhalhale", "yezidbebihabibelmisrie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbamrbhalhale", "yezidbmuhammedbkays2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mâlik b. Enes -- hocalari */
+  E("malik", "huseyinbelvelidennisab", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("malik", "omerbkays2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("malik", "muhammedbhalidbasme", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("malik", "muhammedbabbasbosma2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("malik", "muaviyebhisam2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hasan b. Müslim b. Yenâk -- hocalari */
+  E("hasanbmuslimbyenak", "ibncureyc", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hasanbmuslimbyenak", "ibrahimnafi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hasanbmuslimbyenak", "abdulmelikbabdulazizbc", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hasanbmuslimbyenak", "amrbmurrebabdullah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hasanbmuslimbyenak", "ebanbsalihbumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hasanbmuslimbyenak", "budeylbmeysereelbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hasanbmuslimbyenak", "cabircufi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hasanbmuslimbyenak", "camibebirasidessayrafi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hasanbmuslimbyenak", "humeydtavil", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hasanbmuslimbyenak", "usamezeydleysi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kaz‘a b. Süveyd b. Hucayr -- hocalari */
+  E("kazabsuveydbhucayr", "ibncureyc", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kazabsuveydbhucayr", "sube", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kazabsuveydbhucayr", "abdullahbasim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kazabsuveydbhucayr", "abdulmelikbabdulazizbc", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kazabsuveydbhucayr", "makilbubeydullahelceze", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kazabsuveydbhucayr", "siblbabbadelmekki", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kazabsuveydbhucayr", "misned", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kazabsuveydbhucayr", "ibrahimbelhaccacbzeyd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kazabsuveydbhucayr", "abdulvahidbgiyas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İbn Cüreyc -- hocalari */
+  E("ibncureyc", "osmanbheysembcehmebuam", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Osmân b. Abdullah b. Mevheb et-Teymî -- hocalari */
+  E("osmanbabdullahbmevhebe", "ebuavane", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("osmanbabdullahbmevhebe", "sube", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("osmanbabdullahbmevhebe", "sallamebimuti", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("osmanbabdullahbmevhebe", "kaysrebi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("osmanbabdullahbmevhebe", "seybannahvi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("osmanbabdullahbmevhebe", "seybanbabdirrahmanette", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("osmanbabdullahbmevhebe", "muhammedbmeymunelmerve", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Büdeyl b. Meysere el-Basrî -- hocalari */
+  E("budeylbmeysereelbasri", "sube", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("budeylbmeysereelbasri", "huseynzekvan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("budeylbmeysereelbasri", "kurrehalid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("budeylbmeysereelbasri", "mansurbsadelbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("budeylbmeysereelbasri", "musabservan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("budeylbmeysereelbasri", "harunbmusaelezdi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("budeylbmeysereelbasri", "ibrahimtahman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("budeylbmeysereelbasri", "ebansattar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("budeylbmeysereelbasri", "mansurbsadelbasri2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sâbit b. Hürmüz Ebû el-Mikdâm el-Haddâd -- hocalari */
+  E("sabitbhurmuzebuelmikda", "sube", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Süveyr b. Ebî Fâhite -- hocalari */
+  E("suveyrbebifahite", "sube", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû el-Cellâs -- hocalari */
+  E("ebuelcellas", "sube", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ziyâd b. Mihrâk -- hocalari */
+  E("ziyadbmihrak", "sube", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ziyadbmihrak", "avfarabi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ziyadbmihrak", "omerbebihalifehaccacel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ziyadbmihrak", "avfbebicemile", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sevâde b. Hanzala el-Basrî -- hocalari */
+  E("sevadebhanzalaelbasri", "sube", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sevadebhanzalaelbasri", "muhammedbsuleymebuhila", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Ebî es-Sefer -- hocalari */
+  E("abdullahbebiessefer", "sube", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbebiessefer", "omerbebizaideelhemdani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbebiessefer", "yunusbrasidebuishakelk", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Kâsım b. Muhammed Ebû Muhammed el-Medenî -- hocalari */
+  E("abdirrahmanbkasimbmuha", "sube", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbkasimbmuha", "evzai", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbkasimbmuha", "yezidhad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbkasimbmuha", "fuleyhbsuleymanbebimug", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbkasimbmuha", "yezidbabdullahbusameeb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbkasimbmuha", "simakharb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbkasimbmuha", "hisamurve", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbkasimbmuha", "mansurzazan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbkasimbmuha", "eyyubsahtiyani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbkasimbmuha", "humeydtavil", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbkasimbmuha", "macisun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mecze’e b. Zâhir b. el-Esved -- hocalari */
+  E("meczeebzahirbelesved", "sube", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("meczeebzahirbelesved", "israilyunus", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("meczeebzahirbelesved", "rakababmaskalaelabdieb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhavvel b. Râşid Ebû Râşid b. Ebî Mücâlid -- hocalari */
+  E("muhavvelbrasideburasid", "sube", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Müslim b. Mihrâk el-Abdî -- hocalari */
+  E("muslimbmihrakelabdi", "sube", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muslimbmihrakelabdi", "hazmbebihazm", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muslimbmihrakelabdi", "kasimbfazlbmadan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Velîd b. el-Ayzâr b. Hurays el-Abdî -- hocalari */
+  E("elvelidbelayzarbhurays", "sube", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elvelidbelayzarbhurays", "ismailebiislamsibani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elvelidbelayzarbhurays", "mesudi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elvelidbelayzarbhurays", "malikmigvel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elvelidbelayzarbhurays", "abdirrahmanbabdullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elvelidbelayzarbhurays", "nuaymbmeysere", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Süfyân es-Sevrî -- hocalari */
+  E("sevri", "husayfbabdirrahmanelce", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sevri", "muaviyebhisam2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Eymen b. Nâbil -- hocalari */
+  E("eymenbnabil", "veki", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eymenbnabil", "ibnmehdi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eymenbnabil", "ebunuaymfadl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eymenbnabil", "ebuasimnebil", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eymenbnabil", "ebudavudtayalisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eymenbnabil", "isabyunus", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eymenbnabil", "ruhubade", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eymenbnabil", "abdurrezzak", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eymenbnabil", "mutemirsuleyman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eymenbnabil", "mervanfezari", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eymenbnabil", "ubeydullahmusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eymenbnabil", "ebuamirakadi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eymenbnabil", "ebuahmedzubeyri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eymenbnabil", "mekkiibrahim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eymenbnabil", "saidbhusiym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eymenbnabil", "osmanbabdirrahmanbmusl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eymenbnabil", "omerbharunbyezidesseka", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eymenbnabil", "muhammedbbekirbosman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eymenbnabil", "muhammedbabdullahbezzu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eymenbnabil", "musabtarikebukurre", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eymenbnabil", "saidbsalim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eymenbnabil", "omerbharunbyezidess2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ma‘rûf b. Harbûz -- hocalari */
+  E("marufbharbuz", "veki", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("marufbharbuz", "ebudavudtayalisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("marufbharbuz", "ubeydullahmusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("marufbharbuz", "sellambebiamreelhorasa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("marufbharbuz", "omerbharunbyezidesseka", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("marufbharbuz", "yahyabalaelbeceliebuam", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("marufbharbuz", "omerbharunbyezidess2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("marufbharbuz", "fazlbmusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("marufbharbuz", "ebubekirayyas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("marufbharbuz", "abdullahbdavudbamirelh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("marufbharbuz", "yahyabalaelbecelieb2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Seleme b. Nübeyt -- hocalari */
+  E("selemebnubeyt", "veki", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("selemebnubeyt", "ebunuaymfadl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("selemebnubeyt", "abdullahbdavudbamirelh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("selemebnubeyt", "kasimbhakembkesir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("selemebnubeyt", "ubeydullahmusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muâviye b. Ebî Muzerrid -- hocalari */
+  E("muaviyebebimuzerrid", "veki", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muaviyebebimuzerrid", "suleymanbilal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muaviyebebimuzerrid", "hatimismail", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muaviyebebimuzerrid", "yezidhad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hâlid b. Abdirrahman b. Bükeyr es-Sülemî Ebû Ümeyye el-Basrî -- hocalari */
+  E("halidbabdirrahmanbbuke", "ibnmubarek", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("halidbabdirrahmanbbuke", "abdullahbelmubarekelme", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("halidbabdirrahmanbbuke", "bisrmufaddal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("halidbabdirrahmanbbuke", "ebudavudtayalisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubeydullah b. Abdillâh b. Utbe -- hocalari */
+  E("ubeydullahutbe", "damrabsaidbebihanne", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahutbe", "husayfbabdirrahmanelce", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahutbe", "salimbebiumeyyeebunadr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahutbe", "talhabyahyabtalha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Râfi‘ b. Hadîc -- hocalari */
+  E("rafihadic", "hurayrbabdirrahmanbraf", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sehm b. Mincâb b. Râşid ed-Dabbî -- hocalari */
+  E("sehmbmincabbrasideddab", "nehai", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Şüteyr b. Şekl -- hocalari */
+  E("suteyrbsekl", "ebuduha", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suteyrbsekl", "bilalbyahya", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ma‘rûr b. Süveyd -- hocalari */
+  E("mearrursuveyd", "cevvabbubeydullahettey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Abdirrahman b. Gunc -- hocalari */
+  E("muhammedbabdirrahmanbg", "leysbsad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Bekir b. Sevâde b. Sümâme -- hocalari */
+  E("bekirbsevadebsumame", "amrharis", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("bekirbsevadebsumame", "cafercrebia", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("bekirbsevadebsumame", "caferbrebiabsurahbileb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("bekirbsevadebsumame", "amrbelharisbyakubelens", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amr b. el-Hâris -- hocalari */
+  E("amrharis", "risdinbsadbmuflih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Bekir b. Umâre b. Rüveybe -- hocalari */
+  E("ebubekirbumarebruveybe", "misersukdam", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebubekirbumarebruveybe", "ismailebihalid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebubekirbumarebruveybe", "ismailbebihalidelahmes", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubeydullah b. el-Kıbtiyye -- hocalari */
+  E("ubeydullahbelkibtiyye", "misersukdam", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahbelkibtiyye", "abdulazizbrufey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahbelkibtiyye", "furatbebiabdirrahman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Nümeyr -- hocalari */
+  E("ibnnumeyr", "hasanbalibaffanelamiri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnnumeyr", "ahmedbnasrbziyadenn2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnnumeyr", "huseyinbalibelesvedebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnnumeyr", "ubeydbyaiselmehamilieb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnnumeyr", "muhammedbomerbelvel2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnnumeyr", "heysembhalid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. İdrîs -- hocalari */
+  E("ibnidris", "hasanbrabielbeceliebua", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnidris", "huseyinbyezidbyahya2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnidris", "yahyabdavudbmeymune2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Tâvûs b. Keysân -- hocalari */
+  E("tavus", "hasanbmuslimbyenak", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("tavus", "hisambhucayr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mücâhid b. Cebr -- hocalari */
+  E("mucahid", "hasanbmuslimbyenak", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mucahid", "osmanbasimbhusaynelese", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Küreyb mevlâ İbn Abbâs -- hocalari */
+  E("kureyb", "serikbabdullahbebinemi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kureyb", "muhammedbomerbali3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hammâd b. Zeyd -- hocalari */
+  E("hammadzeyd", "muhammedbzunburbebiele", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Egar Ebû Müslim -- hocalari */
+  E("egarebumuslim", "hilalbyesaf", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amr b. Meymûn el-Evdî -- hocalari */
+  E("amrmeymun", "hilalbyesaf", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrmeymun", "ibrahimbyezidbserikett", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mûsâ b. Talha -- hocalari */
+  E("musatalha", "osmanbabdullahbmevhebe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Husayf b. Abdirrahman el-Cezerî Ebû Avn -- hocalari */
+  E("husayfbabdirrahmanelce", "zuhayrmuaviye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("husayfbabdirrahmanelce", "abdusselamharb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("husayfbabdirrahmanelce", "attabbbesir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("husayfbabdirrahmanelce", "muhammedbselemebabdull", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("husayfbabdirrahmanelce", "mesudbsadelcufiebusad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("husayfbabdirrahmanelce", "mamerbsuleymanennehaie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("husayfbabdirrahmanelce", "hattabbkasim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("husayfbabdirrahmanelce", "osmanbamrbsac", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("husayfbabdirrahmanelce", "muhammedbselemebabd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Müstevrid b. Ahnef -- hocalari */
+  E("elmustevridbahnef", "sadubeyde", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elmustevridbahnef", "alkamemersed", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Avsece el-Hemdânî -- hocalari */
+  E("abdirrahmanbavseceelhe", "dahhak", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbavseceelhe", "talhamusarrif", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbavseceelhe", "talhabmusarrifbamr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbavseceelhe", "ebuishaksebii", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Dahhâk b. Müzâhim -- hocalari */
+  E("dahhak", "cuveybirbsaidelezdiebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("dahhak", "hasanbyahyaelbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("dahhak", "selemebnubeyt", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("dahhak", "atiyyebelhariseburevk", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Şehr b. Havşeb -- hocalari */
+  E("sehrhavseb", "budeylbmeysereelbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sehrhavseb", "hammadbcaferbzeydelabd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sehrhavseb", "sevadebebielesvedabdul", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sehrhavseb", "simrbatiyyeelesedi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sehrhavseb", "abdulazizbubeydulla2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sehrhavseb", "ubeydullahbebiziyad2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sehrhavseb", "ukbebabdullahelesammel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sehrhavseb", "alabzeyd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sehrhavseb", "meymunbsiyah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sehrhavseb", "ebuelverdbsumamebhazne", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İbn Ebî Müleyke -- hocalari */
+  E("ibnebimuleyke", "abdulazizbrufey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnebimuleyke", "kazabsuveydbhucayr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Humeyd et-Tavîl -- hocalari */
+  E("humeydtavil", "abdullahbbekirbhabibel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("humeydtavil", "durustbziyadelanberi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("humeydtavil", "imranbdaver", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("humeydtavil", "muhammedbabdirrahma6", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("humeydtavil", "muhammedbyesar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("humeydtavil", "mendelbali", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû'z-Zübeyr el-Mekkî -- hocalari */
+  E("ebuzubeyrmekki", "eymenbnabil", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuzubeyrmekki", "harbbebielaliyeebumuaz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuzubeyrmekki", "abdirrahmanbhumeydb3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Vehb b. Keysân -- hocalari */
+  E("vehbkeysan", "muhammedbamrbhalhale", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Ebî Ümâme b. Sa‘lebe el-Ensârî el-Hârisî -- hocalari */
+  E("abdullahbebiumamebsale", "mahmudlebid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbebiumamebsale", "usamezeydleysi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbebiumamebsale", "salihkeysan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbebiumamebsale", "muhammedbzeydbelmuhaci", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kaz‘a b. Yahyâ -- hocalari */
+  E("kazaayahya", "sehmbmincabbrasideddab", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kazaayahya", "nehselbmucemmieddabbi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Ebî Bekre Ebû b. el-Hâris es-Sekafî el-Basrî -- hocalari */
+  E("abdirrahmanbebibekreeb", "ibnsirin", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbebibekreeb", "halidhazza", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbebibekreeb", "alizeydcudan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbebibekreeb", "cureyri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbebibekreeb", "abdullahavn", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbebibekreeb", "abdulmelikumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbebibekreeb", "caferebivahsiyye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbebibekreeb", "yunusubeyd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbebibekreeb", "yahyaebiishak", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbebibekreeb", "ishakbsuveydbhubeyreel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbebibekreeb", "halidbmihranebuelmenaz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbebibekreeb", "ziyadbebiziyad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbebibekreeb", "alibzeydbabdullah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbebibekreeb", "muhammedbabdullahbebiy", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbebibekreeb", "muhacirbmahledebumahle", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbebibekreeb", "ziyadbebiziyad2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbebibekreeb", "alibzeydbabdullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbebibekreeb", "muhammedbabdullahbe5", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbebibekreeb", "yahyabebiishakelhadram", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbebibekreeb", "yunusbubeydbdinarelabd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Sîrîn -- hocalari */
+  E("ibnsirin", "kesirbsinzir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnsirin", "haccacbferafisa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnsirin", "ezzubeyrbelhirrit", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnsirin", "zirbibabdullahelezdi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnsirin", "ukbebabdullahelesammel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnsirin", "imranbdaver", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnsirin", "muverrikbmusemric", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnsirin", "yunusbubeydbdinarelabd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kâsım b. Muhaymire -- hocalari */
+  E("kasimmuhaymire", "hilalbyesaf", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hassân -- hocalari */
+  E("hassan", "ebuidrishavlani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Şakīk el-Ukaylî -- hocalari */
+  E("abdullahsakik", "ezzubeyrbelhirrit", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahsakik", "budeylbmeysereelbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sâlih b. Havvât b. Cübeyr -- hocalari */
+  E("salihbhavvatbcubeyr", "kasimmuhammed", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salihbhavvatbcubeyr", "yezidrouman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salihbhavvatbcubeyr", "amirbabdullahbezzubeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salihbhavvatbcubeyr", "kasimbmuhammedbebibeki", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salihbhavvatbcubeyr", "amirbabdullahbezzub2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kâsım b. Muhammed b. Ebî Bekir -- hocalari */
+  E("kasimmuhammed", "eymenbnabil", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kasimmuhammed", "muzahirbeslemelmahzumi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Dâvûd b. el-Husayn -- hocalari */
+  E("davudhusayn", "zeydbcubeyra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Mes‘ûd b. Neyyâr -- hocalari */
+  E("abdirrahmanbmesudbneyy", "hubeybabdrahman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Rûmân -- hocalari */
+  E("yezidrouman", "muaviyebebimuzerrid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidrouman", "muhammedbyesar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Rişdîn b. Sa‘d b. Müflih -- hocalari */
+  E("risdinbsadbmuflih", "kuteybesaid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("risdinbsadbmuflih", "zekeriyyabyahyabsalihe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("risdinbsadbmuflih", "abdullahbsuleymelcezer", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("risdinbsadbmuflih", "abdirrahmanbbahrelbasr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("risdinbsadbmuflih", "amrbrabibtarik", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("risdinbsadbmuflih", "isabibrahimbisa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("risdinbsadbmuflih", "muhammedbelharisbrasid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("risdinbsadbmuflih", "mervanbmuhammedbhassan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("risdinbsadbmuflih", "heysembhariceebuahmed", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("risdinbsadbmuflih", "yahyabgaylanbabdullah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("risdinbsadbmuflih", "isabhammadbmuslimettuc", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("risdinbsadbmuflih", "damrarebia", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("risdinbsadbmuflih", "isabibrahimbisa2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("risdinbsadbmuflih", "muhammedbelharisbra2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("risdinbsadbmuflih", "mervanbmuhammedbhas2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İsmâîl b. Râfi‘ b. Uveymir el-Ensârî el-Medenî -- hocalari */
+  E("ismailbrafibuveymirele", "velidmuslim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ismailbrafibuveymirele", "hisambsuleymanbikrime", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ismailbrafibuveymirele", "elvelidbmuslim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Nemir -- hocalari */
+  E("abdirrahmanbnemir", "velidmuslim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbnemir", "elvelidbmuslim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muzâhir b. Eslem el-Mahzûmî el-Medenî -- hocalari */
+  E("muzahirbeslemelmahzumi", "ebuasimnebil", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Şübeyl b. Avf el-Ahmesî Ebû et-Tufeyl -- hocalari */
+  E("subeylbavfelahmesiebue", "ismailebihalid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("subeylbavfelahmesiebue", "ismailbebihalidelahmes", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("subeylbavfelahmesiebue", "habibbabdullahelezdi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Amr b. Eşva‘ el-Hemdânî -- hocalari */
+  E("saidbamrbesvaelhemdani", "halidhazza", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbamrbesvaelhemdani", "saidmesrukhsevri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbamrbesvaelhemdani", "halidbmihranebuelmenaz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbamrbesvaelhemdani", "kasimbhabibettemmar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbamrbesvaelhemdani", "isababdirrahmanessulem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbamrbesvaelhemdani", "elharisbhasira", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbamrbesvaelhemdani", "leysebisuleym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. el-Hâris el-Ensârî el-Basrî Ebû el-Velîd Nesîb b. Sîrîn -- hocalari */
+  E("abdullahbelharisele2", "halidhazza", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbelharisele2", "halidbmihranebuelmenaz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Dâvûd et-Tayâlisî -- hocalari */
+  E("ebudavudtayalisi", "zeydbahzem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebudavudtayalisi", "ibrahimbelmustemir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebudavudtayalisi", "huseyinbselemebisma2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebudavudtayalisi", "hafsbomerbabdirrahm2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebudavudtayalisi", "suleymanbubeydullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebudavudtayalisi", "abdirrahmanbmuhamme2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebudavudtayalisi", "muhammedbebibekirba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebudavudtayalisi", "muhammedbhumeydbhay2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebudavudtayalisi", "muhammedbrafiennisabur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebudavudtayalisi", "muhammedbyahyababdu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebudavudtayalisi", "muhammedbyunusbmusa2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Müstemir b. er-Reyyân -- hocalari */
+  E("elmustemirberreyyan", "abdussamed", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elmustemirberreyyan", "osmanomerfaris", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Harb b. Ebî el-Âliye Ebû Muâz el-Basrî -- hocalari */
+  E("harbbebielaliyeebumuaz", "abdussamed", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("harbbebielaliyeebumuaz", "huseym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("harbbebielaliyeebumuaz", "kuteybesaid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hişâm b. el-Gāz b. Rebîa -- hocalari */
+  E("hisambelgazbrebia", "isabyunus", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambelgazbrebia", "ismailayyas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambelgazbrebia", "vakidi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambelgazbrebia", "halidbyezidbsalih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambelgazbrebia", "saidbumarebsafvan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambelgazbrebia", "sadakabhalid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambelgazbrebia", "halidbyezidbsalih2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambelgazbrebia", "sebabesevvar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ísâ b. Yûnus -- hocalari */
+  E("isabyunus", "muhammedbzunburbebiele", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sa‘lebe b. Abbâd -- hocalari */
+  E("salebebabbad", "esvedkays", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Nübeyh b. Abdullah -- hocalari */
+  E("nubeyhbabdullah", "esvedkays", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nubeyhbabdullah", "ebuhalidelesedi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İbrâhim b. Yezîd b. Şerîk et-Teymî -- hocalari */
+  E("ibrahimbyezidbserikett", "hasanubeydullah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibrahimbyezidbserikett", "beyanbisr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibrahimbyezidbserikett", "hakemuteybe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibrahimbyezidbserikett", "zubeydbelharisbabdulke", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibrahimbyezidbserikett", "atiyyebelhariseburevk", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ca‘fer b. Avn -- hocalari */
+  E("caferavn", "hasanbalibaffanelamiri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("caferavn", "ahmedbnasrbziyadenn2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("caferavn", "abdullahbsadbibrahi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("caferavn", "abdulazizbmuaviyeba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("caferavn", "muhammedbahmedbhuse2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("caferavn", "muhammedbabdirrahma3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("caferavn", "muhammedbhisambisa2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Şevzeb el-Horâsânî Ebû Abdirrahman -- hocalari */
+  E("abdullahbsevzebelhoras", "damrarebia", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbsevzebelhoras", "atabmuslimelhaffafebum", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Damra b. Rabîa -- hocalari */
+  E("damrarebia", "ubeydullahbelcehmelbas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("damrarebia", "suleymanbabdirrahma2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("damrarebia", "muhammedbvehbbsaid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("damrarebia", "hisambhalidbzeydebu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hişâm b. Urve -- hocalari */
+  E("hisamurve", "alibhasimbelberid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisamurve", "ismailbibrahimbukbe2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisamurve", "hammadbzeydbdirhemelez", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisamurve", "hammadbselemebdinarelb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisamurve", "selemebrecaettemimiebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisamurve", "suaybbebihamza", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisamurve", "salihbmusabishak2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisamurve", "abdullahbeleclahelkind", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisamurve", "abdullahbelmunib", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisamurve", "abdulhakimbmansurelhuz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisamurve", "ubeydbkasimelesedi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisamurve", "assambalibhucayr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisamurve", "omerbkayselmekki2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisamurve", "anbesebsaidbeddurays", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisamurve", "muhammedbbisrelabdiebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisamurve", "muhammedbdinarelezd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisamurve", "muhammedbabdirrahma6", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisamurve", "muhammedbubeyd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisamurve", "muhammedbosmanbsafv2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisamurve", "muhammedbmuyesser", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisamurve", "mugirebabdirrahmanb3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisamurve", "mendelbali", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisamurve", "hisambhassanelezdi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisamurve", "hisambziyadbebiyezi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisamurve", "yezidbabdulazizbsiyah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisamurve", "ebubekirbabdullahbm2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisamurve", "ebubekirbomerbabdir2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Damdam b. Zür‘a b. Sevb -- hocalari */
+  E("damdambzurabsevb", "ismailayyas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("damdambzurabsevb", "yahyabhamzabvakidelhad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Bahîr b. Sa‘d -- hocalari */
+  E("bahirbsad", "ismailayyas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("bahirbsad", "muaviyesalih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("bahirbsad", "muaviyebsalihbhudeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Zehdem b. Mudarrib el-Cermî -- hocalari */
+  E("zehdembmudarribelcermi", "matarverrak", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zehdembmudarribelcermi", "ebucemrenasr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zehdembmudarribelcermi", "ebukilabe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zehdembmudarribelcermi", "abdullahbzeydbamr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zehdembmudarribelcermi", "abdullahbzeydbamr2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Matar el-Verrâk -- hocalari */
+  E("matarverrak", "essakbhazn", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("matarverrak", "abdullahbsevzebelhoras", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Selm b. Ebî ez-Zeyyâl Aclân el-Basrî -- hocalari */
+  E("selmbebiezzeyyalaclane", "mutemirsuleyman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mu‘temir b. Süleymân -- hocalari */
+  E("mutemirsuleyman", "abdullahbcafer", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mutemirsuleyman", "ezherbcemilbcenah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mutemirsuleyman", "hasanbalibrasidelva2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mutemirsuleyman", "abdullahbsadetteymi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mutemirsuleyman", "omerbosmanbasim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mutemirsuleyman", "muhammedbahmedbnafi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mutemirsuleyman", "muhammedbismailelba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mutemirsuleyman", "muhammedbeyyubelkilabi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mutemirsuleyman", "muhammedbebibekirba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mutemirsuleyman", "muhammedbabdullahbm2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mutemirsuleyman", "muhammedbabdullahbm3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mutemirsuleyman", "harunbishakbmuhamme2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mutemirsuleyman", "yusufbvadihebuyakubelb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mutemirsuleyman", "yunusbmuhammedbmusl2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mekhûl eş-Şâmî -- hocalari */
+  E("mekhul", "hisambelgazbrebia", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mekhul", "burdbsinanebualaeddima", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mekhul", "abdulhamidbabdirrah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mekhul", "abdirrahmanbnemir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mekhul", "kaysbsadelmekki2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mekhul", "muslimbziyad2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mekhul", "hisambebiabdullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Kebşe es-Selûlî -- hocalari */
+  E("ebukebseesseluli", "hassanatiyye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebukebseesseluli", "rebiayezid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebukebseesseluli", "yunusbseyf", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebukebseesseluli", "eburebia", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mâlik b. Yuhâmir -- hocalari */
+  E("malikbyuhamir", "umeyrhani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("malikbyuhamir", "cubeyrnufeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("malikbyuhamir", "mekhul", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Umeyr b. Hâni’ -- hocalari */
+  E("umeyrhani", "osmanbebielatikesuleym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Âmir b. Cüşeyb -- hocalari */
+  E("amirbcuseyb", "muhammedvelidzubeydi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amirbcuseyb", "lokmanbamir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amirbcuseyb", "muaviyesalih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Lokmân b. Âmir -- hocalari */
+  E("lokmanbamir", "muhammedvelidzubeydi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("lokmanbamir", "isabebirezin", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("lokmanbamir", "ferecbfadalebnumanette", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("lokmanbamir", "ukaylbmudrikessulemi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Süleymân b. Habîb el-Muhâribî -- hocalari */
+  E("suleymanhabib", "osmanbebielatikesuleym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Süleymân b. Mûsâ ed-Dımaşkī -- hocalari */
+  E("suleymanmusadimaski", "meserrebmabed", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Şeddâd Ebû Ammâr -- hocalari */
+  E("saddadebuammar", "ennehhasbkehm", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Maân b. Rifâa -- hocalari */
+  E("maanbrifaa", "ebulmugirehavlani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("maanbrifaa", "sureyhbyezidelhadramie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("maanbrifaa", "isambhalidelhadramiebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("maanbrifaa", "muhammedbsuleymanbebid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("maanbrifaa", "mubessirbismailebuisma", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("maanbrifaa", "muhammedsuaybsabur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("maanbrifaa", "bisrbekirtennisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû'l-Mugīre Abdülkuddûs el-Havlânî -- hocalari */
+  E("ebulmugirehavlani", "suaybbsuaybbishakeddim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hâlid b. Dihkān -- hocalari */
+  E("halidbdihkan", "muhammedsuaybsabur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("halidbdihkan", "sadakabhalid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Osmân b. Ebî el-Âtike Süleymân el-Ezdî Ebû Hafs ed-Dımaşkī -- hocalari */
+  E("osmanbebielatikesuleym", "muhammedsuaybsabur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("osmanbebielatikesuleym", "sadakabhalid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubeydullah b. Mûsâ el-Absî -- hocalari */
+  E("ubeydullahmusa", "huseyinbalibelesvedebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahmusa", "ibrahimbyunusbmuham2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahmusa", "hasanbyahyaelbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahmusa", "suleymanbabdulcebbarbz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahmusa", "abdullahbsalim2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahmusa", "alibhasanbebihasan2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahmusa", "kasimbzekeriyyabdin2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahmusa", "muhammedbahmedbhuse2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahmusa", "muhammedbidrisbmunzire", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahmusa", "muhammedbismailbibr2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahmusa", "muhammedbabdullahbhali", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Abdil'azîz et-Tenûhî -- hocalari */
+  E("saidabdulaziz", "selemebelayyar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidabdulaziz", "abdullahbsalihbmuha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidabdulaziz", "abdulhamidbbekkaressul", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidabdulaziz", "omerbkays2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidabdulaziz", "mervanbmuhammedbhas2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidabdulaziz", "elvelidbmuslim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Âmir el-Ahvel -- hocalari */
+  E("amiralhavl", "abdullahbsevzebelhoras", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amiralhavl", "eyyubbhavt", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kesîr b. Şinzîr -- hocalari */
+  E("kesirbsinzir", "abdulvarissaid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kesirbsinzir", "ebanbtarik", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kesirbsinzir", "ibnebiaruba", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kesirbsinzir", "ebansattar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kesirbsinzir", "bisrmufaddal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Bişr el-Abdî -- hocalari */
+  E("muhammedbisrabdi", "hasanbalibaffanelamiri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. İyâs el-Cüreyrî -- hocalari */
+  E("cureyri", "salihbbesirbvadi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("cureyri", "muhammedbdinarelezd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Deylem b. Gazvân el-Abdî Ebû Gālib Berâ -- hocalari */
+  E("deylembgazvanelabdiebu", "hebbanhilal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("deylembgazvanelabdiebu", "misned", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû'l-Velîd Hişâm et-Tayâlisî -- hocalari */
+  E("hisamtayalisi", "sehlbzencelebebierrazi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdüsselâm b. Ebî Hâzim Şeddâd el-Abdî Ebû Tâlût el-Basrî -- hocalari */
+  E("abdusselambebihazimsed", "muslimibrahim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdusselambebihazimsed", "muhammedbcabirbabdulla", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdusselambebihazimsed", "muslimbibrahimelezdi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sâlih b. Beşîr b. Vâdi‘ -- hocalari */
+  E("salihbbesirbvadi", "muslimibrahim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salihbbesirbvadi", "ismailbibrahimbbessame", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salihbbesirbvadi", "halidbhidas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salihbbesirbvadi", "abdullahbasim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salihbbesirbvadi", "omerbharunbyezidesseka", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salihbbesirbvadi", "muazbhalidbsakik", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salihbbesirbvadi", "yunusbmuhammedbmuslime", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salihbbesirbvadi", "abdulazizbesseriennaki", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salihbbesirbvadi", "heysembrabielukayliebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salihbbesirbvadi", "omerbharunbyezidess2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salihbbesirbvadi", "muslimbibrahimelezdi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salihbbesirbvadi", "yunusbmuhammedbmusl2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abâye b. Rifâa b. Râfi‘ Ebû Rifâa el-Medenî -- hocalari */
+  E("abayebrifaabrafieburif", "saidmesrukhsevri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abayebrifaabrafieburif", "muharibbdisar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* es-Sa‘k b. Hazn -- hocalari */
+  E("essakbhazn", "seybanferruh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("essakbhazn", "harunbismail", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("essakbhazn", "yezidharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("essakbhazn", "harunbismail2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kusâme b. Züheyr el-Mâzinî el-Basrî -- hocalari */
+  E("kusamebzuheyrelmazinie", "avfarabi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kusamebzuheyrelmazinie", "imranbhudeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kusamebzuheyrelmazinie", "avfbebicemile", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kusamebzuheyrelmazinie", "guneymbkayselmaziniebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Avf el-A‘râbî -- hocalari */
+  E("avfarabi", "osmanbheysembcehmebuam", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ziyâd Ebû el-Ebred el-Medenî -- hocalari */
+  E("ziyadebuelebredelmeden", "abdulhamidcafer", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Siyâr Ebû'l-Hakem -- hocalari */
+  E("siyarebilhakem", "essakbhazn", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("siyarebilhakem", "sufyanbmusaelbasri2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Hâşim b. el-Berîd -- hocalari */
+  E("alibhasimbelberid", "saidsuleymansadeviye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibhasimbelberid", "muhammedubeydmuharibi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibhasimbelberid", "dirarbsurad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibhasimbelberid", "abdullahbomerbmuhammed", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibhasimbelberid", "amrbhammadbtalha", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibhasimbelberid", "alabhilalbomerebumuham", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibhasimbelberid", "muhammedbubeydbmuham2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibhasimbelberid", "musabbahrelmerveziebui", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibhasimbelberid", "abbadbyakub", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibhasimbelberid", "muhammedbadembsuleyman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibhasimbelberid", "saidbsuleymaneddabbieb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibhasimbelberid", "abdullahbomerbmuham2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibhasimbelberid", "ahmedhanbel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibhasimbelberid", "ibnmain", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibhasimbelberid", "ahmedmeni", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibhasimbelberid", "amrbhammadbtalha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibhasimbelberid", "muhammedbubeydbmuha3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Fazl b. Anbese -- hocalari */
+  E("fazlbanbese", "alimedini", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fazlbanbese", "harunbhumeyd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fazlbanbese", "alibabdullahbcafer", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fazlbanbese", "muhammedbabdullahbamma", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fazlbanbese", "ahmeddevraki", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fazlbanbese", "muhammedbharbelvasiti", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fazlbanbese", "ahmedsinan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülmü’min b. Ubeydullah es-Sedûsî Ebû Ubeyde el-Basrî -- hocalari */
+  E("abdulmuminbubeydullahe", "muhammedisataba", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulmuminbubeydullahe", "yakubbishakbzeydelhadr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulmuminbubeydullahe", "surayjnuman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulmuminbubeydullahe", "misned", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülazîz b. Ebî es-Sa‘be et-Teymî -- hocalari */
+  E("abdulazizbebiessabeett", "yezidebihabib", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizbebiessabeett", "yezidbebihabibelmisrie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yûnus b. Bükeyr eş-Şeybânî -- hocalari */
+  E("yunusbukeyr", "ubeydbyaiselmehamilieb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Bezîme -- hocalari */
+  E("alibbezime", "mesudi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibbezime", "abdirrahmanbabdullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibbezime", "abdirrahmanbyezidbcabi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibbezime", "muhammedbmuslimbebielv", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hâlid b. el-Lecelâc el-Âmirî Ebû İbrâhim -- hocalari */
+  E("halidbellecelacelamiri", "abdulazizomer", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("halidbellecelacelamiri", "meslemebabdullahbribie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("halidbellecelacelamiri", "ebukilabe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("halidbellecelacelamiri", "abdulazizbomerbabdulaz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("halidbellecelacelamiri", "osmanbebielatikesuleym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Şimâse -- hocalari */
+  E("abdirrahmanbsimase", "harmalaimran", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbsimase", "elharisbyakubelensari", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbsimase", "elharisbyakubelensa2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbsimase", "kabbalkamebkabelmisrie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amr b. Dînâr el-Mekkî Ebû Muhammed -- hocalari */
+  E("amrbdinarelmekkiebumuh", "serieyyahya", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbdinarelmekkiebumuh", "caferisadik", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbdinarelmekkiebumuh", "davudattar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbdinarelmekkiebumuh", "ruhbkasimettemimielanb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbdinarelmekkiebumuh", "kurrehalid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbdinarelmekkiebumuh", "matarverrak", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbdinarelmekkiebumuh", "mansurzazan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hâtim b. Ebî Sagīre -- hocalari */
+  E("hatimebisagire", "abdullahbbekirbhabibel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hatimebisagire", "abdullahbharunbebii2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Cahdam b. Abdullah es-Sekafî Ebû Ca‘fer el-Basrî -- hocalari */
+  E("muhammedbcahdambabdull", "ibnmusenna", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbcahdambabdull", "abbasanberi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbcahdambabdull", "muhammedbabdullahbubey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbcahdambabdull", "yahyabmuhammedbesseken", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbcahdambabdull", "ishakkevsec", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbcahdambabdull", "ibrahimbelmustemir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbcahdambabdull", "muhammedbabdullahbu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülazîz b. Muhammed ed-Derâverdî -- hocalari */
+  E("darevardi", "abdullahbcafer", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("darevardi", "ibrahimbhamzabmuham2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("darevardi", "saidbhakembmuhammed2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("darevardi", "abdullahbmuhammedba5", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("darevardi", "muhammedbamr3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("darevardi", "yahyabmuhammedbabdu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("darevardi", "yakubbmuhammedbisa2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Bekir b. Habîb el-Bâhilî Ebû Vehb -- hocalari */
+  E("abdullahbbekirbhabibel", "abdhumeyd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbekirbhabibel", "cuzcani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbekirbhabibel", "ishakbibrahimbmuhammed", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbekirbhabibel", "hubeysbmubessir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbekirbhabibel", "abdullahbhakembebiziya", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbekirbhabibel", "osmanbsalihbsaid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbekirbhabibel", "alibsaidbcerirennesai", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbekirbhabibel", "alibisabyezid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbekirbhabibel", "muhammedbhatimbmeymun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbekirbhabibel", "munzirbelvelidbabdirra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbekirbhabibel", "alibisa2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbekirbhabibel", "muhammedbamir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbekirbhabibel", "muhammedbubeydullahbye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbekirbhabibel", "ahmedhanbel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbekirbhabibel", "alimedini", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbekirbhabibel", "ishakkevsec", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbekirbhabibel", "abdullahbelcerrahbsaid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbekirbhabibel", "bisrbadembyezidelbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbekirbhabibel", "harunhammal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbekirbhabibel", "mahmudgaylan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbekirbhabibel", "muhammedbelferecbmahmu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbekirbhabibel", "abdullahbmunir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbekirbhabibel", "osmanbsalihbsaid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbekirbhabibel", "muhammedbhatimbmeym2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hüseyin b. Ali b. el-Velîd el-Cu‘fî -- hocalari */
+  E("huseyinbalibelvelidelc", "abdhumeyd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Cemre Nasr b. İmrân ed-Dubaî -- hocalari */
+  E("ebucemrenasr", "essakbhazn", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebucemrenasr", "hammadbzeydbdirhemelez", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yûsuf b. Mâhek -- hocalari */
+  E("yusufmahek", "elvelidbabdullahbebimu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Alkame b. Mersed el-Hadramî -- hocalari */
+  E("alkamemersed", "muhammedbseybebnaameed", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sa‘d b. İyâs Ebû Amr eş-Şeybânî -- hocalari */
+  E("ebuamrseybani", "elvelidbelayzarbhurays", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Gālib b. Hattâf el-Kattân -- hocalari */
+  E("galibhattaf", "halidbabdirrahmanbbuke", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("galibhattaf", "abdullahbsevzebelhoras", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mehdî b. Meymûn el-Ezdî -- hocalari */
+  E("mehdimeymun", "abdullahbbekirbhabibel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mehdimeymun", "hasanbrabielbeceliebua", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mehdimeymun", "abaebkuleybelleysiebug", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mehdimeymun", "mansurbsukayr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sehl b. Ebî Hasme el-Ensârî -- hocalari */
+  E("sehlebihasme", "salihbhavvatbcubeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sehlebihasme", "abdirrahmanbmesudbneyy", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Semüre b. Cündeb el-Fezârî -- hocalari */
+  E("semurecundeb", "hilalbyesaf", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("semurecundeb", "salebebabbad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Şerîk et-Teymî -- hocalari */
+  E("yezidserik", "cevvabbubeydullahettey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Üzeyne -- hocalari */
+  E("abdirrahmanbuzeyne", "yahyaebiishak", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbuzeyne", "abdulmelikbayen", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbuzeyne", "ebuishaksebii", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbuzeyne", "yahyabebiishakelhadram", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amr b. Evs es-Sekafî -- hocalari */
+  E("amrevssekafi", "amrbdinarelmekkiebumuh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İsmâîl b. Ca‘fer el-Ensârî -- hocalari */
+  E("ismailcafer", "muhammedbcahdambabdull", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ismailcafer", "muhammedbzunburbebiele", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hurays b. Zuhayr -- hocalari */
+  E("huraysbzuhayr", "umareumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. el-Cezzâr -- hocalari */
+  E("yahyabelcezzar", "umareumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabelcezzar", "hasanbabdullah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabelcezzar", "amrbmurrebabdullah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabelcezzar", "musabebiaiseelhemdani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabelcezzar", "hakemuteybe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hıttân b. Abdullah er-Rakāşî el-Basrî -- hocalari */
+  E("hittanbabdullaherrakas", "yunuscubeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. el-Eclah el-Kindî Ebû Muhammed -- hocalari */
+  E("abdullahbeleclahelkind", "ebusaidesecc", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbeleclahelkind", "abdullahbamirbzurareel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbeleclahelkind", "muhammedubeydmuharibi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbeleclahelkind", "mincabbelharisbabdirra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Ca‘fer -- hocalari */
+  E("abdullahbcafer", "zuhli", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbcafer", "abdirrahmanbsahrbabdir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbcafer", "abdirrahmanbamrbabdull", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbcafer", "muhammedbhatimbmeymun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbcafer", "muhammedbebiattabebube", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbcafer", "muhammedbalibmeymunebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbcafer", "muhammedbyahyababdulla", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbcafer", "muhammedbcebele", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbcafer", "abdirrahmanbamrbabd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbcafer", "muhammedbhatimbmeym2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbcafer", "muhammedbyahyababdu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Seleme b. Recâ et-Temîmî Ebû Abdirrahman -- hocalari */
+  E("selemebrecaettemimiebu", "muhammedabdulalasanani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("selemebrecaettemimiebu", "ismailbelhalil", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Husayn b. Abdirrahman es-Sülemî Ebû el-Hüzeyl -- hocalari */
+  E("husaynbabdirrahmanessu", "ebubekirayyas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("husaynbabdirrahmanessu", "husaynbnumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("husaynbabdirrahmanessu", "cerirhazim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("husaynbabdirrahmanessu", "halefbhalifebsaidelesc", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("husaynbabdirrahmanessu", "cerirabdulhamid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("husaynbabdirrahmanessu", "fudaylibnayaz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("husaynbabdirrahmanessu", "huseym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Cüveybir b. Saîd el-Ezdî Ebû Kâsım -- hocalari */
+  E("cuveybirbsaidelezdiebu", "ebumuaviyedarir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("cuveybirbsaidelezdiebu", "muhammedbhazim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("cuveybirbsaidelezdiebu", "yezidharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Fudayl b. Gazvân -- hocalari */
+  E("muhammedfudayl", "muhammedbzunburbebiele", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedfudayl", "muhammedbubeydbmuha3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Fudayl b. İyâz -- hocalari */
+  E("fudaylibnayaz", "hureymbmisarelezdiebua", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fudaylibnayaz", "muhammedbzunburbebiele", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fudaylibnayaz", "bisrbelharisbabdirr2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fudaylibnayaz", "hatimbyusufbhalid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fudaylibnayaz", "huseyinbhafsbfazl2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fudaylibnayaz", "suleymanbsalihelley2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fudaylibnayaz", "abaebkuleybelleysiebug", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fudaylibnayaz", "abdirrahmanbsellam2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fudaylibnayaz", "alibsabit2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Şimr b. Atiyye el-Esedî -- hocalari */
+  E("simrbatiyyeelesedi", "fitrhalife", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("simrbatiyyeelesedi", "asimbehdele", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Katan b. Nüseyr -- hocalari */
+  E("katanbnuseyr", "ebudavud", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("katanbnuseyr", "ed18", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("katanbnuseyr", "bh07", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Osmân b. Heysem b. Cehm Ebû Amr el-Basrî el-Müezzin -- hocalari */
+  E("osmanbheysembcehmebuam", "ebuhatimrazi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("osmanbheysembcehmebuam", "abbasbcaferbabdullaheb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("osmanbheysembcehmebuam", "abdulazizbmunib", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("osmanbheysembcehmebuam", "muhammedbidrisbmunzire", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Ebî Katâde -- hocalari */
+  E("abdullahebikatade", "abdulazizbrufey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahebikatade", "osmanbabdullahbmevhebe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Nadra el-Abdî -- hocalari */
+  E("ebunadra", "kazabsuveydbhucayr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebunadra", "elmustemirberreyyan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebunadra", "suleymanbtarhanetteymi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebunadra", "suveydbhucayr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebunadra", "alibzeydbabdullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebunadra", "avfbebicemile", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. el-Mübârek el-Hinâî -- hocalari */
+  E("alimubarek", "osmanbebirevvad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alimubarek", "muslimbibrahimelezdi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alimubarek", "harunbismail2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Va‘le -- hocalari */
+  E("abdirrahmanbvale", "zeydeslem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbvale", "elkakabhakimelkinaniel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbvale", "mersedbabdullah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Selm b. Zirrîr -- hocalari */
+  E("selmbzirrir", "habbanhilal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("selmbzirrir", "ubeydullahbabdulmecide", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("selmbzirrir", "habbanbhilalebuhabibel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("selmbzirrir", "yakubbishakbzeydelhadr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülcebbâr b. el-Verd el-Mahzûmî -- hocalari */
+  E("abdulcebbarbelverdelma", "nersi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulcebbarbelverdelma", "abdulalabhammadbnasrel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulcebbarbelverdelma", "yeserebsafvanbcemiledd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulcebbarbelverdelma", "hasanbrabielbeceliebua", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulcebbarbelverdelma", "suleymanbmansurelbezza", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Rebâh b. Ebî Ma‘rûf b. Ebî Sâre el-Mekkî -- hocalari */
+  E("rebahbebimarufbebisare", "ebuamirakadi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("rebahbebimarufbebisare", "ubeydullahbabdulmecide", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("rebahbebimarufbebisare", "ebudavudtayalisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Velîd b. Abdullah b. Cümey‘ ez-Zührî el-Mekkî -- hocalari */
+  E("elvelidbabdullahbcumey", "ebuahmedzubeyri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elvelidbabdullahbcumey", "muhammedbabdullahbezzu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elvelidbabdullahbcumey", "yezidharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elvelidbabdullahbcumey", "ubeydullahmusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Atâ b. Yesâr -- hocalari */
+  E("atayesar", "muhammedbamrbhalhale", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("atayesar", "serikbabdullahbebinemi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("atayesar", "habibbebisabitkays", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("atayesar", "safvanbsuleymelmede2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("atayesar", "ubeydullahbabdullahbme", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("atayesar", "umarebabdullahbsayyade", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("atayesar", "amrbdinarelmekkiebumuh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("atayesar", "muhammedbabdullahby2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Nübeyh b. Vehb b. Osmân el-Medenî -- hocalari */
+  E("nubeyhbvehbbosmanelmed", "saidebihilal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nubeyhbvehbbosmanelmed", "saidbebihilalelleysi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mus‘ab b. Sa‘d -- hocalari */
+  E("musabsad", "gutayfbayenesseybaniel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İrâk b. Mâlik -- hocalari */
+  E("irakmalik", "yezidbebihabibelmisrie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Ebî er-Ricâl -- hocalari */
+  E("abdirrahmanbebierrical", "abdullahyusuftinnisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbebierrical", "hisambammarbnusayr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbebierrical", "yahyabkaza", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbebierrical", "suveydsaidhadesani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbebierrical", "muhammedbhasanbzubale", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Seleme b. el-Ayyâr -- hocalari */
+  E("selemebelayyar", "abdullahyusuftinnisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("selemebelayyar", "ebumushir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("selemebelayyar", "seyfbubeydullahelcermi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("selemebelayyar", "bakiyyevelid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Şibl -- hocalari */
+  E("yahyabsibl", "mekkiibrahim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mekkî b. İbrâhîm el-Belhî -- hocalari */
+  E("mekkiibrahim", "sehlbzencelebebierrazi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mekkiibrahim", "hafsbomerbabdirrahm2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mekkiibrahim", "muhammedbismailbibr2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mekkiibrahim", "muhammedbhatimbmeym2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mekkiibrahim", "muhammedbamr3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İbrâhim b. Abdülmelik el-Basrî Ebû İsmâîl -- hocalari */
+  E("ibrahimbabdulmelikelba", "yahyabdurust", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İbrâhim b. Uyeyne b. Ebî İmrân -- hocalari */
+  E("ibrahimbuyeynebebiimra", "huseyinbmansurbcafereb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibrahimbuyeynebebiimra", "hasanbalibaffanelamiri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Erkam b. Şurahbîl el-Evdî -- hocalari */
+  E("erkambsurahbilelevdi", "abdullahbebiessefer", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muâviye b. Süveyd b. Mukarrin el-Müzenî Ebû Süveyd -- hocalari */
+  E("muaviyebsuveydbmukarri", "esasbebiessasaelmuhari", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Osmân b. Amr b. Sâc -- hocalari */
+  E("osmanbamrbsac", "bahrbkuneyz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("osmanbamrbsac", "muhammedbyezidbsinanel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("osmanbamrbsac", "ubeydullahbyezidbibrah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Ahves b. Hakîm b. Umeyr -- hocalari */
+  E("elahvesbhakimbumeyr", "bisrbumare", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Bişr b. Ömer b. Hakem -- hocalari */
+  E("bisrbomerbhakem", "zeydbahzem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("bisrbomerbhakem", "hasanbyahyaelbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("bisrbomerbhakem", "abdulmelikbabdullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("bisrbomerbhakem", "muhammedbabdullahbu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("bisrbomerbhakem", "muhammedbyahyababdu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("bisrbomerbhakem", "muhammedbyunusbmusa2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("bisrbomerbhakem", "yahyabhakim2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Beşîr b. Meymûn el-Vâsıtî -- hocalari */
+  E("besirbmeymunelvasiti", "ahmedbasimbanbeseebusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mendel b. Ali -- hocalari */
+  E("mendelbali", "cubarabelmugallis", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mendelbali", "abdulazizbelhattabebuh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mendelbali", "amrbhammadbtalha", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mendelbali", "avnbsellam", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mendelbali", "heysembcemil", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mendelbali", "yahyabziyadbabdullahel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mendelbali", "alibabdulhamidbmusab", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mendelbali", "amrbhammadbtalha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mendelbali", "heysembhumeyd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mendelbali", "yahyaadem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mendelbali", "yahyabziyadbabdulla2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Cu‘sül b. Hâ‘ân -- hocalari */
+  E("cusulbhaan", "bekirbsevadebsumame", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Müslim b. Mişkem -- hocalari */
+  E("muslimbmiskem", "caferbezzubeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muslimbmiskem", "yezidbebimeryem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muslimbmiskem", "abdullahbalabzebr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muslimbmiskem", "zeydbvakideddimaski", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ca‘fer b. ez-Zübeyr -- hocalari */
+  E("caferbezzubeyr", "osmanbheysembcehmebuam", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ca‘fer b. Süleymân ed-Dubaî -- hocalari */
+  E("caferbsuleymaneddubai", "abdusselambmutahhirbhu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("caferbsuleymaneddubai", "katanbnuseyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("caferbsuleymaneddubai", "muhammedbabdullahbm2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("caferbsuleymaneddubai", "muhammedbabdullahbm3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("caferbsuleymaneddubai", "muhammedbukbebherimess", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("caferbsuleymaneddubai", "yahyababdulhamidbab2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülmü’min b. Hâlid Ebû Hâlid el-Mervezî -- hocalari */
+  E("abdulmuminbhalidebuhal", "hatimbyusufbhalid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulmuminbhalidebuhal", "fazlbmusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulmuminbhalidebuhal", "hatimbyusufbhalid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulmuminbhalidebuhal", "muhammedbfazlbatiyye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulmuminbhalidebuhal", "nuaymbhammadbmuaviyeeb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Rebâh b. Kasîr -- hocalari */
+  E("alibrebahbkasir", "elharisbyezidelhadrami", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibrebahbkasir", "humeydbhaniebuhanielha", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibrebahbkasir", "surahbilbserikebumuham", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibrebahbkasir", "kabasbrezinbhumeydebuh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibrebahbkasir", "yezidbmuhammedbkays", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibrebahbkasir", "huneynbebihakim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibrebahbkasir", "abdurrahimbmeymunelmed", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibrebahbkasir", "marufbsuveydebuselemee", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibrebahbkasir", "yezidbmuhammedbabdussa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibrebahbkasir", "yezidbmuhammedbkays2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Habîb b. Ebî Habîb el-Becelî -- hocalari */
+  E("habibbebihabibelbeceli", "tumebamr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Habîb b. Muhammed el-Acemî Ebû Muhammed el-Basrî -- hocalari */
+  E("habibbmuhammedelacemie", "osmanbheysembcehmebuam", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Selmân-ı b. Sümeyr -- hocalari */
+  E("selmanibsumeyr", "harizbosmanerrahbi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hassân b. Ebî Sinân el-Basrî -- hocalari */
+  E("hassanbebisinanelbasri", "abdullahbsevzebelhoras", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Müshir b. Abdülmelik b. Sel‘ el-Hemdânî -- hocalari */
+  E("mushirbabdulmelikbsele", "hasanbhammadeddabbiebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mushirbabdulmelikbsele", "amrbhammadbtalha", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mushirbabdulmelikbsele", "amrbhammadbtalha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mushirbabdulmelikbsele", "ibnrahuye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubeyd b. Nadle -- hocalari */
+  E("ubeydbnadle", "hasanbabdullah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hasan b. Abdullah -- hocalari */
+  E("hasanbabdullah", "azrababdirrahmanbzurar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hasan b. Ömer -- hocalari */
+  E("hasanbomer", "abdullahbcafer", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Ali b. Şâfi‘ el-Mekkî -- hocalari */
+  E("muhammedbalibsafielmek", "hasanbmuhammedbayenebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hasan b. Muhammed b. Ubeydullah -- hocalari */
+  E("hasanbmuhammedbubeydul", "muhammedbyezidbhuneyse", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Assâm b. Ali b. Hücayr -- hocalari */
+  E("assambalibhucayr", "huseyinbmuhammedbeyyub", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("assambalibhucayr", "abdullahbimranbebialie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("assambalibhucayr", "omerbhafsbgiyas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("assambalibhucayr", "misned", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("assambalibhucayr", "muhammedabdulalasanani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("assambalibhucayr", "nasralicehdami", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("assambalibhucayr", "kavariri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("assambalibhucayr", "muhammedbhisambebihiye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("assambalibhucayr", "yusufbadibrizketteymi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("assambalibhucayr", "suveydsaidhadesani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hafs b. Abdirrahman b. Ömer Ebû Ömer el-Fakīh en-Nîsâbûrî -- hocalari */
+  E("hafsbabdirrahmanbomere", "huseyinbmansurbcafereb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İdrîs b. Sinân Ebû İlyâs es-San‘ânî b. bint Vehb b. Münebbih -- hocalari */
+  E("idrisbsinanebuilyasess", "hakembebanebuisa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("idrisbsinanebuilyasess", "ebubekirayyas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Hâris b. Hasîra -- hocalari */
+  E("elharisbhasira", "hakembabdulmelikelbasr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elharisbhasira", "abdulvahidziyad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elharisbhasira", "malikmigvel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elharisbhasira", "abdusselamharb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elharisbhasira", "ibnnumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elharisbhasira", "hakembabdulmelikelb2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Humeyd b. Abdirrahman el-Basrî -- hocalari */
+  E("humeydbabdirrahmanelba", "azrababdirrahmanbzurar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Humeyd el-A‘rec -- hocalari */
+  E("humeydelarec", "assambalibhucayr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Haneş b. Abdullah -- hocalari */
+  E("hanesbabdullah", "bekirbsevadebsumame", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sâlim b. Serc -- hocalari */
+  E("salimbserc", "haricebelharisbrafi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hâzim b. Hüseyin Ebû İshak -- hocalari */
+  E("hazimbhuseyinebuishak", "hasanbrabielbeceliebua", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hâlid b. Yezîd b. Muâviye Ebû Hâşim ed-Dımaşkī -- hocalari */
+  E("halidbyezidbmuaviyeebu", "alibrebahbkasir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("halidbyezidbmuaviyeebu", "abdirrahmanbselmaniebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Şâz b. Feyyâd -- hocalari */
+  E("sazbfeyyad", "halefbmuhammedbisa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sazbfeyyad", "salihbheysemelvasitieb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sazbfeyyad", "ibnmain", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sazbfeyyad", "ed13", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sazbfeyyad", "bh03", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hallâd b. Yezîd el-Cu‘fî -- hocalari */
+  E("halladbyezidelcufi", "ubeydbyaiselmehamilieb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Râşid b. Keysân -- hocalari */
+  E("rasidbkeysan", "elcerrahbmelih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Rabî‘ b. Husıym -- hocalari */
+  E("rabibhusiym", "hilalbyesaf", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("rabibhusiym", "bekirbmaizbmalikebuham", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Zebbân b. Fâid -- hocalari */
+  E("zebbanbfaid", "risdinbsadbmuflih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Yesa‘ b. Mugīre el-Mahzûmî el-Mekkî -- hocalari */
+  E("elyesabmugireelmahzumi", "ezzubeyrbsaidbsuleyman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elyesabmugireelmahzumi", "ezzubeyrbsaidbsuley2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ziyâd b. el-Cerrâh el-Cezerî -- hocalari */
+  E("ziyadbelcerrahelcezeri", "husayfbabdirrahmanelce", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ziyâd b. Rebîa b. Nuaym -- hocalari */
+  E("ziyadbrebiabnuaym", "bekirbsevadebsumame", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mugīs b. Sümey -- hocalari */
+  E("mugisbsumey", "zeydbvakideddimaski", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Zeyd b. Yahyâ b. Ubeyd el-Huzâî Ebû Abdullah ed-Dımaşkī -- hocalari */
+  E("zeydbyahyabubeydelhuza", "suaybbsuaybbishakeddim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sâlim b. Abdullah -- hocalari */
+  E("salimbabdullah", "saidbmuslimbbanik", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Hassân el-Mahzûmî el-Mekkî -- hocalari */
+  E("saidbhassanelmahzumiel", "muhammedbyezidbhuneyse", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Hakem b. Muhammed -- hocalari */
+  E("saidbhakembmuhammed", "sehlbzencelebebierrazi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Süfyân el-Basrî -- hocalari */
+  E("saidbsufyanelbasri", "zeydbahzem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sa‘lebe b. Müslim eş-Şâmî Mestûr -- hocalari */
+  E("salebebmuslimessamimes", "saidbsinan2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Abdirrahman b. Ebzâ el-Huzâî -- hocalari */
+  E("saidbabdirrahmanbebzae", "azrababdirrahmanbzurar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kesîr b. Zeyd Ebû Muhammed el-Medenî b. Mâfenneh -- hocalari */
+  E("kesirbzeydebumuhammede", "sufyanbhamzabsufyanebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kesirbzeydebumuhammede", "abdulkebirbabdulmecidb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kesirbzeydebumuhammede", "muhammedbismailbmuslim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kesirbzeydebumuhammede", "muhammedbmuslimelmeden", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kesirbzeydebumuhammede", "saidbsalim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kesirbzeydebumuhammede", "sufyanbhamzabsufyan2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kesirbzeydebumuhammede", "muhammedbismailbmus2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kesirbzeydebumuhammede", "muhammedbmuslimelme2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Cerrâh b. Melîh -- hocalari */
+  E("elcerrahbmelih", "sufyanbukbeessuvai", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elcerrahbmelih", "selmbkuteybe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elcerrahbmelih", "sehlbhammadebuattab", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elcerrahbmelih", "heysembhariceebuahmed", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elcerrahbmelih", "selmbkuteybeelbahili", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elcerrahbmelih", "hasanbhumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elcerrahbmelih", "hisambammarbnusayr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* es-Seken b. İsmâîl el-Ensârî -- hocalari */
+  E("essekenbismailelensari", "ezherbcemilbcenah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Selm b. Kuteybe -- hocalari */
+  E("selmbkuteybe", "zeydbahzem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Süleymân b. Sâlih el-Leysî -- hocalari */
+  E("suleymanbsalihelleysi", "amrbyahyabelharis", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hattâb b. Osmân et-Tâî -- hocalari */
+  E("hattabbosmanettai", "suleymanbabdulhamidbra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hattabbosmanettai", "imranbbekkarbrasid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hattabbosmanettai", "cuzcani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hattabbosmanettai", "muhammedbavfbsufyanett", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Dînâr el-Esedî Ebû Muhammed -- hocalari */
+  E("abdullahbdinarelesedie", "suleymanbatabkaysebuom", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbdinarelesedie", "elcerrahbmelih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbdinarelesedie", "muaviyesalih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbdinarelesedie", "ertatbmunzirbelesved", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Hâlid b. Asme -- hocalari */
+  E("muhammedbhalidbasme", "suleymanbmabedbkevseca", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbhalidbasme", "muhammedbabdullahbubey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbhalidbasme", "hilalbbisrbmahbubelmuz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbhalidbasme", "alimedini", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbhalidbasme", "muhammedbabdullahbu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Delhem b. Sâlih el-Kindî -- hocalari */
+  E("delhembsalihelkindi", "suleymanbmusaezzuhrieb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("delhembsalihelkindi", "ubeydullahmusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("delhembsalihelkindi", "halladyahya", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sehl b. Ebî Ümâme b. Sehl -- hocalari */
+  E("sehlbebiumamebsehl", "saidbabdirrahmanbebiel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Zeyd b. Cübeyra -- hocalari */
+  E("zeydbcubeyra", "suveydbabdulazizbnumey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zeydbcubeyra", "muhammedbhumeyrbuneys", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sellâm b. Süleymân el-Müzenî Ebû Münzir -- hocalari */
+  E("sellambsuleymanelmuzen", "muslimbibrahimelezdi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Bekir b. Vâil b. Dâvûd et-Teymî -- hocalari */
+  E("bekirbvailbdavudetteym", "seyfbomerettemimi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("bekirbvailbdavudetteym", "hemmamyahya", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("bekirbvailbdavudetteym", "kureysbhayyanebubekire", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Şüreyh b. Ubeyd b. Şüreyh el-Hadramî -- hocalari */
+  E("sureyhbubeydbsureyhelh", "damdambzurabsevb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sureyhbubeydbsureyhelh", "safvanbamrbherimebuamr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Şüreyh b. Nu‘mân -- hocalari */
+  E("sureyhbnuman", "saidbamrbesvaelhemdani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Şuayb b. Beyân b. Ziyâd es-Saffâr el-Basrî -- hocalari */
+  E("suaybbbeyanbziyadessaf", "ibrahimbelmustemir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Şeybân b. Ümeyye -- hocalari */
+  E("seybanbumeyye", "suyeymbbeytan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* ed-Dahhâk b. Şurahbîl el-Gāfikī -- hocalari */
+  E("eddahhakbsurahbilelgaf", "risdinbsadbmuflih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Damra b. Habîb b. Suheyb ez-Zübeydî -- hocalari */
+  E("damrabhabibbsuheybezzu", "hilalbyesaf", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("damrabhabibbsuheybezzu", "esseferbnuseyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Tâvûs b. Keysân Ebû Abdirrahman -- hocalari */
+  E("tavusbkeysanebuabdirra", "hasanbmuslimbyenak", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("tavusbkeysanebuabdirra", "hisambhucayr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülmelik b. Câbir b. Atîk el-Ensârî el-Medenî -- hocalari */
+  E("abdulmelikbcabirbatike", "talhabhiras", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulmelikbcabirbatike", "abdirrahmanbata", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulmelikbcabirbatike", "abdirrahmanbata2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Talha b. Yahyâ b. Talha -- hocalari */
+  E("talhabyahyabtalha", "alibhasimbelberid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Âsım b. Yûsuf Ebû Amr -- hocalari */
+  E("asimbyusufebuamr", "muhammedbismailbsalime", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Âmir b. Sa‘d b. Ebî Vakkās ez-Zührî el-Medenî -- hocalari */
+  E("amirbsadbebivakkasezzu", "bukeyrbmismarezzuhriel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amirbsadbebivakkasezzu", "muhacirbmismarezzuhri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amirbsadbebivakkasezzu", "yahyabnadrelensarie2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Âmir b. Abdullah b. ez-Zübeyr Ebû el-Hâris el-Medenî -- hocalari */
+  E("amirbabdullahbezzubeyr", "saidbmuslimbbanik", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Esved b. Sa‘lebe el-Kindî eş-Şâmî -- hocalari */
+  E("elesvedbsalebeelkindie", "ubadebnusey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Tuleyk b. Kays -- hocalari */
+  E("tuleykbkays", "abdullahbelharisezzube", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Dâvûd b. Âmir el-Hemdânî Ebû Abdirrahman -- hocalari */
+  E("abdullahbdavudbamirelh", "zeydbahzem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbdavudbamirelh", "hasanbyahyaelbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbdavudbamirelh", "muhammedbismailelba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbdavudbamirelh", "muhammedbyunusbmusa2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Recâ el-Mekkî Ebû İmrân el-Basrî -- hocalari */
+  E("abdullahbrecaelmekkieb", "muhammedbzunburbebiele", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbrecaelmekkieb", "ismailbabdullahbhalide", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Ebî Zekeriyyâ el-Huzâî Ebû Yahyâ eş-Şâmî -- hocalari */
+  E("abdullahbebizekeriyyae", "halidbdihkan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbebizekeriyyae", "muslimbziyad2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Sâlim el-Eş‘arî Ebû Yûsuf -- hocalari */
+  E("abdullahbsalimelesarie", "amrbyahyabelharis", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbsalimelesarie", "abdulhamidbibrahimelha", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Saîd b. Hâzim en-Nehaî -- hocalari */
+  E("abdullahbsaidbhazimenn", "cuveybirbsaidelezdiebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Sâlih b. Muhammed Ebû Sâlih el-Mısrî -- hocalari */
+  E("abdullahbsalihbmuhamme", "mektumbabbasebufazlelm", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. es-Sâmit el-Gıfârî el-Basrî -- hocalari */
+  E("abdullahbessamitelgifa", "ebuelaliyebera", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbessamitelgifa", "sevadebasim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbessamitelgifa", "budeylbmeysereelbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbessamitelgifa", "abdulmelikbhabibele2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Abdullah b. Ebî Talha el-Ensârî Ebû Yahyâ el-Medenî -- hocalari */
+  E("abdullahbabdullahbebit", "muaviyebebimuzerrid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Ubeyd -- hocalari */
+  E("abdullahbubeyd", "budeylbmeysereelbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Ubeyd el-Basrî -- hocalari */
+  E("abdullahbubeydelbasri", "osmanbheysembcehmebuam", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Amr b. Hind -- hocalari */
+  E("abdullahbamrbhind", "avfbebicemile", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Kesîr ed-Dârî el-Mekkî Ebû Ma‘bed -- hocalari */
+  E("abdullahbkesireddariel", "siblbabbadelmekki", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Fazl b. Alâ Ebû Abbâs -- hocalari */
+  E("fazlbalaebuabbas", "abdullahbmuhammedbebie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fazlbalaebuabbas", "muhammedbhisambebihiye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fazlbalaebuabbas", "ahmedhanbel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fazlbalaebuabbas", "alimedini", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fazlbalaebuabbas", "amrbnalisayrafi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fazlbalaebuabbas", "muhammedabdulalasanani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fazlbalaebuabbas", "alibhuseyinbmatarelbas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fazlbalaebuabbas", "ezherbcemilbcenah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hattâb b. Kâsım -- hocalari */
+  E("hattabbkasim", "abdullahbmuhammedbali", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hattabbkasim", "muhammedbmusabayenelce", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hattabbkasim", "abdullahbmuhammedba5", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. el-Müemmel b. Vehbullah el-Mahzûmî el-Mekkî -- hocalari */
+  E("abdullahbelmuemmelbveh", "huseyinbelvelidennisab", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülmüheymin b. Abbâs b. Sehl -- hocalari */
+  E("abdulmuheyminbabbasbse", "abdullahbnafiessaigelm", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulmuheyminbabbasbse", "alibbahrbberri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Abdirrahman b. Hüceyre -- hocalari */
+  E("abdullahbabdirrahmanbh", "abdullahbelvelidbkayse", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. el-Velîd b. Kays et-Tüceybî el-Mısrî -- hocalari */
+  E("abdullahbelvelidbkayse", "risdinbsadbmuflih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdüla‘lâ b. Adî -- hocalari */
+  E("abdulalabadi", "elahvesbhakimbumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulalabadi", "lokmanbamir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdüla‘lâ b. Kâsım el-Hemdânî Ebû Bişr el-Basrî -- hocalari */
+  E("abdulalabkasimelhemdan", "ibrahimbelmustemir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülhamîd b. Abdirrahman -- hocalari */
+  E("abdulhamidbabdirrahman", "hasanbalibaffanelamiri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulhamidbabdirrahman", "huseyinbyezidbyahya2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulhamidbabdirrahman", "muhammedbabdirrahma3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulhamidbabdirrahman", "yahyabismailelvasit2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulhamidbabdirrahman", "yahyabismailbzekeri2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Cübeyr el-Mısrî el-Müezzin el-Âmirî -- hocalari */
+  E("abdirrahmanbcubeyrelmi", "bekirbsevadebsumame", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Süleymân b. Abdullah Ebû Süleymân el-Medenî -- hocalari */
+  E("abdirrahmanbsuleymanba", "huseyinbelvelidennisab", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Nâşira b. Sümey -- hocalari */
+  E("nasirabsumey", "abdirrahmanbaiz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nasirabsumey", "alibrebahbkasir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Hasîb b. Nâsih el-Hârisî el-Basrî -- hocalari */
+  E("elhasibbnasihelharisie", "abdirrahmanbabdullahba", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elhasibbnasihelharisie", "bahrbnasrbsabikelhavla", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elhasibbnasihelharisie", "abdirrahmanbabdulla3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Bükeyr b. Mismâr ez-Zührî el-Medenî Ebû Muhammed -- hocalari */
+  E("bukeyrbmismarezzuhriel", "abdusselambhafsebumusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hâlid b. Haley -- hocalari */
+  E("halidbhaley", "abdussamedbabdulvehhab", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("halidbhaley", "imranbbekkarbrasid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("halidbhaley", "muhammedbavfbsufyanett", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülazîz b. Ebî Hâzim Seleme b. Dînâr el-Medenî -- hocalari */
+  E("abdulazizbebihazimsele", "muhammedbzunburbebiele", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizbebihazimsele", "muhammedbhayyan2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizbebihazimsele", "muhammedbabdullahbe2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizbebihazimsele", "muhammedbubeydbmuha3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizbebihazimsele", "yahyabibrahimbosman2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Ebî Hadred el-Medenî -- hocalari */
+  E("abdirrahmanbebihadrede", "abdulazizbebisuleyman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülmelik b. Abdülazîz b. Cüreyc -- hocalari */
+  E("abdulmelikbabdulazizbc", "osmanbheysembcehmebuam", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülvâhid b. Kays es-Sülemî Ebû Hamza ed-Dımaşkī -- hocalari */
+  E("abdulvahidbkaysessulem", "mervanbcenah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Osmân b. Ebî Revvâd -- hocalari */
+  E("osmanbebirevvad", "abdulvahidbvasilessedu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("osmanbebirevvad", "muhammedbbekirbosman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülvehhâb b. Saîd b. Atiyye es-Sülemî Ebû Muhammed ed-Dımaşkī -- hocalari */
+  E("abdulvehhabbsaidbatiyy", "suaybbsuaybbishakeddim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubeydullah b. Amr b. Ebî el-Velîd Ebû Vehb el-Esedî -- hocalari */
+  E("ubeydullahbamrbebielve", "abdullahbcafer", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahbamrbebielve", "ubeydullahbyezidbibrah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahbamrbebielve", "ismailbabdullahbhalide", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahbamrbebielve", "mansurbsukayr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahbamrbebielve", "elvelidbsalih2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubeyd b. Ebî Ümeyye -- hocalari */
+  E("ubeydbebiumeyye", "abdirrahmanbmagra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Osmân b. Abdirrahman b. Müslim -- hocalari */
+  E("osmanbabdirrahmanbmusl", "hasanbalibaffanelamiri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Osmân b. Ferkad el-Attâr el-Basrî -- hocalari */
+  E("osmanbferkadelattarelb", "zeydbahzem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Osmân b. Nehîk -- hocalari */
+  E("osmanbnehik", "abdulmuminbhalidebuhal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Anbese b. el-Ezher eş-Şeybânî Ebû Yahyâ -- hocalari */
+  E("anbesebelezheresseyban", "affanbseyyar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("anbesebelezheresseyban", "ahmedbebitaybaisabsule", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("anbesebelezheresseyban", "ibrahimbelmuhtarettemi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("anbesebelezheresseyban", "serieyyahya", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("anbesebelezheresseyban", "sufyanveki", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ukbe b. Abdullah -- hocalari */
+  E("ukbebabdullah", "sazbfeyyad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Umâre b. Gaziyye -- hocalari */
+  E("umarebgaziyye", "abdirrahmanbebierrical", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("umarebgaziyye", "saidbebihilalelleysi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Sâbit el-Ensârî -- hocalari */
+  E("omerbsabitelensari", "osmanbamrbsac", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Sehl b. Mervân el-Mâzinî et-Temîmî -- hocalari */
+  E("omerbsehlbmervanelmazi", "muhammedbismailbsalime", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Şakīk b. Esmâ el-Cermî -- hocalari */
+  E("omerbsakikbesmaelcermi", "ezherbcemilbcenah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Sahbân -- hocalari */
+  E("omerbsahban", "mendelbali", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Abdullah el-Medenî -- hocalari */
+  E("omerbabdullahelmedeni", "abdirrahmanbebierrical", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Osmân b. Ömer -- hocalari */
+  E("omerbosmanbomer", "muhammedbhasanbzubale", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Dürüst b. Ziyâd el-Anberî -- hocalari */
+  E("durustbziyadelanberi", "omerbyezid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("durustbziyadelanberi", "misned", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amr b. Âsım b. Ubeydullah el-Kilâbî Ebû Osmân -- hocalari */
+  E("amrbasimbubeydullahelk", "ibrahimbelmustemir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbasimbubeydullahelk", "muhammedbabdullahbu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amr b. Muhammed b. Ebî Rezîn el-Huzâî -- hocalari */
+  E("amrbmuhammedbebirezine", "ibrahimbelmustemir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Büdeyl b. Varkā -- hocalari */
+  E("abdullahbbudeylbvarka", "amrbmuhammed", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbudeylbvarka", "ebudavudtayalisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbudeylbvarka", "muhammedbsuleymanbebid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amr b. Muhammed -- hocalari */
+  E("amrbmuhammed", "alibmuhammedbebielhasi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbmuhammed", "huseyinbalibelesvedebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbmuhammed", "abdirrahmanbmuhamme2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. el-Hazver -- hocalari */
+  E("alibelhazver", "amrbnumanelbahilielbas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibelhazver", "ismailbeban", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibelhazver", "abdulazizbebanbmuhamme", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibelhazver", "amrbnumanelbahiliel2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hasan b. Humeyr -- hocalari */
+  E("hasanbhumeyr", "imranbbekkarbrasid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İmrân b. Hudeyr -- hocalari */
+  E("imranbhudeyr", "osmanbheysembcehmebuam", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Eyyûb b. Havt -- hocalari */
+  E("eyyubbhavt", "avnbumareebumuhammedel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Alâ b. Sâlih et-Teymî -- hocalari */
+  E("alabsalihetteymi", "alibhasimbelberid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubeydullah b. İkrâş -- hocalari */
+  E("ubeydullahbikras", "alabfazlbabdulmelik", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Îsâ b. Süleym -- hocalari */
+  E("isabsuleym", "amrbyahyabelharis", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Îsâ b. Müslim Ebû Dâvûd -- hocalari */
+  E("isabmuslimebudavud", "muhtarbgassanettemmare", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Alâ b. Abdirrahman b. Ya‘kûb -- hocalari */
+  E("alababdirrahmanbyakub", "fuleyhbsuleymanbebimug", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alababdirrahmanbyakub", "muhammedacilan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alababdirrahmanbyakub", "ruhbkasimettemimielanb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alababdirrahmanbyakub", "hafsbmeysereelukayli", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Fülfüle b. Abdullah el-Cu‘fî -- hocalari */
+  E("fulfulebabdullahelcufi", "kasimbhassanelamiri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fulfulebabdullahelcufi", "hayseme", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülhakîm b. Mansûr el-Huzâî Ebû Sehl -- hocalari */
+  E("abdulhakimbmansurelhuz", "kasimbisabibrahimettai", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulhakimbmansurelhuz", "kasimbisabibrahim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulhakimbmansurelhuz", "muhammedbhalidbabdulla", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulhakimbmansurelhuz", "ishakbsahinbelhariselv", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulhakimbmansurelhuz", "muhammedbabdullahbbuze", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulhakimbmansurelhuz", "kasimbisabibrahim2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulhakimbmansurelhuz", "muhammedbhalidbabdu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kedâme b. Şihâb el-Mâzinî el-Basrî -- hocalari */
+  E("kedamebsihabelmaziniel", "ezherbcemilbcenah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kedamebsihabelmaziniel", "yusufbvadihebuyakubelb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Cesra bint Dücâce -- hocalari */
+  E("cesrabintducace", "kedamebabdullahbabdeeb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("cesrabintducace", "efletbhalifeelamiri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ka‘neb et-Temîmî -- hocalari */
+  E("kanebettemimi", "yezidbabdulazizbsiyah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Tâlib b. Hucayr -- hocalari */
+  E("talibbhucayr", "kaysbhafsettemimiebumu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("talibbhucayr", "kaysbhafs", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kays b. Sa‘d el-Mekkî -- hocalari */
+  E("kaysbsadelmekki", "rebahbebimarufbebisare", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kesîr b. İsmâîl -- hocalari */
+  E("kesirbismail", "yezidbabdulazizbsiyah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kesirbismail", "alibhasimbelberid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Külsûm b. Cevşen -- hocalari */
+  E("kulsumbcevsen", "kesirbhisamelkilabiebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kulsumbcevsen", "ubeydullahbamrbebielve", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kulsumbcevsen", "amrbosmanbseyyarelkila", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Küreyb b. Ebî Müslim -- hocalari */
+  E("kureybbebimuslim", "serikbabdullahbebinemi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Seyyâr b. Manzûr b. Seyyâr el-Fezârî el-Basrî -- hocalari */
+  E("seyyarbmanzurbseyyarel", "kehmesbhasanettemimieb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("seyyarbmanzurbseyyarel", "nadrsumeyl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Müslim b. Bânik -- hocalari */
+  E("saidbmuslimbbanik", "kehmesbelminhalessedus", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbmuslimbbanik", "halidmahled", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbmuslimbbanik", "abdulazizuveysi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Humeyd Ebû Süfyân -- hocalari */
+  E("muhammedbhumeydebusufy", "saidbdavudbebizenber", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Humeyr b. Üneys -- hocalari */
+  E("muhammedbhumeyrbuneys", "hattabbosmanettai", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbhumeyrbuneys", "halidbhaley", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbhumeyrbuneys", "omerbhafsbomer3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbhumeyrbuneys", "yahyabosmanbsaid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Leys b. Ebî Rukayye -- hocalari */
+  E("leysbebirukayye", "muhammedbrasidelhuzai", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* ez-Zübeyr b. Hurayk -- hocalari */
+  E("ezzubeyrbhurayk", "muhammedbselemebabdull", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ezzubeyrbhurayk", "muhammedbselemebabd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ukbe b. Ebî Sübeyt -- hocalari */
+  E("ukbebebisubeyt", "muhammedbsuleymebuhila", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ukbebebisubeyt", "rabibsubih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Abdirrahman b. Irk -- hocalari */
+  E("muhammedbabdirrahmanbi", "muhammedbsuleymanbeb2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabdirrahmanbi", "muhammedsuaybsabur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Uryân b. Heysem b. el-Esved en-Nehaî el-A‘ver -- hocalari */
+  E("eluryanbheysembelesved", "muhammedbsebibelbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Şibl b. Abbâd el-Mekkî -- hocalari */
+  E("siblbabbadelmekki", "muhammedbsalihelmedeni", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("siblbabbadelmekki", "hasimbmahledbibrahimes", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("siblbabbadelmekki", "ruhubade", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("siblbabbadelmekki", "yahyaebibukeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. es-Salt b. el-Haccâc el-Esedî Ebû Ca‘fer -- hocalari */
+  E("muhammedbessaltbelhacc", "hasanbalibaffanelamiri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. es-Salt el-Basrî Ebû Ya‘lâ -- hocalari */
+  E("muhammedbessaltelbasri", "ibrahimbelmustemir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Abbâd el-Hinâî -- hocalari */
+  E("muhammedbabbadelhinai", "zeydbahzem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Kesîr Ebû Nadr -- hocalari */
+  E("yahyabkesirebunadr", "muhammedbabdullahbhafs", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabkesirebunadr", "muhammedbabdullahbh2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabkesirebunadr", "salihbabdullahbzekvane", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabkesirebunadr", "seybanferruh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Velîd b. Kesîr b. Sinân el-Müzenî Ebû Saîd el-Medenî -- hocalari */
+  E("elvelidbkesirbsinanelm", "muhammedbabdullahbamma", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Abdullah b. el-Müsennâ -- hocalari */
+  E("muhammedbabdullahbelmu", "ibrahimbelmustemir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Abdirrahman b. Ebî Leylâ el-Ensârî Ebû Abdirrahman -- hocalari */
+  E("muhammedbabdirrahman3", "alibhasimbelberid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Osmân b. Seyyâr el-Basrî -- hocalari */
+  E("muhammedbosmanbseyyare", "muhammedbukbebherimess", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Ukbe b. Kesîr -- hocalari */
+  E("muhammedbukbebkesir", "ubeydbyaiselmehamilieb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Füleyh b. Süleymân -- hocalari */
+  E("muhammedbfuleyhbsuleym", "muhammedbhasanbzubale", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbfuleyhbsuleym", "muhammedbishakbmuha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Ebî Kebşe ed-Dımaşkī -- hocalari */
+  E("yezidbebikebseeddimask", "muhammedbkayselhemdani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidbebikebseeddimask", "muhammedbkays", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidbebikebseeddimask", "meserrebmabed", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidbebikebseeddimask", "hakemuteybe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Müslim b. Tedrüs -- hocalari */
+  E("muhammedbmuslimbtedrus", "eymenbnabil", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbmuslimbtedrus", "harbbebielaliyeebumuaz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbmuslimbtedrus", "abdirrahmanbhumeydb3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* ed-Dahhâk -- hocalari */
+  E("eddahhak", "muhammedbmuhacirelensa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Mûsâ b. İmrân el-Kattân Ebû Ca‘fer el-Vâsıtî -- hocalari */
+  E("muhammedbmusabimranelk", "muhammedbismailbsalime", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Fâid b. Abdirrahman Ebû el-Varkā el-Attâr -- hocalari */
+  E("faidbabdirrahmanebuelv", "muhammedbmeymunebunadr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("faidbabdirrahmanebuelv", "ebuasimelbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("faidbabdirrahmanebuelv", "abdullahbbekirbhabibel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("faidbabdirrahmanebuelv", "mahledbyezid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("faidbabdirrahmanebuelv", "mekkiibrahim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("faidbabdirrahmanebuelv", "firyabi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Yezîd b. Ebî Ziyâd es-Sekafî -- hocalari */
+  E("muhammedbyezidbebiziya", "ismailbrafibuveymirele", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Müstelim b. Saîd es-Sekafî el-Vâsıtî -- hocalari */
+  E("mustelimbsaidessekafie", "muhammedbyezid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mustelimbsaidessekafie", "habbanbali", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mustelimbsaidessekafie", "abdulhamidbsuleymanelh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mustelimbsaidessekafie", "muhammedbcaferelbezzaz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mübârek b. Hassân es-Sülemî Ebû Yûnus -- hocalari */
+  E("mubarekbhassanessulemi", "alibhasimbelberid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mübârek b. Fadâle -- hocalari */
+  E("mubarekbfadale", "abdullahbbekirbhabibel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mubarekbfadale", "osmanbheysembcehmebuam", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mubarekbfadale", "saidbsuleymaneddabbieb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mubarekbfadale", "essumeydabvahibbsevvar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mubarekbfadale", "abaebkuleybelleysiebug", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mubarekbfadale", "abdullahbebicafererraz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mubarekbfadale", "abdirrahmanbsellam2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mubarekbfadale", "abdusselambmutahhirbhu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* es-Sa‘b b. Hakîm b. Şerîk -- hocalari */
+  E("essabbhakimbserik", "mahbubbmuhrizettemimie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mahbûb b. Mûsâ Ebû Sâlih el-Ferrâ -- hocalari */
+  E("mahbubbmusaebusalihelf", "amrbyahyabelharis", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mersed b. Abdullah -- hocalari */
+  E("mersedbabdullah", "abdirrahmanbsimase", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Merzûk Ebû Abdullah -- hocalari */
+  E("merzukebuabdullah", "salihbbesirbvadi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("merzukebuabdullah", "mustelimbsaidessekafie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mervân b. Muhammed b. Hassân el-Esedî ed-Dımaşkī -- hocalari */
+  E("mervanbmuhammedbhassan", "suaybbsuaybbishakeddim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mes‘ûd b. Sa‘d el-Cu‘fî Ebû Sa‘d -- hocalari */
+  E("mesudbsadelcufiebusad", "alibhasimbelberid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Nevfel b. İyâs el-Medenî -- hocalari */
+  E("nevfelbiyaselmedeni", "muslimbcundebelmedeni", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nevfelbiyaselmedeni", "muslimbabdullah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Müslim b. Cündeb el-Medenî -- hocalari */
+  E("muslimbcundebelmedeni", "muhammedbamrbhalhale", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Müslim b. İmrân -- hocalari */
+  E("muslimbimran", "muhavvelbrasideburasid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İyâs b. Dagfel -- hocalari */
+  E("iyasbdagfel", "meslemebalkameelmazini", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("iyasbdagfel", "mutemirsuleyman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("iyasbdagfel", "ebudavudtayalisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mus‘ab b. Sa‘d b. Ebî Vakkās ez-Zührî Ebû Zürâre el-Medenî -- hocalari */
+  E("musabbsadbebivakkasezz", "gutayfbayenesseybaniel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mus‘ab b. Şeybe b. Cübeyr -- hocalari */
+  E("musabbseybebcubeyr", "abdullahbebiessefer", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ma‘bed b. Kâ‘b b. Mâlik el-Ensârî es-Sülemî -- hocalari */
+  E("mabedbkabbmalikelensar", "muhammedbamrbhalhale", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mabedbkabbmalikelensar", "muhammedbyesar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ma‘kıl b. Ubeydullah el-Cezerî Ebû Abdullah -- hocalari */
+  E("makilbubeydullahelceze", "ubeydullahbyezidbibrah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("makilbubeydullahelceze", "saidbhafsbamr2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("makilbubeydullahelceze", "abdullahbmuhammedba5", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ukbe b. Abdullah el-Esamm el-Basrî -- hocalari */
+  E("ukbebabdullahelesammel", "makilbmalikelbahiliebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ukbebabdullahelesammel", "sazbfeyyad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ukbebabdullahelesammel", "yezidharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ukbebabdullahelesammel", "ebunasrtemmar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ukbebabdullahelesammel", "seybanferruh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mugīre b. Hakîm es-San‘ânî -- hocalari */
+  E("mugirebhakimessanani", "budeylbmeysereelbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Mufaddal b. Mühelhil Ebû Abdirrahman -- hocalari */
+  E("elmufaddalbmuhelhilebu", "hasanbrabielbeceliebua", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Nizâr b. Hayyân el-Esedî -- hocalari */
+  E("alibnizarbhayyanelesed", "elmufaddalbyunuselcufi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Miksem b. Bücre -- hocalari */
+  E("miksembbucre", "alibbezime", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Meymûn b. Siyâh -- hocalari */
+  E("meymunbsiyah", "mansurbsadelbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("meymunbsiyah", "meymunbmusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("meymunbsiyah", "hammadbcaferbzeydelabd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("meymunbsiyah", "mansurbsadelbasri2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("meymunbsiyah", "humeydtavil", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("meymunbsiyah", "meymunbmusa2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hüsâm b. Misakk -- hocalari */
+  E("husambmisakk", "nuhbkaysbrebahelezdieb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("husambmisakk", "ebudavudtayalisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("husambmisakk", "huseym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("husambmisakk", "yezidharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* ez-Zübeyr b. el-Hırrît -- hocalari */
+  E("ezzubeyrbelhirrit", "harunbmusaelezdi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ezzubeyrbelhirrit", "abdullahbabdullah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ezzubeyrbelhirrit", "cerirhazim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hişâm b. Abdülmelik el-Bâhilî -- hocalari */
+  E("hisambabdulmelikelbahi", "sehlbzencelebebierrazi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Heysem b. Mâlik et-Tâî Ebû Muhammed eş-Şâmî -- hocalari */
+  E("heysembmalikettaiebumu", "yezidbeyhem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Süleym et-Tâifî -- hocalari */
+  E("yahyabsuleymettaifi", "bisrbubeys", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabsuleymettaifi", "eyyubbhassanelvasit2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabsuleymettaifi", "amrbelhubab", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Abdullah b. Bükeyr el-Mahzûmî -- hocalari */
+  E("yahyababdullahbbukeyre", "sehlbzencelebebierrazi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyababdullahbbukeyre", "omerbabdulazizbimra2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Îsâ et-Temîmî -- hocalari */
+  E("yahyabisaettemimi", "alibmuhammedbebielhasi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabisaettemimi", "hasanbalibaffanelamiri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülhamîd b. Süleymân el-Huzâî ed-Darîr Ebû Ömer el-Medenî -- hocalari */
+  E("abdulhamidbsuleymanelh", "yahyabkaza", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Zâide b. Ebî er-Rakkād -- hocalari */
+  E("zaidebebierrakkad", "yahyabkesirbdirhemelan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zaidebebierrakkad", "kavariri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Zekeriyyâ b. Manzûr b. Sa‘lebe -- hocalari */
+  E("zekeriyyabmanzurbsaleb", "yahyabmuhammedbabdulla", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zekeriyyabmanzurbsaleb", "yahyabmuhammedbabdu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Nuaym b. Dücâce el-Esedî -- hocalari */
+  E("nuaymbducaceelesedi", "yahyabhaniburveebudavu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Ebân er-Rakāşî -- hocalari */
+  E("yezidbebanerrakasi", "durustbziyadelanberi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Şüreyh el-Hadramî -- hocalari */
+  E("yezidbsureyhelhadrami", "esseferbnuseyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidbsureyhelhadrami", "habibbsalih2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Keysân Ebû İsmâîl -- hocalari */
+  E("yezidbkeysanebuismail", "alibhasimbelberid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidbkeysanebuismail", "muhammedbubeyd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ya‘kûb b. Muhammed b. Tahlâ -- hocalari */
+  E("yakubbmuhammedbtahla", "abdirrahmanbebierrical", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yûsuf b. Meymûn el-Mahzûmî -- hocalari */
+  E("yusufbmeymunelmahzumi", "katabebabdulazizbsiyah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebân b. Târık -- hocalari */
+  E("ebanbtarik", "durustbziyadelanberi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Hâris b. Nebhân el-Cermî -- hocalari */
+  E("elharisbnebhanelcermi", "ezherbmervanerrakasi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elharisbnebhanelcermi", "alibyezidbsuleym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elharisbnebhanelcermi", "caferbsuleymaneddubai", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elharisbnebhanelcermi", "abdulvahidbgiyas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hüreym b. Süfyân el-Becelî Ebû Muhammed -- hocalari */
+  E("hureymbsufyanelbecelie", "ishakbmansuresseluli", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hureymbsufyanelbecelie", "omerbsadbubeydebudavud", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hureymbsufyanelbecelie", "suveydbamrebuelvelid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İsmâîl b. Mes‘ûd -- hocalari */
+  E("ismailbmesud", "ahmedbsalihelmisriebuc", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hâlid b. Sümeyr -- hocalari */
+  E("halidbsumeyr", "elesvedbseybanessedusi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Eş‘as b. Sevvâr el-Kindî -- hocalari */
+  E("esasbsevvarelkindi", "fazlbalaebuabbas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Evs b. Abdullah -- hocalari */
+  E("evsbabdullah", "budeylbmeysereelbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sâbit b. Ubeyd el-Ensârî -- hocalari */
+  E("sabitbubeydelensari", "muhammedbseybebnaameed", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ca‘fer b. Ebî Sevr -- hocalari */
+  E("caferbebisevr", "osmanbabdullahbmevhebe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hâtim b. Hurays et-Tâî -- hocalari */
+  E("hatimbhuraysettai", "elcerrahbmelih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Humeyd b. Mes‘ade b. el-Mübârek -- hocalari */
+  E("humeydbmesadebelmubare", "ahmedbsalihelmisriebuc", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yüseyyi‘ b. Ma‘dân el-Hadramî -- hocalari */
+  E("yuseyyibmadanelhadrami", "zerbabdullah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Rabî‘ b. Amîle -- hocalari */
+  E("rabibamile", "hilalbyesaf", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Zühre b. Ma‘bed b. Abdullah Ebû Ukayl el-Medenî -- hocalari */
+  E("zuhrebmabedbabdullaheb", "ezzibrikanbamrbumeyye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* ez-Zibrikān b. Amr b. Ümeyye -- hocalari */
+  E("ezzibrikanbamrbumeyye", "bekirbsevadebsumame", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubeyde b. Ebî Râita -- hocalari */
+  E("ubeydebebiraita", "sadbibrahimbabdirrahma", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydebebiraita", "yezidharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Hassân -- hocalari */
+  E("saidbhassan", "muhammedbyezidbhuneyse", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Nûh b. Sa‘sa‘a el-Mekkî Mestûr -- hocalari */
+  E("nuhbsasaaelmekkimestur", "saidbsaibbyesaressekaf", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Selm b. Kuteybe el-Bâhilî -- hocalari */
+  E("selmbkuteybeelbahili", "zeydbahzem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Temîm b. Hazlem -- hocalari */
+  E("temimbhazlem", "simakbselemeeddabbi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Şeddâd b. Ma‘kıl -- hocalari */
+  E("seddadbmakil", "abdulazizbrufey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Urve b. ez-Zübeyr Ebû Bekir el-Esedî -- hocalari */
+  E("abdullahburvebezzubeyr", "husaynbabdirrahmanessu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülcebbâr b. Abbâs -- hocalari */
+  E("abdulcebbarbabbas", "ismailbmuhammedbcuhade", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülcebbâr b. Ömer el-Eylî -- hocalari */
+  E("abdulcebbarbomereleyli", "risdinbsadbmuflih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Ebî Amre el-Ensârî -- hocalari */
+  E("abdirrahmanbebiamreele", "serikbabdullahbebinemi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülazîz b. Mervân b. Hakem Ebû el-Asbağ -- hocalari */
+  E("abdulazizbmervanbhakem", "alibrebahbkasir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülazîz b. Müslim -- hocalari */
+  E("abdulazizbmuslim", "ishakbomerbselitebuyak", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sehm b. el-Mu‘temir el-Basrî -- hocalari */
+  E("sehmbelmutemirelbasri", "abdulmelikbhasanbebiha", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülmelik b. Mugīre et-Tâifî -- hocalari */
+  E("abdulmelikbmugireettai", "elvelidbabdullahbcumey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülvâhid b. Abdullah b. Kâ‘b -- hocalari */
+  E("abdulvahidbabdullahbka", "abdirrahmanbhabibberde", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Velîd b. Abdullah b. Ebî Mugīs -- hocalari */
+  E("elvelidbabdullahbebimu", "ubeydullahbelahnesenne", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubeydullah b. el-Ahnes en-Nehaî Ebû Mâlik -- hocalari */
+  E("ubeydullahbelahnesenne", "abdullahbbekirbhabibel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahbelahnesenne", "yusufbyezidelbasriebum", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Utbe b. Muhammed b. el-Hâris -- hocalari */
+  E("utbebmuhammedbelharis", "menbuzbebisuleymanelme", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ukayl b. Talha es-Sülemî -- hocalari */
+  E("ukaylbtalhaessulemi", "abdullahbsevzebelhoras", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Ebî Talha Sâlim -- hocalari */
+  E("alibebitalhasalim", "safvanbamrbherimebuamr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibebitalhasalim", "budeylbmeysereelbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Sa‘d b. Ubeyd Ebû Dâvûd -- hocalari */
+  E("omerbsadbubeydebudavud", "hasanbalibaffanelamiri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbsadbubeydebudavud", "muhammedbrafiennisabur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Ali b. Atâ -- hocalari */
+  E("omerbalibata", "yusufbvadihebuyakubelb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Îsâ b. Ömer en-Nahvî Ebû Ömer es-Sekafî -- hocalari */
+  E("isabomerennahviebuomer", "mushirbabdulmelikbsele", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Îsâ b. Ömer -- hocalari */
+  E("isabomer", "mushirbabdulmelikbsele", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kâsım b. Muhammed b. Ebî Bekir es-Sıddîk et-Teymî -- hocalari */
+  E("kasimbmuhammedbebibeki", "eymenbnabil", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kasimbmuhammedbebibeki", "muzahirbeslemelmahzumi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kesîr b. Ziyâd Ebû Sehl -- hocalari */
+  E("kesirbziyadebusehl", "abdullahbsevzebelhoras", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Üsâme b. Zeyd -- hocalari */
+  E("muhammedbusamebzeyd", "saidbubeydbessebbakess", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Züfer b. Vesîme -- hocalari */
+  E("zuferbvesime", "muhammedbabdullahbel2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Müslim b. Abdullah -- hocalari */
+  E("muslimbabdullah", "muhammedbamrbhalhale", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Miknef -- hocalari */
+  E("abdullahbmiknef", "elmisverbrifaabebimali", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muâviye b. Sebre -- hocalari */
+  E("muaviyebsebre", "yahyabelcezzar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ma‘dân b. Ebî Talha -- hocalari */
+  E("madanbebitalha", "yaisbelvelidbhisam", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Münzir b. Abdullah b. Münzir -- hocalari */
+  E("munzirbabdullahbmunzir", "muhammedbhasanbzubale", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû b. el-Hâris Ebû Dâvûd -- hocalari */
+  E("ebubelharisebudavud", "alibelhazver", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hâşim b. Saîd Ebû İshak -- hocalari */
+  E("hasimbsaidebuishak", "sazbfeyyad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. el-Hâris -- hocalari */
+  E("yahyabelharis", "zeydbahzem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. el-Hâris -- hocalari */
+  E("yahyabelharis2", "zeydbahzem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sevâde b. Ebî el-Esved Abdullah -- hocalari */
+  E("sevadebebielesvedabdul", "yakubbishakbzeydelhadr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sevadebebielesvedabdul", "ebudavudtayalisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sevadebebielesvedabdul", "ibrahimbelhaccacbzeyd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sevadebebielesvedabdul", "abdulvahidbgiyas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yûsuf b. Muhammed b. el-Münkedir et-Teymî -- hocalari */
+  E("yusufbmuhammedbelmunke", "abdullahbcafer", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Bekir b. Ebî Mûsâ el-Eş‘arî -- hocalari */
+  E("ebubekirbebimusaelesar", "abdullahbebiessefer", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebubekirbebimusaelesar", "abdulmelikbhabibele2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Ömer -- hocalari */
+  E("ebuomer", "abdulazizbrufey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hüşeym b. Beşîr -- hocalari */
+  E("huseym", "ahmedbibrahimbkesir2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("huseym", "ibrahimbziyad2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("huseym", "hasanbalibrasidelva2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("huseym", "saidbsuleymaneddabbieb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("huseym", "saidbnadrebuosman2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("huseym", "abdullahbsadetteymi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("huseym", "abdullahbmuhammedba5", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("huseym", "kasimbsellam2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("huseym", "kasimbisabibrahim2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("huseym", "muhammedbhayyan2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("huseym", "muhammedbhalidbabdu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("huseym", "muhammedbukbebherimess", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("huseym", "muhammedbomerbmutarrif", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("huseym", "muhammedbamr3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("huseym", "muhammedbhisambisa2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("huseym", "yahyabtalhabebikesir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Şebâbe b. Sevvâr el-Medâinî -- hocalari */
+  E("sebabesevvar", "ahmedbibrahimbkesir2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sebabesevvar", "hasanbyahyabelcadelabd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sebabesevvar", "fazlbabbas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sebabesevvar", "muhammedbhatimbmeym2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sebabesevvar", "muhammedbrafiennisabur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sebabesevvar", "yezidbhalidbyezid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Hârûn -- hocalari */
+  E("yezidharun", "ahmedbibrahimbkesir2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidharun", "ahmedbmuhammedbnizek", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidharun", "ahmedbnasrbziyadenn2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidharun", "ibrahimbelharisbism2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidharun", "ishakbcibril", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidharun", "ishakbvehbbziyad2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidharun", "temimbelmuntasirbtemim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidharun", "hasanbbekirbabdirrahma", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidharun", "hasanbalibrasidelva2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidharun", "saidbzuveybelmervezi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidharun", "sazbyahyaelvasiti", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidharun", "abdullahbishakbmuhamme", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidharun", "abdullahbmunir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidharun", "abdullahbheysembosm2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidharun", "ammarbhalidbyezideb2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidharun", "omerbosmanbasim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidharun", "amrbabbaselbahilieb2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidharun", "fazlbabbas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidharun", "kasimbsellam2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidharun", "muhammedbishakbmuha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidharun", "muhammedbeyyubelkilabi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidharun", "muhammedbhatimbmeym2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidharun", "muhammedbabdullahbi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidharun", "muhammedbabdulmelik3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidharun", "muhammedbomerbelvel2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mübeşşir b. İsmâîl Ebû İsmâîl -- hocalari */
+  E("mubessirbismailebuisma", "ahmedbibrahimbkesir2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hâlid b. Mahled el-Katavânî -- hocalari */
+  E("halidmahled", "ahmedbibrahimbkesir2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("halidmahled", "ahmedbyusufbhalidel2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("halidmahled", "hasanbyahyaelbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("halidmahled", "alibosmanbmuhammed3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("halidmahled", "alibosmanbmuhammed4", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("halidmahled", "kasimbzekeriyyabdin2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ahmed b. İbrâhim b. Kesîr -- hocalari */
+  E("ahmedbibrahimbkesir2", "ibnmace", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ahmed b. İshak b. Zeyd Ebû İshak el-Basrî -- hocalari */
+  E("ahmedbishakbzeydebu2", "ahmedbhasanbhirasebuca", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ahmed b. Sâlih el-Mısrî Ebû Ca‘fer -- hocalari */
+  E("ahmedbsalihelmisriebuc", "amrnakid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ahmedbsalihelmisriebuc", "mahmudgaylan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ahmedbsalihelmisriebuc", "bh06", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ahmedbsalihelmisriebuc", "musabsehlbkadimebuimra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ahmed b. Sâlih -- hocalari */
+  E("ahmedbsalih2", "ishakbelcerrah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Ca‘fer Günder -- hocalari */
+  E("gunder", "ahmedbabdullahbhake2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("gunder", "amrbabbaselbahilieb2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ahmed b. Abdullah b. Muhammed -- hocalari */
+  E("ahmedbabdullahbmuha2", "ibnmace", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ahmedbabdullahbmuha2", "bh17", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ahmed b. Abdullah b. Yûnus -- hocalari */
+  E("ahmedbabdullahbyunu2", "haccacsair", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ahmedbabdullahbyunu2", "cuzcani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. İdrîs eş-Şâfiî -- hocalari */
+  E("safii", "ahmedbamrbabdullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("safii", "muhammedbabdullahba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Nâfi‘ es-Sâiğ el-Mahzûmî -- hocalari */
+  E("abdullahbnafiessaigelm", "ahmedbamrbabdullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbnafiessaigelm", "muhammedbishakbmuha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Bişr b. Bekir et-Tinnîsî -- hocalari */
+  E("bisrbekirtennisi", "ahmedbamrbabdullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("bisrbekirtennisi", "muhammedbmiskinbnumeyl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Eyyûb b. Süveyd er-Remlî Ebû Mes‘ûd -- hocalari */
+  E("eyyubbsuveyderremliebu", "ahmedbamrbabdullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eyyubbsuveyderremliebu", "ubeydullahbelcehmelbas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Dımâm b. İsmâîl b. Mâlik Ebû İsmâîl el-Mısrî -- hocalari */
+  E("dimambismailbmalikebui", "ahmedbisabhassanelm2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("dimambismailbmalikebui", "muhammedbelharisbra2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ahmed b. Îsâ b. Hassân el-Mısrî -- hocalari */
+  E("ahmedbisabhassanelm2", "bh03", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ahmedbisabhassanelm2", "ismailbhammadbebihanif", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ahmedbisabhassanelm2", "ed13", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ahmed b. Muhammed b. Nîzek -- hocalari */
+  E("ahmedbmuhammedbnizek", "bh03", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ruh b. Ubâde -- hocalari */
+  E("ruhubade", "ahmedbnasrbziyadenn2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ruhubade", "ismailbmuhammedbism2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ruhubade", "hasanbishakbziyadel2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ruhubade", "abdullahbishakbmuhamme", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ruhubade", "abdullahbabdulmuminbos", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ruhubade", "abdulmelikbabdullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ruhubade", "muhammedbhatimbmeym2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ruhubade", "muhammedbabdullahbi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ruhubade", "muhammedbabdulmelik3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ruhubade", "muhammedbyunusbmusa2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Safvân b. Îsâ ez-Zührî Ebû Muhammed el-Basrî -- hocalari */
+  E("safvanbisaezzuhriebumu", "ahmedbnasrbziyadenn2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("safvanbisaezzuhriebumu", "ahmedbyusufbhalidel2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("safvanbisaezzuhriebumu", "muhammedbyahyababdu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("safvanbisaezzuhriebumu", "yahyabhizam", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ahmed b. Yûsuf b. Hâlid el-Ezdî Ebû Hasan en-Nîsâbûrî -- hocalari */
+  E("ahmedbyusufbhalidel2", "ibnmace", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ahmedbyusufbhalidel2", "bh06", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ahmedbyusufbhalidel2", "ms02", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Ebî Bükeyr el-Kirmânî -- hocalari */
+  E("yahyaebibukeyr", "ibrahimbelharisbism2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. el-Medînî -- hocalari */
+  E("alimedini", "ibrahimbelharisbism2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alimedini", "muhammedbamrbnebhan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alimedini", "hilalbalabhilal2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İbrâhim b. Ziyâd -- hocalari */
+  E("ibrahimbziyad2", "alimedini", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İbrâhim b. Abdülazîz b. Abdülmelik -- hocalari */
+  E("ibrahimbabdulazizba2", "bisrbmuaz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibrahimbabdulazizba2", "abdullahbabdulvehhab", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İbrâhim b. Abdülmelik el-Basrî Ebû İsmâîl -- hocalari */
+  E("ibrahimbabdulmelike2", "yahyabdurust", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İbrâhim b. Ali b. Hasan -- hocalari */
+  E("ibrahimbalibhasan2", "ibrahimmunzirhizami", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Nâfi‘ b. Ömer el-Cümahî -- hocalari */
+  E("nafiomercumahi", "ibrahimbamr2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nafiomercumahi", "elhasibbnasihelharisie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nafiomercumahi", "muhammedbbisrelabdiebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nafiomercumahi", "mansurbsukayr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nafiomercumahi", "yunusbmuhammedbmusl2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İbrâhim b. Amr -- hocalari */
+  E("ibrahimbamr2", "musnedi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hâris b. Süveyd et-Teymî -- hocalari */
+  E("harissuveyd", "ibrahimbyezidbserikett", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("harissuveyd", "cevvabbubeydullahettey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("harissuveyd", "saidbhayyanetteymi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubeydullah b. Ubeydirrahman el-Eşce‘î Ebû Abdirrahman -- hocalari */
+  E("ubeydullahbubeydirrahm", "ibrahimbyusufelhadr2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülvehhâb b. Abdülmecîd b. es-Salt es-Sekafî Ebû Muhammed el-Basrî -- hocalari */
+  E("abdulvehhabbabdulmecid", "ezherbcemilbcenah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulvehhabbabdulmecid", "hafsbamrbribal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulvehhabbabdulmecid", "ammarbhalidbyezideb2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulvehhabbabdulmecid", "muhammedbismailelba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulvehhabbabdulmecid", "muhammedbabbasbosma2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulvehhabbabdulmecid", "muhammedbyunus2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulvehhabbabdulmecid", "yahyabhakim2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülmelik b. Umeyr -- hocalari */
+  E("abdulmelikumeyr", "ishakbibrahimesseka2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulmelikumeyr", "hammadbselemebdinarelb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulmelikumeyr", "suaybbsafvanbrabies2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulmelikumeyr", "abdulhakimbmansurelhuz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulmelikumeyr", "ubeydebebiraita", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulmelikumeyr", "kazabsuveydbhucayr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulmelikumeyr", "yahyabyalaetteymiebuel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulmelikumeyr", "yezidbziyad2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulmelikumeyr", "ebumalikennehaielva2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yûnus b. Ubeyd es-Sekafî -- hocalari */
+  E("yunusbubeydessekafi", "ishakbibrahimesseka2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İshak b. İbrâhim es-Sekafî Ebû Ya‘kûb -- hocalari */
+  E("ishakbibrahimesseka2", "ibnebizaide", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İkrime b. Hâlid el-Mahzûmî -- hocalari */
+  E("ikrimehalid", "ishakbsaidbamr2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ikrimehalid", "muhammedbyesar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İshak b. Saîd b. Amr -- hocalari */
+  E("ishakbsaidbamr2", "ebudavudtayalisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ishakbsaidbamr2", "ahmedbyakubabdillahebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Harîz b. Osmân er-Rahbî -- hocalari */
+  E("harizbosmanerrahbi", "ishakbsuleymanerraz2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("harizbosmanerrahbi", "hasanbmusa2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("harizbosmanerrahbi", "osmanbsaidbkesir2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("harizbosmanerrahbi", "osmanbsaid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("harizbosmanerrahbi", "omerbharunbyezidess2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("harizbosmanerrahbi", "elvelidbmuslim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hanzala b. Ebî Süfyân -- hocalari */
+  E("hanzalasufyan", "ishakbsuleymanerraz2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hanzalasufyan", "elvelidbmuslim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Eflah b. Humeyd b. Nâfi‘ el-Ensârî el-Medenî -- hocalari */
+  E("eflahbhumeydbnafielens", "ishakbsuleymanerraz2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eflahbhumeydbnafielens", "hammadbhalid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Dâvûd b. Kays el-Ferrâ -- hocalari */
+  E("davudkaysferra", "ishakbsuleymanerraz2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("davudkaysferra", "muhammedbismailbmus2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("davudkaysferra", "muhammedbmuslimelme2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("davudkaysferra", "harunbmugirebhakime2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İshak b. Süleymân er-Râzî Ebû Yahyâ -- hocalari */
+  E("ishakbsuleymanerraz2", "amrnakid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ishakbsuleymanerraz2", "ahmedhanbel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İshak b. Ömer b. Selît Ebû Ya‘kûb el-Basrî -- hocalari */
+  E("ishakbomerbselitebuyak", "ed13", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kâ‘bü'l-ahbâr -- hocalari */
+  E("kabahbar", "ishakbkabisabzuveybelh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kabahbar", "amirbabdullahbluhay", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İshak b. Kabîsa b. Züveyb el-Huzâî eş-Şâmî -- hocalari */
+  E("ishakbkabisabzuveybelh", "ubadebnusey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ishakbkabisabzuveybelh", "usamezeydleysi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ishakbkabisabzuveybelh", "burdbsinanebualaeddima", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İshak b. Muhammed b. İsmâîl -- hocalari */
+  E("ishakbmuhammedbisma2", "yahyabmuallabmansurebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Cerîr b. Abdilhamîd -- hocalari */
+  E("cerirabdulhamid", "ishakbmusababdullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("cerirabdulhamid", "abdirrahmanbabdulla2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("cerirabdulhamid", "kasimbsellam2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("cerirabdulhamid", "muhammedbhumeydbhay2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("cerirabdulhamid", "muhammedbukbebherimess", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İshak b. Mûsâ b. Abdullah Ebû Mûsâ el-Medenî -- hocalari */
+  E("ishakbmusababdullah2", "ibnmace", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ishakbmusababdullah2", "bh06", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ishakbmusababdullah2", "musabharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Yûnus el-Yemâmî -- hocalari */
+  E("omeryunusyemami", "ishakbvehbbziyad2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omeryunusyemami", "abdirrahmanbmuhamme2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omeryunusyemami", "muhammedbhatimbmeym2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omeryunusyemami", "yahyabfazlbyahya2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Kâ‘b b. Süleym Ebû Hamza el-Medenî -- hocalari */
+  E("muhammedbkabbsuleymebu", "ismailbibrahimbabdi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbkabbsuleymebu", "sadbishakbkab2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbkabbsuleymebu", "asimbmuhammedbzeyd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbkabbsuleymebu", "omerbhamzababdullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbkabbsuleymebu", "omerbabdullahelmede2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbkabbsuleymebu", "muhammedbyezidbebiz2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbkabbsuleymebu", "hisambziyadbebiyezi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İsmâîl b. İbrâhim b. Abdirrahman -- hocalari */
+  E("ismailbibrahimbabdi2", "fudaylsuleyman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Âişe bint Sa‘d b. Ebî Vakkās -- hocalari */
+  E("aisebintsadbebivakkas", "ismailbibrahimbukbe2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İsmâîl b. İbrâhim b. Ukbe el-Esedî -- hocalari */
+  E("ismailbibrahimbukbe2", "ibnebiuveys", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ismailbibrahimbukbe2", "halidmahled", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İsmâîl b. Sâlim el-Esedî Ebû Yahyâ -- hocalari */
+  E("ismailbsalimelesedi2", "alabelmuseyyebbrafi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ismailbsalimelesedi2", "huseym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hâlid el-Hazzâ -- hocalari */
+  E("halidhazza", "ismailbabdullahbelh2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("halidhazza", "hammadbselemebdinarelb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("halidhazza", "yahyabrasid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Rebîa el-Kilâbî -- hocalari */
+  E("muhammedbrebiaelkilabi", "ismailbabdullahbhalide", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbrebiaelkilabi", "abdirrahmanbmuhamme2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Bekir b. Ayyâş -- hocalari */
+  E("ebubekirayyas", "ismailbmuhammedbism2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebubekirayyas", "bisrbelharisbabdirr2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebubekirayyas", "saidbyahyabelezherebuo", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebubekirayyas", "ammarbhalidbyezideb2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebubekirayyas", "fazlbelmuveffakbebielm", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebubekirayyas", "muhammedbismailelba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebubekirayyas", "muhammedbubeydbmuha3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebubekirayyas", "muhammedbhisambisa2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebubekirayyas", "yahyabziyadbabdulla2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebubekirayyas", "yahyabtalhabebikesir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebubekirayyas", "yahyababdulhamidbab2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Vâsi‘ b. Câbir Ebû Bekir -- hocalari */
+  E("muhammedbvasibcabirebu", "ismailbmuslimelabdi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbvasibcabirebu", "cuveybirbsaidelezdiebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbvasibcabirebu", "hisambhassanelezdi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İsmâîl b. Müslim el-Abdî Ebû Muhammed el-Basrî -- hocalari */
+  E("ismailbmuslimelabdi2", "ruhubade", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Eflet b. Halîfe el-Âmirî -- hocalari */
+  E("efletbhalifeelamiri", "ebubekirayyas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("efletbhalifeelamiri", "abdulvahidziyad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Eymen el-Mekkî -- hocalari */
+  E("eymenelmekki", "mutemirsuleyman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eymenelmekki", "mekkiibrahim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Eyyûb b. Hâlid b. Safvân -- hocalari */
+  E("eyyubbhalidbsafvan2", "ismailumeyye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Leys b. Ebî Süleym -- hocalari */
+  E("leysebisuleym", "eyyubbhavt", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("leysebisuleym", "salebebsuheyl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("leysebisuleym", "zuadebumunzir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("leysebisuleym", "fazlbalaebuabbas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("leysebisuleym", "katabebabdulazizbsiyah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("leysebisuleym", "hureymbsufyanelbecelie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("leysebisuleym", "yahyabelmuhellebelbece", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("leysebisuleym", "yahyabyalaetteymiebuel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû el-Âliye Berâ -- hocalari */
+  E("ebuelaliyebera", "budeylbmeysereelbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuelaliyebera", "hasanbebielhasnaebuseh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuelaliyebera", "matarverrak", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubâde b. Nüsey -- hocalari */
+  E("ubadebnusey", "burdbsinanebualaeddima", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubadebnusey", "bisrbabdullahbyesar2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubadebnusey", "abdulazizbubeydulla2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubadebnusey", "munirebuzer", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubadebnusey", "hisambebiabdullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubadebnusey", "hisambelgazbrebia", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubadebnusey", "ebumugireelbeceli2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Bürd b. Sinân Ebû Alâ ed-Dımaşkī -- hocalari */
+  E("burdbsinanebualaeddima", "ibnebiaruba", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("burdbsinanebualaeddima", "mutemirsuleyman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("burdbsinanebualaeddima", "yahyabhamzabvakidelhad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Bereke Ebû el-Velîd el-Basrî -- hocalari */
+  E("berekeebuelvelidelbasr", "halidhazza", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Bişr b. el-Hâris b. Abdirrahman -- hocalari */
+  E("bisrbelharisbabdirr2", "ahmedhanbel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("bisrbelharisbabdirr2", "bh03", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("bisrbelharisbabdirr2", "abbasanberi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Büsr -- hocalari */
+  E("abdullahbbusr", "bisrbabdullahbyesar2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbusr", "safvanbamrbherimebuamr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hâtim b. İsmâîl el-Medenî -- hocalari */
+  E("hatimismail", "bisrbubeys", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hatimismail", "suleymanbabdirrahma2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hatimismail", "muhammedbhasanbzubale", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hatimismail", "muhammedbabbasbosma2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hatimismail", "muhammedbubeydbmuha3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hatimismail", "muhammedbomerbmutarrif", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hatimismail", "muhammedbamr3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hatimismail", "muhammedbebimuhamme2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Bişr b. Ubeys -- hocalari */
+  E("bisrbubeys", "ismailbhammadbebihanif", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ca‘fer b. Muhammed es-Sâdık -- hocalari */
+  E("caferisadik", "besirbmeymunelvasit2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("caferisadik", "asimbomerbhafsebuom2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("caferisadik", "osmanbamrbsac", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("caferisadik", "kasimbabdullahbomer2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("caferisadik", "yahyabalaelbecelieb2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Beşîr b. Meymûn el-Vâsıtî -- hocalari */
+  E("besirbmeymunelvasit2", "ahmedbasimbanbeseebusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("besirbmeymunelvasit2", "alihucr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("besirbmeymunelvasit2", "hasanarafe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Bekir b. Hakem et-Temîmî Ebû Bişr -- hocalari */
+  E("bekirbhakemettemimi2", "haramibumarebebihafsa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ziyâd b. Nâfi‘ et-Tüceybî el-Mısrî -- hocalari */
+  E("ziyadbnafiettuceybielm", "bekirbsevadebsumame", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İbn Ebî Arûbe -- hocalari */
+  E("ibnebiaruba", "bekirbvailbdavudetteym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnebiaruba", "salihbomerelvasiti2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnebiaruba", "abdullahbbekirbhabibel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnebiaruba", "abdullahbsevzebelhoras", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnebiaruba", "abdullahbharunbebii2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnebiaruba", "omerbharunbyezidess2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnebiaruba", "muhammedbbisrelabdiebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hamza b. Habîb ez-Zeyyât -- hocalari */
+  E("hamzazeyyat", "telidbsuleymanelmuhari", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hamzazeyyat", "suaybbsafvanbrabies2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hamzazeyyat", "muaviyebhisam2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Telîd b. Süleymân el-Muhâribî Ebû Süleymân -- hocalari */
+  E("telidbsuleymanelmuhari", "ahmedhanbel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İshak b. Yûsuf el-Ezrak -- hocalari */
+  E("ishakyusufezrak", "temimbelmuntasirbtemim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ishakyusufezrak", "saidbyahyabelezherebuo", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ishakyusufezrak", "abdirrahmanbmuhamme2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ishakyusufezrak", "ammarbhalidbyezideb2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ishakyusufezrak", "muhammedbhayyan2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ishakyusufezrak", "yahyabdavudbmeymune2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Adî b. Dînâr el-Medenî -- hocalari */
+  E("adibdinarelmedeni", "sabitbhurmuzebuelmikda", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ca‘fer b. Ebî Mugīre el-Huzâî -- hocalari */
+  E("caferbebimugireelhuzai", "salebebsuheyl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mukātil b. Hayyân -- hocalari */
+  E("mukatilbhayyan", "salebebsuheyl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sa‘lebe b. Süheyl -- hocalari */
+  E("salebebsuheyl", "firyabi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salebebsuheyl", "cerirabdulhamid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sümâme b. Hazn -- hocalari */
+  E("sumamebhazn", "kasimbfazlbmadan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sumamebhazn", "cureyri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sumamebhazn", "davudebihind", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sumamebhazn", "elesvedbseybanessedusi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sümâme b. Şüfey -- hocalari */
+  E("sumamebsufey", "abdulazizbebiessabeett", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Zeyd b. Erkam -- hocalari */
+  E("zeydarkam", "suveyrbebifahite", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zeydarkam", "habibbebisabitkays", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zeydarkam", "habibbyesarelkindi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zeydarkam", "habibbyesar2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zeydarkam", "ebusadelezdi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İbrâhim b. Tahmân -- hocalari */
+  E("ibrahimtahman", "elcerrahbmelih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibrahimtahman", "huseyinbhafsbfazl2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibrahimtahman", "abdirrahmanbsellam2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibrahimtahman", "abdirrahmanbabdulla2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibrahimtahman", "muhammedbhasanbezzu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibrahimtahman", "muhammedbmuyesser", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Haccâc b. Ertât -- hocalari */
+  E("haccacertat", "elcerrahbmelih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("haccacertat", "eddahhakbhamra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ertât b. Münzir b. el-Esved -- hocalari */
+  E("ertatbmunzirbelesved", "elcerrahbmelih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ertatbmunzirbelesved", "abbadbyusufelkindie2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Bekir b. Zür‘a el-Havlânî eş-Şâmî -- hocalari */
+  E("bekirbzuraelhavlaniess", "elcerrahbmelih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Cürey b. Küleyb -- hocalari */
+  E("cureybkuleyb", "ebuishaksebii", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Cümey‘ b. Umeyr -- hocalari */
+  E("cumeybumeyr", "ismailebiislamsibani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("cumeybumeyr", "hakimbcubeyrelesedi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Cümey‘ b. Umeyr et-Teymî Ebû el-Esved -- hocalari */
+  E("cumeybumeyretteymiebue", "ismailebiislamsibani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("cumeybumeyretteymiebue", "hakimbcubeyrelesedi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Cevvâb b. Ubeydullah et-Teymî -- hocalari */
+  E("cevvabbubeydullahettey", "ismailebiislamsibani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("cevvabbubeydullahettey", "rizambsaideddabbi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Cevn b. Katâde b. el-A‘ver -- hocalari */
+  E("cevnbkatadebelaver", "kurrehalid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hâtim b. Yûsuf b. Hâlid -- hocalari */
+  E("hatimbyusufbhalid2", "ahmedbabde", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Câbir el-Cu‘fî -- hocalari */
+  E("cabircufi", "elharisbhasira", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Şeddâd b. el-Hâd -- hocalari */
+  E("abdullahsedddad", "elharisbsibl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahsedddad", "husaynbabdirrahmanessu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahsedddad", "muhammedbabdullahbe5", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Târık b. Şihâb el-Ahmesî -- hocalari */
+  E("tariksihab", "elharisbsibl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("tariksihab", "mugirebsibl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ümmü Seleme -- hocalari */
+  E("ummuseleme", "elharisbabdullahbeb2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ummuseleme", "abdirrahmanbelharis2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ummuseleme", "abdulmelikbebibekir2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ummuseleme", "abdulmelikbelharisb2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ummuseleme", "ubeydullahbelkibtiyye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ummuseleme", "osmanbabdullahbmevhebe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ummuseleme", "ikrimebabdirrahmanbelh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ummuseleme", "nafiebuabdullahelme2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ummuseleme", "yahyabelcezzar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ummuseleme", "ebubekirbabdirrahmanbe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Hâris b. Abdullah b. Ebî Rebîa -- hocalari */
+  E("elharisbabdullahbeb2", "abdirrahmanbsabit", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Hürmüz el-Medenî -- hocalari */
+  E("yezidbhurmuzelmedeni", "elharisbabdirrahman2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidbhurmuzelmedeni", "kaysbsadelmekki2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Büsr b. Saîd -- hocalari */
+  E("busrsaid", "elharisbabdirrahman2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("busrsaid", "salimbebiumeyyeebunadr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Hâris b. Abdirrahman b. Abdullah -- hocalari */
+  E("elharisbabdirrahman2", "ismailumeyye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elharisbabdirrahman2", "suleymanhayyan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elharisbabdirrahman2", "safvanbisaezzuhriebumu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hasan b. Selm b. Sâlih -- hocalari */
+  E("hasanbselmbsalih", "elharisbmansurelvas2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Hâris b. Mansûr el-Vâsıtî -- hocalari */
+  E("elharisbmansurelvas2", "ahmedsinan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elharisbmansurelvas2", "muhammedbabdulmelikbme", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Utbe b. Yakzân Ebû Amr -- hocalari */
+  E("utbebyakzanebuamr", "elharisbnebhanelcermi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("utbebyakzanebuamr", "ibnnumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sehl b. Sa‘d es-Sâidî -- hocalari */
+  E("sehlsad", "elharisbyakubelensa2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sehlsad", "abdirrahmanbsuleyma2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Yesâr -- hocalari */
+  E("saidyesar", "elharisbyakubelensa2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidyesar", "muhammedbabdullahba3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidyesar", "ebubekirbomerbabdir2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ya‘kûb b. Abdullah b. el-Eşecc Ebû Yûsuf el-Medenî -- hocalari */
+  E("yakubbabdullahbelesecc", "elharisbyakubelensa2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yakubbabdullahbelesecc", "yezidbebihabibelmisrie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Habbe b. Cüveyn -- hocalari */
+  E("habbebcuveyn", "hakemuteybe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Meymûn b. Ebî Şebîb Ebû Nasr -- hocalari */
+  E("meymunbebisebibebunasr", "habibbebisabitkays", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abde b. Ebî Lübâbe -- hocalari */
+  E("abdelubabe", "habibbebisabitkays", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Umâre b. Umeyr et-Teymî -- hocalari */
+  E("umareumeyr", "habibbebisabitkays", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Habîb b. Ebî Sâbit Kays -- hocalari */
+  E("habibbebisabitkays", "amess", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("habibbebisabitkays", "ismailebiislamsibani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("habibbebisabitkays", "ebubekirayyas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("habibbebisabitkays", "mutarriftarif", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Habîb b. Ebî Habîb el-Becelî -- hocalari */
+  E("habibbebihabibelbec2", "tumebamr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Habîb b. Ebî Habîb el-Basrî -- hocalari */
+  E("habibbebihabibelbas2", "yezidharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("habibbebihabibelbas2", "suleymanharb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Câbir b. Hassân et-Tâî Ebû Amr -- hocalari */
+  E("yahyabcabirbhassanetta", "habibbsalih2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Râşid b. Sa‘d -- hocalari */
+  E("rasidbsad", "habibbsalih2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("rasidbsad", "safvanbamrbherimebuamr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("rasidbsad", "omerbcasem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Sâbıt -- hocalari */
+  E("abdirrahmanbsabit", "habibbsalih2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbsabit", "abdullahbmuslim2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Habîb b. Sâlih -- hocalari */
+  E("habibbsalih2", "harizbosmanerrahbi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("habibbsalih2", "bakiyyevelid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Habîb b. Yesâr el-Kindî -- hocalari */
+  E("habibbyesarelkindi2", "yusufbsuheybelkindi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Habîb b. Yesâr -- hocalari */
+  E("habibbyesar2", "yusufbsuheybelkindi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hakem b. Uteybe -- hocalari */
+  E("hakemuteybe", "haccacbdinarelvasit2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hakemuteybe", "selemebabdullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hakemuteybe", "abdullahbmuharrer", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hakemuteybe", "abdulazizbsiyah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hakemuteybe", "abdulazizbubeydulla2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hakemuteybe", "abdulazizbomerbabdulaz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hakemuteybe", "amrbsabit2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hakemuteybe", "alabsalihetteymi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Rebîa b. Ebî Rebîa -- hocalari */
+  E("rebiabebirebia", "haccacbsafvanbebiye2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ukayl b. Hâlid el-Eylî -- hocalari */
+  E("ukaylhalid", "haccacbferafisa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ukaylhalid", "risdinbsadbmuflih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yûnus b. Yezîd el-Eylî -- hocalari */
+  E("yunusyezid", "haccacbferafisa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yunusyezid", "risdinbsadbmuflih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yunusyezid", "talhabyahyabnuman2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yunusyezid", "abdullahbvehbbmuslim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yunusyezid", "alibsalihelmekki2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yunusyezid", "omerbosmanbomer2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yunusyezid", "yunusbsuleymessanan2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû İmrân el-Cevnî -- hocalari */
+  E("ebuimrancevni", "haccacbferafisa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuimrancevni", "hammadbzeydbdirhemelez", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuimrancevni", "hammadbselemebdinarelb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuimrancevni", "havsebbukaylebudihyeel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Haccâc b. Ferâfisa -- hocalari */
+  E("haccacbferafisa", "ibrahimtahman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("haccacbferafisa", "abdullahbsevzebelhoras", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("haccacbferafisa", "mutemirsuleyman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hucr b. el-Anbes -- hocalari */
+  E("hucrbelanbes", "alkamemersed", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hucrbelanbes", "musabkayselhadramiebum", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hucrbelanbes", "mugirebebielhurr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hucayr b. Rabî‘ el-Basrî el-Adevî -- hocalari */
+  E("hucayrbrabielbasrielad", "humeydhilal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hureyş b. Süleym -- hocalari */
+  E("hureysbsuleym", "ebudavudtayalisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hureysbsuleym", "abdulhamidbabdirrahman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hureysbsuleym", "muhammedbessaltbelhacc", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Nadr b. Şümeyl -- hocalari */
+  E("nadrsumeyl", "hasanbishakbziyadel2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nadrsumeyl", "hasanbbekirbabdirrahma", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nadrsumeyl", "hasanbyahyaelbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nadrsumeyl", "abdirrahmanbbisrbha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nadrsumeyl", "muhammedbalibhasan2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muallâ b. Esed el-Ammî -- hocalari */
+  E("muallabesedelammi", "hasanbishakbziyadel2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muallabesedelammi", "hilalbalabhilal2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hasan b. İshak b. Ziyâd el-Leysî -- hocalari */
+  E("hasanbishakbziyadel2", "ed18", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hasanbishakbziyadel2", "abdulazizbmunib", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ziyâd b. Abdullah en-Nümeyrî el-Basrî -- hocalari */
+  E("ziyadbabdullahennumeyr", "hasanbebielhasnaebuseh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ziyadbabdullahennumeyr", "zaidebebierrakkad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ziyadbabdullahennumeyr", "abdulmuminbubeydullahe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülvâhid b. Ziyâd -- hocalari */
+  E("abdulvahidziyad", "hasanbrabielbeceliebua", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulvahidziyad", "abdullahbyahyaessek2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulvahidziyad", "imranbmusa2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulvahidziyad", "muhammedbabdullahbm2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulvahidziyad", "muhammedbabdullahbm3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulvahidziyad", "yahyababdulhamidbab2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulvahidziyad", "yunusbmuhammedbmusl2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kays b. er-Rabî‘ -- hocalari */
+  E("kaysrebi", "hasanbrabielbeceliebua", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kaysrebi", "yahyabziyadbabdulla2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kaysrebi", "yahyabtalhabebikesir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muâviye b. Abdullah b. Ca‘fer -- hocalari */
+  E("muaviyebabdullahbcafer", "hasanbzeydbhasanebu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hasan b. Zeyd b. Hasan Ebû Muhammed el-Medenî -- hocalari */
+  E("hasanbzeydbhasanebu2", "ibnebizib", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hasan b. Ali b. Râşid el-Vâsıtî -- hocalari */
+  E("hasanbalibrasidelva2", "ed17", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Âdem -- hocalari */
+  E("yahyaadem", "hasanbalibaffanelamiri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyaadem", "huseyinbalibelesvedebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyaadem", "muhammedbrafiennisabur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyaadem", "muhammedbomerbelvel2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyaadem", "muhammedbamr3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İmrân b. Uyeyne b. Ebî İmrân Ebû Hasan -- hocalari */
+  E("imranbuyeynebebiimrane", "hasanbalibaffanelamiri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhâdır b. el-Müverri‘ -- hocalari */
+  E("muhadirbelmuverri", "hasanbalibaffanelamiri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhadirbelmuverri", "muhammedbahmedbhuse2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ziyâd b. Beyân -- hocalari */
+  E("ziyadbbeyan", "hasanbomer2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Nüfeyl -- hocalari */
+  E("alibnufeyl", "hasanbomer2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Yezîd b. Câbir el-Ezdî ed-Dımaşkī -- hocalari */
+  E("yezidbyezidbcabirelezd", "hasanbomer2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidbyezidbcabirelezd", "meserrebmabed", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hasan b. Ömer -- hocalari */
+  E("hasanbomer2", "rabibnafiebutevbe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hasanbomer2", "ahmedbabdulmelikbvakid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hasanbomer2", "abdullahbcafer", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hasanbomer2", "zekeriyyabadibessaltet", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Kesîr b. Ufeyr -- hocalari */
+  E("saidbkesirbufeyr", "hasanbguleyb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbkesirbufeyr", "abdirrahmanbabdulla3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbkesirbufeyr", "omerbabdulazizbimra2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hasan b. Guleyb -- hocalari */
+  E("hasanbguleyb", "ns02", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hasan b. Muhammed b. Ubeydullah -- hocalari */
+  E("hasanbmuhammedbubey2", "muhammedbyezidbhuneyse", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Hammâd b. Ebî Ziyâd eş-Şeybânî -- hocalari */
+  E("yahyabhammadbebiziyade", "hasanbmudrikbbesiresse", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabhammadbebiziyade", "abdulazizbmuaviyeba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülazîz b. Abdillâh el-Üveysî -- hocalari */
+  E("abdulazizuveysi", "hasanbmudrikbbesiresse", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Cerîr b. Hâzim -- hocalari */
+  E("cerirhazim", "hasanbmusa2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("cerirhazim", "selemebelayyar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("cerirhazim", "abdullahbkedamebaneze", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("cerirhazim", "abdusselambmutahhirbhu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("cerirhazim", "muslimbibrahimelezdi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("cerirhazim", "elvelidbsalih2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Züheyr b. Muâviye -- hocalari */
+  E("zuhayrmuaviye", "hasanbmusa2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zuhayrmuaviye", "saidbhafsbamr2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zuhayrmuaviye", "saidbsuleymaneddabbieb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zuhayrmuaviye", "abdullahbmuhammedba5", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zuhayrmuaviye", "abdirrahmanbabdulla4", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zuhayrmuaviye", "alabusaym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hasan b. Mûsâ -- hocalari */
+  E("hasanbmusa2", "ahmedhanbel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hasanbmusa2", "haccacsair", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hasanbmusa2", "ahmedmeni", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hasanbmusa2", "fazlbsehlbibrahimelare", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hasanbmusa2", "harunhammal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ya‘lâ b. Ubeyd et-Tanâfisî -- hocalari */
+  E("yalaubeyd", "hasanbyahyaelbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yalaubeyd", "alibosmanbmuhammed3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yalaubeyd", "alibosmanbmuhammed4", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yalaubeyd", "muhammedbabdulmelik3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Hâtim b. Yûnus -- hocalari */
+  E("muhammedbhatimbyunus", "hasanbyahyaelbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbhatimbyunus", "hilalbalabhilal2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hüseyin b. Hafs b. Fazl -- hocalari */
+  E("huseyinbhafsbfazl2", "abdullahbishakelbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("huseyinbhafsbfazl2", "omerbsebbe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yûsuf b. Ya‘kûb b. Ebî Kâsım es-Sedûsî -- hocalari */
+  E("yusufbyakubbebikasimes", "huseyinbselemebisma2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hüseyin b. Seleme b. İsmâîl -- hocalari */
+  E("huseyinbselemebisma2", "ed13", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hüseyin b. Şüfey -- hocalari */
+  E("huseyinbsufey", "hasanbsevbanbamir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hüseyin b. Ali b. el-Esved Ebû Abdullah -- hocalari */
+  E("huseyinbalibelesvedebu", "bh17", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hüseyin b. Kays er-Rahbî Ebû Ali el-Vâsıtî -- hocalari */
+  E("huseyinbkayserrahbiebu", "mustelimbsaidessekafie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdüsselâm b. Harb -- hocalari */
+  E("abdusselamharb", "huseyinbyezidbyahya2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdusselamharb", "abdullahbmuhammedba5", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdusselamharb", "omerbosmanbasim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdusselamharb", "muhammedbubeydbmuha3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdusselamharb", "yahyabismailelvasit2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdusselamharb", "yahyabismailbzekeri2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Süleymân b. Hayyân Ebû Hâlid el-Ahmer -- hocalari */
+  E("suleymanhayyan", "huseyinbyezidbyahya2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Câbir b. Semüre -- hocalari */
+  E("cabirsemura", "husaynbabdirrahmanessu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("cabirsemura", "abdullahbabdullaher2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("cabirsemura", "ubeydullahbelkibtiyye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("cabirsemura", "osmanbabdullahbmevhebe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("cabirsemura", "kasimbabdirrahmanba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mürre b. Şerâhîl -- hocalari */
+  E("murreserahil", "husaynbabdirrahmanessu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Zer b. Abdullah -- hocalari */
+  E("zerbabdullah", "husaynbabdirrahmanessu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sâlim b. Ebü'l-Ca‘d -- hocalari */
+  E("salimcad", "husaynbabdirrahmanessu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salimcad", "yahyababdullahbelha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Husayn b. Ömer -- hocalari */
+  E("husaynbomer2", "abdullahbabdullahbeles", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("husaynbomer2", "imranbuyeynebebiimrane", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("husaynbomer2", "mincabbelharisbabdirra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Zeyd b. Sellâm b. Ebî Sellâm -- hocalari */
+  E("zeydbsellambebisellam", "hadramibebuettemimiely", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hadramî b. Ebû et-Temîmî el-Yemâmî -- hocalari */
+  E("hadramibebuettemimiely", "sinanbrebiaelbahilielb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hadramibebuettemimiely", "ikrimeammar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Simâk b. Harb -- hocalari */
+  E("simakharb", "hafsbcumey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("simakharb", "hammadbselemebdinarelb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("simakharb", "sellambsuleym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("simakharb", "amrbsabit2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("simakharb", "anbesebelezheresseyban", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("simakharb", "anbesebsaidbeddurays", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mugīre b. Miksem ed-Dabbî -- hocalari */
+  E("mugirmiksem", "hafsbcumey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mugirmiksem", "abdulhakimbmansurelhuz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mugirmiksem", "abdirrahmanbhumeydb3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mugirmiksem", "mendelbali", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebân b. Ebî Ayyâş Fîrûz el-Basrî Ebû İsmâîl el-Abdî -- hocalari */
+  E("ebanbebiayyasfiruzelba", "hafsbcumey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebanbebiayyasfiruzelba", "imranbdaver", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hafs b. Cümey‘ -- hocalari */
+  E("hafsbcumey", "ahmedabde", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hafsbcumey", "haccacbnusayr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hafsbcumey", "abdulvahidbgiyas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İbn Ebî Zi’b -- hocalari */
+  E("ibnebizib", "hafsbabdullahbrasid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnebizib", "muhammedbibrahimbdi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnebizib", "muhammedbismailbmus2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnebizib", "muhammedbmuslimelme2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hafs b. Abdullah b. Râşid es-Sülemî Ebû Amr en-Nîsâbûrî -- hocalari */
+  E("hafsbabdullahbrasid2", "katanbibrahimbisaebusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Saîd b. Sâbık er-Râzî -- hocalari */
+  E("muhammedbsaidbsabikerr", "hafsbomerbabdirrahm2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hafs b. Ömer b. Ebî el-Attâf -- hocalari */
+  E("hafsbomerbebielattaf", "ibrahimmunzirhizami", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hafs b. Ömer -- hocalari */
+  E("hafsbomer", "hubeybabdrahman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hafs b. Amr b. Ribâl -- hocalari */
+  E("hafsbamrbribal", "bh03", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hafsbamrbribal", "musabharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ma‘kıl b. Yesâr el-Müzenî -- hocalari */
+  E("makilyesar", "hakembabdullahbisha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("makilyesar", "muslimbmihrakelabdi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("makilyesar", "muslimbmihrak", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hakem b. Abdullah b. İshak -- hocalari */
+  E("hakembabdullahbisha2", "halidhazza", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hakembabdullahbisha2", "cureyri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hakembabdullahbisha2", "alizeydcudan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Fâtıma bint Hüseyin b. Ali b. Ebî Tâlib -- hocalari */
+  E("fatimabinthuseyinbalib", "hakembabdirrahmanbebin", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Şurahbîl b. Sa‘d Ebû Sa‘d el-Medenî -- hocalari */
+  E("surahbilbsadebusadelme", "hakembabdirrahmanbebin", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hakem b. Abdirrahman b. Ebî Nu‘m -- hocalari */
+  E("hakembabdirrahmanbebin", "abdullahbdavudbamirelh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hakembabdirrahmanbebin", "muhammedbrebiaelkilabi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hakembabdirrahmanbebin", "alibhasimbelberid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hakembabdirrahmanbebin", "sihabbhirasbhavsebesse", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Beyân b. Bişr el-Ahmesî -- hocalari */
+  E("beyanbisr", "hakembabdulmelikelb2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("beyanbisr", "sellambsuleym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("beyanbisr", "hureymbsufyanelbecelie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Âsım b. Behdele -- hocalari */
+  E("asimbehdele", "hakembabdulmelikelb2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("asimbehdele", "suaybbhalidelbeceli2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("asimbehdele", "abdullahbelvelidbab2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("asimbehdele", "kasimbelvelidelhemd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hakem b. Abdülmelik el-Basrî -- hocalari */
+  E("hakembabdulmelikelb2", "ishakbmansuresseluli", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hammâd b. Ca‘fer b. Zeyd el-Abdî el-Basrî -- hocalari */
+  E("hammadbcaferbzeydelabd", "eddahhakbhamra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hammadbcaferbzeydelabd", "mustelimbsaidessekafie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Eflah b. Saîd el-Ensârî -- hocalari */
+  E("eflahbsaidelensari", "hammadbhalid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hammâd b. Hâlid -- hocalari */
+  E("hammadbhalid2", "ahmedhanbel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hammadbhalid2", "ahmedmeni", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Enes b. Sîrîn -- hocalari */
+  E("enessirin", "hammadbzeydbdirhemelez", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("enessirin", "hammadbselemebdinarelb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("enessirin", "imranbmuslim3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülazîz b. Suheyb -- hocalari */
+  E("abdulazizsuheyb", "hammadbzeydbdirhemelez", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizsuheyb", "hammadbselemebdinarelb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizsuheyb", "hammadbyahyaelebahh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizsuheyb", "hisambhassanelezdi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ca‘d Ebû Osmân -- hocalari */
+  E("cadebuosman", "hammadbzeydbdirhemelez", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sâlih b. Keysân -- hocalari */
+  E("salihkeysan", "hammadbzeydbdirhemelez", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salihkeysan", "abdirrahmanbishakba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salihkeysan", "abdulazizbomerbabdulaz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hammâd b. Zeyd b. Dirhem el-Ezdî el-Cehdamî Ebû İsmâîl -- hocalari */
+  E("hammadbzeydbdirhemelez", "misned", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hammadbzeydbdirhemelez", "muemmelbismailelbasrie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hammadbzeydbdirhemelez", "suleymanharb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hammadbzeydbdirhemelez", "alimedini", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hammadbzeydbdirhemelez", "muhammedbzunburbebiele", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sümâme b. Abdillâh b. Enes -- hocalari */
+  E("sumameenes", "hammadbselemebdinarelb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hişâm b. Zeyd b. Enes -- hocalari */
+  E("hisambzeydbenes", "hammadbselemebdinarelb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Eyyûb es-Sahtiyânî -- hocalari */
+  E("eyyubsahtiyani", "hammadbselemebdinarelb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eyyubsahtiyani", "abbadbkesiressekafi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eyyubsahtiyani", "omerbamiressulemiel2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eyyubsahtiyani", "kulsumbcevsen", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eyyubsahtiyani", "yahyabosmanetteymi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eyyubsahtiyani", "yahyabalaelbecelieb2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Dâvûd b. Ebî Hind -- hocalari */
+  E("davudebihind", "hammadbselemebdinarelb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("davudebihind", "salihbomerelvasiti2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("davudebihind", "abdullahbarade", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("davudebihind", "kasimbyahyabataebum2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("davudebihind", "kulsumbcevsen", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("davudebihind", "yahyabrasid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hammâd b. Seleme b. Dînâr el-Basrî Ebû Seleme -- hocalari */
+  E("hammadbselemebdinarelb", "bisrsari", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hammadbselemebdinarelb", "behzesed", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hammadbselemebdinarelb", "suleymanharb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hammadbselemebdinarelb", "ebunasrtemmar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hammadbselemebdinarelb", "hebbanhilal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hammadbselemebdinarelb", "seybanferruh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hammâd b. Ebî Süleymân Müslim el-Eş‘arî -- hocalari */
+  E("hammadbebisuleymanmusl", "misersukdam", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hammadbebisuleymanmusl", "hakemuteybe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû İshak es-Sebîî -- hocalari */
+  E("ebuishaksebii", "hammadbyahyaelebahh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuishaksebii", "ziyadbebiziyad2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuishaksebii", "suleymanbtarhanetteymi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuishaksebii", "sellambsuleym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuishaksebii", "suaybbsafvanbrabies2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuishaksebii", "abdirrahmanbhumeydb3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuishaksebii", "abdulmelikbsaidbhay2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuishaksebii", "amrbsabit2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuishaksebii", "muhammedbsalimelhem2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuishaksebii", "muhammedbseybebnaameed", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuishaksebii", "ebumalikennehaielva2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hammâd b. Yahyâ el-Ebahh -- hocalari */
+  E("hammadbyahyaelebahh", "halefhisam", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mûsâ b. Abdullah b. Yezîd -- hocalari */
+  E("musababdullahbyezid", "hamzabebimuhammedel2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("musababdullahbyezid", "abdullahbisababdirr2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hamza b. Ebî Muhammed el-Medenî -- hocalari */
+  E("hamzabebimuhammedel2", "hatimismail", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Humeyd b. Ebî Guneyye -- hocalari */
+  E("humeydbebiguneyye", "sevri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Humayda b. eş-Şemerdel -- hocalari */
+  E("humaydabessemerdel", "muhammedbabdirrahman3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("humaydabessemerdel", "muhammedbsaibbbisrebun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Havsera b. Muhammed Ebû el-Ezher el-Basrî el-Verrâk -- hocalari */
+  E("havserabmuhammedebuele", "ed17", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hâlid b. el-Huveyris el-Mahzûmî el-Mekkî -- hocalari */
+  E("halidbelhuveyriselmahz", "alizeydcudan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Seleme b. Abdülmelik -- hocalari */
+  E("selemebabdulmelik", "halidbhaley", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hâni’ b. Külsûm b. Abdullah el-Kinânî -- hocalari */
+  E("hanibkulsumbabdullahel", "halidbdihkan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Velîd b. Abdirrahman -- hocalari */
+  E("elvelidbabdirrahman", "halidbdihkan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Zeyd b. Ertât el-Fezârî ed-Dımaşkī -- hocalari */
+  E("zeydbertatelfezarieddi", "halidbdihkan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hâlid b. Dînâr et-Temîmî Ebû Halde -- hocalari */
+  E("halidbdinarettemimiebu", "haramibumarebebihafsa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("halidbdinarettemimiebu", "bisrbsabitelbasriebumu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("halidbdinarettemimiebu", "ebudavudtayalisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Rebâh el-Ensârî Ebû Hâlid el-Medenî -- hocalari */
+  E("abdullahbrebahelensari", "halidbsumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yûnus b. Râşid Ebû İshak el-Kādî -- hocalari */
+  E("yunusbrasidebuishakelk", "halidbamrbmuhammede2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yunusbrasidebuishakelk", "assambalibhucayr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yunusbrasidebuishakelk", "furatbhalideddabbiebui", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yunusbrasidebuishakelk", "elvelidbkasimbelvel2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mâlik b. Migvel -- hocalari */
+  E("malikmigvel", "halidbamrbmuhammede2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("malikmigvel", "furatbhalideddabbiebui", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("malikmigvel", "fazlbelmuveffakbebielm", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hâlid b. Amr b. Muhammed Ebû Saîd -- hocalari */
+  E("halidbamrbmuhammede2", "hasanaliayyal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("halidbamrbmuhammede2", "yusufbadibrizketteymi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("halidbamrbmuhammede2", "mincabbelharisbabdirra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Bilâl b. Sa‘d b. Temîm el-Eş‘arî -- hocalari */
+  E("bilalbsadbtemimelesari", "halidbmuhammedessek2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hâlid b. Muhammed es-Sekafî ed-Dımaşkī -- hocalari */
+  E("halidbmuhammedessek2", "harizbosmanerrahbi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İbrâhim b. Ebî Able -- hocalari */
+  E("ibrahimebiable", "halidbyezidbsalih2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibrahimebiable", "selemebrecaettemimiebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibrahimebiable", "irakbhalidbyezid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibrahimebiable", "yahyabalaelbecelieb2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hâlid b. Yezîd b. Sâlih -- hocalari */
+  E("halidbyezidbsalih2", "abdullahyusuftinnisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Halef b. Havşeb -- hocalari */
+  E("halefbhavseb", "halidbyezidbabdirra2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hâlid b. Yezîd b. Abdirrahman -- hocalari */
+  E("halidbyezidbabdirra2", "heysembhariceebuahmed", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("halidbyezidbabdirra2", "hisambammarbnusayr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("halidbyezidbabdirra2", "suveydsaidhadesani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubeydullah b. el-Velîd -- hocalari */
+  E("ubeydullahbelvelid", "halidbyezidbomer2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hemmâm b. Yahyâ -- hocalari */
+  E("hemmamyahya", "elhasibbnasihelharisie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hemmamyahya", "omerbharunbyezidess2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hemmamyahya", "muslimbibrahimelezdi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hemmamyahya", "harunbismail2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. İbrâhim -- hocalari */
+  E("yezidbibrahim", "elhasibbnasihelharisie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidbibrahim", "abdullahbkedamebaneze", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidbibrahim", "fazlbanbese", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülazîz b. Ebân b. Muhammed Ebû Hâlid -- hocalari */
+  E("abdulazizbebanbmuhamme", "hattabbosmanettai", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülkerîm b. Mâlik el-Cezerî -- hocalari */
+  E("abdulkerimcezeri", "hattabbkasim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulkerimcezeri", "abdullahbmuharrer", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Dâvûd b. el-Husayn -- hocalari */
+  E("davudbelhusayn", "ibrahimbismailbebihabi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("davudbelhusayn", "zeydbcubeyra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Abdillâh b. Kusıyt -- hocalari */
+  E("yezidkusayt", "davudbhalidbdinarel2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidkusayt", "muhammedbabdirrahma4", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidkusayt", "munkizbkayselmisri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İbrâhim b. Ubeyd b. Rifâa -- hocalari */
+  E("ibrahimbubeydbrifaa", "davudbhalidbdinarel2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Dâvûd b. Ebî Sâlih el-Leysî el-Medenî -- hocalari */
+  E("davudbebisalihelley2", "yakubbishakbzeydelhadr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Amr b. Alkame -- hocalari */
+  E("muhammedamralkame", "durustbziyadelanberi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedamralkame", "selemebrecaettemimiebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedamralkame", "talhabamrbosmanelha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedamralkame", "abdullahbeleclahelkind", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedamralkame", "abdirrahmanbmagra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedamralkame", "abdulazizbubeydulla2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedamralkame", "amrbnumanelbahiliel2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedamralkame", "muhammedbbisrelabdiebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedamralkame", "yahyabkesirebunadr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedamralkame", "yezidbabdulazizbsiyah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ferkad b. Ya‘kûb -- hocalari */
+  E("ferkadbyakub", "deylembgazvanelabdiebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muâz b. Cebel -- hocalari */
+  E("muazcebel", "dinarebuabdullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muazcebel", "isabtalhabubeydulla2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muazcebel", "malikbyuhamir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muazcebel", "ebuelmunib", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Dînâr Ebû Abdullah -- hocalari */
+  E("dinarebuabdullah2", "amrbyahyabumare", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("dinarebuabdullah2", "muhammedamralkame", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("dinarebuabdullah2", "usamezeydleysi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İsmâîl b. Ümeyye -- hocalari */
+  E("ismailumeyye", "zuadebumunzir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ismailumeyye", "abdullahbmeymunbdav2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ismailumeyye", "osmanbamrbsac", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ismailumeyye", "fazlbalaebuabbas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ismailumeyye", "kazabsuveydbhucayr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ismailumeyye", "yahyabosmanetteymi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mutarrif b. Tarîf -- hocalari */
+  E("mutarriftarif", "zuadebumunzir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mutarriftarif", "mendelbali", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mutarriftarif", "yahyabelmuhellebelbece", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Züâd Ebû Münzir -- hocalari */
+  E("zuadebumunzir", "esseribmiskinelmedeni", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zuadebumunzir", "said_mansur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Rebîa b. Şeybân Ebû el-Havrâ -- hocalari */
+  E("rebiabseybanebuelhavra", "yezidbebimeryem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("rebiabseybanebuelhavra", "sabitbumareebumalikelb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Yahyâ b. Habbân -- hocalari */
+  E("muhammedbyahyabhabban", "rebiabebiabdirrahmanet", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbyahyabhabban", "muhammedbyesar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbyahyabhabban", "musabsad3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbyahyabhabban", "musabsadelmedeni2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ca‘fer b. Burkān -- hocalari */
+  E("caferburkan", "rifdebkudaa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("caferburkan", "selemebelayyar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sâbit b. Aclân el-Ensârî Ebû Abdullah -- hocalari */
+  E("sabitbaclanelensariebu", "rifdebkudaa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Rifde b. Kudâa -- hocalari */
+  E("rifdebkudaa", "hisambammarbnusayr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Abdülhamîd b. Sâlim -- hocalari */
+  E("abdirrahmanbabdulhamid", "ezzubeyrbsaidbsuley2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* ez-Zübeyr b. Saîd b. Süleymân -- hocalari */
+  E("ezzubeyrbsaidbsuley2", "cerirhazim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ezzubeyrbsaidbsuley2", "abdullahbelharisbabdul", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Zirbî b. Abdullah el-Ezdî -- hocalari */
+  E("zirbibabdullahelezdi", "ubeydbvakid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zirbibabdullahelezdi", "haramibumarebebihafsa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İbrâhim b. Meysere et-Tâifî -- hocalari */
+  E("ibrahimmeysere", "zekeriyyabishakelmekki", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Zekeriyyâ b. İshak el-Mekkî -- hocalari */
+  E("zekeriyyabishakelmekki", "ezherbkasimebubekirelb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zekeriyyabishakelmekki", "ruhubade", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zekeriyyabishakelmekki", "bisrsari", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Zümeyl b. Abbâs el-Esedî -- hocalari */
+  E("zumeylbabbaselesedi", "yezidhad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ziyâd b. Ebî Ziyâd -- hocalari */
+  E("ziyadbebiziyad2", "huseym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ziyadbebiziyad2", "davudbbekirbebielfurat", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ziyadbebiziyad2", "muhammedbhalidbmuhamme", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ziyadbebiziyad2", "yezidharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ziyâd b. Abdirrahman Ebû el-Hasîb el-Basrî -- hocalari */
+  E("ziyadbabdirrahmanebuel", "ukaylbtalhaessulemi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ziyâd b. Küleyb Ebû Ma‘şer -- hocalari */
+  E("ziyadbkuleybebumaser", "halidhazza", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ziyadbkuleybebumaser", "ibnebiaruba", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ziyadbkuleybebumaser", "mugirmiksem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muâz b. Hişâm b. Ebî Abdullah ed-Destevâî el-Basrî -- hocalari */
+  E("muazbhisambebiabdullah", "zeydbahzem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muazbhisambebiabdullah", "muhammedbismailelba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muazbhisambebiabdullah", "muhammedbsaidbyezid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Zeyd b. Ahzem -- hocalari */
+  E("zeydbahzem", "ms23", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zeydbahzem", "bh17", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû's-Sıddīk en-Nâcî -- hocalari */
+  E("ebussiddiknaci", "zeyd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Zeyd -- hocalari */
+  E("zeyd", "cabircufi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zeyd", "mutarriftarif", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zeyd", "huseym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Zeyd b. Ali b. Hüseyin Ebû Hüseyin el-Medenî -- hocalari */
+  E("zeydbalibhuseyinebu2", "amess", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zeydbalibhuseyinebu2", "saidbhusiym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zeydbalibhuseyinebu2", "suddi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Zeyd b. Yesî‘ -- hocalari */
+  E("zeydbyesi", "ebuishaksebii", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubeyd b. Huneyn -- hocalari */
+  E("ubeydbhuneyn", "salimbebiumeyyeebunadr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sâlim b. Dînâr -- hocalari */
+  E("salimbdinar2", "misned", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salimbdinar2", "muhammedisataba", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salimbdinar2", "muhammedbabdulmelikbeb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sâlim b. Abdullah b. Ömer Ebû Ömer -- hocalari */
+  E("salimbabdullahbomerebu", "salihkeysan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salimbabdullahbomerebu", "hanzalasufyan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salimbabdullahbomerebu", "ebukilabe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salimbabdullahbomerebu", "humeydtavil", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salimbabdullahbomerebu", "amrbdinarelmekkiebumuh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salimbabdullahbomerebu", "amrbdinarelbasrielaver", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salimbabdullahbomerebu", "muhammedbvasibcabirebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sâlim b. Abdullah -- hocalari */
+  E("salimbabdullah2", "abdulmelikumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salimbabdullah2", "kasimebibezze", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sâlim Ebû Abdullah -- hocalari */
+  E("salimebuabdullah2", "abdulmelikumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salimebuabdullah2", "kasimebibezze", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sa‘d b. İshak b. Kâ‘b -- hocalari */
+  E("sadbishakbkab2", "davudkaysferra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sadbishakbkab2", "muhammedbmusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sa‘d b. Hişâm b. Âmir el-Ensârî el-Medenî -- hocalari */
+  E("sadbhisambamirelensari", "humeydhilal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sadbhisambamirelensari", "zurareevfa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. el-Hâris b. Ebî Saîd -- hocalari */
+  E("saidbelharisbebisai2", "muhammedamralkame", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbelharisbebisai2", "umarebgaziyye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Ebî Hasan el-Basrî -- hocalari */
+  E("saidbebihasanelbasr2", "muhammedbvasibcabirebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbebihasanelbasr2", "halidhazza", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbebihasanelbasr2", "amess", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbebihasanelbasr2", "avfarabi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Hakem b. Muhammed -- hocalari */
+  E("saidbhakembmuhammed2", "hasanaliayyal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbhakembmuhammed2", "muhammedbsehlbaskerett", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbhakembmuhammed2", "ishakbessabbahelkindi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbhakembmuhammed2", "muhammedbavfbsufyanett", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbhakembmuhammed2", "ishakkevsec", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbhakembmuhammed2", "cuzcani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbhakembmuhammed2", "meymunbabbasbata", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbhakembmuhammed2", "sehlbzencelebebierrazi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbhakembmuhammed2", "ibnmain", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbhakembmuhammed2", "yahyabosmanbsalih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Dâvûd b. Ebî Zenber -- hocalari */
+  E("saidbdavudbebizenber", "bh03", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbdavudbebizenber", "muhammedbelferecbmahmu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Zirbî -- hocalari */
+  E("saidbzirbi", "yezidharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbzirbi", "musabbelmikdam", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbzirbi", "alicad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Halef b. Halîfe b. Sâid el-Eşce‘î -- hocalari */
+  E("halefbhalifebsaidelesc", "saidbsuleymaneddabbieb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mansûr b. Ebî el-Esved el-Leysî -- hocalari */
+  E("mansurbebielesvedelley", "saidbsuleymaneddabbieb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mansurbebielesvedelley", "alibsabit2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Süleymân ed-Dabbî Ebû Osmân el-Vâsıtî -- hocalari */
+  E("saidbsuleymaneddabbieb", "zaferani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbsuleymaneddabbieb", "harunhammal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbsuleymaneddabbieb", "muhammedbebigalibettay", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbsuleymaneddabbieb", "yahyamusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbsuleymaneddabbieb", "cuzcani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbsuleymaneddabbieb", "alibhasan4", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbsuleymaneddabbieb", "ibnmain", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbsuleymaneddabbieb", "kuteybesaid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbsuleymaneddabbieb", "bh03", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Abdirrahman b. Yezîd -- hocalari */
+  E("saidbabdirrahmanbye2", "halidbsaidbebimeryemel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbabdirrahmanbye2", "muhammedsuaybsabur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Amr b. Saîd Ebû Osmân -- hocalari */
+  E("saidbamrbsaidebuosm2", "ms29", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbamrbsaidebuosm2", "muhammedbavfbsufyanett", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Şuayb b. Şâbûr -- hocalari */
+  E("muhammedsuaybsabur", "saidbamrelhadramieb2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedsuaybsabur", "suleymanbabdirrahma2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedsuaybsabur", "safvanbsalihbsafvan2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedsuaybsabur", "abdulhamidbbekkaressul", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedsuaybsabur", "muhammedbvehbbsaid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedsuaybsabur", "hisambhalidbzeydebu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedsuaybsabur", "yezidbkubeys", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Amr el-Hadramî Ebû Osmân -- hocalari */
+  E("saidbamrelhadramieb2", "muhammedbavfbsufyanett", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbamrelhadramieb2", "suleymanbabdulhamidbra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Zâzân Ebû Ömer el-Kindî -- hocalari */
+  E("zadan", "saidbkesirbubeydetteym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Kesîr b. Ubeyd et-Teymî Ebû el-Anbes -- hocalari */
+  E("saidbkesirbubeydetteym", "alimushir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbkesirbubeydetteym", "abdulvahidziyad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbkesirbubeydetteym", "ebunuaymfadl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Abdülazîz b. Ebî Rizme -- hocalari */
+  E("muhammedbabdulazizbebi", "saidbmervanbaliebuo2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Ma‘în -- hocalari */
+  E("ibnmain", "saidbmervanbaliebuo2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Süleymân b. Harb -- hocalari */
+  E("suleymanharb", "saidbmervanbaliebuo2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suleymanharb", "abdirrahmanbamrbabd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Müsedded b. Müserhed -- hocalari */
+  E("misned", "saidbmervanbaliebuo2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("misned", "muhammedbahmedbhuse2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Mervân b. Ali Ebû Osmân -- hocalari */
+  E("saidbmervanbaliebuo2", "bh20", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amre bint Abdirrahman -- hocalari */
+  E("amrabdrahmanzurara", "saidbmuslimbbanik", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrabdrahmanzurara", "ubeydullahbabdullahbme", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Avn b. Abdullah b. Utbe Ebû Abdullah -- hocalari */
+  E("avnbabdullahbutbeebuab", "saidbebihilalelleysi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("avnbabdullahbutbeebuab", "abdulazizbubeydulla2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kâsım b. Ebî Bezze -- hocalari */
+  E("kasimebibezze", "saidbebihilalelleysi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kasimebibezze", "omerbhabibelmekki2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Rebîa b. Seyf b. Mâti‘ -- hocalari */
+  E("rebiabseyfbmati", "saidbebihilalelleysi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ca‘fer b. Abdullah b. Hakem el-Ensârî -- hocalari */
+  E("caferbabdullahbhakemel", "saidbebihilalelleysi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mahreme b. Süleymân el-Vâlibî -- hocalari */
+  E("mahremesuleyman", "saidbebihilalelleysi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Abdillâh b. el-Hâd -- hocalari */
+  E("yezidhad", "saidbebihilalelleysi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Yahyâ b. el-Ezher Ebû Osmân -- hocalari */
+  E("saidbyahyabelezherebuo", "ms23", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Yesâr Ebû el-Hubâb -- hocalari */
+  E("saidbyesarebuelhubab", "suheylebisalih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbyesarebuelhubab", "muhammedbamrbataelamir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbyesarebuelhubab", "amrbyahyabumare", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbyesarebuelhubab", "musabebitemimelmedeni", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* es-Sefer b. Nüseyr -- hocalari */
+  E("esseferbnuseyr", "muaviyesalih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Dâvûd b. Ebî Âsım b. Urve -- hocalari */
+  E("davudbebiasimburve", "sufyanbabdirrahman2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Süfyân b. Abdirrahman -- hocalari */
+  E("sufyanbabdirrahman2", "abdullahbebuelmekki", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Süfyân b. Mûsâ el-Basrî -- hocalari */
+  E("sufyanbmusaelbasri2", "amrbnalisayrafi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sufyanbmusaelbasri2", "muhammedbubeydbhisab", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sufyanbmusaelbasri2", "abdirrahmanbelmubarek", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hilâl b. Habbâb -- hocalari */
+  E("hilalbhabbab", "sukeynbabdulazizbkayse", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sükeyn b. Abdülazîz b. Kays el-Abdî el-Attâr el-Basrî -- hocalari */
+  E("sukeynbabdulazizbkayse", "ubeydullahmusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sukeynbabdulazizbkayse", "seybanferruh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Büreyd b. Ebî Meryem Mâlik b. Rebîa es-Selûlî -- hocalari */
+  E("bureydbebimeryemmalikb", "selmbzirrir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Velîd b. Cemîl Ebû el-Haccâc -- hocalari */
+  E("elvelidbcemilebuelhacc", "selemebrecaettemimiebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Seleme b. Süleymân el-Mervezî Ebû Süleymân -- hocalari */
+  E("selemebsuleymanelme2", "ibnrahuye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("selemebsuleymanelme2", "ahmedbabdullahbeyyubeb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("selemebsuleymanelme2", "ahmedbsaidbibrahimelme", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("selemebsuleymanelme2", "abdebabdurrahimbhassan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Seleme b. Abdullah -- hocalari */
+  E("selemebabdullah2", "cerirhazim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("selemebabdullah2", "abdusselamharb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Seleme b. Muhammed b. Ammâr -- hocalari */
+  E("selemebmuhammedbamm2", "alizeydcudan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Zübeyr b. Adî -- hocalari */
+  E("zubeyradi", "selemebnubeyt", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Süleym b. Hayyân -- hocalari */
+  E("suleymbhayyan", "ebudavudtayalisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suleymbhayyan", "yezidharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suleymbhayyan", "affanmuslim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Süleymân b. Süfyân et-Teymî -- hocalari */
+  E("suleymanbsufyanetteymi", "ebudavudtayalisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Mücâhid b. Müslim el-Kādî -- hocalari */
+  E("alibmucahidbmuslimelka", "suleymanbsalihelley2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Süleymân b. Sâlih el-Leysî -- hocalari */
+  E("suleymanbsalihelley2", "muhammedbabdulazizbebi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suleymanbsalihelley2", "amrbyahyabelharis", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suleymanbsalihelley2", "ibnrahuye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Osmân en-Nehdî -- hocalari */
+  E("ebuosmannehdi", "suleymanbtarhanetteymi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Miclez Lâhik b. Humeyd -- hocalari */
+  E("ebumiclez", "suleymanbtarhanetteymi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Rakaba b. Maskala el-Abdî Ebû Abdullah -- hocalari */
+  E("rakababmaskalaelabdieb", "suleymanbtarhanetteymi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("rakababmaskalaelabdieb", "yezidbabdulazizbsiyah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ma‘bed b. Hilâl -- hocalari */
+  E("mabedbhilal", "suleymanbtarhanetteymi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Guneym b. Kays el-Mâzinî Ebû el-Anber el-Basrî -- hocalari */
+  E("guneymbkayselmaziniebu", "suleymanbtarhanetteymi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Abdullah b. eş-Şihhîr -- hocalari */
+  E("yezidbabdullahbessihhi", "suleymanbtarhanetteymi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Süleymân b. Tarhân et-Teymî Ebû el-Mu‘temir el-Basrî -- hocalari */
+  E("suleymanbtarhanetteymi", "ibnuleyye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suleymanbtarhanetteymi", "abdulvarissaid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suleymanbtarhanetteymi", "suleymbahdarelbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suleymanbtarhanetteymi", "huseym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suleymanbtarhanetteymi", "yezidharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suleymanbtarhanetteymi", "muhammedbcabirbabdulla", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Süleymân b. Abdullah b. Muhammed Ebû Eyyûb -- hocalari */
+  E("suleymanbabdullahbm2", "ms14", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Kādim el-Huzâî -- hocalari */
+  E("alibkadimelhuzai", "suleymanbabdulcebbarbz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibkadimelhuzai", "kasimbzekeriyyabdin2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Osmân b. Ömer b. Fâris el-Abdî -- hocalari */
+  E("osmanomerfaris", "suleymanbabdulcebbarbz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("osmanomerfaris", "abdulmelikbabdullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("osmanomerfaris", "muhammedbabdullahbu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("osmanomerfaris", "muhammedbyahyababdu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("osmanomerfaris", "muhammedbyunusbmusa2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Hafs b. Giyâs -- hocalari */
+  E("omerbhafsbgiyas", "suleymanbabdulcebbarbz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbhafsbgiyas", "muhammedbidrisbmunzire", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Süleymân b. Abdülcebbâr b. Züreyk -- hocalari */
+  E("suleymanbabdulcebbarbz", "ed20", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Hamza b. Vâkid el-Hadramî Ebû Abdirrahman ed-Dımaşkī -- hocalari */
+  E("yahyabhamzabvakidelhad", "suleymanbabdirrahma2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabhamzabvakidelhad", "yezidbhalidbyezid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülmelik b. es-Sabbâh Ebû Muhammed es-San‘ânî -- hocalari */
+  E("abdulmelikbessabbahebu", "suleymanbabdirrahma2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Osmân b. Fâid Ebû Lübâbe el-Basrî -- hocalari */
+  E("osmanbfaidebulubabeelb", "suleymanbabdirrahma2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Süleymân b. Abdirrahman b. Îsâ et-Temîmî ed-Dımaşkī Ebû Eyyûb -- hocalari */
+  E("suleymanbabdirrahma2", "yezidbmuhammedbabdussa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suleymanbabdirrahma2", "mahmudbhalidessulemieb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suleymanbabdirrahma2", "cuzcani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suleymanbabdirrahma2", "ebuzuraraazi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Behz b. Esed el-Ammî -- hocalari */
+  E("behzesed", "suleymanbubeydullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("behzesed", "abdirrahmanbbisrbha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("behzesed", "muhammedbahmedbnafi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("behzesed", "muhammedbhatimbmeym2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Süleymân b. Ali el-Ezdî Ebû Ukkâşe -- hocalari */
+  E("suleymanbalielezdiebuu", "ruhubade", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suleymanbalielezdiebuu", "yezidharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hemmâm b. el-Hâris b. Kays -- hocalari */
+  E("hemmambelharisbkays", "suleymanbyuseyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Süleymân b. Yüseyr -- hocalari */
+  E("suleymanbyuseyr", "yalaubeyd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suleymanbyuseyr", "ubeydullahmusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* es-Sümeyda‘ b. Vâhib b. Sevvâr -- hocalari */
+  E("essumeydabvahibbsevvar", "salihbadibebiumareennu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sümeyt b. Umeyr -- hocalari */
+  E("sumeytbumeyr", "imranbhudeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Âiz b. Amr el-Müzenî -- hocalari */
+  E("aizamr", "sevadebasim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("aizamr", "abdulmelikbhabibele2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sevâde b. Âsım -- hocalari */
+  E("sevadebasim", "cureyri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sevadebasim", "imranbhudeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Süveyd b. Hucayr -- hocalari */
+  E("suveydbhucayr", "davudebihind", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suveydbhucayr", "hatimebisagire", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suveydbhucayr", "makilbubeydullahelceze", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suveydbhucayr", "davudbsabur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Âsım b. Süleymân el-Ahvel -- hocalari */
+  E("asimahvel", "sellambsuleym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Şebîb b. Garkade -- hocalari */
+  E("sebibgarkade", "sellambsuleym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Âdem b. Ali eş-Şeybânî -- hocalari */
+  E("adembaliesseybani", "sellambsuleym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Esved b. Kays -- hocalari */
+  E("esvedkays", "sellambsuleym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("esvedkays", "abdirrahmanbhumeydb3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("esvedkays", "ebumalikennehaielva2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* A‘meş -- hocalari */
+  E("amess", "sellambsuleym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amess", "amrbsabit2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amess", "kasimbyahyabataebum2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amess", "muhammedbbisrelabdiebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amess", "muhammedbabdirrahma6", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amess", "muhammedbubeyd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amess", "nadrbmuhammedelmerv2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Eş‘as b. Ebî eş-Şa‘sâ el-Muhâribî -- hocalari */
+  E("esasbebiessasaelmuhari", "sellambsuleym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("esasbebiessasaelmuhari", "muhammedbbisrbbesir2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sellâm b. Süleym -- hocalari */
+  E("sellambsuleym", "yahyaadem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sellambsuleym", "said_mansur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sellambsuleym", "kuteybesaid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sellambsuleym", "ismailbebanelverrakele", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sellambsuleym", "ibnsellam", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sellambsuleym", "misned", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sellambsuleym", "hennadseri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sellambsuleym", "halefhisam", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sellambsuleym", "suveydsaidhadesani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hasan b. Yahyâ -- hocalari */
+  E("hasanbyahya", "selamebbisrbbudeyl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Selâme b. Bişr b. Büdeyl -- hocalari */
+  E("selamebbisrbbudeyl", "cuzcani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("selamebbisrbbudeyl", "yezidbmuhammedbabdussa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû İdrîs el-Havlânî -- hocalari */
+  E("ebuidrishavlani", "seyyar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuidrishavlani", "abdullahbamirbyezid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İkrime b. Ammâr -- hocalari */
+  E("ikrimeammar", "sazbfeyyad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ikrimeammar", "abdullahbebicafererraz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ikrimeammar", "muaviyebsellam", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Şâz b. Yahyâ el-Vâsıtî -- hocalari */
+  E("sazbyahyaelvasiti", "abbasanberi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sazbyahyaelvasiti", "ahmedsinan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Ebî Necîh Yesâr el-Mekkî Ebû Yesâr es-Sekafî -- hocalari */
+  E("abdullahbebinecihyesar", "siblbabbadelmekki", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbebinecihyesar", "yahyabosmanetteymi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Nu‘mân b. Beşîr -- hocalari */
+  E("numanbesir", "serahilbade", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("numanbesir", "abdullahbzeydbamr2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("numanbesir", "abdullahbamirbyezid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("numanbesir", "yuseyyibmadanelhadrami", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Şerâhîl b. Âde -- hocalari */
+  E("serahilbade", "ebukilabe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("serahilbade", "abdirrahmanbyezidbcabi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("serahilbade", "hassanatiyye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Şuayb b. Ebî Hamza -- hocalari */
+  E("suaybbebihamza", "bakiyyevelid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Şuayb b. Hâlid el-Becelî er-Râzî -- hocalari */
+  E("suaybbhalidelbeceli2", "hakkambselm", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suaybbhalidelbeceli2", "zuhayrmuaviye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yûnus b. Habbâb -- hocalari */
+  E("yunusbhabbab", "suaybbsafvanbrabies2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Şuayb b. Safvân b. Rabî‘ es-Sekafî Ebû Yahyâ -- hocalari */
+  E("suaybbsafvanbrabies2", "ebudavudtayalisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suaybbsafvanbrabies2", "alihucr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Hâşim er-Rummânî -- hocalari */
+  E("ebuhasimrummani", "suaybbmeymunelvasit2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Avvâm b. Havşeb -- hocalari */
+  E("avvamhavseb", "suaybbmeymunelvasit2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("avvamhavseb", "muhammedbubeyd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Şuayb b. Meymûn el-Vâsıtî -- hocalari */
+  E("suaybbmeymunelvasit2", "sebabesevvar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Zir b. Hubeyş el-Esedî -- hocalari */
+  E("zirhubeys", "simrbatiyyeelesedi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zirhubeys", "isabasimelesedi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sâlih b. Ebî Hassân el-Medenî -- hocalari */
+  E("salihbebihassanelme2", "bukeyresec", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sâlih b. Hayyân -- hocalari */
+  E("salihbhayyan2", "alibgurab", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Mâlik el-Eşce‘î -- hocalari */
+  E("ebumalikesceyi", "salihbomerelvasiti2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sâlih b. Ömer el-Vâsıtî -- hocalari */
+  E("salihbomerelvasiti2", "alihucr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salihbomerelvasiti2", "ahmedbibrahimbhalidebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sâlih b. Mûsâ b. İshak -- hocalari */
+  E("salihbmusabishak2", "said_mansur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("salihbmusabishak2", "suveydsaidhadesani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sa‘sa‘a b. Sûhân -- hocalari */
+  E("sasaabsuhan", "ebuishaksebii", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sasaabsuhan", "malikbumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sasaabsuhan", "elminhalbamrelesedi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdurrahman b. Ganm -- hocalari */
+  E("ibnganm", "safvanbsuleymelmede2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnganm", "abdullahbmuanikebumuan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Selmân-ı Egar el-Medenî -- hocalari */
+  E("abdullahbselmaniegarel", "safvanbsuleymelmede2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Safvân b. Süleym el-Medenî Ebû Abdullah -- hocalari */
+  E("safvanbsuleymelmede2", "ibnebizib", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("safvanbsuleymelmede2", "darevardi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Süveyd b. Abdülazîz b. Nümeyr es-Sülemî -- hocalari */
+  E("suveydbabdulazizbnumey", "safvanbsalihbsafvan2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suveydbabdulazizbnumey", "hisambhalidbzeydebu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Safvân b. Sâlih b. Safvân es-Sekafî -- hocalari */
+  E("safvanbsalihbsafvan2", "yezidbmuhammedbabdussa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("safvanbsalihbsafvan2", "cuzcani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("safvanbsalihbsafvan2", "hasanaliayyal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("safvanbsalihbsafvan2", "ebuzuraraazi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("safvanbsalihbsafvan2", "abdullahbhammadbeyyube", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("safvanbsalihbsafvan2", "ms23", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Cübeyr b. Nüfeyr -- hocalari */
+  E("cubeyrnufeyr", "safvanbamrbherimebuamr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Süleym b. Âmir -- hocalari */
+  E("suleymbamir", "safvanbamrbherimebuamr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suleymbamir", "omerbcasem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Safvân b. Ebî Yezîd -- hocalari */
+  E("safvanbebiyezid2", "suheylebisalih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("safvanbebiyezid2", "muhammedamralkame", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* es-Sak‘ab b. Züheyr b. Abdullah -- hocalari */
+  E("essakabbzuheyrbabdulla", "cerirhazim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sayfî b. Ziyâd el-Ensârî -- hocalari */
+  E("sayfibziyadelensari", "abdullahbsaidbebihinde", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Düveyd b. Nâfi‘ -- hocalari */
+  E("duveydbnafi", "dubarababdullahbmalik", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* ed-Dahhâk b. Hamra -- hocalari */
+  E("eddahhakbhamra", "ufeyrbmadanelmuezzin", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eddahhakbhamra", "yemanbadielhadramiebua", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eddahhakbhamra", "muhammedharbhavlani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eddahhakbhamra", "muhammedbhumeyrbuneys", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* ed-Dahhâk b. Nibrâs -- hocalari */
+  E("eddahhakbnibras", "esedmusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eddahhakbnibras", "ubeydullahmusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Nemle b. Ebî Nemle el-Ensârî el-Medenî -- hocalari */
+  E("nemlebebinemleelensari", "damrabsaidbebihanne", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Damdam Ebû el-Müsennâ -- hocalari */
+  E("damdamebuelmusenna", "hilalbyesaf", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Beyân -- hocalari */
+  E("omerbbeyan", "tumebamr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Tu‘me b. Amr -- hocalari */
+  E("tumebamr", "ibnidris", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("tumebamr", "said_mansur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Talha b. Abdullah b. Osmân -- hocalari */
+  E("talhababdullahbosma2", "ebuimrancevni", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Talha b. Amr b. Osmân el-Hadramî el-Mekkî -- hocalari */
+  E("talhabamrbosmanelha2", "cerirhazim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("talhabamrbosmanelha2", "ebudavudtayalisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("talhabamrbosmanelha2", "abdullahbelharisbabdul", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("talhabamrbosmanelha2", "caferavn", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("talhabamrbosmanelha2", "ubeydullahmusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Talha b. Yahyâ b. Talha -- hocalari */
+  E("talhabyahyabtalha2", "ibnidris", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("talhabyahyabtalha2", "abdulvahidziyad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("talhabyahyabtalha2", "abdullahbdavudbamirelh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("talhabyahyabtalha2", "alibhasimbelberid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("talhabyahyabtalha2", "fazlbmusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Saîd b. Ebî Hind el-Fezârî -- hocalari */
+  E("abdullahbsaidbebihinde", "talhabyahyabnuman2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbsaidbebihinde", "mugirebabdirrahmanb3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Talha b. Yahyâ b. Nu‘mân -- hocalari */
+  E("talhabyahyabnuman2", "abbadbmusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("talhabyahyabnuman2", "muhammedbabbadbezzibri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Süheyl b. Ebî Sâlih -- hocalari */
+  E("suheylebisalih", "asimbomerbhafsebuom2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suheylebisalih", "abdullahbhuseyinbat2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suheylebisalih", "abdirrahmanbishakba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suheylebisalih", "osmanbamrbsac", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suheylebisalih", "kasimbabdullahbomer2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suheylebisalih", "hureymbsufyanelbecelie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suheylebisalih", "hisambhassanelezdi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suheylebisalih", "yahyabelmuhellebelbece", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("suheylebisalih", "yakubbabdirrahmanbm2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Âsım b. Ömer b. Hafs Ebû Ömer el-Medenî -- hocalari */
+  E("asimbomerbhafsebuom2", "muhammedbfuleyhbsuleym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("asimbomerbhafsebuom2", "abdullahbnafiessaigelm", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("asimbomerbhafsebuom2", "ebudavudtayalisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("asimbomerbhafsebuom2", "ibnebiuveys", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Âsım b. Muhammed b. Zeyd -- hocalari */
+  E("asimbmuhammedbzeyd2", "yezidharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("asimbmuhammedbzeyd2", "bisrmufaddal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("asimbmuhammedbzeyd2", "omeryunusyemami", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("asimbmuhammedbzeyd2", "alicad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hâlid b. Ma‘dân Ebû Abdullah -- hocalari */
+  E("halidbmadanebuabdullah", "amirbcuseyb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("halidbmadanebuabdullah", "yezidbabdirrahmanbe2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Âmir b. es-Simt -- hocalari */
+  E("amirbessimt", "alimushir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amirbessimt", "yezidharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amr b. Süleym ez-Zürakī -- hocalari */
+  E("amrsuleymzuraki", "amirbabdullahbezzub2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrsuleymzuraki", "ebubekirbmuhammedba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Âmir b. Abdullah b. ez-Zübeyr Ebû el-Hâris el-Medenî -- hocalari */
+  E("amirbabdullahbezzub2", "abdullahbsaidbebihinde", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amirbabdullahbezzub2", "saidbmuslimbbanik", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amirbabdullahbezzub2", "muhammedacilan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amirbabdullahbezzub2", "malik", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Cüveyriye b. Esmâ b. Ubeyd ed-Dubaî -- hocalari */
+  E("cuveyriyebesmabubeyded", "abaebkuleybelleysiebug", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abâe b. Küleyb el-Leysî Ebû Gassân -- hocalari */
+  E("abaebkuleybelleysiebug", "talkgannam", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abaebkuleybelleysiebug", "zekeriyyabadibessaltet", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abaebkuleybelleysiebug", "alibmuhammedbishaketta", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abaebkuleybelleysiebug", "muhammedbismailbsemure", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abaebkuleybelleysiebug", "hasanbalibaffanelamiri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Muhammed b. Ukayl Ebû Muhammed el-Medenî -- hocalari */
+  E("abdullahbmuhammedbukay", "abbadbkesiressekafi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbmuhammedbukay", "amrbsabit2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbmuhammedbukay", "kasimbabdulvahidbeymen", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbmuhammedbukay", "yahyabalaelbecelieb2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abbâd b. Kesîr es-Sekafî el-Basrî -- hocalari */
+  E("abbadbkesiressekafi2", "darevardi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abbadbkesiressekafi2", "damrarebia", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah -- hocalari */
+  E("abdullah", "abbasbzurayh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abbâs b. Zürayh -- hocalari */
+  E("abbasbzurayh", "kaysrebi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Yûsuf el-Firyâbî -- hocalari */
+  E("firyabi", "abbasbabdullahbebii2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Ísâ İbnü't-Tabbâ‘ -- hocalari */
+  E("muhammedisataba", "abbasbabdullahbebii2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abbâs b. Abdullah b. Ebî Îsâ el-Vâsıtî -- hocalari */
+  E("abbasbabdullahbebii2", "ms29", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abbasbabdullahbebii2", "ms28", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abbasbabdullahbebii2", "bh17", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. İbrâhim b. Ömer Ebû Yezîd -- hocalari */
+  E("abdullahbibrahimbomere", "ahmedhanbel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbibrahimbomere", "selemebsebibennisaburi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbibrahimbomere", "haccacsair", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbibrahimbomere", "alibbahrbberri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbibrahimbomere", "alimedini", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mansûr b. el-Mu‘temir -- hocalari */
+  E("mansurmutemir", "abdullahbeleclahelkind", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mansurmutemir", "omerbabdirrahmanbka2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mansurmutemir", "yahyabyalaetteymiebuel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. İshak -- hocalari */
+  E("yahyabishak", "abdullahbishakbmuhamme", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabishak", "muhammedbrafiennisabur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabishak", "muhammedbalibhamzae2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabishak", "muhammedbalibhamza2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Bâbâh -- hocalari */
+  E("abdullahbbabah", "ibrahimbmuhacirbcabire", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbabah", "ibrahimbubeydbrifaa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbabah", "abdullahbebinecihyesar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Ebî Basîr el-Abdî -- hocalari */
+  E("abdullahbebibasirelabd", "ebuishaksebii", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Behz b. Hakîm -- hocalari */
+  E("behzhakim", "abdullahbbekirbhabibel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("behzhakim", "abdullahbsevzebelhoras", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ümeyye b. Abdullah b. Hâlid -- hocalari */
+  E("umeyyebabdullahbhalid", "abdullahbebibekirba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Ebî Bekir b. Abdirrahman -- hocalari */
+  E("abdullahbebibekirba2", "muhammedbabdullahbel2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Ebî Bekir b. Muhammed -- hocalari */
+  E("abdullahbebibekirbm2", "hisamurve", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbebibekirbm2", "abdulazizbmuttalibbabd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Ebî Ca‘fer er-Râzî -- hocalari */
+  E("abdullahbebicafererraz", "muhammedisataba", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amr b. Ebî Kays er-Râzî el-Ezrak -- hocalari */
+  E("amrbebikayserrazielezr", "abdullahbelcehmerrazie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hakkâm b. Selm -- hocalari */
+  E("hakkambselm", "abdullahbelcehmerrazie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hakkambselm", "muhammedbhumeydbhay2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. el-Cehm er-Râzî Ebû Abdirrahman -- hocalari */
+  E("abdullahbelcehmerrazie", "yusufmusakattan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İyâs b. Muâviye b. Kurre Ebû Vâsile el-Basrî el-Kādî -- hocalari */
+  E("iyasbmuaviyebkurreebuv", "abdullahbhabibbebis2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Habîb b. Ebî Sâbit el-Esedî -- hocalari */
+  E("abdullahbhabibbebis2", "ibnnumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Habîb b. Rebîa -- hocalari */
+  E("abdullahbhabibbrebi2", "alkamemersed", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbhabibbrebi2", "sadubeyde", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbhabibbrebi2", "ebuishaksebii", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbhabibbrebi2", "abdulmelikbayen", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbhabibbrebi2", "asimbehdele", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Hüseyin b. Atâ -- hocalari */
+  E("abdullahbhuseyinbat2", "hatimismail", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbhuseyinbat2", "muhammedbfuleyhbsuleym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Hafs b. Ömer Ebû Bekir el-Medenî -- hocalari */
+  E("abdullahbhafsbomerebub", "bilalbyahya", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbhafsbomerebub", "muhammedsuka", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Dînâr el-Adevî -- hocalari */
+  E("abdullahbdinareladevi", "macisun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbdinareladevi", "abdulazizbmuslim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbdinareladevi", "muhammedsuka", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbdinareladevi", "yezidhad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbdinareladevi", "suheylebisalih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Râfi‘ el-Hadramî Ebû Seleme el-Mısrî -- hocalari */
+  E("abdullahbrafielhadr2", "ayyasbukbebkuleybelhad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Zirrîr -- hocalari */
+  E("abdullahbzirrir", "bekirbsevadebsumame", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbzirrir", "abdullahbhubeyrebesad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Ziyâd b. Süleymân Ebû Abdirrahman el-Medenî -- hocalari */
+  E("abdullahbziyadbsule2", "sebabesevvar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbziyadbsule2", "alicad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Zeyd b. Amr -- hocalari */
+  E("abdullahbzeydbamr2", "halidhazza", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbzeydbamr2", "esasbabdirrahmanelcerm", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbzeydbamr2", "gaylancerir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İbrâhim b. Yûsuf b. İshak -- hocalari */
+  E("ibrahimbyusufbishak", "abdullahbsalim2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubeyde b. el-Esved b. Saîd el-Hemdânî -- hocalari */
+  E("ubeydebelesvedbsaidelh", "abdullahbsalim2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydebelesvedbsaidelh", "yahyababdirrahmanbm2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Sâlim -- hocalari */
+  E("abdullahbsalim2", "ibnmace", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbsalim2", "ebuzuraraazi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbsalim2", "bh07", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Sa‘d et-Teymî -- hocalari */
+  E("abdullahbsadetteymi2", "ms02", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muâviye b. Sâlih el-Hadramî -- hocalari */
+  E("muaviyesalih", "abdullahbsalihbmuha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Harmala b. İmrân et-Tüceybî -- hocalari */
+  E("harmalaimran", "abdullahbsalihbmuha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Bişr b. es-Serî -- hocalari */
+  E("bisrsari", "abdullahbsalihbmuha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("bisrsari", "muhammedbhatimbmeym2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Sâlih b. Muhammed Ebû Sâlih el-Mısrî -- hocalari */
+  E("abdullahbsalihbmuha2", "darimi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbsalihbmuha2", "alibdavudbyezid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbsalihbmuha2", "mektumbabbasebufazlelm", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbsalihbmuha2", "ibnmain", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbsalihbmuha2", "ahmedbelfuratbhalidedd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbsalihbmuha2", "recabmureccaelgifariel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbsalihbmuha2", "duhaym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbsalihbmuha2", "muhammedbismailbyusufe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbsalihbmuha2", "muhammedbishak", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbsalihbmuha2", "yahyabosmanbsalih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Zâlim et-Temîmî el-Mâzinî -- hocalari */
+  E("abdullahbzalimettemimi", "simakharb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbzalimettemimi", "abdulmelikbmeysereebuz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbzalimettemimi", "hilalbyesaf", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Âmir b. Yezîd -- hocalari */
+  E("abdullahbamirbyezid2", "abdullahbalabzebr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbamirbyezid2", "abdirrahmanbyezidbcabi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbamirbyezid2", "muhammedvelidzubeydi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Abdullah b. Ebî Talha el-Ensârî Ebû Yahyâ el-Medenî -- hocalari */
+  E("abdullahbabdullahbe3", "muhammedbmusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbabdullahbe3", "saidbabdirrahmanelcuma", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbabdullahbe3", "muaviyebebimuzerrid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Abdullah er-Râzî -- hocalari */
+  E("abdullahbabdullaher2", "muhammedbabdirrahman3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbabdullaher2", "hakemuteybe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbabdullaher2", "fitrhalife", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Avn b. Umâre Ebû Muhammed el-Basrî -- hocalari */
+  E("avnbumareebumuhammedel", "abdullahbabdulmuminbos", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Ubeydullah -- hocalari */
+  E("abdullahbubeydullah2", "muhammedacilan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Ubeyd -- hocalari */
+  E("abdullahbubeyd2", "cerirhazim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbubeyd2", "ismailumeyye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbubeyd2", "budeylbmeysereelbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbubeyd2", "ikrimeammar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbubeyd2", "harunbsalihbibrahim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Zeyd b. Eslem el-Adevî -- hocalari */
+  E("abdirrahmanbzeydbeslem", "abdullahbosmanbisha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbzeydbeslem", "muhammedbabdullahbe2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbzeydbeslem", "muhammedbubeydbmuha3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbzeydbeslem", "mansurbsukayr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbzeydbeslem", "yahyababdulhamidbab2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbzeydbeslem", "yahyabmuhammedbabdu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Osmân b. İshak -- hocalari */
+  E("abdullahbosmanbisha2", "ibrahimbabdullahbhatim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbosmanbisha2", "muhammedbsalihbmihrane", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. ez-Zübeyr el-Basrî -- hocalari */
+  E("muhammedbezzubeyrelbas", "abdullahbarade", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Arâde -- hocalari */
+  E("abdullahbarade", "ismailbmeslemebkanebel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbarade", "ezherbmervanerrakasi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbarade", "seyyarbhatim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Huzeyfe b. el-Yemân -- hocalari */
+  E("huzeyfe", "abdullahbukeym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdürrahîm b. Süleymân el-Kinânî -- hocalari */
+  E("abdurrahimbsuleymanelk", "abdullahbomerbmuham2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Ömer b. Muhammed -- hocalari */
+  E("abdullahbomerbmuham2", "ed20", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Îsâ b. Abdirrahman Ebû Muhammed -- hocalari */
+  E("abdullahbisababdirr2", "hasanbselmbsalih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbisababdirr2", "zuhayrmuaviye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Bişr Ebû Umeyr -- hocalari */
+  E("abdullahbbisrebuumeyr", "abdullahbgabir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbbisrebuumeyr", "elvelidbmugirebsule2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Gābir -- hocalari */
+  E("abdullahbgabir", "elahvesbhakimbumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbgabir", "ertatbmunzirbelesved", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbgabir", "sevryezid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbgabir", "harizbosmanerrahbi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Fazl b. Abbâs -- hocalari */
+  E("abdullahbfazlbabbas", "abdirrahmanbsabitbsevb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbfazlbabbas", "ziyadsad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebân b. Yezîd el-Attâr -- hocalari */
+  E("ebansattar", "abdullahbkedamebaneze", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebansattar", "abdirrahmanbabdulla4", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebansattar", "muslimbibrahimelezdi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Kedâme b. Aneze -- hocalari */
+  E("abdullahbkedamebaneze", "ibnrahuye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbkedamebaneze", "muaviyebsalihbebiubeyd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbkedamebaneze", "ed13", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbkedamebaneze", "abbasanberi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbkedamebaneze", "amrbnalisayrafi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Ebî Kays -- hocalari */
+  E("abdullahbebikays2", "davudebihind", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Lühay -- hocalari */
+  E("abdullahbluhay", "rasidbsad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Muharrer -- hocalari */
+  E("abdullahbmuharrer", "hatimismail", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbmuharrer", "ebunuaymfadl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Misver b. Rifâa b. Ebî Mâlik -- hocalari */
+  E("elmisverbrifaabebimali", "abdullahbmuhammedba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Husıyfe -- hocalari */
+  E("yezidhusayfe", "abdullahbmuhammedba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Muhammed b. Abdullah -- hocalari */
+  E("abdullahbmuhammedba2", "ebuamirakadi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbmuhammedba2", "ibnrahuye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbmuhammedba2", "ahmedabde", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Muhammed b. Abdülmelik -- hocalari */
+  E("abdullahbmuhammedba4", "misned", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ahmed b. İbrâhim b. Hâlid Ebû Ali -- hocalari */
+  E("ahmedbibrahimbhalidebu", "abdullahbmuhammedbu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ahmed b. İbrâhim ed-Devrakī -- hocalari */
+  E("ahmeddevraki", "abdullahbmuhammedbu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. el-Ca‘d -- hocalari */
+  E("alicad", "abdullahbmuhammedbu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İbrâhim b. el-Münzir el-Hizâmî -- hocalari */
+  E("ibrahimmunzirhizami", "abdullahbmuhammedbu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibrahimmunzirhizami", "omerbabdulazizbimra2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Halef b. Hişâm el-Bezzâr -- hocalari */
+  E("halefhisam", "abdullahbmuhammedbu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("halefhisam", "alibmuhammedbzekeri2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Züheyr b. Harb Ebû Hayseme -- hocalari */
+  E("zuheyrharb", "abdullahbmuhammedbu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Serîc b. Yûnus -- hocalari */
+  E("sericyunus", "abdullahbmuhammedbu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kâmil b. Talha Ebû Yahyâ el-Basrî -- hocalari */
+  E("kamilbtalhaebuyahyaelb", "abdullahbmuhammedbu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mansûr b. Ebî Müzâhim Beşîr Ebû Nasr -- hocalari */
+  E("mansurbebimuzahimbesir", "abdullahbmuhammedbu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Dâvûd es-Sicistânî -- hocalari */
+  E("ebudavud", "abdullahbmuhammedbu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Muhammed b. Ubeyd -- hocalari */
+  E("abdullahbmuhammedbu2", "ms20", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbmuhammedbu2", "ed24", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbmuhammedbu2", "muhammedbyahyabsuleyma", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbmuhammedbu2", "ed04", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Dâvûd b. Abdirrahman el-Attâr -- hocalari */
+  E("davudattar", "abdullahbmuhammedba5", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("davudattar", "abdullahbvehbbmuslim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. İmrân -- hocalari */
+  E("muhammedbimran", "abdullahbmuhammedba5", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Sâbit el-Cezerî Ebû Ahmed -- hocalari */
+  E("alibsabitelcezeriebuah", "abdullahbmuhammedba5", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibsabitelcezeriebuah", "muhammedbhisambisa2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Muhammed b. Ali -- hocalari */
+  E("abdullahbmuhammedba5", "cuzcani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbmuhammedba5", "ibnmain", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İshak b. Sâlim -- hocalari */
+  E("ishakbsalim", "abdullahbmuhammedbomer", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Müslim el-Basrî -- hocalari */
+  E("abdullahbmuslimelba2", "misned", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Matar Ebû Reyhâne el-Basrî -- hocalari */
+  E("abdullahbmatarebureyha", "avfarabi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbmatarebureyha", "bisrmufaddal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Muânık Ebû Muânık -- hocalari */
+  E("abdullahbmuanikebumuan", "busrbubeydullahelhadra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbmuanikebumuan", "sehrhavseb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. el-Munîb -- hocalari */
+  E("abdullahbelmunib", "muhammedbhalidbasme", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Âmir ed-Dubaî -- hocalari */
+  E("saidamirdubai", "abdullahbmunir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidamirdubai", "osmanbsalihbsaid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidamirdubai", "muhammedbabdullahbi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidamirdubai", "muhammedbyunusbmusa2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. el-Hasan b. Şakīk el-Mervezî -- hocalari */
+  E("alihasansakik", "abdullahbmunir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alihasansakik", "alibhasanbebihasan2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alihasansakik", "muhammedbalibhamzae2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alihasansakik", "muhammedbalibhamza2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Ebî Hakîm Ebû Abdullah -- hocalari */
+  E("yezidbebihakimebuabdul", "abdullahbmunir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Osmân b. el-Esved el-Mekkî -- hocalari */
+  E("osmanesved", "abdullahbmeymunbdav2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("osmanesved", "abdirrahmanbbuzuyeh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Meymûn b. Dâvûd -- hocalari */
+  E("abdullahbmeymunbdav2", "muemmelbihab", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Nâfi‘ -- hocalari */
+  E("abdullahbnafi2", "darevardi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbnafi2", "abdullahbnafiessaigelm", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbnafi2", "ebudavudtayalisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Nücey -- hocalari */
+  E("abdullahbnucey", "ebuzurabamrbcerir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbnucey", "elharisbyezid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbnucey", "surahbilbmudrikelcufi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbnucey", "cabircufi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Hârûn b. Ebî Îsâ eş-Şâmî -- hocalari */
+  E("abdullahbharunbebii2", "alimedini", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Âmir el-Akadî -- hocalari */
+  E("ebuamirakadi", "abdullahbheysembosm2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuamirakadi", "osmanbsalihbsaid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuamirakadi", "muhammedbrafiennisabur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuamirakadi", "yahyabfazlbyahya2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hammâd b. Mes‘ade et-Temîmî -- hocalari */
+  E("hammadmesade", "abdullahbheysembosm2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hammadmesade", "yahyabhakim2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Heysem b. Osmân -- hocalari */
+  E("abdullahbheysembosm2", "muhammedbyahyabsuleyma", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbheysembosm2", "ed20", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Bükeyr b. Şihâb -- hocalari */
+  E("bukeyrbsihab", "abdullahbelvelidbab2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Huyey b. Abdullah b. Şüreyh el-Mısrî -- hocalari */
+  E("huyeybabdullahbsureyhe", "abdullahbvehbbmuslim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Şüreyh b. Ubeydullah -- hocalari */
+  E("abdirrahmanbsureyhbube", "abdullahbvehbbmuslim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Seleme b. Verdân el-Leysî Ebû Ya‘lâ el-Medenî -- hocalari */
+  E("selemebverdanelleysieb", "abdullahbvehbbmuslim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("selemebverdanelleysieb", "omerbharunbyezidess2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("selemebverdanelleysieb", "muhammedbibrahimbdi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("selemebverdanelleysieb", "muhammedbismailbmus2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("selemebverdanelleysieb", "muhammedbmuslimelme2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Abdirrahman el-Cümahî -- hocalari */
+  E("saidbabdirrahmanelcuma", "abdullahbvehbbmuslim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hafs b. Meysere el-Ukaylî -- hocalari */
+  E("hafsbmeysereelukayli", "abdullahbvehbbmuslim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Vehb b. Müslim -- hocalari */
+  E("abdullahbvehbbmuslim", "abdullahyusuftinnisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbvehbbmuslim", "alimedini", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbvehbbmuslim", "asbagferec", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbvehbbmuslim", "harmalayahya", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbvehbbmuslim", "harunmaruf", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbvehbbmuslim", "yahyabeyyubelmakabiri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbvehbbmuslim", "muhammedbselemebebifat", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbvehbbmuslim", "bahrbnasrbsabikelhavla", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbvehbbmuslim", "yunusbabdulalabmeysere", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbvehbbmuslim", "rebimuradi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Bekkâr b. Abdülazîz b. Ebî Bekre -- hocalari */
+  E("bekkarbabdulazizbebibe", "abdullahbyahyaessek2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Yahyâ es-Sekafî Ebû Muhammed el-Basrî -- hocalari */
+  E("abdullahbyahyaessek2", "darimi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbyahyaessek2", "cuzcani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Zür‘a b. Amr b. Cerîr -- hocalari */
+  E("ebuzurabamrbcerir", "abdullahbyezidenneh2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuzurabamrbcerir", "abdullahbyezidenneh3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuzurabamrbcerir", "amrbsaid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuzurabamrbcerir", "yahyabsaidbhayyan2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Atiyye b. Kays el-Kilâbî -- hocalari */
+  E("atiyyebkayselkilabi", "abdullahbyezideddim2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Abdülazîz b. Sâlih el-Hadramî -- hocalari */
+  E("abdullahbabdulazizbsal", "abdullahbyakubbisha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Sûka -- hocalari */
+  E("muhammedsuka", "abdulhakimbmansurelhuz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedsuka", "abdirrahmanbmagra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Seleme b. Külsûm el-Kindî eş-Şâmî -- hocalari */
+  E("selemebkulsumelkindies", "abdulhamidbibrahimelha", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülhamîd b. İbrâhim el-Hadramî Ebû Takıy -- hocalari */
+  E("abdulhamidbibrahimelha", "imranbbekkarbrasid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulhamidbibrahimelha", "suleymanbabdulhamidbra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulhamidbibrahimelha", "muhammedbavfbsufyanett", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ukbe b. Alkame -- hocalari */
+  E("ukbebalkame", "abdulhamidbbekkaressul", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülhamîd b. Bekkâr es-Sülemî Ebû Abdullah ed-Dımaşkī -- hocalari */
+  E("abdulhamidbbekkaressul", "ebuzuraraazi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulhamidbbekkaressul", "yezidbmuhammedbabdussa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Sa‘d b. Ebî Vakkās ez-Zührî Ebû Kâsım el-Medenî -- hocalari */
+  E("muhammedbsadbebivakkas", "abdulhamidbabdirrah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülhamîd b. Abdirrahman b. Zeyd Ebû Ömer el-Medenî -- hocalari */
+  E("abdulhamidbabdirrah2", "hakemuteybe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. İshak b. Abdullah -- hocalari */
+  E("abdirrahmanbishakba2", "yezidzurey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbishakba2", "bisrmufaddal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbishakba2", "ibrahimtahman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Süfyân b. Uyeyne -- hocalari */
+  E("ibnuyeyne", "abdirrahmanbbisrbha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnuyeyne", "amrbosmanbsaid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdürrezzâk b. Hemmâm -- hocalari */
+  E("abdurrezzak", "abdirrahmanbbisrbha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Hüseyin b. Vâkid el-Mervezî -- hocalari */
+  E("alibhuseyinbvakidelmer", "abdirrahmanbbisrbha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibhuseyinbvakidelmer", "muhammedbalibhamzae2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibhuseyinbvakidelmer", "muhammedbalibhamza2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mûsâ b. Abdülazîz Ebû Şuayb -- hocalari */
+  E("musababdulazizebusuayb", "abdirrahmanbbisrbha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Bişr b. Hakem el-Abdî Ebû Muhammed en-Nîsâbûrî -- hocalari */
+  E("abdirrahmanbbisrbha2", "bh03", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbbisrbha2", "ms02", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbbisrbha2", "ms29", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbbisrbha2", "ms28", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Humrân b. Abdülazîz el-Basrî -- hocalari */
+  E("muhammedbhumranbabdula", "abdirrahmanbbekirbr2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbhumranbabdula", "muhammedbukbebherimess", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Bekir b. Rabî‘ -- hocalari */
+  E("abdirrahmanbbekirbr2", "muazbmuazbnasrebuelmus", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Ebî Bekir b. Ubeydullah -- hocalari */
+  E("abdirrahmanbebibekirbu", "yezidharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbebibekirbu", "alicad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Zekvân mevlâ Âişe -- hocalari */
+  E("zekvanmevlaaise", "abdirrahmanbelharis2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. el-Hâris b. Abdullah -- hocalari */
+  E("abdirrahmanbelharis2", "hisambamrelfezari", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbelharis2", "ebukilabe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbelharis2", "yahyababdirrahmanbhati", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Hüceyre -- hocalari */
+  E("abdirrahmanbhuceyre", "derracbsemanebuessemh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbhuceyre", "abdullahbsalebeelhadra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Humeyd b. Abdirrahman -- hocalari */
+  E("abdirrahmanbhumeydb2", "salihkeysan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbhumeydb2", "hatimismail", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Târık b. Abdirrahman el-Becelî el-Ahmesî -- hocalari */
+  E("tarikbabdirrahmanelbec", "abdirrahmanbhumeydb3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Humeyd b. Abdirrahman -- hocalari */
+  E("abdirrahmanbhumeydb3", "yahyaadem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbhumeydb3", "selemebabdulmelik", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbhumeydb3", "malikbismailebugassan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Sa‘d b. Ammâr -- hocalari */
+  E("abdirrahmanbsadbamm2", "ibnrahuye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbsadbamm2", "ibrahimmusaferra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbsadbamm2", "hisambammarbnusayr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdurrahman b. el-Hâris -- hocalari */
+  E("abdrahmanharis", "abdirrahmanbsadelarece", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Selmân-ı Ebû el-A‘yes -- hocalari */
+  E("abdirrahmanbselmaniebu", "abdullahbalabzebr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Âsım b. Ömer b. Katâde Ebû Ömer el-Medenî -- hocalari */
+  E("asimbomerbkatadeebuome", "abdirrahmanbsuleyma2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("asimbomerbkatadeebuome", "muhammedbyesar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Süleymân b. Abdullah Ebû Süleymân el-Medenî -- hocalari */
+  E("abdirrahmanbsuleyma2", "ibnidris", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbsuleyma2", "huseyinbelvelidennisab", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbsuleyma2", "ebuamirakadi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbsuleyma2", "ibnebizaide", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbsuleyma2", "ahmedbyakubabdillahebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbsuleyma2", "ismailbebanelverrakele", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbsuleyma2", "hisamtayalisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Rabî‘ b. Müslim el-Cümahî Ebû Bekir el-Basrî -- hocalari */
+  E("rabibmuslimelcumahiebu", "abdirrahmanbsellam2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Sellâm -- hocalari */
+  E("abdirrahmanbsellam2", "musabharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbsellam2", "hasanbahmedbhabibelkir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Abdullah b. Sa‘d -- hocalari */
+  E("abdirrahmanbabdulla2", "ahmedbsaidbibrahimelme", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbabdulla2", "ahmedbessabbahebucafer", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbabdulla2", "yahyamusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbabdulla2", "yusufmusakattan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Şuayb b. Yahyâ b. Sâib et-Tüceybî el-Mısrî -- hocalari */
+  E("suaybbyahyabsaibettuce", "abdirrahmanbabdulla3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Eşheb b. Abdülazîz b. Dâvûd Ebû Amr el-Mısrî -- hocalari */
+  E("eshebbabdulazizbdavude", "abdirrahmanbabdulla3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eshebbabdulazizbdavude", "muhammedbabdullahba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Esed b. Mûsâ (Esedü's-sünne) -- hocalari */
+  E("esedmusa", "abdirrahmanbabdulla3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İshak b. Bekir b. Mudar Ebû Ya‘kûb -- hocalari */
+  E("ishakbbekirbmudarebuya", "abdirrahmanbabdulla3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ishakbbekirbmudarebuya", "muhammedbabdullahba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Ma‘bed b. Şeddâd -- hocalari */
+  E("alibmabedbseddad", "abdirrahmanbabdulla3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Nadr b. Abdülcebbâr -- hocalari */
+  E("nadrbabdulcebbar", "abdirrahmanbabdulla3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Abdullah b. Ubeyd el-Basrî Ebû Saîd -- hocalari */
+  E("abdirrahmanbabdulla4", "ahmedhanbel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbabdulla4", "alibmuhammedbishaketta", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Abdullah b. Ebî Ammâr el-Mekkî -- hocalari */
+  E("abdirrahmanbabdulla5", "yusufmahek", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbabdulla5", "ikrimehalid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Mufaddal b. Yûnus el-Cu‘fî Ebû Yûnus -- hocalari */
+  E("elmufaddalbyunuselcufi", "abdirrahmanbabdulme2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Abdülmelik b. Saîd -- hocalari */
+  E("abdirrahmanbabdulme2", "saidbmuhammedbsaidelce", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbabdulme2", "sericyunus", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbabdulme2", "ahmedeskab", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Câbir b. Abdullah el-Ensârî el-Medenî -- hocalari */
+  E("muhammedbcabirbabdulla", "abdirrahmanbata2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbcabirbabdulla", "muhammedbidrisbmunzire", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbcabirbabdulla", "muhammedbismailbibr2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbcabirbabdulla", "muhammedbabdullahbi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Atâ -- hocalari */
+  E("abdirrahmanbata2", "ibnebizib", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbata2", "darevardi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbata2", "hatimismail", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Ammâr b. Ebî Zeyneb et-Teymî el-Medenî -- hocalari */
+  E("abdirrahmanbammarbebiz", "yezidhad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. el-Mübârek -- hocalari */
+  E("muhammedbelmubarek", "abdirrahmanbamrbabd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbelmubarek", "alibosmanbmuhammed3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbelmubarek", "alibosmanbmuhammed4", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Ayyâş el-Elhânî -- hocalari */
+  E("aliayyas", "abdirrahmanbamrbabd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Müslim b. Âiz el-Medenî -- hocalari */
+  E("muhammedbmuslimbaizelm", "abdirrahmanbamrbabd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hevze b. Halîfe b. Abdullah Ebû el-Eşheb el-Basrî -- hocalari */
+  E("hevzebhalifebabdullahe", "abdirrahmanbamrbabd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hevzebhalifebabdullahe", "muhammedbidrisbmunzire", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ahmed b. Hâlid el-Vehbî el-Kindî -- hocalari */
+  E("ahmedhalidvehbi", "abdirrahmanbamrbabd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ahmedhalidvehbi", "muhammedbismailbibr2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ahmed b. Hanbel -- hocalari */
+  E("ahmedhanbel", "abdirrahmanbamrbabd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Mansûr -- hocalari */
+  E("said_mansur", "abdirrahmanbamrbabd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Amr b. Abdullah -- hocalari */
+  E("abdirrahmanbamrbabd2", "ed18", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbamrbabd2", "ns02", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Ebî Amr el-Medenî -- hocalari */
+  E("abdirrahmanbebiamre2", "talhababdullahbavfezzu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Alkame b. Kays en-Nehaî -- hocalari */
+  E("alkame", "abdirrahmanbavseceelhe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Kâsım b. Hâlid -- hocalari */
+  E("abdirrahmanbkasimbh2", "asbagferec", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbkasimbh2", "muhammedbselemebebifat", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbkasimbh2", "elharisbmiskinbmuhamme", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Muhammed b. Ebî Bekir -- hocalari */
+  E("abdirrahmanbmuhammedbe", "simakharb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbmuhammedbe", "hisamurve", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbmuhammedbe", "mansurzazan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbmuhammedbe", "eyyubsahtiyani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbmuhammedbe", "humeydtavil", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbmuhammedbe", "yezidhad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbmuhammedbe", "macisun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Muhammed b. Sellâm -- hocalari */
+  E("abdirrahmanbmuhamme2", "ed13", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbmuhamme2", "ed24", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Nu‘mân b. Ebî Ayyâş ez-Zürakī -- hocalari */
+  E("numanebiayyas", "abdirrahmanbmuaviyebel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("numanebiayyas", "muhammedbabdirrahmanbn", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Muâviye b. el-Huveyris -- hocalari */
+  E("abdirrahmanbmuaviyebel", "ziyadsad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Fazl b. Mübeşşir -- hocalari */
+  E("fazlbmubessir", "abdirrahmanbmagra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sâlih b. Sâlih b. Hayy -- hocalari */
+  E("salihhayy", "abdirrahmanbmagra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Magrâ -- hocalari */
+  E("abdirrahmanbmagra", "ibrahimmusaferra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbmagra", "huseyinbmansurbcafereb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbmagra", "sehlbzencelebebierrazi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbmagra", "yusufmusakattan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Yezîd b. Kays en-Nehaî Ebû Bekir -- hocalari */
+  E("abdirrahmanbyezidbkays", "nehai", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbyezidbkays", "umareumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbyezidbkays", "ebuishaksebii", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbyezidbkays", "mansurmutemir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Muhammed b. Abdüssamed Ebû Kâsım -- hocalari */
+  E("yezidbmuhammedbabdussa", "abdurrahimbmeymunelmed", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Gazvân b. Cerîr ed-Dabbî -- hocalari */
+  E("gazvanbcerireddabbi", "abdusselambebihazimsed", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdüsselâm b. Mutahhir b. Hüsâm el-Ezdî Ebû Zafer -- hocalari */
+  E("abdusselambmutahhirbhu", "bh03", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdusselambmutahhirbhu", "selemebsebibennisaburi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdusselambmutahhirbhu", "ahmeddevraki", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülazîz b. Siyâh -- hocalari */
+  E("abdulazizbsiyah", "ibnnumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizbsiyah", "yalaubeyd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizbsiyah", "ubeydullahmusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. İsmâîl b. Cerîr el-Becelî -- hocalari */
+  E("yahyabismailbcerirelbe", "abdulazizbomerbabdulaz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Abdullah el-Gāfikī -- hocalari */
+  E("abdirrahmanbabdullahel", "abdulazizbomerbabdulaz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülazîz b. Ömer b. Abdülazîz Ebû Muhammed el-Medenî -- hocalari */
+  E("abdulazizbomerbabdulaz", "yunusbrasidebuishakelk", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizbomerbabdulaz", "yahyabhamzabvakidelhad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizbomerbabdulaz", "ibnebizaide", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizbomerbabdulaz", "alimushir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Hassân -- hocalari */
+  E("yahyabhassan", "abdulazizbkurayr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülazîz b. Kurayr -- hocalari */
+  E("abdulazizbkurayr", "damrarebia", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ezher b. Sa‘d es-Semmân Ebû Bekir el-Bâhilî -- hocalari */
+  E("ezherbsadessemmanebube", "abdulazizbmuaviyeba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ezherbsadessemmanebube", "muhammedbrafiennisabur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ezherbsadessemmanebube", "muhammedbyahyababdu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ezherbsadessemmanebube", "muhammedbyunusbmusa2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülazîz b. Muâviye b. Abdullah -- hocalari */
+  E("abdulazizbmuaviyeba2", "ed12", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizbmuaviyeba2", "ed07", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hafsa bint Sîrîn Ümmü el-Hüzeyl -- hocalari */
+  E("hafsabintsirinummuelhu", "abdulmelikbebibesir2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülmelik b. Ebî Beşîr el-Basrî -- hocalari */
+  E("abdulmelikbebibesir2", "leysebisuleym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulmelikbebibesir2", "zuhayrmuaviye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulmelikbebibesir2", "muhammedbhumranbabdula", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hârice b. Zeyd b. Sâbit -- hocalari */
+  E("haricezeyd", "abdulmelikbebibekir2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("haricezeyd", "abdulmelikbelharisb2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülmelik b. Ebî Bekir b. Abdirrahman -- hocalari */
+  E("abdulmelikbebibekir2", "utbebebihakimelhemdani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulmelikbebibekir2", "irakmalik", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülmelik b. el-Hâris b. Hişâm -- hocalari */
+  E("abdulmelikbelharisb2", "utbebebihakimelhemdani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulmelikbelharisb2", "irakmalik", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülmelik b. Habîb el-Ezdî -- hocalari */
+  E("abdulmelikbhabibele2", "hemmamyahya", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulmelikbhabibele2", "ziyadbrabi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulmelikbhabibele2", "sallamebimuti", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülmelik b. Saîd b. Hayyân -- hocalari */
+  E("abdulmelikbsaidbhay2", "zuhayrmuaviye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulmelikbsaidbhay2", "ibnidris", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulmelikbsaidbhay2", "ubeydullahbubeydirrahm", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülazîz b. el-Hattâb Ebû Hasan -- hocalari */
+  E("abdulazizbelhattabebuh", "abdulmelikbabdullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulazizbelhattabebuh", "muhammedbabdullahbu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Bedel b. el-Muhabber et-Temîmî -- hocalari */
+  E("bedelmuhabber", "abdulmelikbabdullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülmelik b. Abdullah b. Muhammed -- hocalari */
+  E("abdulmelikbabdullah2", "bh17", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hasan b. Muhammed İbnü'l-Hanefiyye -- hocalari */
+  E("hasanhanefiyye", "abdulvahidbeymenelmahz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülvâhid b. Eymen el-Mahzûmî -- hocalari */
+  E("abdulvahidbeymenelmahz", "abdullahbdavudbamirelh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulvahidbeymenelmahz", "halladyahya", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubeydullah b. Ebî Râfi‘ el-Medenî -- hocalari */
+  E("ubeydullahbebirafielme", "hasanhanefiyye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahbebirafielme", "busrsaid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahbebirafielme", "hakemuteybe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahbebirafielme", "muaviyebabdullahbcafer", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubeydullah b. Ebî Ziyâd -- hocalari */
+  E("ubeydullahbebiziyad2", "abdullahbdavudbamirelh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahbebiziyad2", "muhammedbbekirbosman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubeydullah b. Ziyâde -- hocalari */
+  E("ubeydullahbziyade", "abdullahbalabzebr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahbziyade", "abdirrahmanbyezidbcabi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubeydullah b. Abdullah b. el-Husayn -- hocalari */
+  E("ubeydullahbabdullah2", "abdullahbalibsaib", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahbabdullah2", "yezidhad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubeydullah b. Abdullah Ebû el-Munîb -- hocalari */
+  E("ubeydullahbabdullahebu", "fazlbmusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahbabdullahebu", "alihasansakik", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İsmâîl b. Ebî Üveys -- hocalari */
+  E("ibnebiuveys", "ubeydullahbmuhammed3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnebiuveys", "muhammedbheysembham2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubeydullah b. Nadr b. Abdullah Ebû Nadr el-Basrî -- hocalari */
+  E("ubeydullahbnadrbabd2", "haramibumarebebihafsa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubeyd b. es-Sebbâk -- hocalari */
+  E("ubeydbessebbak", "ebuumamesehl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubeyd b. Kâsım el-Esedî -- hocalari */
+  E("ubeydbkasimelesedi2", "ahmedhanbel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydbkasimelesedi2", "ibnmain", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydbkasimelesedi2", "muhammedisataba", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydbkasimelesedi2", "sericyunus", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydbkasimelesedi2", "essaltbmesudbtarifebub", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubeyd b. Nistâs -- hocalari */
+  E("ubeydbnistas", "mansurmutemir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubeyd b. Yaîş el-Mehâmilî Ebû Muhammed el-Attâr -- hocalari */
+  E("ubeydbyaiselmehamilieb", "bh07", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mus‘ab b. Süleym el-Esedî -- hocalari */
+  E("musabbsuleymelesedi", "ubeydebebiraita", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İyâs b. Seleme b. el-Ekva‘ Ebû Seleme -- hocalari */
+  E("iyasbselemebelekvaebus", "utbebabdullahbutbeebue", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("iyasbselemebelekvaebus", "muhammedbbisrbbesir2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Avn b. Ebî Cuhayfe es-Süvâî -- hocalari */
+  E("avnebicuhayfe", "utbebabdullahbutbeebue", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Utbe b. Abdullah b. Utbe Ebû el-Umeys -- hocalari */
+  E("utbebabdullahbutbeebue", "muhammedbrebiaelkilabi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("utbebabdullahbutbeebue", "abdulvahidziyad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("utbebabdullahbutbeebue", "caferavn", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kays b. Müslim -- hocalari */
+  E("kaysbmuslim", "utbebyakzanebuamr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Osmân b. Hayyân -- hocalari */
+  E("osmanbhayyan2", "abdirrahmanbyezidbcabi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Osmân b. Sa‘d -- hocalari */
+  E("osmanbsad2", "muhammedbbekirbosman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("osmanbsad2", "ruhubade", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("osmanbsad2", "yahyabkesirbdirhemelan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("osmanbsad2", "muhammedbcabirbabdulla", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Mühâcir el-Ensârî eş-Şâmî -- hocalari */
+  E("muhammedbmuhacirelensa", "osmanbsaidbkesir2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbmuhacirelensa", "osmanbsaid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Şihâb b. Hırâş b. Havşeb eş-Şeybânî Ebû es-Salt el-Vâsıtî -- hocalari */
+  E("sihabbhirasbhavsebesse", "osmanbsaidbkesir2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sihabbhirasbhavsebesse", "osmanbsaid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Osmân b. Saîd b. Kesîr -- hocalari */
+  E("osmanbsaidbkesir2", "muhammedbmusaffabbehlu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("osmanbsaidbkesir2", "muemmelbihab", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("osmanbsaidbkesir2", "muhammedbavfbsufyanett", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Osmân b. Saîd -- hocalari */
+  E("osmanbsaid2", "muhammedbmusaffabbehlu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("osmanbsaid2", "muemmelbihab", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("osmanbsaid2", "muhammedbavfbsufyanett", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Bekir b. Osmân -- hocalari */
+  E("muhammedbbekirbosman", "osmanbsalihbsaid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbbekirbosman", "muhammedbyahyababdu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Osmân b. Sâlih b. Saîd -- hocalari */
+  E("osmanbsalihbsaid2", "ed20", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("osmanbsalihbsaid2", "ed28", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Yezîd b. Ebî Ziyâd Ebû Abdülmelik ed-Dımaşkī -- hocalari */
+  E("alibyezidbebiziyadebua", "osmanbebielatikesuleym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibyezidbebiziyadebua", "maanbrifaa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Humrân b. Ebân -- hocalari */
+  E("hamranaban", "osmanbabdullahbmevhebe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hamranaban", "ataessami2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hamranaban", "isabtalhabubeydulla2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hamranaban", "muslimbyesarelbasri2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Osmân Ebû Seleme el-Basrî -- hocalari */
+  E("osmanebuselemeelbas2", "abdirrahmanbmerzuk", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("osmanebuselemeelbas2", "kureysbeneselensari", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Osmân b. Atâ b. Ebî Müslim el-Horâsânî Ebû Mes‘ûd -- hocalari */
+  E("osmanbatabebimuslimelh", "irakbhalidbyezid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Irâk b. Hâlid b. Yezîd -- hocalari */
+  E("irakbhalidbyezid", "hisambammarbnusayr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Asel Ebû Kurre el-Basrî -- hocalari */
+  E("aselebukurreelbasri", "ibrahimtahman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("aselebukurreelbasri", "ruhubade", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Temîm ed-Dârî -- hocalari */
+  E("temimdari", "ataessami2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("temimdari", "kasimbabdirrahmaned2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Atâ eş-Şâmî -- hocalari */
+  E("ataessami2", "suheylebisalih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Atiyye b. el-Hâris Ebû Revk -- hocalari */
+  E("atiyyebelhariseburevk", "abdulvahidziyad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("atiyyebelhariseburevk", "bisrbumare", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Humeyd b. Hilâl el-Adevî -- hocalari */
+  E("humeydhilal", "ukbebabdullahelesammel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("humeydhilal", "hisambhassanelezdi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("humeydhilal", "yunusbubeydbdinarelabd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Fazl b. Mûsâ -- hocalari */
+  E("fazlbmusa", "alibishakessulemi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fazlbmusa", "muhammedbhumeydbhay2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. İshak es-Sülemî -- hocalari */
+  E("alibishakessulemi2", "ahmedhanbel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibishakessulemi2", "ibrahimmusaferra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibishakessulemi2", "yakubdevraki", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibishakessulemi2", "ahmedbelfuratbhalidedd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kays b. Habter -- hocalari */
+  E("kaysbhabter", "alibbezime", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kaysbhabter", "abdulkerimcezeri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Esbât b. Nasr el-Hemdânî -- hocalari */
+  E("esbatbnasrelhemdani", "alibsabit2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("esbatbnasrelhemdani", "amrbhammadbtalha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Sâlih b. Hayy -- hocalari */
+  E("aliebisalihhayy", "alibsabit2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Sâbit -- hocalari */
+  E("alibsabit2", "ahmedbosmanbhakimelevd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibsabit2", "abdulalabvasilbabdulal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibsabit2", "muhammedbmansurbdavud", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kâsım b. Avf eş-Şeybânî -- hocalari */
+  E("kasimbavfesseybani", "alibelhazver", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kasimbavfesseybani", "ennehhasbkehm", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Meryem es-Sekafî -- hocalari */
+  E("ebumeryemessekafi", "alibelhazver", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Harâmî b. Umâre b. Ebî Hafsa -- hocalari */
+  E("haramibumarebebihafsa", "alibhasanbebihasan2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("haramibumarebebihafsa", "muhammedbebibekirba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Haccâc b. Minhâl -- hocalari */
+  E("haccacminhal", "alibhasanbebihasan2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("haccacminhal", "hilalbalabhilal2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Hasan b. Ebî Hasan -- hocalari */
+  E("alibhasanbebihasan2", "ms02", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Nadr b. Süfyân -- hocalari */
+  E("nadrbsufyan", "alibhalidelmedeni2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Hâlid el-Medenî -- hocalari */
+  E("alibhalidelmedeni2", "eddahhakbosmanbabdulla", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibhalidelmedeni2", "bukeyresec", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Katâde el-Ensârî -- hocalari */
+  E("ebukatade", "alibrebahbkasir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Enes b. Hakîm ed-Dabbî el-Basrî -- hocalari */
+  E("enesbhakimeddabbielbas", "alibzeydbabdullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Adî b. Sâbit el-Ensârî -- hocalari */
+  E("adisabit", "alibzeydbabdullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("adisabit", "alabsalihetteymi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("adisabit", "isabasimelesedi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("adisabit", "magraebuelmuharik", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kâsım b. Abdullah b. Rebîa es-Sekafî -- hocalari */
+  E("kasimbabdullahbrebiaes", "alibzeydbabdullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Nadr b. Enes b. Mâlik el-Ensârî Ebû Mâlik el-Basrî -- hocalari */
+  E("nadrbenesbmalikelensar", "alibzeydbabdullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yûsuf b. Mihrân el-Basrî -- hocalari */
+  E("yusufbmihranelbasri", "alibzeydbabdullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hıyera Ümmü Hasan el-Basrî -- hocalari */
+  E("hiyeraummuhasanelbasri", "alibzeydbabdullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Zeyd b. Abdullah -- hocalari */
+  E("alibzeydbabdullah2", "mubarekbfadale", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibzeydbabdullah2", "abdulvarissaid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibzeydbabdullah2", "caferbsuleymaneddubai", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibzeydbabdullah2", "huseym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibzeydbabdullah2", "mutemirsuleyman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Süveyd b. Mencûf -- hocalari */
+  E("alibsuveydbmencuf", "nadrsumeyl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Osmân b. Husıym -- hocalari */
+  E("ibnhuseymkhaysem", "alibsalihelmekki2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnhuseymkhaysem", "kasimbyahyabataebum2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Sâlih el-Mekkî -- hocalari */
+  E("alibsalihelmekki2", "mamerbsuleymanennehaie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibsalihelmekki2", "mutemirsuleyman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibsalihelmekki2", "numanbabdusselambhabib", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Mûsâ b. A‘yen el-Cezerî Ebû Yahyâ -- hocalari */
+  E("muhammedbmusabayenelce", "alibosmanbmuhammed3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbmusabayenelce", "alibosmanbmuhammed4", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbmusabayenelce", "muhammedbyahyababdu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbmusabayenelce", "muhammedbyahyabmuha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Osmân b. Muhammed -- hocalari */
+  E("alibosmanbmuhammed3", "ms29", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibosmanbmuhammed3", "ms28", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Osmân b. Muhammed -- hocalari */
+  E("alibosmanbmuhammed4", "ms29", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibosmanbmuhammed4", "ms28", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Ali b. Neccâd -- hocalari */
+  E("alibalibneccad", "caferbsuleymaneddubai", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibalibneccad", "haramibumarebebihafsa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibalibneccad", "alicad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibalibneccad", "seybanferruh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Fıtr b. Halîfe -- hocalari */
+  E("fitrhalife", "alibhasimbelberid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fitrhalife", "fazlbalaebuabbas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fitrhalife", "fazlbelmuveffakbebielm", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fitrhalife", "muhammedbbisrelabdiebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fitrhalife", "muhammedbhasanbezzu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fitrhalife", "muhammedbabdirrahma6", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Gurâb -- hocalari */
+  E("alibgurab", "ammarbhalidbyezideb2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ammâr b. Hâlid b. Yezîd Ebû Fazl -- hocalari */
+  E("ammarbhalidbyezideb2", "ibnmace", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Umâre b. Abdullah b. Sayyâd Ebû Eyyûb el-Medenî -- hocalari */
+  E("umarebabdullahbsayyade", "malik", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Ebî Bekir b. Abdirrahman -- hocalari */
+  E("omerbebibekirbabdir2", "ibnebizib", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Ca‘sem -- hocalari */
+  E("omerbcasem", "bakiyyevelid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Habîb el-Mekkî -- hocalari */
+  E("omerbhabibelmekki2", "rebahbzeyd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbhabibelmekki2", "muslimbhalidelmahzumi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbhabibelmekki2", "attabbbesir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Bakiyye b. el-Velîd -- hocalari */
+  E("bakiyyevelid", "omerbhafsbomer3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Hakem b. Râfi‘ -- hocalari */
+  E("omerbhakembrafi2", "imranbenesebueneselmek", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbhakembrafi2", "derracbsemanebuessemh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Husayn b. Mus‘ab -- hocalari */
+  E("husaynbmusab", "omerbhamzababdullah2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Hamza b. Abdullah -- hocalari */
+  E("omerbhamzababdullah2", "mervanfezari", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Halde -- hocalari */
+  E("omerbhalde", "ebuelmutemirbamrbrafie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. ed-Dirfis -- hocalari */
+  E("omerbeddirfis", "yahyabhamzabvakidelhad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbeddirfis", "hisambammarbnusayr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhârib b. Disâr -- hocalari */
+  E("muharibbdisar", "omerbzeydessanani2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muharibbdisar", "anbesebelezheresseyban", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Süleym el-Bâhilî -- hocalari */
+  E("omerbsuleymelbahili2", "abdulvarissaid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbsuleymelbahili2", "sehlbtemmambbuzey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbsuleymelbahili2", "kesirbhisamelkilabiebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbsuleymelbahili2", "ubeydbukayl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbsuleymelbahili2", "heysembcemil", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Âmir es-Sülemî el-Basrî -- hocalari */
+  E("omerbamiressulemiel2", "ibnebiaruba", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbamiressulemiel2", "salimbnuhbebiataelbasr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbamiressulemiel2", "muhammedbabdulvahidbeb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbamiressulemiel2", "mutemirsuleyman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbamiressulemiel2", "yezidzurey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Ali b. Sâib -- hocalari */
+  E("abdullahbalibsaib", "omerbabdullahelmede2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Abdullah el-Medenî -- hocalari */
+  E("omerbabdullahelmede2", "abdirrahmanbebierrical", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbabdullahelmede2", "muhammedsuaybsabur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbabdullahelmede2", "bisrmufaddal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Abdirrahman b. Kays -- hocalari */
+  E("omerbabdirrahmanbka2", "sericyunus", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbabdirrahmanbka2", "mansurbebimuzahimbesir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbabdirrahmanbka2", "ibnmain", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbabdirrahmanbka2", "osmanebiseybe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yûsuf b. Adî b. Rizk et-Teymî -- hocalari */
+  E("yusufbadibrizketteymi", "omerbabdulazizbimra2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Abdülazîz b. İmrân -- hocalari */
+  E("omerbabdulazizbimra2", "ms28", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbabdulazizbimra2", "ns02", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Osmân b. Âsım -- hocalari */
+  E("omerbosmanbasim", "ahmedsinan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İshak b. Yahyâ b. Talha -- hocalari */
+  E("ishakbyahyabtalha", "omerbosmanbomer2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Osmân b. Ömer -- hocalari */
+  E("omerbosmanbomer2", "ibrahimmunzirhizami", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbosmanbomer2", "muhammedbhasanbzubale", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Ali b. Hüseyin -- hocalari */
+  E("omerbalibhuseyin2", "yezidhad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Yezîd b. Câbir el-Ezdî Ebû Utbe eş-Şâmî -- hocalari */
+  E("abdirrahmanbyezidbcabi", "omerbkays2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbyezidbcabi", "elvelidbmuslim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Beşîr el-Ensârî -- hocalari */
+  E("saidbbesirelensari", "omerbkays2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbbesirelensari", "muhammedbhalidbasme", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("saidbbesirelensari", "mervanbmuhammedbhas2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Sâbit b. Sevbân -- hocalari */
+  E("abdirrahmanbsabitbsevb", "omerbkays2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Kays -- hocalari */
+  E("omerbkays2", "mahmudbhalidessulemieb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbkays2", "ibnrahuye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Kays el-Mekkî -- hocalari */
+  E("omerbkayselmekki2", "sadakabhalid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbkayselmekki2", "hikalziyad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbkayselmekki2", "muhammedbbekirbosman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbkayselmekki2", "muazbfadale", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Yesâr el-Mekkî el-A‘rec -- hocalari */
+  E("abdullahbyesarelmekkie", "omerbmuhammedbzeyd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Muhammed b. Zeyd -- hocalari */
+  E("omerbmuhammedbzeyd2", "yezidzurey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbmuhammedbzeyd2", "muhammedsuaybsabur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbmuhammedbzeyd2", "muhammedbrebiaelkilabi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Üsâme b. Zeyd el-Leysî -- hocalari */
+  E("usamezeydleysi", "omerbharunbyezidess2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("usamezeydleysi", "furatbhalideddabbiebui", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Hârûn b. Yezîd es-Sekafî -- hocalari */
+  E("omerbharunbyezidess2", "ahmedhanbel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbharunbyezidess2", "hennadseri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbharunbyezidess2", "osmanebiseybe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbharunbyezidess2", "hasanbisabmaserces", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbharunbyezidess2", "salihbabdullahbzekvane", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbharunbyezidess2", "elcarudbmuazessulemi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbharunbyezidess2", "kuteybesaid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbharunbyezidess2", "kamilbtalhaebuyahyaelb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbharunbyezidess2", "nasralicehdami", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amr b. Ühayha -- hocalari */
+  E("amrbuhayha", "abdullahbalibsaib", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Minhâl b. Amr el-Esedî -- hocalari */
+  E("elminhalbamrelesedi", "amrbsabit2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elminhalbamrelesedi", "alabsalihetteymi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elminhalbamrelesedi", "kasimbelvelidelhemd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amr b. Sâbit -- hocalari */
+  E("amrbsabit2", "ebudavudtayalisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbsabit2", "amrbmuhammed", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbsabit2", "yahyaadem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbsabit2", "abdullahbsalihbmuslim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbsabit2", "said_mansur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbsabit2", "abbadbyakub", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ahnef b. Kays -- hocalari */
+  E("ahnef", "amrbcavan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Derrâc b. Sem‘ân Ebû es-Semh -- hocalari */
+  E("derracbsemanebuessemh", "amrbelharisbyakubelens", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amr b. el-Hâris b. Ya‘kûb el-Ensârî -- hocalari */
+  E("amrbelharisbyakubelens", "salihkeysan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbelharisbyakubelens", "usamezeydleysi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbelharisbyakubelens", "risdinbsadbmuflih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. el-Hâris b. Abdülmelik el-Mahzûmî Ebû Muhammed el-Mekkî -- hocalari */
+  E("abdullahbelharisbabdul", "amrbelhubab", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muttalib b. Ziyâd b. Ebî Züheyr es-Sekafî -- hocalari */
+  E("muttalibbziyadbebizuhe", "amrbhammadbtalha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muttalibbziyadbebizuhe", "yahyababdirrahmanbm2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amr b. Hammâd b. Talha -- hocalari */
+  E("amrbhammadbtalha2", "ahmedbosmanbhakimelevd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbhammadbtalha2", "cuzcani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbhammadbtalha2", "ibnrahuye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Câbir b. Zeyd Ebû’ş-Şa‘sâ -- hocalari */
+  E("cabirzeyd", "amrbdinarelmekkiebumuh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû'l-Minhâl Abdurrahman b. Mut‘im -- hocalari */
+  E("ebulminhal", "amrbdinarelmekkiebumuh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Ka‘kā‘ b. Hakîm el-Kinânî el-Medenî -- hocalari */
+  E("elkakabhakimelkinaniel", "amrbdinarelmekkiebumuh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amr b. Dînâr el-Basrî el-A‘ver -- hocalari */
+  E("amrbdinarelbasrielaver", "abdulvarissaid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbdinarelbasrielaver", "mutemirsuleyman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amr b. Saîd -- hocalari */
+  E("amrbsaid2", "cerirhazim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbsaid2", "cureyri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İbrâhim b. Sadaka el-Basrî -- hocalari */
+  E("ibrahimbsadakaelbasri", "amrbabbaselbahilieb2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amr b. Abbâs el-Bâhilî Ebû Osmân el-Basrî -- hocalari */
+  E("amrbabbaselbahilieb2", "abbasanberi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbabbaselbahilieb2", "ed13", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbabbaselbahilieb2", "ed18", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amr b. Abdullah b. Kâ‘b -- hocalari */
+  E("amrbabdullahbkab2", "yezidhusayfe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amr b. Abdullah b. Vehb en-Nehaî -- hocalari */
+  E("amrbabdullahbvehben2", "zaidekudame", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amr b. Ubeyd b. Bâb -- hocalari */
+  E("amrbubeydbbab", "yezidzurey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbubeydbbab", "abdulvehhabbabdulmecid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbubeydbbab", "abdulvehhabata", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Harb el-Havlânî -- hocalari */
+  E("muhammedharbhavlani", "amrbosmanbsaid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedharbhavlani", "muhammedbvehbbsaid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amr b. Osmân b. Saîd -- hocalari */
+  E("amrbosmanbsaid2", "ibnmace", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbosmanbsaid2", "ed18", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbosmanbsaid2", "bh11", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amr b. Nu‘mân el-Bâhilî el-Basrî -- hocalari */
+  E("amrbnumanelbahiliel2", "ahmedabde", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbnumanelbahiliel2", "huseyinbmuhammedbeyyub", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbnumanelbahiliel2", "humeydbmesadebelmubare", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amr b. Hârûn -- hocalari */
+  E("amrbharun2", "ebuzuraraazi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Rib‘î b. Hırâş -- hocalari */
+  E("rebihiras", "amrbherimelezdielbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülhamîd b. Mahmûd el-Ma‘velî -- hocalari */
+  E("abdulhamidbmahmudelmav", "amrbherimelezdielbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amr b. Herim el-Ezdî el-Basrî -- hocalari */
+  E("amrbherimelezdielbasri", "habibbebihabibelcermie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbherimelezdielbasri", "caferebivahsiyye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbherimelezdielbasri", "salimbabdulvahid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Müemmel b. Fazl el-Cezerî Ebû Saîd -- hocalari */
+  E("muemmelbfazlelcezerieb", "amrbyahyabelharis", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû İshak eş-Şeybânî -- hocalari */
+  E("ismailebiislamsibani", "imranbdaver", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ismailebiislamsibani", "nadrbmuhammedelmerv2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ismailebiislamsibani", "hureymbsufyanelbecelie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ma‘mer b. Râşid -- hocalari */
+  E("mamer", "imranbdaver", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İmrân b. Dâver -- hocalari */
+  E("imranbdaver", "sehlbtemmambbuzey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("imranbdaver", "suaybbbeyanbziyadessaf", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("imranbdaver", "ibnrecagudani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("imranbdaver", "ebuasimnebil", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("imranbdaver", "amrmerzuk", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İmrân b. Müslim -- hocalari */
+  E("imranbmuslim3", "mehdimeymun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("imranbmuslim3", "yahyabsuleymettaifi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("imranbmuslim3", "hatimismail", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("imranbmuslim3", "hammadmesade", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("imranbmuslim3", "bisrmufaddal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("imranbmuslim3", "abdullahbrecaelmekkieb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Zürey‘ -- hocalari */
+  E("yezidzurey", "imranbmusa2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidzurey", "muhammedbismailelba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidzurey", "muhammedbebibekirba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidzurey", "muhammedbabdullahbm2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidzurey", "muhammedbabdullahbm3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İmrân b. Mûsâ -- hocalari */
+  E("imranbmusa2", "ed13", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Habîb b. Ebî Amre -- hocalari */
+  E("habibbebiamre", "anbesebsaidbeddurays", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Zekeriyyâ b. Hâlid -- hocalari */
+  E("zekeriyyabhalid", "anbesebsaidbeddurays", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Anbese b. Saîd b. ed-Durays -- hocalari */
+  E("anbesebsaidbeddurays", "hakkambselm", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("anbesebsaidbeddurays", "cerirabdulhamid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("anbesebsaidbeddurays", "alibmucahidbmuslimelka", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hılâs el-Hecerî -- hocalari */
+  E("hilas", "avfbebicemile", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Zürâre b. Evfâ -- hocalari */
+  E("zurareevfa", "avfbebicemile", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Avf b. Ebî Cemîle -- hocalari */
+  E("avfbebicemile", "huseym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("avfbebicemile", "mutemirsuleyman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("avfbebicemile", "ruhubade", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("avfbebicemile", "caferbsuleymaneddubai", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("avfbebicemile", "ishakyusufezrak", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("avfbebicemile", "muhammedbhasanbimranel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("avfbebicemile", "yezidzurey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("avfbebicemile", "nadrsumeyl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("avfbebicemile", "osmanbheysembcehmebuam", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("avfbebicemile", "muhammedbcabirbabdulla", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("avfbebicemile", "hevzebhalifebabdullahe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Urve b. Mugīre b. Şu‘be es-Sekafî Ebû Ya‘fûr -- hocalari */
+  E("urvebmugirebsubeesseka", "avfbmalikbnadle", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mesrûk b. el-Ecda‘ -- hocalari */
+  E("mesruk", "avfbmalikbnadle", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mesruk", "kasimbabdirrahmanba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mesruk", "muhammedbnesr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Müslim b. Yezîd -- hocalari */
+  E("muslimbyezid", "avfbmalikbnadle", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Alâ b. Zeyd -- hocalari */
+  E("alabzeyd2", "yahyabsaidelattar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alabzeyd2", "yezidharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Ebî Meryem -- hocalari */
+  E("yezidbebimeryem", "alabsalihetteymi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Zür‘a b. Abdirrahman Ebû Abdirrahman -- hocalari */
+  E("zurababdirrahmanebuabd", "alabsalihetteymi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Alâ b. Sâlih et-Teymî -- hocalari */
+  E("alabsalihetteymi2", "ibnnumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alabsalihetteymi2", "alibhasimbelberid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alabsalihetteymi2", "ubeydullahmusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Alâ b. Usaym -- hocalari */
+  E("alabusaym", "ahmedbsaidbibrahimelme", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alabusaym", "recabmuhammedbrecaebuh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alabusaym", "darimi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Îsâ b. İbrâhim b. Îsâ -- hocalari */
+  E("isabibrahimbisa2", "ed17", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("isabibrahimbisa2", "alibsaidbcerirennesai", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("isabibrahimbisa2", "ns02", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Îsâ b. Hafs b. Âsım Ebû Ziyâd el-Medenî -- hocalari */
+  E("isabhafsbasimebuziy2", "darevardi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("isabhafsbasimebuziy2", "caferavn", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("isabhafsbasimebuziy2", "ebuamirakadi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("isabhafsbasimebuziy2", "osmanomerfaris", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Îsâ b. Talha b. Ubeydullah et-Teymî Ebû Muhammed el-Medenî -- hocalari */
+  E("isabtalhabubeydulla2", "halidselememahzumi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Îsâ b. Âsım el-Esedî -- hocalari */
+  E("isabasimelesedi2", "cerirhazim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("isabasimelesedi2", "abdirrahmanbyezidbcabi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("isabasimelesedi2", "muaviyesalih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Îsâ b. Ebî Azze -- hocalari */
+  E("isabebiazze", "kaysrebi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Îsâ b. Kırtâs -- hocalari */
+  E("isabkirtas", "ubeydullahmusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Alâ b. el-Hâris b. Abdilvâris el-Hadramî Ebû Vehb ed-Dımaşkī -- hocalari */
+  E("alabelharisbabdilvaris", "isabmusaebumuhammed2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Gaylân b. Enes -- hocalari */
+  E("gaylanbenes", "isabmusaebumuhammed2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Ubeyde -- hocalari */
+  E("yezidbubeyde", "isabmusaebumuhammed2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Îsâ b. Mûsâ Ebû Muhammed -- hocalari */
+  E("isabmusaebumuhammed2", "amrebiselemetennisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("isabmusaebumuhammed2", "muhammedbsuleymanbebid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Râşid b. Necîh -- hocalari */
+  E("rasidbnecih", "gassanbberzin", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Gassân b. Berzîn -- hocalari */
+  E("gassanbberzin", "ebudavudtayalisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("gassanbberzin", "esedmusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("gassanbberzin", "ahmedbabdulmelikbvakid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("gassanbberzin", "misned", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("gassanbberzin", "muhammedbabdullahbosma", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("gassanbberzin", "abdulvahidbgiyas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("gassanbberzin", "abdullahbmuaviyebmusae", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Furât b. Hâlid ed-Dabbî Ebû İshak er-Râzî -- hocalari */
+  E("furatbhalideddabbiebui", "ibrahimmusaferra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Furât b. Ebî Abdirrahman -- hocalari */
+  E("furatbebiabdirrahman", "amrbkays", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("furatbebiabdirrahman", "amrbebikayserrazielezr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Fazl b. Hasan b. Amr -- hocalari */
+  E("fazlbhasanbamr2", "yezidbmuhammedbabdussa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Esved b. Âmir eş-Şâmî -- hocalari */
+  E("elesvedbamiressami", "fazlbabbas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Gaylân b. Abdullah -- hocalari */
+  E("yahyabgaylanbabdullah", "fazlbabbas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Süreyc b. en-Nu‘mân el-Cevherî -- hocalari */
+  E("surayjnuman", "fazlbabbas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("surayjnuman", "muhammedbrafiennisabur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("surayjnuman", "muhammedbabdullahbhali", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Fazl b. Abbâs -- hocalari */
+  E("fazlbabbas", "bh17", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fazlbabbas", "ed28", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mûsâ b. Ubeyde -- hocalari */
+  E("musabubeyde", "fazlbalaebuabbas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İbrâhim b. Müslim el-Abdî Ebû İshak el-Hecerî -- hocalari */
+  E("ibrahimbmuslimelabdieb", "fazlbalaebuabbas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibrahimbmuslimelabdieb", "muhammedbdinarelezd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Fudayl b. Merzûk Egar -- hocalari */
+  E("fudaylbmerzukegar", "fazlbelmuveffakbebielm", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İsrâîl b. Yûnus -- hocalari */
+  E("israilyunus", "fazlbelmuveffakbebielm", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Fazl b. el-Müveffak b. Ebî el-Müte’id -- hocalari */
+  E("fazlbelmuveffakbebielm", "ahmedhanbel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hasan b. Muhammed b. A‘yen Ebû Ali -- hocalari */
+  E("hasanbmuhammedbayenebu", "fazlbyakubbibrahim2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hasanbmuhammedbayenebu", "muhammedbsuleymanbh2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Haccâc b. Muhammed el-Masīsī -- hocalari */
+  E("haccacmuhammed", "fazlbyakubbibrahim2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Fazl b. Ya‘kûb b. İbrâhim -- hocalari */
+  E("fazlbyakubbibrahim2", "ibnmace", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("fazlbyakubbibrahim2", "ed20", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Fıdda Ebû Mevdûd el-Basrî -- hocalari */
+  E("fiddaebumevdudelbasri", "yahyabeddurays", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kābûs b. Ebî Zabyân -- hocalari */
+  E("kabusbebizabyan", "zuhayrmuaviye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kabusbebizabyan", "cerirabdulhamid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kabusbebizabyan", "ubeydebhumeydebuabdirr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kabusbebizabyan", "yahyabelmuhellebelbece", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İshak b. Mansûr es-Selûlî -- hocalari */
+  E("ishakbmansuresseluli", "kasimbzekeriyyabdin2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Zekeriyyâ b. Adî b. es-Salt et-Teymî -- hocalari */
+  E("zekeriyyabadibessaltet", "kasimbzekeriyyabdin2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("zekeriyyabadibessaltet", "muhammedbrafiennisabur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Talk b. Gannâm en-Nehaî -- hocalari */
+  E("talkgannam", "kasimbzekeriyyabdin2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Amr b. Sehl el-Kindî Ebû Osmân -- hocalari */
+  E("saidbamrbsehlelkindieb", "kasimbzekeriyyabdin2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mus‘ab b. el-Mikdâm -- hocalari */
+  E("musabbelmikdam", "kasimbzekeriyyabdin2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("musabbelmikdam", "muhammedbrafiennisabur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kâsım b. Sellâm -- hocalari */
+  E("kasimbsellam2", "abbasanberi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kasimbsellam2", "darimi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kasimbsellam2", "ed20", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kasimbsellam2", "muhammedbyahyabsuleyma", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sa‘d b. Saîd el-Ensârî -- hocalari */
+  E("sadsaidensari", "kasimbabdullahbomer2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Zeyd b. Cüd‘ân -- hocalari */
+  E("alizeydcudan", "kasimbabdullahbomer2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kâsım b. Abdullah b. Ömer -- hocalari */
+  E("kasimbabdullahbomer2", "mehdibhafsebuahmed", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kasimbabdullahbomer2", "abdullahbelcerrahbsaid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kasimbabdullahbomer2", "kuteybesaid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kasimbabdullahbomer2", "hisambammarbnusayr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Husayn b. Kabîsa el-Fezârî -- hocalari */
+  E("husaynbkabisaelfezari", "kasimbabdirrahmanba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kâsım b. Abdirrahman b. Abdullah Ebû Abdirrahman -- hocalari */
+  E("kasimbabdirrahmanba2", "ismailebiislamsibani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kasimbabdirrahmanba2", "isababdirrahmanessulem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kasimbabdirrahmanba2", "muhammedbabdirrahman3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kasimbabdirrahmanba2", "ibnhuseymkhaysem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kasimbabdirrahmanba2", "cabircufi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kasimbabdirrahmanba2", "misersukdam", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kâsım b. Abdirrahman ed-Dımaşkī Ebû Abdirrahman -- hocalari */
+  E("kasimbabdirrahmaned2", "alibyezidbebiziyadebua", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kasimbabdirrahmaned2", "abdirrahmanbyezidbcabi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kasimbabdirrahmaned2", "elvelidbcemilebuelhacc", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kasimbabdirrahmaned2", "abdullahbalabzebr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kasimbabdirrahmaned2", "sabitbaclanelensariebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kasimbabdirrahmaned2", "alabelharisbabdilvaris", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kasimbabdirrahmaned2", "gaylanbenes", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kâsım b. Abdülvâhid b. Eymen el-Mekkî -- hocalari */
+  E("kasimbabdulvahidbeymen", "hemmamyahya", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kasimbabdulvahidbeymen", "muhammedbmuhammedbnafi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kasimbabdulvahidbeymen", "abdulvarissaid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Müemmel b. İsmâîl el-Basrî Ebû Abdirrahman -- hocalari */
+  E("muemmelbismailelbasrie", "kasimbisabibrahim2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muemmelbismailelbasrie", "muhammedbyunusbmusa2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Hasan b. İmrân el-Müzenî el-Vâsıtî -- hocalari */
+  E("muhammedbhasanbimranel", "kasimbisabibrahim2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kâsım b. Îsâ b. İbrâhim -- hocalari */
+  E("kasimbisabibrahim2", "bh03", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kasimbisabibrahim2", "sehlbebiumamebsehl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mugīre b. Abdullah b. Ebî Ukayl -- hocalari */
+  E("mugirebabdullahbebiuka", "kasimbelvelidelhemd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kâsım b. el-Velîd el-Hemdânî Ebû Abdirrahman -- hocalari */
+  E("kasimbelvelidelhemd2", "muhammedbabdirrahman3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kasimbelvelidelhemd2", "ubeydebelesvedbsaidelh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kasimbelvelidelhemd2", "alibyezidbsuleym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubeydullah b. Ömer el-Ömerî -- hocalari */
+  E("ubeydullahomeri", "kasimbyahyabataebum2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahomeri", "kazabsuveydbhucayr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahomeri", "muhammedbbisrelabdiebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahomeri", "harunbmugirebhakime2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ubeydullahomeri", "hureymbsufyanelbecelie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kabîsa b. el-Helb -- hocalari */
+  E("kabisabelhelb", "simakharb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Humeyd b. Kays el-Mekkî el-A‘rec -- hocalari */
+  E("humeyskaysarac", "kazabsuveydbhucayr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("humeyskaysarac", "muhammedbosmanbsafv2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("humeyskaysarac", "vuheybbelverd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Katabe b. Abdülazîz b. Siyâh -- hocalari */
+  E("katabebabdulazizbsiyah", "asimbyusufebuamr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("katabebabdulazizbsiyah", "yahyaadem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hasan b. Yahyâ b. es-Seken er-Remlî -- hocalari */
+  E("hasanbyahyabessekenerr", "katanbnuseyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kays b. el-Hâris -- hocalari */
+  E("kaysbelharis2", "ubadebnusey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kaysbelharis2", "irakmalik", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kays b. Sa‘d el-Mekkî -- hocalari */
+  E("kaysbsadelmekki2", "cerirhazim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kaysbsadelmekki2", "rebahbebimarufbebisare", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kaysbsadelmekki2", "seyfsuleymanmekki", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kaysbsadelmekki2", "yezidbibrahim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kays b. Vehb el-Hemdânî -- hocalari */
+  E("kaysbvehbelhemdani2", "gaylanbcamibesaselmuha", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû İdrîs -- hocalari */
+  E("ebuidris", "kesirbismail2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kesîr b. İsmâîl -- hocalari */
+  E("kesirbismail2", "fitrhalife", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kesirbismail2", "yezidbabdulazizbsiyah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kesirbismail2", "kaysrebi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kesirbismail2", "alibabis", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kesirbismail2", "alibhasimbelberid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yûsuf b. Mes‘ûd b. Hakem ez-Zürakī -- hocalari */
+  E("yusufbmesudbhakemezzur", "kesirbsinzir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Abdullah el-Bârikī el-Ezdî Ebû Abdullah b. Ebî el-Velîd -- hocalari */
+  E("alibabdullahelbarikiel", "kesirbmuttalibbebiveda", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kesîr b. Muttalib b. Ebî Vedâa Ebû Saîd el-Mekkî -- hocalari */
+  E("kesirbmuttalibbebiveda", "ibrahimnafi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Ubeyd Ebû Vecze -- hocalari */
+  E("yezidbubeydebuvecze", "muhammedbibrahimbdi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidbubeydebuvecze", "mugirebabdirrahmanb3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidbubeydebuvecze", "yahyabrasid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Bişr b. el-Mufaddal er-Rakāşî -- hocalari */
+  E("bisrmufaddal", "muhammedbahmedbnafi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("bisrmufaddal", "muhammedbeyyubelkilabi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("bisrmufaddal", "muhammedbebibekirba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mes‘ûd b. Vâsıl el-Ezrak el-Basrî -- hocalari */
+  E("mesudbvasilelezrakelba", "muhammedbahmedbnafi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Kesîr b. Dirhem el-Anberî -- hocalari */
+  E("yahyabkesirbdirhemelan", "muhammedbahmedbnafi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabkesirbdirhemelan", "muhammedbsaidbyezid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Ahmed b. Nâfi‘ el-Abdî Ebû Bekir el-Basrî -- hocalari */
+  E("muhammedbahmedbnafi2", "ed17", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbahmedbnafi2", "ed18", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Affân b. Müslim -- hocalari */
+  E("affanmuslim", "muhammedbidrisbmunzire", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Sâlih b. Müslim -- hocalari */
+  E("abdullahbsalihbmuslim", "muhammedbidrisbmunzire", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Yezîd b. Sinân el-Cezerî Ebû Abdullah b. Ebî Ferve -- hocalari */
+  E("muhammedbyezidbsinanel", "muhammedbidrisbmunzire", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hüdbe b. Hâlid -- hocalari */
+  E("hebbanhilal", "muhammedbidrisbmunzire", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amr b. Rabî‘ b. Târık -- hocalari */
+  E("amrbrabibtarik", "muhammedbidrisbmunzire", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbrabibtarik", "muhammedbmiskinbnumeyl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. İshak b. Muhammed -- hocalari */
+  E("muhammedbishakbmuha2", "bh03", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbishakbmuha2", "ed20", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbishakbmuha2", "muhammedbhumeydebusufy", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. İsmâîl b. İbrâhim -- hocalari */
+  E("muhammedbismailbibr2", "bh03", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbismailbibr2", "ed20", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbismailbibr2", "ed24", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbismailbibr2", "bh07", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbismailbibr2", "bh11", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbismailbibr2", "bh09", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbismailbibr2", "bh17", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbismailbibr2", "bh20", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Ebî ez-Zinâd Abdullah b. Zekvân el-Medenî -- hocalari */
+  E("abdirrahmanbebiezzinad", "muhammedbismailbmus2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbebiezzinad", "muhammedbmuslimelme2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbebiezzinad", "elvelidbsalih2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdirrahmanbebiezzinad", "yahyabmuhammedbabba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* ed-Dahhâk b. Osmân b. Abdullah -- hocalari */
+  E("eddahhakbosmanbabdulla", "muhammedbismailbmus2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("eddahhakbosmanbabdulla", "muhammedbmuslimelme2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Müslim b. Cündeb el-Medenî -- hocalari */
+  E("abdullahbmuslimbcundeb", "muhammedbismailbmus2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbmuslimbcundeb", "muhammedbmuslimelme2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. İsmâîl b. Müslim -- hocalari */
+  E("muhammedbismailbmus2", "safii", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbismailbmus2", "hacibbsuleyman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbismailbmus2", "hasanbdavudbmuhammedeb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbismailbmus2", "ibrahimmunzirhizami", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbismailbmus2", "duhaym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbismailbmus2", "harunhammal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbismailbmus2", "abdirrahmanbabdulmel2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Osmân b. Osmân Ebû Amr el-Kādî -- hocalari */
+  E("osmanbosmanebuamrelkad", "muhammedbismailelba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. İsmâîl el-Basrî -- hocalari */
+  E("muhammedbismailelba2", "ed13", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbismailelba2", "ed20", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbismailelba2", "musabharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Suheyb el-Fakır -- hocalari */
+  E("yezidsuheybfakir", "muhammedbebieyyubeb2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hilâl el-Vezzân -- hocalari */
+  E("hilalvezzan", "muhammedbebieyyubeb2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Ebî Eyyûb Ebû Âsım es-Sekafî -- hocalari */
+  E("muhammedbebieyyubeb2", "ibnidris", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbebieyyubeb2", "halladyahya", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Âmir -- hocalari */
+  E("muhammedbamir", "muhammedbbisrbbesir2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ziyâd b. İlâka -- hocalari */
+  E("ziyadilaka", "muhammedbbisrbbesir2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Bişr b. Beşîr -- hocalari */
+  E("muhammedbbisrbbesir2", "talkgannam", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Ziyâd b. Ebî el-Ca‘d el-Eşce‘î -- hocalari */
+  E("yezidbziyadbebielcadel", "muhammedbbisrelabdiebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Haccâc b. Ebî Osmân es-Savvâf -- hocalari */
+  E("haccacsavvaf", "muhammedbbisrelabdiebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amr b. Meymûn b. Mihrân -- hocalari */
+  E("amrmeymunmihran", "muhammedbbisrelabdiebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Bişr el-Abdî Ebû Abdullah -- hocalari */
+  E("muhammedbbisrelabdiebu", "alimedini", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbbisrelabdiebu", "ibnrahuye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbbisrelabdiebu", "harunhammal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbbisrelabdiebu", "abdebabdullahessaffare", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbbisrelabdiebu", "hasanbalibaffanelamiri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yûsuf b. Ya‘kûb b. Ebî Seleme el-Mâcişûn Ebû Seleme el-Medenî -- hocalari */
+  E("yusufbyakubbebiselemee", "muhammedbebibekirba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Sa‘lebe b. Sevâ -- hocalari */
+  E("muhammedbsalebebseva", "ms23", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbsalebebseva", "ed18", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbsalebebseva", "musabharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubeydullah b. Abdullah b. Ebî Sevr el-Medenî -- hocalari */
+  E("ubeydullahbabdullahbeb", "muhammedbcaferbezzu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Ca‘fer b. ez-Zübeyr -- hocalari */
+  E("muhammedbcaferbezzu2", "yezidbmuhammedbabdussa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kesîr b. Hişâm el-Kilâbî Ebû Sehl -- hocalari */
+  E("kesirbhisamelkilabiebu", "muhammedbhatimbmeym2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muâviye b. Amr el-Ezdî -- hocalari */
+  E("muaviyeamrezdi", "muhammedbhatimbmeym2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Lehîa -- hocalari */
+  E("abdullahblehia", "muhammedbelharisbra2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahblehia", "mervanbmuhammedbhas2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hakem b. Abde -- hocalari */
+  E("hakembabde", "muhammedbelharisbra2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Râşid el-Mâzinî Ebû Saîd el-Basrî Berâ -- hocalari */
+  E("yahyabrasidelmaziniebu", "muhammedbelharisbra2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. el-Hâris b. Râşid -- hocalari */
+  E("muhammedbelharisbra2", "ibnmace", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. el-Hâris b. Ziyâd -- hocalari */
+  E("muhammedbelharisbzi2", "kavariri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbelharisbzi2", "muhammedbyahyabfeyyad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbelharisbzi2", "suveydsaidhadesani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. el-Hâris -- hocalari */
+  E("muhammedbelharis2", "kavariri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbelharis2", "muhammedbyahyabfeyyad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbelharis2", "suveydsaidhadesani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Üsâme b. Zeyd b. Eslem -- hocalari */
+  E("usamezeydeslem", "muhammedbhasanbzubale", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Abdullah b. Ömer Ebû Kâsım el-Medenî -- hocalari */
+  E("abdirrahmanbabdullahbo", "muhammedbhasanbzubale", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Hasan b. Zübâle -- hocalari */
+  E("muhammedbhasanbzubale", "harunhammal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbhasanbzubale", "omerbsebbe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hârûn b. Sâlih el-Hemdânî -- hocalari */
+  E("harunbsalihelhemdani", "muhammedbhasanbezzu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Hasan b. ez-Zübeyr el-Esedî -- hocalari */
+  E("muhammedbhasanbezzu2", "alimedini", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İbrâhim b. el-Muhtâr et-Temîmî Ebû İsmâîl er-Râzî -- hocalari */
+  E("ibrahimbelmuhtarettemi", "muhammedbhumeydbhay2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibrahimbelmuhtarettemi", "muhammedbabdullahbe2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Ebî Bekir b. Süleymân -- hocalari */
+  E("alibebibekirbsuleyman", "muhammedbhumeydbhay2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. ed-Durays -- hocalari */
+  E("yahyabeddurays", "muhammedbhumeydbhay2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Humeyd b. Hayyân er-Râzî -- hocalari */
+  E("muhammedbhumeydbhay2", "ibnmace", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbhumeydbhay2", "ahmedhanbel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbhumeydbhay2", "ed20", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Eyyûb el-Abdî -- hocalari */
+  E("omerbeyyubelabdi", "muhammedbhayyan2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("omerbeyyubelabdi", "muhammedbhisambisa2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Hayyân -- hocalari */
+  E("muhammedbhayyan2", "ahmedhanbel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbhayyan2", "ahmedmeni", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbhayyan2", "ed20", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbhayyan2", "bh03", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbhayyan2", "musabharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Hâlid b. Abdullah -- hocalari */
+  E("muhammedbhalidbabdu2", "ibnmace", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İbrâhim b. İsmâîl b. Ebî Habîbe el-Ensârî el-Eşhelî -- hocalari */
+  E("ibrahimbismailbebihabi", "muhammedbhalidbasme", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Dâb -- hocalari */
+  E("muhammedbdab", "abdullahbasim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sa‘d b. Evs el-Adevî -- hocalari */
+  E("sadbevseladevi", "muhammedbdinarelezd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kurre b. Hâlid es-Sedûsî -- hocalari */
+  E("kurrehalid", "muhammedbdinarelezd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kurrehalid", "muslimbibrahimelezdi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kurrehalid", "harunbismail2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Dînâr el-Ezdî -- hocalari */
+  E("muhammedbdinarelezd2", "ebudavudtayalisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbdinarelezd2", "hisambsaidebuahmedelbe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbdinarelezd2", "kuteybesaid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbdinarelezd2", "muhammedisataba", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Muâviye ed-Darîr -- hocalari */
+  E("ebumuaviyedarir", "muhammedbrafiennisabur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebumuaviyedarir", "muhammedbubeydbmuha3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebumuaviyedarir", "yahyabtalhabebikesir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebumuaviyedarir", "yahyababdulhamidbab2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İshak b. Îsâ b. Necîh Ebû Ya‘kûb b. et-Tabbâ‘ -- hocalari */
+  E("ishakbisabnecihebuyaku", "muhammedbrafiennisabur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hişâm b. Saîd Ebû Ahmed el-Bezzâz -- hocalari */
+  E("hisambsaidebuahmedelbe", "muhammedbrafiennisabur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülkebîr b. Abdülmecîd b. Ubeydullah el-Basrî Ebû Bekir -- hocalari */
+  E("abdulkebirbabdulmecidb", "muhammedbrafiennisabur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülhamîd b. Abdullah b. Abdullah Ebû Bekir b. Ebî Üveys -- hocalari */
+  E("abdulhamidbabdullahbab", "muhammedbrafiennisabur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdulhamidbabdullahbab", "muhammedbabdullahba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Râfi‘ en-Nîsâbûrî -- hocalari */
+  E("muhammedbrafiennisabur", "ms02", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Zeyd b. Abdullah -- hocalari */
+  E("muhammedbzeydbabdul2", "bessarbkedam", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbzeydbabdul2", "abdelubabe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Zeyd b. Ali el-Abdî -- hocalari */
+  E("muhammedbzeydbaliel2", "mukatilbhayyan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbzeydbaliel2", "alibhakemelbunani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Sâlim el-Hemdânî -- hocalari */
+  E("muhammedbsalimelhem2", "hasanbselmbsalih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbsalimelhem2", "cerirabdulhamid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbsalimelhem2", "abdurrahimbsuleymanelk", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbsalimelhem2", "muhammedfudayl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbsalimelhem2", "yezidharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Sa‘d el-Ensârî eş-Şâmî -- hocalari */
+  E("muhammedbsadelensar2", "zuhayrmuaviye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbsadelensar2", "huseym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Humrân -- hocalari */
+  E("abdullahbhumran", "muhammedbsaidbyezid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ya‘kûb b. İshak b. Zeyd el-Hadramî -- hocalari */
+  E("yakubbishakbzeydelhadr", "muhammedbsaidbyezid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Ebî Süfyân b. Alâ -- hocalari */
+  E("muhammedbebisufyanbala", "temimbatiyyeessami", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbebisufyanbala", "damrabhabibbsuheybezzu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Müsennâ b. es-Sabbâh -- hocalari */
+  E("elmusennabessabbah", "muhammedbselemebabd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Seleme b. Abdullah el-Bâhilî -- hocalari */
+  E("muhammedbselemebabd2", "musababdirrahmanbziyad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbselemebabd2", "ishakbibrahimbhabibebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbselemebabd2", "hasanbahmedbebisuaybeb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbselemebabd2", "hasimbkasimbseybe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Süleymân b. Habîb el-Esedî Ebû Ca‘fer -- hocalari */
+  E("muhammedbsuleymanbh2", "muhammedbubeydullahbye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Sevâ -- hocalari */
+  E("muhammedbseva", "ms23", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbseva", "ed18", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbseva", "musabharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Şeybe b. Naâme ed-Dabbî -- hocalari */
+  E("muhammedbseybebnaameed", "huseym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbseybebnaameed", "fudaylibnayaz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbseybebnaameed", "cerirabdulhamid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Abbâd b. Ca‘fer -- hocalari */
+  E("muhammedbabbadbcafer", "ziyadbismailelmahzumi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabbadbcafer", "abdulhamidcubeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabbadbcafer", "halidhazza", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İbrâhim b. Muhammed b. Ebî Yahyâ Ebû İshak el-Medenî -- hocalari */
+  E("ibrahimbmuhammedbebiya", "muhammedbabbasbosma2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Hâlid -- hocalari */
+  E("muhammedbhalid", "muhammedbabbasbosma2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Abbâs b. Osmân -- hocalari */
+  E("muhammedbabbasbosma2", "suleymanbdavudbdavudeb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabbasbosma2", "ibrahimmunzirhizami", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabbasbosma2", "ahmedhanbel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabbasbosma2", "rebimuradi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabbasbosma2", "rabibsuleymanbdavudebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabbasbosma2", "zaferani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabbasbosma2", "yunusbabdulalabmeysere", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Hafs el-Medâinî -- hocalari */
+  E("alibhafselmedaini", "muhammedbabdullahbi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("alibhafselmedaini", "muhammedbalibhasan2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Abdullah b. İsmâîl -- hocalari */
+  E("muhammedbabdullahbi2", "ms20", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Abdullah b. Hasan -- hocalari */
+  E("muhammedbabdullahbhasa", "darevardi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabdullahbhasa", "abdullahbnafiessaigelm", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabdullahbhasa", "abdullahbcaferbabdirra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sâlim b. Nûh b. Ebî Atâ el-Basrî Ebû Saîd el-Attâr -- hocalari */
+  E("salimbnuhbebiataelbasr", "muhammedbabdullahbh2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Abdullah b. Hafs -- hocalari */
+  E("muhammedbabdullahbh2", "ms28", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Şuayb b. Leys b. Sa‘d -- hocalari */
+  E("suaybbleysbsad", "muhammedbabdullahba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Abdullah b. Abdülhakem -- hocalari */
+  E("muhammedbabdullahba2", "ms20", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abbâd b. Temîm el-Ensârî -- hocalari */
+  E("abbadtemim", "muhammedbabdullahba3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abbadtemim", "ebubekirbmuhammedba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Bişr b. Sâbit el-Basrî Ebû Muhammed el-Bezzâr -- hocalari */
+  E("bisrbsabitelbasriebumu", "muhammedbabdullahbu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Haccâc b. Nusayr -- hocalari */
+  E("haccacbnusayr", "muhammedbabdullahbu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Abdullah b. Ubeyd -- hocalari */
+  E("muhammedbabdullahbu2", "ed18", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Abdullah b. Muhammed -- hocalari */
+  E("muhammedbabdullahbm2", "fazlbsehlbibrahimelare", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabdullahbm2", "hasanbahmedbhabibelkir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabdullahbm2", "ahmedbsaidbsahrebucafe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Abdullah b. Müslim -- hocalari */
+  E("muhammedbabdullahbm3", "fazlbsehlbibrahimelare", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabdullahbm3", "hasanbahmedbhabibelkir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabdullahbm3", "ahmedbsaidbsahrebucafe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Abdullah b. Yezîd -- hocalari */
+  E("muhammedbabdullahby2", "malik", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabdullahby2", "hatimismail", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Abdullah b. Ebî Ya‘kûb et-Temîmî el-Basrî -- hocalari */
+  E("muhammedbabdullahbe5", "cerirhazim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabdullahbe5", "mehdimeymun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Abdirrahman b. Hasan -- hocalari */
+  E("muhammedbabdirrahma3", "ibnmace", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabdirrahma3", "ms29", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Sâib b. Yezîd el-Kindî Ebû Muhammed el-Medenî -- hocalari */
+  E("abdullahbsaibbyezidelk", "muhammedbabdirrahma4", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Sem‘ân el-Ensârî ez-Zürakī -- hocalari */
+  E("saidbsemanelensariezzu", "muhammedbabdirrahma4", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Cübeyr b. Ebî Sâlih -- hocalari */
+  E("cubeyrbebisalih", "muhammedbabdirrahma4", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Amr b. Atâ el-Âmirî -- hocalari */
+  E("muhammedbamrbataelamir", "muhammedbabdirrahma4", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbamrbataelamir", "muhammedbamrbhalhale", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbamrbataelamir", "muhammedbyesar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbamrbataelamir", "yezidbebihabibelmisrie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Abdirrahman b. Mugīre Ebû el-Hâris el-Medenî -- hocalari */
+  E("muhammedbabdirrahma4", "ibnnumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabdirrahma4", "hammadmesade", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabdirrahma4", "sebabesevvar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabdirrahma4", "osmanomerfaris", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabdirrahma4", "vakidi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabdirrahma4", "esedmusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabdirrahma4", "alicad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Abdirrahman b. Nevfel -- hocalari */
+  E("muhammedbabdirrahmanbn", "yezidkusayt", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Abdirrahman b. Yezîd Ebû Ca‘fer -- hocalari */
+  E("muhammedbabdirrahma5", "ebuishaksebii", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabdirrahma5", "hasanamrfukaymi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabdirrahma5", "hakimbcubeyrelesedi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabdirrahma5", "hakemuteybe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Abdülmelik el-Vâsıtî -- hocalari */
+  E("muhammedbabdulmelik3", "bh03", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabdulmelik3", "bh17", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbabdulmelik3", "ed12", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İdrîs b. Yezîd b. Abdirrahman el-Evdî -- hocalari */
+  E("idrisbyezidbabdirrahma", "muhammedbubeyd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülmelik b. Ebî Süleymân -- hocalari */
+  E("abdulmelikebisuleyman", "muhammedbubeyd2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Ubeyd -- hocalari */
+  E("muhammedbubeyd2", "ibnmain", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbubeyd2", "ahmedmeni", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbubeyd2", "hennadseri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbubeyd2", "yahyamusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbubeyd2", "muhammedisataba", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbubeyd2", "amrbrafibelfuratelbece", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbubeyd2", "alibmuhammedbishaketta", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbubeyd2", "kuteybesaid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbubeyd2", "misned", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbubeyd2", "ishakbibrahimbnasrebui", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbubeyd2", "ahmedsinan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbubeyd2", "ahmedbelfuratbhalidedd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Ubeyd b. Ebî Sâlih el-Mekkî -- hocalari */
+  E("muhammedbubeydbebis2", "ubeydullahbebicaferelm", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Müshir -- hocalari */
+  E("alimushir", "muhammedbubeydbmuha3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İbn Ebî Zâide -- hocalari */
+  E("ibnebizaide", "muhammedbubeydbmuha3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibnebizaide", "yezidbhalidbyezid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Ubeyd b. Meymûn el-Medenî -- hocalari */
+  E("muhammedbubeydbmeym2", "bh07", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Osmân b. Safvân -- hocalari */
+  E("muhammedbosmanbsafv2", "ahmedhanbel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbosmanbsafv2", "sericyunus", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbosmanbsafv2", "nuaymbhammadbmuaviyeeb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbosmanbsafv2", "suveydsaidhadesani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Osmân b. Abdirrahman -- hocalari */
+  E("muhammedbosmanbabdi2", "fudaylsuleyman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbosmanbabdi2", "hatimismail", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbosmanbabdi2", "safvanbisaezzuhriebumu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Fudayl b. Süleymân en-Nümeyrî -- hocalari */
+  E("fudaylsuleyman", "muhammedbukbebkesir2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Ukbe b. Kesîr -- hocalari */
+  E("muhammedbukbebkesir2", "osmanebiseybe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbukbebkesir2", "ubeydbyaiselmehamilieb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbukbebkesir2", "caferbmuhammedbsakires", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. İbrâhim el-Basrî -- hocalari */
+  E("muhammedbibrahimelbasr", "muhammedbukbebherimess", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Ukbe b. Herim es-Sedûsî el-Basrî -- hocalari */
+  E("muhammedbukbebherimess", "ed18", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbukbebherimess", "abbasbelferec", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Ali b. Hasan -- hocalari */
+  E("muhammedbalibhasan2", "ms02", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbalibhasan2", "ed20", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Ali b. Hamza el-Mervezî -- hocalari */
+  E("muhammedbalibhamzae2", "ms02", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbalibhamzae2", "ms23", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbalibhamzae2", "bh12", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Habbân b. Mûsâ b. Habbân el-Kilâbî Ebû Muhammed ed-Dımaşkī -- hocalari */
+  E("habbanbmusabhabbanelki", "muhammedbalibhamza2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Ali b. Hamza -- hocalari */
+  E("muhammedbalibhamza2", "ms02", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbalibhamza2", "ms23", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbalibhamza2", "bh12", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Ebî Saîd el-Makburî -- hocalari */
+  E("makburi", "muhammedbammarbhafs2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Ammâr b. Hafs -- hocalari */
+  E("muhammedbammarbhafs2", "ishakbisabnecihebuyaku", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbammarbhafs2", "said_mansur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbammarbhafs2", "abdullahbabdulvehhab", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbammarbhafs2", "suveydsaidhadesani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbammarbhafs2", "alihucr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Ca‘fer b. Abdirrahman Ebû Muhammed el-Medenî -- hocalari */
+  E("abdullahbcaferbabdirra", "muhammedbomerbmutarrif", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Ömer b. Mutarrif Ebû el-Mutarrif b. Ebî el-Vezîr el-Basrî -- hocalari */
+  E("muhammedbomerbmutarrif", "omerbsebbe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubeyde b. Humeyd Ebû Abdirrahman -- hocalari */
+  E("ubeydebhumeydebuabdirr", "muhammedbomerbelvel2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Mufaddal b. Sâlih el-Esedî -- hocalari */
+  E("elmufaddalbsalihelesed", "muhammedbomerbelvel2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülvehhâb b. Atâ -- hocalari */
+  E("abdulvehhabata", "muhammedbomerbelvel2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Ömer b. el-Velîd el-Kindî Ebû Ca‘fer -- hocalari */
+  E("muhammedbomerbelvel2", "ibnmace", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbomerbelvel2", "ms28", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ruh b. Eslem el-Bâhilî Ebû Hâtim el-Basrî -- hocalari */
+  E("ruhbeslemelbahiliebuha", "muhammedbamrbnebhan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Amr -- hocalari */
+  E("muhammedbamr3", "muhammedbelfuratettemi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Habbân b. Ali -- hocalari */
+  E("habbanbali", "muhammedbimranbmuha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muâviye b. Ammâr b. Ebî Muâviye -- hocalari */
+  E("muaviyebammarbebimuavi", "muhammedbimranbmuha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. İmrân b. Muhammed Ebû Abdirrahman -- hocalari */
+  E("muhammedbimranbmuha2", "abdullahbhammadbeyyube", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbimranbmuha2", "ebuzuraraazi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbimranbmuha2", "muhammedbavfbsufyanett", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbimranbmuha2", "bh07", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Fadâ -- hocalari */
+  E("muhammedbfada", "mutemirsuleyman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbfada", "muhammedbcabirbabdulla", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Üsâme b. Hafs el-Medenî -- hocalari */
+  E("usamebhafselmedeni", "muhammedbebimuhamme2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("usamebhafselmedeni", "yahyabibrahimbosman2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Ebî Muhammed el-Medenî -- hocalari */
+  E("muhammedbebimuhamme2", "musabsehlbkadimebuimra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Yûsuf et-Tinnîsî -- hocalari */
+  E("abdullahyusuftinnisi", "muhammedbmiskinbnumeyl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Miskîn b. Nümeyle -- hocalari */
+  E("muhammedbmiskinbnumeyl", "bh11", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Müslim el-Medenî -- hocalari */
+  E("muhammedbmuslimelme2", "hacibbsuleyman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbmuslimelme2", "hasanbdavudbmuhammedeb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbmuslimelme2", "ibrahimmunzirhizami", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbmuslimelme2", "harunhammal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbmuslimelme2", "abdirrahmanbabdulmel2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Mekkî b. Îsâ el-Mervezî -- hocalari */
+  E("muhammedbmekkibisae2", "ahmedbseyyarbeyyubebuh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Müyesser -- hocalari */
+  E("muhammedbmuyesser", "ahmedhanbel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbmuyesser", "alimedini", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbmuyesser", "ahmedmeni", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbmuyesser", "yahyamusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbmuyesser", "alibmabedbseddad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbmuyesser", "halladbeslemessaffareb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbmuyesser", "mahmudbhidas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Neşr -- hocalari */
+  E("muhammedbnesr", "leysebisuleym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbnesr", "alibelhazver", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Hilâl b. Ebî Hilâl el-Medenî -- hocalari */
+  E("muhammedbhilalbebih2", "darevardi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbhilalbebih2", "ebuamirakadi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbhilalbebih2", "ibnebiuveys", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Heysem b. Hammâd -- hocalari */
+  E("muhammedbheysembham2", "bh07", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbheysembham2", "ms29", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbheysembham2", "ed28", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbheysembham2", "ed04", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Vehb b. Saîd -- hocalari */
+  E("muhammedbvehbbsaid2", "cuzcani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbvehbbsaid2", "rabibsuleymanbdavudebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbvehbbsaid2", "saidbkesirbufeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amr b. Ebî Seleme et-Tinnîsî -- hocalari */
+  E("amrebiselemetennisi", "muhammedbyahyababdu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Yahyâ b. Abdullah -- hocalari */
+  E("muhammedbyahyababdu2", "muhammedbishak", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbyahyababdu2", "muhammedbsehlbaskerett", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbyahyababdu2", "muhammedbavfbsufyanett", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbyahyababdu2", "ms29", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Hıdr b. Muhammed b. Şücâ‘ el-Cezerî Ebû Mervân -- hocalari */
+  E("elhidrbmuhammedbsucael", "muhammedbyahyabmuha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elhidrbmuhammedbsucael", "hilalbalabhilal2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdülgaffâr b. Hakem -- hocalari */
+  E("abdulgaffarbhakem", "muhammedbyahyabmuha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Saîd b. Süleymân Ebû Ca‘fer -- hocalari */
+  E("muhammedbsaidbsuleyman", "muhammedbyahyabmuha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Ya‘lâ b. el-Hâris el-Muhâribî -- hocalari */
+  E("yahyabyalabelhariselmu", "muhammedbyahyabmuha2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Sâib b. Yesâr es-Sekafî et-Tâifî -- hocalari */
+  E("saidbsaibbyesaressekaf", "muhammedbyezidbhuneyse", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Yezîd b. Huneys el-Mahzûmî -- hocalari */
+  E("muhammedbyezidbhuneyse", "nasralicehdami", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Eyyûb b. Katan -- hocalari */
+  E("eyyubbkatan", "muhammedbyezidbebiz2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kâ‘b b. Alkame b. Kâ‘b el-Mısrî et-Tenûhî Ebû Abdülhamîd -- hocalari */
+  E("kabbalkamebkabelmisrie", "muhammedbyezidbebiz2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Yezîd b. Ebî Ziyâd es-Sekafî -- hocalari */
+  E("muhammedbyezidbebiz2", "makilbubeydullahelceze", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbyezidbebiz2", "ismailbrafibuveymirele", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbyezidbebiz2", "ebubekirayyas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Yezîd en-Nehaî -- hocalari */
+  E("muhammedbyezidenneh2", "ebuishaksebii", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbyezidenneh2", "hasanamrfukaymi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbyezidenneh2", "hakimbcubeyrelesedi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbyezidenneh2", "hakemuteybe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Ebî Ümâme b. Sehl -- hocalari */
+  E("muhammedbebiumamebsehl", "muhammedbyesar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Yesâr -- hocalari */
+  E("muhammedbyesar", "cerirhazim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbyesar", "abdullahbsaidbebihinde", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbyesar", "zuhayrmuaviye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbyesar", "huseym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbyesar", "cerirabdulhamid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbyesar", "ziyadbabdullahbettufey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbyesar", "yezidzurey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbyesar", "yezidharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhammedbyesar", "ahmedhalidvehbi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Selmân-ı Fârisî -- hocalari */
+  E("selmanfarisi", "mahfuzbalkameelhadrami", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdirrahman b. Âiz -- hocalari */
+  E("abdirrahmanbaiz", "mahfuzbalkameelhadrami", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mahfûz b. Alkame el-Hadramî Ebû Cünâde -- hocalari */
+  E("mahfuzbalkameelhadrami", "sevryezid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mahfuzbalkameelhadrami", "muhammedbrasidelhuzai", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mervân b. Cenâh -- hocalari */
+  E("mervanbcenah", "elvelidbsuleymanbebisa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mervanbcenah", "sadakabhalid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mervanbcenah", "muhammedsuaybsabur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Alâ b. Zebr -- hocalari */
+  E("abdullahbalabzebr", "mervanbmuhammedbhas2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("abdullahbalabzebr", "elvelidbmuslim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Heysem b. Humeyd -- hocalari */
+  E("heysembhumeyd", "mervanbmuhammedbhas2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mervân b. Muhammed b. Hassân el-Esedî ed-Dımaşkī -- hocalari */
+  E("mervanbmuhammedbhas2", "bakiyyevelid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mervanbmuhammedbhas2", "mahmudbhalidessulemieb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mervanbmuhammedbhas2", "selemebsebibennisaburi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mervanbmuhammedbhas2", "muhammedbelvezirbhakem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mervanbmuhammedbhas2", "suaybbsuaybbishakeddim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mervanbmuhammedbhas2", "darimi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mestûr b. Abbâd el-Hinâî -- hocalari */
+  E("mesturbabbadelhinai", "bisrmufaddal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mishâc b. Mûsâ ed-Dabbî Ebû Mûsâ -- hocalari */
+  E("mishacbmusaeddabbiebum", "mugirmiksem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mishacbmusaeddabbiebum", "cerirabdulhamid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mishacbmusaeddabbiebum", "ammarbruzeyk", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mishacbmusaeddabbiebum", "abdirrahmanbmagra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Meserre b. Ma‘bed -- hocalari */
+  E("meserrebmabed", "damrarebia", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû'l-Eşheb Ca‘fer b. Hayyân el-Utâridî -- hocalari */
+  E("ebuleshebutaridi", "muslimbibrahimelezdi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Esved b. Şeybân es-Sedûsî -- hocalari */
+  E("elesvedbseybanessedusi", "muslimbibrahimelezdi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kâsım b. Fazl b. Ma‘dân -- hocalari */
+  E("kasimbfazlbmadan", "muslimbibrahimelezdi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("kasimbfazlbmadan", "yunusbmuhammedbmusl2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Müslim b. İbrâhim el-Ezdî -- hocalari */
+  E("muslimbibrahimelezdi", "ahmedbhasanbhirasebuca", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muslimbibrahimelezdi", "haccacsair", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muslimbibrahimelezdi", "amrbnalisayrafi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muslimbibrahimelezdi", "yezidbmuhammedbfudayl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muslimbibrahimelezdi", "bundar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Müslim b. Ziyâd -- hocalari */
+  E("muslimbziyad2", "bakiyyevelid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Abdullah -- hocalari */
+  E("ebuabdullah", "muslimbimran2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Müslim b. İmrân -- hocalari */
+  E("muslimbimran2", "ebuishaksebii", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muslimbimran2", "amess", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muslimbimran2", "muhavvelbrasideburasid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Esmâ bint Ebî Bekir -- hocalari */
+  E("esmaebubekir", "muslimbmihrakelabdi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("esmaebubekir", "muslimbmihrak", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Müslim b. Mihrâk -- hocalari */
+  E("muslimbmihrak", "hazmbebihazm", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muslimbmihrak", "kasimbfazlbmadan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Müslim b. Yesâr el-Basrî -- hocalari */
+  E("muslimbyesarelbasri2", "yalabhakimessekafi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muslimbyesarelbasri2", "ibnsirin", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muslimbyesarelbasri2", "eyyubsahtiyani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muslimbyesarelbasri2", "ebanbebiayyasfiruzelba", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Müslim b. Yenâk -- hocalari */
+  E("muslimbyenak", "ibrahimnafi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muslimbyenak", "ismailumeyye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muslimbyenak", "hatimebisagire", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Bişr b. Nümeyr -- hocalari */
+  E("bisrbnumeyr", "mutarrihbyezidebuelmuh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("bisrbnumeyr", "yahyabalaelbecelieb2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mutarrih b. Yezîd Ebû el-Mühelleb -- hocalari */
+  E("mutarrihbyezidebuelmuh", "hasanbselmbsalih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mutarrihbyezidebuelmuh", "ebubekirayyas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mutarrihbyezidebuelmuh", "ibnnumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mutarrihbyezidebuelmuh", "ibnuyeyne", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mutarrihbyezidebuelmuh", "cerirabdulhamid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muâviye b. Sellâm -- hocalari */
+  E("muaviyebsellam", "muhammedsuaybsabur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muaviyebsellam", "osmanbabdirrahmanbmusl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muaviyebsellam", "yahyabbisrbkesir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İmrân b. Enes Ebû Enes el-Mekkî -- hocalari */
+  E("imranbenesebueneselmek", "muaviyebhisam2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("imranbenesebueneselmek", "yezidbebihabibelmisrie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yûnus b. el-Hâris es-Sekafî et-Tâifî -- hocalari */
+  E("yunusbelharisessekafie", "muaviyebhisam2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muâviye b. Hişâm -- hocalari */
+  E("muaviyebhisam2", "mahmudgaylan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muaviyebhisam2", "hasanaliayyal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muaviyebhisam2", "abdirrahmanbhalidbyezi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muaviyebhisam2", "abdebabdullahessaffare", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muaviyebhisam2", "bisrbhalidebumuhammed", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muarrif b. Vâsıl -- hocalari */
+  E("muarrifbvasil", "abdullahbsalihbmuslim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muarrifbvasil", "alicad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Magrâ Ebû el-Muhârik -- hocalari */
+  E("magraebuelmuharik", "ebuishaksebii", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("magraebuelmuharik", "yunusbrasidebuishakelk", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("magraebuelmuharik", "hasanubeydullah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mugīre b. Hakîm es-San‘ânî -- hocalari */
+  E("mugirebhakimessanan2", "budeylbmeysereelbasri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mugirebhakimessanan2", "cerirhazim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mugirebhakimessanan2", "ibrahimbomerbkeysaness", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Kays b. Ebû Hâzim -- hocalari */
+  E("kayshazim", "mugirebsibl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mugīre b. Şibl -- hocalari */
+  E("mugirebsibl", "davudbyezidbabdirrahma", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mugirebsibl", "yunusbrasidebuishakelk", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mugirebsibl", "cabircufi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Cu‘ayd b. Abdirrahman -- hocalari */
+  E("hasanisad", "mugirebabdirrahmanb3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mugīre b. Abdirrahman b. Abdullah -- hocalari */
+  E("mugirebabdirrahmanb3", "muhrizbseleme", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mugirebabdirrahmanb3", "ahmedabde", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mugirebabdirrahmanb3", "musabbabdullahbmusabeb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mukaddem b. Muhammed b. Yahyâ -- hocalari */
+  E("mukaddembmuhammedbyahy", "bh07", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Münzir b. Sa‘lebe et-Tâî -- hocalari */
+  E("munzirbsalebeettai", "caferbziyadelahmer", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("munzirbsalebeettai", "hammadmesade", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mutarrif b. Abdullah b. eş-Şihhîr -- hocalari */
+  E("mutarrifbabdullahbessi", "munzirbmalikbkita", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Münzir b. Mâlik b. Kıt‘a -- hocalari */
+  E("munzirbmalikbkita", "abdulazizsuheyb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("munzirbmalikbkita", "humeydtavil", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("munzirbmalikbkita", "kazabsuveydbhucayr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("munzirbmalikbkita", "elmustemirberreyyan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("munzirbmalikbkita", "davudebihind", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("munzirbmalikbkita", "caferebivahsiyye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("munzirbmalikbkita", "cureyri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("munzirbmalikbkita", "kasimbfazlbmadan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("munzirbmalikbkita", "avfarabi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("munzirbmalikbkita", "ibnebiaruba", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mansûr b. Sukayr -- hocalari */
+  E("mansurbsukayr", "sehlbzencelebebierrazi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mansurbsukayr", "caferbmuhammedbsakires", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mansûr b. Abdirrahman b. Talha -- hocalari */
+  E("mansurbabdirrahmanb2", "zuhayrmuaviye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mansurbabdirrahmanb2", "zuheyrbmuhammedbkumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mansurbabdirrahmanb2", "marufbmuskan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mansurbabdirrahmanb2", "davudattar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("mansurbabdirrahmanb2", "fudaylsuleyman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Münkız b. Kays el-Mısrî -- hocalari */
+  E("munkizbkayselmisri", "bekirbsevadebsumame", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mühennâ b. Abdülhamîd Ebû Şibl -- hocalari */
+  E("muhennababdulhamidebus", "ahmedhanbel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("muhennababdulhamidebus", "ishakkevsec", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Safvân b. Muhriz -- hocalari */
+  E("safvanmuhriz", "muverrikbmusemric", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Müverrik b. Müşemric -- hocalari */
+  E("muverrikbmusemric", "humeydtavil", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mûsâ b. Dihkān -- hocalari */
+  E("musabdihkan", "osmanomerfaris", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("musabdihkan", "yusufbyezidelbasriebum", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hafs b. Ubeydillâh b. Enes -- hocalari */
+  E("hafsubeydullahenes", "musabsad3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hafsubeydullahenes", "musabsadelmedeni2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mûsâ b. Ebî Osmân -- hocalari */
+  E("musabebiosman3", "malikmigvel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mûsâ b. Ebî Osmân -- hocalari */
+  E("musabebiosman4", "malikmigvel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Zâide b. Kedâme -- hocalari */
+  E("zaidekudame", "musabisaelleysi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mûsâ b. Îsâ el-Leysî -- hocalari */
+  E("musabisaelleysi2", "ibnrahuye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("musabisaelleysi2", "sufyanveki", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mûsâ b. Muhammed b. İbrâhim Ebû Muhammed el-Medenî -- hocalari */
+  E("musabmuhammedbibrah2", "ibnebizib", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Meymûn Ebû Abdullah el-Basrî -- hocalari */
+  E("meymunebuabdullahel2", "halidhazza", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Nâfi‘ b. Ömer b. Abdullah -- hocalari */
+  E("nafibomerbabdullah2", "yezidharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İbrâhim b. Abdillâh b. Huneyn -- hocalari */
+  E("ibrhunayn", "nafiebuabdullahelme2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ibrhunayn", "yezidbebihabibelmisrie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Muhammed b. Ebî el-Esved el-Basrî Ebû Bekir -- hocalari */
+  E("abdullahbmuhammedbebie", "nafiebuabdullahelme2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Safiyye bint Ebî Ubeyd b. Mes‘ûd -- hocalari */
+  E("safiyyebintebiubeydbme", "nafiebuabdullahelme2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Nâfi‘ Ebû Abdullah el-Medenî -- hocalari */
+  E("nafiebuabdullahelme2", "salihkeysan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nafiebuabdullahelme2", "eyyubsahtiyani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nafiebuabdullahelme2", "cerirhazim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nafiebuabdullahelme2", "hakemuteybe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nafiebuabdullahelme2", "abdullahbsaidbebihinde", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nafiebuabdullahelme2", "ubeydullahomeri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nafiebuabdullahelme2", "abdulkerimcezeri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nafiebuabdullahelme2", "leysebisuleym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nafiebuabdullahelme2", "muhammedsuka", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nafiebuabdullahelme2", "matarverrak", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nafiebuabdullahelme2", "ismailumeyye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nafiebuabdullahelme2", "usamezeydleysi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nafiebuabdullahelme2", "bukeyresec", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nafiebuabdullahelme2", "yalabhakimessekafi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nafiebuabdullahelme2", "cuveyriyebesmabubeyded", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nafiebuabdullahelme2", "hanzalasufyan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nafiebuabdullahelme2", "rakababmaskalaelabdieb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nafiebuabdullahelme2", "eddahhakbosmanbabdulla", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nafiebuabdullahelme2", "yunusyezid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nafiebuabdullahelme2", "kesirbferkadelmedeni", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Nasr b. Zeyd -- hocalari */
+  E("nasrbzeyd2", "muhammedisataba", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Nasr b. Âsım el-Leysî el-Basrî -- hocalari */
+  E("nasrbasimelleysielb2", "humeydhilal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nasrbasimelleysielb2", "imranbhudeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Alâ b. el-Müseyyeb b. Râfi‘ -- hocalari */
+  E("alabelmuseyyebbrafi", "nadrbmuhammedelmerv2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Nadr b. Muhammed el-Mervezî -- hocalari */
+  E("nadrbmuhammedelmerv2", "ibnrahuye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("nadrbmuhammedelmerv2", "alihasansakik", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Nehâr b. Abdullah el-Abdî el-Medenî -- hocalari */
+  E("neharbabdullahelabdiel", "muhammedbyahyabhabban", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* en-Nehhâs b. Kehm -- hocalari */
+  E("ennehhasbkehm", "ibrahimbedhembmansur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ennehhasbkehm", "mesudbvasilelezrakelba", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ennehhasbkehm", "osmanomerfaris", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Nevfel b. Müsâhık b. Abdullah -- hocalari */
+  E("nevfelbmusahikbabdulla", "salihkeysan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hârûn b. İshak b. Muhammed -- hocalari */
+  E("harunbishakbmuhamme2", "bh17", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hârûn b. İsmâîl -- hocalari */
+  E("harunbismail2", "haccacsair", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("harunbismail2", "ishakkevsec", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("harunbismail2", "muhammedbabdulmelikbme", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amr b. Kays -- hocalari */
+  E("amrbkays", "harunbmugirebhakime2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("amrbkays", "ebuishak2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hârûn b. Mugīre b. Hakîm el-Becelî -- hocalari */
+  E("harunbmugirebhakime2", "ibnmain", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("harunbmugirebhakime2", "ibrahimmusaferra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("harunbmugirebhakime2", "hasanbkays", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("harunbmugirebhakime2", "muhammedbamrbbekirerra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. İbrâhim b. Ebî Amr el-Gıfârî Ebû Muhammed el-Medenî -- hocalari */
+  E("abdullahbibrahimbebiam", "harunbharunbabdulla2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hârûn b. Hârûn b. Abdullah et-Teymî el-Medenî -- hocalari */
+  E("harunbharunbabdulla2", "muhammedsuaybsabur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hüzeyl b. Hakem el-Ezdî Abdillâh Ebû Münzir -- hocalari */
+  E("huzeylbhakemelezdiabdi", "cemilbhasanbcemilelceh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("huzeylbhakemelezdiabdi", "ziyadyahyahassani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdürabbih b. Saîd b. Kays el-Ensârî -- hocalari */
+  E("abdurabbihbsaidbkaysel", "hureymbsufyanelbecelie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hüzeyl b. Şurahbîl el-Evdî -- hocalari */
+  E("huzeylbsurahbilelevdi", "ebuishaksebii", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("huzeylbsurahbilelevdi", "hasanbabdullah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hişâm b. Hucayr -- hocalari */
+  E("hisambhucayr", "siblbabbadelmekki", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Eyyûb b. Mûsâ b. Amr Ebû Mûsâ el-Mekkî -- hocalari */
+  E("eyyubbmusabamrebumusae", "hisambhassanelezdi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hişâm b. Hassân el-Ezdî -- hocalari */
+  E("hisambhassanelezdi", "ibnidris", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambhassanelezdi", "ibrahimtahman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambhassanelezdi", "cerirabdulhamid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambhassanelezdi", "abdusselamharb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambhassanelezdi", "yezidzurey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambhassanelezdi", "mutemirsuleyman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambhassanelezdi", "ibnnumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambhassanelezdi", "fudaylibnayaz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambhassanelezdi", "ruhubade", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambhassanelezdi", "abdurrahimbsuleymanelk", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambhassanelezdi", "muhammedbbekirbosman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambhassanelezdi", "muhammedbcabirbabdulla", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambhassanelezdi", "nadrsumeyl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambhassanelezdi", "yezidharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambhassanelezdi", "mekkiibrahim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hişâm b. Hâlid b. Zeyd Ebû Mervân ed-Dımaşkī -- hocalari */
+  E("hisambhalidbzeydebu2", "ibnmace", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambhalidbzeydebu2", "yezidbmuhammedbabdussa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mûsâ b. Enes b. Mâlik el-Ensârî -- hocalari */
+  E("musabenesbmalikelensar", "hisambziyadbebiyezi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hişâm b. Ziyâd b. Ebî Yezîd -- hocalari */
+  E("hisambziyadbebiyezi2", "nadrsumeyl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambziyadbebiyezi2", "yezidharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hişâm b. Sa‘d el-Medenî Ebû Abbâd -- hocalari */
+  E("hisambsadelmedenieb2", "caferavn", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambsadelmedenieb2", "bisrbomerbhakem", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hişâm b. Ebî Abdullah -- hocalari */
+  E("hisambebiabdullah2", "sadakabhalid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambebiabdullah2", "suleymanhayyan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambebiabdullah2", "sebabesevvar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hişâm b. Abdülmelik el-Bâhilî -- hocalari */
+  E("hisambabdulmelikelb2", "hasanaliayyal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambabdulmelikelb2", "ibrahimbhalid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambabdulmelikelb2", "ishakkevsec", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambabdulmelikelb2", "sehlbzencelebebierrazi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambabdulmelikelb2", "muhammedbalibharbelmer", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Süleymân -- hocalari */
+  E("abdullahbsuleyman", "hisambyusufessananiebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İbrâhim b. Ömer b. Keysân es-San‘ânî -- hocalari */
+  E("ibrahimbomerbkeysaness", "hisambyusufessananiebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hişâm b. Yûsuf es-San‘ânî Ebû Abdirrahman el-Kādî -- hocalari */
+  E("hisambyusufessananiebu", "safii", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambyusufessananiebu", "alimedini", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambyusufessananiebu", "ibnmain", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambyusufessananiebu", "musnedi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambyusufessananiebu", "alibbahrbberri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hisambyusufessananiebu", "musabharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hilâl b. Zeyd b. Yesâr -- hocalari */
+  E("hilalbzeydbyesar2", "davudbaclan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hilalbzeydbyesar2", "ibrahimbsuveydbhayyan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("hilalbzeydbyesar2", "abbadbkesirerremli", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İbn Ebî Ömer el-Adenî -- hocalari */
+  E("ibnebiomeradeni", "hilalbalabhilal2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hilâl b. Alâ b. Hilâl -- hocalari */
+  E("hilalbalabhilal2", "ms28", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Vâsıl b. Abdirrahman Ebû Hurre -- hocalari */
+  E("vasilbabdirrahmanebuhu", "bisrsari", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Verrâd Ebû Saîd -- hocalari */
+  E("verradebusaid", "abdulmelikumeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("verradebusaid", "abdelubabe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("verradebusaid", "kasimmuhaymire", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("verradebusaid", "ziyadilaka", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Adî b. Fazl et-Teymî Ebû Hâtim el-Basrî -- hocalari */
+  E("adibfazletteymiebuhati", "verdbabdullahettemimie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ali b. Rebîa el-Vâlibî -- hocalari */
+  E("alirebianadle", "vikabiyaselesediebuyez", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Vikā b. İyâs el-Esedî Ebû Yezîd -- hocalari */
+  E("vikabiyaselesediebuyez", "yezidharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Velîd b. Sâlih -- hocalari */
+  E("elvelidbsalih2", "yakubdevraki", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elvelidbsalih2", "ismailbhammadbebihanif", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elvelidbsalih2", "yusufbyezidbkamilebuye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdurrahman b. Hallâd er-Râmhürmüzî -- hocalari */
+  E("ed21", "elvelidbabdullahbcumey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Velîd b. Kâsım b. el-Velîd el-Hemdânî -- hocalari */
+  E("elvelidbkasimbelvel2", "ahmedhanbel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elvelidbkasimbelvel2", "yakubdevraki", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elvelidbkasimbelvel2", "muhammedbismailbsemure", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elvelidbkasimbelvel2", "yusufmusakattan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elvelidbkasimbelvel2", "saidbmuhammedbsaidelce", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sevr b. Yezîd er-Rahbî -- hocalari */
+  E("sevryezid", "elvelidbmuslim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("sevryezid", "yunusbsuleymessanan2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Şeybân b. Abdirrahman en-Nahvî -- hocalari */
+  E("seybannahvi", "elvelidbmuslim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mûsâ b. Eyyûb b. Âmir el-Gāfikī -- hocalari */
+  E("musabeyyubbamirelgafik", "elvelidbmuslim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Velîd b. Müslim -- hocalari */
+  E("elvelidbmuslim", "bakiyyevelid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elvelidbmuslim", "ahmedhanbel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elvelidbmuslim", "ibnrahuye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elvelidbmuslim", "alimedini", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elvelidbmuslim", "sadakafadl", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elvelidbmuslim", "alihucr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elvelidbmuslim", "suveydsaidhadesani", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elvelidbmuslim", "harunmaruf", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elvelidbmuslim", "hisambammarbnusayr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elvelidbmuslim", "muhammedbmusaffabbehlu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elvelidbmuslim", "musabharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elvelidbmuslim", "mahmudbhalidessulemieb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mişrah b. Hâ‘ân -- hocalari */
+  E("misrahbhaan", "elvelidbmugirebsule2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Hübeyre b. Es‘ad -- hocalari */
+  E("abdullahbhubeyrebesad", "elvelidbmugirebsule2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ferkad Ebû Talha -- hocalari */
+  E("ferkadebutalha", "elvelidbebihisamziy2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Müslim b. Ebî Meryem Yesâr el-Medenî -- hocalari */
+  E("muslimbebimeryemyesare", "elvelidbebihisamziy2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Velîd b. Ebî Hişâm Ziyâd -- hocalari */
+  E("elvelidbebihisamziy2", "yezidhad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elvelidbebihisamziy2", "sevvarbabdullahbkedame", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elvelidbebihisamziy2", "essekenbmugire", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("elvelidbebihisamziy2", "cuveyriyebesmabubeyded", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ukbe b. Müslim et-Tüceybî -- hocalari */
+  E("ukbebmuslimettuceybi", "elvelidbebielvelido2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Velîd b. Ebî el-Velîd Osmân -- hocalari */
+  E("elvelidbebielvelido2", "yezidhad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Saîd b. Ubeyd et-Tâî -- hocalari */
+  E("saidubeydtai", "vehbbismailbmuhamme2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Vehb b. İsmâîl b. Muhammed Ebû Muhammed -- hocalari */
+  E("vehbbismailbmuhamme2", "ahmedhanbel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("vehbbismailbmuhamme2", "muhammedbismailbsemure", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Dâvûd b. Şâbûr -- hocalari */
+  E("davudbsabur", "vuheybbelverd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Vüheyb b. el-Verd -- hocalari */
+  E("vuheybbelverd", "fudaylibnayaz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. İbrâhim b. Osmân -- hocalari */
+  E("yahyabibrahimbosman2", "muhammedbnasrelferraen", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. İshak b. Abdullah -- hocalari */
+  E("yahyabishakbabdulla2", "ikrimeammar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Ebî İshak el-Hadramî -- hocalari */
+  E("yahyabebiishakelhadram", "ibnsirin", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabebiishakelhadram", "huseym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabebiishakelhadram", "abdulvarissaid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabebiishakelhadram", "yezidzurey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabebiishakelhadram", "ibnuleyye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabebiishakelhadram", "bisrmufaddal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Yemân -- hocalari */
+  E("yahyabyeman", "yahyabismailelvasit2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabyeman", "yahyabismailbzekeri2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. İsmâîl el-Vâsıtî Ebû Zekeriyyâ -- hocalari */
+  E("yahyabismailelvasit2", "bh03", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabismailelvasit2", "alibsaidbmesrukelkindi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabismailelvasit2", "caferbmuhammedbsakires", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. İsmâîl b. Zekeriyyâ -- hocalari */
+  E("yahyabismailbzekeri2", "bh03", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabismailbzekeri2", "alibsaidbmesrukelkindi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabismailbzekeri2", "caferbmuhammedbsakires", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Hakîm -- hocalari */
+  E("yahyabhakim2", "bh12", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabhakim2", "bh11", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Dâvûd b. Meymûn el-Vâsıtî -- hocalari */
+  E("yahyabdavudbmeymune2", "muhammedbishak", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Dürüst -- hocalari */
+  E("yahyabdurust", "ed18", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Râşid -- hocalari */
+  E("yahyabrasid2", "saidbkesirbufeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabrasid2", "amrbnalisayrafi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabrasid2", "nuaymbhammadbmuaviyeeb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Huleyd b. Da‘lec es-Sedûsî el-Basrî -- hocalari */
+  E("huleydbdalecessedusiel", "yahyabziyadbebidavu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* el-Halîl b. Mürre ed-Dubaî -- hocalari */
+  E("elhalilbmurreeddubai", "yahyabziyadbebidavu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mûsâ b. Verdân el-Âmirî -- hocalari */
+  E("musabverdanelamiri", "yahyabziyadbebidavu2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Talha b. Ebî Kesîr -- hocalari */
+  E("yahyabtalhabebikesir", "ms23", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabtalhabebikesir", "ishakbibrahimbyunuselv", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Abbâd b. Abdullah -- hocalari */
+  E("yahyababbadbabdulla2", "yezidhad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Abdullah b. el-Hâris -- hocalari */
+  E("yahyababdullahbelha2", "abdulvahidziyad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyababdullahbelha2", "abdurrahimbsuleymanelk", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Amr b. Yahyâ b. Umâre -- hocalari */
+  E("amrbyahyabumare", "yahyababdullahbsali2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Abdullah b. Sâlim -- hocalari */
+  E("yahyababdullahbsali2", "mekkiibrahim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Umâre b. Amr b. Hazm el-Ensârî el-Medenî -- hocalari */
+  E("umarebamrbhazmelensari", "yahyababdullahbabdi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Abdullah b. Muhammed -- hocalari */
+  E("yahyababdullahbmuha2", "abdullahbebinecihyesar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Talha b. Hırâş -- hocalari */
+  E("talhabhiras", "yahyababdullahbyezi2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Abdullah b. Yezîd -- hocalari */
+  E("yahyababdullahbyezi2", "ahmedhanbel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyababdullahbyezi2", "ibnmain", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyababdullahbyezi2", "muhammedisataba", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyababdullahbyezi2", "essaltbmesudbtarifebub", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyababdullahbyezi2", "ibrahimbabdullahbhatim", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Abdülhamîd b. Abdirrahman -- hocalari */
+  E("yahyababdulhamidbab2", "musabharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Abdirrahman b. Mâlik -- hocalari */
+  E("yahyababdirrahmanbm2", "ishakbmansuresseluli", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyababdirrahmanbm2", "muhammedbomerbheyyacel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Ubeyd -- hocalari */
+  E("yahyabubeyd3", "yalaubeyd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ömer b. Abdülvâhid b. Kays es-Sülemî ed-Dımaşkī -- hocalari */
+  E("omerbabdulvahidbkayses", "yahyabosmanbsaid2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Osmân b. Saîd -- hocalari */
+  E("yahyabosmanbsaid2", "muhammedbavfbsufyanett", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabosmanbsaid2", "ed24", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Osmân et-Teymî -- hocalari */
+  E("yahyabosmanetteymi2", "amrbnalisayrafi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Alâ el-Becelî Ebû Amr -- hocalari */
+  E("yahyabalaelbecelieb2", "muazbhisambebiabdullah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabalaelbecelieb2", "muhammedbrebiaelkilabi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabalaelbecelieb2", "muhammedisataba", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabalaelbecelieb2", "cubarabelmugallis", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Fazl b. Yahyâ -- hocalari */
+  E("yahyabfazlbyahya2", "ibnmace", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabfazlbyahya2", "bh11", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Kesîr -- hocalari */
+  E("yahyabkesir", "mervanfezari", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ca‘fer b. Muhammed b. Ali Ebû Abdullah -- hocalari */
+  E("caferbmuhammedbaliebua", "yahyabkesirebunadr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Muhammed b. Abdullah -- hocalari */
+  E("yahyabmuhammedbabdu2", "harunhammal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabmuhammedbabdu2", "muemmelbihab", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Ebî el-Mutâ‘ -- hocalari */
+  E("yahyabebielmuta", "abdullahbalabzebr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabebielmuta", "elvelidbsuleymanbebisa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Muhammed b. Abdirrahman b. Sevbân -- hocalari */
+  E("muhammedsevban", "yahyabnadrelensarie2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Nadr el-Ensârî el-Medenî -- hocalari */
+  E("yahyabnadrelensarie2", "muhammedamralkame", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yahyâ b. Ya‘lâ et-Teymî Ebû el-Mahyât -- hocalari */
+  E("yahyabyalaetteymiebuel", "ibrahimmusaferra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabyalaetteymiebuel", "mansurbebimuzahimbesir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabyalaetteymiebuel", "alibsaidbmesrukelkindi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabyalaetteymiebuel", "hennadseri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabyalaetteymiebuel", "muhammedbhassanbhalide", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yahyabyalaetteymiebuel", "abbadbyakub", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Eslem b. Yezîd Ebû İmrân et-Tüceybî el-Mısrî -- hocalari */
+  E("eslembyezidebuimranett", "yezidbebihabibelmisrie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Süveyd b. Kays et-Tüceybî -- hocalari */
+  E("suveydbkaysettuceybi", "yezidbebihabibelmisrie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Râşid -- hocalari */
+  E("abdullahbrasid", "yezidbebihabibelmisrie", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. el-Havtekiyye et-Temîmî -- hocalari */
+  E("yezidbelhavtekiyyeette", "musabtalhabubeydullahe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Hâlid b. Yezîd -- hocalari */
+  E("yezidbhalidbyezid2", "muhammedbmusabimranelk", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidbhalidbyezid2", "ebuzuraraazi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidbhalidbyezid2", "ms23", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Humeyr -- hocalari */
+  E("yezidbhumeyr", "busrbubeydullahelhadra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidbhumeyr", "halidbmadanebuabdullah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidbhumeyr", "sebibbnuaymeburuh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidbhumeyr", "rasidbsad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Humeyr -- hocalari */
+  E("yezidbhumeyr2", "busrbubeydullahelhadra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidbhumeyr2", "halidbmadanebuabdullah", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidbhumeyr2", "sebibbnuaymeburuh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidbhumeyr2", "rasidbsad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Ziyâd -- hocalari */
+  E("yezidbziyad2", "fazlbmusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Sâlih -- hocalari */
+  E("yezidbsalih2", "harizbosmanerrahbi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Abdirrahman b. Ebî Mâlik el-Hemdânî -- hocalari */
+  E("yezidbabdirrahmanbe2", "saidabdulaziz", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidbabdirrahmanbe2", "abdullahbalabzebr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidbabdirrahmanbe2", "ibnebiaruba", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidbabdirrahmanbe2", "saidbbesirelensari", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Abdülazîz b. Siyâh -- hocalari */
+  E("yezidbabdulazizbsiyah", "ishakbmansuresseluli", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yezidbabdulazizbsiyah", "ebumuaviyedarir", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Kubeys -- hocalari */
+  E("yezidbkubeys", "suleymanbabdulhamidbra", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Muhammed b. Kays -- hocalari */
+  E("yezidbmuhammedbkays2", "yezidbabdulazizelmisri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yezîd b. Naâme ed-Dabbî Ebû Mevdûd el-Basrî -- hocalari */
+  E("yezidbnaameeddabbiebum", "omerbferruh", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ya‘kûb b. Abdirrahman b. Muhammed -- hocalari */
+  E("yakubbabdirrahmanbm2", "saidbkesirbufeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yakubbabdirrahmanbm2", "said_mansur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yakubbabdirrahmanbm2", "kuteybesaid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ya‘kûb b. Muhammed b. Îsâ -- hocalari */
+  E("yakubbmuhammedbisa2", "harunhammal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yakubbmuhammedbisa2", "yusufmusakattan", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yakubbmuhammedbisa2", "muhammedbabdulmelikbme", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yakubbmuhammedbisa2", "yahyamusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Îsâ b. Ma‘mer -- hocalari */
+  E("isabmamer", "yakubbyahyababbad2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ya‘kûb el-Medenî -- hocalari */
+  E("yakubelmedeni2", "hasanbelhurrbhakemelcu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yakubelmedeni2", "abdulvahidbebiavnelmed", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yaîş b. el-Velîd b. Hişâm -- hocalari */
+  E("yaisbelvelidbhisam", "ikrimeammar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yaisbelvelidbhisam", "ismailbrafibuveymirele", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hasan b. Habîb b. Nedebe -- hocalari */
+  E("hasanbhabibbnedebe", "yusufbvadihebuyakubelb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hâlid b. Zekvân el-Medenî -- hocalari */
+  E("halidbzekvanelmedeni", "yusufbyezidelbasriebum", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yûsuf b. Yezîd el-Basrî Ebû Ma‘şer Berâ -- hocalari */
+  E("yusufbyezidelbasriebum", "seydanbmudaribelbahili", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Hakem b. el-A‘rec -- hocalari */
+  E("hakemarac", "yunusbubeydbdinarelabd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ziyâd b. Cübeyr b. Hayye es-Sekafî -- hocalari */
+  E("ziyadcubeyrhayye", "yunusbubeydbdinarelabd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ammâr b. Ebî Ammâr -- hocalari */
+  E("ammarebiammar", "yunusbubeydbdinarelabd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ubeyde Ebû Hıdâş el-Hüceyî el-Basrî -- hocalari */
+  E("ubeydeebuhidaselhuceyi", "yunusbubeydbdinarelabd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Cerîr b. Yezîd b. Cerîr -- hocalari */
+  E("cerirbyezidbcerir", "yunusbubeydbdinarelabd", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yûnus b. Ubeyd b. Dînâr el-Abdî Ebû Ubeyd el-Basrî -- hocalari */
+  E("yunusbubeydbdinarelabd", "yezidzurey", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yunusbubeydbdinarelabd", "haricebmusabbhariceebu", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yunusbubeydbdinarelabd", "ibrahimtahman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yunusbubeydbdinarelabd", "huseym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yunusbubeydbdinarelabd", "abdulvehhabbabdulmecid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yunusbubeydbdinarelabd", "abdulvarissaid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yunusbubeydbdinarelabd", "ibnuleyye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yunusbubeydbdinarelabd", "bisrmufaddal", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yunusbubeydbdinarelabd", "muhammedebiadi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yunusbubeydbdinarelabd", "abdulalaabdulala", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Sellâm b. Ebî Mutī‘ -- hocalari */
+  E("sallamebimuti", "yunusbmuhammedbmusl2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Yûnus b. Muhammed b. Müslim Ebû Muhammed -- hocalari */
+  E("yunusbmuhammedbmusl2", "alimedini", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yunusbmuhammedbmusl2", "musnedi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yunusbmuhammedbmusl2", "haccacsair", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yunusbmuhammedbmusl2", "mucahidmusa", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yunusbmuhammedbmusl2", "ahmedbsaidbibrahimelme", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yunusbmuhammedbmusl2", "muhammedbabdurrahimbeb", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("yunusbmuhammedbmusl2", "muhammedbubeydullahbye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Bekir b. Abdirrahman b. el-Hâris -- hocalari */
+  E("ebubekirbabdirrahmanbe", "abdurabbihbsaidbkaysel", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebubekirbabdirrahmanbe", "abdullahbkabelmedeni", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* İshak b. Abdullah b. Ca‘fer -- hocalari */
+  E("ishakbabdullahbcafer", "ebubekirbomerbabdir2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Bekir b. Ömer b. Abdirrahman -- hocalari */
+  E("ebubekirbomerbabdir2", "ibrahimtahman", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebubekirbomerbabdir2", "ubeydullahomeri", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Abdullah b. Amr b. Osmân -- hocalari */
+  E("abdullahbamrbosman", "ebubekirbmuhammedba2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Bekir b. Muhammed b. Amr -- hocalari */
+  E("ebubekirbmuhammedba2", "yezidhad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebubekirbmuhammedba2", "mesudi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebubekirbmuhammedba2", "eflahbhumeydbnafielens", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Rabî‘ el-Medenî -- hocalari */
+  E("eburabielmedeni2", "umarebgaziyye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Saîd eş-Şâmî -- hocalari */
+  E("ebusaidessami3", "surahbilbmuslimbhamide", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Me‘âfâ b. İmrân -- hocalari */
+  E("mafairan", "ebuseleme2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Sâdık el-Ezdî -- hocalari */
+  E("ebusadikelezdi", "elharisbhasira", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebusadikelezdi", "hakemuteybe", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Talk b. Habîb -- hocalari */
+  E("talkbhabib", "ebuelaliyebera", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Osmân el-Ensârî el-Medenî -- hocalari */
+  E("ebuosmanelensarielm2", "mutarriftarif", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuosmanelensarielm2", "leysebisuleym", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuosmanelensarielm2", "rabibsubih", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuosmanelensarielm2", "mehdimeymun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Alâ eş-Şâmî -- hocalari */
+  E("ebualaessami2", "asbagbzeydbalielcuheni", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû el-Alâniye -- hocalari */
+  E("ebuelalaniye", "ibnsirin", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû el-Kenûd el-Ezdî -- hocalari */
+  E("ebuelkenudelezdi", "ebuishaksebii", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Mühâcir Ebû Hasan et-Teymî -- hocalari */
+  E("muhacirebuhasanetteymi", "ebumalikennehaielva2", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Mâlik en-Nehaî el-Vâsıtî -- hocalari */
+  E("ebumalikennehaielva2", "yezidharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebumalikennehaielva2", "yahyaebibukeyr", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebumalikennehaielva2", "alicad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Vâkid el-Leysî -- hocalari */
+  E("ebuvakidleysi", "ebumeravihelgifari", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû Mugīre el-Becelî -- hocalari */
+  E("ebumugireelbeceli2", "ebubekirayyas", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebumugireelbeceli2", "muhammedsuaybsabur", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  /* Ebû el-Munîb -- hocalari */
+  E("ebuelmunib", "davudebihind", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuelmunib", "ferkadbyakub", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuelmunib", "hassanatiyye", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuelmunib", "sevryezid", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
+  E("ebuelmunib", "zeydbvakideddimaski", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması"),
 ];
 
 /* YINELENEN KENARLAR BURADA TEKILLESTIRILIYOR.
@@ -34551,7 +41830,7 @@ export const YIL_MIN = 5, YIL_MAX = 315;
                                 dar geliyordu). KAVIS_OLCEK bu sayiya
                                 bagli oldugu icin kavisler kendiliginden
                                 olcekleniyor.
-     H         600000 -> 2400000  (2026-09-14) Takrib transi girince
+     H         600000 -> 3200000  (2026-09-14) Takrib transi girince
                                 dugum 818'den 4826'ya cikti ve tuval
                                 KORKUNC YAYVANLASTI: W 520920'den
                                 3645720'ye, yani H'nin alti kati.
@@ -34561,7 +41840,13 @@ export const YIL_MIN = 5, YIL_MAX = 315;
                                 Cozum H'yi buyutup ASGARI_DY'yi SABIT
                                 tutmak: ayni yil araligi daha cok birime
                                 denk geliyor, serit sayisi dusuyor.
-                                DORT KAT. 16 kat da denendi ve serit
+                                Ilk adimda dort kat yeterliydi (4826
+                                dugum, oran 0,45). 871 ad cevrilip 1529
+                                dugum daha girince oran 0,57'ye kaydi ve
+                                bes bucuk kata cikarildi (6355 dugum,
+                                oran 0,37). DUGUM SAYISI ARTTIKCA H DA
+                                ARTMALI, yoksa tuval yeniden yayvanlasir.
+                                16 kat da denendi ve serit
                                 sayilarini birlestirme oncesine (azami
                                 14) dusuruyordu, AMA tuval o kadar
                                 incelince ekranin ortasina sikisiyor ve
@@ -34577,7 +41862,7 @@ export const YIL_MIN = 5, YIL_MAX = 315;
                                 192'ye cikinca eski payla ust kenardan
                                 tasiyordu. */
 export const UST = 460, ALT = 160, SOL_PAY = 60;
-export const H = 2400000;
+export const H = 3200000;
 export const SERIT_W = 2480;
 export const ASGARI_DY = 6264;
 export const yOf = (yil) => UST + ((yil - YIL_MIN) / (YIL_MAX - YIL_MIN)) * (H - UST - ALT);
@@ -35438,4 +42723,4 @@ export const KART_TAVAN = 100;
    Yeniden üretmek için: `baslik-coz.py` çıktısındaki her düğümün
    `satir` alanını al, ondan önceki son sayfa işaretinin sırasını say. */
 export const SAMILE_KITAP = 1293;
-export const SAMILE = {"ali":1499,"ebuhureyre":2671,"ebubekir":240,"omer":1551,"mikdad":2216,"fatima":2753,"ubey":92,"usame":102,"basra":233,"fadl":1722,"kabahbar":1801,"aise":2750,"enes":185,"cabir":276,"ebuzer":2589,"selmanfarisi":758,"ubadesamit":975,"ebueyyub":514,"ebukatade":2643,"ebubekre":2308,"vasile":2370,"ummuseleme":2760,"esmaebubekir":2733,"ebubekirabdrahman":2560,"ukaylhalid":1460,"yunusyezid":2544,"ibnebizib":1958,"humeydi":1024,"suleymanharb":778,"ibnabbas":1054,"ibnomer":1079,"ibnmesud":1121,"ibnzubeyr":1023,"bera":210,"zeydarkam":653,"cabirsemura":275,"suhayb":908,"sefine":752,"hasanbali":398,"huseyn":421,"amrhurays":1593,"tariksihab":922,"besrsuhaym":222,"ibncafer":1003,"ahnef":94,"esvedyezid":168,"alkame":1470,"ubeydesel":1375,"suveydgafle":826,"ebuvail":868,"zirhubeys":622,"sureyh":850,"saidmusayyeb":733,"hasanbasri":383,"rebihiras":583,"zeydvehb":666,"zadan":614,"ebutufeyl":962,"harissuveyd":325,"harisemudarrib":337,"salimcad":669,"hayseme":554,"ibrhunayn":67,"abdhayr":1170,"harisaver":326,"asimdamra":943,"salimibnomer":671,"humeydavf":492,"hafsasim":446,"zurareevfa":623,"busrsaid":216,"besirnehik":232,"esvedhilal":168,"hilas":553,"bece":234,"sabi":954,"ibnebileyla":1238,"urve":1422,"ikrime":1464,"zeynelabidin":1484,"ubeydullaherafi":1339,"umerbali":1575,"abdrahmanharis":1187,"ubeydumeyr":1368,"saidzuhadan":706,"zeydsabit":654,"kayshazim":1774,"abdrahmanebubekir":1182,"abdrahmanavf":1230,"osman":1402,"ukbeamir":1453,"ebumusa":2259,"ebusaid":691,"huzeyfe":362,"ebusalih":574,"rifaazuraki":603,"aizamr":965,"murreserahil":2118,"abdrahmanyerbu":1254,"abdrahmanabza":1175,"eslem":131,"esaskays":177,"saibyezid":678,"sadvakkas":693,"talha":930,"abisrebia":940,"asimomer":947,"ebanosman":49,"mervan":2120,"ibnhanefiyye":1982,"malikevs":2079,"ataebirebah":1431,"hamranaban":482,"ebuabdrahmansulemi":1009,"abdrahmanyezidnehai":1257,"mugirasube":2204,"imranhusayn":1646,"abdullahamr":1083,"muazcebel":2167,"ebudderda":1670,"sehlsad":814,"selemeekva":764,"zeydhalid":659,"ebuumame":899,"ibnsihab":2026,"amrdinar":1598,"yahyaebikesir":2453,"katade":1758,"ebuishaksebii":1614,"amess":799,"malik":2076,"ibnishak":1834,"ibncureyc":1306,"ibnuyeyne":749,"ibnebiaruba":723,"hammadseleme":476,"ebuavane":2377,"sube":856,"mamer":2195,"sevri":746,"evzai":1227,"huseym":2350,"yahyaadem":2407,"ibnebizaide":2423,"veki":2381,"ibnmubarek":1105,"kattan":2427,"ibnmehdi":1246,"sabitkayszuraki":262,"ibrahimavf":69,"haricezeyd":506,"ubeydullahutbe":1345,"arac":1252,"hamzaibnomer":485,"hasanhanefiyye":409,"alkamevakkas":1472,"abdullahkab":1098,"rafihadic":580,"salihkeysan":888,"suaybebihamza":862,"ibrahimsad":62,"eyyubsahtiyani":195,"usamezeydleysi":103,"haccacertat":351,"ebulaliye":605,"cabirzeyd":274,"bekirmuzeni":239,"nehai":87,"ibrahimteymi":87,"habibebisabit":342,"hakemuteybe":461,"ebuduha":2140,"yahyavessab":2466,"mearrursuveyd":2188,"hisamdestuvai":2342,"hemmamyahya":2354,"cerirhazim":289,"cerirabdulhamid":292,"hafsgiyas":453,"leysbsad":1811,"amrharis":1591,"misersukdam":2130,"suleymanteymi":789,"ibnnumeyr":1136,"ibnidris":991,"alimushir":1523,"saidcubeyr":699,"tavus":925,"mucahid":2095,"kureyb":1798,"ebucafermuhbakir":1980,"suleymanyesar":802,"ebuselemeavf":2601,"vehbmunebbih":2402,"hammadzeyd":475,"varkaomer":2376,"davudattar":561,"zekeriyyaishak":625,"egarebumuslim":180,"amrmeymun":1637,"mesruk":2129,"musatalha":2248,"numanbesir":2298,"nafiibnomer":2280,"zuhayrmuaviye":635,"zaidekudame":615,"ebulahvess":828,"serikkadi":854,"hamzazeyyat":483,"halidvelid":529,"bureyde":214,"temimdari":254,"hafsa":2739,"bilal":248,"amirrebia":952,"ebulubabe":2648,"abdullahdinar":1018,"cebeleshim":285,"saidyesar":741,"sadubeyde":691,"safvanmuhriz":904,"enessirin":184,"sabitbunani":257,"dahhak":916,"sehrhavseb":872,"hakemarac":459,"ebuzabyan":436,"abdullahmabed":1127,"ebulminhal":1242,"ubeydullahebiyezid":1361,"ibnebimuleyke":1069,"sumameenes":269,"humeydtavil":488,"hafsubeydullahenes":448,"cadebuosman":294,"rebiaebiabdrahman":593,"bekirahnes":242,"zubeyradi":620,"beyanbisr":250,"bisryesar":233,"ebuzubeyrmekki":2024,"ibnmunkedir":2039,"vehbkeysan":2401,"mahmudlebid":2107,"muhammedabbadcafer":1929,"muhammedsevban":1954,"yezidsuheybfakir":2488,"sadhisam":693,"kazaayahya":1770,"ibnsirin":1915,"mabedsirin":2185,"kasimmuhaymire":1751,"yahyaumare":2449,"ebuumamesehl":129,"ebusaidmakburi":712,"numanebiayyas":2302,"ebussiddiknaci":240,"ebuidrishavlani":963,"zekvanmevlaaise":575,"abbadabdullahzubeyr":969,"sureyhhani":852,"abdullahsakik":1043,"abdullahsedddad":1042,"amrabdrahmanzurara":2775,"kasimmuhammed":1749,"caferisadik":305,"humeyskaysarac":492,"davudhusayn":556,"salimebinadr":669,"hubeybabdrahman":535,"ziyadsad":642,"yezidhad":2488,"yezidrouman":2481,"yezidkusayt":2489,"ataihorasani":1438,"abdulmecidsuheyl":1295,"ibnvehb":1143,"kanebi":1123,"ibnkasimmisri":1234,"safii":1827,"kuteybesaid":1761,"ibnebiuveys":152,"ibnuleyye":135,"velidmuslim":2395,"ebunuaymfadl":1717,"ebuasimnebil":915,"ismailebihalid":142,"halidhazza":528,"davudebihind":567,"sadibrahim":684,"husaynabdrahman":436,"hammadebisuleyman":478,"zubeydyami":618,"zekeriyyaebizaide":626,"cameseddad":283,"gunder":1861,"yezidharun":2501,"yezidzurey":2481,"nadrsumeyl":2292,"ebudavudtayalisi":780,"muazmuaz":2170,"affanmuslim":1447,"alicad":1476,"abdussamed":1270,"isabyunus":1701,"esvedkays":167,"hasanubeydullah":396,"sevryezid":271,"ismailumeyye":139,"suddi":153,"ibrahimukbe":72,"ebuhasin":1395,"cabircufi":278,"hasanamrfukaymi":404,"ishakyusufezrak":126,"ebuusamehammad":472,"caferavn":304,"halidharis":510,"ruhubade":609,"abdurrezzak":1262,"damrarebia":919,"suleymanbilal":776,"bisrsari":222,"hisamurve":2345,"mansurmutemir":2229,"mansursafiyye":2228,"musaukbe":2253,"muhammedacilan":1976,"muhammedamralkame":1992,"muhammedsuka":1913,"mutarriftarif":2160,"ismailebiislamsibani":787,"velidkesir":2393,"yezidhusayfe":2489,"ahmedhanbel":38,"ibnrahuye":107,"ahmedsalihmisri":22,"ahmedmeni":43,"ibrahimfezari":75,"abdullahtavus":1050,"abdulhamidcubeyr":1163,"abdulkerimcezeri":1292,"ikrimehalid":1461,"kasimebibezze":1738,"alaabdrahman":1675,"amrsuayb":1607,"ibnhuseymkhaysem":1073,"ubeydullahomeri":1352,"haccacmuhammed":355,"ismailayyas":157,"enesiyaz":185,"hemmammunebbih":2353,"matarverrak":2157,"hisamyusufsanani":2349,"mutemirsuleyman":2187,"abdulalaabdulala":1155,"vuheybhalid":2403,"ebansattar":51,"mervanfezari":2122,"vakidi":1986,"mekhul":2218,"hassanatiyye":377,"rebiayezid":596,"umeyrhani":1658,"abdelubabe":1334,"muhammedvelidzubeydi":2053,"suleymanhabib":777,"suleymanmusadimaski":801,"saddadebuammar":845,"mutallibhantab":2163,"kurrahayvil":1768,"meymunmihran":2268,"hikalziyad":2352,"bakiyyevelid":234,"firyabi":2069,"ebulmugirehavlani":1290,"suaybishakdimaski":861,"muhammedharbhavlani":1867,"muhammedsuaybsabur":1919,"ubeydullahmusa":1358,"amrebiselemetennisi":1605,"mafairan":2173,"bisrbekirtennisi":219,"saidabdulaziz":721,"asimbehdele":940,"alizeydcudan":1492,"amiralhavl":959,"abdulvarissaid":1324,"abdulvehhabata":1328,"abdesuleyman":1332,"muhammedbisrabdi":1850,"muhammedebiadi":1822,"simakharb":804,"suheylebisalih":818,"selemekuheyl":767,"cureyri":697,"abdullahavn":1088,"ebuimrancevni":1299,"abdulmelikumeyr":1310,"ataisaib":1433,"ammarebiammar":1533,"amryahyamazini":1642,"ubeydullahomeri2":1235,"hebbanhilal":2333,"musaismailtebuzeki":2239,"hisamtayalisi":2343,"muslimibrahim":2134,"amrmerzuk":1633,"ebunasrtemmar":1308,"caferebivahsiyye":295,"asimahvel":942,"mugirmiksem":2208,"firasyahya":1712,"mansurzazan":2226,"abdulmelikebisuleyman":1303,"abdulazizsuheyb":1277,"saidmesrukhsevri":732,"yalaata":2520,"hilalvezzan":2358,"said_mansur":735,"kavariri":1353,"seybanferruh":874,"haccacminhal":356,"halefhisam":544,"avvamhavseb":1664,"avfarabi":1666,"abdullahsubrume":1041,"abdulhamidcafer":1163,"sufyanhusayn":744,"mucalidsaid":2094,"salihhayy":885,"siyarebilhakem":832,"kasimmihran":1752,"saidsuleymansadeviye":714,"ibnebiseybe":1109,"zuheyrharb":632,"alimedini":1506,"alihucr":1478,"amrnakid":1631,"osmanebiseybe":1407,"ahmeddevraki":8,"muhammedisataba":2000,"yezidebihabib":2478,"yalaubeyd":2520,"yunusbukeyr":2536,"abdrahmanesved":1178,"aliebisalihhayy":1498,"alimubarek":1519,"omerzerr":1553,"mesudi":1213,"suleymanmugire":798,"saidubeydtai":723,"davudkaysferra":564,"hanzalasufyan":499,"abdulazizomer":1281,"misned":2127,"hennadseri":2355,"ibnmain":2459,"yahyayahyanisaburi":2467,"mahmudgaylan":2106,"ibnebiomeradeni":2061,"nasralicehdami":2289,"ibrahimtahman":64,"ibrahimebiable":70,"usamezeydeslem":102,"caferburkan":296,"hayveseri":503,"saidebiyyubmisri":697,"harmalaimran":366,"ebuburde":213,"serieyyahya":683,"sadsaidensari":687,"rebiuenes":584,"alihasansakik":1481,"abdan":1072,"suveydnasr":826,"hasanisad":294,"behzhakim":246,"hatimebisagire":319,"hasanzekvan":389,"selimhayyan":772,"seyfsuleymanmekki":833,"husaymirak":535,"esaseabdulmelik":176,"bundar":1849,"ibnmusenna":2017,"amrbnalisayrafi":1623,"abbasanberi":980,"ubeydullahmuazanberi":1357,"yakubdevraki":2509,"muaviyesalih":2178,"israilyunus":128,"darevardi":1282,"macisun":1277,"harbseddad":364,"abdulvahidziyad":1321,"malikmigvel":2085,"sallamebimuti":830,"abdhumeyd":1331,"ebukureyb":1997,"omeryunusyemami":1585,"bisrmufaddal":226,"ziyadilaka":646,"sebabesevvar":837,"hammadmesade":480,"sucavelid":843,"talhamusarrif":933,"manisa":2199,"ebumiclez":2405,"ebuhazimseleme":761,"saidyezidtahi":741,"muallamansur":2193,"ebucemrenasr":2290,"eburafinufey":2310,"vasilahdeb":2371,"yusufmahek":2529,"museyyebrafi":2150,"behzesed":246,"alkamemersed":1471,"avnebicuhayfe":1668,"muaviyekurre":2181,"saidamirdubai":717,"suleymesvedsasa":771,"ukbehalidsekuni":1452,"ebumesudbedri":1456,"ebuhasimrummani":2670,"fudaylsuleyman":1728,"humeydhilal":495,"ebuamrseybani":686,"galibhattaf":1703,"gaylancerir":1709,"mehdimeymun":2236,"saidebihind":737,"seyyarselame":832,"sebibgarkade":841,"alirebianadle":1491,"muaviyeamrezdi":2181,"yahyayamer":2471,"huseynzekvan":417,"mahremesuleyman":2110,"mufaddalfadale":2210,"zeydcubeyr":655,"urvecad":1421,"sehlebihasme":812,"muhammedmuntesir":2038,"yahyaatik":2446,"ibrahimmeysere":85,"saibferruh":677,"semurecundeb":806,"umarekaka":1543,"makilyesar":2191,"munziryala":2225,"yezidserik":2487,"seddadevs":844,"ebuuseydsaidi":2081,"ebunadrhasim":2330,"yezidmunbais":2506,"yunusubeyd":2540,"abbadavvam":969,"adisabit":1415,"hakimhizam":468,"abbadtemim":965,"yahyaebiishak":2408,"amrevssekafi":1587,"ebuvakidleysi":2674,"ibrahimnafi":86,"amrsuleymzuraki":1605,"yezidebiyezid":2504,"sabitdahhak":260,"suleymanhayyan":779,"ismailcafer":140,"hatimismail":318,"osmanesved":1386,"kurrehalid":1767,"cafercrebia":299,"osmanomerfaris":1403,"umareumeyr":1542,"yahyaebibukeyr":2414,"harisevehb":337,"yalaumeyye":2518,"habibsehid":346,"ebuleshebutaridi":298,"ziyadcubeyrhayye":638,"yunuscubeyr":2537,"ismailzekeriyya":146,"selmanebuhazim":759,"alimudrik":1521,"salimebulgays":675,"ebumusabzuhri":13,"ziyadyahyahassani":650,"ebusaidesecc":1035,"muhammedrafi":1890,"zuhli":2058,"muhammedabdulalasanani":1951,"mucahidmusa":2096,"ebubekirayyas":2562,"ebumuaviyedarir":1881,"muhammedfudayl":2006,"fudaylibnayaz":1729,"kaysrebi":1777,"fitrhalife":1732,"abdusselamharb":1265,"halidselememahzumi":516,"amrmeymunmihran":1637,"musacuheni":2250,"nafiomercumahi":2278,"hasimhasim":2331,"ebumalikesceyi":688,"leysebisuleym":1814,"harunmaruf":2326,"ibrahimmusaferra":84,"sericyunus":681,"hasanarafe":397,"muhammedubeydmuharibi":1972,"buhari":1838,"muslim":2137,"ebudavud":773,"tirmizi":1998,"nesai":21,"ms12":431,"ms22":1481,"ms25":2048,"ed10":42,"ed20":1114,"ibnmace":2067,"darimi":1063,"ebuzuraraazi":1348,"ebuhatimrazi":1830,"harmalayahya":367,"ishakkevsec":122,"ibrahimmunzirhizami":82,"ademebiiyas":96,"hasanaliayyal":401,"suveydsaidhadesani":823,"ibrahimkariz":67,"hakemmina":465,"ishaktalha":117,"abdullahebikatade":1094,"ebukilabe":1029,"ebunadra":2224,"ubeydullahmiksem":1358,"hilalebimeymune":2360,"muhammedibrahimteymi":1818,"hisamhassan":2338,"haccacsavvaf":354,"seybannahvi":874,"muaviyesellam":2177,"yahyasaidensari":2430,"ikrimeammar":1462,"zeydeslem":653,"sufyanveki":752,"harunhammal":2325,"ibnsellam":1914,"habbanhilal":338,"nersi":1154,"duhaym":1174,"ahmedsinan":20,"ebukudame":1342,"yahyamusa":2463,"esedmusa":128,"musnedi":1112,"rebimuradi":588,"ebuamirakadi":1309,"ebuahmedzubeyri":1935,"ibnsabbahdulabi":1923,"ibnrecagudani":1022,"zaferani":408,"abbasduri":984,"haccacsair":357,"cuzcani":90,"ramadi":43,"ahmedabde":31,"yusufmusakattan":2531,"atayesar":1440,"makburi":712,"ebuosmannehdi":1245,"cubeyrnufeyr":287,"ibnganm":1233,"saidebihilal":738,"safvansuleym":902,"bukeyresec":243,"naficubeyr":2276,"musabsad":2154,"irakmalik":1418,"abdullahyusuftinnisi":1151,"ebulyemanhakem":465,"mekkiibrahim":2220,"halidmahled":526,"asbagferec":178,"surayjnuman":681,"muhammedsabik":1897,"muhammedararah":1977,"bedelmuhabber":210,"talkgannam":936,"halladyahya":552,"aliayyas":1515,"ebumushir":1156,"bisrsuayb":223,"ahmedhalidvehbi":16,"eyyubsuleymanbilal":198,"sadakafadl":898,"hassanhassan":376,"abdulazizuveysi":1278,"ahmedeskab":11,"ahmedbibrahimbkesir":8,"ahmedbishakbzeydebuish":10,"ahmedbsabitebubekirelb":13,"ahmedbcafer":13,"ahmedbcevvas":14,"ahmedbelhaccacelmervez":14,"ahmedbharbbmuhammed":14,"ahmedbhasanbcuneydeb":15,"ahmedbhalidelhallal":16,"ahmedbelhalil":17,"ahmedbsaidbsahrebucafe":18,"ahmedbseyyarbeyyubebuh":20,"ahmedbsebibbsaid":20,"ahmedbsalih":24,"ahmedbessabbahebucafer":24,"ahmedbebitaybaisabsule":25,"ahmedbabdullahbeyyubeb":25,"ahmedbabdullahbhakem":25,"ahmedbabdullahbebisuay":25,"ahmedbabdullahbmuhamme":26,"ahmedbabdullahbyunus":27,"ahmedbabdirrahmanbbekk":28,"ahmedbabdulmelikbvakid":30,"ahmedbabdulvahidbvakid":30,"ahmedbosmanbhakimelevd":32,"ahmedbalibsaidebubekir":32,"ahmedbomerebucafer":33,"ahmedbamrbabdullah":33,"ahmedbisabhassanelmisr":34,"ahmedbisaettinnisielmi":34,"ahmedbelfuratbhalidedd":34,"ahmedbmuhammedbmugire":40,"ahmedbmuhammedbyahyaeb":41,"ahmedbelmufaddal":42,"ahmedbmunzirbelcarudel":42,"ahmedbmansurbrasidelme":43,"ahmedbnasrbziyadennisa":44,"ahmedbnadrbabdulvehhab":45,"ahmedbyahyabzekeriyyae":46,"ahmedbyakubabdillahebu":47,"ahmedbyusufbhalidelezd":47,"ebanbabdullahbebihazim":49,"ibrahimbedhembmansur":52,"ibrahimbishakbisaelbun":53,"ibrahimbismailbebihabi":53,"ibrahimbismailbyahyaeb":54,"ibrahimbayenesseybani":55,"ibrahimbbessarebuishak":55,"ibrahimbebibekirelmekk":56,"ibrahimbelharisbismail":57,"ibrahimbhabibbessehide":57,"ibrahimbelhaccacbzeyd":57,"ibrahimbelhaccac":57,"ibrahimbhamzabmuhammed":58,"ibrahimbhumeydbabdirra":59,"ibrahimbhalidessananie":59,"ibrahimbdinarebuishake":60,"ibrahimbziyad":60,"ibrahimbsalimbebiumeyy":60,"ibrahimbsaidebuishak":62,"ibrahimbsemmasebuishak":64,"ibrahimbabdullahbhatim":66,"ibrahimbabdullahbmabed":68,"ibrahimbabdulalaelcufi":68,"ibrahimbabdirrahmanebu":69,"ibrahimbabdirrahmanbme":69,"ibrahimbabdusselambabd":70,"ibrahimbabdulazizbabdu":70,"ibrahimbabdulmelikelba":70,"ibrahimbubeydbrifaa":71,"ibrahimbosman":71,"ibrahimbukaylbmakiless":72,"ibrahimbalibhasan":73,"ibrahimbomerbkeysaness":73,"ibrahimbomerbmutarrif":73,"ibrahimbomeressanani":73,"ibrahimbamr":73,"ibrahimbalabeddahhak":74,"ibrahimbuyeynebebiimra":74,"ibrahimbfazlelmahzumie":74,"ibrahimbmuhammedbarara":77,"ibrahimbmuhammedbelmun":78,"ibrahimbmuhammedbebiya":78,"ibrahimbelmuhtarettemi":80,"ibrahimbmurreessami":81,"ibrahimbmuhacirbcabire":83,"ibrahimbmeymunessaigel":85,"ibrahimbmeymunessanani":86,"ibrahimbyezid":89,"ibrahimbyusufbmeymunel":91,"ibrahimbyusufelhadrami":91,"ibrahimbyunusbmuhammed":91,"ebibabbasbsehl":92,"ertatbmunzirbelesved":97,"erkambsurahbilelevdi":98,"ezherbkasimebubekirelb":101,"usamebhafselmedeni":101,"ishakbibrahimbsuveyd":105,"ishakbibrahimbumeyrabd":106,"ishakbibrahimbmuhammed":106,"ishakbibrahimbyezidebu":108,"ishakbibrahimessekafie":109,"ishakbibrahim":109,"ishakbismailebuyakub":111,"ishakbrebia":112,"ishakbbekirbmudarebuya":112,"ishakbhazim":113,"ishakbrasidelcezeriebu":113,"ishakbsaidbamr":115,"ishakbsuleymanerrazieb":115,"ishakbsuveydbhubeyreel":116,"ishakbsahinbelhariselv":116,"ishakbessabbahelkindi":116,"ishakbabdulvahid":119,"ishakbosmanelkilabiebu":120,"ishakbisabnecihebuyaku":120,"ishakbisaebuhasim":120,"ishakbelfuratbelcadett":121,"ishakbmuhammedbismail":122,"ishakbmusababdullahebu":123,"ishakbvehbbziyad":124,"israilbmusaebumusaelba":128,"eslembyezidebuimranett":130,"esmabhakemelfezari":131,"ismailbeban":132,"ismailbibrahimbbessame":133,"ismailbibrahimbabdirra":133,"ismailbibrahimbukbeele":134,"ismailbibrahimbmikseme":135,"ismailbibrahimbmuhacir":137,"ismailbibrahimebuibrah":137,"ismailbebielharisesedb":138,"ismailbtevbebsuleymane":140,"ismailbhabban":141,"ismailbhammadbebisuley":142,"ismailbhalife":143,"ismailbelhalil":144,"ismailbrecabrebiaezzub":145,"ismailbsalimelesediebu":148,"ismailbsalimessaig":148,"ismailbselmanibebimugi":149,"ismailbsubih":150,"ismailbabdullahbelhari":150,"ismailbabdulkerimbmaki":154,"ismailbubeydbebikerime":156,"ismailbomerelvasitiebu":156,"ismailbkesirebuhasimel":160,"ismailbmucalidbsaidelh":160,"ismailbmuhammedbismail":160,"ismailbmuslimelabdiebu":162,"ismailbmeslemebkanebel":164,"ismailbmusaelfezariebu":164,"elesvedbamiressami":167,"elesvedbmesudelanberie":168,"rebiabebirebia":169,"rebiababdirrahmanerrem":170,"esasbishakbsad":172,"esasbsaidelbasrieburab":172,"esasbebiessasaelmuhari":174,"esasbabdullah":175,"eshebbabdulazizbdavude":177,"asbagbnubateettemimi":178,"eflahbhumeydbnafielens":181,"eflahbsaidelensari":181,"umeyyebabdullahbhalid":183,"enesbhakimeddabbielbas":184,"evsbdamac":188,"iyasbselemebelekvaebus":191,"iyasbamirelgafiki":191,"iyasbmuaviyebkurreebuv":192,"eyyubbbesirbkabeladevi":195,"eyyubbhabibezzuhrielme":197,"eyyubbhassanelvasitieb":197,"eyyubbhalidbsafvan":197,"eyyubbaiz":200,"eyyubbmuhammedbziyadel":202,"eyyubbhani":204,"eyyubbvakidebuhasan":204,"bahrbkuneyz":207,"bahrbmerrar":208,"bahrbnasrbsabikelhavla":208,"bedrbosman":209,"berababdullahbyezidelb":211,"berabnaciye":211,"bureydbebimeryemmalikb":214,"busrbubeydullahelhadra":217,"bessarbkedam":218,"bisrbadembyezidelbasri":219,"bisrbademeddarirebuabd":219,"bisrbsabitelbasriebumu":219,"bisrbelharisbabdirrahm":220,"bisrbhalidebumuhammed":221,"bisrbaiz":224,"bisrbabdullahbyesaress":224,"bisrbumare":225,"bisrbomerbhakem":225,"bisrbmuhammedessahtiya":226,"bisrbmuaz":226,"bisrbmansur":227,"bisrbelvaddahelbasrieb":228,"besirbsellam":230,"besirbukbe":230,"besirbmuslimelkindiebu":231,"besirbmeymunelvasiti":231,"bekirbhakemettemimiebu":237,"bekirbhalefelbasri":237,"bekirbzuraelhavlaniess":238,"bekirbabdulvehhabbmuha":240,"bekirbamrelmisri":240,"bekirbmudarbmuhammedeb":241,"bekirbyunusbbukeyresse":241,"bukeyrbsihab":242,"bukeyrbamirelbeceliebu":242,"bukeyrbataelleysi":244,"bukeyrbmarufelesediebu":245,"bilalbyahya":250,"beyanbamrebumuhammed":250,"temmambnecihelesediedd":253,"temimbselemeessulemi":254,"temimbatiyyeessami":255,"tevbeebusadakaelensari":256,"sabitbelhaccacelkilabi":258,"sabitbsadettaiebuamr":258,"sabitbaclanelensariebu":261,"sabitbumareebumalikelb":261,"sabitbkayselgifari":262,"sabitbmusababdirrahman":263,"sabitbyezidelahvelebuz":264,"sevvabbutbe":270,"sevrbufeyr":271,"cabirbsubh":276,"cabirbkurdi":277,"cabirbnuh":278,"elcarudbebisebre":281,"elcarudbmuazessulemi":282,"camibbekkarbbilaleddim":282,"camibebirasidessayrafi":283,"camibmatar":283,"cubarabelmugallis":283,"cebelebatiyye":286,"elcerrahbeddahhakbkays":287,"cusulbhaan":294,"elcadbdinar":294,"caferbrebiabsurahbileb":299,"caferbezzubeyr":299,"caferbziyadelahmer":300,"caferbsuleymaneddubai":301,"caferbmuhammedbimran":306,"caferbmuhammedbelhuzey":307,"caferbmuhammedbsakires":305,"caferbmahmudbabdullah":307,"caferbmusafirbrasidett":307,"cemilbhasanbcemilelceh":310,"cemilbmurreesseybaniel":311,"cunadebselm":312,"cendelbvalik":313,"cuveyriyebesmabubeyded":316,"elculahebukesirelmisri":316,"hatimbmeymunelkilabieb":319,"hatimbverdanbmervanebu":320,"hatimbyusufbhalid":320,"elharisbesedbmakilelhe":321,"elharisbesed":321,"elharisbabdullahbebire":326,"elharisbabdirrahmanbab":327,"elharisbubeydullahelen":328,"elharisbatiyyeelbasri":329,"elharisbimranelmedeni":330,"elharisbumeyrebuumeyre":330,"elharisbfudaylelensari":331,"elharisbkayselcufi":331,"elharisbmiskinbmuhamme":332,"elharisbmansurelvasiti":332,"elharisbyezidelhadrami":335,"elharisbyakubelensari":335,"hamidbyahyabhaniebuabd":338,"habbanbebicebele":339,"habbanbali":340,"habibbebihabibelbeceli":343,"habibbebihabibelcermie":343,"habibebihabibelmisri":344,"habibbebihabibelbasri":343,"habibbzeydbhalladelens":345,"habibbsuleym":345,"habibbsalih":346,"habibbubeyderrahbi":347,"habibbebiamre":347,"habibbmuhammedelacemie":347,"habibbebimerzuk":348,"habibbyesarelkindi":349,"habibbyesar":349,"habibelmuallimebumuham":350,"hubeysbsureyhebuhafsae":350,"hubeysbmubessir":350,"haccacbibrahimelezrake":350,"haccacbhaccacelbahilie":352,"haccacbdinarelvasiti":353,"haccacbsafvanbebiyezid":354,"haccacbnusayr":357,"harbbseric":364,"harbbmeymun":365,"harbbmeymun2":365,"haramibumarebebihafsa":368,"huraysbsaibettemimi":369,"huraysbebimatarelfezar":369,"harizbosmanerrahbi":370,"hazmbebihazm":373,"hassanbbilalelmuzeniel":375,"hassanbebisinanelbasri":376,"hassanbkureybebukureyb":377,"hassanbnuh":377,"hasanbishakbziyadelley":379,"hasanbbisrbselm":379,"hasanbsevbanbamir":381,"hasanbebicafer":381,"hasanbhabibbnedebe":382,"hasanbelhurrbhakemelcu":382,"hasanbhammadbkuseyb":387,"hasanbhammadeddabbiebu":387,"hasanbzeydbhasanebumuh":390,"hasanbsadbmabed":391,"hasanbsucabrecaebuali":392,"hasanbessabbahelbezzar":395,"hasanbabdullah":396,"hasanbalibrasidelvasit":398,"hasanbumareelbeceli":402,"hasanbomerbsakikelcerm":404,"hasanbomer":404,"hasanbayyas":406,"hasanbisabmaserces":406,"hasanbelfuratbebiabdir":407,"hasanbkaza":407,"hasanbmuhammedbayenebu":408,"hasanbmuhammedbubeydul":408,"hasanbmusa":410,"hasanbvakibkasimebuali":411,"hasanbyahyabhisam":411,"hasanbyahya":412,"huseyinbbeyan":414,"hasanbelcuneyd":415,"huseyinbhurayselhuzai":415,"huseyinbhasanbharbessu":416,"huseyinbhasaneleskarel":416,"huseyinbhafsbfazl":417,"huseyinbsaibbebilubabe":418,"huseyinbselemebismail":418,"huseyinbmuhammedbeyyub":430,"huseyinbmuhammedbbehra":430,"huseyinbmeymun":432,"huseyinbyahyabcaferelb":434,"huseyinbyezidbyahya":434,"husaynbomer":438,"husaynbmansurbhayyan":441,"husaynbnumeyr":441,"hafsbsuleymanelesedieb":445,"hafsbsuleymanettemimi":446,"hafsbabdullahbrasidess":447,"hafsbabdirrahmanbomere":447,"hafsbomerbabdirrahman":449,"hafsbomerbabdirrahmane":449,"hafsbmeysereelukayli":455,"hakkambselm":456,"hakembebanebuisa":456,"hakembessaltelmedeniel":458,"hakembabdullahbishak":459,"hakembabdulmelikelbasr":460,"hakembatiyye":463,"hakembferruh":463,"hakembmusabelmahzumied":464,"hakembmusabebizuheyreb":464,"hakimbcubeyrelesedi":467,"hammadbbesirelcehdamie":472,"hammadbelcadelbasri":473,"hammadbhalid":474,"hammadbisabubeyde":479,"hammadbnecih":480,"hammadbvakid":480,"hammadbyahya":481,"humranbayen":482,"hamzabebirebia":483,"hamzabelharisbumeyrela":483,"hamzabebihamzaelcufiel":484,"hamzabamr":485,"hamzabebimuhammedelmed":486,"hamzabmugire":486,"hamzabnecihelbasri":486,"hamzabnusayrbhamza":487,"humeydbelesvedbeleskar":487,"humeydbebisuveydelmekk":490,"humeydbabdirrahmanelba":492,"humeydbnafielensariebu":494,"humeydbhaniebuhanielha":494,"humeydbyezidelbasriebu":495,"humeydelarec":496,"hannanbhariceessulemie":497,"hanesbelharisblakitenn":498,"hanesbabdullah":498,"hanesbelmutemir":498,"hanzalabalibeleskaelme":500,"hanzalabkaysbamr":500,"hayyanbumeyrelcureyri":503,"hayvebsureyhbyezidelha":504,"hayybyumin":504,"huyeybabdullahbsureyhe":505,"huyeybhanibnadir":505,"haricebelharisbrafi":506,"haricebabdullahbsuleym":507,"haricebmusabbhariceebu":507,"hazimbhuseyinebuishak":508,"halidbebibekirbubeydul":510,"halidbhumeyd":510,"halidbhayyanebuzeydelk":511,"halidbhidas":511,"halidbzekvanelmedeni":513,"halidbziyadelezdiebuab":514,"halidbsad":515,"halidbsaidbebimeryemel":516,"halidbselemebelas":516,"halidbtahman":518,"halidbabdullahbmuhrize":519,"halidbabdirrahmanelhor":520,"halidbubeyd":521,"halidbamrbmuhammedebus":522,"halidbkaysbrebahelezdi":524,"halidbebikerimeebuabdi":525,"halidbmuhammedessekafi":526,"halidbmihranebuelmenaz":528,"halidbyezidbziyadelese":530,"halidbyezidbsalih":530,"halidbyezidbabdirrahma":531,"halidbyezidbomer":531,"halidbyezidbmuaviyeebu":532,"halidbyezidelcumahi":532,"habbabelmedeni":534,"elhidrbmuhammedbsucael":539,"halefbeyyubelamiriebus":540,"halefbhavseb":541,"halefbhalid":541,"halefbhalifebsaidelesc":542,"halefbmuhammedbisa":543,"halefbhisambsaleb":544,"huleydbabdullah":545,"halifebhayyat":546,"halifebsaidelescei":546,"halifebgalibelleysiebu":547,"halifeelmahzumi":547,"elhalilbahmedelezdiebu":547,"elhalilbahmedelmuzenie":548,"elhalilbzekeriyyaessey":548,"elhalilbziyadelmuharib":549,"elhalilbamressekafiebu":550,"elhalilbmurreeddubai":550,"halladbsuleymanelhadra":552,"halladbabdirrahmanessa":552,"halladbisa":552,"halladbyezidelcufi":553,"hayrbnuaymbmurre":555,"davudbbekirbebielfurat":556,"davudbhalidbdinarelmed":557,"davudbrasidettufaviebu":557,"davudbresid":558,"davudbezzibrikanerraka":558,"davudbsabur":559,"davudbsebibelbahiliebu":559,"davudbebisalihelleysie":560,"davudbebiasimburve":560,"davudbabdullahelevdi":561,"davudbamrbzuheyrebusul":563,"davudbebielfuratamrbel":564,"davudbnusayr":567,"davudbyezidbabdirrahma":567,"dinarebuabdullah":573,"rasidbsaidbrasidebubek":579,"rasidbkeysan":579,"rasidbnecih":579,"rafibishakelmedeni":579,"rafibselemebziyad":580,"rebahbzeyd":582,"ribibibrahimbmiksemele":583,"ribibabdullahbelcarud":584,"rabibhusiym":586,"rabibruh":586,"rabibziyadelharisielba":587,"rabibsebrebmabedelcuhe":587,"rabibsuleymanbdavudebu":587,"rabibsubih":588,"rabibabdullahbhattaf":589,"rabibmuslimelcumahiebu":590,"rabibnafiebutevbe":590,"rabibyahyabmiksem":591,"rebiabseyfbmati":592,"rebiabutbe":594,"rebiabataezzuhri":594,"rebiabkulsumbcebr":595,"recabhayve":596,"recabrebiaezzubeydi":597,"recabebirecaelbahiliel":597,"recabsubih":598,"recabmuhammedbrecaebuh":598,"recabmureccaelgifariel":598,"recaelensari":599,"ruzeykbhayyaneddimaski":600,"ruzeykebuabdullah":601,"rifaabrafibhadicelensa":603,"rifaabseddadbabdullah":604,"rakababmaskalaelabdieb":606,"ruhbeslemelbahiliebuha":608,"ruhbelferec":611,"ruhbkasimettemimielanb":611,"riyahbelharisennehaieb":612,"zebbanbfaid":616,"zubeydbelharisbabdulke":618,"ezzubeyrbcunadeelhecer":619,"ezzubeyrbsaidbsuleyman":619,"zurarebmusabbabdirrahm":623,"zurababdullah":624,"zurababdirrahmanebuabd":625,"zekeriyyabyahyabiyas":628,"zekeriyyabyahyabsalihe":629,"zuheyrbsalim":632,"zuheyrbmuhammedbkumeyr":634,"zuheyrbnuaym":636,"ziyadbismailelmahzumi":636,"ziyadbeyyubbziyadebuha":637,"ziyadbbeyan":637,"ziyadbelcerrahelcezeri":638,"ziyadbelhusaynbkays":640,"ziyadbhaysemeelcufi":640,"ziyadbrabi":640,"ziyadbrebiabnuaym":641,"ziyadbebiziyadmeyseree":641,"ziyadbebiziyad":641,"ziyadbabdullahbulase":645,"ziyadbabdullahennumeyr":645,"ziyadbfeyyadelhuzaiebu":647,"ziyadbmuslim":649,"ziyadbyunusbsaidelhadr":651,"zeydbertatelfezarieddi":652,"zeydbhabban":657,"zeydbrebahelmedeni":660,"zeydbebiattab":662,"zeydbalibhuseyinebuhus":663,"zeydbayyas":665,"zeydbelmubarekessanani":665,"zeydbvakideddimaski":666,"zeydbyahyabubeydelhuza":667,"zeydbyezidessekafiebum":667,"zeydebuusame":667,"salimbebihafsaebuyunus":670,"salimbdinar":670,"salimbabdullah":672,"salimbabdulvahid":673,"salimbaclan":674,"salimbgaylanettuceybie":674,"salimbnuhbebiataelbasr":674,"salimebuabdullah":675,"saibbmalik":678,"serrarbmucessir":680,"sadbishakbkab":685,"sadbevseladevi":685,"sadbevsebumuhammed":686,"sadbabdullah":690,"sadbiyaz":691,"sadebumucahidettai":694,"saidbevsbsabitebuzeyde":696,"saidbebieyyubelhuzai":697,"saidbcumhan":701,"saidbelharisbebisaid":701,"saidbhassanelmahzumiel":701,"saidbebihasanelbasri":702,"saidbhafsbamr":702,"saidbhakembmuhammed":702,"saidbhayyanetteymi":703,"saidbhalidbabdullah":704,"saidbhalidbamr":704,"saidbhalidelhuzaielmed":704,"saidbebihalidelahmesi":704,"saidbhusiym":704,"saidbebihiyera":705,"saidbzekeriyya":708,"saidbziyadelensarielme":708,"saidbziyadesseybanielm":709,"saidbzeydbdirhemelezdi":709,"saidbzeydbukbeelfezari":709,"saidbsadbeyyubebuosman":711,"saidbsufyanelbasri":713,"saidbsinan":715,"saidbsinan2":715,"saidbsebib":716,"saidbabdulcebbarezzube":718,"saidbabdirrahmanbebzae":719,"saidbabdirrahmanelcuma":720,"saidbabdirrahmanbabdul":720,"saidbabdirrahmanbyezid":721,"saidbubeydelhinai":723,"saidbumarebsafvan":725,"saidbamrbsaidebuosman":725,"saidbamrelhadramiebuos":726,"saidbilaka":727,"saidbelferecebunadrbeb":728,"saidbfiruzebuelbahteri":728,"saidbkesirbufeyr":729,"saidbmuhammedbsaidelce":730,"saidbmuhammedelverrake":730,"saidbmervanbaliebuosma":732,"saidbnusayr":737,"saidbnadrebuosman":737,"saidbhanielhavlaniebuo":737,"saidbyahyabsalihebuyah":740,"saidbyezidbmeslemeelez":741,"sufyanbhamzabsufyanebu":745,"sufyanbdinarettemmareb":745,"sufyanbziyadbademeluka":745,"sufyanbabdirrahman":748,"sufyanbukbeessuvai":748,"sufyanbmusaelbasri":751,"essekenbismailelensari":753,"essekenbmugire":753,"selmbibrahimelverrakeb":754,"selmbcunadebselmessuva":754,"selmbatiyyeelfukaymi":756,"selmbkuteybe":756,"selmbkayselbasri":757,"selemebtemmamebuabdull":761,"selemebsuleymanelmerve":762,"selemebabdullah":761,"selemebabdulmelik":764,"selemebalkameettemimie":764,"selemebkulsumelkindies":766,"selemebmuhammedbammar":768,"selemebverdanelleysieb":769,"selemeelleysi":770,"suleymbahdarelbasri":771,"suleymbcubeyrebuyunuse":771,"suleymbamir":772,"suleymanbbureydebelhas":775,"suleymanbdavudeburabi":783,"suleymanbziyadelhadram":784,"suleymanbzeydelmuharib":785,"suleymanbsuheymebueyyu":785,"suleymanbselmbsabik":786,"suleymanbsuleymebusele":786,"suleymanbsinanelmuzeni":787,"suleymanbseyfbyahya":788,"suleymanbsalihelleysi":788,"suleymanbamirbumeyrelk":789,"suleymanbabdullahbmuha":790,"suleymanbabdulhamidbra":791,"suleymanbabdirrahmanbi":791,"suleymanbubeydullahbam":793,"suleymanbubeydullahele":793,"suleymanbatabkaysebuom":794,"suleymanbkays":795,"suleymanbebimuslimelme":797,"suleymanbmatarennisabu":798,"suleymanbmabedbkevseca":798,"suleymanbmusaezzuhrieb":802,"suleymanelesved":803,"simakbfazlelhavlani":805,"semanebuyahya":807,"sinanbebisinanelmedeni":809,"sinanbharunebubisr":809,"sehlbeslemeladevi":811,"sehlbebiumamebsehl":811,"sehlbtemmambbuzey":811,"sehlbhammadebuattab":812,"sehlbebiessalt":815,"sehlbosmanbfariselkind":815,"sehlbmuhammedbezzubeyr":815,"sehlbmuhammedbosmanebu":816,"sehlbmuazbeneselcuheni":816,"sehlbyusufelbasri":817,"sevvarbdavudelmuzenieb":820,"sevvarbabdullahbsevvar":821,"suveydbabdulazizbnumey":824,"suveydbubeyd":825,"suveydbamrebuelvelid":825,"suveydbnasrbsuveydelme":826,"sellambsuleymanbsevvar":828,"sellambsuleymanelmuzen":829,"sellambebisellamessami":829,"sellambebiamreelhorasa":829,"sellambmiskinbrebiaele":830,"seyyarbhatim":831,"seyyarebuhamza":833,"seyfbubeydullahelcermi":834,"seyfbomerettemimi":834,"seyfbharun":835,"seyfbvehbettemimiebuve":836,"sebibbbisrebubisrelbec":840,"sebibbabdulmelikettemi":841,"sebibbnuaymeburuh":841,"sucabmahledelfellasebu":843,"seddadbhayyebuhayyelmu":845,"seddadbsaidebutalhaelb":845,"serahilbyezidelmisri":847,"surahbilbsadebusadelme":847,"surahbilbserikebumuham":849,"surahbilbmuslimbhamide":849,"sureyhbubeydbsureyhelh":851,"sureyhbnuman":852,"sureyhbyezidelhadramie":853,"serikbhanbel":853,"subebdinar2":860,"suaybbbeyanbziyadessaf":861,"suaybbelhabhabelezdi":862,"suaybbharbelmedainiebu":862,"suaybbhalidelbecelierr":863,"suaybbruzeykessamiebus":863,"suaybbsafvanbrabiessek":864,"suaybbleysbsad":865,"suaybbmeymunelvasiti":865,"suaybbyahyabsaibettuce":866,"sakikbebiabdullah":869,"sakikbukbeelabdi":869,"sihabbhirasbhavsebesse":870,"sihabbabbadelabdiebuom":871,"seybanbumeyye":873,"seybanbabdirrahmanette":874,"seybebahnefevzaiebunad":875,"salihbhatimbverdanelba":880,"salihbhassan":881,"salihbebihassanelmeden":881,"salihbhayyan":881,"salihbrustem":883,"salihbrustemelmuzeni":884,"salihbsuheylennehaiebu":885,"salihbabdullahbzekvane":886,"salihbabdulkebirbsuayb":887,"salihbubeyd":887,"salihbadibebiumareennu":887,"salihbomerelvasiti":887,"salihbkedamebibrahim":888,"salihbebimeryemeddubai":890,"salihbmihranesseybani":890,"salihbmusabishak":891,"salihbheysemelvasitieb":892,"salihbyahyabelmikdam":892,"sadakabhalid":895,"sadakabsaid":896,"sadakababdullah":896,"sadakabebiimran":897,"sadakabmusaebumugire":898,"safvanbsuleymelmedenie":902,"safvanbsalihbsafvaness":902,"safvanbisaezzuhriebumu":904,"safvanbhubeyre":905,"safvanbebiyezid":905,"essaltbdinarelezdielhi":906,"essaltbmuhammedbabdirr":907,"essaltbmesudbtarifebub":907,"suheybelhazzaebumusael":909,"eddahhakbsurahbilelgaf":912,"eddahhakbabdirrahmanbe":912,"eddahhakbosmanbabdulla":913,"eddahhakbfiruz":914,"dirarbsurad":917,"dirarbmurreebusinaness":918,"dimambismailbmalikebui":918,"damrabhabibbsuheybezzu":919,"tarikbabdirrahmanelbec":923,"tarikbamrelmekki":923,"talibbhabibbamr":924,"tavusbkeysanebuabdirra":925,"tarifbsihab":926,"talhabhiras":928,"talhabzeydebumiskin":928,"talhabebisaidebuabdulm":929,"talhababdullahbabdirra":929,"talhababdullahbosman":930,"talhababdullahbavfezzu":930,"talhabamrbosmanelhadra":932,"talhabmusarrifbamr":933,"talhabyahyabtalha":934,"talhabyahyabnuman":935,"talkbessemh":936,"asimbhumeydessekuni":941,"asimbrecabhayveelkindi":942,"asimbabdulazizbasimele":944,"asimbubeydullahbasim":944,"asimbomerbhafsebuomere":947,"asimbkuleybbsihab":949,"asimbmuhammedbzeyd":950,"asimbmunzirbezzubeyr":950,"asimbnadrbelmuntesirel":950,"asimbhilalelbarikiebun":950,"asimbyusufebuamr":951,"amirbibrahimbvakidelmu":952,"amirbsadbebivakkasezzu":953,"amirbsakikbimran":955,"amirbsalihbrustemelmuz":956,"amirbabdullahbezzubeyr":958,"amirbabde":960,"amirbubeydeelbahilielb":960,"abbadbabbaderremli":968,"abbadbkesiressekafielb":970,"abbadbkesirerremli":971,"abbadbleysebuhasanelba":971,"abbadbmusa":973,"abbadbmeysereelbasriel":974,"abbadbyusufelkindiebuo":975,"ubadebmuslimelfezarieb":976,"ubadebnusey":976,"abbasbcaferbabdullaheb":977,"abbasbabdullahbebiisae":979,"abbasbosmanbmuhammedel":981,"abbasbelferec":982,"abbasbferruh":982,"abbasbmuhammedbhatimeb":984,"abbasbelvelidbsubh":985,"abbasbyezidbhabib":986,"abserbkasimezzubeydi":987,"abdullahbibrahimbebiam":988,"abdullahbishakelbasri":992,"abdullahbbuceyr":995,"abdullahbbusr":998,"abdullahbbekirbabdulla":1000,"abdullahbebibekirbabdi":1000,"abdullahbebibekirbmuha":1000,"abdullahbcabirebuhamza":1002,"abdullahbcaferbgaylan":1004,"abdullahbelharisbabdul":1007,"abdullahbelharisezzube":1009,"abdullahbhabibbebisabi":1009,"abdullahbhabibbrebia":1009,"abdullahbhuseyinbata":1011,"abdullahbhafsebuhafsel":1012,"abdullahbhakembebiziya":1012,"abdullahbhumran":995,"abdullahbhabbab":1015,"abdullahbhabbabelensar":1015,"abdullahbhalife":1016,"abdullahbdavudbamirelh":1017,"abdullahbdavudelvasiti":1017,"abdullahbzekvanebuabdi":1019,"abdullahbrasid":1020,"abdullahbrafielhadrami":1020,"abdullahbrebahelensari":1020,"abdullahbrabibhusiymes":1021,"abdullahbrecaelmekkieb":1022,"abdullahbebizekeriyyae":1026,"abdullahbziyadbsuleyma":1026,"abdullahbzeydbeslemela":1028,"abdullahbzeydbamr":1029,"abdullahbsalimelesarie":1030,"abdullahbsalim":1031,"abdullahbsaibbyezidelk":1031,"abdullahbsaibelkindi":1032,"abdullahbsadbibrahim":1033,"abdullahbsadbosmanebua":1034,"abdullahbsadbferveelbe":1034,"abdullahbsadetteymi":1002,"abdullahbsaidbcubeyrel":1034,"abdullahbsaidbhazimenn":1035,"abdullahbsaidbebihinde":1036,"abdullahbsuleymelcezer":1039,"abdullahbsuleymanbzura":1039,"abdullahbsevvar":1040,"abdullahbsuveydbhayyan":1041,"abdullahbserikelamiri":1043,"abdullahbsalihbmuhamme":1044,"abdullahbsalihbmuslim":1047,"abdullahbebisalihessem":1048,"abdullahbessamitelgifa":1048,"abdullahbessabbahbabdu":1048,"abdullahbtavusbkeysane":1050,"abdullahbasim":1051,"abdullahbamirbzurareel":1052,"abdullahbamirbyezid":1053,"abdullahbamirebuamirel":1053,"abdullahbabdullahbeles":1056,"abdullahbabdullahbuvey":1056,"abdullahbabdullahbcabi":1057,"abdullahbabdullahbebit":1058,"abdullahbabdullaherraz":1059,"abdullahbabdulcebbar":1060,"abdullahbabdulhakembay":1060,"abdullahbabdirrahmanel":1019,"abdullahbabdussamedbeb":1066,"abdullahbabdulvehhab":1068,"abdullahbubeydullah":1068,"abdullahbubeyd":1069,"abdullahbubeydelbasri":1070,"abdullahbebiutbeelbasr":1071,"abdullahbosmanbishak":1072,"abdullahbosmanbcebele":1072,"abdullahbosmanbataebum":1074,"abdullahbukaylebuukayl":1077,"abdullahbomerbmuhammed":1081,"abdullahbamrbavf":1029,"abdullahbamrbmurre":1085,"abdullahbamrbhind":1085,"abdullahbimranbrezin":1086,"abdullahbimranbebialie":1086,"abdullahbimranetteymi":1086,"abdullahbavnbebiavn":1089,"abdullahbalabzebr":1089,"abdullahbayyas":1090,"abdullahbisababdirrahm":1090,"abdullahbgalib":1091,"abdullahbferruhetteymi":1092,"abdullahbferruhelhoras":1092,"abdullahbebikays":1097,"abdullahbkesireddariel":1098,"abdullahbkesireddimask":1098,"abdullahbkabelmedeni":1099,"abdullahbkeysanelmerve":1100,"abdullahbebilebid":1100,"abdullahblehia":1101,"abdullahbelmubarekelme":1105,"abdullahbelmusennababd":1107,"abdullahbmuhammedbisha":1110,"abdullahbmuhammedbesma":1110,"abdullahbmuhammedbebie":1111,"abdullahbmuhammedbrumh":1112,"abdullahbmuhammedbabdu":1112,"abdullahbmuhammedbab2":1113,"abdullahbmuhammedbab3":1114,"abdullahbmuhammedbubey":1114,"abdullahbmuhammedbukay":1114,"abdullahbmuhammedbali":1116,"abdullahbmuhammedelyem":1118,"abdullahbelmuhtarelbas":1119,"abdullahbmahled":1120,"abdullahbmurreelhemdan":1120,"abdullahbebimeryem":1015,"abdullahbmusafibabdull":1121,"abdullahbmuslimbhurmuz":1122,"abdullahbmuslimessulem":1122,"abdullahbmuslim":1122,"abdullahbmuslimelbasri":1114,"abdullahbelmuseyyeb":1124,"abdullahbmutibrasidebu":1125,"abdullahbmuazbnesit":1126,"abdullahbelmuemmelbveh":1130,"abdullahbmeymunbdavud":1131,"abdullahbnafiessaigelm":1133,"abdullahbnafi":1134,"abdullahbebinehik":1136,"abdullahbharunbebiisae":1137,"abdullahbhasimbhayyan":1137,"abdullahbhubeyrebesad":1138,"abdullahbhemmam":1150,"abdullahbheysembosman":1139,"abdullahbvakidbabdulla":1140,"abdullahbvakid":1140,"abdullahbelvelidbabdul":1142,"abdullahbelvelidbkayse":1142,"abdullahbyahyaessekafi":1146,"abdullahbyezidbmikseme":1147,"abdullahbyezidennehai":1147,"abdullahbyezidenneha2":1147,"abdullahbyezidelmedeni":1031,"abdullahbyezideddimask":1149,"abdullahbyesarebuhemma":1150,"abdullahbyakubbishakel":1150,"abdulalabayen":1153,"abdulalabhammadbnasrel":1154,"abdulalabamir":1154,"abdulalababdullahbamir":1155,"abdulalababdullahbebif":1155,"abdulalabadi":1155,"abdulalabkasimelhemdan":1156,"abdulalabvasilbabdulal":1158,"abdulcelilbhumeydebuma":1161,"abdulcelilbatiyyeebusa":1161,"abdulhakembzekvanessed":1161,"abdulhamidbsalihbaclan":1166,"abdulhamidbabdirrahman":1168,"abdulhamidbmuhammedbel":1169,"abdulhalikbseleme":1170,"abdurabbihbhalidbabdul":1171,"abdurabbihbsaidbkaysel":1171,"abdurabbihbata":1172,"abdirrahmanbebanbosman":1173,"abdirrahmanbibrahimbam":1174,"abdirrahmanbademelbasr":1175,"abdirrahmanbishakbabdu":1177,"abdirrahmanbbahrelbasr":1180,"abdirrahmanbbisrbhakem":1180,"abdirrahmanbbisrbmesud":1181,"abdirrahmanbbekirbrabi":1181,"abdirrahmanbsabitbsevb":1184,"abdirrahmanbsabitelens":1185,"abdirrahmanbservan":1185,"abdirrahmanbcabirbabdu":1185,"abdirrahmanbcubeyr":1186,"abdirrahmanbcubeyrelmi":1186,"abdirrahmanbelharisbab":1187,"abdirrahmanbharmala":1190,"abdirrahmanbhassanelki":1190,"abdirrahmanbhusaynebuh":1191,"abdirrahmanbhumeydbabd":1191,"abdirrahmanbhalefbabdi":1192,"abdirrahmanbrezin":1194,"abdirrahmanbebiezzinad":1194,"abdirrahmanbsabit":1199,"abdirrahmanbsadbammar":1200,"abdirrahmanbsadelmeden":1224,"abdirrahmanbselmani":1202,"abdirrahmanbsuleymanba":1203,"abdirrahmanbsellam":1204,"abdirrahmanbserikbabdu":1205,"abdirrahmanbseybebosma":1206,"abdirrahmanbsahrbabdir":1268,"abdirrahmanbabis":1209,"abdirrahmanbamirelmekk":1209,"abdirrahmanbaiz":1210,"abdirrahmanbabdullahbs":1212,"abdirrahmanbabdullahba":1212,"abdirrahmanbabdullahbu":1213,"abdirrahmanbabdullah2":1213,"abdirrahmanbabdullahbe":1215,"abdirrahmanbabdullahbk":1216,"abdirrahmanbabdulhamid":1218,"abdirrahmanbabdulazizb":1218,"abdirrahmanbabdulmelik":1219,"abdirrahmanbabdulvehha":1219,"abdirrahmanbadi":1222,"abdirrahmanbata":1223,"abdirrahmanbalkame":1208,"abdirrahmanbomerbyezid":1225,"abdirrahmanbamrbabdull":1226,"abdirrahmanbamrbabesee":1227,"abdirrahmanbebiamrelme":1226,"abdirrahmanbayyas":1187,"abdirrahmanbferruh":1234,"abdirrahmanbkasimbhali":1234,"abdirrahmanbkayseburuh":1236,"abdirrahmanbelmubarek":1239,"abdirrahmanbmuhammedbz":1240,"abdirrahmanbmuhammedbs":1241,"abdirrahmanbmuaviyebhu":1243,"abdirrahmanbmihranelme":1247,"abdirrahmanbmeysereelh":1248,"abdirrahmanbnumanbmabe":1250,"abdirrahmanbvakidbmusl":1253,"abdirrahmanbyezidbcabi":1256,"abdirrahmanbyezidebumu":1257,"abdirrahmanbyakubelcuh":1257,"abdirrahmanbyunusbhasi":1258,"abdurrahimbzeydbelammi":1259,"abdurrahimbsuleymanelk":1260,"abdurrahimbabdirrahman":1260,"abdurrahimbmutarrifbun":1260,"abdurrezzakbomerbmusli":1261,"abdusselambhafsebumusa":1265,"abdusselambsuaybbelhab":1266,"abdusselambasimelcufi":1268,"abdusselambatik":1268,"abdussamedbabdulvehhab":1270,"abdussamedbmakilbmuneb":1270,"abdulazizbrebia":1277,"abdulazizbebihazimsele":1273,"abdulazizbhalidbziyad":1273,"abdulazizbelhattabebuh":1274,"abdulazizbebirizme":1274,"abdulazizbebisuleyman":1276,"abdulazizbabdullahbabd":1067,"abdulazizbabdullahebuy":1279,"abdulazizbubeydullahbh":1280,"abdulazizbosmanbcebele":1280,"abdulazizbkayselabdiel":1282,"abdulazizbmuaviyebabdu":1285,"abdulazizbmunib":1286,"abdulazizbyahyabyusufe":1287,"abdulganibrifaababdulm":1289,"abdulganibabdulazizbse":1289,"abdulkebirbabdulmecidb":1291,"abdulkerimbelharisbyez":1291,"abdulkerimbresid":1291,"abdulkerimbebielmuhari":1293,"abdulmecidbebiyezidveh":1297,"abdulmelikbayen":1297,"abdulmelikbiyasesseyba":1298,"abdulmelikbebibesirelb":1298,"abdulmelikbebibekirbab":1298,"abdulmelikbelharisbhis":1298,"abdulmelikbhabibelezdi":1299,"abdulmelikbelhattabbub":1301,"abdulmelikbzeydbsaid":1302,"abdulmelikbsaidbhayyan":1302,"abdulmelikbsaidbsuveyd":1303,"abdulmelikbsuaybbleys":1304,"abdulmelikbabdullahbmu":1314,"abdulmelikbabdulhamidb":1305,"abdulmelikbabdulazizbc":1306,"abdulmelikbkedamebibra":1311,"abdulmelikbmervanbkari":1316,"abdulmelikbmuslimbsell":1316,"abdulmelikbmeysereebuz":1317,"abdulmelikbnafiesseyba":1317,"abdulmelikbyesarelmede":1318,"abdulmelikbyalaelleysi":1318,"abdulvahidbsuleymelbas":1321,"abdulvahidbebiavnelmed":1322,"abdulvahidbgiyas":1323,"abdulvahidbkaysessulem":1323,"abdulvahidbvasilessedu":1324,"abdilvarisbubeydullah":1326,"abdulvehhabbebibekirel":1326,"abdulvehhabbsaidbatiyy":1326,"abdulvehhabbeddahhakbe":1327,"abdulvehhabbabdulhakem":1327,"abdulvehhabbmucahidbce":1330,"abdebabdurrahimbhassan":1333,"ubeydullahbiyadblakite":1335,"ubeydullahbebicaferelm":1336,"ubeydullahbebihumeydeb":1338,"ubeydullahbhalife":1338,"ubeydullahbebiziyad":1340,"ubeydullahbsaidbmuslim":1341,"ubeydullahbsaidbyahyae":1342,"ubeydullahbsumeyt":1343,"ubeydullahbabdullahbeb":1344,"ubeydullahbabdullahbel":1345,"ubeydullahbabdullahbom":1346,"ubeydullahbabdulmecide":1350,"ubeydullahbubeydirrahm":1350,"ubeydullahbamrbebielve":1354,"ubeydullahbmuhammedbye":1356,"ubeydullahbnadrbabdull":1360,"ubeydullahbelvelid":1360,"ubeydullahbyusuf":1361,"ubeydbesbatbmuhammed":1362,"ubeydbebiumeyye":1362,"ubeydbsumameelmisri":1363,"ubeydbcureycetteymi":1364,"ubeydbhasanelmuzeni":1364,"ubeydbhuneyn":1364,"ubeydbabdirrahmanelmuz":1368,"ubeydbukayl":1368,"ubeydbkasimelesedi":1369,"ubeydbmuhammedelmuhari":1370,"ubeydbmihran":1370,"ubeydbmeymunetteymi":1370,"ubeydebhumeydebuabdirr":1373,"ubeydebsufyanbelharis":1375,"ubeydebmusafi":1376,"ubeydebelesvedbsaidelh":1376,"attabbbesir":1378,"attabbziyadelhorasanie":1379,"attabbabdulaziz":1379,"utbebebihakimelhemdani":1380,"utbebhammadbhuleyd":1380,"utbebhumeydeddabbiebum":1381,"utbebsaidessulemiebusa":1381,"utbebabdullahbutbeebua":1382,"utbebmuslimelmedeni":1383,"osmanbismailbimranebum":1386,"osmanbcebele":1386,"osmanbhakemelmisri":1388,"osmanbhayyan":1389,"osmanbzaide":1390,"osmanbzuferbmuzahimett":1390,"osmanbzuferelcuheniedd":1390,"osmanbsad":1391,"osmanbsaidbkesir":1391,"osmanbsaid":1391,"osmanbsalihbsaid":1393,"osmanbsalihbsafvan":1393,"osmanbabdirrahmanbosma":1398,"osmanbabdirrahmanbmusl":1399,"osmanbabdirrahmanbabdu":1398,"osmanbabdulmelikelmekk":1400,"osmanbubeyd":1401,"osmanbosmanebuamrelkad":1401,"osmanburvebezzubeyr":1401,"osmanbumeyr":1405,"osmanbgiyas":1405,"osmanbfaidebulubabeelb":1406,"osmanbferkadelattarelb":1406,"osmanbmuhammedbsaiderr":1408,"osmanbmurreelbasri":1409,"osmanbmuslim":1409,"osmanbmataresseybanieb":1409,"osmanbnaciyeelhorasani":1410,"osmanbnehik":1411,"osmanbvakidbmuhammed":1411,"osmanebuselemeelbasri":1413,"aclanelmedeni":1413,"adibadibumeyra":1416,"adibfazletteymiebuhati":1417,"ararabelbirend":1420,"urvebmugirebsubeesseka":1426,"isambhalidelhadramiebu":1429,"isambkedameelbeceli":1430,"ismebfazlennumeyri":1430,"atabaclanebumuhammedel":1436,"atabmuslimelhaffafebum":1437,"atabebimeymuneelbasrie":1439,"atabyakubelmedeni":1441,"ataessami":1440,"atiyyebsadbcunade":1444,"atiyyebkayselkilabi":1445,"affanbseyyar":1446,"ukbebevsessedusielbasr":1451,"ukbebabdullah":1454,"ukbebmuslimettuceybi":1457,"ukbebmukerrem":1457,"ukaylbcabirbabdullahel":1459,"ukaylbmakilbmunebbih":1460,"alkamebabdullahbsinan":1469,"alkamebebialkamebilale":1469,"alkamebamrbelhusaynebu":1470,"alibishakessulemi":1473,"alibbahrbberri":1474,"alibbekkarelbasri":1475,"alibsabit":1476,"alibhasanbebihasan":1481,"alibhasan":1482,"alibhuseyinbmatarelbas":1485,"alibhuseyinbvakidelmer":1485,"alibhafselmedaini":1486,"alibhakembzabyan":1487,"alibhakemelbunani":1487,"alibhakimbzibyan":1487,"alibhavseb":1489,"alibhalidelmedeni":1489,"alibzeydbabdullah":1492,"alibsaidbcerirennesai":1494,"alibsaidbmesrukelkindi":1495,"alibsuaybbadi":1497,"alibsalihelmekki":1498,"alibabis":1503,"alibabdullahbibrahim":1506,"alibabdulala":1511,"alibabdirrahman":1512,"alibubeydelensarielmed":1512,"alibassam":1513,"alibosmanbmuhammed":1513,"alibosmanbmuhammed2":1513,"alibamrbelharisebuhube":1515,"alibisabyezid":1516,"alibgurab":1516,"alibkadimelhuzai":1518,"alibmuhammedbzekeriyya":1521,"alibmudrik":1521,"alibmesadeelbahiliebuh":1522,"alibmuslimbsaid":1522,"alibmabedbnuh":1524,"alibmunzir":1524,"alibmeymunelattar":1525,"alibnufeyl":1527,"alibhasimbmerzukerrazi":1528,"aliebuelesved":1530,"ammarbhasanebuhasanerr":1531,"ammarbhalidbyezidebufa":1531,"ammarbruzeyk":1531,"ammarbsad":1532,"ammarbseyfeddabbi":1532,"ammarbumareebuhasimelb":1533,"ammarbebiferve":1534,"ammarbmuhammedessevrie":1534,"ammarbmuaviye":1534,"ammarbnasrebuyasir":1535,"umarebukeyme":1536,"umarebbisressami":1537,"umarebzazanebuselemeel":1540,"umarebgaziyye":1542,"omerbismailbmucalid":1545,"omerbeyyubelabdi":1546,"omerbebibekirbabdirrah":1546,"omerbsabitelensari":1546,"omerbhabibelmekki":1547,"omerbhusaynbabdullahel":1548,"omerbhafsbomer":1549,"omerbhafsbgiyas":1549,"omerbhafselmedeni":1549,"omerbhakembsevbanelmed":1549,"omerbhakembrafi":1550,"omerbhamzababdullah":1550,"omerbhayyan":1550,"omerbebihalifehaccacel":1553,"omerbzerbabdullah":1553,"omerbriyah":1572,"omerbebizaideelhemdani":1556,"omerbzeydessanani":1556,"omerbsaibbebirasidelmi":1556,"omerbsadbebivakkaselme":1557,"omerbsaidbebihusaynelm":1558,"omerbsuleymelbahili":1561,"omerbsehlbmervanelmazi":1561,"omerbsakirelbasri":1562,"omerbsebbe":1562,"omerbsakikbesmaelcermi":1563,"omerbsahban":1564,"omerbtalhabalkame":1565,"omerbamiressulemielbas":1565,"omerbabdullahbreziness":1566,"omerbabdullahburve":1567,"omerbabdullahbyala":1567,"omerbabdullahelmedeni":1568,"omerbabdirrahmanbavfez":1560,"omerbabdirrahmanbkays":1569,"omerbabdulazizbimran":1569,"omerbabdulvahidbkayses":1571,"omerbabdulvehhabbriyah":1572,"omerbubeydbebiumeyyeet":1572,"omerbosmanbomer":1573,"omerbalibhuseyin":1574,"omerbalaelmazinielbasr":1576,"omerbferruh":1576,"omerbkatadebnuman":1576,"omerbkays":1571,"omerbkayselmekki":1577,"omerbkesirbeflahelmede":1579,"omerbmalik":1579,"omerbelmusennaelescei":1579,"omerbmuhammedbzeyd":1580,"omerbmuhammedbelmunked":1581,"omerbmeymunbbahr":1582,"omerbharunbyezidesseka":1583,"omerbyezid":1585,"amrbebanbosman":1586,"amrbbekirbtemimessami":1588,"amrbsabit":1588,"amrbcabirelhadramiebuz":1589,"amrbebielhaccacmeysere":1593,"amrbhammadbtalha":1595,"amrbhalidbferruh":1596,"amrbrafibelfuratelbece":1599,"amrbrabibtarik":1600,"amrbzurarebvakidelkila":1601,"amrbsaid":1603,"amrbebisufyanbrebia":1604,"amrbsuleymelmuzenielba":1606,"amrbsevad":1606,"amrbsurahbilelhemdanie":1607,"amrbeddahhakbmahledelb":1611,"amrbasimbubeydullahelk":1612,"amrbamirelensari":1613,"amrbabbaselbahiliebuos":1613,"amrbabdullahbsafvan":1614,"amrbabdullahbkab":1616,"amrbabdullahbvehbenneh":1617,"amrbutbebferkadessulem":1620,"amrbosmanbsaid":1621,"amrbosmanbseyyarelkila":1621,"amrbosmanbhanielmedeni":1622,"amrbalkamebvakkaselley":1622,"amrbalibbahr":1623,"amrbebiamrmeysere":1624,"amrbisaeddubai":1627,"amrbgalibelhemdani":1627,"amrbebikurreselemebmua":1628,"amrbkust":1628,"amrbkays":1629,"amrbebikayserrazielezr":1630,"amrbkesirbeflahelmekki":1630,"amrbmalik":1631,"amrbmalik2":1631,"amrbmuhammedbebirezine":1632,"amrbmuhammed":1632,"amrbmersedebuesmaerrah":1632,"amrbmurrebabdullah":1634,"amrbmuslimbumare":1635,"amrbmuslim":1635,"amrbmuazbsadebumuhamme":1636,"amrbmansurelhemdani":1636,"amrbmansurelbasri":1636,"amrbnumanelbahilielbas":1638,"amrbharun":1638,"amrbhasimebumalik":1639,"amrbheysembkatan":1640,"amrbyahyabumare":1642,"amrbyezidettemimiebubu":1643,"imranbebanbimranessule":1644,"imranbenesebueneselmek":1644,"imranbbekkarbrasid":1645,"imranbelharisessulemie":1645,"imranbhudeyr":1645,"imranbzabyan":1649,"imranbisameddubai":1650,"imranbebiataelesedi":1650,"imranbuyeynebebiimrane":1651,"imranbmuslim":1652,"imranbmuslim2":1652,"imranbmusa":1653,"imranbmeysere":1654,"umeyrbabdullahebuabdul":1657,"umeyrabsadelhemdaniebu":1659,"anterababdirrahman":1664,"avvambhamzaelmazinielb":1664,"avvambabbadbavvamelvas":1665,"avnbsellam":1668,"avnbabdullahbutbeebuab":1668,"avnbumareebumuhammedel":1669,"alabelharisbabdilvaris":1671,"alabzeyd":1674,"alabsalihetteymi":1674,"alababdullahbrafielhad":1675,"alababdulcebbarelensar":1675,"alababdulkerimelyami":1676,"alabfazlbabdulmelik":1677,"alabelmuseyyebbrafi":1679,"alabhilalbomerebumuham":1679,"ayyasbukbebkuleybelhad":1681,"ayyasbamr":1682,"ayyasbelvelid":1682,"iyazbabdullahbsad":1682,"isabibrahimbisa":1684,"isabeyyub":1685,"isabhafsbasimebuziyade":1686,"isabdinarelhuzai":1687,"isabebirezin":1687,"isabsuleym":1687,"isabsinanebusinan":1688,"isabtalhabubeydullahet":1689,"isabasimelesedi":1690,"isababdullahbuneys":1690,"isabebiisahilalbyahyae":1695,"isabmuhammedbishakebuu":1696,"isabelmuhtarbabdullah":1697,"isabmusavirebumusa":1697,"isabmuslimebudavud":1697,"isabmusaebuahmedelezra":1698,"isabmusaebumuhammed":1699,"isabmeymun":1699,"isabyezidelezrakebumua":1700,"isabyunusbebanebumusae":1701,"galibbmihran":1704,"galibbelhuzeylelevdi":1704,"gassanbegarbhusaynebue":1705,"gassanbavfelmazinielba":1705,"gassanbmudarelezdiebum":1706,"guneymbkayselmaziniebu":1707,"gaylanbenes":1708,"gaylanbcamibesaselmuha":1708,"ferecbsaidbalkame":1712,"ferecbfadalebnumanette":1712,"ferkadbyakub":1714,"fadalebibrahimetteymie":1716,"fadalebfazlbfadaleette":1716,"fazlbcaferbabdullahebu":1717,"fazlbhasanbamr":1717,"fazlbsehlbibrahimelare":1721,"fazlbsuveyd":1721,"fazlbumeyraettufaviebu":1723,"fazlbisabebanerrakasie":1724,"fazlbmubessir":1725,"fazlbmusavir":1725,"fazlbmukatilelezdiebum":1725,"fazlbmusa":1725,"fazlbyezid":1726,"fazlbyakubbibrahim":1726,"fudaylbgazvan":1731,"fudaylbfadale":1731,"fudaylbfadale2":1731,"fudaylbmerzukegar":1731,"fudaylbmeysereebumuaze":1732,"fuleyhbsuleymanbebimug":1733,"kasimbahmed":1737,"kasimbumeyyeelhazza":1737,"kasimbhabibettemmar":1738,"kasimbhassanelamiri":1738,"kasimbhakembkesir":1739,"kasimbzekeriyyabdinare":1740,"kasimbsellam":1740,"kasimbabdullahbomer":1743,"kasimbabdirrahmanbabdu":1743,"kasimbabdirrahmaneddim":1744,"kasimbavfesseybani":1746,"kasimbisabibrahimettai":1746,"kasimbisabibrahim":1746,"kasimbfazlbmadan":1747,"kasimbfeyyadbabdirrahm":1748,"kasimbkesirbnumanebuab":1748,"kasimbmalikelmuzeniebu":1749,"kasimbman":1752,"kasimbelvelidelhemdani":1753,"kasimbyahyabataebumuha":1753,"kasimbyezidelcermi":1753,"kabasbrezinbhumeydebuh":1754,"kabisabhurays":1755,"kabisabukbebmuhammed":1756,"kabisableysbkabisa":1757,"kedamebsihabelmaziniel":1763,"kedamebabdullahbabdeeb":1764,"kedamebmuhammedbkedame":1764,"kedamebmusabomer":1764,"kedamebvebere":1765,"kurrebhabib":1767,"kurrebmusaelhuceyiebuh":1768,"kureysbeneselensari":1769,"elkakabhakimelkinaniel":1773,"kanebettemimi":1773,"kaysbelharis":1774,"kaysbelhaccacelmisri":1776,"kaysbhafsettemimiebumu":1776,"kaysbrafielescei":1776,"kaysbsadelmekki":1779,"kaysbessekenelesedi":1779,"kaysbsuleymelanberi":1780,"kaysbabbad":1781,"kaysbvehbelhemdani":1783,"kayselmedeni":1774,"kamilbtalhaebuyahyaelb":1786,"kamilbalaettemimi":1786,"kesirbismail":1787,"kesirbeflahelmedeni":1787,"kesirbzazanennehai":1788,"kesirbubeydbnumeyrebuh":1793,"kesirbferkadelmedeni":1794,"kesirbkesirbmuttalib":1795,"kesirbmudrikelesceiebu":1795,"kesirbmurreelhadrami":1796,"kesirbhisamelkilabiebu":1796,"kureybbebimuslim":1798,"kabbabdullah":1799,"kabbmatiebuishak":1801,"kulsumbcebrelbasri":1802,"kehmesbhasanettemimieb":1806,"kehmesbelminhalessedus":1806,"lehiabukbeelmisri":1811,"muhammedbibrahimbdinar":1819,"muhammedbibrahimbosman":1821,"muhammedbibrahimbmutta":1824,"muhammedbahmedbelcerra":1825,"muhammedbahmedbhuseyin":1826,"muhammedbahmedbnafiela":1827,"muhammedbishak":1832,"muhammedbishakbavnelam":1833,"muhammedbishakbmuhamme":1833,"muhammedbishakbmansure":1833,"muhammedbismailbibrahi":1838,"muhammedbismailbelbaht":1842,"muhammedbismailbrecaez":1842,"muhammedbismailbayyas":1844,"muhammedbismailbmuslim":1844,"muhammedbismailbyusufe":1844,"muhammedbismailelbasri":1843,"muhammedbelesasbkaysel":1846,"muhammedbayenebuelvezi":1846,"muhammedbeflahbabdulme":1847,"muhammedbebieyyubebuas":1848,"muhammedbbisrbbesir":1850,"muhammedbbekkarbbilale":1851,"muhammedbbekkarbezzube":1852,"muhammedbbekirbosman":1852,"muhammedbebibekirbali":1853,"muhammedbebibekirbmuha":1853,"muhammedbbukeyr":1854,"muhammedbbilalebuabdul":1854,"muhammedbsabitbeslemel":1854,"muhammedbsevvab":1856,"muhammedbsevressananie":1857,"muhammedbcabirbbuceyre":1857,"muhammedbcabirbabdulla":1858,"muhammedbcaferbezzubey":1860,"muhammedbcaferbziyad":1860,"muhammedbcaferelbasri":1861,"muhammedbhatimbbuzey":1863,"muhammedbhatimbsuleyma":1863,"muhammedbhatimbmeymun":1864,"muhammedbelharisbrasid":1865,"muhammedbelharisbziyad":1865,"muhammedbelharis":1865,"muhammedbharbbevsezzuh":1867,"muhammedbebiharmalaelm":1868,"muhammedbhassanbhalide":1868,"muhammedbhassanbfiruze":1869,"muhammedbhasanbtesnim":1870,"muhammedbhasanbezzubey":1871,"muhammedbhasanbatiyyee":1872,"muhammedbhasanbimranel":1872,"muhammedbhuseyinbibrah":1873,"muhammedbhafselkattane":1874,"muhammedbebihafsameyse":1874,"muhammedbhakemelmervez":1875,"muhammedbhumranbabdula":1876,"muhammedbhumeydbhayyan":1876,"muhammedbhumeydebusufy":1878,"muhammedbebihumeydibra":1879,"muhammedbhumeyrbuneys":1879,"muhammedbhayyan":1881,"muhammedbhazim":1881,"muhammedbhalidbhidaseb":1882,"muhammedbhalidbabdulla":1883,"muhammedbhalefbtarik":1884,"muhammedbhalefebubekir":1885,"muhammedbhalifeelbasri":1885,"muhammedbelhalilbhamma":1885,"muhammedbelhalil":1886,"muhammedbhalladbkesire":1886,"muhammedbdinarelezdi":1887,"muhammedbrasidelhuzai":1889,"muhammedbrebiaelkilabi":1891,"muhammedbrumhbelmuhaci":1892,"muhammedbzazanelmedeni":1892,"muhammedbzaideettemimi":1893,"muhammedbezzubeyrelbas":1893,"muhammedbziyadbubeydul":1894,"muhammedbziyad":1895,"muhammedbzeydbabdullah":1896,"muhammedbzeydbalielabd":1896,"muhammedbzeydbelmuhaci":1896,"muhammedbsalimelhemdan":1897,"muhammedbsalimelbasri":1898,"muhammedbsadbebivakkas":1901,"muhammedbsadelensaries":1901,"muhammedbsadelensariel":1902,"muhammedbsaidelensarie":1903,"muhammedbsaidbsabikerr":1903,"muhammedbsaidbgalibebu":1904,"muhammedbsaidbelvelide":1904,"muhammedbsaidbyezidebu":1905,"muhammedbselemebebifat":1906,"muhammedbselemebabdull":1906,"muhammedbsuleymebuhila":1907,"muhammedbsuleymanbhabi":1908,"muhammedbsuleymanbebid":1909,"muhammedbsuleymanelmed":1909,"muhammedbsuleymanbeb2":1909,"muhammedbsemaa":1911,"muhammedbsinanelbahili":1911,"muhammedbsinanbyezid":2064,"muhammedbsehlbaskerett":1912,"muhammedbsevvar":1913,"muhammedbseyfelezdi":1917,"muhammedbsebibelbasri":1917,"muhammedbsuca":1917,"muhammedbsucaelkadi":1917,"muhammedbserikelmekkie":1919,"muhammedbsalihbabdirra":1921,"muhammedbsalihelmedeni":1922,"muhammedbsadaka":1924,"muhammedbessaltbelhacc":1924,"muhammedbessaltelbasri":1925,"muhammedbtarikelmekki":1925,"muhammedbtahla":1925,"muhammedbtarifbhalifee":1926,"muhammedbettufeylbmali":1926,"muhammedbtalhabyezid":1928,"muhammedbasimbcaferelm":1928,"muhammedbabbadbademelb":1929,"muhammedbabbadbezzibri":1930,"muhammedbabbadelhinai":1931,"muhammedbubade":1991,"muhammedbabbasbosman":1827,"muhammedbabdullahbisma":1931,"muhammedbabdullahbbuze":1932,"muhammedbabdullahbebic":1933,"muhammedbabdullahbhafs":1934,"muhammedbabdullahbezzu":1935,"muhammedbabdullahbabdu":1938,"muhammedbabdullahbabdi":1939,"muhammedbabdullahbab3":1939,"muhammedbabdullahbubey":1939,"muhammedbabdullahbosma":1940,"muhammedbabdullahbamma":1940,"muhammedbabdullahbulas":1942,"muhammedbabdullahbkahz":1943,"muhammedbabdullahbelmu":1944,"muhammedbabdullahbebia":1946,"muhammedbabdullahbmuha":1946,"muhammedbabdullahbmusl":1946,"muhammedbabdullahbmeym":1948,"muhammedbabdullahbyezi":2069,"muhammedbabdullahbebiy":1949,"muhammedbabdullah":1949,"muhammedbabdulcebbar":1952,"muhammedbabdirrahmanbe":1952,"muhammedbabdirrahmanbh":1955,"muhammedbabdirrahman2":1955,"muhammedbabdirrahmanba":1956,"muhammedbabdirrahman3":1957,"muhammedbabdirrahmanby":1960,"muhammedbabdirrahmanet":1961,"muhammedbabdirrahman":1961,"muhammedbabdulazizbebi":1962,"muhammedbabdulmelikbze":1964,"muhammedbabdulmelikbeb":1964,"muhammedbabdulmelikbme":1965,"muhammedbabdulmelikelv":1965,"muhammedbabdulvehhab":1966,"muhammedbubeydullahbsa":1967,"muhammedbubeydullahbeb":1967,"muhammedbubeydullahbab":1968,"muhammedbubeyd":1969,"muhammedbubeydbhisab":1970,"muhammedbubeydbebisali":1971,"muhammedbubeydbabdulme":1971,"muhammedbubeydbmuham2":1972,"muhammedbubeydbmeymune":1972,"muhammedbebiubeydebman":1972,"muhammedbebiattabebube":1973,"muhammedbosmanbbahrelu":1973,"muhammedbosmanbseyyare":1974,"muhammedbosmanbsafvan":1974,"muhammedbosmanbabdirra":1975,"muhammedbosmanbkerame":1975,"muhammedbukbebebiayyas":1978,"muhammedbukbebkesir":1978,"muhammedbalibharbelmer":1980,"muhammedbalibhasan":1980,"muhammedbalibhamzaelme":1981,"muhammedbalibhamza":1981,"muhammedbalibmeymunebu":1983,"muhammedbammarbhafs":1984,"muhammedbumarebamr":1985,"muhammedbomerbali":1985,"muhammedbomerbheyyacel":1986,"muhammedbomerbelvelide":1989,"muhammedbamrbhannan":1991,"muhammedbamrelensariel":1993,"muhammedbamr":1994,"muhammedbimranbmuhamme":1995,"muhammedbavfbsufyanett":1996,"muhammedbavn":1997,"muhammedbebigalibettay":2002,"muhammedbebigalib":1904,"muhammedbelfuratettemi":2002,"muhammedbfiras":2003,"muhammedbfazlbatiyye":2004,"muhammedbfazlessedusie":2005,"muhammedbfuleyhbsuleym":2007,"muhammedbkayselesediel":2010,"muhammedbkayselhemdani":2011,"muhammedbkayselmedeni":1855,"muhammedbkabbmalikelen":2015,"muhammedbelmubarek":2016,"muhammedbmahbubelbunan":2018,"muhammedbmuhammedbhall":2019,"muhammedbmuhammedbnuma":2020,"muhammedbmuhammedbnu2":2020,"muhammedbebimuhammedel":1968,"muhammedbmirdaselensar":2021,"muhammedbmurre":2021,"muhammedbmervanbkedame":2021,"muhammedbmervanezzuhli":2022,"muhammedbmuzahimelamir":2022,"muhammedbmesudbyusufen":2023,"muhammedbmuslimbtedrus":2024,"muhammedbmuslimbebielv":2030,"muhammedbmuslimelmeden":1844,"muhammedbmuaviyebabdir":2034,"muhammedbmadanbisa":2035,"muhammedbelmuallababdu":2036,"muhammedbmukatilebuhas":2037,"muhammedbmekkibisaelme":2038,"muhammedbmansurbdavud":2039,"muhammedbmunib":2041,"muhammedbmuhacirelensa":2041,"muhammedbmuhacir":2042,"muhammedbmusabayenelce":2042,"muhammedbmusa":2042,"muhammedbmusabimranelk":2043,"muhammedbmusabebinuaym":2043,"muhammedbmeymunebunadr":2045,"muhammedbmeymunelmerve":2046,"muhammedbnasrelferraen":2047,"muhammedbnadrbselemeel":2048,"muhammedbnadrbmusavire":2048,"muhammedbnuaym":2043,"muhammedbharunbibrahim":2049,"muhammedbhediyye":2050,"muhammedbhisambebihiye":2050,"muhammedbhisambisa":2051,"muhammedbhilalbebihila":2051,"muhammedbheysembhammad":2052,"muhammedbelvezirbhakem":2053,"muhammedbelvezirbkayse":2053,"muhammedbelvezirelmisr":2053,"muhammedbelvelidbabdul":2054,"muhammedbelvelidbhubey":2055,"muhammedbvehbbsaid":2055,"muhammedbvehbbomer":2056,"muhammedbyahyabhabban":2056,"muhammedbyahyabebihazm":2056,"muhammedbyahyabsaidelk":2057,"muhammedbyahyabsuleyma":2057,"muhammedbyahyabebisemi":2057,"muhammedbyahyababdulla":2058,"muhammedbyahyababdulke":2060,"muhammedbyahyabaliebug":2061,"muhammedbyahyabfeyyad":2062,"muhammedbyahyabkays":2062,"muhammedbyahyabmuhamme":2062,"muhammedbebiyahyaelmed":2063,"muhammedbyezidbebiziya":2064,"muhammedbyezidbsinanel":2064,"muhammedbyezid":2065,"muhammedbyezidennehai":1960,"muhammedbyezidebucafer":2067,"muhammedbyusufbabdulla":2069,"muhammedbyusufebuahmed":2070,"muhammedbyunusbmusa":2071,"muhammedbyunus":2073,"elmadibmuhammedbmesude":2075,"malikbsadebugassanelba":2082,"malikbabdulvahidebugas":2083,"malikbumeyr":2084,"malikbmersed":2084,"malikbnumeyrelhuzaielb":2085,"mubarekbhassanessulemi":2087,"mubarekbsuheym":2087,"mubarekbfadale":2088,"mubessirbismailebuisma":2089,"mubessirbabdullahbrezi":2090,"elmusennabsaideddubai":2091,"elmusennabessabbah":2092,"muharibbdisar":2099,"muhadirbelmuverri":2099,"mahbubbmuhrizettemimie":2100,"mahbubbmusaebusalihelf":2100,"mihallbhalifeettai":2104,"mihallbmuhrizeddabbi":2104,"mahmudbhalidessulemieb":2104,"mahmudbhidas":2105,"muharikbhalife":2107,"mahledbhuseyin":2110,"mahledbhidaselbasri":2111,"mahledbmalikbcabir":2112,"mahledbmalikbseybanebu":2112,"mahledbyezid":2112,"mudrikbsad":2114,"merrarbhamevayhessekaf":2114,"mersedbabdullah":2115,"mureccabrecaeburecaelb":2116,"merzukbebielhuzeylesse":2117,"merzukebuabdullah":2118,"mervanbsalimelgifarieb":2120,"mervanbmuhammedbhassan":2122,"mervanebulubabeelbasri":2123,"muzahimbzuferbelharise":2124,"mesrukbelmerzuban":2130,"mesudbcuveyriyebdavude":2132,"mesudbsadelcufiebusad":2132,"mesudbmalikelesedi":2133,"mesudbmalikeburezinele":2133,"muslimbcundebelmedeni":2136,"muslimbhalidelmahzumi":2138,"muslimbziyad":2139,"muslimbsalimebuferve":2139,"muslimbamrbvehbelhazza":2140,"muslimbimran":2140,"muslimbkeysaneddabbi":2141,"muslimbebimeryemyesare":2142,"muslimbyesarelbasri":2143,"muslimbyesarelmisriebu":2144,"meslemebabdullahbribie":2145,"meslemebalkameelmazini":2146,"meslemebali":2146,"meslemebmuhammedesseka":2147,"elmuseyyebbnecebe":2151,"misrahbhaan":2151,"musabbhayyan":2153,"musabbsadbebivakkasezz":2154,"musabbsellam":2154,"musabbseybebcubeyr":2155,"musabbmahanelmervezi":2156,"musabbmuhammedbabdirra":2156,"musabbelmikdam":2156,"matarbmeymunelmuharibi":2159,"mutarrifbabdullahbessi":2160,"mutarrifbabdullahbmuta":2161,"muttalibbziyadbebizuhe":2162,"mutibabdullah":2165,"mutibmeymunelanberiebu":2165,"muzafferbmudrikelhoras":2166,"muazbhalidbsakik":2168,"muazbabdullahbhubib":2169,"muazbmuazbnasrebuelmus":2170,"muazbhanielbasriebuhan":2171,"muazbhisambebiabdullah":2172,"muaviyebhafsessabi":2176,"muaviyebsalihbhudeyr":2178,"muaviyebabdulkerimesse":2180,"muaviyebamrbhalid":2181,"muaviyebamrbelmuhelleb":2181,"muaviyebkurrebiyasebui":2181,"muaviyebhisam":2182,"muaviyebyahyaeburuhedd":2183,"mabedbkabbmalikelensar":2185,"marufbabdullah":2189,"marufbmuskan":2189,"makilbubeydullahelceze":2190,"makilbmalikelbahiliebu":2190,"muallabesedelammi":2191,"muallabziyad":2192,"muallababdirrahmanelva":2192,"muallabhilalbsuveydebu":2193,"mamerbelmusennaebuubey":2196,"mamerbmuhammedbubeydul":2198,"mugirebebielhurr":2202,"mugirebhakimessanani":2202,"mugirebselemeelmahzumi":2204,"mugirebabdullahbebiuka":2205,"mugirebabdirrahmanbabd":2205,"mugirebmuslim":2207,"mugirebnumanennehai":2209,"elmufaddalbsalihelesed":2209,"elmufaddalbabdullah":2209,"elmufaddalbfadalebebiu":2210,"elmufaddalbfadalebubey":2210,"elmufaddalbfadaleelmis":2210,"elmufaddalbmuhelhilebu":2211,"elmufaddalbyunuselcufi":2212,"mukatilbhayyan":2212,"elmikdambsureyhbhani":2216,"miksembbucre":2217,"mekhulelezdielbasriebu":2219,"mincabbelharisbabdirra":2222,"munzirbubeydelmedeni":2224,"munzirbelvelidbabdirra":2225,"mansurbebielesvedelley":2225,"mansurbsadelbasri":2226,"mansurbsaid":2227,"mansurbabdirrahmanbtal":2228,"mansurbabdirrahman":2228,"mansurbebimuzahimbesir":2229,"mansurbnuman":2231,"elmunkedirbmuhammedbel":2232,"elminhalbhalifeebukeda":2232,"elminhalbamrelesedi":2232,"muhacirebuhasanetteymi":2235,"mehdibhafsebuahmed":2235,"elmuhellebbebihabibeel":2237,"elmuhellebbhucr":2237,"elmuhellebbebisufre":2238,"musabibrahimbkesirelen":2239,"musabayenelcezeri":2240,"musabeyyubbamirelgafik":2241,"musabbahrelmerveziebui":2242,"musabservan":2242,"musabebielcarudebuelve":2242,"musabcubeyrelensarielm":2242,"musabhizam":2243,"musabhalefelammi":2243,"musabsad2":2245,"musabsadelmedeni":2245,"musabselemebebimeryeme":2246,"musabsehlbkadimebuimra":2246,"musabtarikebukurre":2248,"musabebiaiseelhemdani":2249,"musababdullahbyezid":2250,"musababdirrahmanbziyad":2250,"musababdulazizebusuayb":2251,"musabubeyde":2251,"musabebiosman":2253,"musabebiosman2":2253,"musabumeyrettemimielan":2255,"musabisaelleysi":2255,"musabkureysbnafiettemi":2256,"musabkayselhadramiebum":2256,"musabmuhammedbibrahime":2257,"musabmervanebuimranett":2257,"musabelmuseyyeb":2259,"musabmeysere":2260,"musabnafielesedi":2260,"musabharun":2261,"musabverdanelamiri":2261,"musabyesar":2262,"musabyesar2":2262,"muemmelbihab":2264,"muemmelbhisam":2265,"meyserebhabib":2266,"meymunbebisebibebunasr":2267,"meymunbmusa":2269,"meymunebuabdullahelbas":2269,"nafibabbas":2277,"nafibomerbabdullah":2278,"nafibmahmudbrabi":2279,"nafiebuabdullahelmeden":2280,"necihbabdirrahman":2284,"nasrbhammadbaclanelbec":2287,"nasrbzeyd":2287,"nasrbasimelleysielbasr":2287,"nasrbabdirrahmanbbekka":2288,"nasrbalkameelhadramieb":2288,"nusayrbebielesaselesed":2291,"nadrbismailbhazimelbec":2291,"nadrbenesbmalikelensar":2292,"nadrbhammadelfezari":2292,"nadrbzurare":2292,"nadrbabdulcebbar":2294,"nadrbarabielbahili":2295,"nadrbmuhammedelmervezi":2296,"numanbsabitebuhanife":2299,"numanbmurreelensariezz":2302,"numanbmunzirebuelvezir":2303,"nuaymbziyad":2306,"nuaymbabdullahelmedeni":2307,"nuaymbmeysere":2307,"nuhbebibilalelmedeni":2314,"nuhbzekvanelbasri":2316,"nuhbrebiaelensari":2316,"nuhbkaysbrebahelezdieb":2317,"nuhbmeymunbabdulhamid":2318,"nuhbyezidbseyyarebumuh":2319,"harunbishakbmuhammed":2322,"harunbismail":2322,"harunbhumeyd":2323,"harunbsad":2323,"harunbselmani":2324,"harunbantera":2325,"harunbmuhammedbbekkar":2326,"harunbmugirebhakimelbe":2327,"harunbmusabebialkameab":2327,"harunbmusaelezdi":2328,"harunbharunbabdullahet":2328,"hasimbbilal":2329,"hasimbkasimbseybe":2330,"hasimbkasimbmuslimelle":2330,"hasimbmahledbibrahimes":2331,"hanibhanielhemdani":2332,"hediyyebabdulvehhabelm":2334,"hisambhalidbzeydebumer":2339,"hisambziyadbebiyezid":2340,"hisambsadelmedeniebuab":2340,"hisambsaidebuahmedelbe":2341,"hisambsuleymanbikrime":2341,"hisambebiabdullah":2348,"hisambabdulmelikbimran":2343,"hisambabdulmelikelbahi":2343,"hisambammarbnusayr":2346,"hemmambnafiessanani":2354,"hevzebhalifebabdullahe":2357,"hilalbbisrbmahbubelmuz":2357,"hilalbebihumeyd":2358,"hilalbhabbab":2358,"hilalbzeydbyesar":2359,"hilalbabdullahelbahili":2360,"hilalbalabhilal":2361,"hilalbmeymunelcuheni":2361,"hilalbebihilalelmedeni":2362,"heyyacbbistamettemimi":2363,"heysembelesved":2364,"heysembcemil":2364,"heysembhabibessayrafi":2365,"heysembhariceebuahmed":2366,"heysembhalid":2366,"heysembmalikettaiebumu":2368,"vasibhabban":2371,"vasilbebicemilessamieb":2371,"vasilbsaiberrakasiebuy":2371,"vasilbabdulalabhilalel":2372,"vakidbamrbsadebuabdull":2373,"vakidbmuhammedbzeyd":2373,"vailbdavudetteymi":2374,"veberebabdirrahman":2375,"vakdanebuyafur":2381,"vekibmuhrizbveki":2384,"elvelidbsucabelvelideb":2386,"elvelidbsalih":2387,"elvelidbabdirrahman":2389,"elvelidbutbeelesceiebu":2389,"elvelidbutbeeddimaski":2389,"elvelidbukbebmugire":2391,"elvelidbkasimbelvelide":2391,"elvelidbkaysessekunieb":2392,"elvelidbkamilbmuazelbe":2392,"elvelidbmugirebsuleyma":2396,"elvelidbebihisamziyad":2397,"elvelidbebielvelidosma":2397,"vehbbismailbmuhammedeb":2398,"vehbbbeyanelvasitiebua":2399,"vehbbcabir":2399,"vehbbhalidebuhalid":2400,"vuheybbamrbosman":2403,"yasinbabdulehadbebizur":2406,"yahyabibrahimbosman":2406,"yahyabishakbabdullah":2407,"yahyabishak":2408,"yahyabismailelvasitieb":2409,"yahyabismailbzekeriyya":2409,"yahyabebiuneyse":2411,"yahyabeyyubbebizura":2412,"yahyabeyyubelgafiki":2412,"yahyabeyyubelmakabiri":2413,"yahyabbisrbkesir":2414,"yahyabbisrelfellas":2414,"yahyabcaferbayenelezdi":2416,"yahyabhabibbarabielbas":2417,"yahyabebielhaccac":2417,"yahyabhakim":2419,"yahyabhammadbebiziyade":2419,"yahyabhamzabvakidelhad":2419,"yahyabhalefelbahiliebu":2421,"yahyabdavudbmeymunelva":2422,"yahyabrasid":2423,"yahyabrasidelmaziniebu":2423,"yahyabzekeriyyabyahyae":2424,"yahyabziyadbebidavudel":2425,"yahyabziyadbabdullahel":2425,"yahyabsaidbebanebueyyu":2426,"yahyabsaidbhayyan":2427,"yahyabebisufyanbelahne":2431,"yahyabselemebkuheyl":2431,"yahyabsuleymettaifi":2432,"yahyabsirinelensari":2433,"yahyabsubih":2435,"yahyabeddurays":2435,"yahyababbadbseybanelen":2436,"yahyababbadbabdullah":2436,"yahyababbadeddubai":2437,"yahyababdullahbbukeyre":2438,"yahyababdullahbelharis":2438,"yahyababdullahbsalim":2439,"yahyababdullahbabdirra":2440,"yahyababdullahbmuhamme":2440,"yahyababdullahbyezid":2440,"yahyababdulhamidbabdir":2440,"yahyababdirrahmanbhati":2444,"yahyababdirrahmanbmali":2444,"yahyababdirrahmanelkin":2444,"yahyababdulazizebuabdu":2444,"yahyabubeyd":2445,"yahyabosmanbsaid":2447,"yahyabosmanbsalih":2447,"yahyabosmanetteymi":2448,"yahyaburvebezzubeyrebu":2448,"yahyabukayl":2454,"yahyabumarebebihasanel":2449,"yahyabamrbmalik":2449,"yahyabalaelbeceliebuam":2450,"yahyabisaettemimi":2450,"yahyabgaylanbabdullah":2451,"yahyabfazlbyahya":2451,"yahyabkaza":2452,"yahyabkays":2452,"yahyabkesirbdirhemelan":2452,"yahyabelmutevekkilelme":2454,"yahyabmuhammedbsabik":2455,"yahyabmuhammedbesseken":2455,"yahyabmuhammedbabbad":2455,"yahyabmuhammedbabdulla":2456,"yahyabmuhammedbmuaviye":2456,"yahyabmuallabmansurebu":2459,"yahyabmeymunbataebueyy":2464,"yahyabmeymunelhadramie":2464,"yahyabmeymuneddabbiebu":2464,"yahyabnadrelensarielme":2465,"yahyabhaniburveebudavu":2465,"yahyabebiheysemelattar":2465,"yahyabyezidelcezeriebu":2470,"yahyabyalabelhariselmu":2470,"yahyabyala":2470,"yahyabyeman":2471,"yezidbebanerrakasi":2473,"yezidbibrahim":2474,"yezidbbeyanelukayli":2477,"yezidbhazimbzeydelezdi":2477,"yezidbhayyan":2479,"yezidbhalidbyezid":2480,"yezidbziyadbebielcadel":2482,"yezidbziyad":2482,"yezidbebiziyad":2483,"yezidbebisaidennahvieb":2484,"yezidbsureyhelhadrami":2487,"yezidbsalih":2487,"yezidbtahmanerrakasieb":2488,"yezidbabdullahbusameeb":2488,"yezidbabdullahbessihhi":2489,"yezidbabdurabbihezzube":2490,"yezidbabdirrahmanbebim":2491,"yezidbubeydebuvecze":2493,"yezidbubeyde":2493,"yezidbatabyezid":2494,"yezidbumeyra":2494,"yezidbkeysanebuismail":2496,"yezidbmuhammedbkays":2498,"yezidbebimeryem":2498,"yezidbmuaviyeennehai":2499,"yezidbebimansurelezdie":2500,"yezidbmihranelesediebu":2500,"yezidbhurmuzelmedeni":2503,"yezidbyezidbcabirelezd":2503,"yezidbyusuferrahbi":2505,"yezidfarisielbasri":2505,"yesarelmedeni":2507,"yesarelmekkiebunecih":2507,"yeserebsafvanbcemiledd":2507,"yakubbebiselemeelmacis":2512,"yakubbabdirrahmanbmuha":2514,"yakubbatabebirebahelme":2515,"yakubbkabbhamidebuyusu":2515,"yakubbmahanebuyusuf":2516,"yakubbmuhammedbtahla":2516,"yakubbmuhammedbisa":2517,"yakubbyahyababbad":2518,"yakubelmedeni":2514,"yalabelharisbharbelmuh":2519,"yalabhakimessekafi":2519,"yemanbadielhadramiebua":2522,"yusufbibrahimettemimie":2522,"yusufbbehlulettemimi":2523,"yusufbezzubeyrelmekki":2525,"yusufbselmanielbahili":2526,"yusufbsuheybelkindi":2526,"yusufbabdeelezdi":2527,"yusufbisabdinarezzuhri":2529,"yusufbmervanennesaiebu":2531,"yusufbmesudbhakemezzur":2531,"yusufbelmenazil":2531,"yusufbmihranelbasri":2531,"yusufbmeymunelmahzumi":2532,"yusufbyakubbebiselemee":2534,"yusufbyakubbebikasimes":2534,"yusufbyakubessaffarebu":2535,"yunusbelharisessekafie":2537,"yunusbhabbab":2538,"yunusbsuleymessanani":2539,"yunusbseyf":2539,"yunusbabdulalabmeysere":2539,"yunusbmuhammedbmuslime":2543,"yunusbnafielhorasanieb":2544,"yunusbyahyabnubateebun":2544,"yunusbebiyafur":2545,"ebuelebyad":2547,"ebuahmedbalieddimaski":2548,"ebuidrisessekuni":2549,"ebuidris":2549,"ebuishakelescei":2550,"ebuishak":2550,"ebuelesved":2551,"ebubekirbsuaybbelhabha":2558,"ebubekirbabdullahbmuha":2559,"ebubekirbabdullahbebim":2560,"ebubekirbabdullahessek":2560,"ebubekirbomerbabdirrah":2562,"ebubekirbmuhammedbzeyd":2564,"ebubekirbmuhammedbamr":2564,"ebubekirbnafieladevi":2566,"ebubekir2":2567,"ebusevrelezdi":2571,"ebucaferelferra":2574,"ebuharbbebielesvedelba":2579,"ebuhassanelarec":2580,"ebuhasanelcezeri":2581,"ebuhusaynbyahyabsuleym":2582,"ebuhafseddimaski":2582,"ebuhanife":2584,"ebuhayyebkays":2585,"ebuhalidelesedi":2585,"ebuhalidelvalibi":2586,"ebuhuzeymeelabdielbasr":2587,"eburabielmedeni":587,"ebuzurabamrbcerir":2593,"ebusaibelensarielmeden":2596,"ebusadelezdi":2597,"ebusaidbebielmualla":701,"ebusaid2":2598,"ebusaidessami":737,"ebuseleme":764,"ebuselemeessami":2603,"ebusubeelmuzeni":2606,"ebutalhaelhavlani":2612,"ebuasimelbasri":2614,"ebuamir":2615,"ebuabbas":2616,"ebuabdullahelesariessa":2616,"ebuabdurabbeddimaski":2619,"ebuosmanelensarielmede":2623,"ebuosmanelhorasani":1410,"ebuisamelbasri":2626,"ebuamressedusielmedeni":2633,"ebualaessami":2638,"ebuiyazelmedeni":2639,"ebuisaelhorasani":2639,"ebuisaelhorasani2":2639,"ebugalibelbahili":2640,"ebukasimbebiezzinadelm":2643,"ebukatadeeladevielbasr":2644,"ebukesirezzubeydi":2646,"ebuleylababdullahbabdi":2648,"ebuleylaelkindi":2649,"ebumalikennehaielvasit":2650,"ebuelmuhtarelesedi":2654,"ebuelmuhtarettai":2654,"ebumeryem":2657,"ebumuslimelhavlani":2658,"ebumadanelmekki":2660,"ebumugireelbeceli":2202,"ebuelmuhellebelcermiel":2665,"ebumeymunefarisielmede":2666,"ebuhindelhemdani":2673,"ebuheysem":2674,"ebuheysemelmisri":2674,"ebuyahyaelmekki":2678,"ebuyahyaelmekki2":2678,"ebuyezidelhavlanielmis":2678,"ebuyezidelhavlanielm2":2678,"ebuyezidelmedeni":2477,"hafsabintsirinummuelhu":2739,"aisebintsadbebivakkas":2751,"fatimabinthuseyinbalib":2754,"ahmedbibrahimbmuhammed":9,"ahmedbishakbisaelahvaz":10,"ahmedbsufyanebusufyane":19,"ahmedbabdullahbali":26,"ahmedbabdullahbali2":26,"ahmedbabdullahbmeymun":26,"ahmedbabdirrahmanbabdu":28,"ahmedbfadale":36,"ahmedbmuhammedbibrahim":36,"ahmedbmuhammedbibrah2":36,"ahmedbmuhammedbeyyub":37,"ahmedbmuhammedbubeydul":39,"ahmedbmuhammedbmusaebu":40,"ahmedbmuhammedbhaniebu":40,"ahmedbyezidbibrahim":46,"adembaliesseybani":97,"ebanbsalihbumeyr":48,"ebanbtarik":49,"ibrahimbhumeydbabdir2":59,"ibrahimbhalidbebielyem":59,"ibrahimbsuveydbhayyan":63,"ibrahimbsuveydennehai":63,"ibrahimbamirbmesud":65,"ibrahimbebiabbas":65,"ibrahimbabdullahbelhar":66,"ibrahimbmuhammedbelhar":75,"ibrahimbmuhammedbtalha":76,"ibrahimbmuhammedbabd2":77,"ibrahimbmuhammedbyusuf":80,"ibrahimbmerzukessekafi":81,"ibrahimbmunzirbabdulla":82,"ibrahimbyusufbishak":90,"elahnesbhalifeeddabbi":95,"idrisbyezidbabdirrahma":96,"ezherbrasid2":99,"ezherbsadessemmanebube":99,"ezherbsaid":100,"ezherbmervanerrakasi":101,"esbatbnasrelhemdani":104,"ishakbibrahimbabdirrah":106,"ishakbismailbala":111,"ishakbcaferbmuhammed":112,"ishakbhakim":112,"ishakbrasid":113,"ishakbsalim":114,"ishakbabdullahbelharis":117,"ishakbabdullahbelhar2":117,"ishakbubeydullahbebimu":119,"ishakbomer2":120,"ishakbmansuresseluli":123,"ishakbyahyabtalha":124,"esedbabdullahbyezid":127,"eslem2":130,"eslemeladevi":131,"ismailbebanelverrakele":132,"ismailbibrahimbmamereb":134,"ismailbibrahimbabdulla":133,"ismailbbisrbmansur":139,"ismailbbehrambyahyaelh":140,"ismailbhafsbomer":141,"ismailbebihalidelahmes":142,"ismailbziyad":146,"ismailbubeydullahbrifa":156,"ismailbmesud":162,"ismailbyakubbismail":165,"elesvedbseybanessedusi":166,"esasbsevvarelkindi":173,"esasbabdirrahmanbzubey":175,"esasbabdirrahmanelcerm":175,"egarbessabbahettemimi":180,"umeyyebbistam":182,"evsbabdullah":189,"iyadblakitessedusi":190,"eyyubbbesirelensari":194,"buceyrbebibuceyr":207,"bistambmuslimbnumeyr":217,"bessarbmusaelhaffaf":218,"bisrbharbelezdiebuamr":220,"bisrbsuaybbebihamzadin":223,"bisrbasimbsufyan":224,"bisrbasimettaifi":224,"bisrbasimelleysi":224,"bisrbnumeyr":227,"bisrbhilalessavvafebum":228,"bisrbdinar":223,"bekkarbabdulazizbebibe":236,"bekirbsuleymessavvafeb":238,"bekirbamr":240,"bekirbyahyabzebban":241,"bilalbabdullahbomer":249,"bilalbmirdas":249,"sabitbubeydelensari":260,"sabitbiyazahnefelarece":261,"sabitebusaid":259,"sumamebukbe":270,"cebrbubeyde":284,"cubeyrbhayye":286,"cerirbzeydelezdiebusel":291,"cerireddabbi":292,"elcadbabdirrahmanbevs":294,"caferbebisevr":297,"caferbabdullahbhakemel":303,"caferbmuhammedbaliebua":305,"caferbebimugireelhuzai":308,"caferbyahyabsevban":309,"hatimbhuraysettai":319,"hacibbsuleyman":320,"elharisbsaid":325,"elharisbabdirrahmanela":328,"elharisbmalik":331,"habbanbhilalebuhabibel":338,"habibbsuleym2":345,"habibbabdullahelezdi":347,"haccacbtemimelcezeri":352,"harmalababdulazizbsebr":366,"hasanbahmedbhabibelkir":378,"hasanbbilalelbasri":380,"hasanbhasanbhasan":382,"hasanbhalefbziyadelvas":388,"hasanbselmbsalih":391,"hasanbsevvar":391,"hasanbalibmuhammed":401,"hasanbamressicistani":405,"hasanbmansurbibrahim":410,"hasanbyezidbferruhebuy":412,"huseyinbibrahimbelhurr":414,"huseyinbishakelvasiti":414,"huseyinbbisr":414,"huseyinbhasanbyesar":416,"huseyinbzeydbali":418,"huseyinbalibyezid":426,"huseyinbimranelcuheni":428,"huseyinbayyas":428,"huseyinbmuhammedbziyad":431,"hafsbasimbomer":446,"hafsbomerbelharis":448,"hafsbomerelbezzaz":445,"hafsbomerebuimranerraz":452,"hakembsinanelbahili":458,"hakembabde":461,"hammadbhumeydelhorasan":474,"humeydbziyad2":490,"humeydbmalikbhusiym":493,"humeydbmesadebelmubare":494,"humeydbvehbebuvehbelme":495,"humeydessami":496,"hannanelesedi":497,"huneynbebihakim":501,"hayyanbala":503,"haricebmusabbharice":507,"halidbabdullahbharmala":518,"halidbabdullahbyezid":519,"halidbalkameebuhayye":522,"halidbebiimranettuceyb":523,"halidbkesirelhemdani":524,"halidbebimalik":531,"halidbyezid":532,"halefbsalim":542,"halefbmusabhalefelammi":544,"halifebhusaynbkays":546,"halifebhayyat2":546,"davudbcemil":563,"davudbhalidelleysiebus":557,"davudbebisalih":560,"davudbebiabdullah":561,"davudbataelmuzeni":562,"davudbalibabdullahebus":562,"davudbebiavfsuveydette":564,"davudbmuazebusuleymanb":566,"zerbabdullah":574,"zekvanebuamr":575,"rasidbebirasid":579,"rebahbelvelidbyezid":583,"rabibamile":590,"rabibmuhammed":590,"rebiabsuleym":592,"recabennisaburiebumuha":597,"ruzeykbhakim":600,"rezinbhabibelcuheni":601,"riyahbubeyde":612,"ezzibrikanbabdullah":617,"ezzibrikanbamrbumeyye":617,"ezzubeyrbabdullahbebih":620,"zekeriyyabhalid":626,"ziyadbhassanbkurreelba":639,"ziyadbabdullahbettufey":644,"ziyadebuyahyaelmekki":652,"zeydbabdullahbomer":662,"zeydbalibhuseyinebuh2":663,"saibbhubeys":676,"saibbomerbabdirrahman":677,"sadbibrahimbabdirrahma":684,"sadbsaidbkays":687,"sadbsinan":687,"saidbebanbsaid":739,"saidbbesirelensari":699,"saidbhassan":701,"saidbrabielamiri":707,"saidbsalim":710,"saidbsaibbyesaressekaf":711,"saidbamir":717,"saidbabdirrahmanbhassa":719,"saidbamrbsaid":725,"saidbvehbelhemdani":738,"saidbyusuferrahbi":742,"sufyanbziyad2":746,"selmbkuteybeelbahili":756,"selemebsuheyb":763,"suleymanbeyyubbsuley3":775,"suleymanbtevbe":777,"suleymanbsufyan":785,"suleymanbebisuleyman":786,"suleymanbsemurebcundeb":787,"suleymanbalibabdullah":794,"suleymanbmugire":798,"suleymanbebiyahya":788,"simakbselemeeddabbi":805,"seddadbmakil":846,"suaybbishakbabdirrahma":864,"suaybbamrbsuleymelensa":864,"salihbcubeyr":880,"salihbruzeyk":883,"salihbziyadbabdullaheb":884,"salihbsaid":890,"salihbebisalihessemman":885,"salihbebisalihelesedi":885,"salihbsalihelesedi":885,"salihbaclan":887,"salihbmuhammedbyahya":890,"sahrbabdullahbharmala":895,"sadakabisa":897,"safvanbabdullahbsafvan":903,"eddahhakbserahil":912,"ettufeylbebibkabelensa":927,"talhababdulmelikeleyli":930,"talhabyezideleyli":935,"talkbhabib":935,"asimbhakimebumuhammed":941,"asimbomer":948,"amirbsadelbeceli":953,"amirbmalik":962,"amirbmusab":961,"abbadbabbadbalkameelma":968,"abbadbelvelidbhalid":974,"abbadbyakub":974,"abbadbyusuf":975,"abbasbhuseyinebufazl":978,"abbasbhuseyin":978,"abbasbabdullahbmabed":980,"abdullahbahmedbmuhamme":990,"abdullahbcubeyrelhuzai":1002,"abdullahbcaferbyahyaeb":1006,"abdullahbhassanettemim":1010,"abdullahbelhalil":1016,"abdullahbezzubeyrbmabe":1025,"abdullahbsufyanelmahzu":1037,"abdullahbebisufyan":1037,"abdullahbebiselemeelma":1038,"abdullahbsuleymanbebis":1039,"abdullahbabdullah":1059,"abdullahbabdulazizbabd":1067,"abdullahbubeydullahbom":1278,"abdullahburvebezzubeyr":1075,"abdullahbisme":1076,"abdullahbisme2":1076,"abdullahbalibhuseyin":1077,"abdullahbalibsaib":1078,"abdullahbamrbebielhacc":1082,"abdullahbamrbosman":1084,"abdullahbumeyra":1087,"abdullahbkasimetteymi":1094,"abdullahbkayselkindies":1096,"abdullahbkays":1097,"abdullahbkaysennehai":1097,"abdullahbkesirbcafer":1097,"abdullahbkuleybessedus":1099,"abdullahbmuhammedbebis":1109,"abdullahbmuhammedbrabi":1112,"abdullahbmuhammedbab4":1113,"abdullahbmuhammedbebiy":1118,"abdullahbmuhammedelade":1118,"abdullahbelmuseyyebbeb":1124,"abdullahbmabed":1127,"abdullahbelvelidbmeymu":1142,"abdullahbyezidebuabdir":1148,"abdullahbyunus":1151,"abdullah":1152,"abdulcebbarbabbas":1158,"abdulcebbarbomereleyli":1159,"abdulcebbarbvailbhucr":1160,"abdulhamidbhasanebuome":1165,"abdulhamidbdinar":1165,"abdulhamidbabdullahbab":1167,"abdulhamidbmahmudelmav":1169,"abdurabbihbubeydelezdi":1172,"abdurabbihbnafielkinan":1173,"abdirrahmanbhabib":1180,"abdirrahmanbhalidbyezi":1192,"abdirrahmanbebirafi":1193,"abdirrahmanbzeydbeslem":1197,"abdirrahmanbsaidbvehbe":1202,"abdirrahmanbseleme":1248,"abdirrahmanbabdullah5":1214,"abdirrahmanbabdullah7":1217,"abdirrahmanbabdullahel":1217,"abdirrahmanbabdurabb":1218,"abdirrahmanbabdulmel2":1219,"abdirrahmanbosmanbumey":1221,"abdirrahmanbebiamreele":1229,"abdirrahmanbkayseddabb":1237,"abdirrahmanbhanibsaide":1251,"abdulazizbesseriennaki":1276,"abdulazizbabdullahbhal":1277,"abdulazizbabdulmelik":1280,"abdulazizbmervanbhakem":1284,"abdulazizbmuslim":1284,"abdulazizbmusabruh":1286,"abdulgaffarbhakem":1288,"abdulmelikbhasanbebiha":1301,"abdulmelikbrabibsebre":1302,"abdulmelikbessabbahebu":1304,"abdulmelikbessabbah":1304,"abdulmelikbisababdirra":1311,"abdulmelikbebikerimeel":1313,"abdulmelikbmervanbhake":1315,"abdulmelikbmervanelahv":1316,"abdulmelikbmugireettai":1317,"abdulvahidbabdullahbka":1322,"abdilvarisbabdussamedb":1325,"abdulvehhabbyahyababba":1331,"abdebsuleymanelmervezi":1333,"ubeydullahbelahnesenne":1335,"ubeydullahbebibekirben":1336,"ubeydullahbtalhabubeyd":1343,"ubeydullahbabdirrahm2":1347,"ubeydullahbubeydebuveh":1351,"ubeydullahbkabbmalikel":1355,"ubeydullahbmugirebebib":1357,"ubeydbadembebiiyas":1362,"ubeydbismail":1362,"ubeydbsaidbeban":1366,"ubeydbettufeyl":1367,"ubeydbebiubeyd":1368,"ubeydbvakid":1371,"utbebmuhammedbelharis":1383,"osmanbelvelid":1412,"atabsuheybelensari":1435,"atabkurreesseluli":1437,"ataebuhasanessuvai":1441,"atiyyebamirelcuheni":1445,"ukbebseyyar":1452,"ukbebseddad":1453,"ukbebalkame":1456,"ukaylbtalhaessulemi":1459,"alibharbbmuhammed":1479,"alibhasanbsuleymanelha":1480,"alibhasan2":1482,"alibhasan3":1482,"alibhafselmervezi":1486,"alibhakim":1487,"alibdavudbyezid":1490,"alibselemebukbe":1495,"alibsalih2":1498,"alibebitalhasalim":1501,"alibabdullahbcafer":1506,"alibabdulhamidbmusab":1511,"alibomerbali":1514,"alibisa2":1516,"alibnasrbali":1526,"alibheysem":1528,"alibyezidbsuleym":1529,"ammarbsadettuceybi":1532,"umarebsevban":1537,"omerbhafsbomer2":1549,"omerbsadbubeydebudavud":1557,"omerbsaidbmesrukessevr":1559,"omerbebiselemebabdirra":1560,"omerbebisuleyman":1544,"omerbabdulazizbmervan":1570,"omerbalibata":1575,"omerbfazlessulemi":1576,"omerbmuhammedbabdullah":1580,"amrbelhusaynelukayli":1594,"amrbsad":1602,"amrbsufyanbabdullah":1612,"amrbebisufyanbabdirrah":1604,"amrbsurahbilbsaid":1606,"amrbsuaybbmuhammed":1607,"amrbasimbsufyan":1612,"amrbabdullahbubeyd":1614,"amrbosmanbaffanebuosma":1622,"amrbkuteybe":1628,"amrbmalikelhemdaniebua":1631,"amrbelvelidbabde":1641,"umeyrbsaidennehai":1656,"avfbelharisbettufeyl":1667,"alabhalidelesedi":1672,"alabsalimebuhasanelhaz":1674,"alabutbe":1677,"alabmeslemebosman":1678,"iyazbhalife":1682,"isabibrahim":1684,"isabahmedbisa":1685,"isabhammadbmuslimettuc":1686,"isababdulalababdullah":1691,"isababdirrahmanbferve":1691,"isababdirrahmanessulem":1691,"isabomerennahviebuomer":1693,"isabomer":1693,"isabmamer":1697,"isabmeymunelmedeni":1700,"fazlbyakubelbasri":1727,"fudaylbhusaynbtalhaebu":1727,"kasimbabdulvehhab":1745,"kasimbmuhammedbebibeki":1749,"kasimbmuhammedbabdirra":1751,"kasimbyezid":1753,"kaysbsabitbkays":1774,"kaysbhafs":1776,"kesirbziyadebusehl":1788,"keysanebuomerelfezari":1808,"muhammedbibrahimbsaid":1819,"muhammedbibrahimbmuham":1821,"muhammedbahmedbebihale":1826,"muhammedbadembsuleyman":1832,"muhammedbusamebzeyd":1832,"muhammedbismailbsemure":1843,"muhammedbismailbebisem":1843,"muhammedbebiumamebsehl":1847,"muhammedbcebele":1858,"muhammedbcubeyrbmutim":1859,"muhammedbcaferelbezzaz":1862,"muhammedbhatimbyunus":1864,"muhammedbhassan":1868,"muhammedbelhusaynettem":1874,"muhammedbhalid2":1955,"muhammedbdavudbsubiheb":1887,"muhammedbzekvan":1888,"muhammedbzekvan2":1888,"muhammedbsaidbsuleyman":1903,"muhammedbsuleymanbabdu":1909,"muhammedbsuveydbkulsum":1914,"muhammedbtalib":1985,"muhammedbtalhababdulla":1926,"muhammedbamir":1928,"muhammedbebiaise":1929,"muhammedbabdullahbebir":1935,"muhammedbabdullahbeb2":1935,"muhammedbabdullahbel2":1947,"muhammedbabdirrahman4":1954,"muhammedbabdirrahmanbs":1955,"muhammedbabdulazizerre":1963,"muhammedbabdulvahidbeb":1965,"muhammedbubeydullahb2":1968,"muhammedbubeydullahbye":1969,"muhammedbammarbsad":1984,"muhammedbomerbali2":1985,"muhammedbomerbelvelid":1989,"muhammedbamrbhasan":1990,"muhammedbamrbali":1990,"muhammedbamr2":1994,"muhammedbimran":1996,"muhammedbumeyr":1996,"muhammedbisabkasim":1999,"muhammedbkasimelesedi":2008,"muhammedbkays":2011,"muhammedbkureyb":2014,"muhammedbmuhammedbmusa":2020,"muhammedbmusabbsadaka":2032,"muhammedbmuazbabbad":2034,"muhammedbmansurbsabit":2039,"muhammedbmusa2":2043,"muhammedbmusa3":2043,"muhammedbnecih":2046,"muhammedbyezidbmuhamme":2065,"muhammedbyezidelhizami":2066,"muhammedbyusufezzubeyd":2071,"malikbelharis":2080,"malikbelharisessulemi":2080,"malikbebiamir":2083,"elmusennabsad":2091,"elmusennababdirrahmane":2092,"elmusennabmuazbmuazela":2093,"elmusennabyezid":2093,"muhrizbseleme":2102,"mahmudbademelmervezi":2104,"mahmudbamrbyezid":2106,"mahledbhasan":2110,"mervanbsalim":2120,"mervanbosmanbebisaid":2121,"mesrukbevs":2130,"muslimbabdullah":2136,"muslimebuabdullahelhuz":2145,"elmisverbrifaabebimali":2149,"musabbsuleymelesedi":2154,"mutimbelmikdamessanani":2162,"muttalibbabdullahbmutt":2163,"muazbabdirrahmanbosman":2170,"muazbfadale":2170,"muaviyebsebre":2176,"muaviyebabdullahbcafer":2180,"muaviyebammarbebimuavi":2180,"mabedbhilal":2186,"madanbebitalha":2187,"mamerbebihabibe":2195,"mamerbmahled":2197,"mamerbsuleymanennehaie":2198,"mugirebebikurreessedus":2207,"munzirbabdullahbmunzir":2224,"muhacirbmahledebumahle":2234,"musabibrahimbabdirrahm":2239,"musabismail":2239,"musabenesbmalikelensar":2241,"musabhalidessamiebuelv":2243,"musabsuleymanbismail":2246,"musabukbebebiayyas":2253,"musabnafi":2256,"meymunbabbasbata":2268,"meymunebuhamzaelaver":2270,"naciyebkabelesedi":2274,"nafibabdullah":2280,"nafibomer":2280,"nasrbalibnasr":2289,"nusayrbelferec":2291,"nadrbseyban":2293,"nadrbabdirrahmanebuome":2295,"numanbsalimettaifi":2301,"ebubelharisebudavud":2309,"harunbelesaselhemdani":2322,"harunbsad2":2323,"harunbsalihbibrahim":2324,"hasimbsaidebuishak":2330,"hilalbcubeyr":2358,"hilalbcubeyr2":2358,"heysembhabib":2365,"heysembhumeyd":2365,"heysembrafi":2367,"heysembrabielukayliebu":2368,"elvelidbsuleymanbebisa":2386,"elvelidbkesirelmahzumi":2393,"elvelidbhisambmuaviye":2397,"yahyabelharis":2416,"yahyabelharis2":2416,"yahyabebihayye":2420,"yahyabzurarebabdulkeri":2423,"yahyabebizekeriyyaebum":2425,"yahyabubeyd2":2445,"yahyabosmanelharbi":2447,"yahyabebiyahya":2424,"yezidbumeyyeebusinan":2475,"yezidbumeyye2":2475,"yezidbhumeydeddubai":2479,"yezidbabdirrahmanbeles":2491,"yezidbabdulmelikbmugir":2492,"yakubbibrahimbkesir":2509,"yakubbishakbzeydelhadr":2509,"yakubbasimburve":2513,"yakubbutbebmugire":2514,"yakubbmucahid":2516,"yusufbhammad":2524,"yusufbmuhammedbelmunke":2530,"yunusbubeydessekafi":2542,"ebueyyubelezdi":2553,"ebubekirbishakbyesar":2557,"ebubekirbsalimbabdulla":2557,"ebubekirbebimusaelesar":2565,"ebubekir4":2568,"ebucaferelensari":2572,"eburebia":596,"ebusaidessami2":737,"ebuselmanielmuezzin":2601,"ebuabdullah":2617,"ebuabdullah2":1076,"ebuubeydebukbebnafi":2622,"ebuatiyyeelhemdani":2627,"ebuatiyye":2627,"ebuomer":2630,"ebumeryemelensari":2656,"ebumeryemessekafi":2656,"ebumuaviyeelbeceli":2180,"isamelmuzeni":2626,"omerbebiseleme":1560,"alabelhadrami":1675,"muhammedbmesleme":2030,"kaysbvehb":1783,"umeyyebintebiessalt":2735,"safiyyebintebiubeydbme":2749};
+export const SAMILE = {"ali":1499,"ebuhureyre":2671,"ebubekir":240,"omer":1551,"mikdad":2216,"fatima":2753,"ubey":92,"usame":102,"basra":233,"fadl":1722,"kabahbar":1801,"aise":2750,"enes":185,"cabir":276,"ebuzer":2589,"selmanfarisi":758,"ubadesamit":975,"ebueyyub":514,"ebukatade":2643,"ebubekre":2308,"vasile":2370,"ummuseleme":2760,"esmaebubekir":2733,"ebubekirabdrahman":2560,"ukaylhalid":1460,"yunusyezid":2544,"ibnebizib":1958,"humeydi":1024,"suleymanharb":778,"ibnabbas":1054,"ibnomer":1079,"ibnmesud":1121,"ibnzubeyr":1023,"bera":210,"zeydarkam":653,"cabirsemura":275,"suhayb":908,"sefine":752,"hasanbali":398,"huseyn":421,"amrhurays":1593,"tariksihab":922,"besrsuhaym":222,"ibncafer":1003,"ahnef":94,"esvedyezid":168,"alkame":1470,"ubeydesel":1375,"suveydgafle":826,"ebuvail":868,"zirhubeys":622,"sureyh":850,"saidmusayyeb":733,"hasanbasri":383,"rebihiras":583,"zeydvehb":666,"zadan":614,"ebutufeyl":962,"harissuveyd":325,"harisemudarrib":337,"salimcad":669,"hayseme":554,"ibrhunayn":67,"abdhayr":1170,"harisaver":326,"asimdamra":943,"salimibnomer":671,"humeydavf":492,"hafsasim":446,"zurareevfa":623,"busrsaid":216,"besirnehik":232,"esvedhilal":168,"hilas":553,"bece":234,"sabi":954,"ibnebileyla":1238,"urve":1422,"ikrime":1464,"zeynelabidin":1484,"ubeydullaherafi":1339,"umerbali":1575,"abdrahmanharis":1187,"ubeydumeyr":1368,"saidzuhadan":706,"zeydsabit":654,"kayshazim":1774,"abdrahmanebubekir":1182,"abdrahmanavf":1230,"osman":1402,"ukbeamir":1453,"ebumusa":2259,"ebusaid":691,"huzeyfe":362,"ebusalih":574,"rifaazuraki":603,"aizamr":965,"murreserahil":2118,"abdrahmanyerbu":1254,"abdrahmanabza":1175,"eslem":131,"esaskays":177,"saibyezid":678,"sadvakkas":693,"talha":930,"abisrebia":940,"asimomer":947,"ebanosman":49,"mervan":2120,"ibnhanefiyye":1982,"malikevs":2079,"ataebirebah":1431,"hamranaban":482,"ebuabdrahmansulemi":1009,"abdrahmanyezidnehai":1257,"mugirasube":2204,"imranhusayn":1646,"abdullahamr":1083,"muazcebel":2167,"ebudderda":1670,"sehlsad":814,"selemeekva":764,"zeydhalid":659,"ebuumame":899,"ibnsihab":2026,"amrdinar":1598,"yahyaebikesir":2453,"katade":1758,"ebuishaksebii":1614,"amess":799,"malik":2076,"ibnishak":1834,"ibncureyc":1306,"ibnuyeyne":749,"ibnebiaruba":723,"hammadseleme":476,"ebuavane":2377,"sube":856,"mamer":2195,"sevri":746,"evzai":1227,"huseym":2350,"yahyaadem":2407,"ibnebizaide":2423,"veki":2381,"ibnmubarek":1105,"kattan":2427,"ibnmehdi":1246,"sabitkayszuraki":262,"ibrahimavf":69,"haricezeyd":506,"ubeydullahutbe":1345,"arac":1252,"hamzaibnomer":485,"hasanhanefiyye":409,"alkamevakkas":1472,"abdullahkab":1098,"rafihadic":580,"salihkeysan":888,"suaybebihamza":862,"ibrahimsad":62,"eyyubsahtiyani":195,"usamezeydleysi":103,"haccacertat":351,"ebulaliye":605,"cabirzeyd":274,"bekirmuzeni":239,"nehai":87,"ibrahimteymi":87,"habibebisabit":342,"hakemuteybe":461,"ebuduha":2140,"yahyavessab":2466,"mearrursuveyd":2188,"hisamdestuvai":2342,"hemmamyahya":2354,"cerirhazim":289,"cerirabdulhamid":292,"hafsgiyas":453,"leysbsad":1811,"amrharis":1591,"misersukdam":2130,"suleymanteymi":789,"ibnnumeyr":1136,"ibnidris":991,"alimushir":1523,"saidcubeyr":699,"tavus":925,"mucahid":2095,"kureyb":1798,"ebucafermuhbakir":1980,"suleymanyesar":802,"ebuselemeavf":2601,"vehbmunebbih":2402,"hammadzeyd":475,"varkaomer":2376,"davudattar":561,"zekeriyyaishak":625,"egarebumuslim":180,"amrmeymun":1637,"mesruk":2129,"musatalha":2248,"numanbesir":2298,"nafiibnomer":2280,"zuhayrmuaviye":635,"zaidekudame":615,"ebulahvess":828,"serikkadi":854,"hamzazeyyat":483,"halidvelid":529,"bureyde":214,"temimdari":254,"hafsa":2739,"bilal":248,"amirrebia":952,"ebulubabe":2648,"abdullahdinar":1018,"cebeleshim":285,"saidyesar":741,"sadubeyde":691,"safvanmuhriz":904,"enessirin":184,"sabitbunani":257,"dahhak":916,"sehrhavseb":872,"hakemarac":459,"ebuzabyan":436,"abdullahmabed":1127,"ebulminhal":1242,"ubeydullahebiyezid":1361,"ibnebimuleyke":1069,"sumameenes":269,"humeydtavil":488,"hafsubeydullahenes":448,"cadebuosman":294,"rebiaebiabdrahman":593,"bekirahnes":242,"zubeyradi":620,"beyanbisr":250,"bisryesar":233,"ebuzubeyrmekki":2024,"ibnmunkedir":2039,"vehbkeysan":2401,"mahmudlebid":2107,"muhammedabbadcafer":1929,"muhammedsevban":1954,"yezidsuheybfakir":2488,"sadhisam":693,"kazaayahya":1770,"ibnsirin":1915,"mabedsirin":2185,"kasimmuhaymire":1751,"yahyaumare":2449,"ebuumamesehl":129,"ebusaidmakburi":712,"numanebiayyas":2302,"ebussiddiknaci":240,"ebuidrishavlani":963,"zekvanmevlaaise":575,"abbadabdullahzubeyr":969,"sureyhhani":852,"abdullahsakik":1043,"abdullahsedddad":1042,"amrabdrahmanzurara":2775,"kasimmuhammed":1749,"caferisadik":305,"humeyskaysarac":492,"davudhusayn":556,"salimebinadr":669,"hubeybabdrahman":535,"ziyadsad":642,"yezidhad":2488,"yezidrouman":2481,"yezidkusayt":2489,"ataihorasani":1438,"abdulmecidsuheyl":1295,"ibnvehb":1143,"kanebi":1123,"ibnkasimmisri":1234,"safii":1827,"kuteybesaid":1761,"ibnebiuveys":152,"ibnuleyye":135,"velidmuslim":2395,"ebunuaymfadl":1717,"ebuasimnebil":915,"ismailebihalid":142,"halidhazza":528,"davudebihind":567,"sadibrahim":684,"husaynabdrahman":436,"hammadebisuleyman":478,"zubeydyami":618,"zekeriyyaebizaide":626,"cameseddad":283,"gunder":1861,"yezidharun":2501,"yezidzurey":2481,"nadrsumeyl":2292,"ebudavudtayalisi":780,"muazmuaz":2170,"affanmuslim":1447,"alicad":1476,"abdussamed":1270,"isabyunus":1701,"esvedkays":167,"hasanubeydullah":396,"sevryezid":271,"ismailumeyye":139,"suddi":153,"ibrahimukbe":72,"ebuhasin":1395,"cabircufi":278,"hasanamrfukaymi":404,"ishakyusufezrak":126,"ebuusamehammad":472,"caferavn":304,"halidharis":510,"ruhubade":609,"abdurrezzak":1262,"damrarebia":919,"suleymanbilal":776,"bisrsari":222,"hisamurve":2345,"mansurmutemir":2229,"mansursafiyye":2228,"musaukbe":2253,"muhammedacilan":1976,"muhammedamralkame":1992,"muhammedsuka":1913,"mutarriftarif":2160,"ismailebiislamsibani":787,"velidkesir":2393,"yezidhusayfe":2489,"ahmedhanbel":38,"ibnrahuye":107,"ahmedsalihmisri":22,"ahmedmeni":43,"ibrahimfezari":75,"abdullahtavus":1050,"abdulhamidcubeyr":1163,"abdulkerimcezeri":1292,"ikrimehalid":1461,"kasimebibezze":1738,"alaabdrahman":1675,"amrsuayb":1607,"ibnhuseymkhaysem":1073,"ubeydullahomeri":1352,"haccacmuhammed":355,"ismailayyas":157,"enesiyaz":185,"hemmammunebbih":2353,"matarverrak":2157,"hisamyusufsanani":2349,"mutemirsuleyman":2187,"abdulalaabdulala":1155,"vuheybhalid":2403,"ebansattar":51,"mervanfezari":2122,"vakidi":1986,"mekhul":2218,"hassanatiyye":377,"rebiayezid":596,"umeyrhani":1658,"abdelubabe":1334,"muhammedvelidzubeydi":2053,"suleymanhabib":777,"suleymanmusadimaski":801,"saddadebuammar":845,"mutallibhantab":2163,"kurrahayvil":1768,"meymunmihran":2268,"hikalziyad":2352,"bakiyyevelid":234,"firyabi":2069,"ebulmugirehavlani":1290,"suaybishakdimaski":861,"muhammedharbhavlani":1867,"muhammedsuaybsabur":1919,"ubeydullahmusa":1358,"amrebiselemetennisi":1605,"mafairan":2173,"bisrbekirtennisi":219,"saidabdulaziz":721,"asimbehdele":940,"alizeydcudan":1492,"amiralhavl":959,"abdulvarissaid":1324,"abdulvehhabata":1328,"abdesuleyman":1332,"muhammedbisrabdi":1850,"muhammedebiadi":1822,"simakharb":804,"suheylebisalih":818,"selemekuheyl":767,"cureyri":697,"abdullahavn":1088,"ebuimrancevni":1299,"abdulmelikumeyr":1310,"ataisaib":1433,"ammarebiammar":1533,"amryahyamazini":1642,"ubeydullahomeri2":1235,"hebbanhilal":2333,"musaismailtebuzeki":2239,"hisamtayalisi":2343,"muslimibrahim":2134,"amrmerzuk":1633,"ebunasrtemmar":1308,"caferebivahsiyye":295,"asimahvel":942,"mugirmiksem":2208,"firasyahya":1712,"mansurzazan":2226,"abdulmelikebisuleyman":1303,"abdulazizsuheyb":1277,"saidmesrukhsevri":732,"yalaata":2520,"hilalvezzan":2358,"said_mansur":735,"kavariri":1353,"seybanferruh":874,"haccacminhal":356,"halefhisam":544,"avvamhavseb":1664,"avfarabi":1666,"abdullahsubrume":1041,"abdulhamidcafer":1163,"sufyanhusayn":744,"mucalidsaid":2094,"salihhayy":885,"siyarebilhakem":832,"kasimmihran":1752,"saidsuleymansadeviye":714,"ibnebiseybe":1109,"zuheyrharb":632,"alimedini":1506,"alihucr":1478,"amrnakid":1631,"osmanebiseybe":1407,"ahmeddevraki":8,"muhammedisataba":2000,"yezidebihabib":2478,"yalaubeyd":2520,"yunusbukeyr":2536,"abdrahmanesved":1178,"aliebisalihhayy":1498,"alimubarek":1519,"omerzerr":1553,"mesudi":1213,"suleymanmugire":798,"saidubeydtai":723,"davudkaysferra":564,"hanzalasufyan":499,"abdulazizomer":1281,"misned":2127,"hennadseri":2355,"ibnmain":2459,"yahyayahyanisaburi":2467,"mahmudgaylan":2106,"ibnebiomeradeni":2061,"nasralicehdami":2289,"ibrahimtahman":64,"ibrahimebiable":70,"usamezeydeslem":102,"caferburkan":296,"hayveseri":503,"saidebiyyubmisri":697,"harmalaimran":366,"ebuburde":213,"serieyyahya":683,"sadsaidensari":687,"rebiuenes":584,"alihasansakik":1481,"abdan":1072,"suveydnasr":826,"hasanisad":294,"behzhakim":246,"hatimebisagire":319,"hasanzekvan":389,"selimhayyan":772,"seyfsuleymanmekki":833,"husaymirak":535,"esaseabdulmelik":176,"bundar":1849,"ibnmusenna":2017,"amrbnalisayrafi":1623,"abbasanberi":980,"ubeydullahmuazanberi":1357,"yakubdevraki":2509,"muaviyesalih":2178,"israilyunus":128,"darevardi":1282,"macisun":1277,"harbseddad":364,"abdulvahidziyad":1321,"malikmigvel":2085,"sallamebimuti":830,"abdhumeyd":1331,"ebukureyb":1997,"omeryunusyemami":1585,"bisrmufaddal":226,"ziyadilaka":646,"sebabesevvar":837,"hammadmesade":480,"sucavelid":843,"talhamusarrif":933,"manisa":2199,"ebumiclez":2405,"ebuhazimseleme":761,"saidyezidtahi":741,"muallamansur":2193,"ebucemrenasr":2290,"eburafinufey":2310,"vasilahdeb":2371,"yusufmahek":2529,"museyyebrafi":2150,"behzesed":246,"alkamemersed":1471,"avnebicuhayfe":1668,"muaviyekurre":2181,"saidamirdubai":717,"suleymesvedsasa":771,"ukbehalidsekuni":1452,"ebumesudbedri":1456,"ebuhasimrummani":2670,"fudaylsuleyman":1728,"humeydhilal":495,"ebuamrseybani":686,"galibhattaf":1703,"gaylancerir":1709,"mehdimeymun":2236,"saidebihind":737,"seyyarselame":832,"sebibgarkade":841,"alirebianadle":1491,"muaviyeamrezdi":2181,"yahyayamer":2471,"huseynzekvan":417,"mahremesuleyman":2110,"mufaddalfadale":2210,"zeydcubeyr":655,"urvecad":1421,"sehlebihasme":812,"muhammedmuntesir":2038,"yahyaatik":2446,"ibrahimmeysere":85,"saibferruh":677,"semurecundeb":806,"umarekaka":1543,"makilyesar":2191,"munziryala":2225,"yezidserik":2487,"seddadevs":844,"ebuuseydsaidi":2081,"ebunadrhasim":2330,"yezidmunbais":2506,"yunusubeyd":2540,"abbadavvam":969,"adisabit":1415,"hakimhizam":468,"abbadtemim":965,"yahyaebiishak":2408,"amrevssekafi":1587,"ebuvakidleysi":2674,"ibrahimnafi":86,"amrsuleymzuraki":1605,"yezidebiyezid":2504,"sabitdahhak":260,"suleymanhayyan":779,"ismailcafer":140,"hatimismail":318,"osmanesved":1386,"kurrehalid":1767,"cafercrebia":299,"osmanomerfaris":1403,"umareumeyr":1542,"yahyaebibukeyr":2414,"harisevehb":337,"yalaumeyye":2518,"habibsehid":346,"ebuleshebutaridi":298,"ziyadcubeyrhayye":638,"yunuscubeyr":2537,"ismailzekeriyya":146,"selmanebuhazim":759,"alimudrik":1521,"salimebulgays":675,"ebumusabzuhri":13,"ziyadyahyahassani":650,"ebusaidesecc":1035,"muhammedrafi":1890,"zuhli":2058,"muhammedabdulalasanani":1951,"mucahidmusa":2096,"ebubekirayyas":2562,"ebumuaviyedarir":1881,"muhammedfudayl":2006,"fudaylibnayaz":1729,"kaysrebi":1777,"fitrhalife":1732,"abdusselamharb":1265,"halidselememahzumi":516,"amrmeymunmihran":1637,"musacuheni":2250,"nafiomercumahi":2278,"hasimhasim":2331,"ebumalikesceyi":688,"leysebisuleym":1814,"harunmaruf":2326,"ibrahimmusaferra":84,"sericyunus":681,"hasanarafe":397,"muhammedubeydmuharibi":1972,"buhari":1838,"muslim":2137,"ebudavud":773,"tirmizi":1998,"nesai":21,"ms12":431,"ms22":1481,"ms25":2048,"ed10":42,"ed20":1114,"ibnmace":2067,"darimi":1063,"ebuzuraraazi":1348,"ebuhatimrazi":1830,"harmalayahya":367,"ishakkevsec":122,"ibrahimmunzirhizami":82,"ademebiiyas":96,"hasanaliayyal":401,"suveydsaidhadesani":823,"ibrahimkariz":67,"hakemmina":465,"ishaktalha":117,"abdullahebikatade":1094,"ebukilabe":1029,"ebunadra":2224,"ubeydullahmiksem":1358,"hilalebimeymune":2360,"muhammedibrahimteymi":1818,"hisamhassan":2338,"haccacsavvaf":354,"seybannahvi":874,"muaviyesellam":2177,"yahyasaidensari":2430,"ikrimeammar":1462,"zeydeslem":653,"sufyanveki":752,"harunhammal":2325,"ibnsellam":1914,"habbanhilal":338,"nersi":1154,"duhaym":1174,"ahmedsinan":20,"ebukudame":1342,"yahyamusa":2463,"esedmusa":128,"musnedi":1112,"rebimuradi":588,"ebuamirakadi":1309,"ebuahmedzubeyri":1935,"ibnsabbahdulabi":1923,"ibnrecagudani":1022,"zaferani":408,"abbasduri":984,"haccacsair":357,"cuzcani":90,"ramadi":43,"ahmedabde":31,"yusufmusakattan":2531,"atayesar":1440,"makburi":712,"ebuosmannehdi":1245,"cubeyrnufeyr":287,"ibnganm":1233,"saidebihilal":738,"safvansuleym":902,"bukeyresec":243,"naficubeyr":2276,"musabsad":2154,"irakmalik":1418,"abdullahyusuftinnisi":1151,"ebulyemanhakem":465,"mekkiibrahim":2220,"halidmahled":526,"asbagferec":178,"surayjnuman":681,"muhammedsabik":1897,"muhammedararah":1977,"bedelmuhabber":210,"talkgannam":936,"halladyahya":552,"aliayyas":1515,"ebumushir":1156,"bisrsuayb":223,"ahmedhalidvehbi":16,"eyyubsuleymanbilal":198,"sadakafadl":898,"hassanhassan":376,"abdulazizuveysi":1278,"ahmedeskab":11,"ahmedbibrahimbkesir":8,"ahmedbishakbzeydebuish":10,"ahmedbsabitebubekirelb":13,"ahmedbcafer":13,"ahmedbcevvas":14,"ahmedbelhaccacelmervez":14,"ahmedbharbbmuhammed":14,"ahmedbhasanbcuneydeb":15,"ahmedbhalidelhallal":16,"ahmedbelhalil":17,"ahmedbsaidbsahrebucafe":18,"ahmedbseyyarbeyyubebuh":20,"ahmedbsebibbsaid":20,"ahmedbsalih":24,"ahmedbessabbahebucafer":24,"ahmedbebitaybaisabsule":25,"ahmedbabdullahbeyyubeb":25,"ahmedbabdullahbhakem":25,"ahmedbabdullahbebisuay":25,"ahmedbabdullahbmuhamme":26,"ahmedbabdullahbyunus":27,"ahmedbabdirrahmanbbekk":28,"ahmedbabdulmelikbvakid":30,"ahmedbabdulvahidbvakid":30,"ahmedbosmanbhakimelevd":32,"ahmedbalibsaidebubekir":32,"ahmedbomerebucafer":33,"ahmedbamrbabdullah":33,"ahmedbisabhassanelmisr":34,"ahmedbisaettinnisielmi":34,"ahmedbelfuratbhalidedd":34,"ahmedbmuhammedbmugire":40,"ahmedbmuhammedbyahyaeb":41,"ahmedbelmufaddal":42,"ahmedbmunzirbelcarudel":42,"ahmedbmansurbrasidelme":43,"ahmedbnasrbziyadennisa":44,"ahmedbnadrbabdulvehhab":45,"ahmedbyahyabzekeriyyae":46,"ahmedbyakubabdillahebu":47,"ahmedbyusufbhalidelezd":47,"ebanbabdullahbebihazim":49,"ibrahimbedhembmansur":52,"ibrahimbishakbisaelbun":53,"ibrahimbismailbebihabi":53,"ibrahimbismailbyahyaeb":54,"ibrahimbayenesseybani":55,"ibrahimbbessarebuishak":55,"ibrahimbebibekirelmekk":56,"ibrahimbelharisbismail":57,"ibrahimbhabibbessehide":57,"ibrahimbelhaccacbzeyd":57,"ibrahimbelhaccac":57,"ibrahimbhamzabmuhammed":58,"ibrahimbhumeydbabdirra":59,"ibrahimbhalidessananie":59,"ibrahimbdinarebuishake":60,"ibrahimbziyad":60,"ibrahimbsalimbebiumeyy":60,"ibrahimbsaidebuishak":62,"ibrahimbsemmasebuishak":64,"ibrahimbabdullahbhatim":66,"ibrahimbabdullahbmabed":68,"ibrahimbabdulalaelcufi":68,"ibrahimbabdirrahmanebu":69,"ibrahimbabdirrahmanbme":69,"ibrahimbabdusselambabd":70,"ibrahimbabdulazizbabdu":70,"ibrahimbabdulmelikelba":70,"ibrahimbubeydbrifaa":71,"ibrahimbosman":71,"ibrahimbukaylbmakiless":72,"ibrahimbalibhasan":73,"ibrahimbomerbkeysaness":73,"ibrahimbomerbmutarrif":73,"ibrahimbomeressanani":73,"ibrahimbamr":73,"ibrahimbalabeddahhak":74,"ibrahimbuyeynebebiimra":74,"ibrahimbfazlelmahzumie":74,"ibrahimbmuhammedbarara":77,"ibrahimbmuhammedbelmun":78,"ibrahimbmuhammedbebiya":78,"ibrahimbelmuhtarettemi":80,"ibrahimbmurreessami":81,"ibrahimbmuhacirbcabire":83,"ibrahimbmeymunessaigel":85,"ibrahimbmeymunessanani":86,"ibrahimbyezid":89,"ibrahimbyusufbmeymunel":91,"ibrahimbyusufelhadrami":91,"ibrahimbyunusbmuhammed":91,"ebibabbasbsehl":92,"ertatbmunzirbelesved":97,"erkambsurahbilelevdi":98,"ezherbkasimebubekirelb":101,"usamebhafselmedeni":101,"ishakbibrahimbsuveyd":105,"ishakbibrahimbumeyrabd":106,"ishakbibrahimbmuhammed":106,"ishakbibrahimbyezidebu":108,"ishakbibrahimessekafie":109,"ishakbibrahim":109,"ishakbismailebuyakub":111,"ishakbrebia":112,"ishakbbekirbmudarebuya":112,"ishakbhazim":113,"ishakbrasidelcezeriebu":113,"ishakbsaidbamr":115,"ishakbsuleymanerrazieb":115,"ishakbsuveydbhubeyreel":116,"ishakbsahinbelhariselv":116,"ishakbessabbahelkindi":116,"ishakbabdulvahid":119,"ishakbosmanelkilabiebu":120,"ishakbisabnecihebuyaku":120,"ishakbisaebuhasim":120,"ishakbelfuratbelcadett":121,"ishakbmuhammedbismail":122,"ishakbmusababdullahebu":123,"ishakbvehbbziyad":124,"israilbmusaebumusaelba":128,"eslembyezidebuimranett":130,"esmabhakemelfezari":131,"ismailbeban":132,"ismailbibrahimbbessame":133,"ismailbibrahimbabdirra":133,"ismailbibrahimbukbeele":134,"ismailbibrahimbmikseme":135,"ismailbibrahimbmuhacir":137,"ismailbibrahimebuibrah":137,"ismailbebielharisesedb":138,"ismailbtevbebsuleymane":140,"ismailbhabban":141,"ismailbhammadbebisuley":142,"ismailbhalife":143,"ismailbelhalil":144,"ismailbrecabrebiaezzub":145,"ismailbsalimelesediebu":148,"ismailbsalimessaig":148,"ismailbselmanibebimugi":149,"ismailbsubih":150,"ismailbabdullahbelhari":150,"ismailbabdulkerimbmaki":154,"ismailbubeydbebikerime":156,"ismailbomerelvasitiebu":156,"ismailbkesirebuhasimel":160,"ismailbmucalidbsaidelh":160,"ismailbmuhammedbismail":160,"ismailbmuslimelabdiebu":162,"ismailbmeslemebkanebel":164,"ismailbmusaelfezariebu":164,"elesvedbamiressami":167,"elesvedbmesudelanberie":168,"rebiabebirebia":169,"rebiababdirrahmanerrem":170,"esasbishakbsad":172,"esasbsaidelbasrieburab":172,"esasbebiessasaelmuhari":174,"esasbabdullah":175,"eshebbabdulazizbdavude":177,"asbagbnubateettemimi":178,"eflahbhumeydbnafielens":181,"eflahbsaidelensari":181,"umeyyebabdullahbhalid":183,"enesbhakimeddabbielbas":184,"evsbdamac":188,"iyasbselemebelekvaebus":191,"iyasbamirelgafiki":191,"iyasbmuaviyebkurreebuv":192,"eyyubbbesirbkabeladevi":195,"eyyubbhabibezzuhrielme":197,"eyyubbhassanelvasitieb":197,"eyyubbhalidbsafvan":197,"eyyubbaiz":200,"eyyubbmuhammedbziyadel":202,"eyyubbhani":204,"eyyubbvakidebuhasan":204,"bahrbkuneyz":207,"bahrbmerrar":208,"bahrbnasrbsabikelhavla":208,"bedrbosman":209,"berababdullahbyezidelb":211,"berabnaciye":211,"bureydbebimeryemmalikb":214,"busrbubeydullahelhadra":217,"bessarbkedam":218,"bisrbadembyezidelbasri":219,"bisrbademeddarirebuabd":219,"bisrbsabitelbasriebumu":219,"bisrbelharisbabdirrahm":220,"bisrbhalidebumuhammed":221,"bisrbaiz":224,"bisrbabdullahbyesaress":224,"bisrbumare":225,"bisrbomerbhakem":225,"bisrbmuhammedessahtiya":226,"bisrbmuaz":226,"bisrbmansur":227,"bisrbelvaddahelbasrieb":228,"besirbsellam":230,"besirbukbe":230,"besirbmuslimelkindiebu":231,"besirbmeymunelvasiti":231,"bekirbhakemettemimiebu":237,"bekirbhalefelbasri":237,"bekirbzuraelhavlaniess":238,"bekirbabdulvehhabbmuha":240,"bekirbamrelmisri":240,"bekirbmudarbmuhammedeb":241,"bekirbyunusbbukeyresse":241,"bukeyrbsihab":242,"bukeyrbamirelbeceliebu":242,"bukeyrbataelleysi":244,"bukeyrbmarufelesediebu":245,"bilalbyahya":250,"beyanbamrebumuhammed":250,"temmambnecihelesediedd":253,"temimbselemeessulemi":254,"temimbatiyyeessami":255,"tevbeebusadakaelensari":256,"sabitbelhaccacelkilabi":258,"sabitbsadettaiebuamr":258,"sabitbaclanelensariebu":261,"sabitbumareebumalikelb":261,"sabitbkayselgifari":262,"sabitbmusababdirrahman":263,"sabitbyezidelahvelebuz":264,"sevvabbutbe":270,"sevrbufeyr":271,"cabirbsubh":276,"cabirbkurdi":277,"cabirbnuh":278,"elcarudbebisebre":281,"elcarudbmuazessulemi":282,"camibbekkarbbilaleddim":282,"camibebirasidessayrafi":283,"camibmatar":283,"cubarabelmugallis":283,"cebelebatiyye":286,"elcerrahbeddahhakbkays":287,"cusulbhaan":294,"elcadbdinar":294,"caferbrebiabsurahbileb":299,"caferbezzubeyr":299,"caferbziyadelahmer":300,"caferbsuleymaneddubai":301,"caferbmuhammedbimran":306,"caferbmuhammedbelhuzey":307,"caferbmuhammedbsakires":305,"caferbmahmudbabdullah":307,"caferbmusafirbrasidett":307,"cemilbhasanbcemilelceh":310,"cemilbmurreesseybaniel":311,"cunadebselm":312,"cendelbvalik":313,"cuveyriyebesmabubeyded":316,"elculahebukesirelmisri":316,"hatimbmeymunelkilabieb":319,"hatimbverdanbmervanebu":320,"hatimbyusufbhalid":320,"elharisbesedbmakilelhe":321,"elharisbesed":321,"elharisbabdullahbebire":326,"elharisbabdirrahmanbab":327,"elharisbubeydullahelen":328,"elharisbatiyyeelbasri":329,"elharisbimranelmedeni":330,"elharisbumeyrebuumeyre":330,"elharisbfudaylelensari":331,"elharisbkayselcufi":331,"elharisbmiskinbmuhamme":332,"elharisbmansurelvasiti":332,"elharisbyezidelhadrami":335,"elharisbyakubelensari":335,"hamidbyahyabhaniebuabd":338,"habbanbebicebele":339,"habbanbali":340,"habibbebihabibelbeceli":343,"habibbebihabibelcermie":343,"habibebihabibelmisri":344,"habibbebihabibelbasri":343,"habibbzeydbhalladelens":345,"habibbsuleym":345,"habibbsalih":346,"habibbubeyderrahbi":347,"habibbebiamre":347,"habibbmuhammedelacemie":347,"habibbebimerzuk":348,"habibbyesarelkindi":349,"habibbyesar":349,"habibelmuallimebumuham":350,"hubeysbsureyhebuhafsae":350,"hubeysbmubessir":350,"haccacbibrahimelezrake":350,"haccacbhaccacelbahilie":352,"haccacbdinarelvasiti":353,"haccacbsafvanbebiyezid":354,"haccacbnusayr":357,"harbbseric":364,"harbbmeymun":365,"harbbmeymun2":365,"haramibumarebebihafsa":368,"huraysbsaibettemimi":369,"huraysbebimatarelfezar":369,"harizbosmanerrahbi":370,"hazmbebihazm":373,"hassanbbilalelmuzeniel":375,"hassanbebisinanelbasri":376,"hassanbkureybebukureyb":377,"hassanbnuh":377,"hasanbishakbziyadelley":379,"hasanbbisrbselm":379,"hasanbsevbanbamir":381,"hasanbebicafer":381,"hasanbhabibbnedebe":382,"hasanbelhurrbhakemelcu":382,"hasanbhammadbkuseyb":387,"hasanbhammadeddabbiebu":387,"hasanbzeydbhasanebumuh":390,"hasanbsadbmabed":391,"hasanbsucabrecaebuali":392,"hasanbessabbahelbezzar":395,"hasanbabdullah":396,"hasanbalibrasidelvasit":398,"hasanbumareelbeceli":402,"hasanbomerbsakikelcerm":404,"hasanbomer":404,"hasanbayyas":406,"hasanbisabmaserces":406,"hasanbelfuratbebiabdir":407,"hasanbkaza":407,"hasanbmuhammedbayenebu":408,"hasanbmuhammedbubeydul":408,"hasanbmusa":410,"hasanbvakibkasimebuali":411,"hasanbyahyabhisam":411,"hasanbyahya":412,"huseyinbbeyan":414,"hasanbelcuneyd":415,"huseyinbhurayselhuzai":415,"huseyinbhasanbharbessu":416,"huseyinbhasaneleskarel":416,"huseyinbhafsbfazl":417,"huseyinbsaibbebilubabe":418,"huseyinbselemebismail":418,"huseyinbmuhammedbeyyub":430,"huseyinbmuhammedbbehra":430,"huseyinbmeymun":432,"huseyinbyahyabcaferelb":434,"huseyinbyezidbyahya":434,"husaynbomer":438,"husaynbmansurbhayyan":441,"husaynbnumeyr":441,"hafsbsuleymanelesedieb":445,"hafsbsuleymanettemimi":446,"hafsbabdullahbrasidess":447,"hafsbabdirrahmanbomere":447,"hafsbomerbabdirrahman":449,"hafsbomerbabdirrahmane":449,"hafsbmeysereelukayli":455,"hakkambselm":456,"hakembebanebuisa":456,"hakembessaltelmedeniel":458,"hakembabdullahbishak":459,"hakembabdulmelikelbasr":460,"hakembatiyye":463,"hakembferruh":463,"hakembmusabelmahzumied":464,"hakembmusabebizuheyreb":464,"hakimbcubeyrelesedi":467,"hammadbbesirelcehdamie":472,"hammadbelcadelbasri":473,"hammadbhalid":474,"hammadbisabubeyde":479,"hammadbnecih":480,"hammadbvakid":480,"hammadbyahya":481,"humranbayen":482,"hamzabebirebia":483,"hamzabelharisbumeyrela":483,"hamzabebihamzaelcufiel":484,"hamzabamr":485,"hamzabebimuhammedelmed":486,"hamzabmugire":486,"hamzabnecihelbasri":486,"hamzabnusayrbhamza":487,"humeydbelesvedbeleskar":487,"humeydbebisuveydelmekk":490,"humeydbabdirrahmanelba":492,"humeydbnafielensariebu":494,"humeydbhaniebuhanielha":494,"humeydbyezidelbasriebu":495,"humeydelarec":496,"hannanbhariceessulemie":497,"hanesbelharisblakitenn":498,"hanesbabdullah":498,"hanesbelmutemir":498,"hanzalabalibeleskaelme":500,"hanzalabkaysbamr":500,"hayyanbumeyrelcureyri":503,"hayvebsureyhbyezidelha":504,"hayybyumin":504,"huyeybabdullahbsureyhe":505,"huyeybhanibnadir":505,"haricebelharisbrafi":506,"haricebabdullahbsuleym":507,"haricebmusabbhariceebu":507,"hazimbhuseyinebuishak":508,"halidbebibekirbubeydul":510,"halidbhumeyd":510,"halidbhayyanebuzeydelk":511,"halidbhidas":511,"halidbzekvanelmedeni":513,"halidbziyadelezdiebuab":514,"halidbsad":515,"halidbsaidbebimeryemel":516,"halidbselemebelas":516,"halidbtahman":518,"halidbabdullahbmuhrize":519,"halidbabdirrahmanelhor":520,"halidbubeyd":521,"halidbamrbmuhammedebus":522,"halidbkaysbrebahelezdi":524,"halidbebikerimeebuabdi":525,"halidbmuhammedessekafi":526,"halidbmihranebuelmenaz":528,"halidbyezidbziyadelese":530,"halidbyezidbsalih":530,"halidbyezidbabdirrahma":531,"halidbyezidbomer":531,"halidbyezidbmuaviyeebu":532,"halidbyezidelcumahi":532,"habbabelmedeni":534,"elhidrbmuhammedbsucael":539,"halefbeyyubelamiriebus":540,"halefbhavseb":541,"halefbhalid":541,"halefbhalifebsaidelesc":542,"halefbmuhammedbisa":543,"halefbhisambsaleb":544,"huleydbabdullah":545,"halifebhayyat":546,"halifebsaidelescei":546,"halifebgalibelleysiebu":547,"halifeelmahzumi":547,"elhalilbahmedelezdiebu":547,"elhalilbahmedelmuzenie":548,"elhalilbzekeriyyaessey":548,"elhalilbziyadelmuharib":549,"elhalilbamressekafiebu":550,"elhalilbmurreeddubai":550,"halladbsuleymanelhadra":552,"halladbabdirrahmanessa":552,"halladbisa":552,"halladbyezidelcufi":553,"hayrbnuaymbmurre":555,"davudbbekirbebielfurat":556,"davudbhalidbdinarelmed":557,"davudbrasidettufaviebu":557,"davudbresid":558,"davudbezzibrikanerraka":558,"davudbsabur":559,"davudbsebibelbahiliebu":559,"davudbebisalihelleysie":560,"davudbebiasimburve":560,"davudbabdullahelevdi":561,"davudbamrbzuheyrebusul":563,"davudbebielfuratamrbel":564,"davudbnusayr":567,"davudbyezidbabdirrahma":567,"dinarebuabdullah":573,"rasidbsaidbrasidebubek":579,"rasidbkeysan":579,"rasidbnecih":579,"rafibishakelmedeni":579,"rafibselemebziyad":580,"rebahbzeyd":582,"ribibibrahimbmiksemele":583,"ribibabdullahbelcarud":584,"rabibhusiym":586,"rabibruh":586,"rabibziyadelharisielba":587,"rabibsebrebmabedelcuhe":587,"rabibsuleymanbdavudebu":587,"rabibsubih":588,"rabibabdullahbhattaf":589,"rabibmuslimelcumahiebu":590,"rabibnafiebutevbe":590,"rabibyahyabmiksem":591,"rebiabseyfbmati":592,"rebiabutbe":594,"rebiabataezzuhri":594,"rebiabkulsumbcebr":595,"recabhayve":596,"recabrebiaezzubeydi":597,"recabebirecaelbahiliel":597,"recabsubih":598,"recabmuhammedbrecaebuh":598,"recabmureccaelgifariel":598,"recaelensari":599,"ruzeykbhayyaneddimaski":600,"ruzeykebuabdullah":601,"rifaabrafibhadicelensa":603,"rifaabseddadbabdullah":604,"rakababmaskalaelabdieb":606,"ruhbeslemelbahiliebuha":608,"ruhbelferec":611,"ruhbkasimettemimielanb":611,"riyahbelharisennehaieb":612,"zebbanbfaid":616,"zubeydbelharisbabdulke":618,"ezzubeyrbcunadeelhecer":619,"ezzubeyrbsaidbsuleyman":619,"zurarebmusabbabdirrahm":623,"zurababdullah":624,"zurababdirrahmanebuabd":625,"zekeriyyabyahyabiyas":628,"zekeriyyabyahyabsalihe":629,"zuheyrbsalim":632,"zuheyrbmuhammedbkumeyr":634,"zuheyrbnuaym":636,"ziyadbismailelmahzumi":636,"ziyadbeyyubbziyadebuha":637,"ziyadbbeyan":637,"ziyadbelcerrahelcezeri":638,"ziyadbelhusaynbkays":640,"ziyadbhaysemeelcufi":640,"ziyadbrabi":640,"ziyadbrebiabnuaym":641,"ziyadbebiziyadmeyseree":641,"ziyadbebiziyad":641,"ziyadbabdullahbulase":645,"ziyadbabdullahennumeyr":645,"ziyadbfeyyadelhuzaiebu":647,"ziyadbmuslim":649,"ziyadbyunusbsaidelhadr":651,"zeydbertatelfezarieddi":652,"zeydbhabban":657,"zeydbrebahelmedeni":660,"zeydbebiattab":662,"zeydbalibhuseyinebuhus":663,"zeydbayyas":665,"zeydbelmubarekessanani":665,"zeydbvakideddimaski":666,"zeydbyahyabubeydelhuza":667,"zeydbyezidessekafiebum":667,"zeydebuusame":667,"salimbebihafsaebuyunus":670,"salimbdinar":670,"salimbabdullah":672,"salimbabdulvahid":673,"salimbaclan":674,"salimbgaylanettuceybie":674,"salimbnuhbebiataelbasr":674,"salimebuabdullah":675,"saibbmalik":678,"serrarbmucessir":680,"sadbishakbkab":685,"sadbevseladevi":685,"sadbevsebumuhammed":686,"sadbabdullah":690,"sadbiyaz":691,"sadebumucahidettai":694,"saidbevsbsabitebuzeyde":696,"saidbebieyyubelhuzai":697,"saidbcumhan":701,"saidbelharisbebisaid":701,"saidbhassanelmahzumiel":701,"saidbebihasanelbasri":702,"saidbhafsbamr":702,"saidbhakembmuhammed":702,"saidbhayyanetteymi":703,"saidbhalidbabdullah":704,"saidbhalidbamr":704,"saidbhalidelhuzaielmed":704,"saidbebihalidelahmesi":704,"saidbhusiym":704,"saidbebihiyera":705,"saidbzekeriyya":708,"saidbziyadelensarielme":708,"saidbziyadesseybanielm":709,"saidbzeydbdirhemelezdi":709,"saidbzeydbukbeelfezari":709,"saidbsadbeyyubebuosman":711,"saidbsufyanelbasri":713,"saidbsinan":715,"saidbsinan2":715,"saidbsebib":716,"saidbabdulcebbarezzube":718,"saidbabdirrahmanbebzae":719,"saidbabdirrahmanelcuma":720,"saidbabdirrahmanbabdul":720,"saidbabdirrahmanbyezid":721,"saidbubeydelhinai":723,"saidbumarebsafvan":725,"saidbamrbsaidebuosman":725,"saidbamrelhadramiebuos":726,"saidbilaka":727,"saidbelferecebunadrbeb":728,"saidbfiruzebuelbahteri":728,"saidbkesirbufeyr":729,"saidbmuhammedbsaidelce":730,"saidbmuhammedelverrake":730,"saidbmervanbaliebuosma":732,"saidbnusayr":737,"saidbnadrebuosman":737,"saidbhanielhavlaniebuo":737,"saidbyahyabsalihebuyah":740,"saidbyezidbmeslemeelez":741,"sufyanbhamzabsufyanebu":745,"sufyanbdinarettemmareb":745,"sufyanbziyadbademeluka":745,"sufyanbabdirrahman":748,"sufyanbukbeessuvai":748,"sufyanbmusaelbasri":751,"essekenbismailelensari":753,"essekenbmugire":753,"selmbibrahimelverrakeb":754,"selmbcunadebselmessuva":754,"selmbatiyyeelfukaymi":756,"selmbkuteybe":756,"selmbkayselbasri":757,"selemebtemmamebuabdull":761,"selemebsuleymanelmerve":762,"selemebabdullah":761,"selemebabdulmelik":764,"selemebalkameettemimie":764,"selemebkulsumelkindies":766,"selemebmuhammedbammar":768,"selemebverdanelleysieb":769,"selemeelleysi":770,"suleymbahdarelbasri":771,"suleymbcubeyrebuyunuse":771,"suleymbamir":772,"suleymanbbureydebelhas":775,"suleymanbdavudeburabi":783,"suleymanbziyadelhadram":784,"suleymanbzeydelmuharib":785,"suleymanbsuheymebueyyu":785,"suleymanbselmbsabik":786,"suleymanbsuleymebusele":786,"suleymanbsinanelmuzeni":787,"suleymanbseyfbyahya":788,"suleymanbsalihelleysi":788,"suleymanbamirbumeyrelk":789,"suleymanbabdullahbmuha":790,"suleymanbabdulhamidbra":791,"suleymanbabdirrahmanbi":791,"suleymanbubeydullahbam":793,"suleymanbubeydullahele":793,"suleymanbatabkaysebuom":794,"suleymanbkays":795,"suleymanbebimuslimelme":797,"suleymanbmatarennisabu":798,"suleymanbmabedbkevseca":798,"suleymanbmusaezzuhrieb":802,"suleymanelesved":803,"simakbfazlelhavlani":805,"semanebuyahya":807,"sinanbebisinanelmedeni":809,"sinanbharunebubisr":809,"sehlbeslemeladevi":811,"sehlbebiumamebsehl":811,"sehlbtemmambbuzey":811,"sehlbhammadebuattab":812,"sehlbebiessalt":815,"sehlbosmanbfariselkind":815,"sehlbmuhammedbezzubeyr":815,"sehlbmuhammedbosmanebu":816,"sehlbmuazbeneselcuheni":816,"sehlbyusufelbasri":817,"sevvarbdavudelmuzenieb":820,"sevvarbabdullahbsevvar":821,"suveydbabdulazizbnumey":824,"suveydbubeyd":825,"suveydbamrebuelvelid":825,"suveydbnasrbsuveydelme":826,"sellambsuleymanbsevvar":828,"sellambsuleymanelmuzen":829,"sellambebisellamessami":829,"sellambebiamreelhorasa":829,"sellambmiskinbrebiaele":830,"seyyarbhatim":831,"seyyarebuhamza":833,"seyfbubeydullahelcermi":834,"seyfbomerettemimi":834,"seyfbharun":835,"seyfbvehbettemimiebuve":836,"sebibbbisrebubisrelbec":840,"sebibbabdulmelikettemi":841,"sebibbnuaymeburuh":841,"sucabmahledelfellasebu":843,"seddadbhayyebuhayyelmu":845,"seddadbsaidebutalhaelb":845,"serahilbyezidelmisri":847,"surahbilbsadebusadelme":847,"surahbilbserikebumuham":849,"surahbilbmuslimbhamide":849,"sureyhbubeydbsureyhelh":851,"sureyhbnuman":852,"sureyhbyezidelhadramie":853,"serikbhanbel":853,"subebdinar2":860,"suaybbbeyanbziyadessaf":861,"suaybbelhabhabelezdi":862,"suaybbharbelmedainiebu":862,"suaybbhalidelbecelierr":863,"suaybbruzeykessamiebus":863,"suaybbsafvanbrabiessek":864,"suaybbleysbsad":865,"suaybbmeymunelvasiti":865,"suaybbyahyabsaibettuce":866,"sakikbebiabdullah":869,"sakikbukbeelabdi":869,"sihabbhirasbhavsebesse":870,"sihabbabbadelabdiebuom":871,"seybanbumeyye":873,"seybanbabdirrahmanette":874,"seybebahnefevzaiebunad":875,"salihbhatimbverdanelba":880,"salihbhassan":881,"salihbebihassanelmeden":881,"salihbhayyan":881,"salihbrustem":883,"salihbrustemelmuzeni":884,"salihbsuheylennehaiebu":885,"salihbabdullahbzekvane":886,"salihbabdulkebirbsuayb":887,"salihbubeyd":887,"salihbadibebiumareennu":887,"salihbomerelvasiti":887,"salihbkedamebibrahim":888,"salihbebimeryemeddubai":890,"salihbmihranesseybani":890,"salihbmusabishak":891,"salihbheysemelvasitieb":892,"salihbyahyabelmikdam":892,"sadakabhalid":895,"sadakabsaid":896,"sadakababdullah":896,"sadakabebiimran":897,"sadakabmusaebumugire":898,"safvanbsuleymelmedenie":902,"safvanbsalihbsafvaness":902,"safvanbisaezzuhriebumu":904,"safvanbhubeyre":905,"safvanbebiyezid":905,"essaltbdinarelezdielhi":906,"essaltbmuhammedbabdirr":907,"essaltbmesudbtarifebub":907,"suheybelhazzaebumusael":909,"eddahhakbsurahbilelgaf":912,"eddahhakbabdirrahmanbe":912,"eddahhakbosmanbabdulla":913,"eddahhakbfiruz":914,"dirarbsurad":917,"dirarbmurreebusinaness":918,"dimambismailbmalikebui":918,"damrabhabibbsuheybezzu":919,"tarikbabdirrahmanelbec":923,"tarikbamrelmekki":923,"talibbhabibbamr":924,"tavusbkeysanebuabdirra":925,"tarifbsihab":926,"talhabhiras":928,"talhabzeydebumiskin":928,"talhabebisaidebuabdulm":929,"talhababdullahbabdirra":929,"talhababdullahbosman":930,"talhababdullahbavfezzu":930,"talhabamrbosmanelhadra":932,"talhabmusarrifbamr":933,"talhabyahyabtalha":934,"talhabyahyabnuman":935,"talkbessemh":936,"asimbhumeydessekuni":941,"asimbrecabhayveelkindi":942,"asimbabdulazizbasimele":944,"asimbubeydullahbasim":944,"asimbomerbhafsebuomere":947,"asimbkuleybbsihab":949,"asimbmuhammedbzeyd":950,"asimbmunzirbezzubeyr":950,"asimbnadrbelmuntesirel":950,"asimbhilalelbarikiebun":950,"asimbyusufebuamr":951,"amirbibrahimbvakidelmu":952,"amirbsadbebivakkasezzu":953,"amirbsakikbimran":955,"amirbsalihbrustemelmuz":956,"amirbabdullahbezzubeyr":958,"amirbabde":960,"amirbubeydeelbahilielb":960,"abbadbabbaderremli":968,"abbadbkesiressekafielb":970,"abbadbkesirerremli":971,"abbadbleysebuhasanelba":971,"abbadbmusa":973,"abbadbmeysereelbasriel":974,"abbadbyusufelkindiebuo":975,"ubadebmuslimelfezarieb":976,"ubadebnusey":976,"abbasbcaferbabdullaheb":977,"abbasbabdullahbebiisae":979,"abbasbosmanbmuhammedel":981,"abbasbelferec":982,"abbasbferruh":982,"abbasbmuhammedbhatimeb":984,"abbasbelvelidbsubh":985,"abbasbyezidbhabib":986,"abserbkasimezzubeydi":987,"abdullahbibrahimbebiam":988,"abdullahbishakelbasri":992,"abdullahbbuceyr":995,"abdullahbbusr":998,"abdullahbbekirbabdulla":1000,"abdullahbebibekirbabdi":1000,"abdullahbebibekirbmuha":1000,"abdullahbcabirebuhamza":1002,"abdullahbcaferbgaylan":1004,"abdullahbelharisbabdul":1007,"abdullahbelharisezzube":1009,"abdullahbhabibbebisabi":1009,"abdullahbhabibbrebia":1009,"abdullahbhuseyinbata":1011,"abdullahbhafsebuhafsel":1012,"abdullahbhakembebiziya":1012,"abdullahbhumran":995,"abdullahbhabbab":1015,"abdullahbhabbabelensar":1015,"abdullahbhalife":1016,"abdullahbdavudbamirelh":1017,"abdullahbdavudelvasiti":1017,"abdullahbzekvanebuabdi":1019,"abdullahbrasid":1020,"abdullahbrafielhadrami":1020,"abdullahbrebahelensari":1020,"abdullahbrabibhusiymes":1021,"abdullahbrecaelmekkieb":1022,"abdullahbebizekeriyyae":1026,"abdullahbziyadbsuleyma":1026,"abdullahbzeydbeslemela":1028,"abdullahbzeydbamr":1029,"abdullahbsalimelesarie":1030,"abdullahbsalim":1031,"abdullahbsaibbyezidelk":1031,"abdullahbsaibelkindi":1032,"abdullahbsadbibrahim":1033,"abdullahbsadbosmanebua":1034,"abdullahbsadbferveelbe":1034,"abdullahbsadetteymi":1002,"abdullahbsaidbcubeyrel":1034,"abdullahbsaidbhazimenn":1035,"abdullahbsaidbebihinde":1036,"abdullahbsuleymelcezer":1039,"abdullahbsuleymanbzura":1039,"abdullahbsevvar":1040,"abdullahbsuveydbhayyan":1041,"abdullahbserikelamiri":1043,"abdullahbsalihbmuhamme":1044,"abdullahbsalihbmuslim":1047,"abdullahbebisalihessem":1048,"abdullahbessamitelgifa":1048,"abdullahbessabbahbabdu":1048,"abdullahbtavusbkeysane":1050,"abdullahbasim":1051,"abdullahbamirbzurareel":1052,"abdullahbamirbyezid":1053,"abdullahbamirebuamirel":1053,"abdullahbabdullahbeles":1056,"abdullahbabdullahbuvey":1056,"abdullahbabdullahbcabi":1057,"abdullahbabdullahbebit":1058,"abdullahbabdullaherraz":1059,"abdullahbabdulcebbar":1060,"abdullahbabdulhakembay":1060,"abdullahbabdirrahmanel":1019,"abdullahbabdussamedbeb":1066,"abdullahbabdulvehhab":1068,"abdullahbubeydullah":1068,"abdullahbubeyd":1069,"abdullahbubeydelbasri":1070,"abdullahbebiutbeelbasr":1071,"abdullahbosmanbishak":1072,"abdullahbosmanbcebele":1072,"abdullahbosmanbataebum":1074,"abdullahbukaylebuukayl":1077,"abdullahbomerbmuhammed":1081,"abdullahbamrbavf":1029,"abdullahbamrbmurre":1085,"abdullahbamrbhind":1085,"abdullahbimranbrezin":1086,"abdullahbimranbebialie":1086,"abdullahbimranetteymi":1086,"abdullahbavnbebiavn":1089,"abdullahbalabzebr":1089,"abdullahbayyas":1090,"abdullahbisababdirrahm":1090,"abdullahbgalib":1091,"abdullahbferruhetteymi":1092,"abdullahbferruhelhoras":1092,"abdullahbebikays":1097,"abdullahbkesireddariel":1098,"abdullahbkesireddimask":1098,"abdullahbkabelmedeni":1099,"abdullahbkeysanelmerve":1100,"abdullahbebilebid":1100,"abdullahblehia":1101,"abdullahbelmubarekelme":1105,"abdullahbelmusennababd":1107,"abdullahbmuhammedbisha":1110,"abdullahbmuhammedbesma":1110,"abdullahbmuhammedbebie":1111,"abdullahbmuhammedbrumh":1112,"abdullahbmuhammedbabdu":1112,"abdullahbmuhammedbab2":1113,"abdullahbmuhammedbab3":1114,"abdullahbmuhammedbubey":1114,"abdullahbmuhammedbukay":1114,"abdullahbmuhammedbali":1116,"abdullahbmuhammedelyem":1118,"abdullahbelmuhtarelbas":1119,"abdullahbmahled":1120,"abdullahbmurreelhemdan":1120,"abdullahbebimeryem":1015,"abdullahbmusafibabdull":1121,"abdullahbmuslimbhurmuz":1122,"abdullahbmuslimessulem":1122,"abdullahbmuslim":1122,"abdullahbmuslimelbasri":1114,"abdullahbelmuseyyeb":1124,"abdullahbmutibrasidebu":1125,"abdullahbmuazbnesit":1126,"abdullahbelmuemmelbveh":1130,"abdullahbmeymunbdavud":1131,"abdullahbnafiessaigelm":1133,"abdullahbnafi":1134,"abdullahbebinehik":1136,"abdullahbharunbebiisae":1137,"abdullahbhasimbhayyan":1137,"abdullahbhubeyrebesad":1138,"abdullahbhemmam":1150,"abdullahbheysembosman":1139,"abdullahbvakidbabdulla":1140,"abdullahbvakid":1140,"abdullahbelvelidbabdul":1142,"abdullahbelvelidbkayse":1142,"abdullahbyahyaessekafi":1146,"abdullahbyezidbmikseme":1147,"abdullahbyezidennehai":1147,"abdullahbyezidenneha2":1147,"abdullahbyezidelmedeni":1031,"abdullahbyezideddimask":1149,"abdullahbyesarebuhemma":1150,"abdullahbyakubbishakel":1150,"abdulalabayen":1153,"abdulalabhammadbnasrel":1154,"abdulalabamir":1154,"abdulalababdullahbamir":1155,"abdulalababdullahbebif":1155,"abdulalabadi":1155,"abdulalabkasimelhemdan":1156,"abdulalabvasilbabdulal":1158,"abdulcelilbhumeydebuma":1161,"abdulcelilbatiyyeebusa":1161,"abdulhakembzekvanessed":1161,"abdulhamidbsalihbaclan":1166,"abdulhamidbabdirrahman":1168,"abdulhamidbmuhammedbel":1169,"abdulhalikbseleme":1170,"abdurabbihbhalidbabdul":1171,"abdurabbihbsaidbkaysel":1171,"abdurabbihbata":1172,"abdirrahmanbebanbosman":1173,"abdirrahmanbibrahimbam":1174,"abdirrahmanbademelbasr":1175,"abdirrahmanbishakbabdu":1177,"abdirrahmanbbahrelbasr":1180,"abdirrahmanbbisrbhakem":1180,"abdirrahmanbbisrbmesud":1181,"abdirrahmanbbekirbrabi":1181,"abdirrahmanbsabitbsevb":1184,"abdirrahmanbsabitelens":1185,"abdirrahmanbservan":1185,"abdirrahmanbcabirbabdu":1185,"abdirrahmanbcubeyr":1186,"abdirrahmanbcubeyrelmi":1186,"abdirrahmanbelharisbab":1187,"abdirrahmanbharmala":1190,"abdirrahmanbhassanelki":1190,"abdirrahmanbhusaynebuh":1191,"abdirrahmanbhumeydbabd":1191,"abdirrahmanbhalefbabdi":1192,"abdirrahmanbrezin":1194,"abdirrahmanbebiezzinad":1194,"abdirrahmanbsabit":1199,"abdirrahmanbsadbammar":1200,"abdirrahmanbsadelmeden":1224,"abdirrahmanbselmani":1202,"abdirrahmanbsuleymanba":1203,"abdirrahmanbsellam":1204,"abdirrahmanbserikbabdu":1205,"abdirrahmanbseybebosma":1206,"abdirrahmanbsahrbabdir":1268,"abdirrahmanbabis":1209,"abdirrahmanbamirelmekk":1209,"abdirrahmanbaiz":1210,"abdirrahmanbabdullahbs":1212,"abdirrahmanbabdullahba":1212,"abdirrahmanbabdullahbu":1213,"abdirrahmanbabdullah2":1213,"abdirrahmanbabdullahbe":1215,"abdirrahmanbabdullahbk":1216,"abdirrahmanbabdulhamid":1218,"abdirrahmanbabdulazizb":1218,"abdirrahmanbabdulmelik":1219,"abdirrahmanbabdulvehha":1219,"abdirrahmanbadi":1222,"abdirrahmanbata":1223,"abdirrahmanbalkame":1208,"abdirrahmanbomerbyezid":1225,"abdirrahmanbamrbabdull":1226,"abdirrahmanbamrbabesee":1227,"abdirrahmanbebiamrelme":1226,"abdirrahmanbayyas":1187,"abdirrahmanbferruh":1234,"abdirrahmanbkasimbhali":1234,"abdirrahmanbkayseburuh":1236,"abdirrahmanbelmubarek":1239,"abdirrahmanbmuhammedbz":1240,"abdirrahmanbmuhammedbs":1241,"abdirrahmanbmuaviyebhu":1243,"abdirrahmanbmihranelme":1247,"abdirrahmanbmeysereelh":1248,"abdirrahmanbnumanbmabe":1250,"abdirrahmanbvakidbmusl":1253,"abdirrahmanbyezidbcabi":1256,"abdirrahmanbyezidebumu":1257,"abdirrahmanbyakubelcuh":1257,"abdirrahmanbyunusbhasi":1258,"abdurrahimbzeydbelammi":1259,"abdurrahimbsuleymanelk":1260,"abdurrahimbabdirrahman":1260,"abdurrahimbmutarrifbun":1260,"abdurrezzakbomerbmusli":1261,"abdusselambhafsebumusa":1265,"abdusselambsuaybbelhab":1266,"abdusselambasimelcufi":1268,"abdusselambatik":1268,"abdussamedbabdulvehhab":1270,"abdussamedbmakilbmuneb":1270,"abdulazizbrebia":1277,"abdulazizbebihazimsele":1273,"abdulazizbhalidbziyad":1273,"abdulazizbelhattabebuh":1274,"abdulazizbebirizme":1274,"abdulazizbebisuleyman":1276,"abdulazizbabdullahbabd":1067,"abdulazizbabdullahebuy":1279,"abdulazizbubeydullahbh":1280,"abdulazizbosmanbcebele":1280,"abdulazizbkayselabdiel":1282,"abdulazizbmuaviyebabdu":1285,"abdulazizbmunib":1286,"abdulazizbyahyabyusufe":1287,"abdulganibrifaababdulm":1289,"abdulganibabdulazizbse":1289,"abdulkebirbabdulmecidb":1291,"abdulkerimbelharisbyez":1291,"abdulkerimbresid":1291,"abdulkerimbebielmuhari":1293,"abdulmecidbebiyezidveh":1297,"abdulmelikbayen":1297,"abdulmelikbiyasesseyba":1298,"abdulmelikbebibesirelb":1298,"abdulmelikbebibekirbab":1298,"abdulmelikbelharisbhis":1298,"abdulmelikbhabibelezdi":1299,"abdulmelikbelhattabbub":1301,"abdulmelikbzeydbsaid":1302,"abdulmelikbsaidbhayyan":1302,"abdulmelikbsaidbsuveyd":1303,"abdulmelikbsuaybbleys":1304,"abdulmelikbabdullahbmu":1314,"abdulmelikbabdulhamidb":1305,"abdulmelikbabdulazizbc":1306,"abdulmelikbkedamebibra":1311,"abdulmelikbmervanbkari":1316,"abdulmelikbmuslimbsell":1316,"abdulmelikbmeysereebuz":1317,"abdulmelikbnafiesseyba":1317,"abdulmelikbyesarelmede":1318,"abdulmelikbyalaelleysi":1318,"abdulvahidbsuleymelbas":1321,"abdulvahidbebiavnelmed":1322,"abdulvahidbgiyas":1323,"abdulvahidbkaysessulem":1323,"abdulvahidbvasilessedu":1324,"abdilvarisbubeydullah":1326,"abdulvehhabbebibekirel":1326,"abdulvehhabbsaidbatiyy":1326,"abdulvehhabbeddahhakbe":1327,"abdulvehhabbabdulhakem":1327,"abdulvehhabbmucahidbce":1330,"abdebabdurrahimbhassan":1333,"ubeydullahbiyadblakite":1335,"ubeydullahbebicaferelm":1336,"ubeydullahbebihumeydeb":1338,"ubeydullahbhalife":1338,"ubeydullahbebiziyad":1340,"ubeydullahbsaidbmuslim":1341,"ubeydullahbsaidbyahyae":1342,"ubeydullahbsumeyt":1343,"ubeydullahbabdullahbeb":1344,"ubeydullahbabdullahbel":1345,"ubeydullahbabdullahbom":1346,"ubeydullahbabdulmecide":1350,"ubeydullahbubeydirrahm":1350,"ubeydullahbamrbebielve":1354,"ubeydullahbmuhammedbye":1356,"ubeydullahbnadrbabdull":1360,"ubeydullahbelvelid":1360,"ubeydullahbyusuf":1361,"ubeydbesbatbmuhammed":1362,"ubeydbebiumeyye":1362,"ubeydbsumameelmisri":1363,"ubeydbcureycetteymi":1364,"ubeydbhasanelmuzeni":1364,"ubeydbhuneyn":1364,"ubeydbabdirrahmanelmuz":1368,"ubeydbukayl":1368,"ubeydbkasimelesedi":1369,"ubeydbmuhammedelmuhari":1370,"ubeydbmihran":1370,"ubeydbmeymunetteymi":1370,"ubeydebhumeydebuabdirr":1373,"ubeydebsufyanbelharis":1375,"ubeydebmusafi":1376,"ubeydebelesvedbsaidelh":1376,"attabbbesir":1378,"attabbziyadelhorasanie":1379,"attabbabdulaziz":1379,"utbebebihakimelhemdani":1380,"utbebhammadbhuleyd":1380,"utbebhumeydeddabbiebum":1381,"utbebsaidessulemiebusa":1381,"utbebabdullahbutbeebua":1382,"utbebmuslimelmedeni":1383,"osmanbismailbimranebum":1386,"osmanbcebele":1386,"osmanbhakemelmisri":1388,"osmanbhayyan":1389,"osmanbzaide":1390,"osmanbzuferbmuzahimett":1390,"osmanbzuferelcuheniedd":1390,"osmanbsad":1391,"osmanbsaidbkesir":1391,"osmanbsaid":1391,"osmanbsalihbsaid":1393,"osmanbsalihbsafvan":1393,"osmanbabdirrahmanbosma":1398,"osmanbabdirrahmanbmusl":1399,"osmanbabdirrahmanbabdu":1398,"osmanbabdulmelikelmekk":1400,"osmanbubeyd":1401,"osmanbosmanebuamrelkad":1401,"osmanburvebezzubeyr":1401,"osmanbumeyr":1405,"osmanbgiyas":1405,"osmanbfaidebulubabeelb":1406,"osmanbferkadelattarelb":1406,"osmanbmuhammedbsaiderr":1408,"osmanbmurreelbasri":1409,"osmanbmuslim":1409,"osmanbmataresseybanieb":1409,"osmanbnaciyeelhorasani":1410,"osmanbnehik":1411,"osmanbvakidbmuhammed":1411,"osmanebuselemeelbasri":1413,"aclanelmedeni":1413,"adibadibumeyra":1416,"adibfazletteymiebuhati":1417,"ararabelbirend":1420,"urvebmugirebsubeesseka":1426,"isambhalidelhadramiebu":1429,"isambkedameelbeceli":1430,"ismebfazlennumeyri":1430,"atabaclanebumuhammedel":1436,"atabmuslimelhaffafebum":1437,"atabebimeymuneelbasrie":1439,"atabyakubelmedeni":1441,"ataessami":1440,"atiyyebsadbcunade":1444,"atiyyebkayselkilabi":1445,"affanbseyyar":1446,"ukbebevsessedusielbasr":1451,"ukbebabdullah":1454,"ukbebmuslimettuceybi":1457,"ukbebmukerrem":1457,"ukaylbcabirbabdullahel":1459,"ukaylbmakilbmunebbih":1460,"alkamebabdullahbsinan":1469,"alkamebebialkamebilale":1469,"alkamebamrbelhusaynebu":1470,"alibishakessulemi":1473,"alibbahrbberri":1474,"alibbekkarelbasri":1475,"alibsabit":1476,"alibhasanbebihasan":1481,"alibhasan":1482,"alibhuseyinbmatarelbas":1485,"alibhuseyinbvakidelmer":1485,"alibhafselmedaini":1486,"alibhakembzabyan":1487,"alibhakemelbunani":1487,"alibhakimbzibyan":1487,"alibhavseb":1489,"alibhalidelmedeni":1489,"alibzeydbabdullah":1492,"alibsaidbcerirennesai":1494,"alibsaidbmesrukelkindi":1495,"alibsuaybbadi":1497,"alibsalihelmekki":1498,"alibabis":1503,"alibabdullahbibrahim":1506,"alibabdulala":1511,"alibabdirrahman":1512,"alibubeydelensarielmed":1512,"alibassam":1513,"alibosmanbmuhammed":1513,"alibosmanbmuhammed2":1513,"alibamrbelharisebuhube":1515,"alibisabyezid":1516,"alibgurab":1516,"alibkadimelhuzai":1518,"alibmuhammedbzekeriyya":1521,"alibmudrik":1521,"alibmesadeelbahiliebuh":1522,"alibmuslimbsaid":1522,"alibmabedbnuh":1524,"alibmunzir":1524,"alibmeymunelattar":1525,"alibnufeyl":1527,"alibhasimbmerzukerrazi":1528,"aliebuelesved":1530,"ammarbhasanebuhasanerr":1531,"ammarbhalidbyezidebufa":1531,"ammarbruzeyk":1531,"ammarbsad":1532,"ammarbseyfeddabbi":1532,"ammarbumareebuhasimelb":1533,"ammarbebiferve":1534,"ammarbmuhammedessevrie":1534,"ammarbmuaviye":1534,"ammarbnasrebuyasir":1535,"umarebukeyme":1536,"umarebbisressami":1537,"umarebzazanebuselemeel":1540,"umarebgaziyye":1542,"omerbismailbmucalid":1545,"omerbeyyubelabdi":1546,"omerbebibekirbabdirrah":1546,"omerbsabitelensari":1546,"omerbhabibelmekki":1547,"omerbhusaynbabdullahel":1548,"omerbhafsbomer":1549,"omerbhafsbgiyas":1549,"omerbhafselmedeni":1549,"omerbhakembsevbanelmed":1549,"omerbhakembrafi":1550,"omerbhamzababdullah":1550,"omerbhayyan":1550,"omerbebihalifehaccacel":1553,"omerbzerbabdullah":1553,"omerbriyah":1572,"omerbebizaideelhemdani":1556,"omerbzeydessanani":1556,"omerbsaibbebirasidelmi":1556,"omerbsadbebivakkaselme":1557,"omerbsaidbebihusaynelm":1558,"omerbsuleymelbahili":1561,"omerbsehlbmervanelmazi":1561,"omerbsakirelbasri":1562,"omerbsebbe":1562,"omerbsakikbesmaelcermi":1563,"omerbsahban":1564,"omerbtalhabalkame":1565,"omerbamiressulemielbas":1565,"omerbabdullahbreziness":1566,"omerbabdullahburve":1567,"omerbabdullahbyala":1567,"omerbabdullahelmedeni":1568,"omerbabdirrahmanbavfez":1560,"omerbabdirrahmanbkays":1569,"omerbabdulazizbimran":1569,"omerbabdulvahidbkayses":1571,"omerbabdulvehhabbriyah":1572,"omerbubeydbebiumeyyeet":1572,"omerbosmanbomer":1573,"omerbalibhuseyin":1574,"omerbalaelmazinielbasr":1576,"omerbferruh":1576,"omerbkatadebnuman":1576,"omerbkays":1571,"omerbkayselmekki":1577,"omerbkesirbeflahelmede":1579,"omerbmalik":1579,"omerbelmusennaelescei":1579,"omerbmuhammedbzeyd":1580,"omerbmuhammedbelmunked":1581,"omerbmeymunbbahr":1582,"omerbharunbyezidesseka":1583,"omerbyezid":1585,"amrbebanbosman":1586,"amrbbekirbtemimessami":1588,"amrbsabit":1588,"amrbcabirelhadramiebuz":1589,"amrbebielhaccacmeysere":1593,"amrbhammadbtalha":1595,"amrbhalidbferruh":1596,"amrbrafibelfuratelbece":1599,"amrbrabibtarik":1600,"amrbzurarebvakidelkila":1601,"amrbsaid":1603,"amrbebisufyanbrebia":1604,"amrbsuleymelmuzenielba":1606,"amrbsevad":1606,"amrbsurahbilelhemdanie":1607,"amrbeddahhakbmahledelb":1611,"amrbasimbubeydullahelk":1612,"amrbamirelensari":1613,"amrbabbaselbahiliebuos":1613,"amrbabdullahbsafvan":1614,"amrbabdullahbkab":1616,"amrbabdullahbvehbenneh":1617,"amrbutbebferkadessulem":1620,"amrbosmanbsaid":1621,"amrbosmanbseyyarelkila":1621,"amrbosmanbhanielmedeni":1622,"amrbalkamebvakkaselley":1622,"amrbalibbahr":1623,"amrbebiamrmeysere":1624,"amrbisaeddubai":1627,"amrbgalibelhemdani":1627,"amrbebikurreselemebmua":1628,"amrbkust":1628,"amrbkays":1629,"amrbebikayserrazielezr":1630,"amrbkesirbeflahelmekki":1630,"amrbmalik":1631,"amrbmalik2":1631,"amrbmuhammedbebirezine":1632,"amrbmuhammed":1632,"amrbmersedebuesmaerrah":1632,"amrbmurrebabdullah":1634,"amrbmuslimbumare":1635,"amrbmuslim":1635,"amrbmuazbsadebumuhamme":1636,"amrbmansurelhemdani":1636,"amrbmansurelbasri":1636,"amrbnumanelbahilielbas":1638,"amrbharun":1638,"amrbhasimebumalik":1639,"amrbheysembkatan":1640,"amrbyahyabumare":1642,"amrbyezidettemimiebubu":1643,"imranbebanbimranessule":1644,"imranbenesebueneselmek":1644,"imranbbekkarbrasid":1645,"imranbelharisessulemie":1645,"imranbhudeyr":1645,"imranbzabyan":1649,"imranbisameddubai":1650,"imranbebiataelesedi":1650,"imranbuyeynebebiimrane":1651,"imranbmuslim":1652,"imranbmuslim2":1652,"imranbmusa":1653,"imranbmeysere":1654,"umeyrbabdullahebuabdul":1657,"umeyrabsadelhemdaniebu":1659,"anterababdirrahman":1664,"avvambhamzaelmazinielb":1664,"avvambabbadbavvamelvas":1665,"avnbsellam":1668,"avnbabdullahbutbeebuab":1668,"avnbumareebumuhammedel":1669,"alabelharisbabdilvaris":1671,"alabzeyd":1674,"alabsalihetteymi":1674,"alababdullahbrafielhad":1675,"alababdulcebbarelensar":1675,"alababdulkerimelyami":1676,"alabfazlbabdulmelik":1677,"alabelmuseyyebbrafi":1679,"alabhilalbomerebumuham":1679,"ayyasbukbebkuleybelhad":1681,"ayyasbamr":1682,"ayyasbelvelid":1682,"iyazbabdullahbsad":1682,"isabibrahimbisa":1684,"isabeyyub":1685,"isabhafsbasimebuziyade":1686,"isabdinarelhuzai":1687,"isabebirezin":1687,"isabsuleym":1687,"isabsinanebusinan":1688,"isabtalhabubeydullahet":1689,"isabasimelesedi":1690,"isababdullahbuneys":1690,"isabebiisahilalbyahyae":1695,"isabmuhammedbishakebuu":1696,"isabelmuhtarbabdullah":1697,"isabmusavirebumusa":1697,"isabmuslimebudavud":1697,"isabmusaebuahmedelezra":1698,"isabmusaebumuhammed":1699,"isabmeymun":1699,"isabyezidelezrakebumua":1700,"isabyunusbebanebumusae":1701,"galibbmihran":1704,"galibbelhuzeylelevdi":1704,"gassanbegarbhusaynebue":1705,"gassanbavfelmazinielba":1705,"gassanbmudarelezdiebum":1706,"guneymbkayselmaziniebu":1707,"gaylanbenes":1708,"gaylanbcamibesaselmuha":1708,"ferecbsaidbalkame":1712,"ferecbfadalebnumanette":1712,"ferkadbyakub":1714,"fadalebibrahimetteymie":1716,"fadalebfazlbfadaleette":1716,"fazlbcaferbabdullahebu":1717,"fazlbhasanbamr":1717,"fazlbsehlbibrahimelare":1721,"fazlbsuveyd":1721,"fazlbumeyraettufaviebu":1723,"fazlbisabebanerrakasie":1724,"fazlbmubessir":1725,"fazlbmusavir":1725,"fazlbmukatilelezdiebum":1725,"fazlbmusa":1725,"fazlbyezid":1726,"fazlbyakubbibrahim":1726,"fudaylbgazvan":1731,"fudaylbfadale":1731,"fudaylbfadale2":1731,"fudaylbmerzukegar":1731,"fudaylbmeysereebumuaze":1732,"fuleyhbsuleymanbebimug":1733,"kasimbahmed":1737,"kasimbumeyyeelhazza":1737,"kasimbhabibettemmar":1738,"kasimbhassanelamiri":1738,"kasimbhakembkesir":1739,"kasimbzekeriyyabdinare":1740,"kasimbsellam":1740,"kasimbabdullahbomer":1743,"kasimbabdirrahmanbabdu":1743,"kasimbabdirrahmaneddim":1744,"kasimbavfesseybani":1746,"kasimbisabibrahimettai":1746,"kasimbisabibrahim":1746,"kasimbfazlbmadan":1747,"kasimbfeyyadbabdirrahm":1748,"kasimbkesirbnumanebuab":1748,"kasimbmalikelmuzeniebu":1749,"kasimbman":1752,"kasimbelvelidelhemdani":1753,"kasimbyahyabataebumuha":1753,"kasimbyezidelcermi":1753,"kabasbrezinbhumeydebuh":1754,"kabisabhurays":1755,"kabisabukbebmuhammed":1756,"kabisableysbkabisa":1757,"kedamebsihabelmaziniel":1763,"kedamebabdullahbabdeeb":1764,"kedamebmuhammedbkedame":1764,"kedamebmusabomer":1764,"kedamebvebere":1765,"kurrebhabib":1767,"kurrebmusaelhuceyiebuh":1768,"kureysbeneselensari":1769,"elkakabhakimelkinaniel":1773,"kanebettemimi":1773,"kaysbelharis":1774,"kaysbelhaccacelmisri":1776,"kaysbhafsettemimiebumu":1776,"kaysbrafielescei":1776,"kaysbsadelmekki":1779,"kaysbessekenelesedi":1779,"kaysbsuleymelanberi":1780,"kaysbabbad":1781,"kaysbvehbelhemdani":1783,"kayselmedeni":1774,"kamilbtalhaebuyahyaelb":1786,"kamilbalaettemimi":1786,"kesirbismail":1787,"kesirbeflahelmedeni":1787,"kesirbzazanennehai":1788,"kesirbubeydbnumeyrebuh":1793,"kesirbferkadelmedeni":1794,"kesirbkesirbmuttalib":1795,"kesirbmudrikelesceiebu":1795,"kesirbmurreelhadrami":1796,"kesirbhisamelkilabiebu":1796,"kureybbebimuslim":1798,"kabbabdullah":1799,"kabbmatiebuishak":1801,"kulsumbcebrelbasri":1802,"kehmesbhasanettemimieb":1806,"kehmesbelminhalessedus":1806,"lehiabukbeelmisri":1811,"muhammedbibrahimbdinar":1819,"muhammedbibrahimbosman":1821,"muhammedbibrahimbmutta":1824,"muhammedbahmedbelcerra":1825,"muhammedbahmedbhuseyin":1826,"muhammedbahmedbnafiela":1827,"muhammedbishak":1832,"muhammedbishakbavnelam":1833,"muhammedbishakbmuhamme":1833,"muhammedbishakbmansure":1833,"muhammedbismailbibrahi":1838,"muhammedbismailbelbaht":1842,"muhammedbismailbrecaez":1842,"muhammedbismailbayyas":1844,"muhammedbismailbmuslim":1844,"muhammedbismailbyusufe":1844,"muhammedbismailelbasri":1843,"muhammedbelesasbkaysel":1846,"muhammedbayenebuelvezi":1846,"muhammedbeflahbabdulme":1847,"muhammedbebieyyubebuas":1848,"muhammedbbisrbbesir":1850,"muhammedbbekkarbbilale":1851,"muhammedbbekkarbezzube":1852,"muhammedbbekirbosman":1852,"muhammedbebibekirbali":1853,"muhammedbebibekirbmuha":1853,"muhammedbbukeyr":1854,"muhammedbbilalebuabdul":1854,"muhammedbsabitbeslemel":1854,"muhammedbsevvab":1856,"muhammedbsevressananie":1857,"muhammedbcabirbbuceyre":1857,"muhammedbcabirbabdulla":1858,"muhammedbcaferbezzubey":1860,"muhammedbcaferbziyad":1860,"muhammedbcaferelbasri":1861,"muhammedbhatimbbuzey":1863,"muhammedbhatimbsuleyma":1863,"muhammedbhatimbmeymun":1864,"muhammedbelharisbrasid":1865,"muhammedbelharisbziyad":1865,"muhammedbelharis":1865,"muhammedbharbbevsezzuh":1867,"muhammedbebiharmalaelm":1868,"muhammedbhassanbhalide":1868,"muhammedbhassanbfiruze":1869,"muhammedbhasanbtesnim":1870,"muhammedbhasanbezzubey":1871,"muhammedbhasanbatiyyee":1872,"muhammedbhasanbimranel":1872,"muhammedbhuseyinbibrah":1873,"muhammedbhafselkattane":1874,"muhammedbebihafsameyse":1874,"muhammedbhakemelmervez":1875,"muhammedbhumranbabdula":1876,"muhammedbhumeydbhayyan":1876,"muhammedbhumeydebusufy":1878,"muhammedbebihumeydibra":1879,"muhammedbhumeyrbuneys":1879,"muhammedbhayyan":1881,"muhammedbhazim":1881,"muhammedbhalidbhidaseb":1882,"muhammedbhalidbabdulla":1883,"muhammedbhalefbtarik":1884,"muhammedbhalefebubekir":1885,"muhammedbhalifeelbasri":1885,"muhammedbelhalilbhamma":1885,"muhammedbelhalil":1886,"muhammedbhalladbkesire":1886,"muhammedbdinarelezdi":1887,"muhammedbrasidelhuzai":1889,"muhammedbrebiaelkilabi":1891,"muhammedbrumhbelmuhaci":1892,"muhammedbzazanelmedeni":1892,"muhammedbzaideettemimi":1893,"muhammedbezzubeyrelbas":1893,"muhammedbziyadbubeydul":1894,"muhammedbziyad":1895,"muhammedbzeydbabdullah":1896,"muhammedbzeydbalielabd":1896,"muhammedbzeydbelmuhaci":1896,"muhammedbsalimelhemdan":1897,"muhammedbsalimelbasri":1898,"muhammedbsadbebivakkas":1901,"muhammedbsadelensaries":1901,"muhammedbsadelensariel":1902,"muhammedbsaidelensarie":1903,"muhammedbsaidbsabikerr":1903,"muhammedbsaidbgalibebu":1904,"muhammedbsaidbelvelide":1904,"muhammedbsaidbyezidebu":1905,"muhammedbselemebebifat":1906,"muhammedbselemebabdull":1906,"muhammedbsuleymebuhila":1907,"muhammedbsuleymanbhabi":1908,"muhammedbsuleymanbebid":1909,"muhammedbsuleymanelmed":1909,"muhammedbsuleymanbeb2":1909,"muhammedbsemaa":1911,"muhammedbsinanelbahili":1911,"muhammedbsinanbyezid":2064,"muhammedbsehlbaskerett":1912,"muhammedbsevvar":1913,"muhammedbseyfelezdi":1917,"muhammedbsebibelbasri":1917,"muhammedbsuca":1917,"muhammedbsucaelkadi":1917,"muhammedbserikelmekkie":1919,"muhammedbsalihbabdirra":1921,"muhammedbsalihelmedeni":1922,"muhammedbsadaka":1924,"muhammedbessaltbelhacc":1924,"muhammedbessaltelbasri":1925,"muhammedbtarikelmekki":1925,"muhammedbtahla":1925,"muhammedbtarifbhalifee":1926,"muhammedbettufeylbmali":1926,"muhammedbtalhabyezid":1928,"muhammedbasimbcaferelm":1928,"muhammedbabbadbademelb":1929,"muhammedbabbadbezzibri":1930,"muhammedbabbadelhinai":1931,"muhammedbubade":1991,"muhammedbabbasbosman":1827,"muhammedbabdullahbisma":1931,"muhammedbabdullahbbuze":1932,"muhammedbabdullahbebic":1933,"muhammedbabdullahbhafs":1934,"muhammedbabdullahbezzu":1935,"muhammedbabdullahbabdu":1938,"muhammedbabdullahbabdi":1939,"muhammedbabdullahbab3":1939,"muhammedbabdullahbubey":1939,"muhammedbabdullahbosma":1940,"muhammedbabdullahbamma":1940,"muhammedbabdullahbulas":1942,"muhammedbabdullahbkahz":1943,"muhammedbabdullahbelmu":1944,"muhammedbabdullahbebia":1946,"muhammedbabdullahbmuha":1946,"muhammedbabdullahbmusl":1946,"muhammedbabdullahbmeym":1948,"muhammedbabdullahbyezi":2069,"muhammedbabdullahbebiy":1949,"muhammedbabdullah":1949,"muhammedbabdulcebbar":1952,"muhammedbabdirrahmanbe":1952,"muhammedbabdirrahmanbh":1955,"muhammedbabdirrahman2":1955,"muhammedbabdirrahmanba":1956,"muhammedbabdirrahman3":1957,"muhammedbabdirrahmanby":1960,"muhammedbabdirrahmanet":1961,"muhammedbabdirrahman":1961,"muhammedbabdulazizbebi":1962,"muhammedbabdulmelikbze":1964,"muhammedbabdulmelikbeb":1964,"muhammedbabdulmelikbme":1965,"muhammedbabdulmelikelv":1965,"muhammedbabdulvehhab":1966,"muhammedbubeydullahbsa":1967,"muhammedbubeydullahbeb":1967,"muhammedbubeydullahbab":1968,"muhammedbubeyd":1969,"muhammedbubeydbhisab":1970,"muhammedbubeydbebisali":1971,"muhammedbubeydbabdulme":1971,"muhammedbubeydbmuham2":1972,"muhammedbubeydbmeymune":1972,"muhammedbebiubeydebman":1972,"muhammedbebiattabebube":1973,"muhammedbosmanbbahrelu":1973,"muhammedbosmanbseyyare":1974,"muhammedbosmanbsafvan":1974,"muhammedbosmanbabdirra":1975,"muhammedbosmanbkerame":1975,"muhammedbukbebebiayyas":1978,"muhammedbukbebkesir":1978,"muhammedbalibharbelmer":1980,"muhammedbalibhasan":1980,"muhammedbalibhamzaelme":1981,"muhammedbalibhamza":1981,"muhammedbalibmeymunebu":1983,"muhammedbammarbhafs":1984,"muhammedbumarebamr":1985,"muhammedbomerbali":1985,"muhammedbomerbheyyacel":1986,"muhammedbomerbelvelide":1989,"muhammedbamrbhannan":1991,"muhammedbamrelensariel":1993,"muhammedbamr":1994,"muhammedbimranbmuhamme":1995,"muhammedbavfbsufyanett":1996,"muhammedbavn":1997,"muhammedbebigalibettay":2002,"muhammedbebigalib":1904,"muhammedbelfuratettemi":2002,"muhammedbfiras":2003,"muhammedbfazlbatiyye":2004,"muhammedbfazlessedusie":2005,"muhammedbfuleyhbsuleym":2007,"muhammedbkayselesediel":2010,"muhammedbkayselhemdani":2011,"muhammedbkayselmedeni":1855,"muhammedbkabbmalikelen":2015,"muhammedbelmubarek":2016,"muhammedbmahbubelbunan":2018,"muhammedbmuhammedbhall":2019,"muhammedbmuhammedbnuma":2020,"muhammedbmuhammedbnu2":2020,"muhammedbebimuhammedel":1968,"muhammedbmirdaselensar":2021,"muhammedbmurre":2021,"muhammedbmervanbkedame":2021,"muhammedbmervanezzuhli":2022,"muhammedbmuzahimelamir":2022,"muhammedbmesudbyusufen":2023,"muhammedbmuslimbtedrus":2024,"muhammedbmuslimbebielv":2030,"muhammedbmuslimelmeden":1844,"muhammedbmuaviyebabdir":2034,"muhammedbmadanbisa":2035,"muhammedbelmuallababdu":2036,"muhammedbmukatilebuhas":2037,"muhammedbmekkibisaelme":2038,"muhammedbmansurbdavud":2039,"muhammedbmunib":2041,"muhammedbmuhacirelensa":2041,"muhammedbmuhacir":2042,"muhammedbmusabayenelce":2042,"muhammedbmusa":2042,"muhammedbmusabimranelk":2043,"muhammedbmusabebinuaym":2043,"muhammedbmeymunebunadr":2045,"muhammedbmeymunelmerve":2046,"muhammedbnasrelferraen":2047,"muhammedbnadrbselemeel":2048,"muhammedbnadrbmusavire":2048,"muhammedbnuaym":2043,"muhammedbharunbibrahim":2049,"muhammedbhediyye":2050,"muhammedbhisambebihiye":2050,"muhammedbhisambisa":2051,"muhammedbhilalbebihila":2051,"muhammedbheysembhammad":2052,"muhammedbelvezirbhakem":2053,"muhammedbelvezirbkayse":2053,"muhammedbelvezirelmisr":2053,"muhammedbelvelidbabdul":2054,"muhammedbelvelidbhubey":2055,"muhammedbvehbbsaid":2055,"muhammedbvehbbomer":2056,"muhammedbyahyabhabban":2056,"muhammedbyahyabebihazm":2056,"muhammedbyahyabsaidelk":2057,"muhammedbyahyabsuleyma":2057,"muhammedbyahyabebisemi":2057,"muhammedbyahyababdulla":2058,"muhammedbyahyababdulke":2060,"muhammedbyahyabaliebug":2061,"muhammedbyahyabfeyyad":2062,"muhammedbyahyabkays":2062,"muhammedbyahyabmuhamme":2062,"muhammedbebiyahyaelmed":2063,"muhammedbyezidbebiziya":2064,"muhammedbyezidbsinanel":2064,"muhammedbyezid":2065,"muhammedbyezidennehai":1960,"muhammedbyezidebucafer":2067,"muhammedbyusufbabdulla":2069,"muhammedbyusufebuahmed":2070,"muhammedbyunusbmusa":2071,"muhammedbyunus":2073,"elmadibmuhammedbmesude":2075,"malikbsadebugassanelba":2082,"malikbabdulvahidebugas":2083,"malikbumeyr":2084,"malikbmersed":2084,"malikbnumeyrelhuzaielb":2085,"mubarekbhassanessulemi":2087,"mubarekbsuheym":2087,"mubarekbfadale":2088,"mubessirbismailebuisma":2089,"mubessirbabdullahbrezi":2090,"elmusennabsaideddubai":2091,"elmusennabessabbah":2092,"muharibbdisar":2099,"muhadirbelmuverri":2099,"mahbubbmuhrizettemimie":2100,"mahbubbmusaebusalihelf":2100,"mihallbhalifeettai":2104,"mihallbmuhrizeddabbi":2104,"mahmudbhalidessulemieb":2104,"mahmudbhidas":2105,"muharikbhalife":2107,"mahledbhuseyin":2110,"mahledbhidaselbasri":2111,"mahledbmalikbcabir":2112,"mahledbmalikbseybanebu":2112,"mahledbyezid":2112,"mudrikbsad":2114,"merrarbhamevayhessekaf":2114,"mersedbabdullah":2115,"mureccabrecaeburecaelb":2116,"merzukbebielhuzeylesse":2117,"merzukebuabdullah":2118,"mervanbsalimelgifarieb":2120,"mervanbmuhammedbhassan":2122,"mervanebulubabeelbasri":2123,"muzahimbzuferbelharise":2124,"mesrukbelmerzuban":2130,"mesudbcuveyriyebdavude":2132,"mesudbsadelcufiebusad":2132,"mesudbmalikelesedi":2133,"mesudbmalikeburezinele":2133,"muslimbcundebelmedeni":2136,"muslimbhalidelmahzumi":2138,"muslimbziyad":2139,"muslimbsalimebuferve":2139,"muslimbamrbvehbelhazza":2140,"muslimbimran":2140,"muslimbkeysaneddabbi":2141,"muslimbebimeryemyesare":2142,"muslimbyesarelbasri":2143,"muslimbyesarelmisriebu":2144,"meslemebabdullahbribie":2145,"meslemebalkameelmazini":2146,"meslemebali":2146,"meslemebmuhammedesseka":2147,"elmuseyyebbnecebe":2151,"misrahbhaan":2151,"musabbhayyan":2153,"musabbsadbebivakkasezz":2154,"musabbsellam":2154,"musabbseybebcubeyr":2155,"musabbmahanelmervezi":2156,"musabbmuhammedbabdirra":2156,"musabbelmikdam":2156,"matarbmeymunelmuharibi":2159,"mutarrifbabdullahbessi":2160,"mutarrifbabdullahbmuta":2161,"muttalibbziyadbebizuhe":2162,"mutibabdullah":2165,"mutibmeymunelanberiebu":2165,"muzafferbmudrikelhoras":2166,"muazbhalidbsakik":2168,"muazbabdullahbhubib":2169,"muazbmuazbnasrebuelmus":2170,"muazbhanielbasriebuhan":2171,"muazbhisambebiabdullah":2172,"muaviyebhafsessabi":2176,"muaviyebsalihbhudeyr":2178,"muaviyebabdulkerimesse":2180,"muaviyebamrbhalid":2181,"muaviyebamrbelmuhelleb":2181,"muaviyebkurrebiyasebui":2181,"muaviyebhisam":2182,"muaviyebyahyaeburuhedd":2183,"mabedbkabbmalikelensar":2185,"marufbabdullah":2189,"marufbmuskan":2189,"makilbubeydullahelceze":2190,"makilbmalikelbahiliebu":2190,"muallabesedelammi":2191,"muallabziyad":2192,"muallababdirrahmanelva":2192,"muallabhilalbsuveydebu":2193,"mamerbelmusennaebuubey":2196,"mamerbmuhammedbubeydul":2198,"mugirebebielhurr":2202,"mugirebhakimessanani":2202,"mugirebselemeelmahzumi":2204,"mugirebabdullahbebiuka":2205,"mugirebabdirrahmanbabd":2205,"mugirebmuslim":2207,"mugirebnumanennehai":2209,"elmufaddalbsalihelesed":2209,"elmufaddalbabdullah":2209,"elmufaddalbfadalebebiu":2210,"elmufaddalbfadalebubey":2210,"elmufaddalbfadaleelmis":2210,"elmufaddalbmuhelhilebu":2211,"elmufaddalbyunuselcufi":2212,"mukatilbhayyan":2212,"elmikdambsureyhbhani":2216,"miksembbucre":2217,"mekhulelezdielbasriebu":2219,"mincabbelharisbabdirra":2222,"munzirbubeydelmedeni":2224,"munzirbelvelidbabdirra":2225,"mansurbebielesvedelley":2225,"mansurbsadelbasri":2226,"mansurbsaid":2227,"mansurbabdirrahmanbtal":2228,"mansurbabdirrahman":2228,"mansurbebimuzahimbesir":2229,"mansurbnuman":2231,"elmunkedirbmuhammedbel":2232,"elminhalbhalifeebukeda":2232,"elminhalbamrelesedi":2232,"muhacirebuhasanetteymi":2235,"mehdibhafsebuahmed":2235,"elmuhellebbebihabibeel":2237,"elmuhellebbhucr":2237,"elmuhellebbebisufre":2238,"musabibrahimbkesirelen":2239,"musabayenelcezeri":2240,"musabeyyubbamirelgafik":2241,"musabbahrelmerveziebui":2242,"musabservan":2242,"musabebielcarudebuelve":2242,"musabcubeyrelensarielm":2242,"musabhizam":2243,"musabhalefelammi":2243,"musabsad2":2245,"musabsadelmedeni":2245,"musabselemebebimeryeme":2246,"musabsehlbkadimebuimra":2246,"musabtarikebukurre":2248,"musabebiaiseelhemdani":2249,"musababdullahbyezid":2250,"musababdirrahmanbziyad":2250,"musababdulazizebusuayb":2251,"musabubeyde":2251,"musabebiosman":2253,"musabebiosman2":2253,"musabumeyrettemimielan":2255,"musabisaelleysi":2255,"musabkureysbnafiettemi":2256,"musabkayselhadramiebum":2256,"musabmuhammedbibrahime":2257,"musabmervanebuimranett":2257,"musabelmuseyyeb":2259,"musabmeysere":2260,"musabnafielesedi":2260,"musabharun":2261,"musabverdanelamiri":2261,"musabyesar":2262,"musabyesar2":2262,"muemmelbihab":2264,"muemmelbhisam":2265,"meyserebhabib":2266,"meymunbebisebibebunasr":2267,"meymunbmusa":2269,"meymunebuabdullahelbas":2269,"nafibabbas":2277,"nafibomerbabdullah":2278,"nafibmahmudbrabi":2279,"nafiebuabdullahelmeden":2280,"necihbabdirrahman":2284,"nasrbhammadbaclanelbec":2287,"nasrbzeyd":2287,"nasrbasimelleysielbasr":2287,"nasrbabdirrahmanbbekka":2288,"nasrbalkameelhadramieb":2288,"nusayrbebielesaselesed":2291,"nadrbismailbhazimelbec":2291,"nadrbenesbmalikelensar":2292,"nadrbhammadelfezari":2292,"nadrbzurare":2292,"nadrbabdulcebbar":2294,"nadrbarabielbahili":2295,"nadrbmuhammedelmervezi":2296,"numanbsabitebuhanife":2299,"numanbmurreelensariezz":2302,"numanbmunzirebuelvezir":2303,"nuaymbziyad":2306,"nuaymbabdullahelmedeni":2307,"nuaymbmeysere":2307,"nuhbebibilalelmedeni":2314,"nuhbzekvanelbasri":2316,"nuhbrebiaelensari":2316,"nuhbkaysbrebahelezdieb":2317,"nuhbmeymunbabdulhamid":2318,"nuhbyezidbseyyarebumuh":2319,"harunbishakbmuhammed":2322,"harunbismail":2322,"harunbhumeyd":2323,"harunbsad":2323,"harunbselmani":2324,"harunbantera":2325,"harunbmuhammedbbekkar":2326,"harunbmugirebhakimelbe":2327,"harunbmusabebialkameab":2327,"harunbmusaelezdi":2328,"harunbharunbabdullahet":2328,"hasimbbilal":2329,"hasimbkasimbseybe":2330,"hasimbkasimbmuslimelle":2330,"hasimbmahledbibrahimes":2331,"hanibhanielhemdani":2332,"hediyyebabdulvehhabelm":2334,"hisambhalidbzeydebumer":2339,"hisambziyadbebiyezid":2340,"hisambsadelmedeniebuab":2340,"hisambsaidebuahmedelbe":2341,"hisambsuleymanbikrime":2341,"hisambebiabdullah":2348,"hisambabdulmelikbimran":2343,"hisambabdulmelikelbahi":2343,"hisambammarbnusayr":2346,"hemmambnafiessanani":2354,"hevzebhalifebabdullahe":2357,"hilalbbisrbmahbubelmuz":2357,"hilalbebihumeyd":2358,"hilalbhabbab":2358,"hilalbzeydbyesar":2359,"hilalbabdullahelbahili":2360,"hilalbalabhilal":2361,"hilalbmeymunelcuheni":2361,"hilalbebihilalelmedeni":2362,"heyyacbbistamettemimi":2363,"heysembelesved":2364,"heysembcemil":2364,"heysembhabibessayrafi":2365,"heysembhariceebuahmed":2366,"heysembhalid":2366,"heysembmalikettaiebumu":2368,"vasibhabban":2371,"vasilbebicemilessamieb":2371,"vasilbsaiberrakasiebuy":2371,"vasilbabdulalabhilalel":2372,"vakidbamrbsadebuabdull":2373,"vakidbmuhammedbzeyd":2373,"vailbdavudetteymi":2374,"veberebabdirrahman":2375,"vakdanebuyafur":2381,"vekibmuhrizbveki":2384,"elvelidbsucabelvelideb":2386,"elvelidbsalih":2387,"elvelidbabdirrahman":2389,"elvelidbutbeelesceiebu":2389,"elvelidbutbeeddimaski":2389,"elvelidbukbebmugire":2391,"elvelidbkasimbelvelide":2391,"elvelidbkaysessekunieb":2392,"elvelidbkamilbmuazelbe":2392,"elvelidbmugirebsuleyma":2396,"elvelidbebihisamziyad":2397,"elvelidbebielvelidosma":2397,"vehbbismailbmuhammedeb":2398,"vehbbbeyanelvasitiebua":2399,"vehbbcabir":2399,"vehbbhalidebuhalid":2400,"vuheybbamrbosman":2403,"yasinbabdulehadbebizur":2406,"yahyabibrahimbosman":2406,"yahyabishakbabdullah":2407,"yahyabishak":2408,"yahyabismailelvasitieb":2409,"yahyabismailbzekeriyya":2409,"yahyabebiuneyse":2411,"yahyabeyyubbebizura":2412,"yahyabeyyubelgafiki":2412,"yahyabeyyubelmakabiri":2413,"yahyabbisrbkesir":2414,"yahyabbisrelfellas":2414,"yahyabcaferbayenelezdi":2416,"yahyabhabibbarabielbas":2417,"yahyabebielhaccac":2417,"yahyabhakim":2419,"yahyabhammadbebiziyade":2419,"yahyabhamzabvakidelhad":2419,"yahyabhalefelbahiliebu":2421,"yahyabdavudbmeymunelva":2422,"yahyabrasid":2423,"yahyabrasidelmaziniebu":2423,"yahyabzekeriyyabyahyae":2424,"yahyabziyadbebidavudel":2425,"yahyabziyadbabdullahel":2425,"yahyabsaidbebanebueyyu":2426,"yahyabsaidbhayyan":2427,"yahyabebisufyanbelahne":2431,"yahyabselemebkuheyl":2431,"yahyabsuleymettaifi":2432,"yahyabsirinelensari":2433,"yahyabsubih":2435,"yahyabeddurays":2435,"yahyababbadbseybanelen":2436,"yahyababbadbabdullah":2436,"yahyababbadeddubai":2437,"yahyababdullahbbukeyre":2438,"yahyababdullahbelharis":2438,"yahyababdullahbsalim":2439,"yahyababdullahbabdirra":2440,"yahyababdullahbmuhamme":2440,"yahyababdullahbyezid":2440,"yahyababdulhamidbabdir":2440,"yahyababdirrahmanbhati":2444,"yahyababdirrahmanbmali":2444,"yahyababdirrahmanelkin":2444,"yahyababdulazizebuabdu":2444,"yahyabubeyd":2445,"yahyabosmanbsaid":2447,"yahyabosmanbsalih":2447,"yahyabosmanetteymi":2448,"yahyaburvebezzubeyrebu":2448,"yahyabukayl":2454,"yahyabumarebebihasanel":2449,"yahyabamrbmalik":2449,"yahyabalaelbeceliebuam":2450,"yahyabisaettemimi":2450,"yahyabgaylanbabdullah":2451,"yahyabfazlbyahya":2451,"yahyabkaza":2452,"yahyabkays":2452,"yahyabkesirbdirhemelan":2452,"yahyabelmutevekkilelme":2454,"yahyabmuhammedbsabik":2455,"yahyabmuhammedbesseken":2455,"yahyabmuhammedbabbad":2455,"yahyabmuhammedbabdulla":2456,"yahyabmuhammedbmuaviye":2456,"yahyabmuallabmansurebu":2459,"yahyabmeymunbataebueyy":2464,"yahyabmeymunelhadramie":2464,"yahyabmeymuneddabbiebu":2464,"yahyabnadrelensarielme":2465,"yahyabhaniburveebudavu":2465,"yahyabebiheysemelattar":2465,"yahyabyezidelcezeriebu":2470,"yahyabyalabelhariselmu":2470,"yahyabyala":2470,"yahyabyeman":2471,"yezidbebanerrakasi":2473,"yezidbibrahim":2474,"yezidbbeyanelukayli":2477,"yezidbhazimbzeydelezdi":2477,"yezidbhayyan":2479,"yezidbhalidbyezid":2480,"yezidbziyadbebielcadel":2482,"yezidbziyad":2482,"yezidbebiziyad":2483,"yezidbebisaidennahvieb":2484,"yezidbsureyhelhadrami":2487,"yezidbsalih":2487,"yezidbtahmanerrakasieb":2488,"yezidbabdullahbusameeb":2488,"yezidbabdullahbessihhi":2489,"yezidbabdurabbihezzube":2490,"yezidbabdirrahmanbebim":2491,"yezidbubeydebuvecze":2493,"yezidbubeyde":2493,"yezidbatabyezid":2494,"yezidbumeyra":2494,"yezidbkeysanebuismail":2496,"yezidbmuhammedbkays":2498,"yezidbebimeryem":2498,"yezidbmuaviyeennehai":2499,"yezidbebimansurelezdie":2500,"yezidbmihranelesediebu":2500,"yezidbhurmuzelmedeni":2503,"yezidbyezidbcabirelezd":2503,"yezidbyusuferrahbi":2505,"yezidfarisielbasri":2505,"yesarelmedeni":2507,"yesarelmekkiebunecih":2507,"yeserebsafvanbcemiledd":2507,"yakubbebiselemeelmacis":2512,"yakubbabdirrahmanbmuha":2514,"yakubbatabebirebahelme":2515,"yakubbkabbhamidebuyusu":2515,"yakubbmahanebuyusuf":2516,"yakubbmuhammedbtahla":2516,"yakubbmuhammedbisa":2517,"yakubbyahyababbad":2518,"yakubelmedeni":2514,"yalabelharisbharbelmuh":2519,"yalabhakimessekafi":2519,"yemanbadielhadramiebua":2522,"yusufbibrahimettemimie":2522,"yusufbbehlulettemimi":2523,"yusufbezzubeyrelmekki":2525,"yusufbselmanielbahili":2526,"yusufbsuheybelkindi":2526,"yusufbabdeelezdi":2527,"yusufbisabdinarezzuhri":2529,"yusufbmervanennesaiebu":2531,"yusufbmesudbhakemezzur":2531,"yusufbelmenazil":2531,"yusufbmihranelbasri":2531,"yusufbmeymunelmahzumi":2532,"yusufbyakubbebiselemee":2534,"yusufbyakubbebikasimes":2534,"yusufbyakubessaffarebu":2535,"yunusbelharisessekafie":2537,"yunusbhabbab":2538,"yunusbsuleymessanani":2539,"yunusbseyf":2539,"yunusbabdulalabmeysere":2539,"yunusbmuhammedbmuslime":2543,"yunusbnafielhorasanieb":2544,"yunusbyahyabnubateebun":2544,"yunusbebiyafur":2545,"ebuelebyad":2547,"ebuahmedbalieddimaski":2548,"ebuidrisessekuni":2549,"ebuidris":2549,"ebuishakelescei":2550,"ebuishak":2550,"ebuelesved":2551,"ebubekirbsuaybbelhabha":2558,"ebubekirbabdullahbmuha":2559,"ebubekirbabdullahbebim":2560,"ebubekirbabdullahessek":2560,"ebubekirbomerbabdirrah":2562,"ebubekirbmuhammedbzeyd":2564,"ebubekirbmuhammedbamr":2564,"ebubekirbnafieladevi":2566,"ebubekir2":2567,"ebusevrelezdi":2571,"ebucaferelferra":2574,"ebuharbbebielesvedelba":2579,"ebuhassanelarec":2580,"ebuhasanelcezeri":2581,"ebuhusaynbyahyabsuleym":2582,"ebuhafseddimaski":2582,"ebuhanife":2584,"ebuhayyebkays":2585,"ebuhalidelesedi":2585,"ebuhalidelvalibi":2586,"ebuhuzeymeelabdielbasr":2587,"eburabielmedeni":587,"ebuzurabamrbcerir":2593,"ebusaibelensarielmeden":2596,"ebusadelezdi":2597,"ebusaidbebielmualla":701,"ebusaid2":2598,"ebusaidessami":737,"ebuseleme":764,"ebuselemeessami":2603,"ebusubeelmuzeni":2606,"ebutalhaelhavlani":2612,"ebuasimelbasri":2614,"ebuamir":2615,"ebuabbas":2616,"ebuabdullahelesariessa":2616,"ebuabdurabbeddimaski":2619,"ebuosmanelensarielmede":2623,"ebuosmanelhorasani":1410,"ebuisamelbasri":2626,"ebuamressedusielmedeni":2633,"ebualaessami":2638,"ebuiyazelmedeni":2639,"ebuisaelhorasani":2639,"ebuisaelhorasani2":2639,"ebugalibelbahili":2640,"ebukasimbebiezzinadelm":2643,"ebukatadeeladevielbasr":2644,"ebukesirezzubeydi":2646,"ebuleylababdullahbabdi":2648,"ebuleylaelkindi":2649,"ebumalikennehaielvasit":2650,"ebuelmuhtarelesedi":2654,"ebuelmuhtarettai":2654,"ebumeryem":2657,"ebumuslimelhavlani":2658,"ebumadanelmekki":2660,"ebumugireelbeceli":2202,"ebuelmuhellebelcermiel":2665,"ebumeymunefarisielmede":2666,"ebuhindelhemdani":2673,"ebuheysem":2674,"ebuheysemelmisri":2674,"ebuyahyaelmekki":2678,"ebuyahyaelmekki2":2678,"ebuyezidelhavlanielmis":2678,"ebuyezidelhavlanielm2":2678,"ebuyezidelmedeni":2477,"hafsabintsirinummuelhu":2739,"aisebintsadbebivakkas":2751,"fatimabinthuseyinbalib":2754,"ahmedbibrahimbmuhammed":9,"ahmedbishakbisaelahvaz":10,"ahmedbsufyanebusufyane":19,"ahmedbabdullahbali":26,"ahmedbabdullahbali2":26,"ahmedbabdullahbmeymun":26,"ahmedbabdirrahmanbabdu":28,"ahmedbfadale":36,"ahmedbmuhammedbibrahim":36,"ahmedbmuhammedbibrah2":36,"ahmedbmuhammedbeyyub":37,"ahmedbmuhammedbubeydul":39,"ahmedbmuhammedbmusaebu":40,"ahmedbmuhammedbhaniebu":40,"ahmedbyezidbibrahim":46,"adembaliesseybani":97,"ebanbsalihbumeyr":48,"ebanbtarik":49,"ibrahimbhumeydbabdir2":59,"ibrahimbhalidbebielyem":59,"ibrahimbsuveydbhayyan":63,"ibrahimbsuveydennehai":63,"ibrahimbamirbmesud":65,"ibrahimbebiabbas":65,"ibrahimbabdullahbelhar":66,"ibrahimbmuhammedbelhar":75,"ibrahimbmuhammedbtalha":76,"ibrahimbmuhammedbabd2":77,"ibrahimbmuhammedbyusuf":80,"ibrahimbmerzukessekafi":81,"ibrahimbmunzirbabdulla":82,"ibrahimbyusufbishak":90,"elahnesbhalifeeddabbi":95,"idrisbyezidbabdirrahma":96,"ezherbrasid2":99,"ezherbsadessemmanebube":99,"ezherbsaid":100,"ezherbmervanerrakasi":101,"esbatbnasrelhemdani":104,"ishakbibrahimbabdirrah":106,"ishakbismailbala":111,"ishakbcaferbmuhammed":112,"ishakbhakim":112,"ishakbrasid":113,"ishakbsalim":114,"ishakbabdullahbelharis":117,"ishakbabdullahbelhar2":117,"ishakbubeydullahbebimu":119,"ishakbomer2":120,"ishakbmansuresseluli":123,"ishakbyahyabtalha":124,"esedbabdullahbyezid":127,"eslem2":130,"eslemeladevi":131,"ismailbebanelverrakele":132,"ismailbibrahimbmamereb":134,"ismailbibrahimbabdulla":133,"ismailbbisrbmansur":139,"ismailbbehrambyahyaelh":140,"ismailbhafsbomer":141,"ismailbebihalidelahmes":142,"ismailbziyad":146,"ismailbubeydullahbrifa":156,"ismailbmesud":162,"ismailbyakubbismail":165,"elesvedbseybanessedusi":166,"esasbsevvarelkindi":173,"esasbabdirrahmanbzubey":175,"esasbabdirrahmanelcerm":175,"egarbessabbahettemimi":180,"umeyyebbistam":182,"evsbabdullah":189,"iyadblakitessedusi":190,"eyyubbbesirelensari":194,"buceyrbebibuceyr":207,"bistambmuslimbnumeyr":217,"bessarbmusaelhaffaf":218,"bisrbharbelezdiebuamr":220,"bisrbsuaybbebihamzadin":223,"bisrbasimbsufyan":224,"bisrbasimettaifi":224,"bisrbasimelleysi":224,"bisrbnumeyr":227,"bisrbhilalessavvafebum":228,"bisrbdinar":223,"bekkarbabdulazizbebibe":236,"bekirbsuleymessavvafeb":238,"bekirbamr":240,"bekirbyahyabzebban":241,"bilalbabdullahbomer":249,"bilalbmirdas":249,"sabitbubeydelensari":260,"sabitbiyazahnefelarece":261,"sabitebusaid":259,"sumamebukbe":270,"cebrbubeyde":284,"cubeyrbhayye":286,"cerirbzeydelezdiebusel":291,"cerireddabbi":292,"elcadbabdirrahmanbevs":294,"caferbebisevr":297,"caferbabdullahbhakemel":303,"caferbmuhammedbaliebua":305,"caferbebimugireelhuzai":308,"caferbyahyabsevban":309,"hatimbhuraysettai":319,"hacibbsuleyman":320,"elharisbsaid":325,"elharisbabdirrahmanela":328,"elharisbmalik":331,"habbanbhilalebuhabibel":338,"habibbsuleym2":345,"habibbabdullahelezdi":347,"haccacbtemimelcezeri":352,"harmalababdulazizbsebr":366,"hasanbahmedbhabibelkir":378,"hasanbbilalelbasri":380,"hasanbhasanbhasan":382,"hasanbhalefbziyadelvas":388,"hasanbselmbsalih":391,"hasanbsevvar":391,"hasanbalibmuhammed":401,"hasanbamressicistani":405,"hasanbmansurbibrahim":410,"hasanbyezidbferruhebuy":412,"huseyinbibrahimbelhurr":414,"huseyinbishakelvasiti":414,"huseyinbbisr":414,"huseyinbhasanbyesar":416,"huseyinbzeydbali":418,"huseyinbalibyezid":426,"huseyinbimranelcuheni":428,"huseyinbayyas":428,"huseyinbmuhammedbziyad":431,"hafsbasimbomer":446,"hafsbomerbelharis":448,"hafsbomerelbezzaz":445,"hafsbomerebuimranerraz":452,"hakembsinanelbahili":458,"hakembabde":461,"hammadbhumeydelhorasan":474,"humeydbziyad2":490,"humeydbmalikbhusiym":493,"humeydbmesadebelmubare":494,"humeydbvehbebuvehbelme":495,"humeydessami":496,"hannanelesedi":497,"huneynbebihakim":501,"hayyanbala":503,"haricebmusabbharice":507,"halidbabdullahbharmala":518,"halidbabdullahbyezid":519,"halidbalkameebuhayye":522,"halidbebiimranettuceyb":523,"halidbkesirelhemdani":524,"halidbebimalik":531,"halidbyezid":532,"halefbsalim":542,"halefbmusabhalefelammi":544,"halifebhusaynbkays":546,"halifebhayyat2":546,"davudbcemil":563,"davudbhalidelleysiebus":557,"davudbebisalih":560,"davudbebiabdullah":561,"davudbataelmuzeni":562,"davudbalibabdullahebus":562,"davudbebiavfsuveydette":564,"davudbmuazebusuleymanb":566,"zerbabdullah":574,"zekvanebuamr":575,"rasidbebirasid":579,"rebahbelvelidbyezid":583,"rabibamile":590,"rabibmuhammed":590,"rebiabsuleym":592,"recabennisaburiebumuha":597,"ruzeykbhakim":600,"rezinbhabibelcuheni":601,"riyahbubeyde":612,"ezzibrikanbabdullah":617,"ezzibrikanbamrbumeyye":617,"ezzubeyrbabdullahbebih":620,"zekeriyyabhalid":626,"ziyadbhassanbkurreelba":639,"ziyadbabdullahbettufey":644,"ziyadebuyahyaelmekki":652,"zeydbabdullahbomer":662,"zeydbalibhuseyinebuh2":663,"saibbhubeys":676,"saibbomerbabdirrahman":677,"sadbibrahimbabdirrahma":684,"sadbsaidbkays":687,"sadbsinan":687,"saidbebanbsaid":739,"saidbbesirelensari":699,"saidbhassan":701,"saidbrabielamiri":707,"saidbsalim":710,"saidbsaibbyesaressekaf":711,"saidbamir":717,"saidbabdirrahmanbhassa":719,"saidbamrbsaid":725,"saidbvehbelhemdani":738,"saidbyusuferrahbi":742,"sufyanbziyad2":746,"selmbkuteybeelbahili":756,"selemebsuheyb":763,"suleymanbeyyubbsuley3":775,"suleymanbtevbe":777,"suleymanbsufyan":785,"suleymanbebisuleyman":786,"suleymanbsemurebcundeb":787,"suleymanbalibabdullah":794,"suleymanbmugire":798,"suleymanbebiyahya":788,"simakbselemeeddabbi":805,"seddadbmakil":846,"suaybbishakbabdirrahma":864,"suaybbamrbsuleymelensa":864,"salihbcubeyr":880,"salihbruzeyk":883,"salihbziyadbabdullaheb":884,"salihbsaid":890,"salihbebisalihessemman":885,"salihbebisalihelesedi":885,"salihbsalihelesedi":885,"salihbaclan":887,"salihbmuhammedbyahya":890,"sahrbabdullahbharmala":895,"sadakabisa":897,"safvanbabdullahbsafvan":903,"eddahhakbserahil":912,"ettufeylbebibkabelensa":927,"talhababdulmelikeleyli":930,"talhabyezideleyli":935,"talkbhabib":935,"asimbhakimebumuhammed":941,"asimbomer":948,"amirbsadelbeceli":953,"amirbmalik":962,"amirbmusab":961,"abbadbabbadbalkameelma":968,"abbadbelvelidbhalid":974,"abbadbyakub":974,"abbadbyusuf":975,"abbasbhuseyinebufazl":978,"abbasbhuseyin":978,"abbasbabdullahbmabed":980,"abdullahbahmedbmuhamme":990,"abdullahbcubeyrelhuzai":1002,"abdullahbcaferbyahyaeb":1006,"abdullahbhassanettemim":1010,"abdullahbelhalil":1016,"abdullahbezzubeyrbmabe":1025,"abdullahbsufyanelmahzu":1037,"abdullahbebisufyan":1037,"abdullahbebiselemeelma":1038,"abdullahbsuleymanbebis":1039,"abdullahbabdullah":1059,"abdullahbabdulazizbabd":1067,"abdullahbubeydullahbom":1278,"abdullahburvebezzubeyr":1075,"abdullahbisme":1076,"abdullahbisme2":1076,"abdullahbalibhuseyin":1077,"abdullahbalibsaib":1078,"abdullahbamrbebielhacc":1082,"abdullahbamrbosman":1084,"abdullahbumeyra":1087,"abdullahbkasimetteymi":1094,"abdullahbkayselkindies":1096,"abdullahbkays":1097,"abdullahbkaysennehai":1097,"abdullahbkesirbcafer":1097,"abdullahbkuleybessedus":1099,"abdullahbmuhammedbebis":1109,"abdullahbmuhammedbrabi":1112,"abdullahbmuhammedbab4":1113,"abdullahbmuhammedbebiy":1118,"abdullahbmuhammedelade":1118,"abdullahbelmuseyyebbeb":1124,"abdullahbmabed":1127,"abdullahbelvelidbmeymu":1142,"abdullahbyezidebuabdir":1148,"abdullahbyunus":1151,"abdullah":1152,"abdulcebbarbabbas":1158,"abdulcebbarbomereleyli":1159,"abdulcebbarbvailbhucr":1160,"abdulhamidbhasanebuome":1165,"abdulhamidbdinar":1165,"abdulhamidbabdullahbab":1167,"abdulhamidbmahmudelmav":1169,"abdurabbihbubeydelezdi":1172,"abdurabbihbnafielkinan":1173,"abdirrahmanbhabib":1180,"abdirrahmanbhalidbyezi":1192,"abdirrahmanbebirafi":1193,"abdirrahmanbzeydbeslem":1197,"abdirrahmanbsaidbvehbe":1202,"abdirrahmanbseleme":1248,"abdirrahmanbabdullah5":1214,"abdirrahmanbabdullah7":1217,"abdirrahmanbabdullahel":1217,"abdirrahmanbabdurabb":1218,"abdirrahmanbabdulmel2":1219,"abdirrahmanbosmanbumey":1221,"abdirrahmanbebiamreele":1229,"abdirrahmanbkayseddabb":1237,"abdirrahmanbhanibsaide":1251,"abdulazizbesseriennaki":1276,"abdulazizbabdullahbhal":1277,"abdulazizbabdulmelik":1280,"abdulazizbmervanbhakem":1284,"abdulazizbmuslim":1284,"abdulazizbmusabruh":1286,"abdulgaffarbhakem":1288,"abdulmelikbhasanbebiha":1301,"abdulmelikbrabibsebre":1302,"abdulmelikbessabbahebu":1304,"abdulmelikbessabbah":1304,"abdulmelikbisababdirra":1311,"abdulmelikbebikerimeel":1313,"abdulmelikbmervanbhake":1315,"abdulmelikbmervanelahv":1316,"abdulmelikbmugireettai":1317,"abdulvahidbabdullahbka":1322,"abdilvarisbabdussamedb":1325,"abdulvehhabbyahyababba":1331,"abdebsuleymanelmervezi":1333,"ubeydullahbelahnesenne":1335,"ubeydullahbebibekirben":1336,"ubeydullahbtalhabubeyd":1343,"ubeydullahbabdirrahm2":1347,"ubeydullahbubeydebuveh":1351,"ubeydullahbkabbmalikel":1355,"ubeydullahbmugirebebib":1357,"ubeydbadembebiiyas":1362,"ubeydbismail":1362,"ubeydbsaidbeban":1366,"ubeydbettufeyl":1367,"ubeydbebiubeyd":1368,"ubeydbvakid":1371,"utbebmuhammedbelharis":1383,"osmanbelvelid":1412,"atabsuheybelensari":1435,"atabkurreesseluli":1437,"ataebuhasanessuvai":1441,"atiyyebamirelcuheni":1445,"ukbebseyyar":1452,"ukbebseddad":1453,"ukbebalkame":1456,"ukaylbtalhaessulemi":1459,"alibharbbmuhammed":1479,"alibhasanbsuleymanelha":1480,"alibhasan2":1482,"alibhasan3":1482,"alibhafselmervezi":1486,"alibhakim":1487,"alibdavudbyezid":1490,"alibselemebukbe":1495,"alibsalih2":1498,"alibebitalhasalim":1501,"alibabdullahbcafer":1506,"alibabdulhamidbmusab":1511,"alibomerbali":1514,"alibisa2":1516,"alibnasrbali":1526,"alibheysem":1528,"alibyezidbsuleym":1529,"ammarbsadettuceybi":1532,"umarebsevban":1537,"omerbhafsbomer2":1549,"omerbsadbubeydebudavud":1557,"omerbsaidbmesrukessevr":1559,"omerbebiselemebabdirra":1560,"omerbebisuleyman":1544,"omerbabdulazizbmervan":1570,"omerbalibata":1575,"omerbfazlessulemi":1576,"omerbmuhammedbabdullah":1580,"amrbelhusaynelukayli":1594,"amrbsad":1602,"amrbsufyanbabdullah":1612,"amrbebisufyanbabdirrah":1604,"amrbsurahbilbsaid":1606,"amrbsuaybbmuhammed":1607,"amrbasimbsufyan":1612,"amrbabdullahbubeyd":1614,"amrbosmanbaffanebuosma":1622,"amrbkuteybe":1628,"amrbmalikelhemdaniebua":1631,"amrbelvelidbabde":1641,"umeyrbsaidennehai":1656,"avfbelharisbettufeyl":1667,"alabhalidelesedi":1672,"alabsalimebuhasanelhaz":1674,"alabutbe":1677,"alabmeslemebosman":1678,"iyazbhalife":1682,"isabibrahim":1684,"isabahmedbisa":1685,"isabhammadbmuslimettuc":1686,"isababdulalababdullah":1691,"isababdirrahmanbferve":1691,"isababdirrahmanessulem":1691,"isabomerennahviebuomer":1693,"isabomer":1693,"isabmamer":1697,"isabmeymunelmedeni":1700,"fazlbyakubelbasri":1727,"fudaylbhusaynbtalhaebu":1727,"kasimbabdulvehhab":1745,"kasimbmuhammedbebibeki":1749,"kasimbmuhammedbabdirra":1751,"kasimbyezid":1753,"kaysbsabitbkays":1774,"kaysbhafs":1776,"kesirbziyadebusehl":1788,"keysanebuomerelfezari":1808,"muhammedbibrahimbsaid":1819,"muhammedbibrahimbmuham":1821,"muhammedbahmedbebihale":1826,"muhammedbadembsuleyman":1832,"muhammedbusamebzeyd":1832,"muhammedbismailbsemure":1843,"muhammedbismailbebisem":1843,"muhammedbebiumamebsehl":1847,"muhammedbcebele":1858,"muhammedbcubeyrbmutim":1859,"muhammedbcaferelbezzaz":1862,"muhammedbhatimbyunus":1864,"muhammedbhassan":1868,"muhammedbelhusaynettem":1874,"muhammedbhalid2":1955,"muhammedbdavudbsubiheb":1887,"muhammedbzekvan":1888,"muhammedbzekvan2":1888,"muhammedbsaidbsuleyman":1903,"muhammedbsuleymanbabdu":1909,"muhammedbsuveydbkulsum":1914,"muhammedbtalib":1985,"muhammedbtalhababdulla":1926,"muhammedbamir":1928,"muhammedbebiaise":1929,"muhammedbabdullahbebir":1935,"muhammedbabdullahbeb2":1935,"muhammedbabdullahbel2":1947,"muhammedbabdirrahman4":1954,"muhammedbabdirrahmanbs":1955,"muhammedbabdulazizerre":1963,"muhammedbabdulvahidbeb":1965,"muhammedbubeydullahb2":1968,"muhammedbubeydullahbye":1969,"muhammedbammarbsad":1984,"muhammedbomerbali2":1985,"muhammedbomerbelvelid":1989,"muhammedbamrbhasan":1990,"muhammedbamrbali":1990,"muhammedbamr2":1994,"muhammedbimran":1996,"muhammedbumeyr":1996,"muhammedbisabkasim":1999,"muhammedbkasimelesedi":2008,"muhammedbkays":2011,"muhammedbkureyb":2014,"muhammedbmuhammedbmusa":2020,"muhammedbmusabbsadaka":2032,"muhammedbmuazbabbad":2034,"muhammedbmansurbsabit":2039,"muhammedbmusa2":2043,"muhammedbmusa3":2043,"muhammedbnecih":2046,"muhammedbyezidbmuhamme":2065,"muhammedbyezidelhizami":2066,"muhammedbyusufezzubeyd":2071,"malikbelharis":2080,"malikbelharisessulemi":2080,"malikbebiamir":2083,"elmusennabsad":2091,"elmusennababdirrahmane":2092,"elmusennabmuazbmuazela":2093,"elmusennabyezid":2093,"muhrizbseleme":2102,"mahmudbademelmervezi":2104,"mahmudbamrbyezid":2106,"mahledbhasan":2110,"mervanbsalim":2120,"mervanbosmanbebisaid":2121,"mesrukbevs":2130,"muslimbabdullah":2136,"muslimebuabdullahelhuz":2145,"elmisverbrifaabebimali":2149,"musabbsuleymelesedi":2154,"mutimbelmikdamessanani":2162,"muttalibbabdullahbmutt":2163,"muazbabdirrahmanbosman":2170,"muazbfadale":2170,"muaviyebsebre":2176,"muaviyebabdullahbcafer":2180,"muaviyebammarbebimuavi":2180,"mabedbhilal":2186,"madanbebitalha":2187,"mamerbebihabibe":2195,"mamerbmahled":2197,"mamerbsuleymanennehaie":2198,"mugirebebikurreessedus":2207,"munzirbabdullahbmunzir":2224,"muhacirbmahledebumahle":2234,"musabibrahimbabdirrahm":2239,"musabismail":2239,"musabenesbmalikelensar":2241,"musabhalidessamiebuelv":2243,"musabsuleymanbismail":2246,"musabukbebebiayyas":2253,"musabnafi":2256,"meymunbabbasbata":2268,"meymunebuhamzaelaver":2270,"naciyebkabelesedi":2274,"nafibabdullah":2280,"nafibomer":2280,"nasrbalibnasr":2289,"nusayrbelferec":2291,"nadrbseyban":2293,"nadrbabdirrahmanebuome":2295,"numanbsalimettaifi":2301,"ebubelharisebudavud":2309,"harunbelesaselhemdani":2322,"harunbsad2":2323,"harunbsalihbibrahim":2324,"hasimbsaidebuishak":2330,"hilalbcubeyr":2358,"hilalbcubeyr2":2358,"heysembhabib":2365,"heysembhumeyd":2365,"heysembrafi":2367,"heysembrabielukayliebu":2368,"elvelidbsuleymanbebisa":2386,"elvelidbkesirelmahzumi":2393,"elvelidbhisambmuaviye":2397,"yahyabelharis":2416,"yahyabelharis2":2416,"yahyabebihayye":2420,"yahyabzurarebabdulkeri":2423,"yahyabebizekeriyyaebum":2425,"yahyabubeyd2":2445,"yahyabosmanelharbi":2447,"yahyabebiyahya":2424,"yezidbumeyyeebusinan":2475,"yezidbumeyye2":2475,"yezidbhumeydeddubai":2479,"yezidbabdirrahmanbeles":2491,"yezidbabdulmelikbmugir":2492,"yakubbibrahimbkesir":2509,"yakubbishakbzeydelhadr":2509,"yakubbasimburve":2513,"yakubbutbebmugire":2514,"yakubbmucahid":2516,"yusufbhammad":2524,"yusufbmuhammedbelmunke":2530,"yunusbubeydessekafi":2542,"ebueyyubelezdi":2553,"ebubekirbishakbyesar":2557,"ebubekirbsalimbabdulla":2557,"ebubekirbebimusaelesar":2565,"ebubekir4":2568,"ebucaferelensari":2572,"eburebia":596,"ebusaidessami2":737,"ebuselmanielmuezzin":2601,"ebuabdullah":2617,"ebuabdullah2":1076,"ebuubeydebukbebnafi":2622,"ebuatiyyeelhemdani":2627,"ebuatiyye":2627,"ebuomer":2630,"ebumeryemelensari":2656,"ebumeryemessekafi":2656,"ebumuaviyeelbeceli":2180,"isamelmuzeni":2626,"omerbebiseleme":1560,"alabelhadrami":1675,"muhammedbmesleme":2030,"kaysbvehb":1783,"umeyyebintebiessalt":2735,"safiyyebintebiubeydbme":2749,"ahmedbibrahimbkesir2":8,"ahmedbishakbzeydebu2":10,"ahmedbsalihelmisriebuc":22,"ahmedbsalih2":24,"ahmedbabdullahbhake2":25,"ahmedbabdullahbmuha2":26,"ahmedbabdullahbyunu2":27,"ahmedbamrbabdullah2":33,"ahmedbisabhassanelm2":34,"ahmedbmuhammedbmugi2":40,"ahmedbmuhammedbnizek":40,"ahmedbmuhammedbyahy2":41,"ahmedbnasrbziyadenn2":44,"ahmedbyusufbhalidel2":47,"ibrahimbismailbyahy2":54,"ibrahimbelharisbism2":57,"ibrahimbhamzabmuham2":58,"ibrahimbziyad2":60,"ibrahimbabdusselamb2":70,"ibrahimbabdulazizba2":70,"ibrahimbabdulmelike2":70,"ibrahimbukbebebiayyase":72,"ibrahimbalibhasan2":73,"ibrahimbomeressanan2":73,"ibrahimbamr2":73,"ibrahimbelmustemir":81,"ibrahimbmeymunessan2":86,"ibrahimbyezidbserikett":87,"ibrahimbyusufelhadr2":91,"ibrahimbyunusbmuham2":91,"ebibabbasbsehl2":92,"idrisbsinanebuilyasess":96,"ezherbcemilbcenah":99,"ishakbibrahimesseka2":109,"ishakbcibril":112,"ishakbsaidbamr2":115,"ishakbsuleymanerraz2":115,"ishakbomerbselitebuyak":120,"ishakbkabisabzuveybelh":121,"ishakbmuhammedbisma2":122,"ishakbmusababdullah2":123,"ishakbvehbbziyad2":124,"ismailbibrahimbabdi2":133,"ismailbibrahimbukbe2":134,"ismailbsalimelesedi2":148,"ismailbabdullahbelh2":150,"ismailbabdullahbhalide":151,"ismailbmuhammedbism2":160,"ismailbmuslimelabdi2":162,"efletbhalifeelamiri":180,"iyasbdagfel":191,"iyasbnezir":192,"eymenbnabil":193,"eymenelmekki":193,"eyyubbhassanelvasit2":197,"eyyubbhalidbsafvan2":197,"eyyubbhavt":198,"becalebabde":206,"budeylbmeysereelbasri":210,"burdbsinanebualaeddima":212,"berekeebuelvelidelbasr":213,"bisrbelharisbabdirr2":220,"bisrbabdullahbyesar2":224,"bisrbubeys":225,"besirbsellam2":230,"besirbmuslimelkindi2":231,"besirbmeymunelvasit2":231,"bekirbhakemettemimi2":237,"bekirbsevadebsumame":239,"bekirbvailbdavudetteym":241,"bevrbasramebubekirelme":247,"telidbsuleymanelmuhari":252,"temimbhazlem":254,"temimbelmuntasirbtemim":255,"sabitbhurmuzebuelmikda":264,"salebebsuheyl":267,"salebebabbad":267,"sumamebhazn":269,"sumamebsufey":269,"suveyrbebifahite":273,"elcerrahbmelih":289,"cureybkuleybessedusiel":293,"cureybkuleyb":293,"cumeybumeyr":310,"cumeybumeyretteymiebue":310,"cevvabbubeydullahettey":314,"cevnbkatadebelaver":315,"cuveybirbsaidelezdiebu":315,"hatimbyusufbhalid2":320,"elharisbhasira":323,"elharisbsibl":325,"elharisbabdullahbeb2":326,"elharisbabdirrahman2":327,"elharisbubeydullahe2":328,"elharisbmansurelvas2":332,"elharisbnebhanelcermi":333,"elharisbvecih":334,"elharisbyakubelensa2":335,"habbebcuveyn":341,"habibbebisabitkays":342,"habibbebihabibelbec2":343,"habibebihabibelmisr2":344,"habibbebihabibelbas2":343,"habibbsalih2":346,"habibbebifadlan":347,"habibbyesarelkindi2":349,"habibbyesar2":349,"haccacbdinarelvasit2":353,"haccacbsafvanbebiye2":354,"haccacbferafisa":355,"hucrbelanbes":359,"hucayrbrabielbasrielad":360,"harbbebielaliyeebumuaz":364,"hureysbsuleym":373,"husambmisakk":373,"hasanbishakbziyadel2":379,"hasanbbekirbabdirrahma":380,"hasanbebielhasnaebuseh":386,"hasanbrabielbeceliebua":390,"hasanbzeydbhasanebu2":390,"hasanbalibrasidelva2":398,"hasanbalibaffanelamiri":401,"hasanbomer2":404,"hasanbguleyb":407,"hasanbmuhammedbubey2":408,"hasanbmudrikbbesiresse":409,"hasanbmuslimbyenak":410,"hasanbmusa2":410,"hasanbyahyabelcadelabd":411,"hasanbyahyaelbasri":411,"huseyinbhafsbfazl2":417,"huseyinbselemebisma2":418,"huseyinbsufey":418,"huseyinbalibelesvedebu":420,"huseyinbalibcaferelahm":420,"huseyinbkayserrahbiebu":429,"huseyinbmuazbhaleyf":431,"huseyinbyezidbyahya2":434,"hisnbabdirrahman":435,"husaynbabdirrahmanessu":436,"husaynbomer2":438,"husaynbmansurbhayya2":441,"hadramibebuettemimiely":442,"hittanbabdullaherrakas":443,"hafsbcumey":444,"hafsbabdullahbrasid2":447,"hafsbomerbabdirrahm2":449,"hafsbomerbebielattaf":450,"hafsbomer":446,"hafsbamrbribal":452,"hakembabdullahbisha2":459,"hakembabdirrahmanbebin":460,"hakembabdulmelikelb2":460,"hammadbcaferbzeydelabd":473,"hammadbhalid2":474,"hammadbzeydbdirhemelez":475,"hammadbselemebdinarelb":476,"hammadbebisuleymanmusl":478,"hammadbyahyaelebahh":481,"hamzabebimuhammedel2":486,"hamzabmugire2":486,"humeydbebiguneyye":492,"humaydabessemerdel":497,"havserabmuhammedebuele":501,"havsebbukaylebudihyeel":502,"halidbebibekirbubey2":510,"halidbelhuveyriselmahz":511,"halidbhaley":512,"halidbdihkan":512,"halidbdinarettemimiebu":513,"halidbsad2":515,"halidbsumeyr":517,"halidbabdirrahmanbbuke":519,"halidbamrbmuhammede2":522,"halidbellecelacelamiri":525,"halidbmuhammedessek2":526,"halidbyezidbsalih2":530,"halidbyezidbabdirra2":531,"halidbyezidbomer2":531,"elhasibbnasihelharisie":538,"husayfbabdirrahmanelce":538,"hattabbosmanettai":539,"hattabbkasim":539,"davudbelhusayn":556,"davudbhalidbdinarel2":557,"davudbebisalihelley2":560,"durustbziyadelanberi":569,"difabdagfel":570,"delhembsalihelkindi":571,"duveydbnafi":571,"deylembgazvanelabdiebu":572,"dinarebuabdullah2":573,"zuadebumunzir":575,"rafibishakelmedeni2":579,"rafibselemebziyad2":580,"rebahbebimarufbebisare":582,"rebiabseybanebuelhavra":592,"rebiabebiabdirrahmanet":593,"rebiabnacidelezdi":596,"risdinbsadbmuflih":602,"risdinbkureybbebimusli":603,"rifdebkudaa":604,"zaidebebierrakkad":615,"ezzubeyrbelhirrit":619,"ezzubeyrbhurayk":619,"ezzubeyrbsaidbsuley2":619,"zirbibabdullahelezdi":624,"zuferbvesime":625,"zekeriyyabishakelmekki":625,"zumeylbabbaselesedi":630,"zehdembmudarribelcermi":631,"ziyadbebiziyad2":641,"ziyadbabdirrahmanebuel":646,"ziyadbkuleybebumaser":647,"ziyadbmihrak":648,"ziyadbmuslim2":649,"ziyadebuelebredelmeden":651,"zeydbahzem":652,"zeydbcubeyra":655,"zeyd":658,"zeydbalibhuseyinebu2":663,"zeydbyesi":667,"salimbebiumeyyeebunadr":669,"salimbdinar2":670,"salimbserc":671,"salimbabdullahbomerebu":671,"salimbabdullah2":675,"salimbutbebuveym":674,"salimebuabdullah2":675,"sadbishakbkab2":685,"sadbabdullah2":690,"sadbhisambamirelensari":693,"saidbelharisbebisai2":701,"saidbebihasanelbasr2":702,"saidbhafsbamr2":702,"saidbhakembmuhammed2":702,"saidbhayyanetteymi2":703,"saidbhalidbabdullah2":704,"saidbhalidbamr2":704,"saidbdavudbebizenber":705,"saidbzuveybelmervezi":706,"saidbzirbi":707,"saidbzekeriyya2":708,"saidbziyadelensarie2":708,"saidbsuleymaneddabbieb":714,"saidbabdirrahmanbye2":721,"saidbamrbesvaelhemdani":725,"saidbamrbsaidebuosm2":725,"saidbamrelhadramieb2":726,"saidbkesirbubeydetteym":728,"saidbmervanbaliebuo2":732,"saidbmuslimbbanik":733,"saidbnadrebuosman2":737,"saidbebihilalelleysi":738,"saidbyahyabelezherebuo":739,"saidbyesarebuelhubab":741,"esseferbnuseyr":743,"sufyanbhamzabsufyan2":745,"sufyanbabdirrahman2":748,"sufyanbmusaelbasri2":751,"sukeynbabdulazizbkayse":753,"selmbzirrir":755,"selemebrecaettemimiebu":762,"selemebsuleymanelme2":762,"selemebabdullah2":761,"selemebelayyar":765,"selemebmuhammedbamm2":768,"selemebnubeyt":768,"selemebvehram":769,"selemeelleysi2":770,"suleymbhayyan":772,"suleymanbziyadelhad2":784,"suleymanbsufyanetteymi":785,"suleymanbsalihelley2":788,"suleymanbtarhanetteymi":789,"suleymanbabdullahbm2":790,"suleymanbabdulcebbarbz":791,"suleymanbabdirrahma2":791,"suleymanbubeydullah2":793,"suleymanbalielezdiebuu":794,"suleymanbebimugire":799,"suleymanbyuseyr":803,"sumeybkays":807,"essumeydabvahibbsevvar":807,"sumeytbumeyr":808,"sehmbmincabbrasideddab":817,"sevadebebielesvedabdul":820,"sevadebasim":820,"suveydbhucayr":822,"sellambsuleym":828,"selamebbisrbbudeyl":831,"seyyarbmanzurbseyyarel":832,"seyyar":833,"sazbfeyyad":837,"sazbyahyaelvasiti":837,"siblbabbadelmekki":840,"subeylbavfelahmesiebue":842,"suteyrbsekl":842,"serahilbade":846,"serikbabdullahbebinemi":856,"suaybbebihamza":862,"suaybbhalidelbeceli2":863,"suaybbsafvanbrabies2":864,"suaybbmeymunelvasit2":865,"simrbatiyyeelesedi":869,"suyeymbbeytan":876,"salihbebihassanelme2":881,"salihbhayyan2":881,"salihbdirhemelbahilieb":882,"salihbubeyd2":887,"salihbomerelvasiti2":887,"salihbmusabishak2":891,"sasaabsuhan":900,"essakbhazn":901,"safvanbsuleymelmede2":902,"safvanbsalihbsafvan2":902,"safvanbamrbherimebuamr":903,"safvanbebiyezid2":905,"essakabbzuheyrbabdulla":905,"sayfibribi":909,"sayfibziyadelensari":910,"dubarababdullahbmalik":911,"eddahhakbhamra":911,"eddahhakbnibras":917,"damrabsaidbebihanne":920,"damdambzurabsevb":920,"damdamebuelmusenna":920,"talibbhucayr":925,"tumebamr":927,"talhababdullahbabdi2":929,"talhababdullahbosma2":930,"talhabamrbosmanelha2":932,"talhabyahyabtalha2":934,"talhabyahyabnuman2":935,"tuleykbkays":937,"asimbubeydullahbasi2":944,"asimbomerbhafsebuom2":947,"asimbmuhammedbzeyd2":950,"amirbcuseyb":952,"amirbessimt":953,"amirbabdullahbezzub2":958,"amirbabdullahbluhay":958,"abaebkuleybelleysiebug":987,"abbadbkesiressekafi2":970,"abbadbyusufelkindie2":975,"abbasbzurayh":978,"abbasbabdullahbebii2":979,"abayebrifaabrafieburif":987,"abdullahbibrahimbomere":988,"abdullahbeleclahelkind":989,"abdullahbishakbmuhamme":992,"abdullahbebiumamebsale":993,"abdullahbbabah":995,"abdullahbbahir":995,"abdullahbbudeylbvarka":996,"abdullahbebibasirelabd":999,"abdullahbbekirbhabibel":999,"abdullahbebibekirba2":1000,"abdullahbebibekirbm2":1000,"abdullahbebicafererraz":1006,"abdullahbelcehmerrazie":1006,"abdullahbhabibbebis2":1009,"abdullahbhabibbrebi2":1009,"abdullahbhuseyinbat2":1011,"abdullahbhafsbomerebub":1012,"abdullahbdinareladevi":1018,"abdullahbdinarelesedie":1018,"abdullahbrafielhadr2":1020,"abdullahbzirrir":1025,"abdullahbziyadbsule2":1026,"abdullahbzeydbamr2":1029,"abdullahbsalim2":1031,"abdullahbsadbibrahi2":1033,"abdullahbsadetteymi2":1002,"abdullahbebiessefer":1037,"abdullahbsevzebelhoras":1044,"abdullahbsalihbmuha2":1044,"abdullahbzalimettemimi":1051,"abdullahbamirbyezid2":1053,"abdullahbabdullahbe3":1058,"abdullahbabdullaher2":1059,"abdullahbabdirrahmanbh":1062,"abdullahbabdulmuminbos":1068,"abdullahbubeydullah2":1068,"abdullahbubeyd2":1069,"abdullahbosmanbisha2":1072,"abdullahbosmanbatae2":1074,"abdullahbarade":1075,"abdullahbukeym":1077,"abdullahbomerbmuham2":1081,"abdullahbisababdirr2":1090,"abdullahbgabir":1091,"abdullahbfazlbabbas":1093,"abdullahbkedamebaneze":1040,"abdullahbebikays2":1097,"abdullahbkeysanetteymi":1100,"abdullahbluhay":1101,"abdullahbmuharrer":1108,"abdullahbmuhammedba2":1113,"abdullahbmuhammedba4":1114,"abdullahbmuhammedbu2":1114,"abdullahbmuhammedba5":1116,"abdullahbmuhammedbomer":1117,"abdullahbmuhayriz":1119,"abdullahbmuslim2":1122,"abdullahbmuslimelba2":1114,"abdullahbmatarebureyha":1124,"abdullahbmuanikebumuan":1126,"abdullahbelmunib":1128,"abdullahbmunir":1129,"abdullahbmeymunbdav2":1131,"abdullahbnafi2":1134,"abdullahbnucey":1135,"abdullahbharunbebii2":1137,"abdullahbhaniebuezzara":1138,"abdullahbheysembosm2":1139,"abdullahbelvelidbab2":1142,"abdullahbvehbbmuslim":1143,"abdullahbyahyaessek2":1146,"abdullahbyezidenneh2":1147,"abdullahbyezidenneh3":1147,"abdullahbyezidelmed2":1031,"abdullahbyezideddim2":1149,"abdullahbyakubbisha2":1150,"abdulcebbarbelverdelma":1160,"abdulhakimbmansurelhuz":1161,"abdulhamidbibrahimelha":1162,"abdulhamidbbekkaressul":1162,"abdulhamidbabdullahbeb":1167,"abdulhamidbabdirrah2":1168,"abdirrahmanbuzeyne":1175,"abdirrahmanbishakba2":1177,"abdirrahmanbeymen":1179,"abdirrahmanbbisrbha2":1180,"abdirrahmanbbekirbr2":1181,"abdirrahmanbebibekirbu":1181,"abdirrahmanbebibekreeb":1182,"abdirrahmanbbuzuyeh":1183,"abdirrahmanbelharis2":1187,"abdirrahmanbhuceyre":1189,"abdirrahmanbhumeydb2":1191,"abdirrahmanbhumeydb3":1191,"abdirrahmanbebierrical":1193,"abdirrahmanbsadbamm2":1200,"abdirrahmanbsadelme2":1224,"abdirrahmanbsadelarece":1201,"abdirrahmanbselmaniebu":1203,"abdirrahmanbsuleyma2":1203,"abdirrahmanbsellam2":1204,"abdirrahmanbsimase":1206,"abdirrahmanbebisumeyle":1206,"abdirrahmanbamirelm2":1209,"abdirrahmanbabdulla2":1212,"abdirrahmanbabdulla3":1212,"abdirrahmanbabdulla4":1213,"abdirrahmanbabdulla5":1215,"abdirrahmanbabdulme2":1219,"abdirrahmanbata2":1223,"abdirrahmanbukbebelfak":1224,"abdirrahmanbammarbebiz":1225,"abdirrahmanbamrbabd2":1226,"abdirrahmanbebiamre2":1226,"abdirrahmanbavseceelhe":1230,"abdirrahmanbkasimbh2":1234,"abdirrahmanbkasimbmuha":1235,"abdirrahmanbmuhammedbe":1235,"abdirrahmanbmuhamme2":1241,"abdirrahmanbmesudbneyy":1242,"abdirrahmanbmuaviyebel":1243,"abdirrahmanbmagra":1244,"abdirrahmanbnemir":1250,"abdirrahmanbverdanelgi":1253,"abdirrahmanbvale":1254,"abdirrahmanbyezidbkays":1257,"abdirrahman":1259,"abdurrahimbmeymunelmed":1261,"abdusselambebihazimsed":1265,"abdusselambmutahhirbhu":1269,"abdulazizbrufey":1275,"abdulazizbsiyah":1276,"abdulazizbebiessabeett":1277,"abdulazizbabdullahb2":1067,"abdulazizbabdulmelikbe":1279,"abdulazizbubeydulla2":1280,"abdulazizbomerbabdulaz":1281,"abdulazizbkurayr":1282,"abdulazizbkayselabd2":1282,"abdulazizbmuaviyeba2":1285,"abdulmelikbebibesir2":1298,"abdulmelikbebibekir2":1298,"abdulmelikbelharisb2":1298,"abdulmelikbhabibele2":1299,"abdulmelikbzeydbsai2":1302,"abdulmelikbsaidbhay2":1302,"abdulmelikbabdullah2":1314,"abdulmelikbabdulham2":1305,"abdulmuheyminbabbasbse":1320,"abdulmuminbhalidebuhal":1320,"abdulmuminbubeydullahe":1320,"abdulvahidbeymenelmahz":1320,"ubeydullahbelcehmelbas":1337,"ubeydullahbhalifeebuel":1338,"ubeydullahbebirafielme":1339,"ubeydullahbebiziyad2":1340,"ubeydullahbziyade":1341,"ubeydullahbabdullah2":1345,"ubeydullahbabdullah3":1346,"ubeydullahbabdullahbme":1346,"ubeydullahbabdullahebu":1347,"ubeydullahbikras":1351,"ubeydullahbalibebirafi":1352,"ubeydullahbelkibtiyye":1355,"ubeydullahbmuhammed3":1356,"ubeydullahbnadrbabd2":1360,"ubeydbtualla":1363,"ubeydbessebbak":1366,"ubeydbkasimelesedi2":1369,"ubeydbmeymunetteymi2":1370,"ubeydbnistas":1370,"ubeydbyaiselmehamilieb":1372,"ubeydebebiraita":1374,"utbebabdullahbutbeebue":1381,"utbebyakzanebuamr":1384,"uteybdamraettemimi":1384,"assambalibhucayr":1385,"osmanbishakbharse":1385,"osmanbhayyan2":1389,"osmanbebirevvad":1386,"osmanbsad2":1391,"osmanbsaidbkesir2":1391,"osmanbsaid2":1391,"osmanbsalihbsaid2":1393,"osmanbebielatikesuleym":1395,"osmanbabdullahbmevhebe":1398,"osmanbabdirrahmanbo2":1398,"osmanbabdirrahmanba2":1398,"osmanbamrbsac":1404,"osmanebuselemeelbas2":1413,"irakbhalidbyezid":1418,"azrababdirrahmanbzurar":1428,"aselebukurreelbasri":1428,"atabyakubelmedeni2":1441,"ataessami2":1440,"ataelmedeni":1441,"atiyyebelhariseburevk":1444,"ukbebebisubeyt":1451,"ukbebabdullahelesammel":1454,"ikrimebabdirrahmanbelh":1462,"alibishakessulemi2":1473,"alibbezime":1474,"alibsabit2":1476,"alibelhazver":1480,"alibhasanbebihasan2":1481,"alibhasan5":1482,"alibhalidelmedeni2":1489,"alibrebahbkasir":1491,"alibzeydbabdullah2":1492,"alibsuveydbmencuf":1497,"alibsalihelmekki2":1498,"alibabdullahbibrahi2":1506,"alibubeydelensariel2":1512,"alibosmanbmuhammed3":1513,"alibosmanbmuhammed4":1513,"alibalibneccad":1514,"alibmuhammedbebielhasi":1521,"alibmuhammedbzekeri2":1521,"alibnizarbhayyanelesed":1526,"alibhasimbelberid":1527,"ammarbhalidbyezideb2":1531,"umarebabdullahbsayyade":1541,"omerbebibekirbabdir2":1546,"omerbcasem":1547,"omerbhabibelmekki2":1547,"omerbhafsbomer3":1549,"omerbhafselmedeni2":1549,"omerbhakembrafi2":1550,"omerbhamzababdullah2":1550,"omerbhayyan2":1550,"omerbhalde":1553,"omerbeddirfis":1553,"omerbzeydessanani2":1556,"omerbsuleymelbahili2":1561,"omerbamiressulemiel2":1565,"omerbabdullahelmede2":1568,"omerbabdirrahmanbka2":1569,"omerbabdulazizbimra2":1569,"omerbosmanbasim":1573,"omerbosmanbomer2":1573,"omerbalibhuseyin2":1574,"omerbkays2":1571,"omerbkayselmekki2":1577,"omerbmuhammedbzeyd2":1580,"omerbmuattib":1581,"omerbharunbyezidess2":1583,"amrbuhayha":1586,"amrbsabit2":1588,"amrbcavan":1590,"amrbelharisbyakubelens":1591,"amrbelhubab":1592,"amrbhammadbtalha2":1595,"amrbdinarelmekkiebumuh":1598,"amrbdinarelbasrielaver":1599,"amrbsaid2":1603,"amrbasim":1612,"amrbamirelensari2":1613,"amrbabbaselbahilieb2":1613,"amrbabdullahbelesvar":1613,"amrbabdullahbsafvan2":1614,"amrbabdullahbkab2":1616,"amrbabdullahbvehben2":1617,"amrbubeydbbab":1618,"amrbosmanbsaid2":1621,"amrbmuazbsadebumuha2":1636,"amrbnumanelbahiliel2":1638,"amrbharun2":1638,"amrbherimelezdielbasri":1639,"amrbyahyabelharis":1642,"imranbelharisessule2":1645,"imranbdaver":1648,"imranbebiataelesedi2":1650,"imranbmuslim3":1652,"imranbmusa2":1653,"umeyrbmemum":1657,"anbesebelezheresseyban":1659,"anbesebsaidbeddurays":1660,"avseceelmekki":1665,"avfbebicemile":1666,"avfbmalikbnadle":1667,"alabzeyd2":1674,"alabsalihetteymi2":1674,"alababdirrahmanbyakub":1675,"alabusaym":1677,"isabibrahimbisa2":1684,"isabcariye":1685,"isabhafsbasimebuziy2":1686,"isabtalhabubeydulla2":1689,"isabasimelesedi2":1690,"isabebiazze":1692,"isabkirtas":1696,"isabmusaebumuhammed2":1699,"isabyezdad":1700,"gassanbberzin":1705,"faidbabdirrahmanebuelv":1710,"furatbhalideddabbiebui":1712,"furatbebiabdirrahman":1712,"fazlbhasanbamr2":1717,"fazlbabbas":1721,"fazlbanbese":1723,"fazlbalaebuabbas":1723,"fazlbelmuveffakbebielm":1726,"fazlbyakubbibrahim2":1726,"fiddaebumevdudelbasri":1727,"fulfulebabdullahelcufi":1733,"kabusbebizabyan":1736,"kasimbahmed2":1737,"kasimbzekeriyyabdin2":1740,"kasimbsellam2":1740,"kasimbabdullahbomer2":1743,"kasimbabdirrahmanba2":1743,"kasimbabdirrahmaned2":1744,"kasimbabdulvahidbeymen":1745,"kasimbisabibrahim2":1746,"kasimbgannamelensari":1747,"kasimbelvelidelhemd2":1753,"kasimbyahyabataebum2":1753,"kabisabelhelb":1757,"kazabsuveydbhucayr":1769,"kusamebzuheyrelmazinie":1770,"katabebabdulazizbsiyah":1771,"katanbnuseyr":1772,"katanbvehbbuveymirelle":1772,"kaysbelharis2":1774,"kaysbhabter":1775,"kaysbsadelmekki2":1779,"kaysbabbad2":1781,"kaysbvehbelhemdani2":1783,"kayselmedeni2":1774,"kesirbismail2":1787,"kesirbsinzir":1791,"kesirbkulayb":1794,"kesirbmuttalibbebiveda":1795,"kabbabdullah2":1799,"kulsumbcevsen":1803,"lokmanbamir":1809,"muhammedbebanbvezirebu":1817,"muhammedbibrahimbdi2":1819,"muhammedbahmedbhuse2":1826,"muhammedbahmedbnafi2":1827,"muhammedbidrisbmunzire":1830,"muhammedbishakbmuha2":1833,"muhammedbismailbibr2":1838,"muhammedbismailbmus2":1844,"muhammedbismailelba2":1843,"muhammedbeyyubelkilabi":1848,"muhammedbebieyyubeb2":1848,"muhammedbbisrbbesir2":1850,"muhammedbbisrelabdiebu":1850,"muhammedbebibekirba2":1853,"muhammedbsalebebseva":1856,"muhammedbcaferbezzu2":1860,"muhammedbcahdambabdull":1863,"muhammedbhatimbmeym2":1864,"muhammedbelharisbra2":1865,"muhammedbelharisbzi2":1865,"muhammedbelharis2":1865,"muhammedbhasanbzubale":1870,"muhammedbhasanbezzu2":1871,"muhammedbhumeydbhay2":1876,"muhammedbhayyan2":1881,"muhammedbhalidbabdu2":1883,"muhammedbhalidbasme":1884,"muhammedbdab":1886,"muhammedbdinarelezd2":1887,"muhammedbrafiennisabur":1890,"muhammedbzeydbabdul2":1896,"muhammedbzeydbaliel2":1896,"muhammedbsalimelhem2":1897,"muhammedbsadelensar2":1901,"muhammedbsaidbyezid2":1905,"muhammedbebisufyanbala":1906,"muhammedbselemebabd2":1906,"muhammedbsuleymanbh2":1908,"muhammedbseva":1856,"muhammedbsumeyr":1920,"muhammedbseybebnaameed":1921,"muhammedbtalhabyezi2":1928,"muhammedbabbadbcafer":1929,"muhammedbabbasbosma2":1827,"muhammedbabdullahbi2":1931,"muhammedbabdullahbe2":1933,"muhammedbabdullahbebih":1933,"muhammedbabdullahbhasa":1934,"muhammedbabdullahbh2":1934,"muhammedbabdullahbhali":1934,"muhammedbabdullahba2":1938,"muhammedbabdullahba3":1939,"muhammedbabdullahbu2":1939,"muhammedbabdullahbm2":1946,"muhammedbabdullahbm3":1946,"muhammedbabdullahby2":2069,"muhammedbabdullahbe5":1949,"muhammedbabdirrahma3":1955,"muhammedbabdirrahmanbi":1957,"muhammedbabdirrahma4":1958,"muhammedbabdirrahmanbn":1960,"muhammedbabdirrahma5":1960,"muhammedbabdirrahma6":1961,"muhammedbabdulmelik3":1965,"muhammedbubeyd2":1969,"muhammedbubeydbebis2":1971,"muhammedbubeydbmuha3":1972,"muhammedbubeydbmeym2":1972,"muhammedbosmanbsafv2":1974,"muhammedbosmanbabdi2":1975,"muhammedbukbebkesir2":1978,"muhammedbukbebherimess":1979,"muhammedbalibhasan2":1980,"muhammedbalibhamzae2":1981,"muhammedbalibhamza2":1981,"muhammedbammarbhafs2":1984,"muhammedbomerbali3":1985,"muhammedbomerbmutarrif":1986,"muhammedbomerbelvel2":1989,"muhammedbamrbhalhale":1991,"muhammedbamrbnebhan":1993,"muhammedbamrelensar2":1993,"muhammedbamr3":1994,"muhammedbimranbmuha2":1995,"muhammedbgurayr":2002,"muhammedbfada":2004,"muhammedbkayselmede2":1855,"muhammedbkabbmalike2":2015,"muhammedbmuhammedbn2":2020,"muhammedbmuhammedbn3":2020,"muhammedbebimuhamme2":1968,"muhammedbmiskinbnumeyl":2023,"muhammedbmuslimelme2":1844,"muhammedbmekkibisae2":2038,"muhammedbmuyesser":2044,"muhammedbnesr":2047,"muhammedbhisambisa2":2051,"muhammedbhilalbebih2":2051,"muhammedbheysembham2":2052,"muhammedbvehbbsaid2":2055,"muhammedbyahyababdu2":2058,"muhammedbyahyabmuha2":2062,"muhammedbyezidbhuneyse":2063,"muhammedbyezidbrukane":1928,"muhammedbyezidbebiz2":2064,"muhammedbyezidenneh2":1960,"muhammedbyesar":1834,"muhammedbyunusbmusa2":2071,"muhammedbyunus2":2073,"malikbyuhamir":2086,"mahfuzbalkameelhadrami":2103,"mervanbcenah":2119,"mervanbmuhammedbhas2":2122,"mustelimbsaidessekafie":2126,"elmustemirberreyyan":2126,"mesturbabbadelhinai":2127,"elmustevridbahnef":2127,"mishacbmusaeddabbiebum":2127,"meserrebmabed":2128,"muslimbibrahimelezdi":2134,"muslimbziyad2":2139,"muslimbimran2":2140,"muslimbmihrakelabdi":2142,"muslimbmihrak":2142,"muslimbmiskem":2143,"muslimbyesarelbasri2":2143,"muslimbyenak":2145,"mushirbabdulmelikbsele":2148,"musemialbiyas":2152,"mutarrihbyezidebuelmuh":2159,"muzahirbeslemelmahzumi":2165,"maanbrifaa":2174,"muaviyebsellam":2177,"muaviyebamrbhalid2":2181,"muaviyebebimuzerrid":2182,"muaviyebhisam2":2182,"muarrifbvasil":2188,"marufbharbuz":2188,"magraebuelmuharik":2200,"mugisbsumey":2200,"mugirebhakimessanan2":2202,"mugirebsibl":2204,"mugirebabdirrahmanbelh":2205,"mugirebabdirrahmanb2":2205,"mugirebabdirrahmanb3":2205,"mugirebnumanennehai2":2209,"mukaddembmuhammedbyahy":2217,"mendelbali":2222,"munzirbsalebeettai":2223,"munzirbmalikbkita":2224,"mansurbsadelbasri2":2226,"mansurbsaid2":2227,"mansurbsukayr":2227,"mansurbabdirrahmanb2":2228,"manzurbseyyarelfezarie":2231,"munkizbkayselmisri":2231,"munirebuzer":2234,"muhacirbmismarezzuhri":2235,"muhennababdulhamidebus":2238,"muverrikbmusemric":2238,"musabdihkan":2244,"musabsad3":2245,"musabsadelmedeni2":2245,"musabtalhabubeydullahe":2248,"musababdullahbmusaelhu":2249,"musabebiosman3":2253,"musabebiosman4":2253,"musabisaelleysi2":2255,"musabmuhammedbibrah2":2257,"musabnafielesedi2":2260,"mizanelbasriebusalih":2265,"meymunbsiyah":2267,"meymunbmusa2":2269,"meymunebuabdullahel2":2269,"nasirabsumey":2274,"naimbuceyl":2276,"nafibabbas2":2277,"nafibomerbabdullah2":2278,"nafiebuabdullahelme2":2280,"nubeyhbabdullah":2282,"nasrbzeyd2":2287,"nasrbasimelleysielb2":2287,"nadrbmuhammedelmerv2":2296,"numeyrbaribelhemdani":2312,"neharbabdullahelabdiel":2313,"ennehhasbkehm":2313,"nehselbmucemmieddabbi":2314,"nevfelbmusahikbabdulla":2320,"harunbishakbmuhamme2":2322,"harunbismail2":2322,"harunbmugirebhakime2":2327,"harunbharunbabdulla2":2328,"hubeyrebyerim":2333,"huzeylbhakemelezdiabdi":2334,"hurayrbabdirrahmanbraf":2335,"hureymbsufyanelbecelie":2335,"huzeylbsurahbilelevdi":2336,"hisambhucayr":2337,"hisambhassanelezdi":2338,"hisambhalidbzeydebu2":2339,"hisambziyadbebiyezi2":2340,"hisambsadelmedenieb2":2340,"hisambebiabdullah2":2348,"hisambabdulmelikelb2":2343,"hisambelgazbrebia":2348,"hisambyusufessananiebu":2349,"hilalbebihumeyd2":2358,"hilalbreddad":2359,"hilalbzeydbyesar2":2359,"hilalbabdullahelbah2":2360,"hilalbalabhilal2":2361,"hilalbebihilalelmed2":2362,"hilalbyesaf":2362,"heysembhalid2":2366,"vasilbabdirrahmanebuhu":2372,"verradebusaid":2376,"verdbabdullahettemimie":2376,"vikabiyaselesediebuyez":2380,"elvelidbsalih2":2387,"elvelidbabdullahbcumey":2388,"elvelidbukbebmugire2":2391,"elvelidbkasimbelvel2":2391,"elvelidbkaysbelahremet":2392,"elvelidbmuslim":2395,"elvelidbmugirebsule2":2396,"elvelidbebihisamziy2":2397,"elvelidbebielvelido2":2397,"vehbbismailbmuhamme2":2398,"vuheybbelverd":2404,"yahyabibrahimbosman2":2406,"yahyabishakbabdulla2":2407,"yahyabebiishakelhadram":2408,"yahyabismailelvasit2":2409,"yahyabismailbzekeri2":2409,"yahyabelcezzar":2415,"yahyabhakim2":2419,"yahyabhizam":2421,"yahyabdavudbmeymune2":2422,"yahyabdurust":2422,"yahyabrasid2":2423,"yahyabziyadbebidavu2":2425,"yahyabziyadbabdulla2":2425,"yahyabsaidbhayyan2":2427,"yahyabtalhabebikesir":2436,"yahyababbadbabdulla2":2436,"yahyababdullahbelha2":2438,"yahyababdullahbsali2":2439,"yahyababdullahbabdi2":2440,"yahyababdullahbmuha2":2440,"yahyababdullahbyezi2":2440,"yahyababdulhamidbab2":2440,"yahyababdirrahmanbm2":2444,"yahyabubeyd3":2445,"yahyabosmanbsaid2":2447,"yahyabosmanetteymi2":2448,"yahyabalaelbecelieb2":2450,"yahyabfazlbyahya2":2451,"yahyabkesir":2452,"yahyabkesirebunadr":2453,"yahyabmuhammedbabba2":2455,"yahyabmuhammedbabdu2":2456,"yahyabebielmuta":2459,"yahyabelmuhellebelbece":2463,"yahyabnadrelensarie2":2465,"yahyabyalaetteymiebuel":2470,"yezidbebihabibelmisrie":2478,"yezidbelhavtekiyyeette":2479,"yezidbhalidbyezid2":2480,"yezidbhumeyr":2480,"yezidbhumeyr2":2480,"yezidbziyad2":2482,"yezidbsalih2":2487,"yezidbabdirrahmanbe2":2491,"yezidbabdulazizbsiyah":2492,"yezidbkubeys":2496,"yezidbebikebseeddimask":2496,"yezidbmuhammedbkays2":2498,"yezidbmuaviyeenneha2":2499,"yezidbnaameeddabbiebum":2500,"yesarelmedeni2":2507,"yuseyyibmadanelhadrami":2508,"yakubbabdirrahmanbm2":2514,"yakubbmuhammedbisa2":2517,"yakubbyahyababbad2":2518,"yakubelmedeni2":2514,"yaisbelvelidbhisam":2522,"yusufbezzubeyrelmek2":2525,"yusufbvadihebuyakubelb":2532,"yusufbyezidelbasriebum":2534,"yunusbsuleymessanan2":2539,"yunusbubeydbdinarelabd":2540,"yunusbmuhammedbmusl2":2543,"ebuishak2":2550,"ebubasirelabdi":2556,"ebubekirbabdullahbm2":2559,"ebubekirbabdirrahmanbe":2560,"ebubekirbomerbabdir2":2562,"ebubekirbmuhammedbz2":2564,"ebubekirbmuhammedba2":2564,"ebuhusaynbyahyabsul2":2582,"ebuhafseddimaski2":2582,"eburabielmedeni2":587,"ebusadelezdi2":2597,"ebusaidessami3":737,"ebuselemebnubeyh":2602,"ebuseleme2":764,"ebusadikelezdi":2608,"ebuelaliyebera":2615,"ebuosmanelensarielm2":2623,"ebualaessami2":2638,"ebuelalaniye":2638,"ebukebseesseluli":2646,"ebuelkenudelezdi":2648,"ebumalikennehaielva2":2650,"ebumeravihelgifari":2654,"ebumugireelbeceli2":2202,"ebuelmunib":2664,"ebuheysemelmisri2":2674,"ebuelverdbsumamebhazne":2675,"ebuyahyaelmekki3":2678,"ebuyahyaelmekki4":2678,"ebuyezidelmedeni2":2477,"ebuelyemanerrahhalelme":2680};
