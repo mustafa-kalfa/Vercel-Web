@@ -1036,6 +1036,38 @@ rivayet etmiş). Bu testle toplu düzeltme yapılamaz.
 
 Çatal 951 → 946 düğüm, 13.373 kenar, süzgeci geçen 704.
 
+## Lakap/künye eşleşmeleri denetlendi (2026-09-14)
+
+Ana haritanın 289 kenarında en riskli grup olan `lakap` ve `ibn`
+kayıtları tek tek gözden geçirilmişti; **çataldakiler geçirilmemişti.**
+Şimdi geçirildi.
+
+Çataldaki 4.891 kenarın dağılımı — `tam` 2.069, `bas` 2.032, `kunye` 327,
+`ibn` 246, `lakap` 213. Tekrarları saymak yanıltıcı, doğru birim **ayrı
+metin**: 109 ayrı lakap/künye/ibn ifadesi var ve **107'si tek bir düğüme
+bağlanıyor**. A‘meş, İbn Ebî Zi’b, Humeydî, Derâverdî, Hureybî, Şa‘bî,
+İbn Ebî'z-Zinâd, İbn Ebî Arûbe — hepsi tartışmasız.
+
+İkisi birden çok kişiye bağlanmış ve ikisi de incelendi:
+
+- **`ابن صاعد`** — 40'ın üzerinde kenarda Yahyâ b. Muhammed b. Sâid'e
+  (ö. 318) gidiyor ve hepsi doğru; ö. 244-274 arası nesilden rivayet
+  etmiş, kronoloji tam. Tek istisna Ebû's-Sükeyn'in (ö. 201) tercemesinde
+  Halef b. Halîfe b. Sâid'e (ö. 181) bağlanan kayıt — o tarihte meşhur
+  İbn Sâid henüz doğmamış, kapı onu eleyip dedesinin adı Sâid olan
+  başkasına düşmüş. Çıkarıldı.
+- **`الترمذي`** — el-Cârûd b. Muâz es-Sülemî **et-Tirmizî**'nin de
+  nisbesi, yani metin gerçekten iki kişiye uyuyor. İbn Ulâse'nin (ö. 168)
+  tercemesi Tehzîb'den okundu: talebe listesi Harâmî b. Hafs, Hafs b.
+  Gıyâs, İbnü'l-Mübârek, Vekî‘ diye gidiyor ve **içinde Tirmizî yok**.
+  O kenar çıkarıldı. `el-Cârûd → Tirmizî` kenarı ise doğru, duruyor.
+
+Sonuç: 2 kenar çıkarıldı, çatal 13.371.
+
+**Ders:** bu sınıfın denetim birimi kenar sayısı değil **ayrı metin
+sayısı**. 459 kayıt korkutucu görünüyor ama 109 ifadeye iniyor ve
+elle gözden geçirilebilir bir büyüklük.
+
 ## Daha derin arka plan
 
 `silsile-agi-notlar.md` — belde denetimi, Bağdat sütunu kararı, başlık

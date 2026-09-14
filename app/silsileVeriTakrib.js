@@ -15,7 +15,7 @@
    ayiklandi, kenarlar Tehzibu't-Tehzib taramasindan
    (`kenar-tara.py`). Sayilar ve tuzaklar DEVIR-NOTU.md'de.
 
-   946 dugum, 4891 kenar. */
+   946 dugum, 4889 kenar. */
 import {
   NODES as ANA_NODES, EDGES as ANA_EDGES, SAMILE as ANA_SAMILE, N, E,
   dereceKur, rOfKur, rEkranOfKur, yerlesimKur, nebiKenarlariEkle,
@@ -4482,7 +4482,6 @@ const KUFE_EDGES = [
   /* Zekeriyyâ b. Yahyâ b. Ömer Ebû es-Sükeyn -- hocalari */
   E("zekeriyyabyahyabomer", "hasanbelbezzar", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması, Zekeriyyâ b. Yahyâ b. Ömer Ebû es-Sükeyn tercemesi"),
   E("zekeriyyabyahyabomer", "ed20", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması, Zekeriyyâ b. Yahyâ b. Ömer Ebû es-Sükeyn tercemesi"),
-  E("zekeriyyabyahyabomer", "halefbhalifebsaidelesc", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması, Zekeriyyâ b. Yahyâ b. Ömer Ebû es-Sükeyn tercemesi"),
   /* Ömer b. Yûnus el-Yemâmî -- hocalari */
   E("omeryunusyemami", "zuheyrbharbbseddad", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması, Ömer b. Yûnus el-Yemâmî tercemesi"),
   E("omeryunusyemami", "yahyabfazlbyahya", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması, Ömer b. Yûnus el-Yemâmî tercemesi"),
@@ -5661,7 +5660,6 @@ const KUFE_EDGES = [
   /* İsmâîl İbn Uleyye -- hocalari */
   E("ibnuleyye", "muhammedbabdullah3", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması, İsmâîl İbn Uleyye tercemesi"),
   /* Muhammed b. Abdullah b. Ulâse -- hocalari */
-  E("muhammedbabdullah3", "bmuazessulemi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması, Muhammed b. Abdullah b. Ulâse tercemesi"),
   E("muhammedbabdullah3", "musabharun", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması, Muhammed b. Abdullah b. Ulâse tercemesi"),
   E("muhammedbabdullah3", "abdulazizuveysi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması, Muhammed b. Abdullah b. Ulâse tercemesi"),
   E("muhammedbabdullah3", "hisamtayalisi", "—", "Takrîb iskeleti + Tehzîbü't-Tehzîb taraması, Muhammed b. Abdullah b. Ulâse tercemesi"),
