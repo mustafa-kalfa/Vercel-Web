@@ -858,6 +858,58 @@ Saîd b. Yahyâ`, `Ebû'n-Nadr Hâşim` = `Hâşim b. Kâsım b. Müslim`, `ez-Z
 el-Hinâî` = `Ali b. el-Mübârek`, `Hüseyin b. Zekvân el-Muallim` =
 `Hüseyin el-Muallim`. Bunlar henüz birleştirilmedi.
 
+## Mükerrer düğümler birleştirildi (2026-09-14)
+
+Aynı-terceme denetimi 24 mükerrer çift gösterdi. **Yirmi biri tek tek
+elle denetlendi, hepsi gerçekti** — el-Hâd Üsâme'nin lakabı, İbn Uleyye
+İsmâîl b. İbrâhim b. Miksem, el-Fellâs Amr b. Ali b. Bahr, İbn Ebi'd-Dünyâ
+Abdullah b. Muhammed b. Ubeyd, Abdân Abdullah b. Osmân b. Cebele. Yanlış
+pozitif yok.
+
+Ölçüt **aynı Tehzîb terceme satırı + aynı vefat yılı**. Yıl şartı gerekli,
+çözücünün kendi hatası da iki düğümü aynı satıra düşürebiliyor (Buhârî
+ö.256 ile ö.264 eşleniyordu).
+
+**Ortak belirteç şartı KOYULAMAZ** — tam da kör noktayı geri getirir.
+`ابن علية` ile `إسماعيل بن إبراهيم بن مقسم` arasında ortak tek belirteç
+yok; zaten bu yüzden ad karşılaştırması bunları hiç yakalayamamıştı.
+Altdizi şartı denendi, 21 çiftin yalnız 1'ini bıraktı.
+
+**Aynı Şâmile sayfası ölçüt değil.** Denendi ve 49 küme verdi, çoğu ayrı
+kişi — bir Tehzîb sayfası birden çok terceme taşıyor, alfabetik komşular
+aynı sayfaya düşüyor (Enes b. Mâlik ile Enes b. İyâz, Zeyd b. Erkam ile
+Zeyd b. Eslem).
+
+Çatalda 21 trans düğümü ana haritadaki karşılığına taşındı — 975 → 954
+düğüm, 13.187 → 12.961 kenar. Dereceler bir miktar **düştü** ve bu doğru:
+mükerrer yüzünden iki kez sayılan aynı ilişki tekleşti (ez-Zühlî 110 → 108).
+
+### Ana haritadaki üç çift
+
+Üçü de yayındaki veride duruyordu, transtan önce:
+
+| kalan | düşen | derece |
+|---|---|---|
+| `alimubarek` | `alimubarekhinai` | 12 |
+| `hamzaibnomer` | `hamzaibnomerogul` | 7 |
+| `huseynzekvan` | `huseynmuallim` | 21 |
+
+Kalan kimlik kenarı çok olan; ad ve not daha dolu olan taraftan alındı.
+Ali ile Hamza'da düşen tarafın notu zaten yalnızca "Rumûz ع.", kayıp yok.
+**Hüseyin'de iki taraf da yazılı içerik taşıyordu ve ikisi birleştirildi**,
+hiçbiri atılmadı.
+
+Ana harita 821 → 818 düğüm, 8509 → 8482 kenar. Komşu kümesi tek tek
+doğrulandı: birleşme öncesi iki düğümün komşularının birleşimi, sonrasında
+kalan düğümün komşu kümesine **birebir** eşit; graf genelinde kayıp 0.
+
+### Bu boru hattında sonraki tur için
+
+`catal-yaz.mjs` "iki ucu da mevcut düğüm" olan kenarı atıyor. Birleştirme
+bir kenarın iki ucunu da ana haritaya taşıyabildiği için bu sessiz bir
+kayıp riski — ölçüldü, bu turda taşınanların hepsi zaten ana haritada
+vardı (kayıp 0), ama sonraki turda ayrıca toplanmalı.
+
 ## Daha derin arka plan
 
 `silsile-agi-notlar.md` — belde denetimi, Bağdat sütunu kararı, başlık

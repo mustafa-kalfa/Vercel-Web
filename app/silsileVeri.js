@@ -604,8 +604,6 @@ export const NODES = [
   N("ebulubabe", "أبو لبابة الأنصاري", "Ebû Lübâbe el-Ensârî", 1, null, "Medine",
     "Tehzîbü't-Tehzîb. Ensâr'dan sahâbî, Evs'ten. Adı Beşîr b. Abdilmünzir'dir, Rifâa b. Abdilmünzir olduğu da söylenir. Akabe'de bulunan nakîblerdendir. Bedir'e giderken Hz. Peygamber onu Ravhâ'dan geri çevirip Medine'ye vali tayin etmiş, buna karşılık ganimetten payını ve ecrini vermiş, böylece savaşa katılmış sayılmıştır. Uhud'da ve sonraki gazvelerde bulundu, Fetih günü Benî Amr b. Avf'ın sancağı onun elindeydi. Hz. Peygamber'den ve Hz. Ömer'den rivayet eder, kendisinden iki oğlu Sâib ile Abdurrahman, ayrıca Abdullah b. Ömer, Sâlim ve Nâfi‘ nakleder. Hz. Ali'nin hilâfetinde vefat ettiği söylenir, Halîfe Hz. Osman'ın öldürülmesinden sonra, bir başka rivayet ise elli yılından sonra der."),
   N("abdullahdinar", "عبد الله بن دينار", "Abdullah b. Dînâr", 4, 127, "Medine", "Rumûz ع."),
-  N("hamzaibnomerogul", "حمزة بن عبد الله بن عمر (ابنه)", "Hamza b. Abdillâh b. Ömer (oğlu)", 3, null, "Medine",
-    "Tehzîbü't-Tehzîb. Künyesi Ebû Umâre, Abdullah b. Ömer b. el-Hattâb'ın oğlu ve Sâlim'in öz kardeşidir. İbn Sa'd onu «كان ثقة، قليل الحديث» diye anar, İclî de «مدني، تابعي، ثقة» der. İbnü'l-Medînî, Yahyâ b. Saîd'den naklen onu Medine fakihleri içinde sayar."),
   N("cebeleshim", "جبلة بن سحيم", "Cebele b. Süheym", 4, 125, "Kûfe", "Rumûz ع."),
   N("saidyesar", "أبو الحباب سعيد بن يسار", "Saîd b. Yesâr", 3, 117, "Medine", "Rumûz ع."),
   N("sadubeyde", "سعد بن عبيدة", "Sa‘d b. Ubeyde", 3, null, "Kûfe",
@@ -1034,8 +1032,6 @@ export const NODES = [
   // ---- Veki' cevresinde aga giren raviler ----
   N("aliebisalihhayy", "علي بن صالح بن حي", "Ali b. Sâlih b. Hayy", 5, 151, "Kûfe",
     "Tehzîbü't-Tehzîb. Kûfeli, Hasan b. Sâlih'in ikiz kardeşi. Ahmed b. Hanbel, İbn Maîn ve Nesâî sika der, İbn Maîn bir yerde «sika me'mûn» diye pekiştirir, İbn Sa‘d «Kur'ân sahibiydi, sika inşallah, az hadisli» der. Az hadisli oluşu nakillerde de görülüyor, Müsennâ «ne Yahyâ el-Kattân'ı ne İbn Mehdî'yi Ali b. Sâlih'ten bir şey rivayet ederken işittim» der, Sâcî de İbn Maîn'in onu zayıfladığını nakleder. Müslim'de ondan gelen tek hadis, Ebû Hüreyre'nin «sizin hayırlınız borcunu en güzel ödeyeninizdir» rivayetidir. Kardeşi Hasan ölümünü anlatır — eceli gelince gözünü kaldırıp «Allah'ın kendilerine nimet verdiği nebîler ve sıddîklarla beraber» âyetini okumuş, sonra ruhu çıkmış."),
-  N("alimubarekhinai", "علي بن المبارك الهنائي", "Ali b. el-Mübârek el-Hinâî", 5, null, "Basra",
-    "Tehzîbü't-Tehzîb. Basralı. Sikalığında ihtilaf yok — Ahmed b. Hanbel, Ebû Dâvûd, İbnü'l-Medînî, İbn Nümeyr ve İclî sika der, İbn Hibbân «zâbıt, mütkın» der, İbn Adî «Yahyâ b. Ebî Kesîr'de sebttir ve onda öne geçer» diye ekler. Tercemeyi asıl kayda değer kılan şey iki kitabı. Ahmed onun Yahyâ b. Ebî Kesîr'den kitaplarının bir kısmını semâ, bir kısmını arz yoluyla aldığını söyler, Ebû Dâvûd bunu daha keskin ifade eder — «iki kitabı vardı, biri semâ kitabı, öteki irsâl kitabı.» Ayırt etme yolunu da veriyor, Abbâs el-Anberî'ye göre Vekî‘in ondan İkrime yoluyla naklettikleri irsâl kitabından gelir, insanlar ise semâ kitabını yazardı. Yahyâ b. Saîd el-Kattân aynı ayrımı coğrafyayla anlatır — «bizim ondan rivayet ettiğimiz işittikleridir, Kûfeliler'in rivayet ettikleri ise işitmediği kitaptandır.» Yani rivayetin durumu râviye değil hangi kitaptan geldiğine bağlı."),
   N("omerzerr", "عمر بن ذر الهمداني", "Ömer b. Zerr el-Hemdânî", 5, 153, "Kûfe",
     "Tehzîbü't-Tehzîb. Kûfeli. Tercemesi, mezhep ile rivayetin ayrı tutulup tutulamayacağına dair bir örnek. İrcâ görüşünde olduğunda ittifak var — Ebû Dâvûd «ircâda baş idi» der, İbn Sa‘d öldüğünde Sevrî'nin cenazesine katılmadığını kaydeder. Rivayette ise İbn Maîn, Nesâî ve Dârekutnî sika der. Yahyâ b. Saîd el-Kattân ayrımı açıkça koyar — «Ömer b. Zerr hadiste sikadır, yanıldığı bir görüş yüzünden hadisi terk edilmemeli.» Ebû Hâtim öbür uca düşer ve «sadûk idi, mürciî idi, hadisiyle ihticâc edilmez» der. Ömrünün sonunda gözlerini kaybetti, İbnü'l-Medînî'ye göre otuz kadar hadisi vardır."),
   N("mesudi", "عبد الرحمن بن عبد الله المسعودي", "Mes‘ûdî, Abdurrahman b. Abdillâh", 5, 160, "Kûfe",
@@ -1248,7 +1244,7 @@ export const NODES = [
   N("yahyayamer", "يحيى بن يعمر", "Yahyâ b. Ya‘mer", 3, null, "Horasan",
     "Basralı, Merv'e yerleşip oranın kadısı oldu; sütun bu sebeple Horasan verildi. Takrîb 7678: üçüncü tabakadan, mürsel rivayet ederdi. VEFÂT YILI GİRİLMEDİ: Takrîb «yüzden önce» diyor, kesin yıl vermiyor. Rumûz ع."),
   N("huseynzekvan", "الحسين بن ذكوان المعلم", "Hüseyin b. Zekvân el-Muallim", 4, 145, "Basra",
-    "el-Avzî el-Basrî. Zekvân adlı râvilerle (Ebû Sâlih es-Semmân, Zekvân mevlâ Âişe) karıştırılmamalı; o Zekvân'ın oğludur. Takrîb 1320, Tehzîb 1309: altıncı tabakadan, 145 senesi. Tehzîb'de hemen bir öncesinde el-Hüseyin b. Hafs b. el-Fazl b. Yahyâ b. Zekvân el-Isfahânî duruyor; nesebinde Zekvân geçtiği için karışabiliyor, ayrı kişidir. Rumûz ع."),
+    "el-Avzî el-Basrî. Çocuklara yazı öğrettiği için «el-Muallim» ve «el-Mükettib» diye anılır. Zekvân adlı râvilerle (Ebû Sâlih es-Semmân, Zekvân mevlâ Âişe) karıştırılmamalı; o Zekvân'ın oğludur. Takrîb 1320, Tehzîb 1309: altıncı tabakadan, 145 senesi. İbn Hacer onu sika sayar, bazan vehmettiğini ekler; Kütüb-i Sitte'nin altısı da ondan rivayet eder. Amr b. Şuayb ve Katâde'den aldığı rivayetlerle tanınır. Tehzîb'de hemen bir öncesinde el-Hüseyin b. Hafs b. el-Fazl b. Yahyâ b. Zekvân el-Isfahânî duruyor; nesebinde Zekvân geçtiği için karışabiliyor, ayrı kişidir. Rumûz ع."),
   N("mahremesuleyman", "مخرمة بن سليمان الوالبي", "Mahreme b. Süleymân el-Vâlibî", 4, 130, "Medine",
     "el-Esedî el-Medenî. Takrîb 6527: beşinci tabakadan, 130 senesi. Rumûz ع."),
   N("mufaddalfadale", "المفضل بن فضالة القتباني", "Mufaddal b. Fadâle el-Kütbânî", 5, 181, "Mısır",
@@ -1653,13 +1649,11 @@ export const NODES = [
     "Tehzîbü't-Tehzîb. Medineli. Adı üç ayrı şekilde geçiyor — Hilâl b. Ali b. Üsâme, Hilâl b. Ebî Meymûne ve Hilâl b. Ebî Hilâl, bazıları da dedesine nisbet edip İbn Üsâme der. Enes b. Mâlik, Ebû Seleme b. Abdirrahman ve Atâ b. Yesâr'dan rivayet eder, kendisinden Mâlik, Yahyâ b. Ebî Kesîr, Ziyâd b. Sa‘d ve Saîd b. Ebî Hilâl nakleder. Dârekutnî sika der, Mesleme «sika, kadîm» der, İbn Hibbân sikalar arasında sayar, Ebû Hâtim «şeyh, hadisi yazılır», Nesâî «be's yok» der. Kendisinden rivayet edenler listesinde de bir tartışma var, Mizzî Muhammed b. Humrân'ın burada anılmasını hata sayıp onu Hilâl b. Ebî Zeyneb'e verir, İbn Hacer ise Ebû Hâtim'in kaydına dayanarak ilk görüşün doğru olduğunu söyler."),
   N("muhammedibrahimteymi", "محمد بن إبراهيم التيمي", "Muhammed b. İbrâhim et-Teymî", 4, 120, "Medine",
     "Tehzîbü't-Tehzîb. Medineli, dedesi el-Hâris ilk muhacirlerdendir. Sa‘d b. Ebî Vakkās'ı görmüştür. İbn Maîn, Ebû Hâtim, Nesâî ve İbn Hırâş sika der, İbn Sa‘d «sika, çok hadisli» diye anar, Ya‘kūb b. Şeybe de sika sayar. Tek çekince Ahmed b. Hanbel'den geliyor, Ukaylî'nin naklettiğine göre «hadisinde bir şey var, münker rivayetleri vardır» demiş. Tercemesinde bir de semâ tartışması var. Ebû Hâtim onun ne Câbir'den ne Ebû Saîd'den işittiğini söyler, İbn Hacer buna itiraz eder — Âişe'den gelen hadisi Mâlik ile Tirmizî'de bulunuyor ve Tirmizî onu sahih sayıyor, oysa Âişe ikisinden de önce vefat etmiştir, yani daha erken ölene yetişip daha geç ölenlere yetişememesi tuhaf düşer."),
-  N("alimubarek", "علي بن المبارك", "Ali b. el-Mübârek", 5, null, "Basra", "Rumûz ع."),
+  N("alimubarek", "علي بن المبارك الهنائي", "Ali b. el-Mübârek el-Hinâî", 5, null, "Basra", "Rumûz ع."),
   N("hisamhassan", "هشام بن حسان", "Hişâm b. Hassân", 5, 148, "Basra",
     "Tehzîbü't-Tehzîb. Muhammed b. Sîrîn «Hişâm bizden, ev halkındandır» demiş; Saîd b. Ebî Arûbe «İbn Sîrîn'den Hişâm'dan daha hâfız kimse görmedim» der, Hammâd b. Seleme İbn Sîrîn rivayetinde ona kimseyi tercih etmez. Zayıf tarafı Hasan-ı Basrî'den rivayetidir: İbn Uyeyne onu Hasan'ı gördüğünde çok küçük saydığı için bu rivayeti sorunlu bulur, İbnü'l-Medînî Hasan'dan gelenlerin çoğunun Havşeb üzerinden döndüğünü söyler. Kendisi de «Hasan'dan Amâk hadisinden başka hadis yazmadım» der."),
   N("haccacsavvaf", "حجاج بن أبي عثمان الصواف", "Haccâc b. Ebî Osmân es-Savvâf", 5, 143, "Basra",
     "Basralı râvi, künyesi Ebü's-Salt. İbn Hacer onu \"sika, hâfız\" diye niteler ve altıncı tabakadan sayar; Kütüb-i Sitte'nin altısı da ondan rivayet eder. Yahyâ b. Ebî Kesîr ve Katâde'den aldığı rivayetlerle Basra'nın sağlam râvilerinden sayılır. 143 yılında vefat etti."),
-  N("huseynmuallim", "حسين المعلم", "Hüseyin el-Muallim", 5, 145, "Basra",
-    "Basralı râvi; çocuklara yazı öğrettiği için \"el-Muallim\" ve \"el-Mükettib\" diye anılır. İbn Hacer onu \"sika\" sayar, bazan vehmettiğini ekler ve altıncı tabakadan gösterir; Kütüb-i Sitte'nin altısı da ondan rivayet eder. Amr b. Şuayb ve Katâde'den aldığı rivayetlerle tanınır. 145 yılında vefat etti."),
   N("seybannahvi", "شيبان بن عبد الرحمن النحوي", "Şeybân b. Abdirrahman en-Nahvî", 5, 164, "Basra",
     "Tehzîbü't-Tehzîb. Basralı, önce Kûfe'ye sonra Bağdat'a yerleşti. Ahmed b. Hanbel «bütün şeyhlerde sebt» der ve onu kitap sahibi, Hişâm'ı hâfız diye ayırır. İbn Maîn Katâde rivayetinde onu Ma‘mer'den, Bagavî ise Yahyâ b. Ebî Kesîr rivayetinde Evzâî'den üstün tutar. Harf ve kıraat sahibiydi. Nahvî nisbesi dilcilikten değil, Ezd'in Benî Nahv koluna nisbetledir (Askerî)."),
   N("muaviyesellam", "معاوية بن سلام", "Muâviye b. Sellâm", 5, null, "Şam", "Rumûz ع."),
@@ -2297,7 +2291,7 @@ const EDGES_HAM = [
       ["ebunadra","م"],["ebuumame","م"],
      ].map(([a, r]) => E(a, "yahyaebikesir", r, "Tehzîb 6907")),
   ...[["eyyubsahtiyani","م"],["cerirhazim","—"],["haccacsavvaf","م ٤"],
-      ["huseynmuallim","خ م د ت س"],["seybannahvi","خ م س"],
+      ["huseynzekvan","خ م د ت س"],["seybannahvi","خ م س"],
       ["evzai","ع"],["ikrimeammar","خت م د ق"],["alimubarek","ع"],
       ["muaviyesellam","ع"],["mamer","خ م د ت س"],["hisamhassan","ق"],
       ["hisamdestuvai","خ م س"],["hemmamyahya","خ م"],["yahyasaidensari","—"],
@@ -2327,7 +2321,7 @@ const EDGES_HAM = [
   ...[["eslem","خ م ق"],["enessirin","خ م ت ق"],["busrsaid","م"],
       ["sabitbunani","م س"],["cebeleshim","ع"],["habibebisabit","٤"],
       ["hasanbasri","س ق"],["hafsasim","خ م د س ق"],["hakemmina","م س ق"],
-      ["hamzaibnomerogul","ع"],["humeydavf","خ م س"],["ebusalih","م د"],
+      ["hamzaibnomer","ع"],["humeydavf","خ م س"],["ebusalih","م د"],
       ["zadan","بخ م د ت س"],["zeydeslem","ع"],["salimcad","خ"],
       ["salimibnomer","ع"],["sadubeyde","خ م د ت ص"],["saidcubeyr","ع"],
       ["saidmusayyeb","خ م س ق"],["saidyesar","ع"],["suleymanyesar","د س"],
@@ -2364,7 +2358,7 @@ const EDGES_HAM = [
 
   // ---- Aise, Tehzib 8862 (Kitabu'n-nisa) ----
   ...[["nehai","د س ق"],["ibrahimteymi","د س"],["esvedyezid","ع"],
-      ["hasanbasri","د س"],["hamzaibnomerogul","م س"],["hilas","د س"],
+      ["hasanbasri","د س"],["hamzaibnomer","م س"],["hilas","د س"],
       ["hayseme","د ت ق"],["ebusalih","د ت ق"],["zekvanmevlaaise","خ م د س"],
       ["zadan","سي"],["zurareevfa","د"],["zirhubeys","تم"],["zeydeslem","د"],
       ["zeydhalid","د سي"],["salimcad","د"],["salimibnomer","س"],
@@ -2398,7 +2392,7 @@ const EDGES_HAM = [
   ...[["ismailebihalid","خ م"],["enessirin","خ م د س ق"],["eyyubsahtiyani","خ م س"],
       ["sabitbunani","خ م د ت س"],["cebeleshim","خ م س"],["cameseddad","خ م د س ق"],
       ["caferisadik","—"],["habibebisabit","خ م س"],["hakemuteybe","خ م د ت س"],
-      ["hammadebisuleyman","م د ت س"],["huseynmuallim","خ"],["husaynabdrahman","خ م س"],
+      ["hammadebisuleyman","م د ت س"],["huseynzekvan","خ"],["husaynabdrahman","خ م س"],
       ["humeydtavil","خ م س"],["halidhazza","خ م د س"],["hubeybabdrahman","ع"],
       ["davudebihind","س"],["rebiaebiabdrahman","—"],["zubeydyami","خ م د س ق"],
       ["zekeriyyaebizaide","—"],["sadibrahim","ع"],["ibnsihab","—"],["ibnishak","—"],
@@ -2592,7 +2586,7 @@ const EDGES_HAM = [
   // ---- Veki' b. el-Cerrah, Tehzib (s. 30/464-471) ----
   ...[["zekeriyyaishak","ع"],["zekeriyyaebizaide","م ٤"],["ibnuyeyne","—"],["amess","خ م د ت ق"],["serikkadi","ت"],["abdullahavn","م"],["abdulhamidcafer","م ق"],["mesudi","د ق"],["ibncureyc","م ق"],
       ["ubeydullahomeri","—"],["ikrimeammar","م د س ق"],["aliebisalihhayy","م ت س"],
-      ["alimubarekhinai","خ م س ق"],["omerzerr","خ د ت"],["hanzalasufyan","م ت"],
+      ["alimubarek","خ م س ق"],["omerzerr","خ د ت"],["hanzalasufyan","م ت"],
       ["suleymanmugire","س ق"],["saidubeydtai","م"],["davudkaysferra","س ق"],
       ["saidabdulaziz","د ق"],["abdulazizomer","٤"],["hisamurve","—"],
       ["hammadzeyd","—"],["ibnishak","—"],
@@ -2609,7 +2603,7 @@ const EDGES_HAM = [
       ["ibrahimfezari","—"],["ibrahimukbe","م س"],["usamezeydeslem","ق"],
       ["usamezeydleysi","خت ع"],["ismailebihalid","م"],["ismailayyas","ق"],
       ["ebuburde","م"],["cerirhazim","—"],["caferburkan","س"],
-      ["haccacertat","س ق"],["harmalaimran","د ق"],["huseynmuallim","خ م د ت س"],
+      ["haccacertat","س ق"],["harmalaimran","د ق"],["huseynzekvan","خ م د ت س"],
       ["hammadzeyd","—"],["hammadseleme","ت س"],["hamzazeyyat","س"],
       ["humeydtavil","خ د ت س"],["hanzalasufyan","س"],["hayveseri","خ م د ت س"],
       ["halidhazza","س"],["davudattar","—"],["davudkaysferra","رمدس"],
@@ -2631,7 +2625,7 @@ const EDGES_HAM = [
   ...[["ismailebihalid","خ م"],["usamezeydleysi","س"],["esaseabdulmelik","س"],
       ["behzhakim","د ت س"],["sevryezid","بخ ٤"],["caferisadik","د س"],
       ["hasanisad","س"],["hatimebisagire","خ م س"],["haccacsavvaf","م د س ق"],
-      ["hasanzekvan","خ د ت ق"],["huseynmuallim","خ م د س"],["hammadseleme","م"],
+      ["hasanzekvan","خ د ت ق"],["huseynzekvan","خ م د س"],["hammadseleme","م"],
       ["humeydtavil","خ م د س"],["hanzalasufyan","—"],["halidhazza","—"],
       ["husaymirak","خ س"],["davudkaysferra","س"],["zekeriyyaebizaide","د س"],
       ["sadibrahim","—"],["selimhayyan","خ د"],["amess","—"],
@@ -3366,7 +3360,7 @@ const EDGES_HAM = [
   E("amrsuayb", "sabitbunani", "سي", "Tehzîb 4385"),
   E("amrsuayb", "haccacertat", "ت س ق", "Tehzîb 4385"),
   E("amrsuayb", "hassanatiyye", "د", "Tehzîb 4385"),
-  E("amrsuayb", "huseynmuallim", "ر ٤", "Tehzîb 4385"),
+  E("amrsuayb", "huseynzekvan", "ر ٤", "Tehzîb 4385"),
   E("amrsuayb", "hakemuteybe", "س", "Tehzîb 4385"),
   E("amrsuayb", "humeyskaysarac", "س", "Tehzîb 4385"),
   E("amrsuayb", "humeydtavil", "—", "Tehzîb 4385"),
@@ -3465,7 +3459,7 @@ const EDGES_HAM = [
   E("enessirin", "hemmamyahya", "خ م دس ق", "Tehzîb 6602"),
   E("sabitbunani", "hemmamyahya", "خ م", "Tehzîb 6602"),
   E("hasanbasri", "hemmamyahya", "—", "Tehzîb 6602"),
-  E("huseynmuallim", "hemmamyahya", "دس", "Tehzîb 6602"),
+  E("huseynzekvan", "hemmamyahya", "دس", "Tehzîb 6602"),
   E("ziyadsad", "hemmamyahya", "د س", "Tehzîb 6602"),
   E("zeydeslem", "hemmamyahya", "م س", "Tehzîb 6602"),
   E("ibnuyeyne", "hemmamyahya", "دس", "Tehzîb 6602"),
@@ -4839,7 +4833,7 @@ const EDGES_HAM = [
   E("esaseabdulmelik", "halidharis", "د ت س", "Tehzîb 1598"),
   E("eyyubsahtiyani", "halidharis", "—", "Tehzîb 1598"),
   E("hatimebisagire", "halidharis", "خ د س", "Tehzîb 1598"),
-  E("huseynmuallim", "halidharis", "د س", "Tehzîb 1598"),
+  E("huseynzekvan", "halidharis", "د س", "Tehzîb 1598"),
   E("humeydtavil", "halidharis", "ع", "Tehzîb 1598"),
   E("saidcubeyr", "halidharis", "س", "Tehzîb 1598"),
   E("sube", "halidharis", "خ م س", "Tehzîb 1598"),
@@ -4976,7 +4970,7 @@ const EDGES_HAM = [
      Tehzîb 5029. Tercemede 27 kayit var, agda dugumu olan 15'i cizildi. */
   E("esaseabdulmelik", "muhammedebiadi", "ي", "Tehzîb 5029"),
   E("haccacsavvaf", "muhammedebiadi", "م د س ق", "Tehzîb 5029"),
-  E("huseynmuallim", "muhammedebiadi", "م ت ق", "Tehzîb 5029"),
+  E("huseynzekvan", "muhammedebiadi", "م ت ق", "Tehzîb 5029"),
   E("humeydtavil", "muhammedebiadi", "م ت س ق", "Tehzîb 5029"),
   E("hanzalasufyan", "muhammedebiadi", "د", "Tehzîb 5029"),
   E("halidhazza", "muhammedebiadi", "س ق", "Tehzîb 5029"),
@@ -5562,7 +5556,7 @@ const EDGES_HAM = [
   E("abdulazizsuheyb", "saidabdulaziz", "—", "Tehzîb 3453"),
   E("abdulazizsuheyb", "sube", "خ م د ت س", "Tehzîb 3453"),
   E("abdulazizsuheyb", "abdulvarissaid", "ع", "Tehzîb 3453"),
-  E("abdulazizsuheyb", "alimubarekhinai", "س", "Tehzîb 3453"),
+  E("abdulazizsuheyb", "alimubarek", "س", "Tehzîb 3453"),
   E("abdulazizsuheyb", "hisamhassan", "س", "Tehzîb 3453"),
   E("abdulazizsuheyb", "vuheybhalid", "خ م", "Tehzîb 3453"),
 
@@ -6213,7 +6207,7 @@ const EDGES_HAM = [
   E("sube", "ebuamirakadi", "خ م س", "Tehzîb 3545"),
   E("macisun", "ebuamirakadi", "م", "Tehzîb 3545"),
   E("ikrimeammar", "ebuamirakadi", "م د", "Tehzîb 3545"),
-  E("alimubarekhinai", "ebuamirakadi", "—", "Tehzîb 3545"),
+  E("alimubarek", "ebuamirakadi", "—", "Tehzîb 3545"),
   E("omerzerr", "ebuamirakadi", "—", "Tehzîb 3545"),
   E("malik", "ebuamirakadi", "—", "Tehzîb 3545"),
   E("ibnebizib", "ebuamirakadi", "—", "Tehzîb 3545"),
@@ -6991,7 +6985,6 @@ const EDGES_HAM = [
   E("alimubarek", "muslimibrahim", "د", "Tehzîb 4124"),
   E("alimubarek", "veki", "خ م س ق", "Tehzîb 4124"),
   E("alimubarek", "kattan", "د س", "Tehzîb 4124"),
-  E("alimubarek", "ebuamirakadi", "—", "Tehzîb 4124"),
 
 
   /* Ca‘d Ebû Osmân (o. ?) -- talebeleri.
@@ -7031,10 +7024,9 @@ const EDGES_HAM = [
 
   /* Hamza b. Abdillâh b. Ömer (oğlu) (o. ?) -- talebeleri.
      Tehzîb 1507. Tercemede 11 kayit var, agda dugumu olan 4'i cizildi. */
-  E("hamzaibnomerogul", "safvansuleym", "—", "Tehzîb 1507"),
-  E("hamzaibnomerogul", "ibnsihab", "ع", "Tehzîb 1507"),
-  E("hamzaibnomerogul", "musaukbe", "م", "Tehzîb 1507"),
-  E("hamzaibnomerogul", "yezidhad", "—", "Tehzîb 1507"),
+  E("hamzaibnomer", "ibnsihab", "ع", "Tehzîb 1507"),
+  E("hamzaibnomer", "musaukbe", "م", "Tehzîb 1507"),
+  E("hamzaibnomer", "yezidhad", "—", "Tehzîb 1507"),
 
 
   /* Hakem b. el-A‘rec (o. ?) -- talebeleri.
@@ -8492,8 +8484,6 @@ const EDGES_HAM = [
   E("huseynzekvan", "alimubarek", "د", "Tehzîb"),
   E("huseynzekvan", "isabyunus", "م ت", "Tehzîb"),
   E("huseynzekvan", "gunder", "ت س", "Tehzîb"),
-  E("huseynzekvan", "muhammedebiadi", "م ت ق", "Tehzîb"),
-  E("huseynzekvan", "hemmamyahya", "د س", "Tehzîb"),
   E("huseynzekvan", "kattan", "خ م د س", "Tehzîb"),
   E("huseynzekvan", "yezidzurey", "م ع", "Tehzîb"),
   E("huseynzekvan", "yezidharun", "م د س ق", "Tehzîb"),
@@ -8937,7 +8927,7 @@ const EDGES_HAM = [
   E("hisamhassan", "suleymanhayyan", "—", "Tehzîbü't-Tehzîb"),
   E("asimahvel", "suleymanhayyan", "—", "Tehzîbü't-Tehzîb"),
   E("hatimebisagire", "suleymanhayyan", "—", "Tehzîbü't-Tehzîb"),
-  E("huseynmuallim", "suleymanhayyan", "—", "Tehzîbü't-Tehzîb"),
+  E("huseynzekvan", "suleymanhayyan", "—", "Tehzîbü't-Tehzîb"),
   E("ebumalikesceyi", "suleymanhayyan", "—", "Tehzîbü't-Tehzîb"),
   E("ibnebiaruba", "suleymanhayyan", "—", "Tehzîbü't-Tehzîb"),
   E("abdulhamidcafer", "suleymanhayyan", "—", "Tehzîbü't-Tehzîb"),
@@ -9924,7 +9914,6 @@ const EDGES_HAM = [
      İsmâîl b. Ebî Hâlid, Yahyâ b. Saîd el-Ensârî, Hüseyin el-Muallim, Süfyân b. Husayn, Muhammed b. Amr b. Alkame, Hişâm b. Hassân, Abdülmelik b. Ebî Süleymân, Avvâm b. Havşeb. */
   E("ismailebihalid", "yezidharun", "—", "Tehzîbü't-Tehzîb, Yezîd b. Hârûn tercemesi"),
   E("yahyasaidensari", "yezidharun", "—", "Tehzîbü't-Tehzîb, Yezîd b. Hârûn tercemesi"),
-  E("huseynmuallim", "yezidharun", "—", "Tehzîbü't-Tehzîb, Yezîd b. Hârûn tercemesi"),
   E("sufyanhusayn", "yezidharun", "—", "Tehzîbü't-Tehzîb, Yezîd b. Hârûn tercemesi"),
   E("muhammedamralkame", "yezidharun", "—", "Tehzîbü't-Tehzîb, Yezîd b. Hârûn tercemesi"),
   E("hisamhassan", "yezidharun", "—", "Tehzîbü't-Tehzîb, Yezîd b. Hârûn tercemesi"),
@@ -9951,7 +9940,6 @@ const EDGES_HAM = [
   E("cureyri", "yezidzurey", "—", "Tehzîbü't-Tehzîb, Yezîd b. Zürey‘ tercemesi"),
   E("hisamhassan", "yezidzurey", "—", "Tehzîbü't-Tehzîb, Yezîd b. Zürey‘ tercemesi"),
   E("avfarabi", "yezidzurey", "—", "Tehzîbü't-Tehzîb, Yezîd b. Zürey‘ tercemesi"),
-  E("huseynmuallim", "yezidzurey", "—", "Tehzîbü't-Tehzîb, Yezîd b. Zürey‘ tercemesi"),
 
   /* Nadr b. Şümeyl (o. 204) -- hocalari, kisa ad taramasi.
      Humeyd et-Tavîl, Hişâm b. Urve, Hişâm b. Hassân, İbn Cüreyc. */
@@ -9985,7 +9973,6 @@ const EDGES_HAM = [
   E("yahyasaidensari", "isabyunus", "—", "Tehzîbü't-Tehzîb, Ísâ b. Yûnus tercemesi"),
   E("velidkesir", "isabyunus", "—", "Tehzîbü't-Tehzîb, Ísâ b. Yûnus tercemesi"),
   E("ismailebihalid", "isabyunus", "—", "Tehzîbü't-Tehzîb, Ísâ b. Yûnus tercemesi"),
-  E("huseynmuallim", "isabyunus", "—", "Tehzîbü't-Tehzîb, Ísâ b. Yûnus tercemesi"),
   E("ibncureyc", "isabyunus", "—", "Tehzîbü't-Tehzîb, Ísâ b. Yûnus tercemesi"),
   E("abdulmelikebisuleyman", "isabyunus", "—", "Tehzîbü't-Tehzîb, Ísâ b. Yûnus tercemesi"),
   E("hisamhassan", "isabyunus", "—", "Tehzîbü't-Tehzîb, Ísâ b. Yûnus tercemesi"),
@@ -10113,7 +10100,6 @@ const EDGES_HAM = [
      İbrâhim b. Tahmân, İbn Ebî Arûbe, Hüseyin el-Muallim. */
   E("matarverrak", "ibrahimtahman", "—", "Tehzîbü't-Tehzîb, Matar el-Verrâk tercemesi"),
   E("matarverrak", "ibnebiaruba", "—", "Tehzîbü't-Tehzîb, Matar el-Verrâk tercemesi"),
-  E("matarverrak", "huseynmuallim", "—", "Tehzîbü't-Tehzîb, Matar el-Verrâk tercemesi"),
 
   /* Hişâm b. Yûsuf es-San‘ânî (o. 197) -- talebeleri, kisa ad taramasi.
      Ali b. el-Medînî, Yahyâ b. Ma‘în. */
@@ -10489,13 +10475,11 @@ const EDGES_HAM = [
 
   /* Ali b. el-Mübârek el-Hinâî (o. ?) -- hocalari, kisa ad taramasi.
      Hişâm b. Urve, Yahyâ b. Ebî Kesîr, Hüseyin el-Muallim. */
-  E("hisamurve", "alimubarekhinai", "—", "Tehzîbü't-Tehzîb, Ali b. el-Mübârek el-Hinâî tercemesi"),
-  E("yahyaebikesir", "alimubarekhinai", "—", "Tehzîbü't-Tehzîb, Ali b. el-Mübârek el-Hinâî tercemesi"),
-  E("huseynmuallim", "alimubarekhinai", "—", "Tehzîbü't-Tehzîb, Ali b. el-Mübârek el-Hinâî tercemesi"),
+  E("hisamurve", "alimubarek", "—", "Tehzîbü't-Tehzîb, Ali b. el-Mübârek el-Hinâî tercemesi"),
+  E("yahyaebikesir", "alimubarek", "—", "Tehzîbü't-Tehzîb, Ali b. el-Mübârek el-Hinâî tercemesi"),
 
   /* Ali b. el-Mübârek el-Hinâî (o. ?) -- talebeleri, kisa ad taramasi.
      Müslim b. İbrâhim. */
-  E("alimubarekhinai", "muslimibrahim", "—", "Tehzîbü't-Tehzîb, Ali b. el-Mübârek el-Hinâî tercemesi"),
 
   /* Saîd b. Ubeyd et-Tâî (o. ?) -- hocalari, kisa ad taramasi.
      Saîd b. Cübeyr. */
@@ -10833,9 +10817,6 @@ const EDGES_HAM = [
 
   /* Ali b. el-Mübârek (o. ?) -- hocalari, kisa ad taramasi.
      Abdülazîz b. Suheyb, Hişâm b. Urve, Hüseyin el-Muallim. */
-  E("abdulazizsuheyb", "alimubarek", "—", "Tehzîbü't-Tehzîb, Ali b. el-Mübârek tercemesi"),
-  E("hisamurve", "alimubarek", "—", "Tehzîbü't-Tehzîb, Ali b. el-Mübârek tercemesi"),
-  E("huseynmuallim", "alimubarek", "—", "Tehzîbü't-Tehzîb, Ali b. el-Mübârek tercemesi"),
 
   /* Hişâm b. Hassân (o. 148) -- hocalari, kisa ad taramasi.
      Hişâm b. Urve, Süheyl b. Ebî Sâlih. */
@@ -11736,7 +11717,6 @@ const EDGES_HAM = [
 
   /* Ali b. el-Mübârek el-Hinâî (o. ?) -- talebeleri, kisa ad taramasi.
      Osmân b. Ömer b. Fâris el-Abdî. */
-  E("alimubarekhinai", "osmanomerfaris", "—", "Tehzîbü't-Tehzîb, Ali b. el-Mübârek el-Hinâî tercemesi"),
 
   /* Saîd b. Ubeyd et-Tâî (o. ?) -- talebeleri, kisa ad taramasi.
      Mervân b. Muâviye el-Fezârî, Yahyâ b. Saîd el-Kattân, Ebû Nuaym el-Fazl b. Dükeyn. */
@@ -14029,7 +14009,6 @@ const EDGES_HAM = [
      Eyyûb es-Sahtiyânî, Hâlid el-Hazzâ, Hüseyin el-Muallim, Saîd b. İyâs el-Cüreyrî, Kâsım b. Mihrân. */
   E("eyyubsahtiyani", "abdulvarissaid", "—", "Tehzîbü't-Tehzîb, Abdülvâris b. Saîd tercemesi"),
   E("halidhazza", "abdulvarissaid", "—", "Tehzîbü't-Tehzîb, Abdülvâris b. Saîd tercemesi"),
-  E("huseynmuallim", "abdulvarissaid", "—", "Tehzîbü't-Tehzîb, Abdülvâris b. Saîd tercemesi"),
   E("cureyri", "abdulvarissaid", "—", "Tehzîbü't-Tehzîb, Abdülvâris b. Saîd tercemesi"),
   E("kasimmihran", "abdulvarissaid", "—", "Tehzîbü't-Tehzîb, Abdülvâris b. Saîd tercemesi"),
 
@@ -14304,7 +14283,6 @@ const EDGES_HAM = [
 
   /* Hamza b. Abdillâh b. Ömer (o. ?) -- talebeleri, kisa ad taramasi.
      Mûsâ b. Ukbe. */
-  E("hamzaibnomer", "musaukbe", "—", "Tehzîbü't-Tehzîb kısa ad taraması (2026-09-13), Hamza b. Abdillâh b. Ömer tercemesi"),
 
   /* Haccâc b. Ertât (o. 145) -- hocalari, kisa ad taramasi.
      Cebele b. Süheym, Simâk b. Harb. */
@@ -14512,7 +14490,6 @@ const EDGES_HAM = [
   /* Muhammed b. Ca‘fer Günder (o. 193) -- hocalari, kisa ad taramasi.
      Avf el-A‘râbî, Hüseyin el-Muallim, Hişâm b. Hassân. */
   E("avfarabi", "gunder", "—", "Tehzîbü't-Tehzîb kısa ad taraması (2026-09-13), Muhammed b. Ca‘fer Günder tercemesi"),
-  E("huseynmuallim", "gunder", "—", "Tehzîbü't-Tehzîb kısa ad taraması (2026-09-13), Muhammed b. Ca‘fer Günder tercemesi"),
   E("hisamhassan", "gunder", "—", "Tehzîbü't-Tehzîb kısa ad taraması (2026-09-13), Muhammed b. Ca‘fer Günder tercemesi"),
 
   /* Hasan b. Ubeydillâh en-Nehaî (o. 139) -- hocalari, kisa ad taramasi.
@@ -14724,7 +14701,6 @@ const EDGES_HAM = [
 
   /* Hüseyin el-Muallim (o. 145) -- talebeleri, kisa ad taramasi.
      İbrâhim b. Tahmân. */
-  E("huseynmuallim", "ibrahimtahman", "—", "Tehzîbü't-Tehzîb kısa ad taraması (2026-09-13), Hüseyin el-Muallim tercemesi"),
 
   /* Abdül'alâ b. Hammâd en-Nersî (o. 237) -- talebeleri, kisa ad taramasi.
      Ahmed b. Sinân el-Kattân. */
@@ -15180,7 +15156,7 @@ export const NOT_DIL = {
    "hafsasim": "A Medinan Successor-generation transmitter, a grandson of Umar b. al-Khattab and thus the nephew of Abdallah b. Umar. Ibn Hajar rates him \"trustworthy\" and places him in the third layer; all six canonical collections transmit from him. Through his reports from his uncle Ibn Umar and from Abu Hurayra he is one of the carriers of the hadith of Umar's household.",
    "husaynabdrahman": "A Kufan transmitter with the kunya Abu al-Hudhayl. Ibn Hajar rates him \"trustworthy\" and places him in the fifth layer, while noting that his memory changed at the end of his life; all six canonical collections transmit from him. That note of ikhtilat means one must ask, of any report from him, whether the hearing came before or after the change. He is known for his reports from Abu Wa'il and al-Sha'bi. He died in 136, aged ninety-three.",
    "huseyn": "The Prophet's grandson and \"sweet basil\", the younger son of Ali and Fatima. He met his grandfather and retained hadith from him. Refusing to pledge allegiance to Yazid b. Mu'awiya, he set out for Iraq at the invitation of the people of Kufa and was killed at Karbala on the tenth of Muharram in the year 61 — the day of Ashura — along with many of his household; he was fifty-six. All six canonical collections transmit from him.",
-   "huseynmuallim": "A Basran transmitter, called al-Mu'allim and al-Mukattib because he taught children to write. Ibn Hajar rates him \"trustworthy\", adding that he sometimes erred, and places him in the sixth layer; all six canonical collections transmit from him. He is known for his reports from Amr b. Shu'ayb and Qatada. He died in 145.",
+   "huseynzekvan": "A Basran transmitter, called al-Mu'allim and al-Mukattib because he taught children to write. Ibn Hajar rates him \"trustworthy\", adding that he sometimes erred, and places him in the sixth layer; all six canonical collections transmit from him. He is known for his reports from Amr b. Shu'ayb and Qatada. He died in 145.",
    "hasanhanefiyye": "A Medinan Successor-generation transmitter and jurist; his father was Muhammad b. al-Hanafiyya and his grandfather Ali. Ibn Hajar calls him \"trustworthy, a jurist\" and places him in the third layer; all six canonical collections transmit from him. Ibn Hajar also records the report that he was the first to speak on the question of irja'. He died in 100 (or, in one account, 99).",
    "hasanamrfukaymi": "A Kufan transmitter. Ibn Hajar describes him as \"trustworthy, precise\" and places him in the sixth layer; al-Bukhari, Abu Dawud, al-Nasa'i and Ibn Maja transmit from him. He is known for his reports from Mujahid and Fudayl b. Amr. He died in 142.",
    "hasanaliayyal": "A client of Hudhayl, called al-Hulwani after Hulwan, who later settled in Mecca. Ibn Hajar describes him as \"trustworthy, a memoriser\" and notes that he composed works of his own; al-Bukhari, Muslim, Abu Dawud, al-Tirmidhi and Ibn Maja transmit from him. He belongs to the eleventh layer, which drew together the hadith of the Hijaz, Iraq and Khurasan. He died in 242.",
@@ -15453,7 +15429,7 @@ export const NOT_DIL = {
    "hafsasim": "راوٍ مدني من التابعين، وهو حفيد عمر بن الخطاب وابن أخي عبد الله بن عمر. عدّه ابن حجر «ثقة» من الثالثة، وروى له أصحاب الكتب الستة جميعًا. وبمروياته عن عمه ابن عمر وعن أبي هريرة كان من حملة حديث بيت عمر.",
    "husaynabdrahman": "راوٍ كوفي يكنى أبا الهذيل. عدّه ابن حجر «ثقة» من الخامسة، ونصّ على أنه تغيّر حفظه بأخرة، وروى له أصحاب الكتب الستة جميعًا. وهذا الاختلاط يوجب السؤال في كل ما رُوي عنه: أكان السماع قبل التغيّر أم بعده. واشتهر بمروياته عن أبي وائل والشعبي. توفي سنة ١٣٦ وله ثلاث وتسعون سنة.",
    "huseyn": "سبط رسول الله صلى الله عليه وسلم وريحانته، وهو ابن علي وفاطمة الأصغر. أدرك جده وحفظ عنه. وامتنع من بيعة يزيد بن معاوية وسار إلى العراق بدعوة أهل الكوفة، فاستشهد بكربلاء يوم عاشوراء العاشر من محرم سنة ٦١ مع كثير من أهل بيته وهو ابن ست وخمسين. روى له أصحاب الكتب الستة جميعًا.",
-   "huseynmuallim": "راوٍ بصري، يعرف بالمعلم والمكتب لأنه كان يعلّم الصبيان الكتابة. عدّه ابن حجر «ثقة ربما وهم» من السادسة، وروى له أصحاب الكتب الستة جميعًا. واشتهر بمروياته عن عمرو بن شعيب وقتادة. توفي سنة ١٤٥.",
+   "huseynzekvan": "راوٍ بصري، يعرف بالمعلم والمكتب لأنه كان يعلّم الصبيان الكتابة. عدّه ابن حجر «ثقة ربما وهم» من السادسة، وروى له أصحاب الكتب الستة جميعًا. واشتهر بمروياته عن عمرو بن شعيب وقتادة. توفي سنة ١٤٥.",
    "hasanhanefiyye": "راوٍ وفقيه مدني من التابعين، أبوه محمد ابن الحنفية وجده علي بن أبي طالب. وصفه ابن حجر بأنه «ثقة فقيه» وجعله من الثالثة، وروى له أصحاب الكتب الستة جميعًا. ونقل ابن حجر أنه يقال إنه أول من تكلم في الإرجاء. توفي سنة ١٠٠، وقيل ٩٩.",
    "hasanamrfukaymi": "راوٍ كوفي. وصفه ابن حجر بأنه «ثقة ثبت» وجعله من السادسة، وروى عنه البخاري وأبو داود والنسائي وابن ماجه. واشتهر بمروياته عن مجاهد وفضيل بن عمرو. توفي سنة ١٤٢.",
    "hasanaliayyal": "مولى هذيل، يعرف بالحلواني نسبةً إلى حلوان، ثم سكن مكة. وصفه ابن حجر بأنه «ثقة حافظ» وذكر أن له تصانيف، وروى عنه البخاري ومسلم وأبو داود والترمذي وابن ماجه. وهو من الحادية عشرة التي جمعت حديث الحجاز والعراق وخراسان. توفي سنة ٢٤٢.",
@@ -15769,4 +15745,4 @@ export const KART_TAVAN = 100;
    Yeniden üretmek için: `baslik-coz.py` çıktısındaki her düğümün
    `satir` alanını al, ondan önceki son sayfa işaretinin sırasını say. */
 export const SAMILE_KITAP = 1293;
-export const SAMILE = {"ali": 1499, "ebuhureyre": 2671, "ebubekir": 240, "omer": 1551, "mikdad": 2216, "fatima": 2753, "ubey": 92, "usame": 102, "basra": 233, "fadl": 1722, "kabahbar": 1801, "aise": 2750, "enes": 185, "cabir": 276, "ebuzer": 2589, "selmanfarisi": 758, "ubadesamit": 975, "ebueyyub": 514, "ebukatade": 2643, "ebubekre": 2308, "vasile": 2370, "ummuseleme": 2760, "esmaebubekir": 2733, "ebubekirabdrahman": 2560, "ukaylhalid": 1460, "yunusyezid": 2544, "ibnebizib": 1958, "humeydi": 1024, "suleymanharb": 778, "ibnabbas": 1054, "ibnomer": 1079, "ibnmesud": 1121, "ibnzubeyr": 1023, "bera": 210, "zeydarkam": 653, "cabirsemura": 275, "suhayb": 908, "sefine": 752, "hasanbali": 398, "huseyn": 421, "amrhurays": 1593, "tariksihab": 922, "besrsuhaym": 222, "ibncafer": 1003, "ahnef": 94, "esvedyezid": 168, "alkame": 1470, "ubeydesel": 1375, "suveydgafle": 826, "ebuvail": 868, "zirhubeys": 622, "sureyh": 850, "saidmusayyeb": 733, "hasanbasri": 383, "rebihiras": 583, "zeydvehb": 666, "zadan": 614, "ebutufeyl": 962, "harissuveyd": 325, "harisemudarrib": 337, "salimcad": 669, "hayseme": 554, "ibrhunayn": 67, "abdhayr": 1170, "harisaver": 326, "asimdamra": 943, "salimibnomer": 671, "humeydavf": 492, "hafsasim": 446, "zurareevfa": 623, "busrsaid": 216, "besirnehik": 232, "esvedhilal": 168, "hilas": 553, "bece": 234, "sabi": 954, "ibnebileyla": 1238, "urve": 1422, "ikrime": 1464, "zeynelabidin": 1484, "ubeydullaherafi": 1339, "umerbali": 1575, "abdrahmanharis": 1187, "ubeydumeyr": 1368, "saidzuhadan": 706, "zeydsabit": 654, "kayshazim": 1774, "abdrahmanebubekir": 1182, "abdrahmanavf": 1230, "osman": 1402, "ukbeamir": 1453, "ebumusa": 2259, "ebusaid": 691, "huzeyfe": 362, "ebusalih": 574, "rifaazuraki": 603, "aizamr": 965, "murreserahil": 2118, "abdrahmanyerbu": 1254, "abdrahmanabza": 1175, "eslem": 131, "esaskays": 177, "saibyezid": 678, "sadvakkas": 693, "talha": 930, "abisrebia": 940, "asimomer": 947, "ebanosman": 49, "mervan": 2120, "ibnhanefiyye": 1982, "malikevs": 2079, "ataebirebah": 1431, "hamranaban": 482, "ebuabdrahmansulemi": 1009, "abdrahmanyezidnehai": 1257, "mugirasube": 2204, "imranhusayn": 1646, "abdullahamr": 1083, "muazcebel": 2167, "ebudderda": 1670, "sehlsad": 814, "selemeekva": 764, "zeydhalid": 659, "ebuumame": 899, "ibnsihab": 2026, "amrdinar": 1598, "yahyaebikesir": 2453, "katade": 1758, "ebuishaksebii": 1614, "amess": 799, "malik": 2076, "ibnishak": 1834, "ibncureyc": 1306, "ibnuyeyne": 749, "ibnebiaruba": 723, "hammadseleme": 476, "ebuavane": 2377, "sube": 856, "mamer": 2195, "sevri": 746, "evzai": 1227, "huseym": 2350, "yahyaadem": 2407, "ibnebizaide": 2423, "veki": 2381, "ibnmubarek": 1105, "kattan": 2427, "ibnmehdi": 1246, "sabitkayszuraki": 262, "ibrahimavf": 69, "haricezeyd": 506, "ubeydullahutbe": 1345, "arac": 1252, "hamzaibnomer": 485, "hasanhanefiyye": 409, "alkamevakkas": 1472, "abdullahkab": 1098, "rafihadic": 580, "salihkeysan": 888, "suaybebihamza": 862, "ibrahimsad": 62, "eyyubsahtiyani": 195, "usamezeydleysi": 103, "haccacertat": 351, "ebulaliye": 605, "cabirzeyd": 274, "bekirmuzeni": 239, "nehai": 87, "ibrahimteymi": 87, "habibebisabit": 342, "hakemuteybe": 461, "ebuduha": 2140, "yahyavessab": 2466, "mearrursuveyd": 2188, "hisamdestuvai": 2342, "hemmamyahya": 2354, "cerirhazim": 289, "cerirabdulhamid": 292, "hafsgiyas": 453, "leysbsad": 1811, "amrharis": 1591, "misersukdam": 2130, "suleymanteymi": 789, "ibnnumeyr": 1136, "ibnidris": 991, "alimushir": 1523, "saidcubeyr": 699, "tavus": 925, "mucahid": 2095, "kureyb": 1798, "ebucafermuhbakir": 1980, "suleymanyesar": 802, "ebuselemeavf": 2601, "vehbmunebbih": 2402, "hammadzeyd": 475, "varkaomer": 2376, "davudattar": 561, "zekeriyyaishak": 625, "egarebumuslim": 180, "amrmeymun": 1637, "mesruk": 2129, "musatalha": 2248, "numanbesir": 2298, "nafiibnomer": 2280, "zuhayrmuaviye": 635, "zaidekudame": 615, "ebulahvess": 828, "serikkadi": 854, "hamzazeyyat": 483, "halidvelid": 529, "bureyde": 214, "temimdari": 254, "hafsa": 2739, "bilal": 248, "amirrebia": 952, "ebulubabe": 2648, "abdullahdinar": 1018, "hamzaibnomerogul": 485, "cebeleshim": 285, "saidyesar": 741, "sadubeyde": 691, "safvanmuhriz": 904, "enessirin": 184, "sabitbunani": 257, "dahhak": 916, "sehrhavseb": 872, "hakemarac": 459, "ebuzabyan": 436, "abdullahmabed": 1127, "ebulminhal": 1242, "ubeydullahebiyezid": 1361, "ibnebimuleyke": 1069, "sumameenes": 269, "humeydtavil": 488, "hafsubeydullahenes": 448, "cadebuosman": 294, "rebiaebiabdrahman": 593, "bekirahnes": 242, "zubeyradi": 620, "beyanbisr": 250, "bisryesar": 233, "ebuzubeyrmekki": 2024, "ibnmunkedir": 2039, "vehbkeysan": 2401, "mahmudlebid": 2107, "muhammedabbadcafer": 1929, "muhammedsevban": 1954, "yezidsuheybfakir": 2488, "sadhisam": 693, "kazaayahya": 1770, "ibnsirin": 1915, "mabedsirin": 2185, "kasimmuhaymire": 1751, "yahyaumare": 2449, "ebuumamesehl": 129, "ebusaidmakburi": 712, "numanebiayyas": 2302, "ebussiddiknaci": 240, "ebuidrishavlani": 963, "zekvanmevlaaise": 575, "abbadabdullahzubeyr": 969, "sureyhhani": 852, "abdullahsakik": 1043, "abdullahsedddad": 1042, "amrabdrahmanzurara": 2775, "kasimmuhammed": 1749, "caferisadik": 305, "humeyskaysarac": 492, "davudhusayn": 556, "salimebinadr": 669, "hubeybabdrahman": 535, "ziyadsad": 642, "yezidhad": 2488, "yezidrouman": 2481, "yezidkusayt": 2489, "ataihorasani": 1438, "abdulmecidsuheyl": 1295, "ibnvehb": 1143, "kanebi": 1123, "ibnkasimmisri": 1234, "safii": 1827, "kuteybesaid": 1761, "ibnebiuveys": 152, "ibnuleyye": 135, "velidmuslim": 2395, "ebunuaymfadl": 1717, "ebuasimnebil": 915, "ismailebihalid": 142, "halidhazza": 528, "davudebihind": 567, "sadibrahim": 684, "husaynabdrahman": 436, "hammadebisuleyman": 478, "zubeydyami": 618, "zekeriyyaebizaide": 626, "cameseddad": 283, "gunder": 1861, "yezidharun": 2501, "yezidzurey": 2481, "nadrsumeyl": 2292, "ebudavudtayalisi": 780, "muazmuaz": 2170, "affanmuslim": 1447, "alicad": 1476, "abdussamed": 1270, "isabyunus": 1701, "esvedkays": 167, "hasanubeydullah": 396, "sevryezid": 271, "ismailumeyye": 139, "suddi": 153, "ibrahimukbe": 72, "ebuhasin": 1395, "cabircufi": 278, "hasanamrfukaymi": 404, "ishakyusufezrak": 126, "ebuusamehammad": 472, "caferavn": 304, "halidharis": 510, "ruhubade": 609, "abdurrezzak": 1262, "damrarebia": 919, "suleymanbilal": 776, "bisrsari": 222, "hisamurve": 2345, "mansurmutemir": 2229, "mansursafiyye": 2228, "musaukbe": 2253, "muhammedacilan": 1976, "muhammedamralkame": 1992, "muhammedsuka": 1913, "mutarriftarif": 2160, "ismailebiislamsibani": 787, "velidkesir": 2393, "yezidhusayfe": 2489, "ahmedhanbel": 38, "ibnrahuye": 107, "ahmedsalihmisri": 22, "ahmedmeni": 43, "ibrahimfezari": 75, "abdullahtavus": 1050, "abdulhamidcubeyr": 1163, "abdulkerimcezeri": 1292, "ikrimehalid": 1461, "kasimebibezze": 1738, "alaabdrahman": 1675, "amrsuayb": 1607, "ibnhuseymkhaysem": 1073, "ubeydullahomeri": 1352, "haccacmuhammed": 355, "ismailayyas": 157, "enesiyaz": 185, "hemmammunebbih": 2353, "matarverrak": 2157, "hisamyusufsanani": 2349, "mutemirsuleyman": 2187, "abdulalaabdulala": 1155, "vuheybhalid": 2403, "ebansattar": 51, "mervanfezari": 2122, "vakidi": 1986, "mekhul": 2218, "hassanatiyye": 377, "rebiayezid": 596, "umeyrhani": 1658, "abdelubabe": 1334, "muhammedvelidzubeydi": 2053, "suleymanhabib": 777, "suleymanmusadimaski": 801, "saddadebuammar": 845, "mutallibhantab": 2163, "kurrahayvil": 1768, "meymunmihran": 2268, "hikalziyad": 2352, "bakiyyevelid": 234, "firyabi": 2069, "ebulmugirehavlani": 1290, "suaybishakdimaski": 861, "muhammedharbhavlani": 1867, "muhammedsuaybsabur": 1919, "ubeydullahmusa": 1358, "amrebiselemetennisi": 1605, "mafairan": 2173, "bisrbekirtennisi": 219, "saidabdulaziz": 721, "asimbehdele": 940, "alizeydcudan": 1492, "amiralhavl": 959, "abdulvarissaid": 1324, "abdulvehhabata": 1328, "abdesuleyman": 1332, "muhammedbisrabdi": 1850, "muhammedebiadi": 1822, "simakharb": 804, "suheylebisalih": 818, "selemekuheyl": 767, "cureyri": 697, "abdullahavn": 1088, "ebuimrancevni": 1299, "abdulmelikumeyr": 1310, "ataisaib": 1433, "ammarebiammar": 1533, "amryahyamazini": 1642, "ubeydullahomeri2": 1235, "hebbanhilal": 2333, "musaismailtebuzeki": 2239, "hisamtayalisi": 2343, "muslimibrahim": 2134, "amrmerzuk": 1633, "ebunasrtemmar": 1308, "caferebivahsiyye": 295, "asimahvel": 942, "mugirmiksem": 2208, "firasyahya": 1712, "mansurzazan": 2226, "abdulmelikebisuleyman": 1303, "abdulazizsuheyb": 1277, "saidmesrukhsevri": 732, "yalaata": 2520, "hilalvezzan": 2358, "said_mansur": 735, "kavariri": 1353, "seybanferruh": 874, "haccacminhal": 356, "halefhisam": 544, "avvamhavseb": 1664, "avfarabi": 1666, "abdullahsubrume": 1041, "abdulhamidcafer": 1163, "sufyanhusayn": 744, "mucalidsaid": 2094, "salihhayy": 885, "siyarebilhakem": 832, "kasimmihran": 1752, "saidsuleymansadeviye": 714, "ibnebiseybe": 1109, "zuheyrharb": 632, "alimedini": 1506, "alihucr": 1478, "amrnakid": 1631, "osmanebiseybe": 1407, "ahmeddevraki": 8, "muhammedisataba": 2000, "yezidebihabib": 2478, "yalaubeyd": 2520, "yunusbukeyr": 2536, "abdrahmanesved": 1178, "aliebisalihhayy": 1498, "alimubarekhinai": 1519, "omerzerr": 1553, "mesudi": 1213, "suleymanmugire": 798, "saidubeydtai": 723, "davudkaysferra": 564, "hanzalasufyan": 499, "abdulazizomer": 1281, "misned": 2127, "hennadseri": 2355, "ibnmain": 2459, "yahyayahyanisaburi": 2467, "mahmudgaylan": 2106, "ibnebiomeradeni": 2061, "nasralicehdami": 2289, "ibrahimtahman": 64, "ibrahimebiable": 70, "usamezeydeslem": 102, "caferburkan": 296, "hayveseri": 503, "saidebiyyubmisri": 697, "harmalaimran": 366, "ebuburde": 213, "serieyyahya": 683, "sadsaidensari": 687, "rebiuenes": 584, "alihasansakik": 1481, "abdan": 1072, "suveydnasr": 826, "hasanisad": 294, "behzhakim": 246, "hatimebisagire": 319, "hasanzekvan": 389, "selimhayyan": 772, "seyfsuleymanmekki": 833, "husaymirak": 535, "esaseabdulmelik": 176, "bundar": 1849, "ibnmusenna": 2017, "amrbnalisayrafi": 1623, "abbasanberi": 980, "ubeydullahmuazanberi": 1357, "yakubdevraki": 2509, "muaviyesalih": 2178, "israilyunus": 128, "darevardi": 1282, "macisun": 1277, "harbseddad": 364, "abdulvahidziyad": 1321, "malikmigvel": 2085, "sallamebimuti": 830, "abdhumeyd": 1331, "ebukureyb": 1997, "omeryunusyemami": 1585, "bisrmufaddal": 226, "ziyadilaka": 646, "sebabesevvar": 837, "hammadmesade": 480, "sucavelid": 843, "talhamusarrif": 933, "manisa": 2199, "ebumiclez": 2405, "ebuhazimseleme": 761, "saidyezidtahi": 741, "muallamansur": 2193, "ebucemrenasr": 2290, "eburafinufey": 2310, "vasilahdeb": 2371, "yusufmahek": 2529, "museyyebrafi": 2150, "behzesed": 246, "alkamemersed": 1471, "avnebicuhayfe": 1668, "muaviyekurre": 2181, "saidamirdubai": 717, "suleymesvedsasa": 771, "ukbehalidsekuni": 1452, "ebumesudbedri": 1456, "ebuhasimrummani": 2670, "fudaylsuleyman": 1728, "humeydhilal": 495, "ebuamrseybani": 686, "galibhattaf": 1703, "gaylancerir": 1709, "mehdimeymun": 2236, "saidebihind": 737, "seyyarselame": 832, "sebibgarkade": 841, "alirebianadle": 1491, "muaviyeamrezdi": 2181, "yahyayamer": 2471, "huseynzekvan": 417, "mahremesuleyman": 2110, "mufaddalfadale": 2210, "zeydcubeyr": 655, "urvecad": 1421, "sehlebihasme": 812, "muhammedmuntesir": 2038, "yahyaatik": 2446, "ibrahimmeysere": 85, "saibferruh": 677, "semurecundeb": 806, "umarekaka": 1543, "makilyesar": 2191, "munziryala": 2225, "yezidserik": 2487, "seddadevs": 844, "ebuuseydsaidi": 2081, "ebunadrhasim": 2330, "yezidmunbais": 2506, "yunusubeyd": 2540, "abbadavvam": 969, "adisabit": 1415, "hakimhizam": 468, "abbadtemim": 965, "yahyaebiishak": 2408, "amrevssekafi": 1587, "ebuvakidleysi": 2674, "ibrahimnafi": 86, "amrsuleymzuraki": 1605, "yezidebiyezid": 2504, "sabitdahhak": 260, "suleymanhayyan": 779, "ismailcafer": 140, "hatimismail": 318, "osmanesved": 1386, "kurrehalid": 1767, "cafercrebia": 299, "osmanomerfaris": 1403, "umareumeyr": 1542, "yahyaebibukeyr": 2414, "harisevehb": 337, "yalaumeyye": 2518, "habibsehid": 346, "ebuleshebutaridi": 298, "ziyadcubeyrhayye": 638, "yunuscubeyr": 2537, "ismailzekeriyya": 146, "selmanebuhazim": 759, "alimudrik": 1521, "salimebulgays": 675, "ebumusabzuhri": 13, "ziyadyahyahassani": 650, "ebusaidesecc": 1035, "muhammedrafi": 1890, "zuhli": 2058, "muhammedabdulalasanani": 1951, "mucahidmusa": 2096, "ebubekirayyas": 2562, "ebumuaviyedarir": 1881, "muhammedfudayl": 2006, "fudaylibnayaz": 1729, "kaysrebi": 1777, "fitrhalife": 1732, "abdusselamharb": 1265, "halidselememahzumi": 516, "amrmeymunmihran": 1637, "musacuheni": 2250, "nafiomercumahi": 2278, "hasimhasim": 2331, "ebumalikesceyi": 688, "leysebisuleym": 1814, "harunmaruf": 2326, "ibrahimmusaferra": 84, "sericyunus": 681, "hasanarafe": 397, "muhammedubeydmuharibi": 1972, "buhari": 1838, "muslim": 2137, "ebudavud": 773, "tirmizi": 1998, "nesai": 21, "ms12": 431, "ms22": 1481, "ms25": 2048, "ed10": 42, "ed20": 1114, "ibnmace": 2067, "darimi": 1063, "ebuzuraraazi": 1348, "ebuhatimrazi": 1830, "harmalayahya": 367, "ishakkevsec": 122, "ibrahimmunzirhizami": 82, "ademebiiyas": 96, "hasanaliayyal": 401, "suveydsaidhadesani": 823, "ibrahimkariz": 67, "hakemmina": 465, "ishaktalha": 117, "abdullahebikatade": 1094, "ebukilabe": 1029, "ebunadra": 2224, "ubeydullahmiksem": 1358, "hilalebimeymune": 2360, "muhammedibrahimteymi": 1818, "alimubarek": 1519, "hisamhassan": 2338, "haccacsavvaf": 354, "huseynmuallim": 417, "seybannahvi": 874, "muaviyesellam": 2177, "yahyasaidensari": 2430, "ikrimeammar": 1462, "zeydeslem": 653, "sufyanveki": 752, "harunhammal": 2325, "ibnsellam": 1914, "habbanhilal": 338, "nersi": 1154, "duhaym": 1174, "ahmedsinan": 20, "ebukudame": 1342, "yahyamusa": 2463, "esedmusa": 128, "musnedi": 1112, "rebimuradi": 588, "ebuamirakadi": 1309, "ebuahmedzubeyri": 1935, "ibnsabbahdulabi": 1923, "ibnrecagudani": 1022, "zaferani": 408, "abbasduri": 984, "haccacsair": 357, "cuzcani": 90, "ramadi": 43, "ahmedabde": 31, "yusufmusakattan": 2531, "atayesar": 1440, "makburi": 712, "ebuosmannehdi": 1245, "cubeyrnufeyr": 287, "ibnganm": 1233, "saidebihilal": 738, "safvansuleym": 902, "bukeyresec": 243, "naficubeyr": 2276, "musabsad": 2154, "irakmalik": 1418, "abdullahyusuftinnisi": 1151, "ebulyemanhakem": 465, "mekkiibrahim": 2220, "halidmahled": 526, "asbagferec": 178, "surayjnuman": 681, "muhammedsabik": 1897, "muhammedararah": 1977, "bedelmuhabber": 210, "talkgannam": 936, "halladyahya": 552, "aliayyas": 1515, "ebumushir": 1156, "bisrsuayb": 223, "ahmedhalidvehbi": 16, "eyyubsuleymanbilal": 198, "sadakafadl": 898, "hassanhassan": 376, "abdulazizuveysi": 1278, "ahmedeskab": 11};
+export const SAMILE = {"ali": 1499, "ebuhureyre": 2671, "ebubekir": 240, "omer": 1551, "mikdad": 2216, "fatima": 2753, "ubey": 92, "usame": 102, "basra": 233, "fadl": 1722, "kabahbar": 1801, "aise": 2750, "enes": 185, "cabir": 276, "ebuzer": 2589, "selmanfarisi": 758, "ubadesamit": 975, "ebueyyub": 514, "ebukatade": 2643, "ebubekre": 2308, "vasile": 2370, "ummuseleme": 2760, "esmaebubekir": 2733, "ebubekirabdrahman": 2560, "ukaylhalid": 1460, "yunusyezid": 2544, "ibnebizib": 1958, "humeydi": 1024, "suleymanharb": 778, "ibnabbas": 1054, "ibnomer": 1079, "ibnmesud": 1121, "ibnzubeyr": 1023, "bera": 210, "zeydarkam": 653, "cabirsemura": 275, "suhayb": 908, "sefine": 752, "hasanbali": 398, "huseyn": 421, "amrhurays": 1593, "tariksihab": 922, "besrsuhaym": 222, "ibncafer": 1003, "ahnef": 94, "esvedyezid": 168, "alkame": 1470, "ubeydesel": 1375, "suveydgafle": 826, "ebuvail": 868, "zirhubeys": 622, "sureyh": 850, "saidmusayyeb": 733, "hasanbasri": 383, "rebihiras": 583, "zeydvehb": 666, "zadan": 614, "ebutufeyl": 962, "harissuveyd": 325, "harisemudarrib": 337, "salimcad": 669, "hayseme": 554, "ibrhunayn": 67, "abdhayr": 1170, "harisaver": 326, "asimdamra": 943, "salimibnomer": 671, "humeydavf": 492, "hafsasim": 446, "zurareevfa": 623, "busrsaid": 216, "besirnehik": 232, "esvedhilal": 168, "hilas": 553, "bece": 234, "sabi": 954, "ibnebileyla": 1238, "urve": 1422, "ikrime": 1464, "zeynelabidin": 1484, "ubeydullaherafi": 1339, "umerbali": 1575, "abdrahmanharis": 1187, "ubeydumeyr": 1368, "saidzuhadan": 706, "zeydsabit": 654, "kayshazim": 1774, "abdrahmanebubekir": 1182, "abdrahmanavf": 1230, "osman": 1402, "ukbeamir": 1453, "ebumusa": 2259, "ebusaid": 691, "huzeyfe": 362, "ebusalih": 574, "rifaazuraki": 603, "aizamr": 965, "murreserahil": 2118, "abdrahmanyerbu": 1254, "abdrahmanabza": 1175, "eslem": 131, "esaskays": 177, "saibyezid": 678, "sadvakkas": 693, "talha": 930, "abisrebia": 940, "asimomer": 947, "ebanosman": 49, "mervan": 2120, "ibnhanefiyye": 1982, "malikevs": 2079, "ataebirebah": 1431, "hamranaban": 482, "ebuabdrahmansulemi": 1009, "abdrahmanyezidnehai": 1257, "mugirasube": 2204, "imranhusayn": 1646, "abdullahamr": 1083, "muazcebel": 2167, "ebudderda": 1670, "sehlsad": 814, "selemeekva": 764, "zeydhalid": 659, "ebuumame": 899, "ibnsihab": 2026, "amrdinar": 1598, "yahyaebikesir": 2453, "katade": 1758, "ebuishaksebii": 1614, "amess": 799, "malik": 2076, "ibnishak": 1834, "ibncureyc": 1306, "ibnuyeyne": 749, "ibnebiaruba": 723, "hammadseleme": 476, "ebuavane": 2377, "sube": 856, "mamer": 2195, "sevri": 746, "evzai": 1227, "huseym": 2350, "yahyaadem": 2407, "ibnebizaide": 2423, "veki": 2381, "ibnmubarek": 1105, "kattan": 2427, "ibnmehdi": 1246, "sabitkayszuraki": 262, "ibrahimavf": 69, "haricezeyd": 506, "ubeydullahutbe": 1345, "arac": 1252, "hamzaibnomer": 485, "hasanhanefiyye": 409, "alkamevakkas": 1472, "abdullahkab": 1098, "rafihadic": 580, "salihkeysan": 888, "suaybebihamza": 862, "ibrahimsad": 62, "eyyubsahtiyani": 195, "usamezeydleysi": 103, "haccacertat": 351, "ebulaliye": 605, "cabirzeyd": 274, "bekirmuzeni": 239, "nehai": 87, "ibrahimteymi": 87, "habibebisabit": 342, "hakemuteybe": 461, "ebuduha": 2140, "yahyavessab": 2466, "mearrursuveyd": 2188, "hisamdestuvai": 2342, "hemmamyahya": 2354, "cerirhazim": 289, "cerirabdulhamid": 292, "hafsgiyas": 453, "leysbsad": 1811, "amrharis": 1591, "misersukdam": 2130, "suleymanteymi": 789, "ibnnumeyr": 1136, "ibnidris": 991, "alimushir": 1523, "saidcubeyr": 699, "tavus": 925, "mucahid": 2095, "kureyb": 1798, "ebucafermuhbakir": 1980, "suleymanyesar": 802, "ebuselemeavf": 2601, "vehbmunebbih": 2402, "hammadzeyd": 475, "varkaomer": 2376, "davudattar": 561, "zekeriyyaishak": 625, "egarebumuslim": 180, "amrmeymun": 1637, "mesruk": 2129, "musatalha": 2248, "numanbesir": 2298, "nafiibnomer": 2280, "zuhayrmuaviye": 635, "zaidekudame": 615, "ebulahvess": 828, "serikkadi": 854, "hamzazeyyat": 483, "halidvelid": 529, "bureyde": 214, "temimdari": 254, "hafsa": 2739, "bilal": 248, "amirrebia": 952, "ebulubabe": 2648, "abdullahdinar": 1018, "hamzaibnomer": 485, "cebeleshim": 285, "saidyesar": 741, "sadubeyde": 691, "safvanmuhriz": 904, "enessirin": 184, "sabitbunani": 257, "dahhak": 916, "sehrhavseb": 872, "hakemarac": 459, "ebuzabyan": 436, "abdullahmabed": 1127, "ebulminhal": 1242, "ubeydullahebiyezid": 1361, "ibnebimuleyke": 1069, "sumameenes": 269, "humeydtavil": 488, "hafsubeydullahenes": 448, "cadebuosman": 294, "rebiaebiabdrahman": 593, "bekirahnes": 242, "zubeyradi": 620, "beyanbisr": 250, "bisryesar": 233, "ebuzubeyrmekki": 2024, "ibnmunkedir": 2039, "vehbkeysan": 2401, "mahmudlebid": 2107, "muhammedabbadcafer": 1929, "muhammedsevban": 1954, "yezidsuheybfakir": 2488, "sadhisam": 693, "kazaayahya": 1770, "ibnsirin": 1915, "mabedsirin": 2185, "kasimmuhaymire": 1751, "yahyaumare": 2449, "ebuumamesehl": 129, "ebusaidmakburi": 712, "numanebiayyas": 2302, "ebussiddiknaci": 240, "ebuidrishavlani": 963, "zekvanmevlaaise": 575, "abbadabdullahzubeyr": 969, "sureyhhani": 852, "abdullahsakik": 1043, "abdullahsedddad": 1042, "amrabdrahmanzurara": 2775, "kasimmuhammed": 1749, "caferisadik": 305, "humeyskaysarac": 492, "davudhusayn": 556, "salimebinadr": 669, "hubeybabdrahman": 535, "ziyadsad": 642, "yezidhad": 2488, "yezidrouman": 2481, "yezidkusayt": 2489, "ataihorasani": 1438, "abdulmecidsuheyl": 1295, "ibnvehb": 1143, "kanebi": 1123, "ibnkasimmisri": 1234, "safii": 1827, "kuteybesaid": 1761, "ibnebiuveys": 152, "ibnuleyye": 135, "velidmuslim": 2395, "ebunuaymfadl": 1717, "ebuasimnebil": 915, "ismailebihalid": 142, "halidhazza": 528, "davudebihind": 567, "sadibrahim": 684, "husaynabdrahman": 436, "hammadebisuleyman": 478, "zubeydyami": 618, "zekeriyyaebizaide": 626, "cameseddad": 283, "gunder": 1861, "yezidharun": 2501, "yezidzurey": 2481, "nadrsumeyl": 2292, "ebudavudtayalisi": 780, "muazmuaz": 2170, "affanmuslim": 1447, "alicad": 1476, "abdussamed": 1270, "isabyunus": 1701, "esvedkays": 167, "hasanubeydullah": 396, "sevryezid": 271, "ismailumeyye": 139, "suddi": 153, "ibrahimukbe": 72, "ebuhasin": 1395, "cabircufi": 278, "hasanamrfukaymi": 404, "ishakyusufezrak": 126, "ebuusamehammad": 472, "caferavn": 304, "halidharis": 510, "ruhubade": 609, "abdurrezzak": 1262, "damrarebia": 919, "suleymanbilal": 776, "bisrsari": 222, "hisamurve": 2345, "mansurmutemir": 2229, "mansursafiyye": 2228, "musaukbe": 2253, "muhammedacilan": 1976, "muhammedamralkame": 1992, "muhammedsuka": 1913, "mutarriftarif": 2160, "ismailebiislamsibani": 787, "velidkesir": 2393, "yezidhusayfe": 2489, "ahmedhanbel": 38, "ibnrahuye": 107, "ahmedsalihmisri": 22, "ahmedmeni": 43, "ibrahimfezari": 75, "abdullahtavus": 1050, "abdulhamidcubeyr": 1163, "abdulkerimcezeri": 1292, "ikrimehalid": 1461, "kasimebibezze": 1738, "alaabdrahman": 1675, "amrsuayb": 1607, "ibnhuseymkhaysem": 1073, "ubeydullahomeri": 1352, "haccacmuhammed": 355, "ismailayyas": 157, "enesiyaz": 185, "hemmammunebbih": 2353, "matarverrak": 2157, "hisamyusufsanani": 2349, "mutemirsuleyman": 2187, "abdulalaabdulala": 1155, "vuheybhalid": 2403, "ebansattar": 51, "mervanfezari": 2122, "vakidi": 1986, "mekhul": 2218, "hassanatiyye": 377, "rebiayezid": 596, "umeyrhani": 1658, "abdelubabe": 1334, "muhammedvelidzubeydi": 2053, "suleymanhabib": 777, "suleymanmusadimaski": 801, "saddadebuammar": 845, "mutallibhantab": 2163, "kurrahayvil": 1768, "meymunmihran": 2268, "hikalziyad": 2352, "bakiyyevelid": 234, "firyabi": 2069, "ebulmugirehavlani": 1290, "suaybishakdimaski": 861, "muhammedharbhavlani": 1867, "muhammedsuaybsabur": 1919, "ubeydullahmusa": 1358, "amrebiselemetennisi": 1605, "mafairan": 2173, "bisrbekirtennisi": 219, "saidabdulaziz": 721, "asimbehdele": 940, "alizeydcudan": 1492, "amiralhavl": 959, "abdulvarissaid": 1324, "abdulvehhabata": 1328, "abdesuleyman": 1332, "muhammedbisrabdi": 1850, "muhammedebiadi": 1822, "simakharb": 804, "suheylebisalih": 818, "selemekuheyl": 767, "cureyri": 697, "abdullahavn": 1088, "ebuimrancevni": 1299, "abdulmelikumeyr": 1310, "ataisaib": 1433, "ammarebiammar": 1533, "amryahyamazini": 1642, "ubeydullahomeri2": 1235, "hebbanhilal": 2333, "musaismailtebuzeki": 2239, "hisamtayalisi": 2343, "muslimibrahim": 2134, "amrmerzuk": 1633, "ebunasrtemmar": 1308, "caferebivahsiyye": 295, "asimahvel": 942, "mugirmiksem": 2208, "firasyahya": 1712, "mansurzazan": 2226, "abdulmelikebisuleyman": 1303, "abdulazizsuheyb": 1277, "saidmesrukhsevri": 732, "yalaata": 2520, "hilalvezzan": 2358, "said_mansur": 735, "kavariri": 1353, "seybanferruh": 874, "haccacminhal": 356, "halefhisam": 544, "avvamhavseb": 1664, "avfarabi": 1666, "abdullahsubrume": 1041, "abdulhamidcafer": 1163, "sufyanhusayn": 744, "mucalidsaid": 2094, "salihhayy": 885, "siyarebilhakem": 832, "kasimmihran": 1752, "saidsuleymansadeviye": 714, "ibnebiseybe": 1109, "zuheyrharb": 632, "alimedini": 1506, "alihucr": 1478, "amrnakid": 1631, "osmanebiseybe": 1407, "ahmeddevraki": 8, "muhammedisataba": 2000, "yezidebihabib": 2478, "yalaubeyd": 2520, "yunusbukeyr": 2536, "abdrahmanesved": 1178, "aliebisalihhayy": 1498, "alimubarek": 1519, "omerzerr": 1553, "mesudi": 1213, "suleymanmugire": 798, "saidubeydtai": 723, "davudkaysferra": 564, "hanzalasufyan": 499, "abdulazizomer": 1281, "misned": 2127, "hennadseri": 2355, "ibnmain": 2459, "yahyayahyanisaburi": 2467, "mahmudgaylan": 2106, "ibnebiomeradeni": 2061, "nasralicehdami": 2289, "ibrahimtahman": 64, "ibrahimebiable": 70, "usamezeydeslem": 102, "caferburkan": 296, "hayveseri": 503, "saidebiyyubmisri": 697, "harmalaimran": 366, "ebuburde": 213, "serieyyahya": 683, "sadsaidensari": 687, "rebiuenes": 584, "alihasansakik": 1481, "abdan": 1072, "suveydnasr": 826, "hasanisad": 294, "behzhakim": 246, "hatimebisagire": 319, "hasanzekvan": 389, "selimhayyan": 772, "seyfsuleymanmekki": 833, "husaymirak": 535, "esaseabdulmelik": 176, "bundar": 1849, "ibnmusenna": 2017, "amrbnalisayrafi": 1623, "abbasanberi": 980, "ubeydullahmuazanberi": 1357, "yakubdevraki": 2509, "muaviyesalih": 2178, "israilyunus": 128, "darevardi": 1282, "macisun": 1277, "harbseddad": 364, "abdulvahidziyad": 1321, "malikmigvel": 2085, "sallamebimuti": 830, "abdhumeyd": 1331, "ebukureyb": 1997, "omeryunusyemami": 1585, "bisrmufaddal": 226, "ziyadilaka": 646, "sebabesevvar": 837, "hammadmesade": 480, "sucavelid": 843, "talhamusarrif": 933, "manisa": 2199, "ebumiclez": 2405, "ebuhazimseleme": 761, "saidyezidtahi": 741, "muallamansur": 2193, "ebucemrenasr": 2290, "eburafinufey": 2310, "vasilahdeb": 2371, "yusufmahek": 2529, "museyyebrafi": 2150, "behzesed": 246, "alkamemersed": 1471, "avnebicuhayfe": 1668, "muaviyekurre": 2181, "saidamirdubai": 717, "suleymesvedsasa": 771, "ukbehalidsekuni": 1452, "ebumesudbedri": 1456, "ebuhasimrummani": 2670, "fudaylsuleyman": 1728, "humeydhilal": 495, "ebuamrseybani": 686, "galibhattaf": 1703, "gaylancerir": 1709, "mehdimeymun": 2236, "saidebihind": 737, "seyyarselame": 832, "sebibgarkade": 841, "alirebianadle": 1491, "muaviyeamrezdi": 2181, "yahyayamer": 2471, "huseynzekvan": 417, "mahremesuleyman": 2110, "mufaddalfadale": 2210, "zeydcubeyr": 655, "urvecad": 1421, "sehlebihasme": 812, "muhammedmuntesir": 2038, "yahyaatik": 2446, "ibrahimmeysere": 85, "saibferruh": 677, "semurecundeb": 806, "umarekaka": 1543, "makilyesar": 2191, "munziryala": 2225, "yezidserik": 2487, "seddadevs": 844, "ebuuseydsaidi": 2081, "ebunadrhasim": 2330, "yezidmunbais": 2506, "yunusubeyd": 2540, "abbadavvam": 969, "adisabit": 1415, "hakimhizam": 468, "abbadtemim": 965, "yahyaebiishak": 2408, "amrevssekafi": 1587, "ebuvakidleysi": 2674, "ibrahimnafi": 86, "amrsuleymzuraki": 1605, "yezidebiyezid": 2504, "sabitdahhak": 260, "suleymanhayyan": 779, "ismailcafer": 140, "hatimismail": 318, "osmanesved": 1386, "kurrehalid": 1767, "cafercrebia": 299, "osmanomerfaris": 1403, "umareumeyr": 1542, "yahyaebibukeyr": 2414, "harisevehb": 337, "yalaumeyye": 2518, "habibsehid": 346, "ebuleshebutaridi": 298, "ziyadcubeyrhayye": 638, "yunuscubeyr": 2537, "ismailzekeriyya": 146, "selmanebuhazim": 759, "alimudrik": 1521, "salimebulgays": 675, "ebumusabzuhri": 13, "ziyadyahyahassani": 650, "ebusaidesecc": 1035, "muhammedrafi": 1890, "zuhli": 2058, "muhammedabdulalasanani": 1951, "mucahidmusa": 2096, "ebubekirayyas": 2562, "ebumuaviyedarir": 1881, "muhammedfudayl": 2006, "fudaylibnayaz": 1729, "kaysrebi": 1777, "fitrhalife": 1732, "abdusselamharb": 1265, "halidselememahzumi": 516, "amrmeymunmihran": 1637, "musacuheni": 2250, "nafiomercumahi": 2278, "hasimhasim": 2331, "ebumalikesceyi": 688, "leysebisuleym": 1814, "harunmaruf": 2326, "ibrahimmusaferra": 84, "sericyunus": 681, "hasanarafe": 397, "muhammedubeydmuharibi": 1972, "buhari": 1838, "muslim": 2137, "ebudavud": 773, "tirmizi": 1998, "nesai": 21, "ms12": 431, "ms22": 1481, "ms25": 2048, "ed10": 42, "ed20": 1114, "ibnmace": 2067, "darimi": 1063, "ebuzuraraazi": 1348, "ebuhatimrazi": 1830, "harmalayahya": 367, "ishakkevsec": 122, "ibrahimmunzirhizami": 82, "ademebiiyas": 96, "hasanaliayyal": 401, "suveydsaidhadesani": 823, "ibrahimkariz": 67, "hakemmina": 465, "ishaktalha": 117, "abdullahebikatade": 1094, "ebukilabe": 1029, "ebunadra": 2224, "ubeydullahmiksem": 1358, "hilalebimeymune": 2360, "muhammedibrahimteymi": 1818, "alimubarek": 1519, "hisamhassan": 2338, "haccacsavvaf": 354, "huseynzekvan": 417, "seybannahvi": 874, "muaviyesellam": 2177, "yahyasaidensari": 2430, "ikrimeammar": 1462, "zeydeslem": 653, "sufyanveki": 752, "harunhammal": 2325, "ibnsellam": 1914, "habbanhilal": 338, "nersi": 1154, "duhaym": 1174, "ahmedsinan": 20, "ebukudame": 1342, "yahyamusa": 2463, "esedmusa": 128, "musnedi": 1112, "rebimuradi": 588, "ebuamirakadi": 1309, "ebuahmedzubeyri": 1935, "ibnsabbahdulabi": 1923, "ibnrecagudani": 1022, "zaferani": 408, "abbasduri": 984, "haccacsair": 357, "cuzcani": 90, "ramadi": 43, "ahmedabde": 31, "yusufmusakattan": 2531, "atayesar": 1440, "makburi": 712, "ebuosmannehdi": 1245, "cubeyrnufeyr": 287, "ibnganm": 1233, "saidebihilal": 738, "safvansuleym": 902, "bukeyresec": 243, "naficubeyr": 2276, "musabsad": 2154, "irakmalik": 1418, "abdullahyusuftinnisi": 1151, "ebulyemanhakem": 465, "mekkiibrahim": 2220, "halidmahled": 526, "asbagferec": 178, "surayjnuman": 681, "muhammedsabik": 1897, "muhammedararah": 1977, "bedelmuhabber": 210, "talkgannam": 936, "halladyahya": 552, "aliayyas": 1515, "ebumushir": 1156, "bisrsuayb": 223, "ahmedhalidvehbi": 16, "eyyubsuleymanbilal": 198, "sadakafadl": 898, "hassanhassan": 376, "abdulazizuveysi": 1278, "ahmedeskab": 11};
