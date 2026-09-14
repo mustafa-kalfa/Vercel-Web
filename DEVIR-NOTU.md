@@ -1233,6 +1233,28 @@ Dokuz kayıt tek ögeli adla kaldı (`Dînâr`, `Rebâh`, `Zeyd`) ve
 - Harita bu yoğunlukta **kalabalık**. Etiketler bazı yakınlıklarda üst
   üste biniyor; `GIZLI_ESIK`i yükseltmek gerekebilir.
 
+## Trans ana haritaya taşındı (2026-09-14)
+
+Mustafâ'nın kararıyla çataldaki 3.310 düğüm, 9.825 kenar ve 2.288 Şâmile
+bağı `silsileVeri.js`e yazıldı.
+
+| | önce | sonra |
+|---|---|---|
+| ana harita düğüm | 818 | **4.128** |
+| ana harita kenar | 8.482 | **18.307** |
+| Şâmile bağı | 704 | **2.992** |
+| çizilen düğüm | 719 | 2.339 |
+
+Boşa düşen kenar 0, çift kenar 0, yerleşimi eksik düğüm 0, sütun sayısı
+13'te kaldı. Çatal boşaltıldı ama **dosya duruyor** — `/ag-sinamasi` ona
+bağlı ve sonraki transın yeri orası.
+
+**Taşıma betiğinde bir tuzak:** `silsileVeri.js` CRLF satır sonu
+kullanıyor, dolayısıyla `"
+];"` gibi düz dizge çengelleri hiçbir şey
+bulmuyor. Düzenli ifadeye (`/?
+\];/`) çevrildi.
+
 ## Daha derin arka plan
 
 `silsile-agi-notlar.md` — belde denetimi, Bağdat sütunu kararı, başlık
