@@ -154,7 +154,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
       "Şu anda buradasınız. Mustafâ henüz böyle bir sayfa oluşturmadı. Fakat... Neden olmasın?",
     cardPreparing: "Hazırlanıyor",
     podcastLead:
-      "Hadis ilminin başlıklarına dair yapay zekâ destekli podcastleri burada bulabilirsiniz. Kayıtlar tamamlandıkça başlıklar burada açılacak.",
+      "Hadis ilminin başlıklarına dair yapay zekâ destekli podcastleri burada bulabilirsiniz. Kayıtlar tamamlandıkça başlıklar burada açılacaktır.",
     podcastHadithHistory: "Hadis Tarihi",
     podcastCatGeography: "Coğrafya, Tabakât ve Tarih Yazımı",
     podcastCatTerms: "Usûl Istılahları",

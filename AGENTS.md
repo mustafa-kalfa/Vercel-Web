@@ -140,20 +140,33 @@ yorumda; degistirmeden once oku.
 
 `<AudioPlayer src title? autoPlay? />`. Kendi arayuzunu ciziyor (oynat/
 duraklat, 5 sn geri/ileri, hiz 0.75-2x, surgu), tarayicinin ham
-`controls` arayuzu kullanilmiyor. Su an TEK yerde: `/hadis-tarihi`,
-"Mihne Hadisesi" dugmesine basilinca aciliyor.
+`controls` arayuzu kullanilmiyor. Su an TEK sayfada: `/hadis-tarihi`,
+kaydi olan bolumun dugmesine basilinca aciliyor.
 
 Iki tuzak, ikisi de dosyada yorumlu: `playbackRate` bir DOM ozelligi,
 yeni `<audio>` her zaman 1x baslar ve kaynak degisince sifirlanir (efektle
 senkron tutuluyor); `autoPlay` tarayici tarafindan reddedilebilir, o
 durumda dugme duraklatilmis halde kaliyor.
 
-`MIHNA_SRC` = `/podcast/mihne-hadisesi.mp3`, 20:57, 10 MB. Kaydin kendi
-adi "Mihne Sureci ve Halku'l-Kur'an Meselesi", ama **dosya adi
-`mihne-hadisesi.mp3` olarak sabit** -- dugme etiketi (`podcastMihna`)
-ile dosya adi bilerek ayri, kayit degisince kodda hicbir sey
-degismesin diye. 2026-08-30'da baska bir kayit konmus, ertesi gun
-bununla degistirilmisti.
+Sayfadaki sekiz bolumun **ikisinin kaydi var** (2026-09-15):
+
+| bolum | dosya | sure | boyut |
+|---|---|---|---|
+| 001 Hz. Peygamber ve sahabe doneminde rivayet | `sahabe-donemi-rivayet.mp3` | 23:33 | 11 MB |
+| 007 Mihne Hadisesi | `mihne-hadisesi.mp3` | 20:57 | 10 MB |
+
+Kaydi olmayan bolumler tiklanamiyor ve "Hazirlaniyor" rozeti tasiyor;
+bir kayit gelince `BOLUMLER` dizisinde o kalemin `ses` alanini doldurmak
+yetiyor, gerisi kendiliginden calisiyor.
+
+**Dosya adlari dugme etiketlerinden BAGIMSIZ ve sabit** -- kayit
+degisince kodda hicbir sey degismesin diye. Ornek: Mihne kaydinin kendi
+adi "Mihne Sureci ve Halku'l-Kur'an Meselesi" ama dosya
+`mihne-hadisesi.mp3`; 2026-08-30'da baska bir kayit konmus, ertesi gun
+bununla degistirilmisti ve kodda tek satir degismemisti.
+
+Ayni anda **yalnizca bir oynatici acik**: sayfa acik/kapali bir bayrak
+degil, ACIK BOLUMUN ANAHTARINI tutuyor.
 
 Ham kayitlar sitenin deposunda degil, `Desktop\Vercel Projeler\
 Podcastler\` klasorunde duruyor.

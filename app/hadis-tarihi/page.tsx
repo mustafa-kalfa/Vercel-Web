@@ -7,6 +7,11 @@ import ChromaKeyVideo from "../ChromaKeyVideo";
 import HazirlaniyorRozeti from "../HazirlaniyorRozeti";
 import { useLanguage } from "../LanguageContext";
 
+/* Dosya adlari dugme etiketlerinden BAGIMSIZ ve sabit: kayit degisince
+   kodda hicbir sey degismesin diye (bkz. AGENTS.md, AudioPlayer bolumu).
+   Ikisi de 64 kbps mono MP3 -- ham kayitlar 250 kbps stereo geliyor ve
+   konusma icin bu asiri. */
+const SAHABE_SRC = "/podcast/sahabe-donemi-rivayet.mp3";
 const MIHNE_SRC = "/podcast/mihne-hadisesi.mp3";
 
 /* Hadis Tarihi kategorisinin sekiz bolumu, Mustafa'nin verdigi sirayla
@@ -14,14 +19,14 @@ const MIHNE_SRC = "/podcast/mihne-hadisesi.mp3";
    Mustafa'nin istegiyle kaldirildi (2026-09-09) -- ziyaretciye bir sey
    soylemiyorlardi, sira zaten dizinin kendi sirasi.
 
-   Simdilik YALNIZCA Mihne kaydi var. Digerleri tiklanamiyor -- boyle
+   Simdilik IKI kayit var (001 ve 007). Digerleri tiklanamiyor -- boyle
    olmasi Mustafa'nin karari: kaydi olmayan bir bolum, ziyaretciyi baska
    bir sayfaya gonderecegine hic tepki vermesin.
 
    Yeni bir kayit gelince o kalemin `ses` alanina dosya yolu yazmak
    yetiyor; asagidaki cizim onu kendiliginden oynatilabilir yapiyor. */
 const BOLUMLER = [
-  { anahtar: "podcastEp001", ses: null },
+  { anahtar: "podcastEp001", ses: SAHABE_SRC },
   { anahtar: "podcastEp002", ses: null },
   { anahtar: "podcastEp003", ses: null },
   { anahtar: "podcastEp004", ses: null },
