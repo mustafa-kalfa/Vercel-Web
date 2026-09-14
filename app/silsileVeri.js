@@ -34551,12 +34551,33 @@ export const YIL_MIN = 5, YIL_MAX = 315;
                                 dar geliyordu). KAVIS_OLCEK bu sayiya
                                 bagli oldugu icin kavisler kendiliginden
                                 olcekleniyor.
+     H         600000 -> 2400000  (2026-09-14) Takrib transi girince
+                                dugum 818'den 4826'ya cikti ve tuval
+                                KORKUNC YAYVANLASTI: W 520920'den
+                                3645720'ye, yani H'nin alti kati.
+                                Sebep serit sayisi -- ayni yil araligina
+                                alti kat dugum dusunce ASGARI_DY onlari
+                                YANA itiyor ve Basra 98 seride cikiyordu.
+                                Cozum H'yi buyutup ASGARI_DY'yi SABIT
+                                tutmak: ayni yil araligi daha cok birime
+                                denk geliyor, serit sayisi dusuyor.
+                                DORT KAT. 16 kat da denendi ve serit
+                                sayilarini birlestirme oncesine (azami
+                                14) dusuruyordu, AMA tuval o kadar
+                                incelince ekranin ortasina sikisiyor ve
+                                belde basliklari bile kirpiliyordu.
+                                Dort katta oran 0,45 -- harita
+                                genisliginin iki kati yukseklikte,
+                                sutun basliklari okunuyor, azami serit
+                                29. Noktalar kaybolmuyor: `rEkranOf`
+                                ekran yaricapina taban koyuyor,
+                                olcekten bagimsiz.
      UST         210 -> 460     Hz. Peygamber dugumu tuvalin ustunde,
                                 "UST - ..." konumunda duruyor; yaricapi
                                 192'ye cikinca eski payla ust kenardan
                                 tasiyordu. */
 export const UST = 460, ALT = 160, SOL_PAY = 60;
-export const H = 600000;
+export const H = 2400000;
 export const SERIT_W = 2480;
 export const ASGARI_DY = 6264;
 export const yOf = (yil) => UST + ((yil - YIL_MIN) / (YIL_MAX - YIL_MIN)) * (H - UST - ALT);

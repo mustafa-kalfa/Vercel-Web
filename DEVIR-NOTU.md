@@ -1293,6 +1293,37 @@ arama kamerasının gidebileceği bir yere sahip. Râvi Ara ile bulunabilmesi
 için önce bir yerleşim kararı gerekiyor — keyfî bir sütuna koymak veri
 olarak yanlış olurdu.
 
+## Tuval yayvanlaştı, dikeye çevrildi (2026-09-14)
+
+Trans girince tuval **korkunç yayvanlaştı** — genişlik 520.920'den
+3.645.720'ye çıktı, yani yüksekliğin altı katı. `/ag-sinamasi`'nda bu
+görünmemişti çünkü oradaki ekran görüntüleri yakınlaştırılmış hâldeydi,
+tuvalin bütün oranı hiç bakılmamıştı.
+
+Sebep **şerit sayısı**. Aynı yıl aralığına altı kat düğüm düşünce
+`ASGARI_DY` onları yana itiyor ve Basra 98 şeride çıkıyordu.
+
+Çözüm dosyanın kendi notunda yazılıydı — mutlak sayılar değil, **nokta
+yarıçapına oranları** önemli. `H` büyütülüp `ASGARI_DY` **sabit**
+tutulunca aynı yıl aralığı daha çok birime denk geliyor ve şerit sayısı
+düşüyor.
+
+| H | W/H | azamî şerit |
+|---|---|---|
+| 600.000 (önceki) | 6,08 | 98 |
+| 1.800.000 | 0,81 | 39 |
+| **2.400.000 (seçilen)** | **0,45** | **29** |
+| 4.800.000 | 0,15 | 19 |
+| 9.600.000 | 0,054 | 14 |
+
+16 kat da denendi ve şerit sayısını birleştirme öncesine (14)
+düşürüyordu, ama tuval o kadar incelince **ekranın ortasına sıkışıyor**
+ve belde başlıkları kırpılıyordu. Dört kat dengeli — harita genişliğinin
+iki katı yükseklikte, sütun başlıkları okunuyor.
+
+Noktalar kaybolmuyor: `rEkranOf` ekran yarıçapına taban koyuyor
+(`EN_AZ_EKRAN_R`), ölçekten bağımsız.
+
 ## Daha derin arka plan
 
 `silsile-agi-notlar.md` — belde denetimi, Bağdat sütunu kararı, başlık
