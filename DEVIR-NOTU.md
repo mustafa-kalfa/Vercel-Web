@@ -1068,6 +1068,39 @@ Sonuç: 2 kenar çıkarıldı, çatal 13.371.
 sayısı**. 459 kayıt korkutucu görünüyor ama 109 ifadeye iniyor ve
 elle gözden geçirilebilir bir büyüklük.
 
+## Muhakkikin tashihi parantezdeydi (2026-09-14)
+
+Züheyr b. Harb çatalda ayrı bir düğüm olarak duruyordu, oysa haritada
+`zuheyrharb` olarak zaten var. **Hiçbir denetim yakalayamamıştı** —
+tercemesi çözülmediği için aynı-satır testi koşamıyor, adı da haritadakine
+uymuyordu: çatalda `أبو خثيمة`, haritada `أبو خيثمة`. Aynı kelime, iki
+harfi yer değişmiş; sıralı karşılaştırma bunu göremez.
+
+Harf sırasından bağımsız anahtar (kelimenin harfleri sıralanmış) onu
+buldu. Aynı testte **başka hiçbir eşleşme çıkmadı**, yani bu yazım
+kayması nadir.
+
+Sebebi ilgi çekici. Takrîb'in kendisi düzeltmiş — metin
+`أبو خثيمة [خيثمة] النسائي` diyor, doğru yazım **köşeli parantezin
+içinde**. `adBolgesi` parantezleri şerh sayıp atıyordu ve tashihi de
+birlikte atıyordu.
+
+Parantezler tek işe yaramıyor: kimi ekleme (`وخمسين [ومائتين]` vefat
+yılı), kimi seçenek (`د [ت]` rumûz), kimi şerh. Tashihi ayıran ölçüt,
+parantez içindekinin **önceki kelimenin yakın bir varyantı** olması —
+aynı harfler başka sırada ya da tek harf farkı. Metinde 109 böyle çift
+var; öteki parantezler eskisi gibi atılıyor.
+
+Yedi kayıt düzeldi — `بشير→بشر`, `الحسين→الحسن`, `البزاز→البزار`,
+`أبو يزيد→أبو زيد`, `خثيمة→خيثمة`, `الحدائي→الحداني`, Hemmâm b.
+Münebbih'in künyesi `أبو عتبة→أبو عقبة`. Kütük 1144/1144 temiz kaldı,
+gerileme yok.
+
+**Ana harita etkilenmiyor** — orada `خثيمة` yazımı hiç yok, hepsi doğru;
+bu kayma yalnızca Takrîb metninde.
+
+Çatal 945 düğüm, 13.359 kenar.
+
 ## Daha derin arka plan
 
 `silsile-agi-notlar.md` — belde denetimi, Bağdat sütunu kararı, başlık

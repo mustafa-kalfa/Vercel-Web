@@ -111,8 +111,38 @@ const SARTLI_DURAK = new Set(["شقيق", "والد", "جد", "زوج"]);
    Ileriye bakis (`(?=...)`) boslugu tuketmiyor. */
 const IBN = /(^|\s)ابن(?=\s|$)/g;
 
+/* MUHAKKIKIN TASHIHI PARANTEZDE. Takrib metninde koseli parantezler
+   cok isli -- kimi ekleme («وخمسين [ومائتين]» yil), kimi secenek
+   («د [ت]» rumuz), kimi de TASHIH. Hepsi atiliyordu ve tashihler de
+   birlikte gidiyordu: «أبو خثيمة [خيثمة] النسائي» kaydinda dogru yazim
+   parantezin ICINDEYDI, disaridaki harfleri yer degistirmis bicim
+   kaliyordu ve Zuheyr b. Harb haritadaki kendisiyle eslesmiyordu.
+
+   Tashihi otekilerden ayiran sey, parantez icindekinin ONCEKI
+   KELIMENIN YAKIN BIR VARYANTI olmasi -- ayni harfler baska sirada,
+   ya da tek harf farki. Metinde 109 boyle cift var. Oteki parantezler
+   (ekleme, secenek, serh) eskisi gibi atiliyor. */
+const yakinVaryant = (a, b) => {
+  if (a === b || a.length < 3 || b.length < 3) return false;
+  if ([...a].sort().join("") === [...b].sort().join("")) return true;
+  if (a.length === b.length) {
+    let f = 0;
+    for (let i = 0; i < a.length; i++) if (a[i] !== b[i] && ++f > 1) return false;
+    return f === 1;
+  }
+  if (Math.abs(a.length - b.length) !== 1) return false;
+  const [u, k] = a.length > b.length ? [a, b] : [b, a];
+  for (let i = 0; i < u.length; i++) if (u.slice(0, i) + u.slice(i + 1) === k) return true;
+  return false;
+};
+const TASHIH = /(\S+)(\s*)\[([^\]\s]+)\]/g;
+
 function adBolgesi(ham) {
-  const tok = ham.replace(PARANTEZ, " ").replace(IBN, "$1بن")
+  const duzeltilmis = ham.replace(TASHIH, (t, once, bosluk, ici) => {
+    const a = once.replace(/[ً-ْٰـ]/g, ""), b = ici.replace(/[ً-ْٰـ]/g, "");
+    return yakinVaryant(a, b) ? ici : t;
+  });
+  const tok = duzeltilmis.replace(PARANTEZ, " ").replace(IBN, "$1بن")
     .replace(/\s+/g, " ").trim().split(" ");
   const out = [];
   /* ZAPT KUMESI ATLAMA. Takrib harekeyi ISMIN HEMEN ARDINDAN tarif ediyor
