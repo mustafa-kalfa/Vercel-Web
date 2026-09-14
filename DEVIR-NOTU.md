@@ -1363,6 +1363,38 @@ yani tuval yeniden yayvanlaşmaya başladı. `H` 2.400.000'den 3.200.000'e
 **Kural:** düğüm sayısı arttıkça `H` da artmalı. Yoksa `ASGARI_DY`
 düğümleri yana itiyor ve tuval yayvanlaşıyor.
 
+## Haritada yeri olmayan râvîler (2026-09-15)
+
+Takrîb beldesini söylemeyen, Tehzîb başlığında da geçmeyen ve
+komşularından da çıkarılamayan **1.703 râvî** haritaya eklendi ama
+**çizilmiyor** — Râvi Ara onları buluyor ve kartı açılıyor. Mustafâ'nın
+kararı: yanlış bir sütuna koymak, koymamaktan kötü.
+
+Mekanizma tek alan — **`belde: null`**. Yerleşim `BELDELER`i dolaşıp
+`n.belde === belde` süzüyor, null hiçbirine uymuyor, dolayısıyla `POS`
+oluşmuyor. Çizim döngüleri zaten `if (!p) continue` diyor.
+
+Elle yapılan üç küçük değişiklik:
+
+- `odakKonumu` konumsuz râvîye **null** dönüyor, `odaklan` da kamerayı
+  kımıldatmıyor. Eskiden `p.x` okuyup patlardı.
+- `veriyiDenetle` artık `belde != null` süzüyor — null kasıtlı, uyarı
+  yalnızca BİLİNMEYEN bir belde adı için.
+- Kart künyesinde ayraç çiftlenmesin diye belde koşullu yazılıyor;
+  `ö. 284/~897 · · Müellif sonrası` çıkıyordu.
+
+823'ünün (%48) tercemesi çözüldü, Şâmile bağı onlara verildi. Kalan
+880'inde Tehzîb'de terceme bulunamadığı için ne bağ ne kart var.
+
+| | |
+|---|---|
+| haritada çizilen râvî | 6.355 |
+| yalnız aramada | **1.703** |
+| **toplam** | **8.058** |
+| Şâmile bağı | 5.409 |
+
+Düzen oranı değişmedi (0,37) — konumsuz düğüm yerleşime hiç girmiyor.
+
 ## Daha derin arka plan
 
 `silsile-agi-notlar.md` — belde denetimi, Bağdat sütunu kararı, başlık

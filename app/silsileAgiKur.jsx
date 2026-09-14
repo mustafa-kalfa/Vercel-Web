@@ -595,6 +595,12 @@ export function kur(V) {
        (asagi dogru inen talebe kollari) ayni anda goruluyor. */
     const odakKonumu = useCallback((id, k) => {
       const p = POS[id];
+      /* HARITADA YERI OLMAYAN RAVI. Takrib'de beldesi soylenmeyen ve
+         Tehzib'den de, komsularindan da cikarilamayan raviler haritada
+         CIZILMIYOR ama arama onlari buluyor ve karti aciliyor (Mustafa,
+         2026-09-15). Sutunu olmadigi icin `POS`u da yok; kamera hicbir
+         yere gitmemeli, kart yerinde acilmali. */
+      if (!p) return null;
       const oran = dar ? 0.35 : 0.42;
       const hy = UST_BANT + (box.h - UST_BANT) * oran;
       return { k, x: (box.w + SOL_BANT) / 2 - p.x * k, y: hy - p.y * k };
@@ -1016,7 +1022,10 @@ export function kur(V) {
       setSecim({ tur: "ravi", id });
       setKartAcik(true);
       // ucuncu arguman: secim HENUZ state'te yok, bkz. sinirla'daki not
-      kaydir(odakKonumu(id, view.k), 620, true);
+      // `odakKonumu` haritada yeri olmayan raviye null doner -- o zaman
+      // kamera kimildamiyor, yalnizca kart aciliyor.
+      const hedef = odakKonumu(id, view.k);
+      if (hedef) kaydir(hedef, 620, true);
     };
   
   
@@ -2507,7 +2516,9 @@ export function kur(V) {
                   <span className="text-lg" style={{ color: C.ink }} dir="rtl">{secRavi.ar}</span>
                 )}
                 <span className="text-xs" style={{ color: C.vurguInk }}>
-                  {tarihYaz(secRavi, t.agOlum)} · {beldeAdi(secRavi.belde)} · {TAB_AD[secRavi.tab]}{MUKSIRUN.has(secRavi.id) ? " · " + t.agMuksirun : ""}{MEDAR[secRavi.id] ? " · " + MEDAR_AD[MEDAR[secRavi.id]] : ""}{MUELLIF.has(secRavi.id) ? " · " + t.agMuellif : ""}
+                  {/* Beldesi bilinmeyen ravide ayrac CIFTLENMESIN --
+                      «ö. 284/~897 · · Müellif sonrası» diye cikiyordu. */}
+                  {tarihYaz(secRavi, t.agOlum)}{secRavi.belde ? " · " + beldeAdi(secRavi.belde) : ""} · {TAB_AD[secRavi.tab]}{MUKSIRUN.has(secRavi.id) ? " · " + t.agMuksirun : ""}{MEDAR[secRavi.id] ? " · " + MEDAR_AD[MEDAR[secRavi.id]] : ""}{MUELLIF.has(secRavi.id) ? " · " + t.agMuellif : ""}
                 </span>
               </div>
               {/* Not once ceviri tablosunda aranir (bkz. NOT_DIL), yoksa
