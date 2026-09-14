@@ -1148,6 +1148,38 @@ komşu vefat yılları 122-245. Çatal 13.332 kenar.
 ölçüt bu 25 kenarı bulmamıştı; terceme okunup kartla karşılaştırılınca
 ilk bakışta görüldü.
 
+## İki kart daha — Ebû Hanîfe ve İbn Lehîa (2026-09-14)
+
+- **Ebû Hanîfe** (ö. 150, Kûfe, 31 bağlantı). Tehzîb'deki tercemesi hadis
+  tenkidi değil neredeyse baştan sona **fakīhlik** üzerine. İbn Maîn dört
+  ayrı nakilde olumlu; Yahyâ b. Saîd el-Kattân «Allah'a yalan
+  söylemeyelim, görüşünden güzelini işitmedik ve sözlerinin çoğunu aldık»
+  demiş. Süfyân'a «ne diye kızıyorsun?» diye sorulunca usûlü nakledilir —
+  Kitap, Sünnet, sahâbe sözü; iş İbrâhim, Şa‘bî, İbn Sîrîn ve Atâ'ya
+  gelince «onlar ictihad eden bir topluluktur, ben de onlar gibi ictihad
+  ederim». Rumûzu yalnız `ت س`.
+- **İbn Lehîa** (ö. 174, Mısır, 27 bağlantı). Tercemenin tamamı tek bir
+  soru etrafında döner — **nüsha**. Ahmed b. Sâlih teşhisi koyar: önce
+  kitaplarını çıkarıp imlâ etmiş, sonra bir daha kitap çıkarmamış ve
+  kendisinden işitmek isteyen, ondan yazmış birinden istinsah edip getirip
+  ona okur olmuş. «Sahih bir nüshaya denk gelenin hadisi sahihtir,
+  zabtedilmemiş nüshadan yazana çok halel girer.»
+
+### Kenar yönü hakkındaki notun kaynaktan teyidi
+
+İbn Lehîa'nın kartındaki komşuları denetlerken Şu‘be (ö. 160) ve Evzâî
+(ö. 157) **talebesi** olarak duruyordu — o ise 174'te vefat etmiş.
+Tehzîb bunu kendisi söylüyor: `وعنه ... والثوري، وشعبة، والأوزاعي،
+وعمرو بن الحارث **وماتوا قبله**` — "ondan rivayet ettiler ve ondan önce
+öldüler".
+
+Yani daha önce ölçüp not ettiğimiz şey kaynakta açıkça yazılı: **vefat
+yılı kenar yönünü kanıtlamaz.** Yılla toplu düzeltme yapmaya kalkışmak
+bu dört kenarı da bozardı.
+
+İkisinin komşuları da tercemedeki listelerle karşılaştırıldı, kronolojik
+olarak şüpheli hiçbir bağ yok.
+
 ## Daha derin arka plan
 
 `silsile-agi-notlar.md` — belde denetimi, Bağdat sütunu kararı, başlık
