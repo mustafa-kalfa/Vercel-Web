@@ -120,6 +120,14 @@ def govdesi_var(k):
     return len(g) > 300 and bool(ROA.search(g))
 
 
+NISBE_KALIBI = re.compile(u"^ال.+ي$")
+
+
+def cekirdek(t):
+    u"""Nisbeleri (ال...ي) atip geriye kalan nesep cekirdegi."""
+    return [w for w in t if not NISBE_KALIBI.match(w)]
+
+
 def kuyruk_lakap(ad_tok, bol_tok):
     """Bosluk sinirini YALNIZCA son belirtec icin gevsetir.
 
@@ -194,6 +202,30 @@ for d in dug:
                           adaylar=[basliklar[k]["ad"][:120] for k in idx[:3]]))
         continue
     if not idx:
+        # YEDEK: NESEP CEKIRDEGI + YIL KAPISI. Aday TAM ALTDIZIYLE
+        # araniyor ve Takrib adin arasina Tehzib basliginda olmayan bir
+        # nisbe sokunca eslesme kiriliyor: «أحمد بن منصور بن سيار
+        # البغدادي الرمادي» ~ «أحمد بن منصور بن سيار بن معارك الرمادي».
+        # Terceme orada duruyor ama kayit "aday yok"a dusuyordu --
+        # cozulmemis 248 dugumun 209'unda baslik bulunabiliyordu.
+        #
+        # Nisbeler atilip cekirdek eslestiriliyor. TEK BASINA GUVENILMEZ:
+        # cekirdek, bizim adin uzun bir nesebin ORTASINDA ata olarak
+        # gecmesine acik -- Abdullah b. Omer'in el-Omeri'ye baglanmasi
+        # tam bu tuzaktan cikmisti. O yuzden bu yolda kabul YALNIZCA
+        # vefat yili tutarsa veriliyor; tek aday bile olsa yil sorulur.
+        cidx = [k for k in range(len(basliklar))
+                if altdizi_esle(cekirdek(tok), cekirdek(basliklar[k]["tok"]))]
+        cidx = [k for k in cidx if govdesi_var(k)]
+        if d["olum"] is not None and len(cekirdek(tok)) >= 2 and cidx:
+            uy = [k for k in cidx
+                  if any(abs(y - d["olum"]) <= 2 for y in govde_yillari(govde(k)))]
+            if len(uy) == 1:
+                sayac["cekirdek + yil"] += 1
+                cozum.append(dict(d, satir=basliklar[uy[0]]["satir"],
+                                  baslik=basliklar[uy[0]]["ad"][:150],
+                                  olcut="cekirdek"))
+                continue
         sayac["aday yok"] += 1
         kalan.append(dict(d, durum="aday-yok"))
         continue

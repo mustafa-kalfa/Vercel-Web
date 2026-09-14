@@ -987,6 +987,55 @@ tahmin geç tarafa kayıyor. Gerçek çözüm yılsız düğümlere yıl yazmak.
 Çatal 954 → 951 düğüm, 12.961 → 12.949 kenar. Takrîb kütüğü 1144/1144
 temiz kaldı.
 
+## Çekirdek + yıl: 89 terceme daha (2026-09-14)
+
+`baslik-coz.py` adayı **tam altdiziyle** arıyor ve Takrîb adın arasına
+Tehzîb başlığında olmayan bir nisbe sokunca eşleşme kırılıyor —
+`أحمد بن منصور بن سيار البغدادي الرمادي` ile
+`أحمد بن منصور بن سيار بن معارك الرمادي`. Terceme orada duruyor ama kayıt
+"aday yok"a düşüyordu. Ölçüldü: çözülemeyen 248 düğümün **209'unda**
+ilk üç belirteci birebir tutan bir başlık vardı.
+
+Eklenen yedek kural: nisbeler atılıp **nesep çekirdeği** eşleştiriliyor,
+ama kabul **yalnızca vefat yılı tutarsa** veriliyor — tek aday bile olsa
+yıl sorulur. Çekirdek tek başına güvenilmez, adın uzun bir nesebin
+ortasında ata olarak geçmesine açık (Abdullah b. Ömer'in el-Ömerî'ye
+bağlanması tam bu tuzaktandı).
+
+**89 düğüm** böyle çözüldü, 555 aday kenar çıktı, 89'un **82'si** bağ
+kazandı. Şâmile bağı 703 → 788. Ana haritada kural **hiç ateşlenmedi** —
+oradaki çözülmemişlerin çoğu yılsız, kapı yılı şart koşuyor.
+
+Yeni çözümler 5 mükerrer daha açığa çıkardı (İbnü'l-Mübârek, Duhaym,
+Ebû Ahmed ez-Zübeyrî, Muâz b. Muâz el-Anberî, el-Müsnedî).
+
+### Künye ile yanlış eşleşme — sahâbe seviyesinde vurdu
+
+Birleşme sonrası iki kenar ana haritaya düştü ve eklenmeden önce
+kontrol edilince **yanlış kişiye ait** oldukları görüldü. Kaydın metni
+`معاذ بن المثنى` — o **Muâz b. el-Müsennâ** (ö. 228), düğüm ise
+`معاذ بن معاذ بن نصر أبو المثنى`. Tarayıcının `bas` kuralı ilk ögeyi
+(معاذ) tutturuyor, ikinci öge (المثنى) ise düğümün **nesebinde değil
+künyesinde**.
+
+Aynı kalıp tarandığında sahâbe seviyesinde iki vaka daha çıktı —
+`عدي بن حاتم` (Adî b. Hâtim et-Tâî) Adî b. el-Fazl **Ebû Hâtim**'e,
+`عمار بن ياسر` (Ammâr b. Yâsir) Ammâr b. Nasr **Ebû Yâsir**'e
+bağlanmıştı. Toplam 10 kenar çatalda, ana haritada yok.
+
+Kapı `kenar-tara.py`ye eklendi. **Ölçüt kaydın `بن` ile babalık iddia
+etmesi** — bu daraltma şart: ilk sürüm yalnızca "ikinci öge künyede"
+diye bakıyordu ve `دراج أبي السمح` gibi aynı kişinin künyeyle anılmasını
+da eliyordu. İstisna, düğümün kendi adında `بن <öge>` geçmesi (dedeye
+nisbet): `أحمد بن أبي رجاء الهروي` meşru, elenmiyor.
+
+**Vefat yılı kenar yönünü kanıtlamaz.** Yönü yılla denetlemek denendi,
+ana haritada 81 "ters" kenar gösterdi — ama çoğu meşru, akran râvîler
+birbirinden rivayet ediyor (Süfyân es-Sevrî ö. 161, Mâlik'ten ö. 179
+rivayet etmiş). Bu testle toplu düzeltme yapılamaz.
+
+Çatal 951 → 946 düğüm, 13.373 kenar, süzgeci geçen 704.
+
 ## Daha derin arka plan
 
 `silsile-agi-notlar.md` — belde denetimi, Bağdat sütunu kararı, başlık

@@ -92,6 +92,27 @@ def kapi(kayit, hedef):
     # basliyorsa var; ikisi de asagida ayri sebep olarak isaretli.
     i = ht.index(kt[0]) if kt[0] in ht else -1
     if i == 0:
+        # KAYDIN IKINCI OGESI DUGUMUN KUNYASINDAN GELIYORSA BASKA KISIDIR.
+        # «معاذ بن المثنى» (Muaz b. el-Musenna, o. 228) dugum
+        # «معاذ بن معاذ بن نصر أبو المثنى» ile eslesiyordu: ilk oge ayni
+        # (معاذ), ikinci oge (المثنى) dugumun NESEBINDE degil KUNYASINDA.
+        # Ayni kalip sahabe seviyesinde de vurdu -- «عدي بن حاتم» Adi b.
+        # el-Fazl EBU HATIM'a, «عمار بن ياسر» Ammar b. Nasr EBU YASIR'a
+        # baglandi. Ikisi de yanlis kisi.
+        #
+        # ISTISNA: dugumun kendi adinda «بن <oge>» geciyorsa o belirtec
+        # gercekten nesep ogesidir (dedeye nisbet) -- «أحمد بن أبي رجاء
+        # الهروي» ~ «أحمد بن عبد الله بن أيوب أبو الوليد بن أبي رجاء».
+        # Olcut KAYDIN «بن» ILE BABALIK IDDIA ETMESI. «معاذ بن المثنى»
+        # el-Musenna'yi BABA gosteriyor; dugumde el-Musenna kunyadir,
+        # yani baska kisi. «دراج أبي السمح» ise ayni kisinin KUNYE ile
+        # anilmasi -- «بن» yok, elenmemeli (ilk surum bunu de eliyordu).
+        if len(kt) > 1 and ("بن " + kt[1]) in nrm(kayit):
+            hh = hamtok(hedef["ar"])
+            kb = next((x for x in range(len(hh))
+                       if hh[x] in KUN and (x == 0 or hh[x - 1] != "بن")), len(hh))
+            if kt[1] in hh[kb:] and kt[1] not in hh[:kb]                and ("بن " + kt[1]) not in " ".join(hh):
+                return None
         return "bas"
     if nrm(kayit).startswith("بن "):
         return "ibn"
