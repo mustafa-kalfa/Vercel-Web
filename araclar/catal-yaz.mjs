@@ -6,9 +6,9 @@ import { pathToFileURL } from "node:url";
 
 /* Kullanim (my-app icinden):
      node araclar/catal-yaz.mjs <yeni-dugumler.json> <kenarlar.json> <cikti.js> */
-const [, , dugumYol, kenarYol, ciktiYol] = process.argv;
+const [, , dugumYol, kenarYol, ciktiYol, samileYol] = process.argv;
 if (!dugumYol || !kenarYol || !ciktiYol) {
-  console.error("kullanim: catal-yaz.mjs <yeni-dugumler.json> <kenarlar.json> <cikti.js>");
+  console.error("kullanim: catal-yaz.mjs <yeni-dugumler.json> <kenarlar.json> <cikti.js> [samile.json]");
   process.exit(1);
 }
 const V = await import(pathToFileURL("app/silsileVeri.js").href);
@@ -24,6 +24,13 @@ for (const e of V.EDGES) { varOlan.add(e.a + "|" + e.b); varOlan.add(e.b + "|" +
    burada tekrarlanmalari catali gereksiz yere ana veriden ayirirdi. */
 const kufeKenar = kenar.filter((e) =>
   (yeniId.has(e.a) || yeniId.has(e.b)) && !varOlan.has(e.a + "|" + e.b));
+
+/* SAMILE ana modulden `export *` ile geliyor; trans dugumlerinin
+   sayfalari icin UZERINE yazilmasi gerekiyor, yoksa yeni noktalarda
+   Samile dugmesi hic cikmiyor. Sayfa numaralari `samile-uret.mjs` ile
+   uretiliyor ve o betik once haritanin KENDI degerlerine karsi
+   dogrulaniyor -- yanlis sayfa ekranda gorunmez. */
+const samile = samileYol ? JSON.parse(readFileSync(samileYol, "utf8")) : null;
 
 const q = (s) => JSON.stringify(s);
 const dugumSatir = yeni.map((k) =>
@@ -65,7 +72,7 @@ const govde = `/* TAKRIB TRANSI -- DENEME VERISI, yalnizca /ag-sinamasi kullaniy
 
    ${yeni.length} dugum, ${kufeKenar.length} kenar. */
 import {
-  NODES as ANA_NODES, EDGES as ANA_EDGES, N, E,
+  NODES as ANA_NODES, EDGES as ANA_EDGES, SAMILE as ANA_SAMILE, N, E,
   dereceKur, rOfKur, rEkranOfKur, yerlesimKur, nebiKenarlariEkle,
 } from "./silsileVeri.js";
 
@@ -86,7 +93,9 @@ export const DERECE = dereceKur(EDGES);
 export const rOf = rOfKur(DERECE);
 export const rEkranOf = rEkranOfKur(rOf);
 export const { POS, SUTUNLAR, W, MEDINE } = yerlesimKur(NODES);
-`;
+${samile ? `
+export const SAMILE = { ...ANA_SAMILE, ...${JSON.stringify(samile)} };
+` : ""}`;
 writeFileSync(ciktiYol, govde, "utf8");
 console.log("dugum :", yeni.length);
 console.log("kenar :", kufeKenar.length, "(bir ucu yeni olanlar)");

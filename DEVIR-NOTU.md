@@ -910,6 +910,40 @@ bir kenarın iki ucunu da ana haritaya taşıyabildiği için bu sessiz bir
 kayıp riski — ölçüldü, bu turda taşınanların hepsi zaten ana haritada
 vardı (kayıp 0), ama sonraki turda ayrıca toplanmalı.
 
+## Transa Şâmile bağlantısı (2026-09-14)
+
+Trans düğümlerinin 954'ünden **703'üne** Şâmile bağlantısı çıkarıldı; artık
+kartlarında «Şâmile'de görüntüle» düğmesi var. Kalan 251'in tercemesi
+çözülmediği için düğme çıkmıyor — mevcut davranışın aynısı.
+
+Yöntem `silsileVeri.js`teki SAMILE yorumunda zaten yazılıydı: düğümün
+Tehzîb satırında ve öncesinde kaç sayfa işareti (`جـ N(ص: M)`) geçtiğini
+saymak. Üretmeden önce **haritanın kendi 704 değerine karşı doğrulandı,
+sapma 0.** Bu adım atlanamaz — yanlış sayfa numarası ekranda görünmez,
+düğme yine çıkar ve yanlış tercemeye götürür.
+
+### İki tuzak, ikisi de ölçülerek bulundu
+
+- **Satır ayrımı Python gibi olmalı.** `satir` alanları `baslik-coz.py`den
+  geliyor ve Python metin kipinde **evrensel satır sonu** kullanıyor —
+  tek başına `` de satır sonu sayılıyor. Node'un `split("
+")`i onları
+  saymadığı için dosya 104.417 yerine 101.630 satır görünüyordu ve bütün
+  indeksler kayıyordu (Ali için 1499 yerine 1548). Sapma **sabit değildi**,
+  konumla büyüyordu; kaydırma sanıp aramak yanlış yöne götürürdü.
+- İşaretin kendi satırı da o sayfaya ait, yani sayaç önce artmalı.
+
+Şâmile'den iki uçtan teyit edildi — sayfa 504 `حيوة بن شريح بن يزيد
+الحضرمي` tercemesini, sayfa 2523 `يوسف بن بهلول التميمي` tercemesini
+taşıyor. **Bir Tehzîb sayfası birden çok terceme taşıdığı için tek bir
+ibare aramak yanıltıyor**; ilk denemede sayfa 504'te Mısırlı Hayve'nin
+tercemesi bulunup bağlantı yanlış sanılmıştı.
+
+`catal-yaz.mjs` artık dördüncü bir argüman alıyor (`samile.json`) ve
+çatalda `SAMILE`yi ana modülün üzerine yazıyor — `export *` ile gelen
+tablo yalnız ana haritayı kapsıyor, override edilmezse yeni noktalarda
+düğme hiç çıkmıyor.
+
 ## Daha derin arka plan
 
 `silsile-agi-notlar.md` — belde denetimi, Bağdat sütunu kararı, başlık
