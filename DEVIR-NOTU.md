@@ -1252,8 +1252,46 @@ bağlı ve sonraki transın yeri orası.
 **Taşıma betiğinde bir tuzak:** `silsileVeri.js` CRLF satır sonu
 kullanıyor, dolayısıyla `"
 ];"` gibi düz dizge çengelleri hiçbir şey
-bulmuyor. Düzenli ifadeye (`/?
+bulmuyor. Düzenli ifadeye (`/
+?
 \];/`) çevrildi.
+
+## Beldesi olmayanlar Tehzîb'den ve komşudan tamamlandı (2026-09-14)
+
+Takrîb 2.488 kayıtta şehir söylemiyor. Temiz adlılardan 1.862'si beldesiz
+kalmıştı. İki yol denendi, ikisi de Mustafâ'nın önerisi.
+
+**Tehzîb'den.** 1.007'sinin tercemesi çözüldü, **452'sinde belde
+bulundu.** Ölçüt Takrîb'dekiyle aynı — önce «نزيل <şehir>» (yerleştiği
+yer, çünkü harita "nereli" değil "nerede rivayet etti" soruyor), sonra
+şehir nisbesi. Yalnız **başlık satırı** okunuyor, gövde değil; gövdede
+hoca ve talebelerin nisbeleri geçiyor ve onlar kişinin kendi beldesi
+değil.
+
+**Komşudan.** Kalanlar için kenar taraması koşturulup hoca-talebe
+beldelerine bakıldı. Ölçüt **açık çoğunluk** — en çok çıkan belde
+komşunun yarısından fazlası ve ikincisinden en az iki fazla olmalı.
+**334 düğüm** böyle yerleşti; 177'sinde çoğunluk zayıf kaldı ve
+bırakıldı, çünkü yanlış sütuna koymak koymamaktan kötü.
+
+Toplam **786/1.862**, mükerrer elendikten sonra **698 yeni düğüm**
+(382 Tehzîb, 316 komşu), 2.204 kenar, 587 Şâmile bağı.
+
+| | önce | sonra |
+|---|---|---|
+| ana harita düğüm | 4.128 | **4.826** |
+| ana harita kenar | 18.307 | **20.511** |
+| Şâmile bağı | 2.992 | **3.579** |
+| çizilen düğüm | 2.339 | 2.686 |
+
+### Kalan 1.076
+
+899'unun **hiç komşusu yok** (kenar taraması bağ bulamadı), 177'sinde
+çoğunluk zayıf. Bunlar haritaya **eklenmedi**: beldesiz düğümün sütunu
+yok, sütunu olmayanın `POS`u yok, `POS`u olmayan ne çizilebiliyor ne de
+arama kamerasının gidebileceği bir yere sahip. Râvi Ara ile bulunabilmesi
+için önce bir yerleşim kararı gerekiyor — keyfî bir sütuna koymak veri
+olarak yanlış olurdu.
 
 ## Daha derin arka plan
 
