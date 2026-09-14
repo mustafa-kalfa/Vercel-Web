@@ -1180,6 +1180,59 @@ bu dört kenarı da bozardı.
 İkisinin komşuları da tercemedeki listelerle karşılaştırıldı, kronolojik
 olarak şüpheli hiçbir bağ yok.
 
+## Takrîb'in TAMAMI açıldı — 945 → 3.310 düğüm (2026-09-14)
+
+Mustafâ sordu: "Takrîb'de sadece 1.144 kişi mi var?" Cevap **hayır** ve
+bu, o güne kadarki "Takrîb bitti" ifadesini düzeltiyor. Takrîb'de
+**8.261 terceme** var; araç ancak 1.144'ünü çıkarabiliyordu, yani %14.
+
+Sebep aracın kendi şartıydı — harita noktayı **belde × vefat yılı** ile
+koyuyor, ikisinden biri yoksa kayıt eleniyordu. Ölçüldü: 2.591 kayıtta
+vefat ifadesi, 2.488'inde şehir nisbesi yok. Nisbesizlerin nisbeleri
+neredeyse tamamen **kabile** nisbesi (el-Ensârî 206, es-Sekafî 78,
+el-Esedî 66, el-Kuraşî 66), yani Takrîb tek başına şehri söylemiyor.
+
+**Mustafâ'nın kararı:** yılsız râvîler haritaya girsin, belde Tehzîb'den
+ya da komşudan tamamlansın, hiçbiri olmazsa ve bağı üçün altındaysa
+çizilmesin ama Râvi Ara ile bulunabilsin (bu sonuncusu `GIZLI_ESIK`
+olarak zaten kuruluydu).
+
+Yılsız düğüm haritada **dürüst duruyor** — `tarihYaz` kartta «ö. ?/?»
+yazıyor, uydurma yıl yok; `TAHMIN` yalnızca dikey yeri tabakanın tipik
+bandının ortasına koyuyor ve o sayı hiçbir yerde gösterilmiyor.
+
+`takrib-iskelet.py`ye **gevşek kip** eklendi (`--gevsek`). Sonuç:
+
+| | önce | sonra |
+|---|---|---|
+| çıkarılabilen kayıt | 1.144 | **7.095** |
+| tam çevrilen ad | 1.144 | 5.622 |
+| beldesi olan | 1.144 | 3.760 |
+| mükerrer elendikten sonra | 945 | **3.310** |
+| kenar | 13.332 | **18.307** |
+| Şâmile bağı | 788 | **2.288** |
+
+Elenen 1.084 kayıtta ne tabaka ne yıl var, yani dikey dayanak sıfır;
+82'si çapraz atıf kaydı.
+
+Yeni düğümlerin **%72'si bağlandı** (2.388/3.310), 1.608'i süzgeci
+geçiyor. Çizilen düğüm 719'dan 2.331'e çıkıyor. Yerleşimi eksik düğüm 0,
+sütun sayısı değişmedi, boşa düşen ve çift kenar 0.
+
+Dokuz kayıt tek ögeli adla kaldı (`Dînâr`, `Rebâh`, `Zeyd`) ve
+çıkarıldı — o adlar kimliği taşımıyor.
+
+### Kalanlar
+
+- **1.473 kayıt** çevrilemeyen belirteç taşıyor. Arkasında **871 ayrı
+  ad** var (Sa‘lebe, Anbese, el-Cehm, Eymen, Nebhân...) ve uzun kuyruk —
+  en sık 200'ü geçişlerin ancak %48'ini kapsıyor. Elle yazılabilir ama
+  tek seferde büyük bir iş.
+- **1.862 kayıtta belde yok.** Sıradaki adım Tehzîb'den, sonra komşudan
+  okumak.
+- Harita bu yoğunlukta **kalabalık**. Etiketler bazı yakınlıklarda üst
+  üste biniyor; `GIZLI_ESIK`i yükseltmek gerekebilir.
+
 ## Daha derin arka plan
 
 `silsile-agi-notlar.md` — belde denetimi, Bağdat sütunu kararı, başlık

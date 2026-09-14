@@ -147,24 +147,35 @@ def yil_bul(n, tt):
     return yil, kip
 
 
-def iskelet(T):
-    """Bir Takrib kaydindan (id, tab, olum, belde) ya da eksik sebebi."""
+def iskelet(T, gevsek=False):
+    """Bir Takrib kaydindan (id, tab, olum, belde) ya da eksik sebebi.
+
+    GEVSEK KIP (2026-09-14, Mustafa'nin karari): yil ve belde EKSIK
+    olabilir. Gerekce, 8261 kaydin ancak 1144'unun dort alani da
+    vermesi -- 2591'inde vefat ifadesi, 2488'inde sehir nisbesi yok.
+    Harita zaten yilsiz dugum tasiyor (216 tane) ve kart o zaman
+    «ö. ?/?» yaziyor, uydurma yil yok; dikey yeri `TAHMIN` tabakanin
+    tipik bandina koyuyor. Belde ise sonra Tehzib'den ya da komsudan
+    tamamlanacak. Eksigi burada ISARETLIYORUZ, uydurmuyoruz."""
     n = T["n"]
     if CAPRAZ.search(n):
         return None, "capraz kayit"
     tt = takrib_tabaka(n)
-    if not tt:
+    if not tt and not gevsek:
         return None, "tabaka yok"
     belde, nasil = belde_bul(n)
-    if not belde:
+    if not belde and not gevsek:
         return None, "belde " + nasil
-    yil, kip = yil_bul(n, tt)
-    if yil is None:
+    yil, kip = yil_bul(n, tt) if tt else (None, "tabaka yok")
+    if yil is None and not gevsek:
         return None, kip
+    if gevsek and not tt and yil is None:
+        # Ne tabaka ne yil: dikey konum icin hicbir dayanak yok.
+        return None, "tabaka ve yil yok"
     return {"no": T["no"], "ar": serhi_at(T["ham"]).strip(),
-            "ham": T["ham"], "tab": HARITA_TAB[tt], "takribTab": tt,
-            "olum": yil, "yilKipi": kip, "belde": belde,
-            "beldeNasil": nasil}, None
+            "ham": T["ham"], "tab": HARITA_TAB[tt] if tt else None,
+            "takribTab": tt, "olum": yil, "yilKipi": kip,
+            "belde": belde, "beldeNasil": nasil}, None
 
 
 # Takrib kalibi: AD + nisbe/kunye + HUKUM + tabaka + rumuz. Hukum
@@ -252,14 +263,21 @@ def main():
     if "--dogrula" in sys.argv:
         dogrula(TERC)
         return
+    gevsek = "--gevsek" in sys.argv
     sayac = collections.Counter()
     cikti = []
     for T in TERC:
         sayac["kayit"] += 1
-        isk, sebep = iskelet(T)
+        isk, sebep = iskelet(T, gevsek)
         if isk:
             cikti.append(isk)
             sayac["ISKELET"] += 1
+            if isk["olum"] is None:
+                sayac["  (yili yok)"] += 1
+            if isk["belde"] is None:
+                sayac["  (beldesi yok)"] += 1
+            if isk["tab"] is None:
+                sayac["  (tabakasi yok)"] += 1
         else:
             sayac[sebep] += 1
     for a, b in sayac.most_common():
