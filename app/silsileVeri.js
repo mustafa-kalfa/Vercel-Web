@@ -43417,24 +43417,27 @@ export const rOf = rOfKur(DERECE);
    yuksekligi: tuval 8000 pikselden kisa gorunuyorsa o kadar genis bir
    alana bakiliyor demektir ki noktalar yer acmak zorunda.
 
-   ILK DENEMEDE YALNIZ ARTIS KISMI OLCEKLENDI, sabit taban (2,6 px)
-   dokunulmadan birakildi -- "en kucuk noktalar hicbir olcekte
-   kaybolmasin" diye. Yetmedi (Mustafa: "ekrani iyice kucultunce hala
-   buyuk noktalar cok buyuk duruyor"). Sebep sayida: 5595 noktanin her
-   biri en az 2,6 piksel yaricap tutunca tek basina sabit taban
-   118.000 px² murekkep demek, tuvalin kendi alani ise 143.000 px².
-   Yani tabanin kendisi tuvali dolduruyordu.
+   OLCEKLENEN YALNIZ ARTIS KISMI, SABIT TABANA DOKUNULMUYOR. Ikisi de
+   denendi ve aradaki fark Mustafa'nin istegiyle belirlendi -- "noktalari
+   komple kucult demedim, ekrani kucultunce noktalar da BIR MIKTAR
+   (tamamen degil) kuculsun dedim".
 
-   Simdi TABANIN TAMAMI olcekleniyor, altina mutlak bir sinir (1,8 px)
-   konarak. Olculdu (tam uzaklasma, 5595 nokta):
-                          ortusen cift   en buyuk   ortanca   murekkep
-     carpan yok              112.805      12,6 px    4,8 px   498.000
-     yalniz artis (ilk hal)   37.969       5,4 px    3,2 px   186.000
-     TABANIN TAMAMI, alt 1,8  11.009       3,5 px    1,8 px    58.000
-     tabanin tamami, alt 1,3   6.686       3,5 px    1,3 px    36.000
-   1,8 secildi -- 1,3'te noktalar okunakliligini yitirip toz gibi
-   duruyordu. 1,8'de murekkep tuval alaninin %41'ine iniyor, yani
-   harita artik doku degil nokta kumesi olarak okunuyor.
+   Bir ara tabanin tamami olceklenmisti; o zaman ortanca nokta 4,8'den
+   1,8'e iniyor, yani kucuk noktalar da kuculuyor ve harita toza
+   donuyordu. GERI ALINDI. Sabit taban yerinde durdugu icin kuculme
+   artik BAG SAYISIYLA ORANTILI -- tam uzaklasmada olculdu:
+     en az bagli nokta   4,0 px  ->  2,8 px   (-%29)
+     ortanca             4,8 px  ->  3,0 px   (-%38)
+     en cok bagli       12,6 px  ->  4,2 px   (-%67)
+   Yani ust uste binmeye asil sebep olan buyuk noktalar ucte iki
+   kuculuyor, seyrek noktalar neredeyse yerinde kaliyor. Sabit tabanin
+   2,6 olmasi en kucuk noktanin 2,6'ya inecegi anlamina gelmiyor: en az
+   bagli ravinin bile `rOf`u 52, yani tabani 4,0.
+
+   US 0,7. Karekok (0,5) once denendi, en buyuk nokta 5,4 pikselde
+   kaliyordu ve Mustafa "hala cok buyuk" dedi. 0,7'de 4,2'ye iniyor,
+   ortanca ise 3,2'den 3,0'a -- yani sertlesme neredeyse tamamen BUYUK
+   noktalardan aliniyor, ortancaya pek dokunmuyor.
 
    `kTam`in ustunde HICBIR SEY DEGISMIYOR -- calisma yakinligindaki
    gorunum bugunku ile birebir ayni. Esik mutlak bir sayi degil, tuvalin
@@ -43442,11 +43445,10 @@ export const rOf = rOfKur(DERECE);
    genis bir alana bakiliyor demektir ki noktalar yer acmak zorunda. */
 export const R_TAVAN = 384;
 export const EN_AZ_EKRAN_R = 2.6, EKRAN_R_ARTIS = 10;
-export const EKRAN_R_TAM_YUK = 8000, EN_AZ_GORUNUR_R = 1.8;
+export const EKRAN_R_TAM_YUK = 8000, EKRAN_R_US = 0.7;
 export const rEkranOfKur = (rOf) => (id, k) => {
-  const pay = Math.min(1, Math.sqrt((k * H) / EKRAN_R_TAM_YUK));
-  const taban = EN_AZ_EKRAN_R + (rOf(id) / R_TAVAN) * EKRAN_R_ARTIS;
-  return Math.max(rOf(id) * k, Math.max(EN_AZ_GORUNUR_R, taban * pay));
+  const pay = Math.min(1, Math.pow((k * H) / EKRAN_R_TAM_YUK, EKRAN_R_US));
+  return Math.max(rOf(id) * k, EN_AZ_EKRAN_R + (rOf(id) / R_TAVAN) * EKRAN_R_ARTIS * pay);
 };
 export const rEkranOf = rEkranOfKur(rOf);
 
