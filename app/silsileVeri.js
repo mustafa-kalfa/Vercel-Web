@@ -43439,15 +43439,24 @@ export const rOf = rOfKur(DERECE);
    ortanca ise 3,2'den 3,0'a -- yani sertlesme neredeyse tamamen BUYUK
    noktalardan aliniyor, ortancaya pek dokunmuyor.
 
+   ARTIS YARIYA KADAR INIYOR, SIFIRA DEGIL (`EKRAN_R_EN_AZ_PAY`).
+   Us tek basina calisinca tam uzaklasmada en buyuk nokta 4,2 pikselde
+   kaliyordu ve Mustafa iki katini istedi. Pay artik 0 ile 1 arasinda
+   degil, 0,5 ile 1 arasinda geziniyor -- yani bag sayisindan gelen
+   fazlalik en fazla yariya iniyor, hicbir olcekte tumuyle silinmiyor.
+   "Bir miktar kuculsun, tamamen degil" kuralinin sayisal karsiligi bu.
+   Tam uzaklasmada en cok bagli nokta 4,2 -> 8,4 piksel.
+
    `kTam`in ustunde HICBIR SEY DEGISMIYOR -- calisma yakinligindaki
    gorunum bugunku ile birebir ayni. Esik mutlak bir sayi degil, tuvalin
    EKRANDAKI yuksekligi: tuval 8000 pikselden kisa gorunuyorsa o kadar
    genis bir alana bakiliyor demektir ki noktalar yer acmak zorunda. */
 export const R_TAVAN = 384;
 export const EN_AZ_EKRAN_R = 2.6, EKRAN_R_ARTIS = 10;
-export const EKRAN_R_TAM_YUK = 8000, EKRAN_R_US = 0.7;
+export const EKRAN_R_TAM_YUK = 8000, EKRAN_R_US = 0.7, EKRAN_R_EN_AZ_PAY = 0.5;
 export const rEkranOfKur = (rOf) => (id, k) => {
-  const pay = Math.min(1, Math.pow((k * H) / EKRAN_R_TAM_YUK, EKRAN_R_US));
+  const t = Math.min(1, Math.pow((k * H) / EKRAN_R_TAM_YUK, EKRAN_R_US));
+  const pay = EKRAN_R_EN_AZ_PAY + (1 - EKRAN_R_EN_AZ_PAY) * t;
   return Math.max(rOf(id) * k, EN_AZ_EKRAN_R + (rOf(id) / R_TAVAN) * EKRAN_R_ARTIS * pay);
 };
 export const rEkranOf = rEkranOfKur(rOf);
