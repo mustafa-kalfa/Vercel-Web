@@ -81,6 +81,30 @@ export const TAHMIN = { 0: 11, 1: 55, 2: 90, 3: 105, 4: 135, 5: 175, 6: 300 };
    Bant eksenin disina tasmasin diye kirpiliyor. */
 export const BANT = 30;
 
+/* BANT ARTIK TABAKAYA GORE (Mustafa, 2026-09-15). Tek bir 30 yillik
+   bant 818 dugumde makuldu. Takrib girince tabaka 5'te (etbau't-tabiin)
+   4580 ravi olustu ve bunlarin 3057'si tarihsiz -- hepsi 160-190 arasina
+   sikisti. Basra'nin 160-179 dilimine tek basina 572 nokta dusuyordu;
+   Medine ile Basra'nin birbirine karismasinin asil sebebi buydu, sutun
+   genisligi degil.
+
+   Her tabakanin bandi O TABAKANIN TARIHI BILINEN ravilerinin %5-%95
+   araligindan alindi (olculdu, uydurulmadi):
+     tabaka 1  18-85    (71 tarihli ravi)
+     tabaka 2  64-105   (71)
+     tabaka 3  83-123   (144)
+     tabaka 4  100-141  (125)
+     tabaka 5  131-260  (1641)   <- eskiden 160-190 idi
+     tabaka 6  253-315  (60)
+   Yani tarihsiz ravi, KENDI TABAKASINDAKI TARIHLI ravilerin durdugu
+   araliga yayiliyor. Bu bir tarih iddiasi degil -- kart hala "o. ?/?"
+   yaziyor -- ama tek sayiya yigmaktan da, dar bir banda sikistirmaktan
+   da dogru. */
+export const TAHMIN_BANT = {
+  0: [11, 11], 1: [18, 85], 2: [64, 105], 3: [83, 123],
+  4: [100, 141], 5: [131, 260], 6: [253, 315],
+};
+
 /* Karmayi DAGITAN son islem. `salSayi` ardisik harflerde ardisik
    sonuclar veriyor; "ms01".."ms29" gibi birbirine cok benzeyen id'ler
    mod 1000 alininca birkac degere yigiliyordu -- olculdu: 21 dugum 2.5
@@ -96,9 +120,13 @@ export const dagit = (h) => {
 
 export const tahminiYil = (n) => {
   if (n.olum != null) return n.olum;
-  const merkez = TAHMIN[n.tab];
-  const kay = (dagit(salSayi(n.id)) - 0.5) * BANT;
-  return Math.min(YIL_MAX - 2, Math.max(YIL_MIN + 2, merkez + kay));
+  const ar = TAHMIN_BANT[n.tab];
+  if (!ar) {
+    const kay = (dagit(salSayi(n.id)) - 0.5) * BANT;
+    return Math.min(YIL_MAX - 2, Math.max(YIL_MIN + 2, TAHMIN[n.tab] + kay));
+  }
+  const yil = ar[0] + dagit(salSayi(n.id)) * (ar[1] - ar[0]);
+  return Math.min(YIL_MAX - 2, Math.max(YIL_MIN + 2, yil));
 };
 
 // DİA'dan alınan hicrî/milâdî vefat yılları (madde tanıtım cümlelerinden)
@@ -44339,7 +44367,15 @@ export const YIL_MIN = 5, YIL_MAX = 315;
                                 192'ye cikinca eski payla ust kenardan
                                 tasiyordu. */
 export const UST = 460, ALT = 160, SOL_PAY = 60;
-export const H = 3200000;
+/* H 3,2M -> 2,0M (Mustafa, 2026-09-15). H'yi 3,2M'e cikarmak, TARIHSIZ
+   ravilerin dar bantlara yigilmasini H ile telafi etme cabasiydi: 3057
+   etbau't-tabiin 160-190 arasina sikistigi icin Basra 32 serit
+   istiyordu ve tuvali daraltmanin tek yolu ekseni uzatmakti.
+   `TAHMIN_BANT` bandi tabakanin gercek araligina acinca sebep ortadan
+   kalkti -- ayni H ile oran 0,196'ya, yani tuval bir iplige donuyordu.
+   2,0M'de oran yine 0,40 (azami serit 32 degil 20, toplam serit 184
+   degil 135). Yani tuval ayni bicimde, sutunlarin ICI iki kat seyrek. */
+export const H = 2000000;
 export const SERIT_W = 2480;
 export const ASGARI_DY = 6264;
 export const yOf = (yil) => UST + ((yil - YIL_MIN) / (YIL_MAX - YIL_MIN)) * (H - UST - ALT);
@@ -44507,12 +44543,23 @@ export const yerlesimKur = (NODES) => {
      oranli, yoksa genis sutunlarda etkisi kayboluyordu. */
   const enGenisSerit = Math.max(...sira.map((b) => plan[b].seritSayisi));
   const SUTUN_W = enGenisSerit * SERIT_W;
+  /* ...AMA TAM ESIT DEGIL, KAREKOKLE (Mustafa, 2026-09-15). Tam esitlik
+     818 dugumde dogruydu; Takrib girip 6355 olunca en yogun sutunla en
+     seyregi arasindaki serit orani 10 kata cikti ve Medine ile Basra'nin
+     noktalari birbirine karisti. Aradaki sehir eklemek COZMEZ: sikisiklik
+     sutunlarin arasinda degil ICINDE. Genislik serit sayisinin
+     KAREKOKUYLE orantili olunca yogun sutun aciliyor, seyrek belde
+     dariliyor ama hala kat kat seyrek kaliyor -- yani "seyrek belde
+     seyrek gorunsun" isareti duruyor. TOPLAM GENISLIK AYNI tutuluyor,
+     yoksa H yeniden ayarlanmasi gerekirdi. */
+  const kokToplam = sira.reduce((a, b) => a + Math.sqrt(plan[b].seritSayisi), 0);
+  const TOPLAM_W = sira.length * SUTUN_W;
   const pos = {};
   const sutunlar = [];
   let imlec = SOL_PAY;
   sira.forEach((belde) => {
     const { atama, seritSayisi } = plan[belde];
-    const genislik = SUTUN_W;
+    const genislik = TOPLAM_W * Math.sqrt(seritSayisi) / kokToplam;
     const aralik = genislik / seritSayisi;
     atama.forEach(({ n, y, s, sira: k }) => {
       const kaydir = [0, 0.035, -0.035, 0.018, -0.018][k % 5] * aralik;
