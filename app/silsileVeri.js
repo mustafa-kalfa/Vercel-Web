@@ -43445,53 +43445,63 @@ export const rOf = rOfKur(DERECE);
 export const R_TAVAN = 384;
 export const EN_AZ_EKRAN_R = 2.6, EKRAN_R_ARTIS = 10;
 
-/* PLATO YOK, TEK SUREKLI EGRI (Mustafa, 2026-09-16).
+/* NOKTA GOZE CEVRESINE GORE BUYUK GELIYOR, EKRANA GORE DEGIL.
 
-   Once esikli bir sey denendi: uzakta bir dal, belli bir yakinliktan
-   sonra baska bir dal. Esik 13 kat yakinliktaydi ve arada UZUN BIR
-   PLATO kaliyordu -- nokta 1 kattan 12 kata yalnizca 8,4'ten 12,3
-   piksele cikiyor, yani 12 katlik yakinlasmada 1,5 kat buyuyordu.
-   Sutun ise 12 kat aciliyor. Mustafa'nin tarifi: "yakinlastirirken cok
-   uzun bir sure noktanin ekrandaki goruntusu sabit kalmasina ragmen
-   kuculuyor gibi gorunuyor, cunku sutunda kapladigi alan azaliyor."
+   Bu, ustuste dort denemede anlasildi ve asil ders su: ekrandaki
+   piksel buyumesine bakmak YANILTIYOR. Tekerlegin bir adimi 1,13 kat.
+   Yaricap k^us ile buyuyorsa, adim basina nokta 1,13^us kat buyur ama
+   ARALARINDAKI MESAFE tam 1,13 kat acilir. Goz ikisini kiyasliyor:
 
-   Artik tek bir us yasasi var ve TAM UZAKTAN ITIBAREN isliyor, yani
-   ilk yakinlastirma adiminda bile nokta buyuyor. Olculdu -- en buyuk
-   noktanin Basra sutununa orani:
-     yakinlik    esikli hal    tek egri
-      1 kat         %73,7       %73,8
-      4 kat         %21,4       %31,2
-     12 kat          %9,0       %16,6
-     33 kat          %6,5        %9,6
-     66 kat          %5,6        %6,6
-    130 kat          %4,9        %4,7
+     us    nokta buyumesi   cevresine GORE
+     0,55      %7,0            -%5,4     <- "kuculuyor" gorunuyor
+     0,85     %10,9            -%1,8
+     0,95     %12,3            -%0,6     <- yerinde duruyor gibi
+     1,00     %13,0             %0,0
 
-   US 0,55. Oranin sabit kalmasi us 1 demek olurdu, o zaman da
-   yakinlastirmak hicbir seyi ayirmaz -- resim ayni kalir sadece buyur.
-   0,55 iki kat yakinlasmaya 1,46 kat buyume veriyor, yani oran yavasca
-   dusuyor ama cokmuyor.
+   Mustafa us 0,5 ve 0,55 ile "yaklastirmaya basladigimdan itibaren
+   buyumeyi gozle gorebilmeliyim" dedi -- hakliydi, o degerlerde nokta
+   her adimda cevresine gore kuculuyor.
 
-   Once 0,5 kondu, Mustafa "birazcik daha buyuyebilir" dedi. Us'u
-   buyutmek `EKRAN_R_UZAK_PAY`i buyutmekten farkli: pay butun egriyi
-   birden kaldiriyor ve TAM UZAKTAKI boyutu da bozuyor (0,58 -> 0,70
-   denendi, en buyuk nokta tam uzakta Basra sutununun %73'unden
-   %87'sine cikiyordu), oysa us tam uzagi sabit birakip yalnizca
-   yaklasmayi hizlandiriyor. Sonuc 66 katta %6,6 yerine %8,1 -- yani
-   Mustafa'nin en basta soyledigi %7-8 bandi.
+   AMA US TEK BASINA COZMUYOR. Tam uzakta en buyuk nokta zaten Basra
+   sutununun %75'ini kapliyor; us 0,95 tek bir yasa olarak konsaydi bu
+   oran hic dusmez, nokta her olcekte sutunun ucte birini kaplardi.
+   Yani egri IKI PARCALI olmali -- uzakta hizli dussun, acilis
+   gorunumunden sonra sabitlensin:
 
-   TAM UZAKTAKI BOYUT DEGISMEDI. `EKRAN_R_UZAK_PAY` tam da bunun icin
-   var -- tuval ekranda 600 piksel yuksekliginde gorunurken (yani
-   tamami sigdirilmisken) pay 0,58 oluyor ve en buyuk nokta 8,4 pikselde
-   kaliyor, oncekiyle birebir ayni. Mustafa telefonda ve bilgisayarda
-   kucultulmus haldeki boyuttan memnun oldugunu soylemisti.
+     yakinlik       en buyuk   Basra orani   adim basina goreli
+      1 kat            8,6 px     %75,3         -%10,6
+      4 kat           10,3 px     %22,4          -%9,5
+     12 kat (acilis)  14,6 px     %10,7          -%2,5
+     20 kat           22,1 px      %9,7          -%1,9
+     33 kat           34,0 px      %9,0          -%1,4
+     66 kat           63,2 px      %8,4          -%1,1
+    130 kat          118,0 px      %8,0          -%0,8
+
+   Acilistan itibaren oran %10,7'den %8'e kadar iniyor, yani
+   Mustafa'nin kurali ("acilista sutunun %10'unu kapliyorsa
+   yaklastirinca %7-8'ini kaplamaya devam etsin") sayisal olarak
+   tutuyor. Goreli degisim de %2,5'ten %0,8'e iniyor, yani gorulmuyor.
+
+   KIRILMA NOKTASI ACILISIN ALTINDA. `EKRAN_R_TAM_YUK` 6000, bu 9,9
+   kat yakinliga denk ve acilis gorunumu 12 kat -- yani kullanici
+   haritayi actigi anda ZATEN yakin dalda. Once 8000 idi (13,2 kat),
+   acilisin ustunde kaliyordu ve ilk birkac adim hala eski davranisi
+   gosteriyordu.
+
+   TAM UZAKTAKI BOYUT KORUNDU (8,4 -> 8,6 px). Mustafa telefonda ve
+   bilgisayarda kucultulmus haldeki boyuttan memnun oldugunu soyledi;
+   uzak dalin taban ve ussu tam da onu tutuyor.
 
    `EKRAN_R_TAVAN_PAY` bir tasarim degeri degil emniyet freni: azami
    yakinlikta (k=4) bu olmadan taban binlerce piksele cikiyor. */
-export const EKRAN_R_UZAK_YUK = 600, EKRAN_R_UZAK_PAY = 0.58;
-export const EKRAN_R_US = 0.55, EKRAN_R_TAVAN_PAY = 16;
+export const EKRAN_R_TAM_YUK = 6000;
+export const EKRAN_R_UZAK_US = 0.7, EKRAN_R_UZAK_TABAN = 0.5;
+export const EKRAN_R_YAKIN_US = 0.95, EKRAN_R_TAVAN_PAY = 60;
 export const rEkranOfKur = (rOf) => (id, k) => {
-  const pay = Math.min(EKRAN_R_TAVAN_PAY,
-    EKRAN_R_UZAK_PAY * Math.pow((k * H) / EKRAN_R_UZAK_YUK, EKRAN_R_US));
+  const oran = (k * H) / EKRAN_R_TAM_YUK;
+  const pay = oran <= 1
+    ? EKRAN_R_UZAK_TABAN + (1 - EKRAN_R_UZAK_TABAN) * Math.pow(oran, EKRAN_R_UZAK_US)
+    : Math.min(EKRAN_R_TAVAN_PAY, Math.pow(oran, EKRAN_R_YAKIN_US));
   return Math.max(rOf(id) * k, EN_AZ_EKRAN_R + (rOf(id) / R_TAVAN) * EKRAN_R_ARTIS * pay);
 };
 export const rEkranOf = rEkranOfKur(rOf);
