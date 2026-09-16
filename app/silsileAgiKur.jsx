@@ -1139,8 +1139,26 @@ export function kur(V) {
         const puntoR = Math.min(rEkranOf(n.id, durgun.k), EN_AZ_EKRAN_R + EKRAN_R_ARTIS);
         const punto = Math.max(EKRAN_PUNTO[kad], puntoR * 0.42);
         const ad = Math.min(adi(n).length, 26);
-        const g = Math.max(ad * punto * 0.5, 48);          // etiket genişliği
-        const y = punto * 2.1 + 4;                          // iki satır
+        /* NEFES PAYI (Mustafa, 2026-09-17: "sayfada gorunen isim sayisi
+           biraz fazla, %20 oraninda dusurelim").
+
+           Pay YALNIZCA CARPISMA KUTUSUNU buyutuyor, yazinin kendisi
+           ayni punto ve ayni yerde kaliyor -- her etiket biraz daha
+           fazla yer ayirtiyor, dolayisiyla ayni alana daha az isim
+           siğiyor.
+
+           1,2 secildi, olculdu (1265x666 gorunumde yazilan isim):
+             yakinlik    8x   12x   16x   20x   25x   33x
+             pay yok    179   184   146   107    73    42
+             pay 1,2    136   144   123    96    70    40
+             dusus     %24  %22   %16   %10    %4    %5
+           Acilis gorunumunde (12x) tam hedefe oturuyor. Kalabalik
+           olmayan yakinliklarda kendiliginden azaliyor, cunku orada
+           zaten bos yer var ve buyuyen kutu kimseyi elemiyor -- istenen
+           de bu, bos ekrandan isim silmenin anlami yok. */
+        const NEFES = 1.2;
+        const g = Math.max(ad * punto * 0.5, 48) * NEFES;  // etiket genişliği
+        const y = (punto * 2.1 + 4) * NEFES;                // iki satır
         const r = rEkranOf(n.id, durgun.k);
         const kutuAlt = { x1: cx - g / 2, x2: cx + g / 2, y1: cy + r + 2, y2: cy + r + 2 + y };
         const kutuUst = { x1: cx - g / 2, x2: cx + g / 2, y1: cy - r - 2 - y, y2: cy - r - 2 };
