@@ -1129,7 +1129,15 @@ export function kur(V) {
             cy < UST_BANT - etiketPay || cy > box.h + etiketPay) return;
         if (!zorla && durgun.k < ESIK[kad]) return;
   
-        const punto = Math.max(EKRAN_PUNTO[kad], rEkranOf(n.id, durgun.k) * 0.42);
+        /* Yaricap terimi TAVANLI. Nokta yaricapi 2026-09-16'da yakinlikla
+           birlikte buyumeye baslayinca (bkz. silsileVeri.js'te
+           `EKRAN_R_YAKIN_US`) bu carpim da buyuyor ve cok bagli bir
+           ravinin etiketi 30 puntoya cikiyordu -- komsulari 9-10
+           puntodayken. Tavan eski azami yaricap (2,6 + 10), yani
+           TIPOGRAFI DEGISMEDI, terim yine hicbir kademede
+           EKRAN_PUNTO'yu gecmiyor. */
+        const puntoR = Math.min(rEkranOf(n.id, durgun.k), EN_AZ_EKRAN_R + EKRAN_R_ARTIS);
+        const punto = Math.max(EKRAN_PUNTO[kad], puntoR * 0.42);
         const ad = Math.min(adi(n).length, 26);
         const g = Math.max(ad * punto * 0.5, 48);          // etiket genişliği
         const y = punto * 2.1 + 4;                          // iki satır

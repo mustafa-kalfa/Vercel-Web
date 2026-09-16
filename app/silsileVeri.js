@@ -43453,10 +43453,38 @@ export const rOf = rOfKur(DERECE);
    genis bir alana bakiliyor demektir ki noktalar yer acmak zorunda. */
 export const R_TAVAN = 384;
 export const EN_AZ_EKRAN_R = 2.6, EKRAN_R_ARTIS = 10;
+/* YAKINLASINCA DA BUYUYOR (Mustafa, 2026-09-16). `kTam`in ustunde pay
+   1'de SABITLENIYORDU, yani belli bir yakinliktan sonra nokta buyumuyor
+   ama ARALARINDAKI MESAFE yakinlikla dogru orantili aciliyordu. Goz
+   noktayi cevresine gore gordugu icin bu, yaklastikca nokta kuculuyor
+   demek. Olculdu -- en buyuk noktanin Basra sutununa orani:
+     acilis gorunumu (12 kat)   %9,0
+     33 kat                     %3,3
+     66 kat                     %1,7
+     130 kat                    %1,0
+   Mustafa'nin kurali: "acilista sutunun %10'unu kapliyorsa,
+   yaklastirinca da %7-8'ini kaplamaya devam etsin."
+
+   Oran sabit kalsin demek nokta yaricapi yakinlikla DOGRU ORANTILI
+   olsun demek; o zaman da yakinlastirmak hicbir seyi ayirmaz, resim
+   ayni kalir sadece buyur. Bu yuzden us 1 degil 0,85 -- oran yavasca
+   dusuyor ama cokmuyor:
+     acilis %8,6 | 33 kat %6,5 | 66 kat %5,6 | 130 kat %4,9
+
+   UZAKTAKI GORUNUM HIC DEGISMIYOR (`oran <= 1` dali aynen duruyor) --
+   Mustafa telefonda ve bilgisayarda kucultulmus haldeki boyuttan
+   memnun oldugunu soyledi. Iki dal `oran = 1`de birbirine esitleniyor,
+   yani gecis pursuz.
+
+   `EKRAN_R_TAVAN_PAY` bir tasarim degeri degil emniyet freni: azami
+   yakinlik (k=4) bu olmadan noktayi 3500 piksele cikariyor. */
 export const EKRAN_R_TAM_YUK = 8000, EKRAN_R_US = 0.7, EKRAN_R_EN_AZ_PAY = 0.5;
+export const EKRAN_R_YAKIN_US = 0.85, EKRAN_R_TAVAN_PAY = 16;
 export const rEkranOfKur = (rOf) => (id, k) => {
-  const t = Math.min(1, Math.pow((k * H) / EKRAN_R_TAM_YUK, EKRAN_R_US));
-  const pay = EKRAN_R_EN_AZ_PAY + (1 - EKRAN_R_EN_AZ_PAY) * t;
+  const oran = (k * H) / EKRAN_R_TAM_YUK;
+  const pay = oran <= 1
+    ? EKRAN_R_EN_AZ_PAY + (1 - EKRAN_R_EN_AZ_PAY) * Math.pow(oran, EKRAN_R_US)
+    : Math.min(EKRAN_R_TAVAN_PAY, Math.pow(oran, EKRAN_R_YAKIN_US));
   return Math.max(rOf(id) * k, EN_AZ_EKRAN_R + (rOf(id) / R_TAVAN) * EKRAN_R_ARTIS * pay);
 };
 export const rEkranOf = rEkranOfKur(rOf);
