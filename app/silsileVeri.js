@@ -120,6 +120,20 @@ export const dagit = (h) => {
 
 export const tahminiYil = (n) => {
   if (n.olum != null) return n.olum;
+  /* ONCE KOMSULAR. Hoca ve talebelerinden kestirilen yil, tabakanin
+     ortalamasindan uc bucuk kat daha yakin (ortanca hata 8 yil, buna
+     karsilik 28,5) -- olcum `komsuYilKur`in ustunde. Kestirim varsa
+     tabaka bandi hic devreye girmiyor.
+
+     UZERINE KUCUK BIR SACILMA. Komsulari ayni olan raviler ayni yila
+     dusuyor ve harita uzerinde tam ust uste biniyordu; +-4 yillik
+     sacilma bunu aciyor. Rastgele degil, ravinin kendi kimliginden
+     tureniyor, yani her acilista ayni yere dusuyor. */
+  const komsu = KOMSU_YIL[n.id];
+  if (komsu != null) {
+    const kay = (dagit(salSayi(n.id)) - 0.5) * 8;
+    return Math.min(YIL_MAX - 2, Math.max(YIL_MIN + 2, komsu + kay));
+  }
   const ar = TAHMIN_BANT[n.tab];
   if (!ar) {
     const kay = (dagit(salSayi(n.id)) - 0.5) * BANT;
@@ -42773,6 +42787,59 @@ export const EDGES = (() => {
 })();
 
 
+/* VEFAT YILI BILINMEYEN RAVIYI KOMSULARINDAN KESTIRME (Mustafa,
+   2026-09-16: "vefat tarihini hic tespit edemezsek o kisinin hoca ve
+   talebelerine bakalim, bunlarin ortalamasini bir yere koyalim").
+
+   Dugumlerin dortte ucunun vefat yili yok ve bunlar `TAHMIN_BANT` ile,
+   yani yalnizca TABAKASININ ortalamasiyla yerlestiriliyordu. Komsular
+   bundan cok daha fazlasini soyluyor -- hocasi 150'de olmus birinin
+   190'larda olmasi beklenir.
+
+   OLCULDU, yili bilinen 1895 dugumde yil gizlenip komsudan kestirilerek:
+     su anki tabaka ortalamasi   ortanca hata 28,5 yil
+     komsudan kestirim           ortanca hata  8   yil
+   +-20 yil icinde kalma orani %89, +-30 icinde %97. Yani uc bucuk kat
+   daha yakin.
+
+   FARK 39. Kenar yonu guvenilir: E(a,b) = a hoca, b talebe ve yili
+   bilinen 11.732 ciftte talebe-hoca farkinin ortancasi 39 (ortalama
+   37,3). Ciftlerin yalnizca %3,2'si negatif -- talebe hocadan once
+   olmus, ki bu gercekten oluyor.
+
+   ORTANCA, ORTALAMA DEGIL. Tek bir uc komsu (mesela sahabi bir hoca)
+   ortalamayi otuz yil kaydirabiliyor; ortanca dayaniyor.
+
+   BU BIR TARIH IDDIASI DEGIL. `olum` alani null KALIYOR, yani kart
+   hala "o. ?/?" yaziyor ve arama da oyle gosteriyor. Kestirim
+   yalnizca noktanin DIKEY YERINI belirliyor. */
+export const KOMSU_FARK = 39;
+export const komsuYilKur = (NODES, EDGES) => {
+  const yil = new Map(NODES.filter((n) => n.olum != null).map((n) => [n.id, n.olum]));
+  const hoca = new Map(), talebe = new Map();
+  EDGES.forEach((e) => {
+    (talebe.get(e.a) || talebe.set(e.a, []).get(e.a)).push(e.b);
+    (hoca.get(e.b) || hoca.set(e.b, []).get(e.b)).push(e.a);
+  });
+  const ortanca = (a) => {
+    const s = [...a].sort((x, y) => x - y), m = s.length >> 1;
+    return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
+  };
+  const out = {};
+  NODES.forEach((n) => {
+    if (n.olum != null) return;
+    const h = (hoca.get(n.id) || []).map((x) => yil.get(x)).filter((x) => x != null);
+    const t = (talebe.get(n.id) || []).map((x) => yil.get(x)).filter((x) => x != null);
+    if (!h.length && !t.length) return;
+    const hT = h.length ? ortanca(h) + KOMSU_FARK : null;
+    const tT = t.length ? ortanca(t) - KOMSU_FARK : null;
+    out[n.id] = hT == null ? tT : tT == null ? hT
+      : (hT * h.length + tT * t.length) / (h.length + t.length);
+  });
+  return out;
+};
+export const KOMSU_YIL = komsuYilKur(NODES, EDGES);
+
 // En çok hadis rivayet eden yedi sahâbî
 // Ali b. el-Medînî, el-İlel: isnâdın üzerinde döndüğü tabakalar
 export const MEDAR = {
@@ -42921,7 +42988,12 @@ export const UST = 460, ALT = 160, SOL_PAY = 60;
    kalkti -- ayni H ile oran 0,196'ya, yani tuval bir iplige donuyordu.
    2,0M'de oran yine 0,40 (azami serit 32 degil 20, toplam serit 184
    degil 135). Yani tuval ayni bicimde, sutunlarin ICI iki kat seyrek. */
-export const H = 2000000;
+/* H 2,0M -> 2,2M (2026-09-16). Komsudan yil kestirimi devreye girince
+   raviler tabaka bantlarina esit yayilmayi birakip gercek tarihlerine
+   kumelendi; dikeyde cakisma artti, azami serit 20'den 23'e cikti ve
+   oran 0,40'tan 0,46'ya yayvanlasti. 2,2M oranı 0,399'a geri getiriyor
+   (azami serit 22). Kural yine ayni: yerlesim SIKLASIRSA H de artmali. */
+export const H = 2200000;
 export const SERIT_W = 2480;
 export const ASGARI_DY = 6264;
 export const yOf = (yil) => UST + ((yil - YIL_MIN) / (YIL_MAX - YIL_MIN)) * (H - UST - ALT);
