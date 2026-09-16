@@ -1131,7 +1131,7 @@ export function kur(V) {
   
         /* Yaricap terimi TAVANLI. Nokta yaricapi 2026-09-16'da yakinlikla
            birlikte buyumeye baslayinca (bkz. silsileVeri.js'te
-           `EKRAN_R_YAKIN_US`) bu carpim da buyuyor ve cok bagli bir
+           `EKRAN_R_US`) bu carpim da buyuyor ve cok bagli bir
            ravinin etiketi 30 puntoya cikiyordu -- komsulari 9-10
            puntodayken. Tavan eski azami yaricap (2,6 + 10), yani
            TIPOGRAFI DEGISMEDI, terim yine hicbir kademede

@@ -43439,52 +43439,51 @@ export const rOf = rOfKur(DERECE);
    ortanca ise 3,2'den 3,0'a -- yani sertlesme neredeyse tamamen BUYUK
    noktalardan aliniyor, ortancaya pek dokunmuyor.
 
-   ARTIS YARIYA KADAR INIYOR, SIFIRA DEGIL (`EKRAN_R_EN_AZ_PAY`).
-   Us tek basina calisinca tam uzaklasmada en buyuk nokta 4,2 pikselde
-   kaliyordu ve Mustafa iki katini istedi. Pay artik 0 ile 1 arasinda
-   degil, 0,5 ile 1 arasinda geziniyor -- yani bag sayisindan gelen
-   fazlalik en fazla yariya iniyor, hicbir olcekte tumuyle silinmiyor.
-   "Bir miktar kuculsun, tamamen degil" kuralinin sayisal karsiligi bu.
-   Tam uzaklasmada en cok bagli nokta 4,2 -> 8,4 piksel.
-
-   `kTam`in ustunde HICBIR SEY DEGISMIYOR -- calisma yakinligindaki
-   gorunum bugunku ile birebir ayni. Esik mutlak bir sayi degil, tuvalin
-   EKRANDAKI yuksekligi: tuval 8000 pikselden kisa gorunuyorsa o kadar
-   genis bir alana bakiliyor demektir ki noktalar yer acmak zorunda. */
+   TAM UZAKTAKI DEGER 8,4 PIKSEL. Bir ara us tek basina calisiyordu ve
+   en buyuk nokta 4,2 pikselde kaliyordu; Mustafa iki katini istedi.
+   Asagidaki `EKRAN_R_UZAK_PAY` (0,58) tam da bu degeri tutuyor. */
 export const R_TAVAN = 384;
 export const EN_AZ_EKRAN_R = 2.6, EKRAN_R_ARTIS = 10;
-/* YAKINLASINCA DA BUYUYOR (Mustafa, 2026-09-16). `kTam`in ustunde pay
-   1'de SABITLENIYORDU, yani belli bir yakinliktan sonra nokta buyumuyor
-   ama ARALARINDAKI MESAFE yakinlikla dogru orantili aciliyordu. Goz
-   noktayi cevresine gore gordugu icin bu, yaklastikca nokta kuculuyor
-   demek. Olculdu -- en buyuk noktanin Basra sutununa orani:
-     acilis gorunumu (12 kat)   %9,0
-     33 kat                     %3,3
-     66 kat                     %1,7
-     130 kat                    %1,0
-   Mustafa'nin kurali: "acilista sutunun %10'unu kapliyorsa,
-   yaklastirinca da %7-8'ini kaplamaya devam etsin."
 
-   Oran sabit kalsin demek nokta yaricapi yakinlikla DOGRU ORANTILI
-   olsun demek; o zaman da yakinlastirmak hicbir seyi ayirmaz, resim
-   ayni kalir sadece buyur. Bu yuzden us 1 degil 0,85 -- oran yavasca
-   dusuyor ama cokmuyor:
-     acilis %8,6 | 33 kat %6,5 | 66 kat %5,6 | 130 kat %4,9
+/* PLATO YOK, TEK SUREKLI EGRI (Mustafa, 2026-09-16).
 
-   UZAKTAKI GORUNUM HIC DEGISMIYOR (`oran <= 1` dali aynen duruyor) --
-   Mustafa telefonda ve bilgisayarda kucultulmus haldeki boyuttan
-   memnun oldugunu soyledi. Iki dal `oran = 1`de birbirine esitleniyor,
-   yani gecis pursuz.
+   Once esikli bir sey denendi: uzakta bir dal, belli bir yakinliktan
+   sonra baska bir dal. Esik 13 kat yakinliktaydi ve arada UZUN BIR
+   PLATO kaliyordu -- nokta 1 kattan 12 kata yalnizca 8,4'ten 12,3
+   piksele cikiyor, yani 12 katlik yakinlasmada 1,5 kat buyuyordu.
+   Sutun ise 12 kat aciliyor. Mustafa'nin tarifi: "yakinlastirirken cok
+   uzun bir sure noktanin ekrandaki goruntusu sabit kalmasina ragmen
+   kuculuyor gibi gorunuyor, cunku sutunda kapladigi alan azaliyor."
+
+   Artik tek bir us yasasi var ve TAM UZAKTAN ITIBAREN isliyor, yani
+   ilk yakinlastirma adiminda bile nokta buyuyor. Olculdu -- en buyuk
+   noktanin Basra sutununa orani:
+     yakinlik    esikli hal    tek egri
+      1 kat         %73,7       %73,8
+      4 kat         %21,4       %31,2
+     12 kat          %9,0       %16,6
+     33 kat          %6,5        %9,6
+     66 kat          %5,6        %6,6
+    130 kat          %4,9        %4,7
+
+   US 0,5. Oranin sabit kalmasi us 1 demek olurdu, o zaman da
+   yakinlastirmak hicbir seyi ayirmaz -- resim ayni kalir sadece buyur.
+   0,5 yakinligin karekoku kadar buyutuyor: iki kat yakinlasinca nokta
+   1,41 kat buyuyor, yani oran yavasca dusuyor ama cokmuyor.
+
+   TAM UZAKTAKI BOYUT DEGISMEDI. `EKRAN_R_UZAK_PAY` tam da bunun icin
+   var -- tuval ekranda 600 piksel yuksekliginde gorunurken (yani
+   tamami sigdirilmisken) pay 0,58 oluyor ve en buyuk nokta 8,4 pikselde
+   kaliyor, oncekiyle birebir ayni. Mustafa telefonda ve bilgisayarda
+   kucultulmus haldeki boyuttan memnun oldugunu soylemisti.
 
    `EKRAN_R_TAVAN_PAY` bir tasarim degeri degil emniyet freni: azami
-   yakinlik (k=4) bu olmadan noktayi 3500 piksele cikariyor. */
-export const EKRAN_R_TAM_YUK = 8000, EKRAN_R_US = 0.7, EKRAN_R_EN_AZ_PAY = 0.5;
-export const EKRAN_R_YAKIN_US = 0.85, EKRAN_R_TAVAN_PAY = 16;
+   yakinlikta (k=4) bu olmadan taban binlerce piksele cikiyor. */
+export const EKRAN_R_UZAK_YUK = 600, EKRAN_R_UZAK_PAY = 0.58;
+export const EKRAN_R_US = 0.5, EKRAN_R_TAVAN_PAY = 16;
 export const rEkranOfKur = (rOf) => (id, k) => {
-  const oran = (k * H) / EKRAN_R_TAM_YUK;
-  const pay = oran <= 1
-    ? EKRAN_R_EN_AZ_PAY + (1 - EKRAN_R_EN_AZ_PAY) * Math.pow(oran, EKRAN_R_US)
-    : Math.min(EKRAN_R_TAVAN_PAY, Math.pow(oran, EKRAN_R_YAKIN_US));
+  const pay = Math.min(EKRAN_R_TAVAN_PAY,
+    EKRAN_R_UZAK_PAY * Math.pow((k * H) / EKRAN_R_UZAK_YUK, EKRAN_R_US));
   return Math.max(rOf(id) * k, EN_AZ_EKRAN_R + (rOf(id) / R_TAVAN) * EKRAN_R_ARTIS * pay);
 };
 export const rEkranOf = rEkranOfKur(rOf);

@@ -61,11 +61,14 @@ export default function RaviIliskiAglari() {
             className="absolute -top-1.5 -end-1.5 h-2.5 w-2.5 rounded-full bg-secim"
           />
           {t.agHaritayaGit}
-          {/* Ileri oku. `rtl:-scale-x-100` ile Arapca'da ok da ters
-              cevriliyor, yoksa metnin akisina karsi bakiyor. */}
+          {/* /selam'daki "daha fazla bilgi" dugmesiyle AYNI ok (Mustafa,
+              2026-09-16). Once duz saga bakan bir ok vardi; site
+              genelinde tek bir "git" isareti olsun diye o sayfadaki
+              kosegen okla birlestirildi -- yol, olcu ve `rtl` davranisi
+              birebir ayni. Birini degistirirsen otekini de degistir. */}
           <svg
             viewBox="0 0 24 24"
-            className="h-4 w-4 shrink-0 rtl:-scale-x-100"
+            className="h-3.5 w-3.5 shrink-0 rtl:-scale-x-100"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
@@ -73,8 +76,8 @@ export default function RaviIliskiAglari() {
             strokeLinejoin="round"
             aria-hidden="true"
           >
-            <path d="M5 12h14" />
-            <path d="m12 5 7 7-7 7" />
+            <path d="M7 17 17 7" />
+            <path d="M8 7h9v9" />
           </svg>
         </Link>
 

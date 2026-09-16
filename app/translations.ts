@@ -248,7 +248,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     agMedar2: "II. tabaka — musannifler",
     agMedar3: "III. tabaka — münekkit ve fakîh muhaddisler",
     agGiris:
-      "Tercemeler ve bağlar Mizzî'nin Tehzîbü'l-Kemâl'i ile İbn Hacer'in Takrîb ve Tehzîbü't-Tehzîb'inden alındı. On üç beldede 821 râvi, aralarında 8.220 bağ var; 685 râvinin bilgi kartı, 657'sinin de Tehzîb'deki tercemesine giden bağlantısı bulunuyor. Ağ Kütüb-i Sitte râvileriyle bitiyor, bir kısım râvinin yalnızca hocaları ya da yalnızca talebeleri işlenmiş durumda.",
+      "Tercemeler ve bağlar Mizzî'nin Tehzîbü'l-Kemâl'i ile İbn Hacer'in Takrîb ve Tehzîbü't-Tehzîb'inden alındı. Ağda 7.039 râvi var, aralarında 22.865 bağ. Bunların 5.595'i on üç beldeye yerleşmiş durumda, kalan 1.444'ünün beldesi kaynaklardan çıkarılamadığı için haritada çizilmiyor ama «Râvi Ara» ile bulunabiliyor. 1.346 râvinin bilgi kartı, 4.673'ünün de Tehzîb'deki tercemesine giden bağlantısı bulunuyor. Ağ Kütüb-i Sitte râvileriyle bitiyor, bir kısım râvinin yalnızca hocaları ya da yalnızca talebeleri işlenmiş durumda.",
     agHaritayaGit: "Haritaya erişmek için tıklayınız",
   },
   ar: {
@@ -366,7 +366,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     agMedar2: "الطبقة الثانية — المصنِّفون",
     agMedar3: "الطبقة الثالثة — النقاد والفقهاء من المحدِّثين",
     agGiris:
-      "التراجم والصلات مأخوذة من تهذيب الكمال للمزّيّ ومن تقريب التهذيب وتهذيب التهذيب لابن حجر. في الشبكة 821 راويًا في ثلاث عشرة بلدة وبينهم 8220 صلة؛ ولـ685 راويًا منهم بطاقة تعريف، ولـ657 رابط إلى ترجمته في التهذيب. وتنتهي الشبكة عند رواة الكتب الستّة، وبعض الرواة لم يُعالَج منهم إلّا الشيوخ أو إلّا التلاميذ.",
+      "التراجم والصلات مأخوذة من تهذيب الكمال للمزّيّ ومن تقريب التهذيب وتهذيب التهذيب لابن حجر. في الشبكة 7039 راويًا وبينهم 22865 صلة، منهم 5595 استقرّوا في ثلاث عشرة بلدة، وأمّا الباقون وعددهم 1444 فلم تُستخرَج بلدانهم من المصادر فلا يُرسَمون على الخريطة غير أنّ «البحث عن راوٍ» يجدهم. ولـ1346 راويًا بطاقة تعريف، ولـ4673 رابط إلى ترجمته في التهذيب. وتنتهي الشبكة عند رواة الكتب الستّة، وبعض الرواة لم يُعالَج منهم إلّا الشيوخ أو إلّا التلاميذ.",
     agHaritayaGit: "اضغط للوصول إلى الخريطة",
   },
   en: {
@@ -486,7 +486,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     agMedar2: "Tier II — arrangers (taṣnīf)",
     agMedar3: "Tier III — critic and jurist traditionists",
     agGiris:
-      "The entries and links come from al-Mizzī's Tahdhīb al-Kamāl and Ibn Ḥajar's Taqrīb and Tahdhīb al-Tahdhīb. The network holds 821 narrators across thirteen towns with 8,220 links between them; 685 have an information card and 657 a link to their entry in the Tahdhīb. It stops at the transmitters of the Six Books, and for some narrators only the teachers or only the students have been worked through.",
+      "The entries and links come from al-Mizzī's Tahdhīb al-Kamāl and Ibn Ḥajar's Taqrīb and Tahdhīb al-Tahdhīb. The network holds 7,039 narrators with 22,865 links between them. Of these, 5,595 are placed across thirteen towns; the remaining 1,444 have no town recoverable from the sources, so they are not drawn on the map but can still be found through «Find a narrator». 1,346 have an information card and 4,673 a link to their entry in the Tahdhīb. It stops at the transmitters of the Six Books, and for some narrators only the teachers or only the students have been worked through.",
     agHaritayaGit: "Click to open the map",
   },
 };
