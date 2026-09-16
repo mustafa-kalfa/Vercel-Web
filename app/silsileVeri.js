@@ -43466,10 +43466,18 @@ export const EN_AZ_EKRAN_R = 2.6, EKRAN_R_ARTIS = 10;
      66 kat          %5,6        %6,6
     130 kat          %4,9        %4,7
 
-   US 0,5. Oranin sabit kalmasi us 1 demek olurdu, o zaman da
+   US 0,55. Oranin sabit kalmasi us 1 demek olurdu, o zaman da
    yakinlastirmak hicbir seyi ayirmaz -- resim ayni kalir sadece buyur.
-   0,5 yakinligin karekoku kadar buyutuyor: iki kat yakinlasinca nokta
-   1,41 kat buyuyor, yani oran yavasca dusuyor ama cokmuyor.
+   0,55 iki kat yakinlasmaya 1,46 kat buyume veriyor, yani oran yavasca
+   dusuyor ama cokmuyor.
+
+   Once 0,5 kondu, Mustafa "birazcik daha buyuyebilir" dedi. Us'u
+   buyutmek `EKRAN_R_UZAK_PAY`i buyutmekten farkli: pay butun egriyi
+   birden kaldiriyor ve TAM UZAKTAKI boyutu da bozuyor (0,58 -> 0,70
+   denendi, en buyuk nokta tam uzakta Basra sutununun %73'unden
+   %87'sine cikiyordu), oysa us tam uzagi sabit birakip yalnizca
+   yaklasmayi hizlandiriyor. Sonuc 66 katta %6,6 yerine %8,1 -- yani
+   Mustafa'nin en basta soyledigi %7-8 bandi.
 
    TAM UZAKTAKI BOYUT DEGISMEDI. `EKRAN_R_UZAK_PAY` tam da bunun icin
    var -- tuval ekranda 600 piksel yuksekliginde gorunurken (yani
@@ -43480,7 +43488,7 @@ export const EN_AZ_EKRAN_R = 2.6, EKRAN_R_ARTIS = 10;
    `EKRAN_R_TAVAN_PAY` bir tasarim degeri degil emniyet freni: azami
    yakinlikta (k=4) bu olmadan taban binlerce piksele cikiyor. */
 export const EKRAN_R_UZAK_YUK = 600, EKRAN_R_UZAK_PAY = 0.58;
-export const EKRAN_R_US = 0.5, EKRAN_R_TAVAN_PAY = 16;
+export const EKRAN_R_US = 0.55, EKRAN_R_TAVAN_PAY = 16;
 export const rEkranOfKur = (rOf) => (id, k) => {
   const pay = Math.min(EKRAN_R_TAVAN_PAY,
     EKRAN_R_UZAK_PAY * Math.pow((k * H) / EKRAN_R_UZAK_YUK, EKRAN_R_US));
